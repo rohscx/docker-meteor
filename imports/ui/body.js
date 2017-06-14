@@ -7,7 +7,7 @@ Template.body.helpers({
 });
 
 Template.body.events({
-  'click .test': function(event) {
+  'click .test'(event) {
     console.log('helo');
   }
 });
