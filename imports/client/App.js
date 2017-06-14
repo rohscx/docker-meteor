@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 let hello = 'Rick Hunter';
 
 let headingClick = function () {
-  console.log('helo');
+  console.log('hello');
 }
 
 
