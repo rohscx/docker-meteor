@@ -3,7 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {render} from 'react-dom';
 
 Meteor.startup(() => {
-  render(<App />, document.getElementByID('render-target'));
+  render(<App />, document.getElementById('render-target'));
 });
 
 class App extends Component {
