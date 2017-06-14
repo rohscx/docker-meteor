@@ -6,14 +6,13 @@ import Item from './Item'
  class App extends Component {
    addItems(event) {
      event.preventDefault();
-     console.log(this.refs.itemOne.Value.trim())
      Items.insert({
          itemOne: {
-           text: this.refs.itemOne.Value.trim(),
+           text: this.refs.itemOne.value.trim(),
            value: 0,
          },
          itemTwo: {
-           text: this.refs.itemTwo.Value.trim(),
+           text: this.refs.itemTwo.value.trim(),
            value: 0,
          }
        });
