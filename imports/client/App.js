@@ -14,7 +14,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <h1 onClick={this.headingClick.bind(this)}>{this.state.count}</h1>
+      <header onClick={this.headingClick.bind(this)}>
+        <Heading count={this.state.count}/>
+      </header>
     );
+  }
+}
+
+class Heading extends Component {
+  render () {
+    return (
+      <h1>this.props.count</h1>
+    )
   }
 }
