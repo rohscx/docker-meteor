@@ -40,7 +40,7 @@ RUN curl https://install.meteor.com/ | sh
 # Install Meteor Prerequisites
 RUN useradd -ms /bin/bash meteor
 USER meteor
-RUN git clone
+
 ##RUN mkdir -p /home/meteor-web
 WORKDIR /home/meteor-web
  
