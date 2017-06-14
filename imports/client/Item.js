@@ -9,12 +9,11 @@ import React, {Component} from 'react';
          <h3>{this.props.item.itemOne.text}</h3>
        </div>
        <span>VS</span>
-         <div className='vote-two'>
+       <div className='vote-two'>
          <span>{this.props.item.itemTwo.value}</span>
          <h3>{this.props.item.itemTwo.text}</h3>
        </div>
        </div>
-
      )
    }
  }
