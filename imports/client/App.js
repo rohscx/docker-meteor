@@ -7,6 +7,16 @@ import Item from './Item'
    addItems(event) {
      event.preventDefault();
      console.log(this.refs.itemOne.Value.trim())
+     Items.insert({
+         itemOne: {
+           text: this.refs.itemOne.Value.trim(),
+           value: 0,
+         },
+         itemTwo: {
+           text: this.refs.itemTwo.Value.trim(),
+           value: 0,
+         }
+       });
    }
   render() {
     return (
