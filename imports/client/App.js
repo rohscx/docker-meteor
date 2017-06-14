@@ -12,6 +12,11 @@ import Item from './Item'
           <h1>Level Up Voting</h1>
         </header>
         <main>
+          <form>
+            <input type ='text' />
+            <input type ='text' />
+            <button type='submit'>Add Items</button>
+          </form>
           {this.props.items.map((item) => {
             return <Item item={item} key={item._id}/>
           })}
