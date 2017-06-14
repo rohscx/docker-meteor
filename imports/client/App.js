@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import Items from '../api/Items'
+import {createContainer} from 'meteor/react-meteor-data'
 
-export default class App extends Component {
+ class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,6 +22,12 @@ export default class App extends Component {
     );
   }
 }
+
+export default createContainer(() => {
+  return {
+    items: Items.find({}).fetch()
+  }
+}, App);
 
 class Heading extends Component {
   render () {
