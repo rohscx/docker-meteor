@@ -6,7 +6,7 @@ import Item from './Item'
  class App extends Component {
    addItems(event) {
      event.preventDefault();
-     console.log('hit')
+     console.log(this)
    }
   render() {
     return (
@@ -17,8 +17,8 @@ import Item from './Item'
         </header>
         <main>
           <form onSubmit={this.AddItems}>
-            <input type ='text' />
-            <input type ='text' />
+            <input type ='text' ref='itemOne' />
+            <input type ='text' ref='itemOne'/>
             <button type='submit'>Add Items</button>
           </form>
           {this.props.items.map((item) => {
