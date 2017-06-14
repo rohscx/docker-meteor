@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-let hello = 'Rick';
+let hello = 'Rick Hunter';
 
 export default class App extends Component {
   render() {
