@@ -1,11 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 
-const Tests = new Mongo.Collection('tests');
+import Items from '../import/api/Items';
 
 Meteor.startup(() => {
-  Tests.insert({
-    name: 'hi',
-    value: 1
+  Items.insert({
+    itemOne: {
+      text: 'Hi',
+      value: 0
+    },
+    itemTwo: {
+      text: 'Hello',
+      value: 0,
+    }
   });
 
   // code to run on server at startup
