@@ -6,7 +6,7 @@ import Item from './Item'
  class App extends Component {
    addItems(event) {
      event.preventDefault();
-     console.log(this)
+     console.log(this.refs.itemOne.Value.trim())
    }
   render() {
     return (
