@@ -13,7 +13,7 @@ import Item from './Item'
         </header>
         <main>
           {this.props.items.map((item) => {
-            return <Item item={item} key={item.id}/>
+            return <Item item={item} key={item._id}/>
           })}
         </main>
       </div>
