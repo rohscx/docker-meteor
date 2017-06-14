@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 
-let hello = 'Rick Hunter';
-/*
-let headingClick = function () {
-  console.log('hello');
-}
-*/
-
 export default class App extends Component {
+  contructor() {
+    super();
+    this.state = {
+      count: 0
+    }
+  }
   headingClick() {
     console.log('hello');
   }
+
   render() {
     return (
-      <h1 onClick={this.headingClick}>Hello {hello}!</h1>
+      <h1 onClick={this.headingClick}>Hello {this.state.count}!</h1>
     );
   }
 }
