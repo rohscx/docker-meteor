@@ -28,7 +28,7 @@ import Item from './Item'
         <main>
           <form onSubmit={this.addItems.bind(this)}>
             <input type ='text' ref='itemOne' />
-            <input type ='text' ref='itemOne'/>
+            <input type ='text' ref='itemTwo'/>
             <button type='submit'>Add Items</button>
           </form>
           {this.props.items.map((item) => {
