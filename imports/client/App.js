@@ -9,12 +9,12 @@ export default class App extends Component {
   }
 
   headingClick() {
-    console.log('hello');
+    this.setState({count: this.state.count +1});
   }
 
   render() {
     return (
-      <h1 onClick={this.headingClick}>{this.state.count}</h1>
+      <h1 onClick={this.headingClick.bind(this)}>{this.state.count}</h1>
     );
   }
 }
