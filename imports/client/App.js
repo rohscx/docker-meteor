@@ -25,7 +25,6 @@ class Heading extends Component {
   render () {
     return (
       <h1>{this.props.count}</h1>
-      <h2>Cats</h2>
     )
   }
 }
