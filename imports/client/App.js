@@ -11,15 +11,15 @@ import Item from './Item'
      if (itemOne != '' && itemTwo != '') {
        Items.insert({
            itemOne: {
-             text: this.refs.itemOne.value.trim(),
+             text: itemOne,
              value: 0,
            },
            itemTwo: {
-             text: this.refs.itemTwo.value.trim(),
+             text: itemTwo,
              value: 0,
            }
          });
-     } 
+     }
      }
 
   render() {
