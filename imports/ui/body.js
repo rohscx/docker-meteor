@@ -5,7 +5,9 @@ import Items from '../api/items.js';
 import './body.html';
 
 Template.body.helpers({
-  hello: 'Hi World'
+  items () {
+    return Items.find()
+  }
 });
 
 Template.body.events({
