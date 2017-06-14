@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Items from '../api/Items'
 import {createContainer} from 'meteor/react-meteor-data'
+import Item from './Item'
 
  class App extends Component {
   render() {
@@ -12,11 +13,7 @@ import {createContainer} from 'meteor/react-meteor-data'
         </header>
         <main>
           {this.props.items.map((item) => {
-            return (
-              <div>
-                {item.itemOne.text}
-              </div>
-            )
+            return <Item item={item} />
           })}
         </main>
       </div>
