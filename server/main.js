@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import Items from '../import/api/Items';
+import Items from '../imports/api/Items';
 
 Meteor.startup(() => {
   Items.insert({
