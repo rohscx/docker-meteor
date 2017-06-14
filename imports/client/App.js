@@ -6,17 +6,22 @@ import Item from './Item'
  class App extends Component {
    addItems(event) {
      event.preventDefault();
-     Items.insert({
-         itemOne: {
-           text: this.refs.itemOne.value.trim(),
-           value: 0,
-         },
-         itemTwo: {
-           text: this.refs.itemTwo.value.trim(),
-           value: 0,
-         }
-       });
-   }
+     const itemOne = this.refs.itemOne.value.trim();
+     const itemTwo = this.refs.itemTwo.value.trim()
+     if (itemOne != '' && itemTwo != '') {
+       Items.insert({
+           itemOne: {
+             text: this.refs.itemOne.value.trim(),
+             value: 0,
+           },
+           itemTwo: {
+             text: this.refs.itemTwo.value.trim(),
+             value: 0,
+           }
+         });
+     } 
+     }
+
   render() {
     return (
 
