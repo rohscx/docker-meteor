@@ -6,7 +6,7 @@ import './body.html';
 
 Template.body.helpers({
   items () {
-    return Items.find()
+    return Items.find({})
   }
 });
 
