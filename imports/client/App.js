@@ -7,13 +7,14 @@ export default class App extends Component {
       count: 0
     }
   }
+
   headingClick() {
     console.log('hello');
   }
 
   render() {
     return (
-      <h1 onClick={this.headingClick}>Hello {this.state.count}!</h1>
+      <h1 onClick={this.headingClick}>{this.state.count}</h1>
     );
   }
 }
