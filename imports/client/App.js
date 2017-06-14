@@ -24,7 +24,7 @@ export default class App extends Component {
 class Heading extends Component {
   render () {
     return (
-      <h1>this.props.count</h1>
+      <h1>{this.props.count}</h1>
     )
   }
 }
