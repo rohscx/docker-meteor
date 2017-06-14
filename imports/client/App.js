@@ -4,6 +4,10 @@ import {createContainer} from 'meteor/react-meteor-data'
 import Item from './Item'
 
  class App extends Component {
+   addItems(event) {
+     event.preventDefault();
+     console.log('hit')
+   }
   render() {
     return (
 
@@ -12,7 +16,7 @@ import Item from './Item'
           <h1>Level Up Voting</h1>
         </header>
         <main>
-          <form>
+          <form onSubmit={this.AddItems}>
             <input type ='text' />
             <input type ='text' />
             <button type='submit'>Add Items</button>
