@@ -1,1 +1,15 @@
-import '../imports/ui/body.js';
+import React, {Component} from 'react';
+import {Meteor} from 'meteor/meteor';
+import {render} from 'react-dom';
+
+Meteor.startup(() => {
+  render(<App />, document.getElementByID('render-target'));
+});
+
+class App extends Component {
+  render() {
+    return (
+      <h1>Hello!</h1>
+    );
+  }
+}
