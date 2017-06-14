@@ -29,5 +29,3 @@ export default createContainer(() => {
     items: Items.find({}).fetch()
   }
 }, App);
-
-}
