@@ -19,6 +19,8 @@ import Item from './Item'
              value: 0,
            }
          });
+         this.refs.itemOne.value = '';
+         this.refs.itemTwo.value = '';
      }
      }
 
