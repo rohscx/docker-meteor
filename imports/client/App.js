@@ -16,7 +16,7 @@ import Item from './Item'
           <h1>Level Up Voting</h1>
         </header>
         <main>
-          <form onSubmit={this.AddItems.bind(this)}>
+          <form onSubmit={this.addItems.bind(this)}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemOne'/>
             <button type='submit'>Add Items</button>
