@@ -10,7 +10,7 @@ Meteor.startup(() => {
     },
     itemTwo: {
       text: 'Hello',
-      value: 0
+      value: 0,
     }
   });
 
