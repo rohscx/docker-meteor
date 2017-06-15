@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Items from '../api/Items'
  export default class Item extends Component {
    voteOne() {
-     Items.update(his.props.item._id, {
+     Items.update(this.props.item._id, {
        $inc: {
          'itemOne.value': 1
        }
