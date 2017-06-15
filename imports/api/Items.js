@@ -5,7 +5,12 @@ const Items = new Mongo.Collection('items');
 if (Meteor.isServer) {
 
   Meteor.publish('allItems', function() {
-    return Items.find();
+    return Items.find({}, {
+      // limits the number of return json items from DB
+      limit: 1,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      sort: {lastUpdated: 1}
+    });
   });
 
 
