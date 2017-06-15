@@ -53,7 +53,9 @@ export default createContainer(() => {
   return {
     ready: itemsSub.ready(),
     items: Items.find({}, {
-      limit: 1
+      limit: 1,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      sort: {lastUpdated: 1}
     }).fetch()
   }
 }, App);
