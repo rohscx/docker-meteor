@@ -24,7 +24,7 @@ import Items from '../api/Items'
          <h3>{this.props.item.itemOne.text}</h3>
        </div>
        <span>VS</span>
-       <div className='vote-two' onClick={this.voteTwo.bind(this)>
+       <div className='vote-two' onClick={this.voteTwo.bind(this)}>
          <span>{this.props.item.itemTwo.value}</span>
          <h3>{this.props.item.itemTwo.text}</h3>
        </div>
