@@ -21,6 +21,11 @@ import Items from '../api/Items'
    }
 
   render() {
+
+    if (!this.props.ready) {
+      return <div>Loading...</div>
+    }
+
     return (
 
       <div>
@@ -46,6 +51,7 @@ import Items from '../api/Items'
 export default createContainer(() => {
   let itemsSub = Meteor.subscribe('allItems');
   return {
+    ready: itemsSub.ready(),
     items: Items.find({}).fetch()
   }
 }, App);
