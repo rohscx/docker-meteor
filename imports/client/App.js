@@ -44,6 +44,7 @@ import Items from '../api/Items'
 }
 
 export default createContainer(() => {
+  let itemsSub = Meteor.subscribe('allItems');
   return {
     items: Items.find({}).fetch()
   }
