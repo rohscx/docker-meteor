@@ -4,6 +4,8 @@ const Items = new Mongo.Collection('items');
 
 Meteor.methods({
   insertNewItem(itemOne,itemTwo) {
+    check(itemOne, String);
+    check(itemTwo, String);
     Items.insert({
         itemOne: {
           text: itemOne,
