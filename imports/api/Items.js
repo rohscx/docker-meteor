@@ -16,6 +16,24 @@ Meteor.methods({
           value: 0,
         }
       });
+  },
+  voteOnItem(item, position) {
+    if(Meteor.userId()) {
+      if(position == 'itemOne') {
+        Items.update(item._id, {
+          $inc: {
+            'itemOne.value': 1
+          }
+        })
+      } else {
+        Items.update(item._id, {
+          $inc: {
+            'itemTwo.value': 1
+          }
+        })
+      }
+    }
+  }
   }
 });
 
