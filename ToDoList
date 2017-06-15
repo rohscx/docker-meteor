@@ -5,4 +5,5 @@ meteor npm install --save react react-dom react-addons-pure-render-mixin babel-r
 meteor add react-meteor-data
 meteor add okgrow:accounts-ui-react
 meteor add accounts-password
+meteor add check
 meteor npm install --save react-komposer classnames
