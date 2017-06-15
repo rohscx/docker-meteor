@@ -9,7 +9,7 @@ import Items from '../api/Items'
         }
       })
     }
-    }
+  }
 
 
    voteTwo() {
@@ -20,7 +20,7 @@ import Items from '../api/Items'
          }
        })
      }
-     }
+   }
 
 
    render() {
