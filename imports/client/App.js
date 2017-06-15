@@ -11,16 +11,7 @@ import Items from '../api/Items'
      const itemOne = this.refs.itemOne.value.trim();
      const itemTwo = this.refs.itemTwo.value.trim()
      if (itemOne != '' && itemTwo != '') {
-       Items.insert({
-           itemOne: {
-             text: itemOne,
-             value: 0,
-           },
-           itemTwo: {
-             text: itemTwo,
-             value: 0,
-           }
-         });
+         Meteor.call('insertNewItem', itemOne, itemTwo);
          this.refs.itemOne.value = '';
          this.refs.itemTwo.value = '';
      }
