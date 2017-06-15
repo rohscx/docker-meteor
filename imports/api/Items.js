@@ -34,7 +34,6 @@ Meteor.methods({
       }
     }
   }
-  }
 });
 
 export default Items;
