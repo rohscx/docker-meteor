@@ -38,11 +38,15 @@ import Items from '../api/Items'
       return <div>Loading...</div>
     }
 
+    const showAll = Roles.userIsinRole(Meteor.userID(), 'admin') ? (
+      <button onClick={this.showAll}>
+        Show {this.props.showAll ? 'One': 'All'}
+      </button>
+    ) : null :
+
     return (
         <main>
-          <button onClick={this.showAll}>
-            Show {this.props.showAll ? 'One': 'All'}
-          </button>
+          {showAll}
           <form className='new-items' onSubmit={this.addItems}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemTwo'/>
