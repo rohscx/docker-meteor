@@ -36,7 +36,7 @@ import Items from '../api/Items'
           <h1>Level Up Voting</h1>
           <LoginButtons />
           <button onClick={this.showAll}>
-            Show {this.props.showAll ? 'One'; 'All'}
+            Show {this.props.showAll ? 'One': 'All'}
           </button>
         </header>
         <main>
