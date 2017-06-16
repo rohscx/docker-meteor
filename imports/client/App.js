@@ -50,9 +50,10 @@ import Items from '../api/Items'
           </IsRole>
 
           {test &&
-            <div>Inline conditional Test</div>
+            <div>Inline conditional Test is True</div>
           }
-          
+          {test ? <div>Ternary Operator /w Inline Conditional is True</div> : <div>Ternary Operator /w Inline Conditional is False</div></div>}
+
           <form className='new-items' onSubmit={this.addItems}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemTwo'/>
