@@ -1,14 +1,15 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
+import { Link } from 'react-router';
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <h1><a href='/'>Level Up Voting</a></h1>
+      <h1><Link to='/'>Level Up Voting</Link></h1>
       <LoginButtons />
       <nav>
-        <a href='/about'>About</a>
+        <Link to='/about'>About</Link>
       </nav>
     </header>
     {children}
