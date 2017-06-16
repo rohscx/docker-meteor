@@ -11,7 +11,7 @@ import App from './App';
 Meteor.startup(() => {
   render(
     <Router history={browserHistory}>
-      <Route path='/' component={App} />
+      <Route path="/" component={App} />
     </Router>,
     document.getElementById('render-target')
   );
