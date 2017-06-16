@@ -13,7 +13,6 @@ Meteor.startup(() => {
     <Router history={browserHistory}>
       <Route path='/' component={App} />
     </Router>,
-    document.getElementById('render-target'
+    document.getElementById('render-target')
   );
-  ));
 });
