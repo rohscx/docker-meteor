@@ -43,8 +43,6 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     insertNewItem(itemOne,itemTwo) {
-      check(itemOne, String);
-      check(itemTwo, String);
       Items.insert({
           itemOne: {
             text: itemOne,
