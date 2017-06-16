@@ -9,6 +9,25 @@ import Item from './Item'
 import Items from '../api/Items'
 
  class App extends Component {
+  
+  Accounts.config({
+   sendVerificationEmail: false,
+   forbidClientAccountCreation: false
+  });
+
+  Accounts.ui.config({
+   passwordSignupFields: 'EMAIL_ONLY',
+   loginPath: '/login',
+   signUpPath: '/signup',
+   resetPasswordPath: '/reset-password',
+   profilePath: '/profile',
+   onSignedInHook: () => FlowRouter.go('/general'),
+   onSignedOutHook: () => FlowRouter.go('/login'),
+   minimumPasswordLength: 6
+  });
+  
+  
+  
    addItems(event) {
      event.preventDefault();
      const itemOne = this.refs.itemOne.value.trim();
