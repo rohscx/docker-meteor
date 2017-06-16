@@ -60,9 +60,14 @@ import Items from '../api/Items'
             <input type ='text' ref='itemTwo'/>
             <button type='submit'>Add Items</button>
           </form>
+          <ReactCSSTransitionGroup>
+            transitionName='item'
+            transitionEnterTimeout={20000}
+            transitionLeaveTimeout={600}
           {this.props.items.map((item) => {
             return <Item item={item} key={item._id}/>
           })}
+        </ReactCSSTransitionGroup>
         </main>
     );
   }
