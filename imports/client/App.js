@@ -78,6 +78,5 @@ export default createContainer(({params}) => {
     showAll,
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
-    }).fetch()
   }
 }, App);
