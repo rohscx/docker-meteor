@@ -8,7 +8,7 @@ import Item from './Item'
 import Items from '../api/Items'
 
  class App extends Component {
-  
+
    addItems(event) {
      event.preventDefault();
      const itemOne = this.refs.itemOne.value.trim();
@@ -41,13 +41,9 @@ import Items from '../api/Items'
     return (
 
       <div>
-        <header>
-          <h1>Level Up Voting</h1>
-          <LoginButtons />
-          <button onClick={this.showAll.bind(this)}>
-            Show {this.props.showAll ? 'One': 'All'}
-          </button>
-        </header>
+        <button onClick={this.showAll.bind(this)}>
+          Show {this.props.showAll ? 'One': 'All'}
+        </button>
         <main>
           <form className='new-items' onSubmit={this.addItems.bind(this)}>
             <input type ='text' ref='itemOne' />
