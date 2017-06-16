@@ -19,6 +19,9 @@ import Items from '../api/Items'
          });
      }
    }
+   showAll() {
+     Session.set('showAll', true);
+   }
 
   render() {
 
@@ -32,6 +35,7 @@ import Items from '../api/Items'
         <header>
           <h1>Level Up Voting</h1>
           <LoginButtons />
+          <button onClick={this.showAll}>Show All</button>
         </header>
         <main>
           <form className='new-items' onSubmit={this.addItems.bind(this)}>
@@ -50,10 +54,12 @@ import Items from '../api/Items'
 
 export default createContainer(() => {
   let itemsSub = Meteor.subscribe('allItems');
+  let showAll = Session.get('showAll');
   return {
     ready: itemsSub.ready(),
     items: Items.find({}, {
-      limit: 1,
+      // ternary operator. a form of IF THEN statement
+      limit: showAll ? 50 : 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
       sort: {lastUpdated: 1}
     }).fetch()
