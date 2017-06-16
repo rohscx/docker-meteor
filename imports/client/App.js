@@ -62,7 +62,7 @@ export default createContainer(() => {
   let showAll = Session.get('showAll');
   return {
     showAll,
-    ready: itemsSub.ready(),
+    ready: itemsSub.ready() && userSub.ready(),
     items: Items.find({}, {
       // ternary operator. a form of IF THEN statement
       limit: showAll ? 50 : 1,

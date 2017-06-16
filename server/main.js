@@ -8,7 +8,7 @@ import '../imports/server/accounts';
 Meteor.publish('currentUser', function() {
   return Meteor.users.find({_id: this.userID}, {
     fields: {
-      hair: 1
+      roles: 1
     }
   });
 });
