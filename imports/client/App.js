@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data'
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 
+import { Accounts } from 'meteor/std:accounts-ui'
+
 import Item from './Item'
 
 import Items from '../api/Items'
@@ -43,6 +45,7 @@ import Items from '../api/Items'
         <header>
           <h1>Level Up Voting</h1>
           <LoginButtons />
+          <Accounts.ui.LoginForm />
           <button onClick={this.showAll.bind(this)}>
             Show {this.props.showAll ? 'One': 'All'}
           </button>
