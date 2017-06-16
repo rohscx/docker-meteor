@@ -59,18 +59,25 @@ import Items from '../api/Items'
   }
 }
 
-export default createContainer(() => {
+export default createContainer(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  return {
-    showAll,
-    ready: itemsSub.ready() && userSub.ready(),
-    items: Items.find({}, {
+  let itemsArray;
+  if(params.id) {
+    itemsArray = Items.find({_id: params.id}).fetch()
+  } else {
+    itemsArray = Items.find({}, {
       // ternary operator. a form of IF THEN statement
       limit: showAll ? 50 : 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
       sort: {lastUpdated: 1}
+    }).fetch()
+  }
+  return {
+    showAll,
+    ready: itemsSub.ready() && userSub.ready(),
+    items: itemsArray
     }).fetch()
   }
 }, App);
