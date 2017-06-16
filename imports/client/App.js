@@ -20,7 +20,12 @@ import Items from '../api/Items'
      }
    }
    showAll() {
-     Session.set('showAll', true);
+     if(this.props.showAll) {
+       Session.set('showAll', false);
+     } else {
+       Session.set('showAll', true);
+     }
+
    }
 
   render() {
@@ -35,7 +40,7 @@ import Items from '../api/Items'
         <header>
           <h1>Level Up Voting</h1>
           <LoginButtons />
-          <button onClick={this.showAll}>
+          <button onClick={this.showAll.bind(this)}>
             Show {this.props.showAll ? 'One': 'All'}
           </button>
         </header>
