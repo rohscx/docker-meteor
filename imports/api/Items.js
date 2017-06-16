@@ -7,11 +7,23 @@ const ItemsSchema = new SimpleSchema ({
   itemOne: {
     type: Object
   },
+  'itemOne.text': {
+    type: String
+  },
+  'itemOne.value' : {
+    type: SimpleSchema.Integer,
+  },
   itemTwo: {
     type: Object
   },
-  typeOfObject : {
-    type: Date
+  'itemTwo.text': {
+    type: String
+  },
+  'itemTwo.value' : {
+    type: SimpleSchema.Integer,
+  lastUpdated : {
+    type: Date,
+    optional: true
   }
 });
 
