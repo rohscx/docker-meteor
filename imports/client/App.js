@@ -41,7 +41,6 @@ import Items from '../api/Items'
 
     return (
         <main>
-          {showAll}
           <IsRole role='admin'>
             <button onClick={this.showAll}>
               Show {this.props.showAll ? 'One': 'All'}
