@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 
 import Item from './Item'
-import IsRole from './utlitles/IsRole';
+import IsRole from './utilities/IsRole';
 
 import Items from '../api/Items'
 
