@@ -65,7 +65,7 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let itemsArray;
   if(params.id) {
-    itemsArray = Items.find({_id: params.id}).fetch()
+    itemsArray = Items.find({_id: params.id}).fetch();
   } else {
     itemsArray = Items.find({}, {
       // ternary operator. a form of IF THEN statement
