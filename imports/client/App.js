@@ -39,6 +39,8 @@ import Items from '../api/Items'
       return <div>Loading...</div>
     }
 
+    // inline conditional test. If true the conditional will be displayed
+    const test = false;
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -46,6 +48,11 @@ import Items from '../api/Items'
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
+
+          {test &&
+            <div>Inline conditional Test</div>
+          }
+          
           <form className='new-items' onSubmit={this.addItems}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemTwo'/>
