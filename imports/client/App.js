@@ -3,6 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 
 import Item from './Item'
+import IsRole from './utlitles/IsRole';
 
 import Items from '../api/Items'
 
@@ -38,15 +39,14 @@ import Items from '../api/Items'
       return <div>Loading...</div>
     }
 
-    const showAll = Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-      <button onClick={this.showAll}>
-        Show {this.props.showAll ? 'One': 'All'}
-      </button>
-    ) : null;
-
     return (
         <main>
           {showAll}
+          <IsRole role='admin'>
+            <button onClick={this.showAll}>
+              Show {this.props.showAll ? 'One': 'All'}
+            </button>
+          </IsRole>
           <form className='new-items' onSubmit={this.addItems}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemTwo'/>
