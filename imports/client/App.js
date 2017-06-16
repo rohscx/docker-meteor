@@ -2,31 +2,11 @@ import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data'
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 
-import { Accounts } from 'meteor/std:accounts-ui'
-
 import Item from './Item'
 
 import Items from '../api/Items'
 
  class App extends Component {
-  
-  Accounts.config({
-   sendVerificationEmail: false,
-   forbidClientAccountCreation: false
-  });
-
-  Accounts.ui.config({
-   passwordSignupFields: 'EMAIL_ONLY',
-   loginPath: '/login',
-   signUpPath: '/signup',
-   resetPasswordPath: '/reset-password',
-   profilePath: '/profile',
-   onSignedInHook: () => FlowRouter.go('/general'),
-   onSignedOutHook: () => FlowRouter.go('/login'),
-   minimumPasswordLength: 6
-  });
-  
-  
   
    addItems(event) {
      event.preventDefault();
