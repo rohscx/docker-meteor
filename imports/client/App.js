@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data'
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
+
+import (
+
 import Item from './Item'
 
 import Items from '../api/Items'
@@ -19,6 +22,7 @@ import Items from '../api/Items'
          });
      }
    }
+   // creates a global session
    showAll() {
      if(this.props.showAll) {
        Session.set('showAll', false);
