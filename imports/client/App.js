@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data'
-import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
+
 
 
 import Item from './Item'
@@ -39,12 +39,10 @@ import Items from '../api/Items'
     }
 
     return (
-
-      <div>
-        <button onClick={this.showAll.bind(this)}>
-          Show {this.props.showAll ? 'One': 'All'}
-        </button>
         <main>
+          <button onClick={this.showAll.bind(this)}>
+            Show {this.props.showAll ? 'One': 'All'}
+          </button>
           <form className='new-items' onSubmit={this.addItems.bind(this)}>
             <input type ='text' ref='itemOne' />
             <input type ='text' ref='itemTwo'/>
@@ -54,7 +52,6 @@ import Items from '../api/Items'
             return <Item item={item} key={item._id}/>
           })}
         </main>
-      </div>
     );
   }
 }
