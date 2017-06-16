@@ -3,17 +3,14 @@ import SimpleSchema from 'simpl-schema';
 
 const Items = new Mongo.Collection('items');
 
+const ItemSchema = new SimpleSchema ({
+  text: String,
+  value: SimpleSchema.Integer
+});
+
 const ItemsSchema = new SimpleSchema ({
-  itemOne: {
-    type: Object
-    'itemOne.text': String,
-    'itemOne.value': SimpleSchema.Integer,
-  },
-  itemTwo: {
-    type: Object
-    'itemTwo.text': String
-    'itemTwo.value': SimpleSchema.Integer,
-  },
+  itemOne: ItemSchema,
+  itemTwo: ItemSchema,
   lastUpdated : {
     type: Date,
     optional: true
