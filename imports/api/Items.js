@@ -21,6 +21,7 @@ const ItemsSchema = new SimpleSchema ({
   },
   'itemTwo.value' : {
     type: SimpleSchema.Integer,
+  },
   lastUpdated : {
     type: Date,
     optional: true
