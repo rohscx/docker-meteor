@@ -6,7 +6,7 @@ import {
   browserHistory
 } from 'react-router';
 import {render} from 'react-dom';
-import App from '/App';
+import App from 'App';
 
 Meteor.startup(() => {
   render(
