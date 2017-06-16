@@ -38,7 +38,7 @@ import Items from '../api/Items'
       return <div>Loading...</div>
     }
 
-    const showAll = Roles.userIsinRole(Meteor.userID(), 'admin') ? (
+    const showAll = Roles.userIsInRole(Meteor.userID(), 'admin') ? (
       <button onClick={this.showAll}>
         Show {this.props.showAll ? 'One': 'All'}
       </button>
