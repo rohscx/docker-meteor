@@ -8,3 +8,4 @@ meteor add accounts-password
 meteor add check
 meteor add session
 meteor npm install --save react-komposer classnames
+meteor npm install --save react-router@3.02
