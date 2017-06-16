@@ -14,5 +14,6 @@ Meteor.startup(() => {
       <Route path='/' component={App} />
     </Router>,
     document.getElementById('render-target'
+  );
   ));
 });
