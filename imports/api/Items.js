@@ -1,6 +1,21 @@
 import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
 
 const Items = new Mongo.Collection('items');
+
+const ItemsSchema = new SimpleSchema ({
+  itemOne: {
+    type: Object
+  },
+  itemTwo: {
+    type: Object
+  },
+  typeOfObject : {
+    type: Date
+  }
+});
+
+Items.attachSchema(ItemsSchema);
 
 if (Meteor.isServer) {
 
