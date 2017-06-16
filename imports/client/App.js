@@ -35,7 +35,9 @@ import Items from '../api/Items'
         <header>
           <h1>Level Up Voting</h1>
           <LoginButtons />
-          <button onClick={this.showAll}>Show All</button>
+          <button onClick={this.showAll}>
+            Show {this.props.showAll ? 'One'; 'All'}
+          </button>
         </header>
         <main>
           <form className='new-items' onSubmit={this.addItems.bind(this)}>
@@ -56,6 +58,7 @@ export default createContainer(() => {
   let itemsSub = Meteor.subscribe('allItems');
   let showAll = Session.get('showAll');
   return {
+    showAll,
     ready: itemsSub.ready(),
     items: Items.find({}, {
       // ternary operator. a form of IF THEN statement
