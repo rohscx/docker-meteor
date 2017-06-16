@@ -6,21 +6,13 @@ const Items = new Mongo.Collection('items');
 const ItemsSchema = new SimpleSchema ({
   itemOne: {
     type: Object
-  },
-  'itemOne.text': {
-    type: String
-  },
-  'itemOne.value' : {
-    type: SimpleSchema.Integer,
+    'itemOne.text': String,
+    'itemOne.value': SimpleSchema.Integer,
   },
   itemTwo: {
     type: Object
-  },
-  'itemTwo.text': {
-    type: String
-  },
-  'itemTwo.value' : {
-    type: SimpleSchema.Integer,
+    'itemTwo.text': String
+    'itemTwo.value': SimpleSchema.Integer,
   },
   lastUpdated : {
     type: Date,
