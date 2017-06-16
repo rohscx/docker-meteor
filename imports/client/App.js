@@ -42,7 +42,7 @@ import Items from '../api/Items'
       <button onClick={this.showAll}>
         Show {this.props.showAll ? 'One': 'All'}
       </button>
-    ) : null :
+    ) : null;
 
     return (
         <main>
