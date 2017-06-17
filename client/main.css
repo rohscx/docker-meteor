@@ -482,3 +482,14 @@ button[type='submit'] {
 .item div:hover {
   background: #EEE;
 }
+
+.item-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.item-enter-active {
+  opacity: 1;
+  transform: translate3d(0%, 0, 0);
+}

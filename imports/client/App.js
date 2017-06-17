@@ -62,7 +62,7 @@ import Items from '../api/Items'
           </form>
           <ReactCSSTransitionGroup>
             transitionName='item'
-            transitionEnterTimeout={20000}
+            transitionEnterTimeout={600}
             transitionLeaveTimeout={600}
           {this.props.items.map((item) => {
             return <Item item={item} key={item._id}/>
