@@ -491,5 +491,5 @@ button[type='submit'] {
 
 .item-enter-active {
   opacity: 1;
-  transform: translate3d(0%, 0, 0);
+  transform: translate3d(0s, 0, 0);
 }
