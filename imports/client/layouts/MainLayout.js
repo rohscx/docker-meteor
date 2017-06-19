@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
   <div className='main-layout'>
-    <div style="color:#eee">
     <header>
       <h1><Link to='/'>Level Up Voting</Link></h1>
       <LoginButtons />
@@ -14,7 +13,6 @@ const MainLayout = ({children}) =>
       </nav>
     </header>
     {children}
-    </div>
   </div>
 
 export default MainLayout;
