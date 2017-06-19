@@ -3,7 +3,7 @@ import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
 
 
-set style = "textDecoration: 'none'";
+set style = "textDecoration: /'none/'";
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
   <div className='main-layout'>
