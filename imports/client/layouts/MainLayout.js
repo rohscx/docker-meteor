@@ -7,7 +7,7 @@ const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
       <h1><Link to='/' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>Level Up Voting</Link></h1>
-      <LoginButtons />
+      <LoginButtons style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }} />
       <nav>
         <Link to='/about' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>About</Link>
       </nav>
