@@ -6,6 +6,12 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
+    <style>
+h1, h2, p {
+    text-align: center;
+    color: red;
+}
+</style>
       <h1><Link to='/'>Level Up Voting</Link></h1>
       <LoginButtons />
       <nav>
