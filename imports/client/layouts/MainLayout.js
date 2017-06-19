@@ -7,11 +7,12 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <h1><Link to='/' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>FROSTYFACE</Link></h1>
-      <LoginButtons />
-      <nav>
-        <Link to='/about' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>About</Link>
-      </nav>
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a href="#about">About</a></li>
+      </ul>
     </header>
     {children}
   </div>
