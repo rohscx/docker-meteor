@@ -8,9 +8,9 @@ const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
       <ul>
-        <li><a class="active" Link to='/'>Home</a></li>
-        <li><a Link to='/'>News</a></li>
-        <li><a Link to='/'>Contact</a></li>
+        <li><Link to='/'>Home</a></li>
+        <li><Link to='/'>News</a></li>
+        <li><Link to='/'>Contact</a></li>
         <li><Link to='/'>About</a></li>
       </ul>
     </header>
