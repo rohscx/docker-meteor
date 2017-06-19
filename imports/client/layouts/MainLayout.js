@@ -5,8 +5,8 @@ import { Link } from 'react-router';
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
-  <div className='main-layout' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>
-    <header>
+  <div className='main-layout'>
+    <header style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }} >
       <h1><Link to='/'>FROSTYFACE</Link></h1>
       <LoginButtons />
       <nav>
