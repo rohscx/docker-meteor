@@ -422,9 +422,7 @@ textarea {
 header {
   background: #333;
   padding: 20px;
-  text-align: center;
-  textDecoration: none;
-  color: #eee;
+  text-align: left;
 }
 
 h1 {
