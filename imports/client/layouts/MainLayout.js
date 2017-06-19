@@ -7,7 +7,6 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-<body>
 
 <ul>
   <li><a class="active" href="#home">Home</a></li>
@@ -16,7 +15,7 @@ const MainLayout = ({children}) =>
   <li style="float:right"><a href="#about">About</a></li>
 </ul>
 
-</body>
+
     </header>
     {children}
   </div>
