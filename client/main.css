@@ -424,6 +424,7 @@ header {
   padding: 20px;
   text-align: center;
   color: #eee;
+  background-color: transparent;
 }
 
 h1 {
