@@ -6,10 +6,10 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <h1><Link to='/' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>Level Up Voting</Link></h1>
-      <LoginButtons style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }} />
+      <h1><Link to='/'>Level Up Voting</Link></h1>
+      <LoginButtons/>
       <nav>
-        <Link to='/about' style={{ textDecoration: 'none' }} activeStyle={{ color: '#eee' }}>About</Link>
+        <Link to='/about'>About</Link>
       </nav>
     </header>
     {children}
