@@ -423,8 +423,8 @@ header {
   background: #333;
   padding: 20px;
   text-align: center;
-  textDecoration: 'none';
-  color: '#eee';
+  textDecoration: none;
+  color: #eee;
 }
 
 h1 {
