@@ -7,10 +7,10 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <h1><Link to='/' style={{color: '#333', textDecoration: 'none'}} activeStyle={{color: '#333'}}>FROST</Link></h1>
+      <h1><Link to='/' style={{color: '#eee', textDecoration: 'none'}} activeStyle={{color: '#eee'}}>FROST</Link></h1>
       <LoginButtons/>
       <nav>
-        <Link to='/about' style={{color: '#333', textDecoration: 'none'}} activeStyle={{color: '#333'}}>About</Link>
+        <Link to='/about' style={{color: '#eee', textDecoration: 'none'}} activeStyle={{color: '#eee'}}>About</Link>
       </nav>
     </header>
     {children}
