@@ -10,7 +10,7 @@ import ApicTicket from '../api/ApicTicket'
 @autobind
  class AppApic extends Component {
 
-
+ let cats = ApicTicket;
   render() {
 
     if (!this.props.ready) {
@@ -21,7 +21,7 @@ import ApicTicket from '../api/ApicTicket'
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son... {AppApic}</h1>
+        <h1>Page loaded place holder... and son... {cats}</h1>
         </main>
     );
   }
