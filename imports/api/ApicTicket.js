@@ -1,30 +1,25 @@
 import { HTTP } from 'meteor/http'
 
-HTTP.call( 'POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
-  data: {
-    "username": "devnetuser",
-    "password": "Cisco123!"
-  }
-}, function( error, response ) {
-  if ( error ) {
-    console.log( error );
-  } else {
-    console.log( response );
-    /*
-     This will return the HTTP response object that looks something like this:
-     {
-       content: "String of content...",
-       data: {
-         "id": 101,
-         "title": "Title of our new post",
-         "body": "Body of our new post",
-         "userId": 1337
-       },
-       headers: {  Object containing HTTP response headers }
-       statusCode: 201
-     }
-    */
-  }
-});
+export default Meteor.methods({
+    score_app:  function(){
+        var test = HTTP.call("POST", "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket",
+            {   headers:  {     
+                        "Content-Type": "application/json"             
+        },
+        // This is where the problem is.  Have tried multiple syntax versions and tried using the `params`options for the HTTP call instead of `data`
+        data: {'username': 'devnetuser',
+               'password': 'Cisco123!'
+        }
+        },
+    function (error, result) {
 
-export default HTTP;
+    // The syntax below should be if not an error, log the result (for testing etc, otherwise, log "http post error".  I may have incorrectly switched this around, but the original version I got from an online example had it the console.log statements in the reverse order.
+    if (!error) {
+        console.log(result);
+    } else{
+
+        console.log("http post error");
+    };
+    });
+    }
+});
