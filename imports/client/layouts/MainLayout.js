@@ -6,7 +6,8 @@ import { Link } from 'react-router';
 // style object for nav bar
 const styleObj = {
   color: '#eee', 
-  textDecoration: 'none'
+  textDecoration: 'none',
+  textAlign: 'left'
 };
 // active style object for nav bar
 const activeStyleObj = {
@@ -17,13 +18,11 @@ const activeStyleObj = {
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <section style={styleObj} activeStyle={activeStyleObj}>
-      <h1><Link to='/' >FROST</Link></h1>
+      <h1><Link to='/'style={styleObj} activeStyle={activeStyleObj}>FROST</Link></h1>
       <LoginButtons/>
       <nav>
         <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link>
       </nav>
-    </section>
     </header>
     {children}
   </div>
