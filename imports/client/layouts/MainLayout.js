@@ -16,4 +16,3 @@ const MainLayout = ({children}) =>
   </div>
 
 export default MainLayout;
- <MenuItem style={{ paddingLeft: 13 }}>Team 1</MenuItem>
