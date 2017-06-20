@@ -1,4 +1,6 @@
-const Items = {var http = require("https");
+const Items => () {
+  
+  var http = require("https");
 
 var options = {
   "method": "POST",
