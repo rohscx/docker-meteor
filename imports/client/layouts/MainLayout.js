@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <h1><Link to='/' tyle={{ textDecoration: 'none' }}>FROST</Link></h1>
+      <h1><Link to='/' style={{color: 'white'}} activeStyle={{color: #333}}>FROST</Link></h1>
       <LoginButtons/>
       <nav>
         <Link to='/about'>About</Link>
