@@ -8,7 +8,7 @@ import IsRole from './utilities/IsRole';
 import ApicTicket from '../api/ApicTicket'
 
 let cats = Meteor.methods({
-    score_app:  function(){
+    rat:  function(){
         var test = HTTP.call("POST", "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket",
             {   headers:  {     
                         "Content-Type": "application/json"             
