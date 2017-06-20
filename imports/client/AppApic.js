@@ -22,7 +22,7 @@ import ApicTicket from '../api/ApicTicket'
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...</h1>
+        <h1>Page loaded place holder... and son... {ApicTicket}</h1>
         </main>
     );
   }
