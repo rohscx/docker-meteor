@@ -20,8 +20,9 @@ const MainLayout = ({children}) =>
       <h1><Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link></h1>
       <LoginButtons/>
       <nav>
-        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link> | 
-        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>RandomLink</Link>
+        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>RandomLink</Link> |
+        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link>
+
       </nav>
     </header>
     {children}
