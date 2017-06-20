@@ -5,8 +5,25 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import IsRole from './utilities/IsRole';
 
-import ApicTicket from '../api/ApicTicket'
+import ApicTicket from '../api/ApicTicket';
 
+
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
+req.end();
 
 @autobind
  class AppApic extends Component {
