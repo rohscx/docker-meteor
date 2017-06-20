@@ -27,6 +27,7 @@ let cats = Meteor.methods({
     } else{
 
         console.log("http post error");
+        return 'http post error';
     };
     });
     }
