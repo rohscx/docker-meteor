@@ -1,4 +1,4 @@
-import http from 'http';
+import { HTTP } from 'meteor/http'
 
 HTTP.call( 'POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
   data: {
