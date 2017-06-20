@@ -6,11 +6,9 @@ import { Link } from 'react-router';
 const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
-      <p>
-      <Link to='/' style={{ textDecoration: 'none' }}>
-      <MenuItem style={{ paddingLeft: 13 }}>FROSTYFACE</MenuItem>
-      </Link>
-    </p>
+      <h1><Link to='/' style={{ textDecoration: 'none' }}>
+      <MenuItem style={{ paddingLeft: 13 }}>FROSTY</MenuItem>
+    </Link></h1>
       <LoginButtons/>
       <nav>
         <Link to='/about'>About</Link>
