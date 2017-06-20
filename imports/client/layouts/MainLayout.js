@@ -7,7 +7,7 @@ const MainLayout = ({children}) =>
   <div className='main-layout'>
     <header>
 
-      <Link to='/' style={{ textDecoration: 'none' }}>FROST
+      <Link to='/' style={{ textDecoration: 'none' }}>
       <MenuItem style={{ paddingLeft: 13 }}>FROSTYFACE</MenuItem>
       </Link>
       <LoginButtons/>
