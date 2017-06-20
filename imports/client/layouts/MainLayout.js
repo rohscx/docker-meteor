@@ -5,17 +5,39 @@ import { MenuItem } from 'react-router';
 MenuItem
 
 // stateless functional component. Functuion returns what ever you like
-const MainLayout = ({children}) =>
-  <div className='main-layout'>
-    <header>
-      <h1><Link to='/' tyle={{ textDecoration: 'none' }}>
-    <MenuItem style={{ paddingLeft: 13 }}>Team 1</MenuItem></Link></h1>
-      <LoginButtons/>
-      <nav>
-        <Link to='/about'>About</Link>
-      </nav>
-    </header>
-    {children}
-  </div>
+
+
+  const MainLayout = (
+  <ButtonToolbar>
+    <Dropdown id="dropdown-custom-1">
+      <Dropdown.Toggle>
+        <Glyphicon glyph="star" />
+        Pow! Zoom!
+      </Dropdown.Toggle>
+      <Dropdown.Menu className="super-colors">
+        <MenuItem eventKey="1">Action</MenuItem>
+        <MenuItem eventKey="2">Another action</MenuItem>
+        <MenuItem eventKey="3" active>Active Item</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey="4">Separated link</MenuItem>
+      </Dropdown.Menu>
+    </Dropdown>
+
+    <Dropdown id="dropdown-custom-2">
+      <Button bsStyle="info">
+        mix it up style-wise
+      </Button>
+      <Dropdown.Toggle bsStyle="success"/>
+      <Dropdown.Menu className="super-colors">
+        <MenuItem eventKey="1">Action</MenuItem>
+        <MenuItem eventKey="2">Another action</MenuItem>
+        <MenuItem eventKey="3" active>Active Item</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey="4">Separated link</MenuItem>
+      </Dropdown.Menu>
+    </Dropdown>
+
+  </ButtonToolbar>
+);
 
 export default MainLayout;
