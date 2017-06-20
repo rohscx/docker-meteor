@@ -10,7 +10,7 @@ const MainLayout = ({children}) =>
       <h1><Link to='/' style={{color: 'white', textDecoration: 'none'}} activeStyle={{color: 'white'}}>FROST</Link></h1>
       <LoginButtons/>
       <nav>
-        <Link to='/about'>About</Link>
+        <Link to='/about' style={{color: 'white', textDecoration: 'none'}} activeStyle={{color: 'white'}}>About</Link>
       </nav>
     </header>
     {children}
