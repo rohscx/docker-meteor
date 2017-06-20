@@ -1,8 +1,8 @@
 const Items => () {
   
-  var http = require("https");
+let http = require("https");
 
-var options = {
+let options = {
   "method": "POST",
   "hostname": "devnetapi.cisco.com",
   "port": null,
@@ -14,15 +14,15 @@ var options = {
   }
 };
 
-var req = http.request(options, function (res) {
-  var chunks = [];
+let req = http.request(options, function (res) {
+  let chunks = [];
 
   res.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
   res.on("end", function () {
-    var body = Buffer.concat(chunks);
+    let body = Buffer.concat(chunks);
     console.log(JSON.parse(body.toString()));
     return body.toString();
   });
