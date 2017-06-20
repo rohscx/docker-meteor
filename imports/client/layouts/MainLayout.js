@@ -15,12 +15,12 @@ const activeStyleObj = {
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
-  <div className='main-layout'>
+  <div style={styleObj} activeStyle={activeStyleObj} className='main-layout'>
     <header>
-      <h1><Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link></h1>
+      <h1><Link to='/' >FROST</Link></h1>
       <LoginButtons/>
       <nav>
-        <Link to='/about' style={{color: '#eee', textDecoration: 'none'}} activeStyle={{color: '#eee'}}>About</Link>
+        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link>
       </nav>
     </header>
     {children}
