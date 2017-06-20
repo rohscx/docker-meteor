@@ -8,7 +8,7 @@ import IsRole from './utilities/IsRole';
 import ApicTicket from '../api/ApicTicket'
 
 
-let cats = ApicTicket;
+
 @autobind
  class AppApic extends Component {
  
@@ -22,7 +22,7 @@ let cats = ApicTicket;
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son... {cats}</h1>
+        <h1>Page loaded place holder... and son...</h1>
         </main>
     );
   }
