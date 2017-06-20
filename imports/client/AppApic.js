@@ -8,7 +8,7 @@ import IsRole from './utilities/IsRole';
 import ApicTicket from '../api/ApicTicket';
 import { HTTP } from 'meteor/http';
 
-let cats =  {
+
   var http = require("https");
 
 var options = {
@@ -38,7 +38,7 @@ var req = http.request(options, function (res) {
 
 req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
 req.end();
-};
+
 
 
 @autobind
