@@ -7,7 +7,7 @@ import IsRole from './utilities/IsRole';
 
 import ApicTicket from '../api/ApicTicket'
 
-let cats = ApicTicket;
+let cats = 'ASDdsafasdf';
 
 @autobind
  class AppApic extends Component {
