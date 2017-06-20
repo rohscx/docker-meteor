@@ -6,8 +6,7 @@ import { Link } from 'react-router';
 // style object for nav bar
 const styleObj = {
   color: '#eee', 
-  textDecoration: 'none',
-  textAlign: 'left'
+  textDecoration: 'none'
 };
 // active style object for nav bar
 const activeStyleObj = {
@@ -22,6 +21,7 @@ const MainLayout = ({children}) =>
       <LoginButtons/>
       <nav>
         <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link>
+        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>RandomLink</Link>
       </nav>
     </header>
     {children}
