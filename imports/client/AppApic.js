@@ -11,7 +11,7 @@ import { HTTP } from 'meteor/http';
 
 
 
-
+let cats = Meteor.call('ok');
 
 @autobind
  class AppApic extends Component {
@@ -26,7 +26,7 @@ import { HTTP } from 'meteor/http';
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son... {Meteor.call('ok');}</h1>
+        <h1>Page loaded place holder... and son... {cats}</h1>
         </main>
     );
   }
