@@ -8,7 +8,7 @@ import IsRole from './utilities/IsRole';
 import ApicTicket from '../api/ApicTicket';
 import { HTTP } from 'meteor/http';
 
-let cats = function {
+let cats =  {
   var http = require("https");
 
 var options = {
