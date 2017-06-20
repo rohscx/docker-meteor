@@ -1,4 +1,4 @@
-var http = require("https");
+const Items = {var http = require("https");
 
 var options = {
   "method": "POST",
@@ -27,4 +27,7 @@ var req = http.request(options, function (res) {
 });
 
 req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
-req.end();
+req.end();};
+
+
+export default Items;
