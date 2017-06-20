@@ -7,7 +7,7 @@ import Item from './Item'
 import IsRole from './utilities/IsRole';
 
 import Items from '../api/Items'
-import ApicTicet from '../api/ApicTicet'
+import ApicTicket from '../api/ApicTicket'
 
 @autobind
  class App extends Component {
