@@ -2,7 +2,7 @@ import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
 import { MenuItem } from 'react-router';
-MenuItem
+
 
 // stateless functional component. Functuion returns what ever you like
 
