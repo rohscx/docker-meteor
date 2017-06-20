@@ -1,15 +1,14 @@
 var http = require("https");
 
 var options = {
-  "method": "GET",
+  "method": "POST",
   "hostname": "devnetapi.cisco.com",
   "port": null,
-  "path": "/sandbox/apic_em/api/v1/host",
+  "path": "/sandbox/apic_em/api/v1/ticket",
   "headers": {
     "content-type": "application/json",
-    "x-auth-token": "ST-15-QHrXeIL6CWTF1Xu6dSSQ-cas",
     "cache-control": "no-cache",
-    "postman-token": "90d322cc-4ccb-4e04-6191-da79e1d77e42"
+    "postman-token": "9352ca0b-ffcc-ec4e-eddb-07f6de0130b9"
   }
 };
 
@@ -23,7 +22,6 @@ var req = http.request(options, function (res) {
   res.on("end", function () {
     var body = Buffer.concat(chunks);
     console.log(body.toString());
-    return body.toString();
   });
 });
 
