@@ -7,10 +7,11 @@ import IsRole from './utilities/IsRole';
 
 import ApicTicket from '../api/ApicTicket'
 
+
+let cats = ApicTicket;
 @autobind
  class AppApic extends Component {
-
- let cats = ApicTicket;
+ 
   render() {
 
     if (!this.props.ready) {
