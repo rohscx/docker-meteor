@@ -16,9 +16,10 @@ Meteor.startup(() => {
     <Router history={browserHistory}>
       <Route path="/" component={MainLayout} >
         <IndexRoute component={App} />
-        <Route path="/apic" component={Apic} />
+        
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
+        <Route path="/apic" component={Apic} />
       </Route>
     </Router>,
     document.getElementById('render-target')
