@@ -8,25 +8,42 @@ import IsRole from './utilities/IsRole';
 import ApicTicket from '../api/ApicTicket';
 import { HTTP } from 'meteor/http';
 
-Meteor.http.post(
-    "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket"
-    params:
-        "USER": "sdk-three_api1.sdk.com"
-        "PWD": "QFZCWN5HZM8VBG7Q"
-        "SIGNATURE": "A-IzJhZZjhg29XQ2qnhapuwxIDzyAZQ92FRP5dqBzVesOkzbdUONzmOU"
-        "VERSION": "64.0"
-        "PAYMENTREQUEST_0_PAYMENTACTION": "Sale"
-        "PAYMENTREQUEST_0_AMT": "19.95"
-        "RETURNURL": "https://www.YourReturnURL.com"
-        "CANCELURL": "https://www.YourCancelURL.com"
-        "METHOD": "SetExpressCheckout"
-    (error, result) -> console.log(result)
-)
+const cats => (){
+  var http = require("https");
+
+var options = {
+  "method": "POST",
+  "hostname": "devnetapi.cisco.com",
+  "port": null,
+  "path": "/sandbox/apic_em/api/v1/ticket",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache",
+    "postman-token": "5210b0cf-3524-230d-f3b4-0a1d1dd9e258"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
+req.end();
+};
 
 
 @autobind
  class AppApic extends Component {
- 
+
   render() {
 
     if (!this.props.ready) {
