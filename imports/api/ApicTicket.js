@@ -1,35 +1,30 @@
-const Items => () {
-  
-let http = require("https");
+import http from 'http';
 
-let options = {
-  "method": "POST",
-  "hostname": "devnetapi.cisco.com",
-  "port": null,
-  "path": "/sandbox/apic_em/api/v1/ticket",
-  "headers": {
-    "content-type": "application/json",
-    "cache-control": "no-cache",
-    "postman-token": "9352ca0b-ffcc-ec4e-eddb-07f6de0130b9"
+HTTP.call( 'POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
+  data: {
+    "username": "devnetuser",
+    "password": "Cisco123!"
   }
-};
-
-let req = http.request(options, function (res) {
-  let chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    let body = Buffer.concat(chunks);
-    console.log(JSON.parse(body.toString()));
-    return body.toString();
-  });
+}, function( error, response ) {
+  if ( error ) {
+    console.log( error );
+  } else {
+    console.log( response );
+    /*
+     This will return the HTTP response object that looks something like this:
+     {
+       content: "String of content...",
+       data: {
+         "id": 101,
+         "title": "Title of our new post",
+         "body": "Body of our new post",
+         "userId": 1337
+       },
+       headers: {  Object containing HTTP response headers }
+       statusCode: 201
+     }
+    */
+  }
 });
 
-req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
-req.end();};
-
-
-export default Items;
+export default HTTP;
