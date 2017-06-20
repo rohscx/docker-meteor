@@ -25,3 +25,5 @@ const MainLayout = ({children}) =>
     </header>
     {children}
   </div>
+
+export default MainLayout;
