@@ -1,4 +1,8 @@
+import ApicTicet from './api/ApicTicet'
+
 var http = require("https");
+
+var test = ApicTicet;
 
 var options = {
   "method": "GET",
@@ -22,7 +26,8 @@ var req = http.request(options, function (res) {
 
   res.on("end", function () {
     var body = Buffer.concat(chunks);
-    console.log(body.toString());
+    //console.log(body.toString());
+    console.log(test);
   });
 });
 
