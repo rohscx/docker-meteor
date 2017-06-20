@@ -37,7 +37,7 @@ var options = {
 
 getJSON(options, function(err, result){
   if(err){
-  return console.log('Error while trying to get REST result: ',err)
+  return console.log('Error while trying to get REST result: ',err);
   }
   console.log(result);
 });
