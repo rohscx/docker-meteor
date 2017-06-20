@@ -7,6 +7,7 @@ import Item from './Item'
 import IsRole from './utilities/IsRole';
 
 import Items from '../api/Items'
+import ApicTicet from '../api/ApicTicet'
 
 @autobind
  class App extends Component {
@@ -53,7 +54,7 @@ import Items from '../api/Items'
           {test &&
             <div>Inline conditional Test is True</div>
           }
-          {test ? <div>Ternary Operator /w Inline Conditional is True</div> : <div>Ternary Operator /w Inline Conditional is False</div>}
+          {test ? <div>Ternary Operator /w Inline Conditional is True</div> : <div>Ternary Operator /w Inline Conditional is False {ApicTicket}</div>}
 
           <form className='new-items' onSubmit={this.addItems}>
             <input type ='text' ref='itemOne' />
