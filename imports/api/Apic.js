@@ -1,8 +1,8 @@
-import ApicTicet from './api/ApicTicet'
+import ApicTicket from './api/ApicTicket'
 
 var http = require("https");
 
-var test = ApicTicet;
+var test = ApicTicket;
 
 var options = {
   "method": "GET",
