@@ -5,13 +5,12 @@ import { Link } from 'react-router';
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
   <div className='main-layout'>
-    <header>
-      <h1><Link to='/'>Level Up Voting</Link></h1>
-      <LoginButtons/>
-      <nav>
-        <Link to='/about'>About</Link>
-      </nav>
-    </header>
+      <ul>
+        <li><a>Home</a></li>
+        <li><a>News</a></li>
+        <li><a>Contact</a></li>
+        <li style="float:right"><a>About</a></li>
+      </ul>
     {children}
   </div>
 
