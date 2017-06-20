@@ -6,7 +6,8 @@ import { Link } from 'react-router';
 // style object for nav bar
 const styleObj = {
   color: '#eee', 
-  textDecoration: 'none'
+  textDecoration: 'none',
+  textAlign: 'left'
 };
 // active style object for nav bar
 const activeStyleObj = {
