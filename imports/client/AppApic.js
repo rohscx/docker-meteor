@@ -11,7 +11,10 @@ import { HTTP } from 'meteor/http';
 
 
 
-let cats = Meteor.call('ok');
+const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
+        headers: { content-type: application/json },
+	data: {username: 'devnetuser', password: 'Cisco123!'}
+});
 
 @autobind
  class AppApic extends Component {
