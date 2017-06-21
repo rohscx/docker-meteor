@@ -6,7 +6,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import IsRole from './utilities/IsRole';
 
 
-Meteor.call('checkApic', (err, res) => {
+const cats = Meteor.call('checkApic', (err, res) => {
   if (err) {
     alert(err);
   } else {
@@ -29,7 +29,7 @@ Meteor.call('checkApic', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...</h1>
+        <h1>Page loaded place holder... and son...{cats}</h1>
         </main>
     );
   }
