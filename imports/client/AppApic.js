@@ -8,22 +8,11 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-Session.set('currentList', 'CATS on Everything');
-const cats = Meteor.call('checkApic', (err, res) => {
-  if (err) {
-    alert(err);
-  } else {
-    // success!
-    alert(res.statusCode);
-    
-  }
-});
+
 
 @autobind
  class AppApic extends Component {
-
   render() {
-
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
