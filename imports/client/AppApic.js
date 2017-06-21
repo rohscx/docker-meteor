@@ -5,7 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import IsRole from './utilities/IsRole';
 
-import ApicTicket from '../server/ApicTicket';
+import ApicTicket from '../server/request';
 
 
 
