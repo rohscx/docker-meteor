@@ -34,7 +34,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...</h1>
+        <h1>Page loaded place holder... and son...{{> leaderboard}}</h1>
        
         </main>
     );
