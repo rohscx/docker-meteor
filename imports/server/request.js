@@ -20,11 +20,3 @@ const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/ap
 });
 
 
-Meteor.methods({
-  check() {
-    this.unblock();
-    let cars = 'asdfadfadsf';
-	  return cars;
-
-  }
-});
