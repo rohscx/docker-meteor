@@ -5,8 +5,7 @@ import { HTTP } from 'meteor/http'
 
 
 Meteor.methods({
-  checkTwitter(userId) {
-    check(userId, String);
+  checkApic() {
     this.unblock();
     try {
 const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
@@ -25,19 +24,3 @@ const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/ap
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-const cats = 'Cats';
-
-export default cats;
