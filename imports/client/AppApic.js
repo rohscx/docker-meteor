@@ -39,7 +39,7 @@ Template.greeting.helpers({
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...{ReactiveVar#get()}</h1>
+        <h1>Page loaded place holder... and son...</h1>
       <template name="greeting">
 	<p>Hello there, {{myName}}</p>
 </template>
