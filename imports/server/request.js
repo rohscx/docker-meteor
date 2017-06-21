@@ -11,9 +11,11 @@ Meteor.methods({
     Session.set('twizzled', true);
   }
 });
+      console.log(result);
       return true;
     } catch (e) {
       // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+      console.log(result);
       return false;
     }
   }
