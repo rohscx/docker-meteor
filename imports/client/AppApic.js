@@ -12,15 +12,10 @@ const cats = Meteor.call('checkApic', (err, res) => {
   } else {
     // success!
     alert(res.statusCode);
+    return res;
   }
 });
-const test = Meteor.call('check', (err, res) => {
-  if (err) {
-    alert(err);
-  } else {
-    // success!
-  }
-});
+
 
 
 @autobind
