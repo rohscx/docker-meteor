@@ -18,11 +18,6 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
-
-<template name="leaderboard">
-    Hello World
-</template>
-
 @autobind
  class AppApic extends Component {
   render() {
