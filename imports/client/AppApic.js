@@ -9,7 +9,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 
-const cats = Meteor.call('checkApic', (err, res) => {
+let cats = Meteor.call('checkApic', (err, res) => {
   if (err) {
     alert(err);
   } else {
