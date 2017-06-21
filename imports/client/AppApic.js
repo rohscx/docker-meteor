@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 Session.set('currentList', 'CATS on Everything');
 const cats = Meteor.call('checkApic', (err, res) => {
@@ -17,7 +18,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
-
+ReactiveVar#set('RACE CARS');
 
 @autobind
  class AppApic extends Component {
@@ -32,7 +33,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...{Session.get('currentList')}</h1>
+        <h1>Page loaded place holder... and son...{ReactiveVar#get()}</h1>
         </main>
     );
   }
