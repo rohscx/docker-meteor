@@ -18,6 +18,8 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
+console.log(cats);
+
 @autobind
  class AppApic extends Component {
   render() {
