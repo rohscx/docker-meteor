@@ -19,14 +19,6 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
-Session.setDefault('myName', 'Richard');
-
-Template.greeting.helpers({
-	myName: function() {
-		return Session.get('myName');
-	}
-});
-
 @autobind
  class AppApic extends Component {
 
@@ -41,9 +33,6 @@ Template.greeting.helpers({
     return (
         <main>
         <h1>Page loaded place holder... and son...</h1>
-      <template name="greeting">
-	<p>Hello there, {{myName}}</p>
-</template>
         </main>
     );
   }
