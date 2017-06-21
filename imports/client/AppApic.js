@@ -6,14 +6,14 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
 
-
+Session.set('currentList', 'CATS on Everything');
 const cats = Meteor.call('checkApic', (err, res) => {
   if (err) {
     alert(err);
   } else {
     // success!
     alert(res.statusCode);
-    Session.set('currentList', res.statusCode);
+    
   }
 });
 
