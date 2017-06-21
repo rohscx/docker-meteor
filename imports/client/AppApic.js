@@ -5,7 +5,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import IsRole from './utilities/IsRole';
 
-import ApicTicket from '../server/request';
 
 Meteor.call('checkApic', (err, res) => {
   if (err) {
