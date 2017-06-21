@@ -10,5 +10,7 @@ const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/ap
 	console.log(result);
 });
 
-export default result;
+const cats = 'Cats';
+
+export default cats;
 
