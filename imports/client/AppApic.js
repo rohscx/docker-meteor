@@ -9,16 +9,17 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 
-let cats = Meteor.call('checkApic', (err, res) => {
+const cats = Meteor.call('checkApic', (err, res) => {
   if (err) {
     alert(err);
   } else {
     // success!
-    return res.statusCode;
+ 
+    Session.set("data", result)
   }
 });
 
-console.log(cats);
+console.log(Session.get("data"));
 
 @autobind
  class AppApic extends Component {
