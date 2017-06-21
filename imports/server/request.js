@@ -13,7 +13,7 @@ const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/ap
       return result;
     } catch (e) {
       // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-      console.log(result);
+	    console.log(e)
       return false;
     }
   }
