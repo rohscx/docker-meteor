@@ -4,14 +4,12 @@ Meteor.methods({
   checkApic() {
     this.unblock();
     try {
-const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
-        headers: { contentType: 'application/json' },
-	data: {username: 'devnetuser', password: 'Cisco123!'}
+      const result = HTTP.call('POST', 'http://api.twitter.com/xyz', {
+  data: { some: 'json', stuff: 1 }
 }, (error, result) => {
   if (!error) {
-    console.log(error);
+    Session.set('twizzled', true);
   }
-	console.log(result);
 });
       return true;
     } catch (e) {
