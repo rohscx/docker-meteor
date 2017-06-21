@@ -15,7 +15,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
   } else {
     // success!
  
-    Session.set("data", res.statusCode)
+    Session.set("data", res)
   }
 });
 
@@ -31,7 +31,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...{Session.get("data")}</h1>
+        <h1>Page loaded place holder... and son...{Session.get("data.statusCode")}</h1>
        
         </main>
     );
