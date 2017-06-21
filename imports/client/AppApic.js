@@ -18,7 +18,7 @@ const test = Meteor.call('check', (err, res) => {
     alert(err);
   } else {
     // success!
-    return res;
+    alert(res);
   }
 });
 
