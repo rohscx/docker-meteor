@@ -4,6 +4,7 @@ import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import IsRole from './utilities/IsRole';
+import { Session } from 'meteor/session';
 
 
 const cats = Meteor.call('checkApic', (err, res) => {
@@ -12,7 +13,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
   } else {
     // success!
     alert(res.statusCode);
-    return res;
+    Session.set('currentList', res.statusCode);
   }
 });
 
@@ -31,7 +32,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...</h1>
+        <h1>Page loaded place holder... and son...{Session.get('currentList')}</h1>
         </main>
     );
   }
