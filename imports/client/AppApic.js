@@ -18,7 +18,13 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
-ReactiveVar#set('RACE CARS');
+Session.setDefault('myName', 'Richard');
+
+Template.greeting.helpers({
+	myName: function() {
+		return Session.get('myName');
+	}
+});
 
 @autobind
  class AppApic extends Component {
@@ -34,6 +40,9 @@ ReactiveVar#set('RACE CARS');
     return (
         <main>
         <h1>Page loaded place holder... and son...{ReactiveVar#get()}</h1>
+      <template name="greeting">
+	<p>Hello there, {{myName}}</p>
+</template>
         </main>
     );
   }
