@@ -13,6 +13,13 @@ const cats = Meteor.call('checkApic', (err, res) => {
     // success!
   }
 });
+const test = Meteor.call('check', (err, res) => {
+  if (err) {
+    alert(err);
+  } else {
+    // success!
+  }
+});
 
 
 @autobind
