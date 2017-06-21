@@ -7,5 +7,8 @@ const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/ap
   if (!error) {
     console.log(error);
   }
+	console.log(result);
 });
+
+export default result;
 
