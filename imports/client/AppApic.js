@@ -7,6 +7,13 @@ import IsRole from './utilities/IsRole';
 
 import ApicTicket from '../server/request';
 
+Meteor.call('checkApic', (err, res) => {
+  if (err) {
+    alert(err);
+  } else {
+    // success!
+  }
+});
 
 
 @autobind
