@@ -9,6 +9,19 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 
+const cats = Meteor.call('checkApic', (err, res) => {
+  if (err) {
+    alert(err);
+  } else {
+    // success!
+    alert(res.statusCode);
+  }
+});
+
+
+<template name="leaderboard">
+    Hello World
+</template>
 
 @autobind
  class AppApic extends Component {
@@ -22,6 +35,7 @@ import { Template } from 'meteor/templating';
     return (
         <main>
         <h1>Page loaded place holder... and son...</h1>
+       
         </main>
     );
   }
