@@ -1,4 +1,5 @@
 import { HTTP } from 'meteor/http'
+import { Meteor } from 'meteor/meteor'
 
 Meteor.methods({
   checkApic() {
