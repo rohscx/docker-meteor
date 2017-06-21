@@ -1,29 +1,15 @@
-var http = require("https");
+import { HTTP } from 'meteor/http'
 
-var options = {
-  "method": "POST",
-  "hostname": "devnetapi.cisco.com",
-  "port": null,
-  "path": "/sandbox/apic_em/api/v1/ticket",
-  "headers": {
-    "content-type": "application/json",
-    "cache-control": "no-cache",
-    "postman-token": "25808d6f-9e3e-4430-13a7-f91e4d0d2689"
+const result = HTTP.call('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
+        headers: { contentType: 'application/json' },
+	data: {username: 'devnetuser', password: 'Cisco123!'}
+}, (error, result) => {
+  if (!error) {
+    console.log(error);
   }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
+	console.log(result);
 });
 
-req.write(JSON.stringify({ username: 'devnetuser', password: 'Cisco123!' }));
-req.end();
+const cats = 'Cats';
+
+export default cats;
