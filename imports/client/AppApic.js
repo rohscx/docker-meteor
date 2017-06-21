@@ -19,7 +19,6 @@ const cats = Meteor.call('checkApic', (err, res) => {
   }
 });
 
-console.log(Session.get("data"));
 
 @autobind
  class AppApic extends Component {
@@ -32,7 +31,7 @@ console.log(Session.get("data"));
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...</h1>
+        <h1>Page loaded place holder... and son...{Session.get("data")}</h1>
        
         </main>
     );
