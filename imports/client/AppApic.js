@@ -11,6 +11,7 @@ Meteor.call('checkApic', (err, res) => {
     alert(err);
   } else {
     // success!
+    alert('Winnder');
   }
 });
 
