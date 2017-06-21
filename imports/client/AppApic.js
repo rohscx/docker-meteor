@@ -36,7 +36,7 @@ const test = Meteor.call('check', (err, res) => {
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...{cats}</h1>
+        <h1>Page loaded place holder... and son...{cats.statusCode}</h1>
         </main>
     );
   }
