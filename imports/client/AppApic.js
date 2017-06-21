@@ -6,6 +6,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Template } from 'meteor/templating';
 
 Session.set('currentList', 'CATS on Everything');
 const cats = Meteor.call('checkApic', (err, res) => {
