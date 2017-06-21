@@ -14,7 +14,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     alert(err);
   } else {
     // success!
-    alert(res.statusCode);
+    return res.statusCode;
   }
 });
 
