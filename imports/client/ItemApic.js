@@ -1,3 +1,7 @@
+import React, {Component} from 'react';
+
+import restRequest from '../api/Apic';
+
 let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'conten-type': 'application/json'}
 });
