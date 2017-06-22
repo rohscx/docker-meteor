@@ -31,7 +31,7 @@ import ItemApic from './ItemApic';
     );
   }
 }
-
+console.log(Component);
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
