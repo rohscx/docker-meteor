@@ -2,15 +2,8 @@ import { HTTP } from 'meteor/http'
 import { Meteor } from 'meteor/meteor'
 
 
-const type = 'POST';
-const url = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
-const options = {
-        headers: { contentType: 'application/json' },
-	data: {username: 'devnetuser', password: 'Cisco123!'}
-};
-
 Meteor.methods({
-  checkApic() {
+  checkApic(type, url, options) {
     this.unblock();
     try {
 const result = HTTP.call(type, url, options);
