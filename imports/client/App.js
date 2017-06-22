@@ -75,7 +75,7 @@ import Items from '../api/Items'
   }
 }
 
-console.log(Component);
+console.log(Component());
 export default createContainer(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');

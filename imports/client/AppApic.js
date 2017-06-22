@@ -76,7 +76,7 @@ showAll() {
     );
   }
 }
-console.log(params);
+
 export default createContainer(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
