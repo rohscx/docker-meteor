@@ -26,7 +26,7 @@ restRequest.prototype.makeTicket = function() {
     // success!
     console.log(res.data.response.serviceTicket);
     this.ticket = res.data.response.serviceTicket;
-    this.options.headers.['x-auth-token'] = res.data.response.serviceTicket;
+    this.options.headers.x-auth-token = res.data.response.serviceTicket;
     Session.set("data", res.data.response.serviceTicket);
   }
 })};
