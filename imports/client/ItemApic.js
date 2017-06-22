@@ -1,14 +1,19 @@
-import React, {Component} from 'react';
+let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+        headers: { 'conten-type': 'application/json'}
+});
+// console.log(object); // debug
 
-import restRequest from '../api/Apic';
-// creates NEW Object for the rest request
+// Requests NEW ticket from APIC
+object.makeTicket(); 
 
-export default class ItemApic extends Component {
+// console.log(object); // debug
+
+export default class Item extends Component {
          
    render() {
      return (
-       <div className='ItemApic'>
-         <div className='apic-list' onClick={console.log('List Clicked')}>
+       <div className='item'>
+         <div className='vote-one' onClick={console.log('List Clicked')}>
          <span>CATS{this.props.object.statusCode.value}</span>
          <h3>DOGS{this.props.object.statusCode.text}</h3>
        </div>
