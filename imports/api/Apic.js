@@ -32,13 +32,4 @@ restRequest.prototype.makeTicket = function() {
 
 
 
-const typeApic = 'GET';
-const urlApic = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host';
-const optionsApic = {
-        headers: { 'conten-type': 'application/json',
-		  'x-auth-token': Session.get("data"),
-		 }
-
-
-
 export default restRequest;
