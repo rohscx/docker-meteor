@@ -32,7 +32,7 @@ restRequest.prototype.makeTicket = function() {
 })};
 
 restRequest.prototype.useTicket = function() {
-  Meteor.call('checkApic', this.typeTicket, this.urlTicket, this.optionsTicket, (err, res) => {
+  Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
   if (err) {
     alert(err);
   } else {
