@@ -1,0 +1,77 @@
+import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
+
+const Apic = new Mongo.Collection('apic');
+
+const ApicSchema = new SimpleSchema ({
+  text: String,
+  value: SimpleSchema.Integer
+});
+
+const ItemsSchema = new SimpleSchema ({
+  tokenApic: ApicSchema,
+  lastUpdated : {
+    type: Date,
+    optional: true
+  }
+});
+
+Items.attachSchema(ItemsSchema);
+
+if (Meteor.isServer) {
+
+  Meteor.publish('allITockens', function() {
+    return Apic.find({}, {
+      // limits the number of return json items from DB
+      limit: 50,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      sort: {lastUpdated: 1}
+    });
+  });
+
+
+  Meteor.methods({
+    insertNewItem(tokenApic) {
+      Apic.insert({
+          tokenApic: {
+            text: tokenApic,
+            value: 0,
+          },
+          itemTwo: {
+            text: itemTwo,
+            value: 0,
+          }
+        });
+        Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
+    },
+    getNewToken(item, position) {
+      check(item, Object);
+      let lastUpdated = new Date();
+      if(Meteor.userId()) {
+        if(position == 'tokenApic') {
+          Apic.update(item._id, {
+            $inc: {
+              'tokenApic.value': 1
+            },
+            $set: {
+              lastUpdated
+            }
+          })
+        } else {
+          Apic.update(item._id, {
+            $inc: {
+              'itemTwo.value': 1
+            },
+            $set: {
+              lastUpdated
+            }
+          })
+        }
+        Roles.addUsersToRoles(Meteor.userId(), 'voter')
+      }
+    }
+  });
+}
+
+
+export default Apic;
