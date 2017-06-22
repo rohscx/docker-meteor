@@ -11,8 +11,8 @@ function restRequest(type,url,options) {
   this.typeTicket = 'POST';
   this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
   this.optionsTicket = {
-        headers: { 'content-type': 'application/json' }/*,
-	data: {username: 'devnetuser', password: 'Cisco123!'}*/
+        headers: { 'content-type': 'application/json' },
+	data: {username: 'devnetuser', password: 'Cisco123!'}
    };
 }
 
