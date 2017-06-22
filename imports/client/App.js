@@ -35,7 +35,7 @@ import Items from '../api/Items'
    }
 
   render() {
-console.log(this);
+
     if (!this.props.ready) {
       return <div>Loading...</div>
     }
