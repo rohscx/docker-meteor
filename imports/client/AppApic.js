@@ -26,8 +26,7 @@ import ItemApic from './ItemApic';
         <main>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket:  {Session.get("apicTicket")}</p>
-            
-       return <ItemApic/>
+             <ItemApic/>
         </main>
     );
   }
