@@ -26,6 +26,19 @@ restRequest.prototype.makeTicket = function() {
     // success!
     console.log(res.data.response.serviceTicket);
     this.ticket = res.data.response.serviceTicket;
+    this.options.headers.['x-auth-token'] = res.data.response.serviceTicket;
+    Session.set("data", res.data.response.serviceTicket);
+  }
+})};
+
+restRequest.prototype.useTicket = function() {
+  Meteor.call('checkApic', this.typeTicket, this.urlTicket, this.optionsTicket, (err, res) => {
+  if (err) {
+    alert(err);
+  } else {
+    // success!
+    console.log(res.data.response.serviceTicket);
+    this.ticket = res.data.response.serviceTicket;
     Session.set("data", res.data.response.serviceTicket);
   }
 })};
