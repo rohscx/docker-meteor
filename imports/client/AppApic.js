@@ -16,6 +16,7 @@ var object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em
 		  'x-auth-token': 'catsanddogs',
 		 }
 });
+console.log(object);
 
 @autobind
  class AppApic extends Component {
