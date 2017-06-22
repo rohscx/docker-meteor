@@ -14,11 +14,6 @@ object.makeTicket();
 
 
 
-let mark = object.products.map((getFullName) => {
-                let fullname = getFullName.response;
-        return fullname;
-});
-
 export default class ItemApic extends Component {
          
    render() {
@@ -26,7 +21,7 @@ export default class ItemApic extends Component {
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
          <span>CATS {object.typeTicket}</span>
-         <h3>DOGS={mark}</h3>
+         <h3>DOGS={object.response.statusCode}</h3>
        </div>
        </div>
      )
