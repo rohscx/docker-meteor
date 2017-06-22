@@ -9,8 +9,8 @@ const optionsTicket = {
 	data: {username: 'devnetuser', password: 'Cisco123!'}
 };
 
-const typeApic = 'POST';
-const urlApic = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
+const typeApic = 'GET';
+const urlApic = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host';
 const optionsApic = {
         headers: { 'conten-type': 'application/json',
 		  'x-auth-token': Session.get("data"),
