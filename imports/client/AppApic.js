@@ -12,9 +12,7 @@ import { Template } from 'meteor/templating';
 
 
 let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-        headers: { 'conten-type': 'application/json',
-		  'x-auth-token': 'catsanddogs',
-		 }
+        headers: { 'conten-type': 'application/json'}
 });
 console.log(object);
 
