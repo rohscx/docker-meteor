@@ -8,7 +8,6 @@ function restRequest(type,url,options) {
   this.type = type;
   this.url = url;
   this.options = options;
-  this.response;
   this.typeTicket = 'POST';
   this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
   this.optionsTicket = {
@@ -38,9 +37,8 @@ restRequest.prototype.useTicket = function() {
     alert(err);
   } else {
     // success!
-    console.log(res.data.response.serviceTicket);
-    this.ticket = res.data.response.serviceTicket;
-    Session.set("data", res.data.response.serviceTicket);
+    console.log(res);
+    this.response = res;
   }
 })};
 
