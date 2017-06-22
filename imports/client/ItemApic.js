@@ -15,7 +15,7 @@ object.makeTicket();
 
 
 export default class ItemApic extends Component {
-         
+   console.log(object());      
    render() {
      return (
        <div className='ItemApic'>
