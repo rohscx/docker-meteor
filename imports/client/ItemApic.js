@@ -12,13 +12,12 @@ object.makeTicket();
 
 // console.log(object); // debug
 
-function getFullName(item) {
-        let fullname = [item.response]
+
+
+let mark = object.map((getFullName) => {
+                let fullname = [getFullName.response]
         return fullname;
 };
-
-
-let mark = object.map(getFullName);
 
 export default class ItemApic extends Component {
          
