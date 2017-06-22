@@ -3,6 +3,9 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import ItemApic from './ItemApic'
+import ItemsApic from '../api/ItemsApic'
+
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
