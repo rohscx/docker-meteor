@@ -17,7 +17,7 @@ object.makeTicket();
 let mark = object.map((getFullName) => {
                 let fullname = [getFullName.response]
         return fullname;
-};
+});
 
 export default class ItemApic extends Component {
          
