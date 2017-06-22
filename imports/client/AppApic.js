@@ -15,6 +15,7 @@ import ItemApic from './ItemApic';
 
 @autobind
  class AppApic extends Component {
+  console.log(this);
   render() {
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
@@ -31,7 +32,7 @@ import ItemApic from './ItemApic';
     );
   }
 }
-console.log(this.props);
+
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
