@@ -10,7 +10,7 @@ import Items from '../api/Items'
 
 @autobind
  class App extends Component {
-
+console.log(Component());
    addItems(event) {
      event.preventDefault();
      const itemOne = this.refs.itemOne.value.trim();
@@ -75,7 +75,7 @@ import Items from '../api/Items'
   }
 }
 
-console.log(Component());
+
 export default createContainer(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
