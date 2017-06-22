@@ -5,7 +5,7 @@ import { Template } from 'meteor/templating';
 const typeTicket = 'POST';
 const urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
 const optionsTicket = {
-        headers: { contentType: 'application/json' },
+        headers: { 'content-type': 'application/json' },
 	data: {username: 'devnetuser', password: 'Cisco123!'}
 };
 
