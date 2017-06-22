@@ -10,12 +10,11 @@ let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em
 // Requests NEW ticket from APIC
 object.makeTicket(); 
 
-// console.log(object); // debug
+console.log(object); // debug
 
 
 
-export default class ItemApic extends Component {
-   console.log(object());      
+export default class ItemApic extends Component {   
    render() {
      return (
        <div className='ItemApic'>
