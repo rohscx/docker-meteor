@@ -10,7 +10,7 @@ import Items from '../api/Items'
 
 @autobind
  class App extends Component {
-console.log(Component());
+
    addItems(event) {
      event.preventDefault();
      const itemOne = this.refs.itemOne.value.trim();
@@ -26,6 +26,7 @@ console.log(Component());
    }
    // creates a global session
    showAll() {
+     console.log(Component());
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
