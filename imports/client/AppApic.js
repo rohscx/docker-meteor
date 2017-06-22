@@ -50,8 +50,6 @@ showAll() {
       return <div>Loading APIC...</div>
     }
 
-    // inline conditional test. If true the conditional will be displayed
-    const test = false;
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -68,9 +66,7 @@ showAll() {
                transitionLeaveTimeout={600}
                transitionAppear={true}
                transistionAppearTimeout={600}>
-             {this.props.items.map((item) => {
-               return <Item item={item} key={item._id}/>
-             })}
+
            </ReactCSSTransitionGroup>
         </main>
     );
