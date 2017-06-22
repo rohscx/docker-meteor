@@ -10,19 +10,16 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-
+// creates NEW Object for the rest request
 let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'conten-type': 'application/json'}
 });
-console.log(object);
+// console.log(object); // debug
 
+// Requests NEW ticket from APIC
 object.makeTicket(); 
 
-console.log(object);
-
-//object.useTicket();
-
-console.log(object);
+// console.log(object); // debug
 
 
 @autobind
@@ -36,8 +33,8 @@ console.log(object);
     const test = false;
     return (
         <main>
-        <h1>Page loaded place holder... and son...{Session.get("data")}</h1>
-       
+        <h1>Page loaded place holder... and son...</h1>
+            <p>Current Ticket:  {Session.get("apicTicket")}</p>
         </main>
     );
   }
