@@ -15,8 +15,8 @@ import ItemApic from './ItemApic';
 
 @autobind
  class AppApic extends Component {
-  console.log(this);
   render() {
+     console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
