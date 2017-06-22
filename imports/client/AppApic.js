@@ -28,7 +28,6 @@ import ItemApic from './ItemApic';
             <p>Current Ticket:  {Session.get("apicTicket")}</p>
             
        {return <ItemApic/>}
-          })}
         </main>
     );
   }
