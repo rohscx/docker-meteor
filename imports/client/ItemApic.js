@@ -8,12 +8,12 @@ object.makeTicket();
 
 // console.log(object); // debug
 
-export default class Item extends Component {
+export default class ItemApic extends Component {
          
    render() {
      return (
-       <div className='item'>
-         <div className='vote-one' onClick={console.log('List Clicked')}>
+       <div className='ItemApic'>
+         <div className='apic-list' onClick={console.log('List Clicked')}>
          <span>CATS{this.props.object.statusCode.value}</span>
          <h3>DOGS{this.props.object.statusCode.text}</h3>
        </div>
