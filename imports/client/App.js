@@ -26,7 +26,6 @@ import Items from '../api/Items'
    }
    // creates a global session
    showAll() {
-     console.log(Component());
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
@@ -36,7 +35,7 @@ import Items from '../api/Items'
    }
 
   render() {
-
+console.log(Component());
     if (!this.props.ready) {
       return <div>Loading...</div>
     }
