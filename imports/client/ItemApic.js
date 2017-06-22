@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import Apic from '../api/Apic'
 
-export default class ItemApic extends Component {
-         
 // creates NEW Object for the rest request
-object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'conten-type': 'application/json'}
 });
 // console.log(object); // debug
@@ -14,6 +12,7 @@ object.makeTicket();
 
 // console.log(object); // debug
 
+export default class ItemApic extends Component {
          
    render() {
      return (
