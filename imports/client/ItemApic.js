@@ -18,8 +18,8 @@ export default class ItemApic extends Component {
      return (
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
-         <span>CATS{this.props.object.statusCode.value}</span>
-         <h3>DOGS{this.props.object.statusCode.text}</h3>
+         <span>CATS</span>
+         <h3>DOGS</h3>
        </div>
        </div>
      )
