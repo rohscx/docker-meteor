@@ -20,7 +20,7 @@ export default class ItemApic extends Component {
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
          <span>CATS {object.typeTicket}</span>
-         <h3>DOGS={object.response.data.response}</h3>
+         <h3>DOGS={object.response.data.response.0}</h3>
        </div>
        </div>
      )
