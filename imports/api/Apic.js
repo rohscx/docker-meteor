@@ -40,7 +40,7 @@ restRequest.prototype.useTicket = function() {
   } else {
     // success!
     // console.log(res); // debug
-    this.response = res;
+    this.response = res.response.data.response;
   }
 })};
 
