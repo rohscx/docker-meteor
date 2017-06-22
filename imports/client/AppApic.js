@@ -15,7 +15,7 @@ const options = {
 	data: {username: 'devnetuser', password: 'Cisco123!'}
 };
 
-const cats = Meteor.call('checkApic', type, url, options (err, res) => {
+const cats = Meteor.call('checkApic', type, url, options, (err, res) => {
   if (err) {
     alert(err);
   } else {
