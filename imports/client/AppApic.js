@@ -16,7 +16,10 @@ let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em
 });
 console.log(object);
 
-object.makeTicket();
+object.makeTicket(function(err, result) {
+  if (err) console.log(err);
+  console.log(result);
+});
 
 console.log(object);
 
