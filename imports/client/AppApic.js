@@ -10,6 +10,9 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
+import Item from './Item'
+
+/*
 // creates NEW Object for the rest request
 let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'conten-type': 'application/json'}
@@ -21,7 +24,7 @@ object.makeTicket();
 
 // console.log(object); // debug
 
-
+*/
 @autobind
  class AppApic extends Component {
   render() {
