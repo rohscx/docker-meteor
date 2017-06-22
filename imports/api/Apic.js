@@ -19,7 +19,7 @@ function restRequest(type,url,options) {
 }
 
 restRequest.prototype.makeTicket = function() {
-  Meteor.call('checkApic', type, url, options, (err, res) => {
+  Meteor.call('checkApic', this.typeTicket, this.urlTicket, this.optionsTicket, (err, res) => {
   if (err) {
     alert(err);
   } else {
