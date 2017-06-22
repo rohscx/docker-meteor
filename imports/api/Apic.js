@@ -8,6 +8,7 @@ function restRequest(type,url,options) {
   this.type = type;
   this.url = url;
   this.options = options;
+  this.response;
   this.typeTicket = 'POST';
   this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
   this.optionsTicket = {
