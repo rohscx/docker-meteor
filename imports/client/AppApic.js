@@ -18,6 +18,7 @@ console.log(object);
 
 object.makeTicket(function(err, result) {
   if (err) console.log(err);
+  console.log('CATS');
   console.log(result);
 });
 
