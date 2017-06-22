@@ -14,7 +14,7 @@ const cats = Meteor.call('checkApic', (err, res) => {
     alert(err);
   } else {
     // success!
-    Session.set("data", res.data)
+    Session.set("data", res.data.response)
   }
 });
 
