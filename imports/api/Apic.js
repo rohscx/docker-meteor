@@ -28,7 +28,7 @@ const restRequest = Meteor.call('checkApic', typeTicket, urlTicket, optionsTicke
         alert(err);
       } else {
         // success!
-        Session.set("data", res.data.response.serviceTicket);
+        Session.set("data", res.content);
         return Session.get("data");
       }
     });
