@@ -38,7 +38,7 @@ restRequest.prototype.useTicket = function() {
     alert(err);
   } else {
     // success!
-    //console.log(res);
+    console.log(res);
     this.response = res;
   }
 })};
