@@ -10,8 +10,12 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-restRequest;
 
+var object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+        headers: { 'conten-type': 'application/json',
+		  'x-auth-token': 'catsanddogs',
+		 }
+);
 
 @autobind
  class AppApic extends Component {
