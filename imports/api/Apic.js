@@ -12,8 +12,9 @@ const optionsTicket = {
 const typeApic = 'POST';
 const urlApic = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
 const optionsApic = {
-        headers: { contentType: 'application/json' },
-	data: {username: 'devnetuser', password: 'Cisco123!'}
+        headers: { 'conten-type': 'application/json',
+		  'x-auth-token': Session.get("data"),
+		 }
 };
 
 const restRequest = Meteor.call('checkApic', typeTicket, urlTicket, optionsTicket, (err, res) => {
