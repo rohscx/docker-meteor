@@ -11,12 +11,13 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 
-var object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'conten-type': 'application/json',
 		  'x-auth-token': 'catsanddogs',
 		 }
 });
 console.log(object);
+
 
 @autobind
  class AppApic extends Component {
