@@ -28,7 +28,7 @@ restRequest.prototype.makeTicket = function() {
     this.ticket = res.data.response.serviceTicket;
     Session.set("data", res.data.response.serviceTicket);
   }
-});
+})};
 
 
 
