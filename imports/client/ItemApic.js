@@ -15,7 +15,7 @@ object.makeTicket();
 
 
 let mark = object.map((getFullName) => {
-                let fullname = [getFullName.response]
+                let fullname = getFullName.response;
         return fullname;
 });
 
