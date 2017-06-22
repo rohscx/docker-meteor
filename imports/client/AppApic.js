@@ -26,6 +26,9 @@ import ItemApic from './ItemApic';
         <main>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket:  {Session.get("apicTicket")}</p>
+            {this.props.items.map((item) => {
+            return <Item item={item} key={item._id}/>
+          })}
         </main>
     );
   }
