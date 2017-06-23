@@ -33,11 +33,7 @@ import ItemApic from './ItemApic';
      // console.log(object); // debug
      console.log(this); // debug
 
-       return (
-         <p>
-           hello
-         </p>
-       );
+       return "hello";
      }
 
 
