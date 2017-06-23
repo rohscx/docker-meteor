@@ -48,7 +48,7 @@ import ItemApic from './ItemApic';
        Session.set('showAll', true);
      }
    }
-
+this.getItems
   render() {
 
     if (!this.props.ready) {
@@ -68,7 +68,7 @@ import ItemApic from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            <p>{this.getItems}</p>
+
            <ItemApic/>
              <ReactCSSTransitionGroup
                transitionName='item'
