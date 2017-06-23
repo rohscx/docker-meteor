@@ -56,6 +56,9 @@ import ItemApic from './ItemApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket:  {Session.get("apicTicket")}</p>
+            <button onClick={this.getItems}>
+              apicGet {this.props.showAll ? 'One': 'All'}
+            </button>
              <ItemApic/>
              <ReactCSSTransitionGroup
                transitionName='item'
@@ -75,7 +78,6 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let itemsArray;
-console.log(this);
   return {
     showAll,
     ready: userSub.ready()
