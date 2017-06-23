@@ -42,7 +42,7 @@ import ItemApic from './ItemApic';
    }
 
   render() {
-    console.log(this);
+
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
@@ -75,7 +75,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let itemsArray;
-
+console.log(this);
   return {
     showAll,
     ready: userSub.ready()
