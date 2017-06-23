@@ -5,7 +5,7 @@ import restRequest from '../api/Apic';
 import { Session } from 'meteor/session';
 
 
-
+let da = Session.get("apicResponse");
 
 
 export default class ItemApic extends Component {
@@ -14,7 +14,7 @@ export default class ItemApic extends Component {
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
          <span>CATS</span>
-         <h3>DOGS={JSON.parse(JSON.stringify(Session.get("apicResponse")))}</h3>
+         <h3>DOGS={JSON.parse(JSON.stringify(da)}</h3>
        </div>
        </div>
      )
