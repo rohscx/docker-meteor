@@ -41,7 +41,7 @@ restRequest.prototype.useTicket = function() {
     // success!
     // console.log(res); // debug
     this.response = res;
-    Session.set("apicResponse", res.data.response.toString);
+    Session.set("apicResponse", res.data.response.hostIp);
   }
 })};
 
