@@ -25,7 +25,7 @@ export default class ItemApic extends Component {
       );
     }
 
-    function Comment(props) {
+    Comment(props) {
       return (
         <div className="Comment">
           <div className="UserInfo">
