@@ -30,7 +30,6 @@ import ItemApic from './ItemApic';
 
      // Requests NEW ticket from APIC
      object.makeTicket();
-     return = object.type;
 
      console.log(object); // debug
      console.log(this); // debug
@@ -50,6 +49,7 @@ import ItemApic from './ItemApic';
       return <div>Loading APIC...</div>
     }
     console.log(this);
+    console.log(object);
 
     return (
         <main>
