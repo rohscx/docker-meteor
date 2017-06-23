@@ -30,7 +30,7 @@ import ItemApic from './ItemApic';
      // Requests NEW ticket from APIC
      object.makeTicket();
 
-     console.log(object); // debug
+     // console.log(object); // debug
      console.log(this); // debug
    }
 
