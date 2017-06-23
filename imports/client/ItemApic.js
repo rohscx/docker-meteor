@@ -14,7 +14,7 @@ export default class ItemApic extends Component {
        </div>
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
-           <p>{this.getItems.id.toString}</p>
+           <p>{this.getItems}</p>
          <span>CATS</span>
          <h3>DOGS=</h3>
        </div>
