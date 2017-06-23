@@ -39,10 +39,10 @@ import ItemApic from './ItemApic';
      } else {
        Session.set('showAll', true);
      }
-
    }
 
   render() {
+    console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
@@ -63,7 +63,7 @@ import ItemApic from './ItemApic';
                transitionLeaveTimeout={600}
                transitionAppear={true}
                transistionAppearTimeout={600}>
-
+    }
            </ReactCSSTransitionGroup>
         </main>
     );
