@@ -23,7 +23,6 @@ import ItemApic from './ItemApic';
 
    getItems() {
 
-      const itemTwo = this.refs.itemTwo.value.trim()
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
              headers: { 'conten-type': 'application/json'}
      });
@@ -32,7 +31,7 @@ import ItemApic from './ItemApic';
      // Requests NEW ticket from APIC
      object.makeTicket();
 
-     console.log(object.makeTicket); // debug
+     console.log(this); // debug
    }
 
    showAll() {
