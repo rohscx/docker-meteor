@@ -81,6 +81,6 @@ export default createContainer(({params}) => {
 
   return {
     showAll,
-    ready: userSub.ready(),
+    ready: userSub.ready()
   }
 }, AppApic);
