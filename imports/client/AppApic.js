@@ -32,6 +32,7 @@ import ItemApic from './ItemApic';
      object.makeTicket();
 
      console.log(object); // debug
+     console.log(this); // debug
    }
 
    showAll() {
