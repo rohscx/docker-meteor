@@ -23,7 +23,7 @@ import ItemApic from './ItemApic';
 
    getItems() {
 
-     this.props.object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+     let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
              headers: { 'conten-type': 'application/json'}
      });
      // console.log(object); // debug
@@ -34,7 +34,7 @@ import ItemApic from './ItemApic';
      console.log(this); // debug
    }
 
-   showAll() {
+   showAllm() {
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
