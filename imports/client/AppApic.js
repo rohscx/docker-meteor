@@ -34,9 +34,9 @@ import ItemApic from './ItemApic';
      console.log(this); // debug
 
        return (
-         <div className="cssClass">
+         <p>
            hello
-         </div>
+         </p>
        );
      }
 
