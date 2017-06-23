@@ -12,9 +12,8 @@ const result = HTTP.call(type, url, options);
     } catch (e) {
       // Got a network error, timeout, or HTTP error in the 400 or 500 range.
 	    console.log(e)
+      console.log(HTTP)
       return false;
     }
   }
 });
-
-
