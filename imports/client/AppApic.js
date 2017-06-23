@@ -32,14 +32,14 @@ import ItemApic from './ItemApic';
 
      // console.log(object); // debug
      console.log(this); // debug
-     render() {
+
        return (
          <div className="cssClass">
            hello
          </div>
        );
      }
-   }
+
 
    showAll() {
      if(this.props.showAll) {
