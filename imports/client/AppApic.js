@@ -49,7 +49,6 @@ import ItemApic from './ItemApic';
       return <div>Loading APIC...</div>
     }
     console.log(this);
-    console.log(object);
 
     return (
         <main>
