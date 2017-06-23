@@ -31,10 +31,10 @@ import ItemApic from './ItemApic';
      // Requests NEW ticket from APIC
      object.makeTicket();
 
-     console.log(this); // debug
+     console.log(object); // debug
    }
 
-   showAllm() {
+   showAll() {
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
