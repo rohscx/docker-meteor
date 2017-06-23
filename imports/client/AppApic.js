@@ -23,7 +23,7 @@ import ItemApic from './ItemApic';
 
    getItems() {
 
-     let this.props.object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+     this.props.object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
              headers: { 'conten-type': 'application/json'}
      });
      // console.log(object); // debug
