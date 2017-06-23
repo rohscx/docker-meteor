@@ -5,8 +5,8 @@ import restRequest from '../api/Apic';
 import { Session } from 'meteor/session';
 
 
-let da = Session.get("apicResponse");
-let blah = JSON.parse(JSON.stringify(da));
+//let da = Session.get("apicResponse");
+//let blah = JSON.parse(JSON.stringify(da));
 
 
 export default class ItemApic extends Component {
