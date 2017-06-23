@@ -30,6 +30,7 @@ import ItemApic from './ItemApic';
 
      // Requests NEW ticket from APIC
      object.makeTicket();
+     const this.props.test = object;
 
      console.log(this); // debug
    }
