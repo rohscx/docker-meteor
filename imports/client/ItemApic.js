@@ -46,7 +46,7 @@ export default class ItemApic extends Component {
       );
     }
 
-    const comment = {
+    comment = {
   date: new Date(),
   text: 'I hope you enjoy learning React!',
   author: {
