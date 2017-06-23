@@ -20,28 +20,7 @@ import ItemApic from './ItemApic';
 
 @autobind
  class AppApic extends Component {
-/*
-getItems() {
-  let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-          headers: { 'conten-type': 'application/json'}
-  });
-  // console.log(object); // debug
 
-  // Requests NEW ticket from APIC
-  object.makeTicket();
-
-  console.log(object); // debug
-}
-
-showAll() {
-  if(this.props.showAll) {
-    Session.set('showAll', false);
-  } else {
-    Session.set('showAll', true);
-  }
-
-}
-*/
 
 
 
