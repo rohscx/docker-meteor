@@ -63,7 +63,7 @@ import ItemApic from './ItemApic';
                transitionLeaveTimeout={600}
                transitionAppear={true}
                transistionAppearTimeout={600}>
-    }
+
            </ReactCSSTransitionGroup>
         </main>
     );
