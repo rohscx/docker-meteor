@@ -22,6 +22,8 @@ import ItemApic from './ItemApic';
  class AppApic extends Component {
 
    getItems() {
+
+      const itemTwo = this.refs.itemTwo.value.trim()
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
              headers: { 'conten-type': 'application/json'}
      });
@@ -30,7 +32,7 @@ import ItemApic from './ItemApic';
      // Requests NEW ticket from APIC
      object.makeTicket();
 
-     console.log(object); // debug
+     console.log(object.makeTicket); // debug
    }
 
    showAll() {
@@ -46,6 +48,7 @@ import ItemApic from './ItemApic';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
+    console.log(this);
 
     return (
         <main>
