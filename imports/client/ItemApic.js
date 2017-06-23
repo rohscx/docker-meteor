@@ -29,7 +29,7 @@ export default class ItemApic extends Component {
        <div className='item'>
          <div className='vote-one' onClick={this.getItems}>
          <span>CATS</span>
-         {console.log(this)}
+
          <h3>DOGS=</h3>
        </div>
        </div>
