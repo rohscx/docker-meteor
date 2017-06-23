@@ -6,7 +6,7 @@ import { Session } from 'meteor/session';
 
 
 let da = Session.get("apicResponse");
-let blah = JSON.parse(JSON.stringify(da))
+let blah = JSON.parse(JSON.stringify(da));
 
 
 export default class ItemApic extends Component {
