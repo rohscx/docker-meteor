@@ -46,6 +46,15 @@ export default class ItemApic extends Component {
       );
     }
 
+    const comment = {
+  date: new Date(),
+  text: 'I hope you enjoy learning React!',
+  author: {
+    name: 'Hello Kitty',
+    avatarUrl: 'http://placekitten.com/g/64/64'
+  }
+};
+
    render() {
      return (
        <div className='item'>
