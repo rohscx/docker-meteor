@@ -17,7 +17,6 @@ import ItemApic from './ItemApic';
 
 
 
-
 @autobind
  class AppApic extends Component {
 
