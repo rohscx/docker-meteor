@@ -20,7 +20,7 @@ import ItemApic from './ItemApic';
 
 @autobind
  class AppApic extends Component {
-
+/*
 getItems() {
   let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
           headers: { 'conten-type': 'application/json'}
@@ -41,7 +41,7 @@ showAll() {
   }
 
 }
-
+*/
 
 
 
