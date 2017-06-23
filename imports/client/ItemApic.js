@@ -61,9 +61,9 @@ export default class ItemApic extends Component {
          <div className='vote-one' onClick={this.getItems}>
          <span>CATS</span>
          <Comment
-           date={comment.date}
-           text={comment.text}
-           author={comment.author} />
+           date={this.comment.date}
+           text={this.comment.text}
+           author={this.comment.author} />
          <h3>DOGS=</h3>
        </div>
        </div>
