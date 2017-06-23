@@ -68,6 +68,7 @@ import ItemApic from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
+            <p>{this.getItems}</p>
            <ItemApic/>
              <ReactCSSTransitionGroup
                transitionName='item'
