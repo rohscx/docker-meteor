@@ -15,7 +15,7 @@ export default class ItemApic extends Component {
        <div className='ItemApic'>
          <div className='apic-list' onClick={console.log('List Clicked')}>
          <span>CATS</span>
-         <h3>DOGS={blah}</h3>
+         <h3>DOGS=</h3>
        </div>
        </div>
      )
