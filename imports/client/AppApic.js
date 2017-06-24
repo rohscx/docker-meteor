@@ -71,7 +71,7 @@ import ItemApic from './ItemApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket: {this.state.ticket}</p>
-            <button onClick={this.changeState.bind(this)}>
+            <button onClick={this.changeTicket.bind(this)}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
