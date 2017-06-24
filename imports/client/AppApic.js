@@ -56,10 +56,11 @@ import {ItemApic} from './ItemApic';
 
                    // your code
                    return prop + " = " + obj[prop];
+                   return <ItemApic item={item} prop={prop}/>
                }
 
 
-              return <Item item={item} key={item._id}/>
+
             })}
              <ReactCSSTransitionGroup
                transitionName='item'
