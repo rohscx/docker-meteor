@@ -35,7 +35,7 @@ import { Tracker } from 'meteor/tracker';
    });
 
    //this.setState({ticket: Session.get("apicTicket")});
-   let count = new ReactiveVar(Session.get("apicTicket")});
+   let count = new ReactiveVar(Session.get("apicTicket"));
 
    count.set(1);
    object.makeTicket();
