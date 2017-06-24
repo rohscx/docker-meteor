@@ -19,6 +19,10 @@ import {ItemApic} from './ItemApic';
 
 @autobind
  class AppApic extends Component {
+   constructor() {
+     super();
+     this.state = {test: 'HELLOW'};
+   }
 
 
 
@@ -32,7 +36,8 @@ import {ItemApic} from './ItemApic';
    }
 
   render() {
-    console.log(Session.get("apicResponse")[0])
+    console.log(Session.get("apicResponse")[0]);
+    console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
@@ -55,8 +60,8 @@ import {ItemApic} from './ItemApic';
                    if(!obj.hasOwnProperty(prop)) continue;
 
                    // your code
-                   return prop + " = " + obj[prop];
-                   return <ItemApic item={item} prop={prop}/>
+
+                   return <ItemApic />
                }
 
 
