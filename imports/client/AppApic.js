@@ -49,7 +49,7 @@ import {ItemApic} from './ItemApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <p>Current Ticket:  {Session.get("apicTicket")}</p>
+            <p>Current Ticket:  {Session.get("apicTicket")} {this.state.test}</p>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
