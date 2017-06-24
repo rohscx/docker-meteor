@@ -12,6 +12,8 @@ import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
 
+import { Tracker } from 'meteor/tracker';
+
 
 
 
@@ -33,7 +35,14 @@ import ItemApic from './ItemApic';
    });
    object.makeTicket();
    console.log('AFTER');
-   this.setState({ticket: Session.get("apicTicket")});
+   Tracker.autorun(() => {
+     if (this.type) {
+       return
+     }
+    this.setState({ticket: Session.get("apicTicket")});
+  }
+});
+
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
