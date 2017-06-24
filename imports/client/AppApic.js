@@ -33,12 +33,13 @@ import { Tracker } from 'meteor/tracker';
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
-   object.makeTicket();
-   console.log('AFTER');
+
    //this.setState({ticket: Session.get("apicTicket")});
-   let count = new ReactiveVar(0);
+   let count = new ReactiveVar(Session.get("apicTicket")});
 
    count.set(1);
+   object.makeTicket();
+   console.log('AFTER');
    this.setState({ticket: count.get()});
 
 
