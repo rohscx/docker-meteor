@@ -31,16 +31,10 @@ import ItemApic from './ItemApic';
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
-   object.makeTicket(callback) {
-  fetchData(function (err, data) {
-    if (err) {
-      console.log("An error has occured. Abort everything!");
-      callback(err);
-    }
-    console.log('BEFORE');
-    callback(data);
-  });
-}
+   object.makeTicket(function(err, data) {
+  // TODO: Error Handling Still Needed!
+  console.log('BEFOER');
+});
    console.log('AFTER');
    // console.log(object); // debug
 
