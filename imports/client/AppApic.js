@@ -37,7 +37,7 @@ import ItemApic from './ItemApic';
       return <div>Loading APIC...</div>
     }
     console.log(this);
-
+    console.log(object);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -50,7 +50,7 @@ import ItemApic from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-           
+
              <ReactCSSTransitionGroup
                transitionName='item'
                transitionEnterTimeout={600}
