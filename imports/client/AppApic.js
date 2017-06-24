@@ -52,6 +52,10 @@ import ItemApic from './ItemApic';
      }
    }
 
+   changeTicket(ticket){
+     this.setState({ticket});
+   }
+
   render() {
     //console.log(Session.get("apicResponse")[0]);
     console.log(this);
@@ -66,8 +70,8 @@ import ItemApic from './ItemApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <p>Current Ticket: {this.state.ticket.bind(this)}</p>
-            <button onClick={this.getItems}>
+            <p>Current Ticket: {this.state.ticket}</p>
+            <button onClick={this.changeState}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
