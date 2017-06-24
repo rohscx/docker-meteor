@@ -32,7 +32,7 @@ import {ItemApic} from './ItemApic';
    }
 
   render() {
-    console.log(Session.get("apicResponse"))
+    console.log(Session.get("apicResponse[0]"))
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
