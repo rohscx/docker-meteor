@@ -25,6 +25,9 @@ import ItemApic from './ItemApic';
    }
 
    getItems() {
+     console.log('LOOK');
+     console.log(this);
+     console.log('LOOK');
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
@@ -39,7 +42,7 @@ import ItemApic from './ItemApic';
      //console.log(object); // debug
      //console.log('CATS ON EVERYTHING'); // debug
      //this.setState({ticket: Session.get("apicTicket")});
-     this.setState({ticket: 'lkjhjkhjkhlkj'});
+     //this.setState({ticket: 'lkjhjkhjkhlkj'});
 
    });
 }
@@ -58,7 +61,7 @@ import ItemApic from './ItemApic';
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    console.log(this);
+    //console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
