@@ -53,20 +53,8 @@ import {ItemApic} from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            {Session.get("apicResponse").map((item) => {
+            <ItemApic />
 
-               for (var prop in item) {
-                   // skip loop if the property is from prototype
-                   if(!obj.hasOwnProperty(prop)) continue;
-
-                   // your code
-
-                   return <ItemApic />
-               }
-
-
-
-            })}
              <ReactCSSTransitionGroup
                transitionName='item'
                transitionEnterTimeout={600}
