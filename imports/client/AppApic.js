@@ -37,7 +37,7 @@ import ItemApic from './ItemApic';
       return <div>Loading APIC...</div>
     }
     console.log(this);
-    console.log(this.object);
+    console.log(this.object.statusCode);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -46,7 +46,7 @@ import ItemApic from './ItemApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <p>Current Ticket:  {Session.get("apicTicket")} {Session.get("apicResponse.statusCode")}</p>
+            <p>Current Ticket:  {Session.get("apicTicket")} {this.object.statusCode}</p>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
