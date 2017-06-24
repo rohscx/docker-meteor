@@ -12,7 +12,13 @@ import { Session } from 'meteor/session';
   // console.log(object); // debug
 
   // Requests NEW ticket from APIC
-  object.makeTicket();
+  object.makeTicket(function (err, content) {
+    if (err) {
+      return console.log(err)
+    }
+    // console.log(object); // debug
+    console.log(this); // debug
+  });
 
   // console.log(object); // debug
   console.log(this); // debug
