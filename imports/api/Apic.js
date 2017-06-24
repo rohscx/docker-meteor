@@ -32,6 +32,7 @@ restRequest.prototype.makeTicket = function() {
     return this.ticket;
 
   }
+  return 'CATS ON';
 })};
 
 
