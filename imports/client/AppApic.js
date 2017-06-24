@@ -52,8 +52,8 @@ import ItemApic from './ItemApic';
      }
    }
 
-   changeTicket(ticket){
-     this.setState({ticket});
+   changeTicket(tickett){
+     this.setState({ticket: 'UPDATED'});
    }
 
   render() {
