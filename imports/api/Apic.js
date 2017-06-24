@@ -50,6 +50,7 @@ restRequest.prototype.useTicket = function() {
     console.log(JSON.parse(JSON.stringify(res))); // debug
     this.response = res;
     Session.set("apicResponse", res.data.response);
+    return true;
 
   }
 })};
