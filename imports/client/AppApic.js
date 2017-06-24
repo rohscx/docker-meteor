@@ -32,10 +32,6 @@ import {ItemApic} from './ItemApic';
    }
 
   render() {
-    console.log('cats')
-    let man = Session.get("apicResponse".statusCode);
-    console.log('pigs')
-    console.log(man)
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
