@@ -31,11 +31,9 @@ import ItemApic from './ItemApic';
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
-   object.makeTicket(function(err, data) {
-  // TODO: Error Handling Still Needed!
-  console.log('BEFOER');
-});
+   object.makeTicket();
    console.log('AFTER');
+   this.setState({ticket: Session.get("apicTicket")});
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
