@@ -27,6 +27,8 @@ restRequest.prototype.makeTicket = function() {
     this.ticket = res.data.response.serviceTicket;
     this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
     Session.set("apicTicket", res.data.response.serviceTicket);
+    console.log(this.ticket);
+    console.log('TICKET ABOVE');
     return this.ticket;
 
   }
