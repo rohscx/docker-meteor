@@ -50,7 +50,6 @@ import ItemApic from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            {this.getItems}
            <ItemApic/>
              <ReactCSSTransitionGroup
                transitionName='item'
