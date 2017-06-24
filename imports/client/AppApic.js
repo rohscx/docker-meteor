@@ -35,7 +35,7 @@ import {ItemApic} from './ItemApic';
     console.log('cats')
     let man = Session.get("apicResponse".statusCode);
     console.log('pigs')
-    console.log(man.statusCode)
+    console.log(man)
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
