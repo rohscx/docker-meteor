@@ -35,14 +35,7 @@ import { Tracker } from 'meteor/tracker';
    });
    object.makeTicket();
    console.log('AFTER');
-   Tracker.autorun(() => {
-     if (this.type) {
-       return
-     }
-    this.setState({ticket: Session.get("apicTicket")});
-  }
-});
-
+   this.setState({ticket: Session.get("apicTicket")});
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
