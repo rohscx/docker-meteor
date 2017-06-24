@@ -24,8 +24,22 @@ import ItemApic from './ItemApic';
      this.state = {ticket: 'Not received'};
    }
 
+   getItems() {let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+           headers: { 'conten-type': 'application/json'}
+   });
+   // console.log(object); // debug
 
+   // Requests NEW ticket from APIC
+   object.makeTicket(function (err, content) {
+     if (err) {
+       return console.log(err)
+     }
 
+     // console.log(object); // debug
+     //console.log(this); // debug
+
+   });
+}
 
    showAll() {
      if(this.props.showAll) {
