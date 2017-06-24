@@ -28,8 +28,6 @@ restRequest.prototype.makeTicket = function() {
     this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
     Session.set("apicTicket", res.data.response.serviceTicket);
     this.useTicket();
-    let man = 'RANDOM MAN TEST';
-    return man;
   }
 })};
 
