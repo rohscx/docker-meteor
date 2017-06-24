@@ -36,7 +36,8 @@ import ItemApic from './ItemApic';
    // Requests NEW ticket from APIC
    object.makeTicket(function (err, data) {
      if (err) {
-       return console.log(err)
+       console.log('aadfasdfasdfsfasdf');
+       console.log(err)
      }
      console.log('WOWOWOWOWOW');
 
