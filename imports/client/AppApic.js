@@ -36,7 +36,7 @@ import {ItemApic, object} from './ItemApic';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
-    console.log(this);
+    console.log(object);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
