@@ -33,7 +33,7 @@ restRequest.prototype.makeTicket = function() {
         return;
       }
       console.log('Apic.JS R');
-      return res.data.response;
+      callback(res.data.response);
     });
   }
 })};
@@ -50,7 +50,7 @@ restRequest.prototype.useTicket = function() {
     console.log(JSON.parse(JSON.stringify(res))); // debug
     this.response = res;
     Session.set("apicResponse", res.data.response);
-    return true;
+    callback(res);
 
   }
 })};
