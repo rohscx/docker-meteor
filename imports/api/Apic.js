@@ -27,14 +27,8 @@ restRequest.prototype.makeTicket = function() {
     this.ticket = res.data.response.serviceTicket;
     this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
     Session.set("apicTicket", res.data.response.serviceTicket);
-    this.useTicket( function (err, data){
-      if(err) {
-        console.log('Unknown Error');
-        return;
-      }
-      console.log('Apic.JS R');
-      callback(res.data.response);
-    });
+    this.useTicket();
+    return true;
   }
 })};
 
@@ -50,8 +44,7 @@ restRequest.prototype.useTicket = function() {
     console.log(JSON.parse(JSON.stringify(res))); // debug
     this.response = res;
     Session.set("apicResponse", res.data.response);
-    callback(res);
-
+    return true;
   }
 })};
 
