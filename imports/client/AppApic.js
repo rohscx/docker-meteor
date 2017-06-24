@@ -34,10 +34,11 @@ import ItemApic from './ItemApic';
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
-   object.makeTicket(function (err, content) {
+   object.makeTicket(function (err, data) {
      if (err) {
        return console.log(err)
      }
+     console.log('WOWOWOWOWOW');
 
      //console.log(object); // debug
      //console.log('CATS ON EVERYTHING'); // debug
