@@ -13,7 +13,7 @@ import Items from '../api/Items'
 
    constructor() {
      super();
-     this state = {test: 'HELLOW'};
+     this.state = {test: 'HELLOW'};
    }
 
    addItems(event) {
