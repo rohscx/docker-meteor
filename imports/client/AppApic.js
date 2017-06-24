@@ -36,8 +36,8 @@ import ItemApic from './ItemApic';
        return console.log(err)
      }
 
-     console.log(object); // debug
-     console.log('CATS ON EVERYTHING'); // debug
+     //console.log(object); // debug
+     //console.log('CATS ON EVERYTHING'); // debug
      //this.setState({ticket: Session.get("apicTicket")});
      this.setState({ticket: 'lkjhjkhjkhlkj'});
 
