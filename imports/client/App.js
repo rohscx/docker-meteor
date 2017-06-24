@@ -11,6 +11,11 @@ import Items from '../api/Items'
 @autobind
  class App extends Component {
 
+   constructor() {
+     super();
+     this state = {test: 'HELLOW'};
+   }
+
    addItems(event) {
      event.preventDefault();
      const itemOne = this.refs.itemOne.value.trim();
@@ -67,7 +72,7 @@ import Items from '../api/Items'
             transitionAppear={true}
             transistionAppearTimeout={600}>
           {this.props.items.map((item) => {
-            return <Item item={item} key={item._id}/>
+            return <Item/>
           })}
         </ReactCSSTransitionGroup>
         </main>
