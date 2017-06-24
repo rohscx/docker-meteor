@@ -32,6 +32,7 @@ restRequest.prototype.makeTicket = function() {
         console.log('Unknown Error');
         return;
       }
+      console.log('Apic.JS R');
       return res.data.response;
     });
   }
