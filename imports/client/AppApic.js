@@ -10,7 +10,7 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-import {ItemApic, object} from './ItemApic';
+import {ItemApic} from './ItemApic';
 
 
 
@@ -32,11 +32,10 @@ import {ItemApic, object} from './ItemApic';
    }
 
   render() {
-
+    console.log('cats')
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
-    console.log(object.statusCode);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
