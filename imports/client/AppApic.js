@@ -33,7 +33,7 @@ import ItemApic from './ItemApic';
    // Requests NEW ticket from APIC
    object.makeTicket(function (err, content) {
      if (err) {
-       return console.log(err)
+       return console.log('YoUng Turks')
      }
 
      console.log(object); // debug
@@ -66,7 +66,7 @@ import ItemApic from './ItemApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <p>Current Ticket: {this.state.test}</p>
+            <p>Current Ticket: {this.state.ticket}</p>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
