@@ -28,7 +28,6 @@ restRequest.prototype.makeTicket = function() {
     this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
     Session.set("apicTicket", res.data.response.serviceTicket);
     this.useTicket();
-    return true;
   }
 })};
 
@@ -44,7 +43,6 @@ restRequest.prototype.useTicket = function() {
     console.log(JSON.parse(JSON.stringify(res))); // debug
     this.response = res;
     Session.set("apicResponse", res.data.response);
-    return true;
   }
 })};
 
