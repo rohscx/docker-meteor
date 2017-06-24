@@ -38,7 +38,7 @@ import ItemApic from './ItemApic';
 
      console.log(object); // debug
      console.log(this); // debug
-     this.setState(Session.get("apicTicket"));
+     this.setState(ticket: Session.get("apicTicket"));
 
    });
 }
