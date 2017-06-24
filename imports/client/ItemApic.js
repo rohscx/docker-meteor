@@ -16,12 +16,17 @@ import { Session } from 'meteor/session';
     if (err) {
       return console.log(err)
     }
+
     // console.log(object); // debug
     console.log(this); // debug
+    return (
+  <div className={fancyClass} onClick={this.props.onClick}>
+    {this.props.children}
+  </div>
+);
+
   });
 
-  // console.log(object); // debug
-  console.log(this); // debug
 
 
 
