@@ -39,7 +39,7 @@ import ItemApic from './ItemApic';
      console.log(object); // debug
      console.log(this); // debug
      //this.setState({ticket: Session.get("apicTicket")});
-     this.setState(ticket: "lkjhjkhjkhlkj");
+     this.setState({ticket: "lkjhjkhjkhlkj"});
 
    });
 }
@@ -71,7 +71,7 @@ import ItemApic from './ItemApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket: {this.state.ticket}</p>
-            <button onClick={this.changeTicket.bind(this)}>
+            <button onClick={this.getItems.bind(this)}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
