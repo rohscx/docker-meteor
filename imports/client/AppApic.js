@@ -24,7 +24,8 @@ import ItemApic from './ItemApic';
      this.state = {ticket: 'Not received'};
    }
 
-   getItems() {let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+   getItems() {
+     let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
    // console.log(object); // debug
@@ -35,8 +36,9 @@ import ItemApic from './ItemApic';
        return console.log(err)
      }
 
-     // console.log(object); // debug
-     //console.log(this); // debug
+     console.log(object); // debug
+     console.log(this); // debug
+     this.setState(Session.get("apicTicket"));
 
    });
 }
@@ -63,7 +65,7 @@ import ItemApic from './ItemApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <p>Current Ticket:  {Session.get("apicTicket")} {this.state.test}</p>
+            <p>Current Ticket: {this.state.test}</p>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
