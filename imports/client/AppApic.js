@@ -20,7 +20,17 @@ import {ItemApic} from './ItemApic';
 @autobind
  class AppApic extends Component {
 
+   getFullName(item) {
+    var fullname = [item.firstname,item.lastname].join(" ");
 
+    for (var prop in item) {
+        // skip loop if the property is from prototype
+        if(!obj.hasOwnProperty(prop)) continue;
+
+        // your code
+        return prop + " = " + obj[prop];
+    }
+  }
 
 
    showAll() {
@@ -48,7 +58,10 @@ import {ItemApic} from './ItemApic';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
+            {Session.get("apicResponse").map((this.getFullName) => {
 
+              return <Item item={item} key={item._id}/>
+            })}
              <ReactCSSTransitionGroup
                transitionName='item'
                transitionEnterTimeout={600}
