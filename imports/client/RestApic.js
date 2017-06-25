@@ -38,8 +38,6 @@ export default class RestApic extends Component {
     if (!this.state.ticket.state) {
       return <p welcome={"WelcomE"}>
     }
-
-    console.log(this);
-    return <p changeTicket= {this.changeTicket.bind(this)} />
+    return <p changeTicket= {this.changeTicket.bind(this)}>hahaha</p>
   }
 }
