@@ -29,22 +29,14 @@ export default class RestApic extends Component {
 
   }
 
-  changeTicket() {
-    if (!this.state.ticket.state) {
-      return <p>WelCOme!</p>
-    } else {
-      return <p> HoNUm </p>
-    }
-
-    getGreating() {
-      return <p>WelCOme!</p>
-      }
-
+  activateTicket(state) {
+    this.set.State({ticket.state: true})
   }
+
   render() {
     console.log(this);
     if (!this.state.ticket.state) {
-      this.getGreating()
+      return <p welcome={"Welcome"}>
     }
 
     console.log(this);
