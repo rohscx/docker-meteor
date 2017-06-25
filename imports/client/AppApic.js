@@ -33,24 +33,37 @@ import { Tracker } from 'meteor/tracker';
 
    async getItems() {
 
-     var doSomething = function() {
-  // Do something when the session value changes
-  console.log(Session.get("apicTicket"));
-}
 
-Tracker.autorun(function() {
-  var sessionVal = Session.set("apicTicket", 'BALJKA');
-  console.log("The session value has changed");
-  let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-        headers: { 'conten-type': 'application/json'}
-});
-object.makeTicket()
-  doSomething();
-});
+     console.log('LOOK');
+     console.log(this);
+     console.log('LOOK');
+     let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+           headers: { 'conten-type': 'application/json'}
+   });
 
-var anotherFunction = function() {
-  Session.set("yourSessionVariable", "foo");
-}
+
+
+   object.makeTicket()
+
+
+       var doSomething = function() {
+    // Do something when the session value changes
+    this.setState({ticket: count.get()});
+    console.log(Session.get("apicTicket"));
+    }
+
+    Tracker.autorun(function() {
+    var sessionVal = Session.get("apicTicket");
+    console.log("The session value has changed");
+    doSomething();
+    });
+
+    var anotherFunction = function() {
+    Session.set("yourSessionVariable", "foo");
+    }
+   console.log(test);
+   console.log(this);
+   console.log('BEFORE!!!');
 
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
