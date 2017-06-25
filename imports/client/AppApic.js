@@ -35,10 +35,11 @@ import { Tracker } from 'meteor/tracker';
 
      var doSomething = function() {
   // Do something when the session value changes
+  console.log('Triggered');
 }
 
 Tracker.autorun(function() {
-  var sessionVal = Session.get("yourSessionVariable");
+  var sessionVal = Session.get("apicTicket");
   console.log("The session value has changed");
   doSomething();
 });
@@ -61,7 +62,7 @@ var anotherFunction = function() {
    let count = new ReactiveVar(Session.get("apicTicket"));
 
    console.log('AFTER');
-   this.setState({ticket: count.get()});
+   this.setState({ticket: sessionVal.get()});
 
 
  // 1
