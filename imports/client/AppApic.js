@@ -12,8 +12,6 @@ import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
 
-import { Tracker } from 'meteor/tracker';
-
 
 
 
@@ -24,7 +22,6 @@ import { Tracker } from 'meteor/tracker';
    constructor() {
      super();
      this.state = {ticket: 'Not received'};
-     this.getItems = this.getItems.bind(this);
    }
 
    getItems() {
@@ -34,19 +31,9 @@ import { Tracker } from 'meteor/tracker';
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
-
-   //this.setState({ticket: Session.get("apicTicket")});
-   let count = new ReactiveVar(Session.get("apicTicket"));
-
-
-   object.makeTicket(function (err, data) {
-     console.log('Before');
-   });
+   object.makeTicket();
    console.log('AFTER');
-   this.setState({ticket: count.get()});
-
-
- // 1
+   
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
