@@ -60,7 +60,7 @@ import ItemApic from './ItemApic';
 }
 
    showAll() {
-     if(!this.state.render) {
+     if(this.state.render) {
        //this.setState.({ticket: "LoaDing..."});
        console.log('NOT SET TEST');
      }
