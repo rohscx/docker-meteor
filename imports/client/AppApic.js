@@ -36,6 +36,9 @@ import ItemApic from './ItemApic';
     username: 'devnetuser',
     password: 'Cisco123!',
   })
+  .then(function(response) {
+    console.log(response.json())
+    //return response.json()
 })
    }
 
