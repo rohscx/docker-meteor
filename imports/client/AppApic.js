@@ -39,7 +39,7 @@ import { Tracker } from 'meteor/tracker';
 }
 
 Tracker.autorun(function() {
-  var sessionVal = Session.get("apicTicket");
+  var sessionVal = Session.set("apicTicket", 'nothing to see!!');
   console.log("The session value has changed");
   doSomething();
 });
