@@ -27,7 +27,9 @@ import { Tracker } from 'meteor/tracker';
      this.getItems = this.getItems.bind(this);
    }
 
-   getItems() {
+   getItems((err, data) {
+     console.log('BEFORE');
+   }) {
      console.log('LOOK');
      console.log(this);
      console.log('LOOK');
@@ -39,9 +41,7 @@ import { Tracker } from 'meteor/tracker';
    let count = new ReactiveVar(Session.get("apicTicket"));
 
 
-   object.makeTicket(function (err, data) {
-     console.log('BEFORE');
-   });
+   object.makeTicket(function);
    console.log('AFTER');
    this.setState({ticket: count.get()});
 
