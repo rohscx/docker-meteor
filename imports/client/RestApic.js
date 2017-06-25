@@ -8,11 +8,11 @@ export default class Item extends Component {
     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
           headers: { 'conten-type': 'application/json'}
         });
-  apic.makeTicket();
-  console.log('Ticket Rquested');
-  console.log(apic);
-  console.log(apic.ticket);
-  return <p>Current Ticket: {this.state.ticket}</p>
+        apic.makeTicket();
+        console.log('Ticket Rquested');
+        console.log(apic);
+        console.log(apic.ticket);
+
   // console.log(object); // debug
 
   // Requests NEW ticket from APIC
@@ -32,5 +32,8 @@ export default class Item extends Component {
   });
   */
 
-}
+  }
+  render() {
+    return <p>Current Ticket: {this.state.ticket}</p>
+  }
 }
