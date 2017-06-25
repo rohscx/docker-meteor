@@ -35,7 +35,8 @@ export default class RestApic extends Component {
     if (!this.state.ticket.state) {
       return <p>WelCOme!</p>
     }
+    tj
     console.log(this);
-    return <p>Current Ticket: {this.state.ticket}</p>
+    return <p changeTicket= {this.state.ticket.number.bind(this)} >Current Ticket: {this.state.ticket}</p>
   }
 }
