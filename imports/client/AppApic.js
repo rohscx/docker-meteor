@@ -31,13 +31,14 @@ import { Tracker } from 'meteor/tracker';
      this.getItems().done()
    }
 
-   getItems() {
+   async getItems() {
      console.log('LOOK');
      console.log(this);
      console.log('LOOK');
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
+   const test = await object.makeTicket()
 
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
