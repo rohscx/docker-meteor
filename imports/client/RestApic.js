@@ -29,7 +29,7 @@ export default class RestApic extends Component {
   }
 
   changeTicket(ticket) {
-    this.setState({ticket.number})
+    this.setState({this.ticket.number: ticket})
   }
   render() {
     if (!this.state.ticket.state) {
