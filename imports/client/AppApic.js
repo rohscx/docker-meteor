@@ -24,6 +24,7 @@ import { Tracker } from 'meteor/tracker';
    constructor() {
      super();
      this.state = {ticket: 'Not received'};
+     this.getItems = this.getItems.bind(this);
    }
 
    getItems() {
