@@ -34,6 +34,7 @@ export default class Item extends Component {
 
   }
   render() {
+    console.log(this);
     return <p>Current Ticket: {this.state.ticket}</p>
   }
 }
