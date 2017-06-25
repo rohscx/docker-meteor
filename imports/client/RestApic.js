@@ -12,6 +12,7 @@ export default class RestApic extends Component {
         state: false
       }
     }
+    this.getItems = this.getItems.bind(this);
   }
 
   getItems() {
