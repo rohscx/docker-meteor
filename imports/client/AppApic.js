@@ -39,6 +39,7 @@ import { Tracker } from 'meteor/tracker';
            headers: { 'conten-type': 'application/json'}
    });
    const test = await object.makeTicket()
+   console.log(test);
 
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
