@@ -44,6 +44,6 @@ export default class RestApic extends Component {
     }
 
     console.log(this);
-    return <p changeTicket= {this.state.ticket.number.bind(this)} />
+    return <p changeTicket= {this.changeTicket.bind(this)} />
   }
 }
