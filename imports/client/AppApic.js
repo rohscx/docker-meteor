@@ -30,18 +30,10 @@ import ItemApic from './ItemApic';
     }
 
    getItems() {
-     console.log('LOOK');
-     console.log(this);
-     console.log('LOOK');
-     let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
-   });
-   object.makeTicket();
-   console.log('AFTER');
-   console.log('LOOK');
-   console.log(this);
-   console.log('LOOK');
-
+         });
+   apic.makeTicket();
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
