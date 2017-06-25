@@ -26,15 +26,15 @@ import ItemApic from './ItemApic';
 
 
    getRest() {
-     fetch('https://mywebsite.com/endpoint/', {
+     fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
+    username: 'devnetuser',
+    password: 'Cisco123!',
   })
 })
    }
