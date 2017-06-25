@@ -61,7 +61,8 @@ import ItemApic from './ItemApic';
 
    showAll() {
      if(!this.state.render) {
-       this.setState.({ticket: "LoaDing..."});
+       //this.setState.({ticket: "LoaDing..."});
+       console.log('NOT SET TEST');
      }
 
      if(this.props.showAll) {
