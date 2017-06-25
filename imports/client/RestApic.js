@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import restRequest from '../api/Apic';
 import { Session } from 'meteor/session';
-import restRequest from '../api/Apic';
+
 
 export default class Item extends Component {
   getItems() {
