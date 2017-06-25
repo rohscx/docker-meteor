@@ -27,21 +27,20 @@ import ItemApic from './ItemApic';
 
    getRest() {
      fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: 'devnetuser',
-        password: 'Cisco123!',
-      })
-      .then(function(response) {
-      console.log(response.json())
-    //return response.json()
-    })
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    username: 'devnetuser',
+    password: 'Cisco123!',
+  })
+  .then(function(response) {
+    return response.json()
+  })
+})
    }
- }
 
 
 
