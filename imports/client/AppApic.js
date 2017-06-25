@@ -25,22 +25,9 @@ import ItemApic from './ItemApic';
    }
 
 
-   getRest() {
-     fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    username: 'devnetuser',
-    password: 'Cisco123!',
-  })
-})
-   }
-
-
-
+   componentDidMount() {
+      this.getItems();
+    }
 
    getItems() {
      console.log('LOOK');
@@ -100,7 +87,7 @@ import ItemApic from './ItemApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket: {this.state.ticket}</p>
-            <button onClick={this.getRest}>
+            <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
