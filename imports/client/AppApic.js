@@ -86,7 +86,7 @@ import RestApic from './RestApic';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
-    console.log(this);
+  
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
