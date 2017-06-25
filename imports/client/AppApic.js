@@ -37,6 +37,7 @@ import ItemApic from './ItemApic';
    apic.makeTicket();
    console.log('Ticket Rquested');
    console.log(apic);
+   console.log(apic.ticket);
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
@@ -59,6 +60,10 @@ import ItemApic from './ItemApic';
 }
 
    showAll() {
+     if(!this.state.render) {
+       this.setState.({ticket: "LoaDing..."});
+     }
+
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
