@@ -68,7 +68,7 @@ import ItemApic from './ItemApic';
    }
 
    changeTicket(ticket){
-     this.setState({ticket: 'UPDATED'});
+     this.setState({ticket});
    }
 
   render() {
@@ -79,7 +79,7 @@ import ItemApic from './ItemApic';
     }
     console.log(this);
     if(!this.state.render) {
-      this.setState.({ticket: "LoaDing..."});
+      this.changeTicket('LoaDing...');
       console.log('NOT SET TEST');
     }
     return (
