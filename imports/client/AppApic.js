@@ -38,7 +38,7 @@ import { Tracker } from 'meteor/tracker';
      let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
    });
-   const test = await object.makeTicket()
+   const test = await fetch(object.makeTicket())
    console.log(test);
 
    //this.setState({ticket: Session.get("apicTicket")});
