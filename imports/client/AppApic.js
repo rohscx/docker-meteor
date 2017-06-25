@@ -40,6 +40,8 @@ import { Tracker } from 'meteor/tracker';
    });
    const test = await fetch(object.makeTicket())
    console.log(test);
+   console.log(this);
+   console.log('BEFORE!!!');
 
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
