@@ -46,7 +46,7 @@ import { Tracker } from 'meteor/tracker';
    object.makeTicket()
 
 
-       var doSomething = function(Session.get("apicTicket")) {
+       var doSomething = function() {
     // Do something when the session value changes
     console.log(Session.get("apicTicket"));
     }
