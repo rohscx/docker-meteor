@@ -27,9 +27,11 @@ import { Tracker } from 'meteor/tracker';
      this.getItems = this.getItems.bind(this);
    }
 
-   getItems((err, data) {
+   testItems((err, data) {
      console.log('BEFORE');
-   }) {
+   }){}
+
+   getItems() {
      console.log('LOOK');
      console.log(this);
      console.log('LOOK');
@@ -95,7 +97,7 @@ import { Tracker } from 'meteor/tracker';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <p>Current Ticket: {this.state.ticket}</p>
-            <button onClick={this.getItems}>
+            <button onClick={this.testItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
