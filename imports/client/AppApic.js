@@ -68,7 +68,7 @@ import ItemApic from './ItemApic';
    }
 
    changeTicket(ticket){
-     this.setState({ticket});
+     this.setState({ticket: ticket});
    }
 
   render() {
