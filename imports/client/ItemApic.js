@@ -4,14 +4,10 @@ import restRequest from '../api/Apic';
 
 import { Session } from 'meteor/session';
 
-
-
-
-
-
-
-
 export default class ItemApic extends Component {
+  voteOne() {
+   Meteor.call('voteOnItem', this.props.item, 'itemOne');
+ }
 
    render() {
      return (

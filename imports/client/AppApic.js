@@ -24,11 +24,11 @@ import RestApic from './RestApic';
      super();
      this.state = {render: false, ticket: 'Not received'};
    }
-
+/*
    componentDidMount() {
       this.getItems();
     }
-
+*/
    getItems() {
      let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
            headers: { 'conten-type': 'application/json'}
