@@ -6,8 +6,12 @@ import { Session } from 'meteor/session';
 export default class RestApic extends Component {
   constructor() {
     super();
-    this.state = {ticket: 'Not received'};
-  }
+    this.state = {
+      ticket: {
+        number: "",
+        state: false
+      }
+    }
 
   getItems() {
     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
@@ -18,28 +22,18 @@ export default class RestApic extends Component {
         console.log(apic);
         console.log(apic.ticket);
         this.setState({ticket: Session.get("apicTicket")});
-
-  // console.log(object); // debug
-
-  // Requests NEW ticket from APIC
-  /*
-  object.makeTicket(function (err, data) {
-    if (err) {
-      console.log('aadfasdfasdfsfasdf');
-      console.log(err)
-    }
-    console.log('WOWOWOWOWOW');
-
-    //console.log(object); // debug
-    //console.log('CATS ON EVERYTHING'); // debug
-    //this.setState({ticket: Session.get("apicTicket")});
-    //this.setState({ticket: 'lkjhjkhjkhlkj'});
-
-  });
-  */
+        //this.setState({ticket: Session.get("apicTicket")});
+        //this.setState({ticket: 'lkjhjkhjkhlkj'});
 
   }
+
+  changeTicket(ticket) {
+    this.setState({ticket.number})
+  }
   render() {
+    if (!this.state.ticket.state) {
+      return <p>WelCOme!</p>
+    }
     console.log(this);
     return <p>Current Ticket: {this.state.ticket}</p>
   }

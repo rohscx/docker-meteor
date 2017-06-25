@@ -20,10 +20,7 @@ import RestApic from './RestApic';
 
 @autobind
  class AppApic extends Component {
-   constructor() {
-     super();
-     this.state = {ticket: 'Not received'};
-   }
+
 /*
    componentDidMount() {
       this.getItems();
