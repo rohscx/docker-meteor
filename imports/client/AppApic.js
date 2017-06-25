@@ -57,6 +57,18 @@ import ItemApic from './ItemApic';
 
 }
 
+    addToken(event) {
+      event.preventDefault();
+      const itemOne = this.refs.itemOne.value.trim();
+      if (itemOne != '') {
+          Meteor.call('insertNewItem', itemOne, (err, res) => {
+            if(!err) {
+              this.refs.itemOne.value = '';
+            }
+          });
+      }
+    }
+
    showAll() {
      if(this.props.showAll) {
        Session.set('showAll', false);
