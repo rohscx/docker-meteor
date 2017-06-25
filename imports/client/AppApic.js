@@ -27,6 +27,10 @@ import { Tracker } from 'meteor/tracker';
      this.getItems = this.getItems.bind(this);
    }
 
+   componentDidMout () {
+     this.getItems().done()
+   }
+
    getItems() {
      console.log('LOOK');
      console.log(this);
