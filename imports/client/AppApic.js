@@ -60,12 +60,6 @@ import ItemApic from './ItemApic';
 }
 
    showAll() {
-     console.log(this);
-     if(this.state.render) {
-       //this.setState.({ticket: "LoaDing..."});
-       console.log('NOT SET TEST');
-     }
-
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
@@ -82,6 +76,11 @@ import ItemApic from './ItemApic';
     //console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
+    }
+    console.log(this);
+    if(!this.state.render) {
+      //this.setState.({ticket: "LoaDing..."});
+      console.log('NOT SET TEST');
     }
     return (
         <main>
