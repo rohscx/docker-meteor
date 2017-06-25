@@ -22,7 +22,8 @@ export default class RestApic extends Component {
         console.log('Ticket Rquested');
         console.log(apic);
         console.log(apic.ticket);
-        this.setState({ticket: Session.get("apicTicket")});
+        this.setState({ticket.state: true})
+        //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
 
@@ -43,6 +44,6 @@ export default class RestApic extends Component {
     }
 
     console.log(this);
-    return <p changeTicket= {this.state.ticket.number.bind(this)} >Current Ticket: {this.state.ticket}</p>
+    return <p changeTicket= {this.state.ticket.number.bind(this)} />
   }
 }
