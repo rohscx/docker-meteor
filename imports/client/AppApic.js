@@ -41,31 +41,30 @@ import { Tracker } from 'meteor/tracker';
            headers: { 'conten-type': 'application/json'}
    });
 
+   const test = await fetch(object.makeTicket())
 
-
-   object.makeTicket()
-
-
-       var doSomething = function() {
-    // Do something when the session value changes
-    console.log(Session.get("apicTicket"));
-    }
-
-    Tracker.autorun(function() {
-    var sessionVal = Session.get("apicTicket");
-    console.log("The session value has changed");
-    doSomething();
-    });
-
-    var anotherFunction = function() {
-    Session.set("yourSessionVariable", "foo");
-    }
-   console.log(test);
-   console.log(this);
-   console.log('BEFORE!!!');
 
    //this.setState({ticket: Session.get("apicTicket")});
+   let count = new ReactiveVar(Session.get("apicTicket"));
 
+   this.setState({ticket: count.get()});
+
+   var doSomething = function() {
+// Do something when the session value changes
+console.log(Session.get("apicTicket"));
+count.set(Session.get("apicTicket"))
+
+}
+
+Tracker.autorun(function() {
+var sessionVal = Session.get("apicTicket");
+console.log("The session value has changed");
+doSomething();
+});
+
+var anotherFunction = function() {
+Session.set("yourSessionVariable", "foo");
+}
 
 
  // 1
