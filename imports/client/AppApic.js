@@ -41,22 +41,16 @@ import { Tracker } from 'meteor/tracker';
 Tracker.autorun(function() {
   var sessionVal = Session.set("apicTicket", 'BALJKA');
   console.log("The session value has changed");
+  let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+        headers: { 'conten-type': 'application/json'}
+});
+object.makeTicket()
   doSomething();
 });
 
 var anotherFunction = function() {
   Session.set("yourSessionVariable", "foo");
 }
-     console.log('LOOK');
-     console.log(this);
-     console.log('LOOK');
-     let object = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-           headers: { 'conten-type': 'application/json'}
-   });
-   const test = await fetch(object.makeTicket())
-   console.log(test);
-   console.log(this);
-   console.log('BEFORE!!!');
 
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
