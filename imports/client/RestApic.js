@@ -36,6 +36,7 @@ export default class RestApic extends Component {
   render() {
     console.log(this);
     if (!this.state.ticket.state) {
+      console.log('state is FALSE')
       return <p welcome={"WelcomE"}/>
     }
   }
