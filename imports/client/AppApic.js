@@ -21,7 +21,7 @@ import ItemApic from './ItemApic';
  class AppApic extends Component {
    constructor() {
      super();
-     this.state = {ticket: 'Not received'};
+     this.state = {render: false, ticket: 'Not received'};
    }
 
 
