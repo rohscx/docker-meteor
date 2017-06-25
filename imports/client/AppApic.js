@@ -35,6 +35,7 @@ import { Tracker } from 'meteor/tracker';
 
      var doSomething = function() {
   // Do something when the session value changes
+  console.log(Session.get("apicTicket"));
 }
 
 Tracker.autorun(function() {
