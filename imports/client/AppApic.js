@@ -32,6 +32,20 @@ import { Tracker } from 'meteor/tracker';
    }
 
    async getItems() {
+
+     var doSomething = function() {
+  // Do something when the session value changes
+}
+
+Tracker.autorun(function() {
+  var sessionVal = Session.get("yourSessionVariable");
+  console.log("The session value has changed");
+  doSomething();
+});
+
+var anotherFunction = function() {
+  Session.set("yourSessionVariable", "foo");
+}
      console.log('LOOK');
      console.log(this);
      console.log('LOOK');
