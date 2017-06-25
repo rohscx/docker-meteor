@@ -23,8 +23,7 @@ export default class RestApic extends Component {
         console.log('Ticket Rquested');
         console.log(apic);
         console.log(apic.ticket);
-        console.log(RestApic);
-        RestApic.setState({ticket.state: true})
+        console.log(this);
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
@@ -39,7 +38,7 @@ export default class RestApic extends Component {
     console.log(this);
     if (!this.state.ticket.state) {
       console.log('state is FALSE')
-      return <p welcome={"WelcomE"}/>
+      return <p welcome={"WelcomE"}></p>
     }
   }
 }
