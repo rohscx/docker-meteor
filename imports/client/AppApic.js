@@ -89,6 +89,7 @@ import RestApic from './RestApic';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
+    this.setState({ticket: Session.get("apicTicket")});
     console.log(this);
     return (
         <main>
