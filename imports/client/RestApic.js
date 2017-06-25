@@ -36,11 +36,15 @@ export default class RestApic extends Component {
       return <p> HoNUm </p>
     }
 
+    getGreating() {
+      return <p>WelCOme!</p>
+      }
+
   }
   render() {
     console.log(this);
     if (!this.state.ticket.state) {
-      this.changeTicket()
+      this.getGreating()
     }
 
     console.log(this);
