@@ -36,7 +36,7 @@ import ItemApic from './ItemApic';
          });
    apic.makeTicket();
    console.log('Ticket Rquested');
-   console.log(apic.ticket);
+   console.log(apic);
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
