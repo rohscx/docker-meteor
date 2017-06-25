@@ -22,7 +22,7 @@ import RestApic from './RestApic';
  class AppApic extends Component {
    constructor() {
      super();
-     this.state = {render: false, ticket: 'Not received'};
+     this.state = {ticket: 'Not received'};
    }
 /*
    componentDidMount() {
