@@ -38,6 +38,5 @@ export default class RestApic extends Component {
     if (!this.state.ticket.state) {
       return <p welcome={"WelcomE"}>
     }
-
   }
 }
