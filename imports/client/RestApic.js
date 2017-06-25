@@ -30,13 +30,13 @@ export default class RestApic extends Component {
   }
 
   activateTicket(state) {
-    this.set.State({ticket.state: true})
+
   }
 
   render() {
     console.log(this);
     if (!this.state.ticket.state) {
-      return <p welcome={"Welcome"}>
+      return <p welcome={"WelcomE"}>
     }
 
     console.log(this);
