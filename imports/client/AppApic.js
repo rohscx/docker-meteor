@@ -24,6 +24,24 @@ import ItemApic from './ItemApic';
      this.state = {ticket: 'Not received'};
    }
 
+
+   getRest() {
+     let email = "joe@example.com";
+     let password = "donkeybrains";
+     let myApiUrl = "http://www.example.com/api"
+     let usersPath = "users"
+     fetch(`${myApiUrl}/${usersPath}`, {
+       .
+       .
+       body: JSON.stringify({
+         user: {email, password}
+       })
+     })
+   }
+
+
+
+
    getItems() {
      console.log('LOOK');
      console.log(this);
@@ -33,7 +51,7 @@ import ItemApic from './ItemApic';
    });
    object.makeTicket();
    console.log('AFTER');
-   
+
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
