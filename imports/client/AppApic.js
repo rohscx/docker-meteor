@@ -38,6 +38,9 @@ import ItemApic from './ItemApic';
    });
    object.makeTicket();
    console.log('AFTER');
+   console.log('LOOK');
+   console.log(this);
+   console.log('LOOK');
 
    // console.log(object); // debug
 
