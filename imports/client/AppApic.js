@@ -53,6 +53,7 @@ import { Tracker } from 'meteor/tracker';
 // Do something when the session value changes
 console.log(Session.get("apicTicket"));
 count.set(Session.get("apicTicket"))
+this.setState({ticket: Session.get("apicTicket"});
 
 }
 
