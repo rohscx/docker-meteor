@@ -8,7 +8,7 @@ export default class RestApic extends Component {
     super();
     this.state = {ticket: 'Not received'};
   }
-  
+
   getItems() {
     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
           headers: { 'conten-type': 'application/json'}
@@ -17,6 +17,7 @@ export default class RestApic extends Component {
         console.log('Ticket Rquested');
         console.log(apic);
         console.log(apic.ticket);
+        this.setState({ticket: Session.get("apicTicket")});
 
   // console.log(object); // debug
 
