@@ -38,7 +38,7 @@ import { Tracker } from 'meteor/tracker';
    let count = new ReactiveVar(Session.get("apicTicket"));
 
 
-   object.makeTicket(function(err,data) {
+   object.makeTicket(function(err,data).bind(this) {
      if (err) {
        console.log('tiny cats');
      }
