@@ -27,6 +27,21 @@ import { Tracker } from 'meteor/tracker';
      this.getItems = this.getItems.bind(this);
    }
 
+
+   async onSubmit(e) {
+     e.preventDefault();
+
+     let formInput = this.refs.createUserForm;
+     try {
+       const response = await this.props.createUser(formInput.value);
+       // do something with response
+     } catch(error) {
+       // do something with error
+     }
+   }
+
+
+
    getItems() {
      console.log('LOOK');
      console.log(this);
