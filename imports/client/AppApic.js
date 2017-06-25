@@ -86,11 +86,10 @@ import RestApic from './RestApic';
   render() {
     //console.log(Session.get("apicResponse")[0]);
     //console.log(this);
-    console.log(this);
-    if(!this.state.render) {
-      this.changeTicket(Session.get("apicTicket"));
-      console.log('NOT SET TEST');
+    if (!this.props.ready) {
+      return <div>Loading APIC...</div>
     }
+    console.log(this);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
