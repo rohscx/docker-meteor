@@ -24,11 +24,9 @@ import ItemApic from './ItemApic';
      this.state = {render: false, ticket: 'Not received'};
    }
 
-/*
    componentDidMount() {
       this.getItems();
     }
-*/
 
    getItems() {
      let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
@@ -80,7 +78,7 @@ import ItemApic from './ItemApic';
     }
     console.log(this);
     if(!this.state.render) {
-      this.changeTicket('LoaDing...');
+      this.changeTicket(Session.get("apicTicket"));
       console.log('NOT SET TEST');
     }
     return (
