@@ -27,13 +27,7 @@ import { Tracker } from 'meteor/tracker';
      this.getItems = this.getItems.bind(this);
    }
 
-   componentDidMout () {
-     this.getItems().done()
-   }
-
-   async getItems() {
-
-
+   getItems() {
      console.log('LOOK');
      console.log(this);
      console.log('LOOK');
@@ -41,29 +35,15 @@ import { Tracker } from 'meteor/tracker';
            headers: { 'conten-type': 'application/json'}
    });
 
-   const test = await fetch(object.makeTicket())
-
-
    //this.setState({ticket: Session.get("apicTicket")});
    let count = new ReactiveVar(Session.get("apicTicket"));
-this.setState({ticket: count.get()});
-   var doSomething = function() {
-// Do something when the session value changes
-console.log(Session.get("apicTicket"));
-count.set(Session.get("apicTicket"))
-//this.setState({ticket: Session.get("apicTicket")});
 
-}
 
-Tracker.autorun(function() {
-var sessionVal = Session.get("apicTicket");
-console.log("The session value has changed");
-doSomething();
-});
-
-var anotherFunction = function() {
-Session.set("yourSessionVariable", "foo");
-}
+   object.makeTicket(function (err, data) {
+     console.log('Before');
+   });
+   console.log('AFTER');
+   this.setState({ticket: count.get()});
 
 
  // 1
