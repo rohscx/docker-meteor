@@ -34,6 +34,7 @@ import ItemApic from './ItemApic';
            headers: { 'conten-type': 'application/json'}
          });
    apic.makeTicket();
+   console.log('Ticket Rquested');
    // console.log(object); // debug
 
    // Requests NEW ticket from APIC
