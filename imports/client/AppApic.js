@@ -46,12 +46,8 @@ import { Tracker } from 'meteor/tracker';
    object.makeTicket()
 
 
-       var doSomething = function() {
+       var doSomething = function(Session.get("apicTicket")) {
     // Do something when the session value changes
-    let count = new ReactiveVar(Session.get("apicTicket"));
-    console.log('AFTER');
-    this.setState({ticket: count.get()});
-    this.setState({ticket: count.get()});
     console.log(Session.get("apicTicket"));
     }
 
