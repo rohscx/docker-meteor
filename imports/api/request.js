@@ -5,9 +5,9 @@ import SimpleSchema from 'simpl-schema';
 
 
 
-const ItemsApic = new Mongo.Collection('itemsapic');
+const ItemApic = new Mongo.Collection('itemsapic');
 
-const ItemsApicSchema = new SimpleSchema ({
+const ItemApicSchema = new SimpleSchema ({
   text: String,
   value: SimpleSchema.Integer
 });
