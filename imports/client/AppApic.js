@@ -87,7 +87,7 @@ import RestApic from './RestApic';
 
 
    changeTicket(ticket){
-     this.setState({ticket.number: ticket});
+     this.setState({ticket.number: "cats"});
    }
 
    makeReady(ticket){
