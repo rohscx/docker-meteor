@@ -11,7 +11,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
-import Header from '../components/Header';
+import Header from './components/Header';
 
 
 
