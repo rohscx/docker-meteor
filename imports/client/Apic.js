@@ -37,9 +37,7 @@ makeRequest(type,url,options) {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       return this.ticket;
-
     }
-    return 'CATS ON';
   })};
 
 
