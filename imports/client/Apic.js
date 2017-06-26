@@ -38,8 +38,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       console.log(this);
-      this.addToDB(this.ticket);
-
+      this.useTicket(this.ticket);
     }
   })};
 
