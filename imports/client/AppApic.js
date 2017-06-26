@@ -25,7 +25,7 @@ import RestApic from './RestApic';
      this.state = {
        ticket: {
          number: "",
-         state: false
+         ready: false
        }
      }
    }
@@ -104,7 +104,7 @@ import RestApic from './RestApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <RestApic greeting={"WelcomE"} ticket={this.state.ticket}/>
+            <RestApic greeting={"WelcomE"} ticket={this.state.ready}/>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>

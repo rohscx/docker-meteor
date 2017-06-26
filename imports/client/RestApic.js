@@ -6,12 +6,6 @@ import { Session } from 'meteor/session';
 export default class RestApic extends Component {
   constructor() {
     super();
-    this.state = {
-      ticket: {
-        number: "",
-        state: false
-      }
-    }
     this.getItems = this.getItems.bind(this);
   }
 
@@ -36,8 +30,8 @@ export default class RestApic extends Component {
 
   render() {
     console.log(this);
-    if (!this.state.ticket.state) {
-      console.log('state is FALSE')
+    if (!this.prop.ticket.ready) {
+      console.log('ready prop is FALSE')
       return(
         <div>
           <p>{this.props.greeting}</p>
