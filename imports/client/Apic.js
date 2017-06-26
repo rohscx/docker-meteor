@@ -38,7 +38,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       console.log(this);
-      this.addToDB(res.data.response.serviceTicket);
+      this.addToDB(this.ticket);
 
     }
   })};
