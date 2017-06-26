@@ -13,11 +13,6 @@ import { Template } from 'meteor/templating';
 import ItemApic from './ItemApic';
 import Header from './components/Header';
 
-
-
-
-
-
 @autobind
  class AppApic extends Component {
    constructor() {
@@ -98,7 +93,7 @@ import Header from './components/Header';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
-//<RestApic {... this.state} changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
+//<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -110,7 +105,7 @@ import Header from './components/Header';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            <ItemApic />
+            <ItemApic {... this.state} />
 
              <ReactCSSTransitionGroup
                transitionName='item'

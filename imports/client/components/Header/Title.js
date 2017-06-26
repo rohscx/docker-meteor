@@ -6,7 +6,7 @@ export default class Title extends Component {
   render() {
     return(
       <div>
-        <h1>Welcome: The Page has loaded</h1>
+        <h1>{this.props.greeting}</h1>
       </div>
     )
   }
