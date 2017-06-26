@@ -101,11 +101,11 @@ import Header from './components/Header';
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-          <Header />
+          <Header {... this.state}/>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            <ItemApic {... this.state} />
+            <ItemApic />
 
              <ReactCSSTransitionGroup
                transitionName='item'
