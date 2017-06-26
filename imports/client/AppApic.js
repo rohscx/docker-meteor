@@ -43,11 +43,11 @@ import Header from './components/Header';
         //this.setState({ticket{number: "adsf"}});
         //this.setState({ticket{ready: true}});
         console.log(apic);
-        console.log(apic.ticket);
         console.log(this);
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
+        this.setState({ticket{number: "adsf"}});
 
   }
 
