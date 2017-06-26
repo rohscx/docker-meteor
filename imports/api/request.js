@@ -3,6 +3,15 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
+
+
+const ItemsApic = new Mongo.Collection('itemsapic');
+
+const ItemApicSchema = new SimpleSchema ({
+  text: String,
+  value: SimpleSchema.Integer
+});
+
 Meteor.methods({
   checkApic(type, url, options) {
     this.unblock();
