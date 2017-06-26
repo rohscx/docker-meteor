@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import restRequest from '../api/Apic';
 import { Session } from 'meteor/session';
-import AppApic from './AppApic'
+
 
 export default class RestApic extends Component {
   constructor() {
