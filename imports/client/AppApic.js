@@ -95,12 +95,11 @@ import RestApic from './RestApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <RestApic />
+            <RestApic greeting={"WelcomE"}/>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
-            <AppApic greeting={"WelcomE"}/>
 
              <ReactCSSTransitionGroup
                transitionName='item'
