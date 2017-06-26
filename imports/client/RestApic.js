@@ -25,7 +25,8 @@ export default class RestApic extends Component {
   }
 
   handleChange(){
-  
+    console.log(this);
+
   }
 
   render() {
