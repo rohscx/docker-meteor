@@ -108,7 +108,7 @@ import Header from './components/Header';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
-            <Apic {... this.state} {... this.refs} changeTicket={this.changeTicket.bind(this)} />
+            <Apic {... this.state} changeTicket={this.changeTicket.bind(this)}/>
 
             <ItemApic />
 

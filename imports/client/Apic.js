@@ -37,7 +37,7 @@ makeRequest() {
       Session.set("apicTicket", res.data.response.serviceTicket);
       console.log(this.ticket);
       console.log('TICKET ABOVE');
-      return this.ticket
+      this.addToDB(this.ticket);
     }
   })};
 
@@ -55,9 +55,16 @@ makeRequest() {
       Session.set("apicResponse", res.data.response);
       return res;
     }
-  })
-  console.log(this);
-};
+  })};
+
+  restRequest.prototype.addToDB = function() {
+    Meteor.call('insertNewApic', ticket, (err, res) => {
+    if (err) {
+      alert(err);
+    } else {
+      console.log('Ticket submitted');
+    }
+  })};
 
   let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'content-type': 'application/json'}
