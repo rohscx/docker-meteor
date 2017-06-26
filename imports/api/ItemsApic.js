@@ -31,7 +31,7 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
-    insertNewItem(itemOne) {
+    insertNewApic(itemOne) {
       ItemsApic.insert({
           itemOne: {
             text: itemOne,
