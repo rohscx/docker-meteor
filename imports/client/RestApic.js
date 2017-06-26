@@ -15,11 +15,12 @@ export default class RestApic extends Component {
         });
         apic.makeTicket();
         console.log('Ticket Rquested');
+
+        this.props.changeTicket(Session.get("apicTicket"));
+        this.props.changeTicket(Session.get("apicTicket"));
         console.log(apic);
         console.log(apic.ticket);
         console.log(this);
-        this.props.
-        this.props.changeTicket(Session.get("apicTicket"));
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
