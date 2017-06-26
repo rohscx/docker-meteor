@@ -24,8 +24,8 @@ export default class RestApic extends Component {
 
   }
 
-  changeTicket(state) {
-
+  handleChange(){
+  
   }
 
   render() {
