@@ -47,8 +47,8 @@ import Header from './components/Header';
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
-        this.setState({ticket: {number: Session.get("apicTicket")}});
-        this.setState({ticket: {ready: true}});
+        this.setState({ticket: {number: Session.get("apicTicket"), ready: true}});
+
   }
 
     addToken(event) {
