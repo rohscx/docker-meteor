@@ -10,7 +10,7 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-
+import ItemApic from './ItemApic';
 import RestApic from './RestApic';
 
 
@@ -36,34 +36,27 @@ import RestApic from './RestApic';
       this.getItems();
     }
 */
-   getItems() {
-     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-           headers: { 'conten-type': 'application/json'}
-         });
-   apic.makeTicket();
-   console.log('Ticket Rquested');
-   console.log(apic);
-   console.log(apic.ticket);
-   // console.log(object); // debug
+  getItems() {
+    let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+          headers: { 'conten-type': 'application/json'}
+        });
+        apic.makeTicket();
+        console.log('Ticket Rquested');
 
-   // Requests NEW ticket from APIC
-   /*
-   object.makeTicket(function (err, data) {
-     if (err) {
-       console.log('aadfasdfasdfsfasdf');
-       console.log(err)
-     }
-     console.log('WOWOWOWOWOW');
+        //this.props.changeTicket(Session.get("apicTicket"));
+        //this.props.makeReady(Session.get("apicTicket"));
+        this.setState({ticket: apic.ticket)});
+        console.log(apic);
+        console.log("apic");
+        console.log(apic.ticket);
+        console.log("apic TICKET");
+        console.log(this);
+        console.log("THis");
+        //this.setState({ticket: Session.get("apicTicket")});
+        //this.setState({ticket: Session.get("apicTicket")});
+        //this.setState({ticket: 'lkjhjkhjkhlkj'});
 
-     //console.log(object); // debug
-     //console.log('CATS ON EVERYTHING'); // debug
-     //this.setState({ticket: Session.get("apicTicket")});
-     //this.setState({ticket: 'lkjhjkhjkhlkj'});
-
-   });
-   */
-
-}
+  }
 
     addToken(event) {
       event.preventDefault();
