@@ -3,6 +3,7 @@ import { Session } from 'meteor/session';
 
 
 export default class Title extends Component {
+console.log(this);
   render() {
     return(
       <div>
