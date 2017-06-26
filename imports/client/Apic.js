@@ -60,6 +60,7 @@ makeRequest(type,url,options) {
 }
 
 render() {
+    console.log(this);
   return (
     <div>
       <p> OKAY THIS SEEMS TO WORK</p>
