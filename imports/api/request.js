@@ -12,7 +12,7 @@ const ItemsApicSchema = new SimpleSchema ({
   value: SimpleSchema.Integer
 });
 
-const ItemsApcicSchema = new SimpleSchema ({
+const ItemsApicSchema = new SimpleSchema ({
   itemOne: ItemApicSchema,
   lastUpdated : {
     type: Date,
