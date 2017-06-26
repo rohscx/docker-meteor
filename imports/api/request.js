@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema';
 
 
 
-const ItemApic = new Mongo.Collection('itemsapic');
+const ItemsApic = new Mongo.Collection('itemsapic');
 
 const ItemApicSchema = new SimpleSchema ({
   text: String,
@@ -13,7 +13,7 @@ const ItemApicSchema = new SimpleSchema ({
 });
 
 const ItemsApicSchema = new SimpleSchema ({
-  itemOne: ItemApicSchema,
+  itemOne: ItemsApicSchema,
   lastUpdated : {
     type: Date,
     optional: true
