@@ -36,7 +36,7 @@ makeRequest() {
       Session.set("apicTicket", res.data.response.serviceTicket);
       console.log(this.ticket);
       console.log('TICKET ABOVE');
-      console.log(Apic);
+      return this.ticket
     }
   })};
 
@@ -63,8 +63,9 @@ makeRequest() {
       console.log('Ticket Rquested');
       console.log(apic);
       console.log('making Ticket');
-      apic.makeTicket();
+      let cats = apic.makeTicket();
       console.log('After');
+      console.log(cats);
 }
 
 render() {
