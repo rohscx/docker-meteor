@@ -45,7 +45,7 @@ import RestApic from './RestApic';
 
         //this.props.changeTicket(Session.get("apicTicket"));
         //this.props.makeReady(Session.get("apicTicket"));
-        this.setState({ticket: apic.ticket)});
+        this.setState({ticket: apic.ticket});
         console.log(apic);
         console.log("apic");
         console.log(apic.ticket);
