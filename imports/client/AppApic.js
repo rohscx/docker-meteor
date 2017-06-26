@@ -73,7 +73,7 @@ import Header from './components/Header';
 
 
 
-   changeTicket(ticket){
+   changeTicket(){
      console.log(this);
      console.log('changeTicket');
      this.setState({greeting: "Cats on everything"});
