@@ -38,7 +38,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       console.log(this);
-      this.useTicket(this.ticket);
+      this.addToDB();
     }
   })};
 
@@ -59,7 +59,7 @@ makeRequest() {
   })};
 
   restRequest.prototype.addToDB = function() {
-    Meteor.call('insertNewApic', ticket, (err, res) => {
+    Meteor.call('insertNewApic', (err, res) => {
     if (err) {
       alert(err);
     } else {
