@@ -1,6 +1,7 @@
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
+import React, {Component} from 'react';
 
 
 export default class Apic extends Component {
