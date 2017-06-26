@@ -90,6 +90,7 @@ import RestApic from './RestApic';
    changeTicket(ticket){
      console.log(this);
      console.log('changeTicket');
+     this.setState({greeting: "Cats on everything"});
 
 
    }
@@ -115,7 +116,7 @@ import RestApic from './RestApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <RestApic greeting={"WelcomE"} {... this.state} changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
+            <RestApic {... this.state} changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
