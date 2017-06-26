@@ -26,7 +26,8 @@ import RestApic from './RestApic';
        ticket: {
          number: "",
          ready: false
-       }
+       },
+       greeting: "WelcomE new"
      }
    }
 
@@ -89,6 +90,7 @@ import RestApic from './RestApic';
    changeTicket(ticket){
      console.log(this);
      console.log('changeTicket');
+     this.setState({ticket.})
 
    }
 
