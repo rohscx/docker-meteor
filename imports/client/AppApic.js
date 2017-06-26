@@ -90,7 +90,7 @@ import RestApic from './RestApic';
    changeTicket(ticket){
      console.log(this);
      console.log('changeTicket');
-     this.setState({ticket.})
+
 
    }
 
