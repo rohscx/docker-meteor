@@ -9,7 +9,7 @@ export default class Apic extends Component {
 
 makeRequest() {
   console.log(this);
-  const itemOne = this.refs.itemOne1111.value.trim();
+
   // Constructor
   function restRequest(type, url, options) {
     // always initialize all instance properties
