@@ -19,8 +19,11 @@ export default class RestApic extends Component {
         this.props.changeTicket(Session.get("apicTicket"));
         this.props.makeReady(Session.get("apicTicket"));
         console.log(apic);
+        console.log("apic");
         console.log(apic.ticket);
+        console.log("apic TICKET");
         console.log(this);
+        console.log("THis");
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
