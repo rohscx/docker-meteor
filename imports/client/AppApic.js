@@ -47,19 +47,7 @@ import Header from './components/Header';
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
-
-        let doSomething = function() {
-  // Do something when the session value changes
-  this.setState({ticket: {number: Session.get("apicTicket"}});
-  }
-
-Tracker.autorun(function() {
-  let sessionVal = Session.get("apicTicket");
-  console.log("The session value has changed");
-  doSomething();
-});
-
-
+        this.setState({ticket: {number: Session.get("apicTicket")}});
 
   }
 
