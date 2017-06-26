@@ -62,6 +62,8 @@ makeRequest() {
       //apic.makeTicket();
       console.log('Ticket Rquested');
       console.log(apic);
+      console.log('making Ticket');
+      apic.makeTicket();
 }
 
 render() {
