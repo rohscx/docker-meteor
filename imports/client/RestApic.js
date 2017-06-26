@@ -40,7 +40,7 @@ export default class RestApic extends Component {
       console.log('state is FALSE')
       return(
         <div>
-          <Greetting welcome={"WelcomE"}/>
+          <Greeting greeting={"WelcomE"}/>
         </div>
       )
     }

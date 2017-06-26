@@ -100,7 +100,7 @@ import RestApic from './RestApic';
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
-          <p>{this.props.Greetting}</p>
+          <p>{this.props.greeting}</p>
 
              <ReactCSSTransitionGroup
                transitionName='item'
