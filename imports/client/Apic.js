@@ -37,6 +37,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       return this.ticket;
+      this.props.changeTicket();
     }
   })};
 
