@@ -19,7 +19,7 @@ import Header from './components/Header';
      super();
      this.state = {
        ticket: {
-         number: "",
+         number: "Not Yet Requested",
          ready: false
        },
        greeting: "WelcomE new"
