@@ -11,7 +11,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
-import RestApic from './RestApic';
+import Header from '../components/Header';
 
 
 
@@ -98,7 +98,7 @@ import RestApic from './RestApic';
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
-
+//<RestApic {... this.state} changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
@@ -106,8 +106,7 @@ import RestApic from './RestApic';
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-        <h1>Page loaded place holder... and son...</h1>
-            <RestApic {... this.state} changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
+          <Header />
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
