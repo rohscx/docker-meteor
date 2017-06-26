@@ -60,7 +60,7 @@ makeRequest() {
   })};
 
   restRequest.prototype.addToDB = function() {
-    Meteor.call('insertNewApic', input (err, res) => {
+    Meteor.call('insertNewApic', input, (err, res) => {
     if (err) {
       alert(err);
     } else {
