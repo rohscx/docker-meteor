@@ -37,7 +37,8 @@ makeRequest() {
       Session.set("apicTicket", res.data.response.serviceTicket);
       console.log(this.ticket);
       console.log('TICKET ABOVE');
-      this.addToDB(this.ticket);
+      console.log(this);
+      this.addToDB(res.data.response.serviceTicket);
 
     }
   })};
