@@ -14,7 +14,7 @@ import Items from '../api/Items'
    addItems(event) {
      event.preventDefault();
      console.log(this);
-     const itemOne = this.refs.itemOne3.value.trim();
+     const itemOne = this.refs.itemOne.value.trim();
      const itemTwo = this.refs.itemTwo.value.trim()
      if (itemOne != '' && itemTwo != '') {
          Meteor.call('insertNewItem', itemOne, itemTwo, (err, res) => {
