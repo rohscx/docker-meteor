@@ -10,7 +10,7 @@ export default class Apic extends Component {
 makeRequest() {
   console.log(this);
   // Constructor
-  function restRequest() {
+  function restRequest(type, url, options) {
     // always initialize all instance properties
     this.type = type;
     this.url = url;
@@ -57,7 +57,7 @@ makeRequest() {
   })};
 
   let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
-        headers: { 'conten-type': 'application/json'}
+        headers: { 'content-type': 'application/json'}
       });
       //apic.makeTicket();
       console.log('Ticket Rquested');
