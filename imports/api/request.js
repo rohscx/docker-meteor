@@ -56,7 +56,7 @@ if (Meteor.isServer) {
         });
         Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
     },
-    voteOnItem(item, position) {
+    voteOnItemApic(item, position) {
       check(item, Object);
       let lastUpdated = new Date();
       if(Meteor.userId()) {
