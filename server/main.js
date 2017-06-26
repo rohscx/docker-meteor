@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import Items from '../imports/api/Items';
 
 import '../imports/server/accounts';
-import '../imports/client/request';
+import '../imports/api/request';
 
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {

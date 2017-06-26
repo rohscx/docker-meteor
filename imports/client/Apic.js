@@ -16,9 +16,6 @@ function restRequest(type,url,options) {
    };
 }
 
-export default class Apic extends Component {
-
-
 // Method REQUEST a ticket from APIC
 restRequest.prototype.makeTicket = function() {
   Meteor.call('checkApic', this.typeTicket, this.urlTicket, this.optionsTicket, (err, res) => {
@@ -54,6 +51,6 @@ restRequest.prototype.useTicket = function() {
   }
 })};
 
-}
+
 
 export default restRequest;
