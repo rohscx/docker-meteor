@@ -87,11 +87,15 @@ import RestApic from './RestApic';
 
 
    changeTicket(ticket){
-     this.setState({ticket.number: "cats"});
+     console.log(this);
+     console.log('changeTicket');
+
    }
 
    makeReady(ticket){
-     this.setState({ticket.ready: true});
+     console.log(this);
+     console.log('makeReady');
+
    }
 
   render() {
