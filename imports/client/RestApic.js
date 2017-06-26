@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import restRequest from '../api/Apic';
+import Apic from './Apic';
 import { Session } from 'meteor/session';
 
 
