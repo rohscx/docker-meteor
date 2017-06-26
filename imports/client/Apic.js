@@ -54,7 +54,9 @@ makeRequest() {
       Session.set("apicResponse", res.data.response);
       return res;
     }
-  })};
+  })
+  console.log(this);
+};
 
   let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
         headers: { 'content-type': 'application/json'}
