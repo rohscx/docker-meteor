@@ -104,7 +104,7 @@ import RestApic from './RestApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <RestApic greeting={"WelcomE"} {... this.state}/>
-            <button onClick={this.getItems} {this.handleChange.bind(this)}>
+            <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
