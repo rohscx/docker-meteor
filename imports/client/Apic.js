@@ -36,7 +36,6 @@ makeRequest() {
       Session.set("apicTicket", res.data.response.serviceTicket);
       console.log(this.ticket);
       console.log('TICKET ABOVE');
-      return this.ticket;
       this.props.changeTicket();
     }
   })};
