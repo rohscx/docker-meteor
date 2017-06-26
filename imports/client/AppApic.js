@@ -20,6 +20,15 @@ import RestApic from './RestApic';
 
 @autobind
  class AppApic extends Component {
+   constructor() {
+     super();
+     this.state = {
+       ticket: {
+         number: "",
+         state: false
+       }
+     }
+   }
 
 /*
    componentDidMount() {
@@ -95,7 +104,7 @@ import RestApic from './RestApic';
             </button>
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
-            <RestApic greeting={"WelcomE"}/>
+            <RestApic greeting={"WelcomE"} ticket={this.state.ticket}/>
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
