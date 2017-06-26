@@ -7,10 +7,10 @@ import React, {Component} from 'react';
 export default class Apic extends Component {
 
 
-makeRequest(type,url,options) {
+makeRequest() {
   console.log(this);
   // Constructor
-  function restRequest(type,url,options) {
+  function restRequest() {
     // always initialize all instance properties
     this.type = type;
     this.url = url;
@@ -55,6 +55,12 @@ makeRequest(type,url,options) {
       return res;
     }
   })};
+
+  let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+        headers: { 'conten-type': 'application/json'}
+      });
+      apic.makeTicket();
+      console.log('Ticket Rquested');
 }
 
 render() {
@@ -62,6 +68,7 @@ render() {
   return (
     <div>
       <p> OKAY THIS SEEMS TO WORK</p>
+      {this.makeRequest()}
     </div>
 
   )
