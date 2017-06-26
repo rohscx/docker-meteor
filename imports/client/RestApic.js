@@ -30,7 +30,7 @@ export default class RestApic extends Component {
 
   render() {
     console.log(this);
-    if (!this.prop.ticket.ready) {
+    if (!this.props.ticket.ready) {
       console.log('ready prop is FALSE')
       return(
         <div>
