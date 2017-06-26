@@ -56,7 +56,12 @@ makeRequest() {
     }
   })};
 
-
+  let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
+        headers: { 'conten-type': 'application/json'}
+      });
+      //apic.makeTicket();
+      console.log('Ticket Rquested');
+      console.log(apic);
 }
 
 render() {
