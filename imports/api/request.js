@@ -13,7 +13,7 @@ const ItemApicSchema = new SimpleSchema ({
 });
 
 const ItemsApicSchema = new SimpleSchema ({
-  itemOne: ItemsApicSchema,
+  itemOne: ItemApicSchema,
   lastUpdated : {
     type: Date,
     optional: true
