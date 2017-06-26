@@ -47,7 +47,7 @@ import Header from './components/Header';
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: Session.get("apicTicket")});
         //this.setState({ticket: 'lkjhjkhjkhlkj'});
-        this.setState(ticket.number: "adsf");
+        this.setState({ticket.number: "adsf"});
 
   }
 
