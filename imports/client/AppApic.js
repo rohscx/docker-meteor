@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import restRequest from './Apic';
+import Apic from './Apic';
 
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
@@ -105,6 +105,8 @@ import Header from './components/Header';
             <button onClick={this.getItems}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
+            <Apic />
+
             <ItemApic />
 
              <ReactCSSTransitionGroup
