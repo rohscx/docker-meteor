@@ -10,7 +10,7 @@ export default class Header extends Component {
     console.log(this);
       return(
         <div>
-            <Title />
+            <Title {... this.props}/>
         </div>
       )
   }
