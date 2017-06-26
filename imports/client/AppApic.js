@@ -84,9 +84,8 @@ import RestApic from './RestApic';
      }
    }
 
-   changeTicket(ticket){
-     this.setState({ticket.number: ticket});
-     this.setState({ticket.ready: true});
+   handleChange(){
+     this.props.changeTicket(Session.get("apicTicket"))
    }
 
   render() {
@@ -105,7 +104,7 @@ import RestApic from './RestApic';
           </IsRole>
         <h1>Page loaded place holder... and son...</h1>
             <RestApic greeting={"WelcomE"} {... this.state}/>
-            <button onClick={this.getItems} {this.changeTicket.bind(this)}>
+            <button onClick={this.getItems} {this.handleChange.bind(this)}>
               apicGet {this.props.showAll ? 'One': 'All'}
             </button>
             <ItemApic />
