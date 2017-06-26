@@ -2,7 +2,6 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-export default class Apic extends Component {
 // Constructor
 function restRequest(type,url,options) {
   // always initialize all instance properties
@@ -16,6 +15,9 @@ function restRequest(type,url,options) {
 	data: {username: 'devnetuser', password: 'Cisco123!'}
    };
 }
+
+export default class Apic extends Component {
+
 
 // Method REQUEST a ticket from APIC
 restRequest.prototype.makeTicket = function() {
