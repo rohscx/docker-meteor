@@ -38,7 +38,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       //this.addToDB(this.ticket);
-      
+
     }
   })};
 
@@ -74,9 +74,8 @@ makeRequest() {
       console.log('Ticket Rquested');
       console.log(apic);
       console.log('making Ticket');
-      let cats = apic.makeTicket();
+      apic.makeTicket();
       console.log('After');
-      console.log(cats);
 }
 
 render() {
