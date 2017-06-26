@@ -9,7 +9,7 @@ export default class Header extends Component {
   render() {
       return(
         <div>
-            <Title />
+            <Title {... this.props}/>
         </div>
       )
   }
