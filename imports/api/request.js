@@ -3,20 +3,7 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-Meteor.methods({
-  checkApic(type, url, options) {
-    this.unblock();
-    try {
-const result = HTTP.call(type, url, options);
-      // console.log(result); // debug
-      return result;
-    } catch (e) {
-      // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-	    console.log(e) // debug
-      return e;
-    }
-  }
-});
+
 
 const ItemsApic = new Mongo.Collection('itemsapic');
 
@@ -48,6 +35,18 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
+    checkApic(type, url, options) {
+      this.unblock();
+      try {
+  const result = HTTP.call(type, url, options);
+        // console.log(result); // debug
+        return result;
+      } catch (e) {
+        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+        console.log(e) // debug
+        return e;
+      }
+    },
     insertNewApic(itemOne) {
       ItemsApic.insert({
           itemOne: {
