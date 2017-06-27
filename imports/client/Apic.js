@@ -84,7 +84,9 @@ render() {
   return (
     <div>
       <p> OKAY THIS SEEMS TO WORK</p>
-      {this.makeRequest()}
+      <button onClick={this.makeRequest()}>
+        apicGet {this.props.showAll ? 'One': 'All'}
+      </button>
     </div>
 
   )
