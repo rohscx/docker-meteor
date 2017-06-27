@@ -52,8 +52,9 @@ makeRequest() {
       console.log(JSON.parse(JSON.stringify(res))); // debug
       this.dataObj = res.data;
       this.response = res;
-      Session.set("apicResponse", res.data.response);
-      this.addToDB();
+      console.log(this.dataObj);
+      //Session.set("apicResponse", res.data.response);
+      //this.addToDB();
     }
   })};
 
