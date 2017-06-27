@@ -16,6 +16,7 @@ export default class ItemApic extends Component {
          <span>{this.props.item.itemOne.value}</span>
          <h3>{this.props.item.itemOne.text}</h3>
        </div>
+     </div>
      )
    }
  }
