@@ -36,7 +36,7 @@ export default class ItemApic extends Component {
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
          <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
 
-           return <MakeList key={key} {... this.props} />
+           return <MakeList key={key} apicObj={this.props.item.apicData.dataObj.response["0"]} />
          })};
         </h3>
        </div>
