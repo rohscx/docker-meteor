@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Apic from './Apic';
+import ItemsApic from '../api/request'
 
 import { Session } from 'meteor/session';
 
