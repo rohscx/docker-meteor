@@ -35,11 +35,8 @@ makeRequest() {
       // console.log(res.data.response.serviceTicket);	// debug
       this.ticket = res.data.response.serviceTicket;
       this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
-      Session.set("apicTicket", res.data.response.serviceTicket);
-      console.log(this.ticket);
-      console.log('TICKET ABOVE');
-      console.log(res);
-      this.addToDB();
+      //Session.set("apicTicket", res.data.response.serviceTicket);
+      this.useTicket();
     }
   })};
 
@@ -51,11 +48,12 @@ makeRequest() {
       alert(err);
     } else {
       // success!
-      // console.log(res); // debug
+      console.log(res); // debug
       console.log(JSON.parse(JSON.stringify(res))); // debug
+      this.apicObj = 'Cats';
       this.response = res;
       Session.set("apicResponse", res.data.response);
-      return res;
+      //this.addToDB();
     }
   })};
 
