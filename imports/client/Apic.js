@@ -52,9 +52,9 @@ makeRequest() {
       console.log(JSON.parse(JSON.stringify(res))); // debug
       this.dataObj = res.data;
       this.response = res;
-      console.log(this.dataObj);
+      //console.log(this.dataObj);
       //Session.set("apicResponse", res.data.response);
-      //this.addToDB();
+      this.addToDB();
     }
   })};
 

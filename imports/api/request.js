@@ -48,10 +48,11 @@ if (Meteor.isServer) {
         return e;
       }
     },
-    insertNewApic(itemOne) {
+    insertNewApic(itemOne,dataObj) {
       ItemsApic.insert({
           itemOne: {
             text: itemOne,
+            dataObj: dataObj,
             value: 0,
           }
         });
