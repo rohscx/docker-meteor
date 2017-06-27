@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Apic from './Apic';
 import ItemsApic from '../api/request'
-
+import List from './components/List'
 
 import { Session } from 'meteor/session';
 
@@ -35,14 +35,11 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         {Object.keys(this.props.item.apicData.dataObj.response).map(function(keyArray) {
-           console.log(keyArray);
-           Object.entries(this.props.item.apicData.dataObj.response[keyArray]).map(([key,value])=>{
-             return (
-               <h3>{key} : {value}</h3>
-             );
-           })
-         })}
+       {this.props.item.apicData.dataObj.response.map((item) => {
+         console.log(item);
+         return <List itemList={item}/>
+       })}
+
        </div>
      </div>
      )
