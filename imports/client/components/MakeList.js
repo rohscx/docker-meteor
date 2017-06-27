@@ -9,7 +9,7 @@ export default class MakeList extends Component {
     console.log(this);
       return(
         <div>
-          {this.props.key}
+          {this.props.key2}
         </div>
       )
   }
