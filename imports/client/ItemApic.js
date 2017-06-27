@@ -14,10 +14,9 @@ export default class ItemApic extends Component {
    let ticketTime = this.props.item.apicData.requestDate;
    let expireTime = 1800;
    if (nowDate - ticketTime > expireTime) {
-     return (
-       {this.props.item.apicData.requestDate}
-       expireTime
-     )
+     return expireTime;
+   } else {
+     return ticketTime;
    }
  }
 
@@ -27,7 +26,7 @@ export default class ItemApic extends Component {
      return (
        <div className='itemApic'>
          <div className='vote-one' >
-         <span>{this.props.item.apicData.requestDate}</span>
+         <span>{this.expiredCheck}</span>
          <h3>{this.props.item.apicData.text}</h3>
        </div>
        <span>Return</span>
