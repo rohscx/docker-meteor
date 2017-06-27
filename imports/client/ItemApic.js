@@ -25,6 +25,7 @@ export default class ItemApic extends Component {
 
 //onClick={this.voteOne.bind(this)}
    render() {
+     console.log(this);
      return (
        <div className='itemApic'>
          <div className='vote-one' >
@@ -36,7 +37,7 @@ export default class ItemApic extends Component {
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
          <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
 
-           return <MakeList key={key} apicObj={this.props.item.apicData.dataObj.response["0"]} />
+           return <MakeList key={key} />
          })};
         </h3>
        </div>
