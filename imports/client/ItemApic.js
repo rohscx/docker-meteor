@@ -33,9 +33,9 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key) {
+         <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
            //console.log(key);
-           return <div> Key: {key}, Value: {this.props.item.apicData.dataObj.response.0[key]}</div>;
+           return <li key={key}>{this.props.item.apicData.dataObj.response[0][key]} </li>
          })};
         </h3>
        </div>
