@@ -9,6 +9,19 @@ export default class ItemApic extends Component {
   voteOne() {
    Meteor.call('voteOnItem', this.props.item, 'itemOne');
  }
+ expiredCheck() {
+   let nowTime = Math.round(new Date().getTime() / 1000);
+   let ticketTime = this.props.item.apicData.requestDate;
+   let expireTime = 1800;
+   if (nowDate - ticketTime > expireTime) {
+     return (
+       {this.props.item.apicData.requestDate}
+       expireTime
+     )
+   }
+ }
+
+
 //onClick={this.voteOne.bind(this)}
    render() {
      return (
