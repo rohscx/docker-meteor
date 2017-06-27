@@ -95,7 +95,7 @@ import ItemsApic from '../api/request'
             </button>
           </IsRole>
           <Header {... this.state} />
-            <Apic {... this.state} changeTicket={this.changeTicket.bind(this)}/>
+            <Apic {... this.state} ticketStatus={this.changeTicket.bind(this)}/>
 
              <ReactCSSTransitionGroup
                transitionName='item'
