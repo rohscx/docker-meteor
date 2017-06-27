@@ -11,14 +11,17 @@ export default class ItemApic extends Component {
  }
 //onClick={this.voteOne.bind(this)}
    render() {
-     console.log(this);
      return (
        <div className='itemApic'>
          <div className='vote-one' >
          <span>{this.props.item.apicData.value}</span>
          <h3>{this.props.item.apicData.text}</h3>
        </div>
-
+       <span>Return</span>
+       <div className='vote-two'>
+         <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
+         <h3>{this.props.item.apicData.dataObj.response["0"].hostIp}</h3>
+       </div>
      </div>
      )
    }
