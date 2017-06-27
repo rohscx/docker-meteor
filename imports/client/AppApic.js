@@ -87,6 +87,7 @@ import ItemsApic from '../api/request'
       return <div>Loading APIC...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
+    console.log(this);
     return (
         <main>
           <IsRole role={['admin']} {... this.props}>
