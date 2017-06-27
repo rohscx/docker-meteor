@@ -17,11 +17,7 @@ const ItemApicSchema = new SimpleSchema ({
 });
 
 const ItemsApicSchema = new SimpleSchema ({
-  itemOne: ItemApicSchema,
-  lastUpdated : {
-    type: Date,
-    optional: true
-  }
+  apicData: ItemApicSchema
 });
 
 ItemsApic.attachSchema(ItemsApicSchema);
