@@ -39,6 +39,7 @@ makeRequest() {
       console.log(this.ticket);
       console.log('TICKET ABOVE');
       console.log(this);
+      console.log(res);
       this.addToDB();
     }
   })};
