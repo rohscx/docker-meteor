@@ -50,15 +50,15 @@ makeRequest() {
       // success!
       console.log(res); // debug
       console.log(JSON.parse(JSON.stringify(res))); // debug
-      this.apicObj = 'Cats';
+      this.dataObj = res.data;
       this.response = res;
       Session.set("apicResponse", res.data.response);
-      //this.addToDB();
+      this.addToDB();
     }
   })};
 
   restRequest.prototype.addToDB = function() {
-    Meteor.call('insertNewApic', this.ticket, (err, res) => {
+    Meteor.call('insertNewApic', this.ticket, this.dataObj, (err, res) => {
     if (err) {
       alert(err);
     } else {
