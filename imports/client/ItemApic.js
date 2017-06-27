@@ -30,7 +30,7 @@ export default class ItemApic extends Component {
      console.log(one);
      console.log(two);
 
-     return <h3><li>casts</li></h3>;
+     return <li>{one}</li>;
    });
  }
 
@@ -45,7 +45,7 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         {this.listOut()}
+         <h3>{this.listOut()}</h3>
        </div>
      </div>
      )
