@@ -10,6 +10,7 @@ export default class ItemApic extends Component {
    Meteor.call('voteOnItem', this.props.item, 'itemOne');
  }
 //onClick={this.voteOne.bind(this)}
+console.log(this);
    render() {
      return (
        <div className='itemApic'>
@@ -17,6 +18,7 @@ export default class ItemApic extends Component {
          <span>{this.props.item.apicData.value}</span>
          <h3>{this.props.item.apicData.text}</h3>
        </div>
+
      </div>
      )
    }
