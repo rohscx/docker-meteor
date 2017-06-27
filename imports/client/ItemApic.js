@@ -22,6 +22,19 @@ export default class ItemApic extends Component {
    }
  }
 
+ render(){
+  var sections = this.props.item.apicData.dataObj.response["0"];
+  var output = [];
+  var output = Object.keys(sections).map(function (key){
+      return (
+          <section className="col-lg-6" key={key}>
+              <div className="wrap">
+                  <h3>{sections[key]}</h3>
+              </div>
+          </section>
+      )
+  })
+
 //onClick={this.voteOne.bind(this)}
    render() {
      return (
@@ -33,10 +46,7 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
-           //console.log(key);
-           return <li key={key}>{this.props.item.apicData.dataObj.response[0][key]} </li>
-         })};
+         <h3> {this.render}
         </h3>
        </div>
      </div>
