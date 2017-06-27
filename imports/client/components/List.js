@@ -15,6 +15,7 @@ export default class List extends Component {
 */
 
   render() {
+    console.log(this);
       return(
         <div>
             <p>TEST DATA</p>
