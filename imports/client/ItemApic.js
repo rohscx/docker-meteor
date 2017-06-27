@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Apic from './Apic';
 import ItemsApic from '../api/request'
-import MakeList from '../components/MakeList'
+import MakeList from './components/MakeList'
 
 import { Session } from 'meteor/session';
 
