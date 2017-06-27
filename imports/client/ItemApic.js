@@ -16,9 +16,9 @@ export default class ItemApic extends Component {
    let expiredText = "This ticket Expired: ";
    let activeText = "This ticket is Acative: ";
    if (nowTime - ticketTime < expireTime) {
-     return <p>activeText + ticketTime</p>;
+     return <span><font color="green">activeText + ticketTime</font></span>;
    } else {
-     return <p>expiredText + ticketTime </p>;
+     return <span><font color="red">expiredText + ticketTime </font></span>;
    }
  }
 
@@ -28,7 +28,7 @@ export default class ItemApic extends Component {
      return (
        <div className='itemApic'>
          <div className='vote-one' >
-         <span>{this.expiredCheck()}</span>
+         {this.expiredCheck()}
          <h3>{this.props.item.apicData.text}</h3>
        </div>
        <span>Return</span>
