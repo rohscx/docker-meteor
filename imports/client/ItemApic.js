@@ -12,7 +12,7 @@ export default class ItemApic extends Component {
 //onClick={this.voteOne.bind(this)}
    render() {
      return (
-       <div className='item'>
+       <div className='itemApic'>
          <div className='vote-one' >
          <span>{this.props.item.apicData.value}</span>
          <h3>{this.props.item.apicData.text}</h3>
