@@ -14,7 +14,7 @@ export default class ItemApic extends Component {
    let ticketTime = this.props.item.apicData.requestDate;
    let expireTime = 1800;
    let expiredText = "<a style={{backgroundColor: bgColors.Yellow}}>yellow</a>";
-   let activeText = "<font color=\"green\">This ticket is Acative : </font>";
+   let activeText = "<a style={{backgroundColor: bgColors.Yellow}}>yellow</a>";
    if (nowTime - ticketTime < expireTime) {
      return activeText + ticketTime;
    } else {
