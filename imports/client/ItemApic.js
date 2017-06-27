@@ -14,8 +14,8 @@ export default class ItemApic extends Component {
      return (
        <div className='item'>
          <div className='vote-one' >
-         <span>{this.props.item.itemOne.value}</span>
-         <h3>{this.props.item.itemOne.text}</h3>
+         <span>{this.props.item.apicData.value}</span>
+         <h3>{this.props.item.apicData.text}</h3>
        </div>
      </div>
      )
