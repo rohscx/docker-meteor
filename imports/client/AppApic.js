@@ -94,7 +94,7 @@ import ItemsApic from '../api/request'
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-          <Header {... this.state} ticket={this.props.item.itemOne.text}/>
+          <Header {... this.state} />
             <Apic {... this.state} changeTicket={this.changeTicket.bind(this)}/>
 
              <ReactCSSTransitionGroup
