@@ -13,7 +13,10 @@ const ItemApicSchema = new SimpleSchema ({
     type: Object,
     blackbox: true
   },
-  value: SimpleSchema.Integer
+  value: SimpleSchema.Integer,
+  requestDate: {
+    type: Date
+  }
 });
 
 const ItemsApicSchema = new SimpleSchema ({
