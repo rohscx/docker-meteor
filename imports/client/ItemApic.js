@@ -30,10 +30,7 @@ export default class ItemApic extends Component {
      console.log(one);
      console.log(two);
 
-     return
-     <h3>
-       <li>{key} {two}</li>
-     </h3>
+     return <li>{key {two}</li>;
    });
  }
 
