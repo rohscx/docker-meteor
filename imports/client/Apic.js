@@ -50,9 +50,9 @@ makeRequest() {
       // success!
       console.log(res); // debug
       console.log(JSON.parse(JSON.stringify(res))); // debug
-      this.dataObj = res.data;
+      this.dataObj = res.data.response;
       this.response = res;
-      //console.log(this.dataObj);
+      console.log(this.dataObj);
       //Session.set("apicResponse", res.data.response);
       this.addToDB();
     }
