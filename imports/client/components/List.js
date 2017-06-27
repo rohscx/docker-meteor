@@ -6,13 +6,16 @@ export default class List extends Component {
     console.log(this);
       return(
       <div>
-        <span>{this.props.itemList.hostType}</span>
-        <h3>{Object.entries(this.props.itemList).map(([key,value])=>{
+        <span>
+          <h3>
+          {this.props.itemList.hostType}
+          </h3>
+        </span>
+        {Object.entries(this.props.itemList).map(([key,value])=>{
           return (
-            <h3>{key} : {value}</h3>
+            <p>{key} : {value}</p>
           );
         })}
-        </h3>
       </div>
       )
   }
