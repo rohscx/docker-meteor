@@ -84,7 +84,9 @@ render() {
   return (
     <div>
       <p> OKAY THIS SEEMS TO WORK</p>
-
+      <button onClick={this.makeRequest.bind(this)}>
+        apicGet
+      </button>
     </div>
 
   )
