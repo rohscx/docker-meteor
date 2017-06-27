@@ -33,13 +33,11 @@ export default class ItemApic extends Component {
          <h3>{this.props.item.apicData.text}</h3>
        </div>
        <span>Return</span>
-       <div className='vote-two'>
+
        {this.props.item.apicData.dataObj.response.map((item) => {
          console.log(item);
          return <List itemList={item}/>
        })}
-
-       </div>
      </div>
      )
    }
