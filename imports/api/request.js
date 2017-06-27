@@ -55,13 +55,12 @@ if (Meteor.isServer) {
       }
     },
     insertNewApic(itemOne,dataObj) {
+      let dateNow = new Date();
       ItemsApic.insert({
           apicData: {
             text: itemOne,
             dataObj: dataObj,
-            $set: {
-              requestDate
-            },
+            requestDate: dateNow,
             value: 0,
           }
         });
