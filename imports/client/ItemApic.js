@@ -11,6 +11,7 @@ export default class ItemApic extends Component {
  }
 //onClick={this.voteOne.bind(this)}
    render() {
+     console.log(this);
      return (
        <div className='item'>
          <div className='vote-one' >
