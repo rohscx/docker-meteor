@@ -111,8 +111,6 @@ import ItemsApic from '../api/request'
             </button>
             <Apic {... this.state} changeTicket={this.changeTicket.bind(this)}/>
 
-            <ItemApic />
-
              <ReactCSSTransitionGroup
                transitionName='item'
                transitionEnterTimeout={600}
@@ -129,12 +127,12 @@ import ItemsApic from '../api/request'
 }
 
 export default createContainer(({params}) => {
-  let itemsSub = Meteor.subscribe('allItems');
+  let itemsSub = Meteor.subscribe('allApicItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let itemsArray;
   if(params.id) {
-    itemsArray = Items.find({_id: params.id}).fetch();
+    itemsArray = ItemsApic.find({_id: params.id}).fetch();
   } else {
     itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
