@@ -41,7 +41,7 @@ export default class ItemApic extends Component {
              return (
                <h3>{key} : {value}</h3>
              );
-           )}
+           })
          })}
        </div>
      </div>
