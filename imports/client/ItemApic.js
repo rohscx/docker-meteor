@@ -32,6 +32,7 @@ export default class ItemApic extends Component {
 
      return <li>{one}</li>;
    });
+   return "cats";
  }
 
 //onClick={this.voteOne.bind(this)}
