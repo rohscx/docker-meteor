@@ -22,19 +22,6 @@ export default class ItemApic extends Component {
    }
  }
 
- listOut() {
-   Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
-
-     let one = key;
-     let two = "this.props.item.apicData.dataObj.response[\"0\"]." + key;
-     console.log(one);
-     console.log(two);
-
-     return <li>{one}</li>;
-   });
-   return "cats";
- }
-
 //onClick={this.voteOne.bind(this)}
    render() {
      return (
@@ -46,7 +33,14 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         <h3>{this.listOut()}</h3>
+         <h3>{Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
+           console.log(key);
+           let one = key;
+           let two = "this.props.item.apicData.dataObj.response[\"0\"]." + key;
+
+           return <li>{key} {two}</li>
+         })};
+        </h3>
        </div>
      </div>
      )
