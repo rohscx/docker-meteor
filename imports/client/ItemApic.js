@@ -22,7 +22,6 @@ export default class ItemApic extends Component {
    }
  }
 
-
 //onClick={this.voteOne.bind(this)}
    render() {
      return (
@@ -34,7 +33,10 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         <h3>{JSON.stringify(this.props.item.apicData.dataObj.response, null, 2)}</h3>
+         {this.props.item.apicData.dataObj.response[0].map((item, index) => (
+            <span className='indent' key={index} />
+         ))}
+         <h3></h3>
        </div>
      </div>
      )
