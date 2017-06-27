@@ -42,7 +42,7 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         {this.it}
+         {this.it()}
        </div>
      </div>
      )
