@@ -29,7 +29,7 @@ if (Meteor.isServer) {
       // limits the number of return json items from DB
       //limit: 50,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {requestDate: -1}
+      sort: {requestDate: 1}
     });
   });
 
