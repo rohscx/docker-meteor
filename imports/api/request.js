@@ -36,7 +36,7 @@ if (Meteor.isServer) {
       // limits the number of return json items from DB
       //limit: 50,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {lastUpdated: 1}
+      sort: {requestDate: 1}
     });
   });
 
@@ -56,9 +56,12 @@ if (Meteor.isServer) {
     },
     insertNewApic(itemOne,dataObj) {
       ItemsApic.insert({
-          itemOne: {
+          apicData: {
             text: itemOne,
             dataObj: dataObj,
+            $set: {
+              requestDate
+            },
             value: 0,
           }
         });
