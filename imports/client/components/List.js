@@ -5,6 +5,7 @@ export default class List extends Component {
   render() {
     console.log(this);
       return(
+        <span>{this.props.itemList.hostType}</span>
         <h3>{Object.entries(this.props.itemList).map(([key,value])=>{
           return (
             <h3>{key} : {value}</h3>

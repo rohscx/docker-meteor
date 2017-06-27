@@ -34,7 +34,6 @@ export default class ItemApic extends Component {
        </div>
        <span>Return</span>
        <div className='vote-two'>
-         <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
        {this.props.item.apicData.dataObj.response.map((item) => {
          console.log(item);
          return <List itemList={item}/>
