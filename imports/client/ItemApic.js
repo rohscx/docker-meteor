@@ -24,9 +24,11 @@ export default class ItemApic extends Component {
 
  listOut() {
    Object.keys(this.props.item.apicData.dataObj.response["0"]).map(function(key, index) {
-     console.log(key);
+
      let one = key;
      let two = "this.props.item.apicData.dataObj.response[\"0\"]." + key;
+     console.log(one);
+     console.log(two);
 
      return
      <h3>
