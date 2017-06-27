@@ -37,9 +37,10 @@ export default class ItemApic extends Component {
            //console.log(key);
            let name = key;
            let value = this.props.item.apicData.dataObj.response["0"][key];
+           
 
 
-           return (<li>{one} {value}</li>)
+           return <li>{one} </li>
          })};
         </h3>
        </div>
