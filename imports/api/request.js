@@ -13,7 +13,11 @@ const ItemApicSchema = new SimpleSchema ({
     type: Object,
     blackbox: true
   },
-  requestDate: SimpleSchema.Integer
+  requestDate: SimpleSchema.Integer,
+  lastUpdated : {
+    type: Date,
+  }
+
 });
 
 const ItemsApicSchema = new SimpleSchema ({
@@ -29,7 +33,7 @@ if (Meteor.isServer) {
       // limits the number of return json items from DB
       //limit: 50,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {requestDate: 1}
+      sort: {lastUpdated: -1}
     });
   });
 
@@ -49,11 +53,13 @@ if (Meteor.isServer) {
     },
     insertNewApic(apicTicket,dataObj) {
       let dateNow = Math.round(new Date().getTime() / 1000);
+      let lastUpdated = new Date();
       ItemsApic.insert({
           apicData: {
             text: apicTicket,
             dataObj: dataObj,
             requestDate: dateNow,
+            lastUpdated: lastUpdated
           }
         });
         Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
