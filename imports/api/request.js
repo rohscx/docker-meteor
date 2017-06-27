@@ -13,10 +13,7 @@ const ItemApicSchema = new SimpleSchema ({
     type: Object,
     blackbox: true
   },
-  value: SimpleSchema.Integer,
-  requestDate: {
-    type: Date
-  }
+  requestDate: SimpleSchema.Integer
 });
 
 const ItemsApicSchema = new SimpleSchema ({
@@ -54,14 +51,13 @@ if (Meteor.isServer) {
         return e;
       }
     },
-    insertNewApic(itemOne,dataObj) {
-      let dateNow = new Date();
+    insertNewApic(apicTicket,dataObj) {
+      let dateNow = Math.round(new Date().getTime() / 1000);
       ItemsApic.insert({
           apicData: {
-            text: itemOne,
+            text: apicTicket,
             dataObj: dataObj,
             requestDate: dateNow,
-            value: 0,
           }
         });
         Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
