@@ -32,7 +32,7 @@ makeRequest() {
       alert(err);
     } else {
       // success!
-      // console.log(res.data.response.serviceTicket);	// debug
+      console.log(res);	// debug
       this.ticket = res.data.response.serviceTicket;
       this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
       //Session.set("apicTicket", res.data.response.serviceTicket);
