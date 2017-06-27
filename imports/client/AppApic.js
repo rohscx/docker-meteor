@@ -12,6 +12,7 @@ import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
 import Header from './components/Header';
+import ItemsApic from '../api/requests'
 
 @autobind
  class AppApic extends Component {
