@@ -52,7 +52,7 @@ if (Meteor.isServer) {
       ItemsApic.insert({
           itemOne: {
             text: itemOne,
-            dataObj: dataObj,
+            dataObj: {dataObj},
             value: 0,
           }
         });
