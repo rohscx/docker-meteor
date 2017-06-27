@@ -9,7 +9,7 @@ const ItemsApic = new Mongo.Collection('itemsapic');
 
 const ItemApicSchema = new SimpleSchema ({
   text: String,
-  "dataObj.$": [Object],
+  'dataObj.$': Object,
   value: SimpleSchema.Integer
 });
 
