@@ -13,10 +13,12 @@ export default class ItemApic extends Component {
    let nowTime = Math.round(new Date().getTime() / 1000);
    let ticketTime = this.props.item.apicData.requestDate;
    let expireTime = 1800;
-   if (nowTime - ticketTime > expireTime) {
-     return "EXPIRED";
+   let expiredText = "This ticket Expired: ";
+   let activeText = "This ticket is Acative: ";
+   if (nowTime - ticketTime < expireTime) {
+     return activeText + ticketTime;
    } else {
-     return "Not Expired";
+     return expiredText + ticketTime;
    }
  }
 
