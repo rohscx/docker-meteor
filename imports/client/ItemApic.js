@@ -22,6 +22,13 @@ export default class ItemApic extends Component {
      return <span><font color="red">{expiredText} {ticketTime} </font></span>;
    }
  }
+ it() {
+   Object.entries(this.props.item.apicData.dataObj.response["0"]).map(([key,value])=>{
+     return (
+       <h3>{key} : {value}</h3>
+     );
+   })
+ }
 
 //onClick={this.voteOne.bind(this)}
    render() {
@@ -35,11 +42,7 @@ export default class ItemApic extends Component {
        <span>Return</span>
        <div className='vote-two'>
          <span>{this.props.item.apicData.dataObj.response["0"].hostType}</span>
-         {Object.entries(this.props.item.apicData.dataObj.response["0"]).map(([key,value])=>{
-           return (
-             <h3>{key} : {value}</h3>
-           );
-         })}
+         {this.it}
        </div>
      </div>
      )
