@@ -135,9 +135,9 @@ export default createContainer(({params}) => {
   if(params.id) {
     itemsArray = Items.find({_id: params.id}).fetch();
   } else {
-    itemsArray = Items.find({}, {
+    itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      limit: showAll ? 50 : 1,
+      //limit: showAll ? 50 : 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
       sort: {lastUpdated: 1}
     }).fetch()
