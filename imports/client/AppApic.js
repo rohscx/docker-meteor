@@ -41,18 +41,7 @@ import ItemsApic from '../api/request'
         });
         apic.makeTicket();
         console.log('Ticket Rquested');
-
-        //this.props.changeTicket(Session.get("apicTicket"));
-        //this.props.makeReady(Session.get("apicTicket"));
-        //this.setState({ticket{number: "adsf"}});
-        //this.setState({ticket{ready: true}});
-        console.log(apic);
-        console.log(this);
-        //this.setState({ticket: Session.get("apicTicket")});
-        //this.setState({ticket: Session.get("apicTicket")});
-        //this.setState({ticket: 'lkjhjkhjkhlkj'});
-        this.setState({ticket: {number: Session.get("apicTicket"), ready: true}});
-
+        //this.setState({ticket: {number: Session.get("apicTicket"), ready: true}});
   }
 
     addToken(event) {
@@ -77,7 +66,7 @@ import ItemsApic from '../api/request'
 
 
 
-   changeTicket(){
+   ticketStatus(){
      console.log(this);
      console.log('changeTicket');
      this.setState({greeting: "Cats on everything"});
@@ -93,7 +82,7 @@ import ItemsApic from '../api/request'
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    console.log(this);
+    //console.log(this);
     if (!this.props.ready) {
       return <div>Loading APIC...</div>
     }
@@ -105,7 +94,7 @@ import ItemsApic from '../api/request'
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-          <Header {... this.state} {... this.props}/>
+          <Header {... this.state} ticket={this.props.item.itemOne.text}/>
             <Apic {... this.state} changeTicket={this.changeTicket.bind(this)}/>
 
              <ReactCSSTransitionGroup
