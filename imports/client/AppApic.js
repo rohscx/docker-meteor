@@ -71,16 +71,12 @@ import ItemsApic from '../api/request'
        let nowTime = Math.round(new Date().getTime() / 1000);
        let ticketTime = this.props.items["0"].apicData.requestTime;
        let expireTime = 1800;
-       let expiredText = "This ticket Expired: ";
-       let activeText = "This ticket is Acative: ";
+       let expiredText = "No Active Ticket ";
+       let activeText = "Active Ticket ";
        if (nowTime - ticketTime < expireTime) {
-         //return "SUccess";
-         Session.set('ticket: {number}', this.props.items["0"].apicData.text);
-         console.log(this);
-         //Session.set('ticket: {ready}', true);
+         return {expiredText};
        } else {
-         return "Failure";
-        // return false;
+         return {activeText};
        }
      }
    }
