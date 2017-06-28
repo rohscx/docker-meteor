@@ -76,6 +76,7 @@ import ItemsApic from '../api/request'
        if (nowTime - ticketTime < expireTime) {
          //return "SUccess";
          Session.set('ticket: {number}', this.props.items["0"].apicData.text);
+         console.log(this);
          //Session.set('ticket: {ready}', true);
        } else {
          return "Failure";
