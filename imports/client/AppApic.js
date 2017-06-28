@@ -71,7 +71,7 @@ import ItemsApic from '../api/request'
      this.setState({greeting: "Cats on everything"});
      if(this.props.items["0"].apicData.text) {
        let nowTime = Math.round(new Date().getTime() / 1000);
-       let ticketTime = this.props.item.apicData.requestTime;
+       let ticketTime = this.props.items["0"].apicData.requestTime;
        let expireTime = 1800;
        let expiredText = "This ticket Expired: ";
        let activeText = "This ticket is Acative: ";
