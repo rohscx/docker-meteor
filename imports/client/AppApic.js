@@ -23,7 +23,7 @@ import ItemsApic from '../api/request'
          number: "Not Yet Requested",
          ready: false
        },
-       greeting: "WelcomE new"
+       greeting: "Welome to the APIC-EM App"
      }
      this.refs = {
        ItemOne: "Blerg"
@@ -67,17 +67,24 @@ import ItemsApic from '../api/request'
 
 
    ticketStatus(){
-     console.log(this);
-     console.log('changeTicket');
      this.setState({greeting: "Cats on everything"});
-
-
+     if(this.props.items["0"].apicData.text) {
+       let nowTime = Math.round(new Date().getTime() / 1000);
+       let ticketTime = this.props.item.apicData.requestTime;
+       let expireTime = 1800;
+       let expiredText = "This ticket Expired: ";
+       let activeText = "This ticket is Acative: ";
+       if (nowTime - ticketTime < expireTime) {
+         Session.set('ticket: {number}', this.props.items["0"].apicData.text);
+         Session.set('ticket: {ready}', true);
+       } else {
+        return false;
+       }
    }
 
    makeReady(ticket){
      console.log(this);
      console.log('makeReady');
-
    }
 
   render() {
@@ -95,7 +102,7 @@ import ItemsApic from '../api/request'
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-          <Header {... this.state} />
+          <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
 
              <ReactCSSTransitionGroup
