@@ -28,7 +28,7 @@ export default class ItemApic extends Component {
      console.log(this);
      return (
        <div className='itemApic'>
-         <div className='vote-one' >
+         <div className='one' >
          {this.expiredCheck()}
          <h3>{this.props.item.apicData.text}</h3>
        </div>

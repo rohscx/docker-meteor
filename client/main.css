@@ -530,15 +530,15 @@ button[type='submit'] {
   transition: 0.3s ease all;
   border-bottom: solid 10px;
 }
-.itemApic .vote-one {
+.itemApic .one {
   border-bottom-color: blue;
 }
 
-.itemApic .vote-two {
+.itemApic .two {
   border-bottom-color: red;
 }
 
-.itemApic .two-c {
+.itemApic .two-a {
   border-bottom: solid 1px;
 }
 
@@ -547,11 +547,6 @@ button[type='submit'] {
   color: #CCC;
 }
 
-.itemApic > sup {
-  font-style: italic;
-  color: yellow;
-
-}
 
 .itemApic div:hover {
   background: #EEE;

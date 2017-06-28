@@ -5,7 +5,7 @@ export default class List extends Component {
   render() {
     console.log(this);
       return(
-      <div className='vote-two'>
+      <div className='two'>
         <span>
           <h3>
           {this.props.itemList.hostType}
@@ -13,7 +13,7 @@ export default class List extends Component {
         </span>
         {Object.entries(this.props.itemList).map(([key,value])=>{
           return (
-            <p><div className='two-c'><sup>{key}</sup></div>{value}</p>
+            <p><div className='two-a'><sup>{key}</sup></div>{value}</p>
           );
         })}
       </div>
