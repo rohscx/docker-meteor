@@ -80,6 +80,7 @@ import ItemsApic from '../api/request'
        } else {
         return false;
        }
+     }
    }
 
    makeReady(ticket){
