@@ -13,7 +13,7 @@ export default class List extends Component {
         </span>
         {Object.entries(this.props.itemList).map(([key,value])=>{
           return (
-            <p><div><sup>{key}</sup></div>{value}</p>
+            <p><sup>{key}</sup><div>{value}</div></p>
           );
         })}
       </div>
