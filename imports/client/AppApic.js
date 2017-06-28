@@ -75,7 +75,7 @@ import ItemsApic from '../api/request'
        let activeText = "This ticket is Acative: ";
        if (nowTime - ticketTime < expireTime) {
          return "SUccess";
-         //Session.set('ticket: {number}', this.props.items["0"].apicData.text);
+         Session.set('ticket: {number}', this.props.items["0"].apicData.text);
          //Session.set('ticket: {ready}', true);
        } else {
          return "Failure";
@@ -84,10 +84,6 @@ import ItemsApic from '../api/request'
      }
    }
 
-   makeReady(ticket){
-     console.log(this);
-     console.log('makeReady');
-   }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
