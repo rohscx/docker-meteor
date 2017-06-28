@@ -48,11 +48,11 @@ makeRequest() {
       alert(err);
     } else {
       // success!
-      console.log(res); // debug
-      console.log(JSON.parse(JSON.stringify(res))); // debug
+      // console.log(res); // debug
+      // console.log(JSON.parse(JSON.stringify(res))); // debug
       this.dataObj = res.data;
       this.response = res;
-      console.log(this.dataObj);
+      // console.log(this.dataObj);
       //Session.set("apicResponse", res.data.response);
       this.addToDB();
     }
@@ -63,7 +63,7 @@ makeRequest() {
     if (err) {
       alert(err);
     } else {
-      console.log('Ticket submitted');
+      // console.log('Ticket submitted');
     }
   })};
 
@@ -71,15 +71,14 @@ makeRequest() {
         headers: { 'content-type': 'application/json'}
       });
       //apic.makeTicket();
-      console.log('Ticket Rquested');
-      console.log(apic);
-      console.log('making Ticket');
+      // console.log('Ticket Rquested');
+      // console.log(apic);
+      // console.log('making Ticket');
       apic.makeTicket();
-      console.log('After');
+      // console.log('After');
 }
 
 render() {
-    console.log(this);
   return (
     <div>
       <button onClick={this.makeRequest.bind(this)}>
