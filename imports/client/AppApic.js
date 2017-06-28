@@ -74,9 +74,9 @@ import ItemsApic from '../api/request'
        let expiredText = "No Active Ticket ";
        let activeText = "Active Ticket ";
        if (nowTime - ticketTime < expireTime) {
-         return {expiredText};
+         return expiredText;
        } else {
-         return {activeText};
+         return activeText;
        }
      }
    }
