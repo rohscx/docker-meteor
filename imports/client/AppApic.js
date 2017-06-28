@@ -114,7 +114,6 @@ import ItemsApic from '../api/request'
                transitionAppear={true}
                transistionAppearTimeout={600}>
                {this.props.items.map((item) => {
-                 console.log(item);
                  return <ItemApic item={item} key={item._id}/>
                })}
            </ReactCSSTransitionGroup>
