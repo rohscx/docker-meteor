@@ -540,7 +540,8 @@ button[type='submit'] {
 .itemApic .two-c {
   border-bottom-color: red;
   border-bottom: solid 1px;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .itemApic > span {
