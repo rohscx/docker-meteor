@@ -124,7 +124,7 @@ export default createContainer(({params}) => {
   } else {
     itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      limit: 100,
+      limit: 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
       sort: {requestDdate: -1}
     }).fetch()
