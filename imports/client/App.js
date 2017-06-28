@@ -36,11 +36,9 @@ import Items from '../api/Items'
    }
 
   render() {
-
     if (!this.props.ready) {
       return <div>Loading...</div>
     }
-
     // inline conditional test. If true the conditional will be displayed
     const test = false;
     return (

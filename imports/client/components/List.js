@@ -3,7 +3,6 @@ import { Session } from 'meteor/session';
 
 export default class List extends Component {
   render() {
-    console.log(this);
       return(
       <div className='two'>
         <span>

@@ -7,9 +7,7 @@ import List from './components/List'
 import { Session } from 'meteor/session';
 
 export default class ItemApic extends Component {
-  voteOne() {
-   Meteor.call('voteOnItem', this.props.item, 'itemOne');
- }
+
  expiredCheck() {
    let nowTime = Math.round(new Date().getTime() / 1000);
    let ticketTime = this.props.item.apicData.requestTime;
@@ -25,7 +23,6 @@ export default class ItemApic extends Component {
 
 //onClick={this.voteOne.bind(this)}
    render() {
-     console.log(this);
      return (
        <div className='itemApic'>
          <div className='one' >
