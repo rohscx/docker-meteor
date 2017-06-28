@@ -67,8 +67,6 @@ import ItemsApic from '../api/request'
 
 
    ticketStatus(){
-     console.log('RUNNING STATUS CHECK');
-     this.setState({greeting: "Cats on everything"});
      if(this.props.items["0"].apicData.text) {
        let nowTime = Math.round(new Date().getTime() / 1000);
        let ticketTime = this.props.items["0"].apicData.requestTime;
@@ -76,10 +74,12 @@ import ItemsApic from '../api/request'
        let expiredText = "This ticket Expired: ";
        let activeText = "This ticket is Acative: ";
        if (nowTime - ticketTime < expireTime) {
-         Session.set('ticket: {number}', this.props.items["0"].apicData.text);
-         Session.set('ticket: {ready}', true);
+         return "SUccess";
+         //Session.set('ticket: {number}', this.props.items["0"].apicData.text);
+         //Session.set('ticket: {ready}', true);
        } else {
-        return false;
+         return "Failure";
+        // return false;
        }
      }
    }
