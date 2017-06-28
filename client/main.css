@@ -537,6 +537,12 @@ button[type='submit'] {
   border-bottom-color: red;
 }
 
+.itemApic .two-c {
+  border-bottom-color: red;
+  border-bottom: solid 1px;
+  padding: 5px;
+}
+
 .itemApic > span {
   font-style: italic;
   color: #CCC;
