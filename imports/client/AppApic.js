@@ -67,6 +67,7 @@ import ItemsApic from '../api/request'
 
 
    ticketStatus(){
+     console.log('RUNNING STATUS CHECK');
      this.setState({greeting: "Cats on everything"});
      if(this.props.items["0"].apicData.text) {
        let nowTime = Math.round(new Date().getTime() / 1000);

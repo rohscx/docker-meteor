@@ -7,7 +7,7 @@ export default class Title extends Component {
     return(
       <div>
         <h1>{this.props.greeting}</h1>
-        <p>Apic Ticket: {this.props.ticket.number}</p>
+        <p>Apic Ticket: {this.props.ticketStatus}</p>
       </div>
     )
   }
