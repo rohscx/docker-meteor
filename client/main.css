@@ -540,12 +540,17 @@ button[type='submit'] {
 .itemApic .two-c {
   border-bottom-color: red;
   border-bottom: solid 1px;
-  padding: 5px 0px 50px 0px;
 }
 
 .itemApic > span {
   font-style: italic;
   color: #CCC;
+}
+
+.itemApic > sup {
+  font-style: italic;
+  color: yellow;
+  padding: 5px 0px 5px 0px;
 }
 
 .itemApic div:hover {
