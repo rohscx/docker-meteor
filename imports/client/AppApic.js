@@ -124,9 +124,9 @@ export default createContainer(({params}) => {
   } else {
     itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      //limit: showAll ? 50 : 1,
+      limit: 100,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {"lastUpdated": 1}
+      sort: {lastUpdated: 1}
     }).fetch()
   }
   return {
