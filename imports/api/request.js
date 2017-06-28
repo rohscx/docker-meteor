@@ -15,9 +15,8 @@ const ItemApicSchema = new SimpleSchema ({
   },
   requestTime: SimpleSchema.Integer,
   dateTime : {
-    type: Date,
+    type: Date
   }
-
 });
 
 const ItemsApicSchema = new SimpleSchema ({
@@ -58,9 +57,9 @@ if (Meteor.isServer) {
           apicData: {
             text: apicTicket,
             dataObj: dataObj,
-            requestTime: timeNow
-          },
-          dateTime: dateTime
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
         });
         Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
     },
