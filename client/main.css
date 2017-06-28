@@ -517,9 +517,10 @@ button[type='submit'] {
 }
 
 .itemApic p {
-  font-size: 8px;
+  font-size: 18px;
   margin: 0;
   padding: 5px 0px 5px 0px;
+  word-wrap: break-word;
 }
 
 .itemApic div {
@@ -540,7 +541,7 @@ button[type='submit'] {
 
 .itemApic .two-a {
   border-bottom: solid 1px;
-  word-wrap: break-word;
+
 }
 
 .itemApic > span {
