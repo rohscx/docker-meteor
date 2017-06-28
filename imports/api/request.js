@@ -13,8 +13,8 @@ const ItemApicSchema = new SimpleSchema ({
     type: Object,
     blackbox: true
   },
-  requestDate: SimpleSchema.Integer,
-  lastUpdated : {
+  requestTime: SimpleSchema.Integer,
+  dateTime : {
     type: Date,
   }
 
@@ -52,15 +52,15 @@ if (Meteor.isServer) {
       }
     },
     insertNewApic(apicTicket,dataObj) {
-      let dateNow = Math.round(new Date().getTime() / 1000);
-      let lastUpdated = new Date();
+      let timeNow = Math.round(new Date().getTime() / 1000);
+      let dateTime = new Date();
       ItemsApic.insert({
           apicData: {
             text: apicTicket,
             dataObj: dataObj,
-            requestDate: dateNow,
-            lastUpdated: lastUpdated
-          }
+            requestTime: timeNow
+          },
+          dateTime: dateTime
         });
         Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
     },
