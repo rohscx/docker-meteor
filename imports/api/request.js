@@ -14,14 +14,14 @@ const ItemApicSchema = new SimpleSchema ({
     blackbox: true
   },
   requestDate: SimpleSchema.Integer,
+  lastUpdated : {
+    type: Date,
+  }
+
 });
 
 const ItemsApicSchema = new SimpleSchema ({
-  apicData: ItemApicSchema,
-  lastUpdated : {
-    type: Date,
-    optional: true
-  }
+  apicData: ItemApicSchema
 });
 
 ItemsApic.attachSchema(ItemsApicSchema);
@@ -31,9 +31,9 @@ if (Meteor.isServer) {
   Meteor.publish('allApicItems', function() {
     return ItemsApic.find({}, {
       // limits the number of return json items from DB
-      //limit: 50,
+      limit: 50,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {lastUpdated: -1}
+      sort: {lastUpdated: 1}
     });
   });
 
