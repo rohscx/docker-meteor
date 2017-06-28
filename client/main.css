@@ -535,15 +535,13 @@ button[type='submit'] {
 
 .itemApic .vote-two {
   border-bottom-color: red;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 5px;
 }
 
 .itemApic .two-c {
   border-bottom-color: red;
   border-bottom: solid 1px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 5px;
 }
 
 .itemApic > span {
