@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Title from './Header/Title';
+import Status from './Header/Status';
 
 export default class Header extends Component {
   handleChange(){
@@ -10,7 +11,8 @@ export default class Header extends Component {
     console.log(this);
       return(
         <div>
-            <Title {... this.props}/>
+          <Title {... this.props}/>
+          <Status />
         </div>
       )
   }

@@ -25,9 +25,6 @@ import ItemsApic from '../api/request'
        },
        greeting: "Welome to the APIC-EM App"
      }
-     this.refs = {
-       ItemOne: "Blerg"
-     }
    }
 
 /*
@@ -71,14 +68,18 @@ import ItemsApic from '../api/request'
        let nowTime = Math.round(new Date().getTime() / 1000);
        let ticketTime = this.props.items["0"].apicData.requestTime;
        let expireTime = 1800;
-       let expiredText = "No Active Ticket ";
-       let activeText = "Active Ticket ";
+       let activeText = "Active ";
+       let expiredText = "Not Active ";
        if (nowTime - ticketTime < expireTime) {
-         return expiredText;
-       } else {
          return activeText;
+       } else {
+         return expiredText;
        }
      }
+   }
+
+   requestStatus(){
+
    }
 
 
