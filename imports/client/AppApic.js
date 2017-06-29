@@ -78,11 +78,6 @@ import ItemsApic from '../api/request'
      }
    }
 
-   requestStatus(){
-
-   }
-
-
   render() {
     //console.log(Session.get("apicResponse")[0]);
     //console.log(this);
