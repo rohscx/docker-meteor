@@ -10,9 +10,11 @@ export default class Status extends Component {
   }
 
   requestStatus() {
-    this.setState(previousState => {
-      return {requestStatus: !perviousState.requestStatus};
-    });
+    if (this.state.requestStatus == false) {
+      this.setState(requestStatus, true)
+    } else {
+      this.setState(requestStatus, false)
+    }
     console.log(this);
   }
 
