@@ -9,17 +9,10 @@ export default class Status extends Component {
     }
   }
 
-  requestStatus() {
-    return {requestStatus: false};
-  }
 
   render() {
-    console.log(this);
+
     return(
-      <div>
-        {this.requestStatus()}
-        <h1>TEST</h1>
-      </div>
     )
   }
 }
