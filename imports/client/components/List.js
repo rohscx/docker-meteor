@@ -5,7 +5,7 @@ export default class List extends Component {
   render() {
     returnList = Object.entries(this.props.itemList).map(([key,value])=>{
         return (
-          <div className='two-a' key={key.id}><sup>{key}</sup><p >{value}</p></div>
+          <div className='two-a' key={key._id}><sup>{key}</sup><p >{value}</p></div>
       );
     });
       return(
