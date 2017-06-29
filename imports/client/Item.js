@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import Items from '../api/Items'
  export default class Item extends Component {
+   voteOne() {
+    Meteor.call('voteOnItem', this.props.item, 'itemOne');
+  }
+
+
+   voteTwo() {
+     Meteor.call('voteOnItem', this.props.item, 'itemTwo');
+   }
+
 
    render() {
      return (
