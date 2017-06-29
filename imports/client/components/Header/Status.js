@@ -20,7 +20,8 @@ export default class Status extends Component {
     console.log(this.state.requestStaus);
     return(
       <div>
-        <h1>{this.requestStatus}</h1>
+        {this.requestStatus}
+        <h1>TEST</h1>
       </div>
     )
   }
