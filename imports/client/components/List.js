@@ -3,6 +3,9 @@ import { Session } from 'meteor/session';
 
 export default class List extends Component {
   render() {
+    returnList = Object.entries(this.props.itemList).map(([key,value])=>{
+        <div className='two-a' key={key.id}><sup>{key}</sup><p >{value}</p></div>
+    })
       return(
       <div className='two'>
         <span>
@@ -10,11 +13,7 @@ export default class List extends Component {
           {this.props.itemList.hostType}
           </h3>
         </span>
-        {Object.entries(this.props.itemList).map(([key,value])=>{
-          return (
-            <div className='two-a' key={key.id}><sup>{key}</sup><p >{value}</p></div>
-          );
-        })}
+        {returnList}
       </div>
       )
   }
