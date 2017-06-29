@@ -24,6 +24,7 @@ import ItemsApic from '../api/request'
          ready: false
        },
        greeting: "Welome to the APIC-EM App"
+       requestStatus: true
      }
    }
 
@@ -60,8 +61,6 @@ import ItemsApic from '../api/request'
        Session.set('showAll', true);
      }
    }
-
-
 
    ticketStatus(){
      if(this.props.items["0"].apicData.text) {
