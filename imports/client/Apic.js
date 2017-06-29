@@ -81,15 +81,9 @@ makeRequest() {
 render() {
   return (
     <div>
-      <button onClick={this.makeRequest.bind(this)}>
-        apicGet
-      </button>
-       <button type="button"
-         class="btn btn-primary start"
-         id="btnStartUploads"
-         dataLoadingText="<i class='icon-spinner icon-spin icon-large'></i> @Localization.Uploading">
-         <i class="icon-upload icon-large"></i>
-        <span>@Localization.StartUpload</span>
+      <button class="btn btn-lg btn-warning" onClick={this.makeRequest.bind(this)}>
+        sfsd
+        <span class="glyphicon glyphicon-refresh spinning"></span> Loading...
       </button>
     </div>
 
