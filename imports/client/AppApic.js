@@ -23,7 +23,7 @@ import ItemsApic from '../api/request'
          number: "Not Yet Requested",
          ready: false
        },
-       greeting: "Welome to the APIC-EM App"
+       greeting: "Welome to the APIC-EM App",
        requestStatus: true
      }
    }
