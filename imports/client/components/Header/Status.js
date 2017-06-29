@@ -5,13 +5,11 @@ export default class Status extends Component {
   constructor() {
     super();
     this.state = {
-      requestStatus: false
+      requestStatus: true
     }
   }
 
   requestStatus() {
-    status = this.state.requestStatus;
-    this.setState(status, true);
     if (this.state.requestStatus == false) {
       //this.setState(requestStatus, true)
       console.log('false');
