@@ -10,7 +10,8 @@ export default class Status extends Component {
   }
 
   requestStatus() {
-    this.setState(requestStatus, true);
+    status = this.state.requestStatus;
+    this.setState(status, true);
     if (this.state.requestStatus == false) {
       //this.setState(requestStatus, true)
       console.log('false');
