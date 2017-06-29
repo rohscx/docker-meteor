@@ -12,7 +12,6 @@ export default class Header extends Component {
       return(
         <div>
           <Title {... this.props}/>
-          <Status />
         </div>
       )
   }
