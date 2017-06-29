@@ -13,11 +13,11 @@ export default class Status extends Component {
     this.setState(previousState => {
       return {requestStatus: !perviousState.requestStatus};
     });
-    console.log(this.state.requestStatus);
+    console.log(this);
   }
 
   render() {
-    console.log(this.state.requestStaus);
+    console.log(this);
     return(
       <div>
         {this.requestStatus}
