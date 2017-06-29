@@ -81,9 +81,8 @@ makeRequest() {
 render() {
   return (
     <div>
-      <button class="btn btn-lg btn-warning" onClick={this.makeRequest.bind(this)}>
-        sfsd
-        <span class="glyphicon glyphicon-refresh spinning"></span> Loading...
+      <button onClick={this.makeRequest.bind(this)}>
+        apicGet
       </button>
     </div>
 
