@@ -22,7 +22,7 @@ export default class Status extends Component {
     console.log(this);
     return(
       <div>
-        {this.requestStatus}
+        {this.requestStatus()}
         <h1>TEST</h1>
       </div>
     )
