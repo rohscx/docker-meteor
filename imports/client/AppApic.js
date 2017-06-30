@@ -97,7 +97,7 @@ import ItemsApic from '../api/request'
 
    ticketList(){
      return (
-         Show {this.props.showList ? 'One': 'All'}
+         {this.props.showList ? 'One': 'All'}
      );
    }
 
