@@ -66,8 +66,12 @@ import ItemsApic from '../api/request'
    showList() {
      if(this.state.showList) {
        Session.set('showList', false);
+       console.log('True it exists');
+       console.log(this.state.showList);
      } else {
        Session.set('showList', true);
+       console.log('false it does not exist');
+       console.log(this.state.showList);
      }
    }
 
