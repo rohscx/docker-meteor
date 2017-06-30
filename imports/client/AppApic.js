@@ -137,6 +137,7 @@ export default createContainer(({params}) => {
   let itemsSub = Meteor.subscribe('allApicItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
+  let showList = Session.get('showList');
   let itemsArray;
   if(params.id) {
     itemsArray = ItemsApic.find({_id: params.id}).fetch();
