@@ -8,6 +8,7 @@ export default class Title extends Component {
       <div>
         <h1>{this.props.greeting}</h1>
         <p>Apic Ticket: {this.props.ticketStatus()}</p>
+        {this.props.ticketList()}
       </div>
     )
   }
