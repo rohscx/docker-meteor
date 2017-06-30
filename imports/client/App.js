@@ -87,7 +87,7 @@ export default createContainer(({params}) => {
       // ternary operator. a form of IF THEN statement
       limit: showAll ? 50 : 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {lastUpdated: -1}
+      sort: {lastUpdated: 1}
     }).fetch()
   }
   return {
