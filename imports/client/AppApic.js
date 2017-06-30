@@ -24,7 +24,8 @@ import ItemsApic from '../api/request'
          ready: false
        },
        greeting: "Welome to the APIC-EM App",
-       requestStatus: true
+       requestStatus: true,
+       showAll: false
      }
    }
 
@@ -53,12 +54,25 @@ import ItemsApic from '../api/request'
           });
       }
     }
-
+/*
    showAll() {
      if(this.props.showAll) {
        Session.set('showAll', false);
      } else {
        Session.set('showAll', true);
+     }
+   }
+*/
+   showAll() {
+     if(this.state.showAll) {
+       //Session.set('showAll', false);
+       return (
+         {this.props.items.map((item) => {
+           return <ItemApic item={item} key={item}/>
+         })}
+       );
+     } else {
+       return "NOT TRUE";
      }
    }
 
@@ -97,6 +111,9 @@ import ItemsApic from '../api/request'
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
+          <button onClick={this.showAll}>
+            Show {this.props.showAll ? 'One': 'All'}
+          </button>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
 
              <ReactCSSTransitionGroup
