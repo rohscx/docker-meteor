@@ -84,7 +84,7 @@ render() {
       <button type="button" className="btn btn-primary" onClick={this.makeRequest.bind(this)}>
         New Apic Ticket
       </button>
-      {this.props.showList()}
+      {this.props.ticketList()}
     </div>
 
   )
