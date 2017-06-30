@@ -24,7 +24,8 @@ import ItemsApic from '../api/request'
          ready: false
        },
        greeting: "Welome to the APIC-EM App",
-       requestStatus: true
+       requestStatus: true,
+       showList: false
      }
    }
 
@@ -105,9 +106,9 @@ import ItemsApic from '../api/request'
                transitionLeaveTimeout={600}
                transitionAppear={true}
                transistionAppearTimeout={600}>
-               {this.props.items.map((item) => {
+               {this.state.showList ?  this.props.items.map((item) => {
                  return <ItemApic item={item} key={item}/>
-               })}
+               }) : "CATS"} 
            </ReactCSSTransitionGroup>
         </main>
     );
