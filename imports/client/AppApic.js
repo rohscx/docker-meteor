@@ -64,7 +64,7 @@ import ItemsApic from '../api/request'
    }
 
    showList() {
-     if(this.props.showList) {
+     if(this.state.showList) {
        Session.set('showList', false);
      } else {
        Session.set('showList', true);
@@ -120,7 +120,7 @@ import ItemsApic from '../api/request'
                 </ReactCSSTransitionGroup> : <p>CATS</p>
               }
               <button onClick={this.showList}>
-                Show {this.props.showList ? 'One': 'All'}
+                Show {this.state.showList ? 'One': 'All'}
               </button>
         </main>
     );
