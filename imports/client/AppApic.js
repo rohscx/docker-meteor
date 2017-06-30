@@ -24,8 +24,7 @@ import ItemsApic from '../api/request'
          ready: false
        },
        greeting: "Welome to the APIC-EM App",
-       requestStatus: true,
-       showAll: false
+       requestStatus: true
      }
    }
 
@@ -54,19 +53,10 @@ import ItemsApic from '../api/request'
           });
       }
     }
-/*
+
    showAll() {
      if(this.props.showAll) {
        Session.set('showAll', false);
-     } else {
-       Session.set('showAll', true);
-     }
-   }
-*/
-   showAll() {
-     if(this.state.showAll) {
-       //Session.set('showAll', false);
-
      } else {
        Session.set('showAll', true);
      }
@@ -107,9 +97,6 @@ import ItemsApic from '../api/request'
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
-          <button onClick={this.showAll}>
-            Show {this.props.showAll ? 'One': 'All'}
-          </button>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
 
              <ReactCSSTransitionGroup
@@ -119,10 +106,7 @@ import ItemsApic from '../api/request'
                transitionAppear={true}
                transistionAppearTimeout={600}>
                {this.props.items.map((item) => {
-                 console.log(item);
-                 return <div>
-                   <ItemApic item={item} key={item}/>
-                 </div>
+                 return <ItemApic item={item} key={item}/>
                })}
            </ReactCSSTransitionGroup>
         </main>
@@ -140,9 +124,9 @@ export default createContainer(({params}) => {
   } else {
     itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      limit: 1
+      //limit: 1000,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      //sort: {"apicData.dateTime" : -1}
+      //sort: {apicData: {dateTime: -1}}
     }).fetch()
   }
   return {
