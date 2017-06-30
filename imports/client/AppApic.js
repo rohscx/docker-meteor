@@ -122,7 +122,7 @@ export default createContainer(({params}) => {
       // ternary operator. a form of IF THEN statement
       //limit: 1000,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {apicData: {dateTime: -1}}
+      //sort: {apicData: {dateTime: -1}}
     }).fetch()
   }
   return {
