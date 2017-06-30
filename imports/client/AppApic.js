@@ -107,7 +107,9 @@ import ItemsApic from '../api/request'
                transistionAppearTimeout={600}>
                {this.props.items.map((item) => {
                  console.log(item);
-                 return <div><ItemApic item={item} key={item}/></div>
+                 return <div>
+                   <ItemApic item={item} key={item}/>
+                 </div>
                })}
            </ReactCSSTransitionGroup>
         </main>
@@ -125,9 +127,9 @@ export default createContainer(({params}) => {
   } else {
     itemsArray = ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      //limit: 1000,
+      limit: 1
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      //sort: {apicData: {dateTime: -1}}
+      //sort: {"apicData.dateTime" : -1}
     }).fetch()
   }
   return {
