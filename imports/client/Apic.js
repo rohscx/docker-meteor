@@ -81,7 +81,7 @@ makeRequest() {
 render() {
   return (
     <div>
-      <button type="button" class="btn-success" onClick={this.makeRequest.bind(this)}>
+      <button type="button" class="btn btn-success" onClick={this.makeRequest.bind(this)}>
         apicGet
       </button>
     </div>
