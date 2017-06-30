@@ -113,7 +113,7 @@ import ItemsApic from '../api/request'
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
 
              <ReactCSSTransitionGroup
-               transitionName='item'
+               transitionName='itemApic'
                transitionEnterTimeout={600}
                transitionLeaveTimeout={600}
                transitionAppear={true}
