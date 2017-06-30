@@ -97,9 +97,7 @@ import ItemsApic from '../api/request'
 
    ticketList(){
      return (
-       <button onClick={this.showList}>
          Show {this.props.showList ? 'One': 'All'}
-       </button>
      );
    }
 
@@ -118,8 +116,8 @@ import ItemsApic from '../api/request'
               Show {this.props.showAll ? 'One': 'All'}
             </button>
           </IsRole>
-          <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
+          <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
                   transitionName='itemApic'
