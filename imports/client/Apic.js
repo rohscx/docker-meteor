@@ -9,6 +9,8 @@ export default class Apic extends Component {
 
 
 makeRequest() {
+  console.log(this);
+
   // Constructor
   function restRequest(type, url, options) {
     // always initialize all instance properties
@@ -82,8 +84,7 @@ render() {
       <button type="button" className="btn btn-primary" onClick={this.makeRequest.bind(this)}>
         New Apic Ticket
       </button>
-      <button type="button" className="btn btn-primary" onClick={this.props.showList()}>
-      </button>
+      {this.props.showList()}
     </div>
 
   )
