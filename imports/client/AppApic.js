@@ -63,6 +63,14 @@ import ItemsApic from '../api/request'
      }
    }
 
+   showList() {
+     if(this.props.showList) {
+       Session.set('showList', false);
+     } else {
+       Session.set('showList', true);
+     }
+   }
+
    ticketStatus(){
      if(this.props.items.length != 0){
        if(this.props.items["0"].apicData.text) {
@@ -99,17 +107,21 @@ import ItemsApic from '../api/request'
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
-              {this.state.showList ?            <ReactCSSTransitionGroup
-                           transitionName='itemApic'
-                           transitionEnterTimeout={600}
-                           transitionLeaveTimeout={600}
-                           transitionAppear={true}
-                           transistionAppearTimeout={600}>
-                           {this.props.items.map((item) => {
-                             return <ItemApic item={item} key={item}/>
-                           })}
-                       </ReactCSSTransitionGroup> : <p>CATS</p>}
-
+              {this.state.showList ?
+                <ReactCSSTransitionGroup
+                  transitionName='itemApic'
+                  transitionEnterTimeout={600}
+                  transitionLeaveTimeout={600}
+                  transitionAppear={true}
+                  transistionAppearTimeout={600}>
+                  {this.props.items.map((item) => {
+                    return <ItemApic item={item} key={item}/>
+                  })}
+                </ReactCSSTransitionGroup> : <p>CATS</p>
+              }
+              <button onClick={this.showList}>
+                Show {this.props.showList ? 'One': 'All'}
+              </button>
         </main>
     );
   }
