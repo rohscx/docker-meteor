@@ -96,9 +96,11 @@ import ItemsApic from '../api/request'
    }
 
    ticketList(){
-     <button onClick={this.showList}>
-       Show {this.props.showList ? 'One': 'All'}
-     </button>
+     return (
+       <button onClick={this.showList}>
+         Show {this.props.showList ? 'One': 'All'}
+       </button>
+     );
    }
 
   render() {
