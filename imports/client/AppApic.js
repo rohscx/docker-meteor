@@ -25,7 +25,7 @@ import ItemsApic from '../api/request'
        },
        greeting: "Welome to the APIC-EM App",
        requestStatus: true,
-       showList: false
+       showList: true
      }
    }
 
