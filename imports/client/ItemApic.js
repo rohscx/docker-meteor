@@ -31,7 +31,6 @@ export default class ItemApic extends Component {
          <h3>{this.props.item.apicData.text}</h3>
        </div>
        <span>Return</span>
-
        {this.props.item.apicData.dataObj.response.map((item, index) => {
          console.log(item);
          return <List itemList={item} key={index}/>
