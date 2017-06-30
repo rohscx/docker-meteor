@@ -48,7 +48,7 @@ makeRequest() {
       alert(err);
     } else {
       // success!
-      // console.log(res); // debug
+      console.log(res); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       this.dataObj = res.data;
       this.response = res;
