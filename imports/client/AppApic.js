@@ -66,13 +66,9 @@ import ItemsApic from '../api/request'
    showAll() {
      if(this.state.showAll) {
        //Session.set('showAll', false);
-       return (
-         {this.props.items.map((item) => {
-           return <ItemApic item={item} key={item}/>
-         })}
-       );
+
      } else {
-       return "NOT TRUE";
+       Session.set('showAll', true);
      }
    }
 
