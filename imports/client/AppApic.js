@@ -63,17 +63,21 @@ import ItemsApic from '../api/request'
    }
 
    ticketStatus(){
-     if(this.props.items["0"].apicData.text) {
-       let nowTime = Math.round(new Date().getTime() / 1000);
-       let ticketTime = this.props.items["0"].apicData.requestTime;
-       let expireTime = 1800;
-       let activeText = "Active ";
-       let expiredText = "Not Active ";
-       if (nowTime - ticketTime < expireTime) {
-         return activeText;
-       } else {
-         return expiredText;
+     if(this.props.items.length != 0){
+       if(this.props.items["0"].apicData.text) {
+         let nowTime = Math.round(new Date().getTime() / 1000);
+         let ticketTime = this.props.items["0"].apicData.requestTime;
+         let expireTime = 1800;
+         let activeText = "Active ";
+         let expiredText = "Not Active ";
+         if (nowTime - ticketTime < expireTime) {
+           return activeText;
+         } else {
+           return expiredText;
+         }
        }
+     } else {
+       return "BLERG";
      }
    }
 
