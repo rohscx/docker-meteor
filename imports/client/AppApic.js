@@ -99,17 +99,17 @@ import ItemsApic from '../api/request'
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)}/>
+              {this.state.showList ?            <ReactCSSTransitionGroup
+                           transitionName='itemApic'
+                           transitionEnterTimeout={600}
+                           transitionLeaveTimeout={600}
+                           transitionAppear={true}
+                           transistionAppearTimeout={600}>
+                           {this.props.items.map((item) => {
+                             return <ItemApic item={item} key={item}/>
+                           })}
+                       </ReactCSSTransitionGroup> : <p>CATS</p>}
 
-             <ReactCSSTransitionGroup
-               transitionName='itemApic'
-               transitionEnterTimeout={600}
-               transitionLeaveTimeout={600}
-               transitionAppear={true}
-               transistionAppearTimeout={600}>
-               {this.state.showList ?  this.props.items.map((item) => {
-                 return <ItemApic item={item} key={item}/>
-               }) : "CATS"} 
-           </ReactCSSTransitionGroup>
         </main>
     );
   }
