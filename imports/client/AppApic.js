@@ -64,13 +64,15 @@ import ItemsApic from '../api/request'
    }
 
    showList() {
-     if(this.state.showList) {
+     if(this.props.showList) {
        Session.set('showList', false);
        console.log('True it exists');
+       console.log(this.props.showList);
        console.log(this.state.showList);
      } else {
        Session.set('showList', true);
        console.log('false it does not exist');
+       console.log(this.props.showList);
        console.log(this.state.showList);
      }
    }
@@ -124,7 +126,7 @@ import ItemsApic from '../api/request'
                 </ReactCSSTransitionGroup> : <p>CATS</p>
               }
               <button onClick={this.showList}>
-                Show {this.state.showList ? 'One': 'All'}
+                Show {this.props.showList ? 'One': 'All'}
               </button>
         </main>
     );
@@ -148,6 +150,7 @@ export default createContainer(({params}) => {
   }
   return {
     showAll,
+    showList,
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
