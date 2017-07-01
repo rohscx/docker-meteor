@@ -8,7 +8,7 @@ export default class ApicMenu extends Component {
       return(
         <div>
           {this.props.menu.map((item, index) => {
-            return <Menu item={item} />
+            //return <Menu item={item} />
           })}
         </div>
       )
