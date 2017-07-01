@@ -5,9 +5,7 @@ export default class Menu extends Component {
 
   render() {
     return(
-      <div>
         <button>{this.props.item}</button>
-      </div>
     )
   }
 }
