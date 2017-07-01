@@ -53,7 +53,7 @@ makeRequest() {
       console.log(res); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       if(response.date.length == 0){
-        this.dataObj = {yo: {response: {dataError: emptyArray}}};
+        this.dataObj = {response: {data: {dataError: emptyArray}}};
         this.addToDB();
       } else {
         this.dataObj = res.data;
