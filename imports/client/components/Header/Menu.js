@@ -5,7 +5,7 @@ export default class Menu extends Component {
 
   render() {
     return(
-        <button type="button" className="btn btn-primary">{this.props.item}</button>
+        <button type="button" className="btn btn-primary">{this.props.menuList}</button>
     )
   }
 }
