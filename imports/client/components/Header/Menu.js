@@ -6,7 +6,7 @@ export default class Menu extends Component {
   render() {
     return(
       <div>
-        <menu>{this.props.menuItem}</menu>
+        <button>{this.props.menuItem}</button>
       </div>
     )
   }
