@@ -27,9 +27,9 @@ import ApicMenu from './components/ApicMenu';
        greeting: "Welome to the APIC-EM App",
        requestStatus: true,
        menu: {
-         one: "1",
-         two: "2",
-         tree: "3"
+         "1",
+         "2",
+         "3"
        }
      }
    }
