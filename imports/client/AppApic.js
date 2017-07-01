@@ -13,6 +13,7 @@ import { Template } from 'meteor/templating';
 import ItemApic from './ItemApic';
 import Header from './components/Header';
 import ItemsApic from '../api/request'
+import ApicMenu from './components/ApicMenu';
 
 @autobind
  class AppApic extends Component {
@@ -25,6 +26,11 @@ import ItemsApic from '../api/request'
        },
        greeting: "Welome to the APIC-EM App",
        requestStatus: true,
+       menu: {
+         one: "1",
+         two: "2",
+         tree: "3"
+       }
      }
    }
 
@@ -119,6 +125,7 @@ import ItemsApic from '../api/request'
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
+          <ApicMenu {... this.state}/>
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
