@@ -10,7 +10,7 @@ export default class ApicMenu extends Component {
     console.log(this);
       return(
         <div>
-          {this.props.menuItem.map((item, index) => {
+          {this.props.menu.map((item, index) => {
             return <Menu item="item" />
           })}
         </div>
