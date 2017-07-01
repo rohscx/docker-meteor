@@ -44,17 +44,24 @@ makeRequest() {
   // Method USE the ticket from APIC
   restRequest.prototype.useTicket = function() {
     Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
+    let emptyArray = "This is unfortunate. No data has been returned..."
     if (err) {
       alert(err);
     } else {
+      // will need to build response if the array return with zero returns
       // success!
       console.log(res); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
-      this.dataObj = res.data;
-      this.response = res;
-      // console.log(this.dataObj);
-      //Session.set("apicResponse", res.data.response);
-      this.addToDB();
+      if(response.date.length == 0){
+        this.dataObj = {0: {dateError: emptyArray}}
+        this.addToDB();
+      } else {
+        this.dataObj = res.data;
+        this.response = res;
+        // console.log(this.dataObj);
+        //Session.set("apicResponse", res.data.response);
+        this.addToDB();
+      }
     }
   })};
 
