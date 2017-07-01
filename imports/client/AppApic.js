@@ -26,11 +26,11 @@ import ApicMenu from './components/ApicMenu';
        },
        greeting: "Welome to the APIC-EM App",
        requestStatus: true,
-       menu: {
+       menu: [
          "1",
          "2",
          "3"
-       }
+       ]       
      }
    }
 
