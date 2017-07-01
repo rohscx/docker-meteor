@@ -125,7 +125,7 @@ import ApicMenu from './components/ApicMenu';
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-          <ApicMenu {... this.state}/>
+          <ApicMenu {... this.state} />
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
