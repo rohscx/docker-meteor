@@ -17,7 +17,7 @@ export default class ApicTrace extends Component {
     });
     console.log(this);
       return(
-        <div>
+        <div className='item'>
           <h3>Apic Trace</h3>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div>
