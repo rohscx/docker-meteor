@@ -459,7 +459,7 @@ button[type='submit'] {
 }
 
 .item div {
-  width: 10%;
+  width: 80%;
   cursor: pointer;
   padding: 5px;
   text-align: center;
