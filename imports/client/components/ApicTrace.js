@@ -18,9 +18,10 @@ export default class ApicTrace extends Component {
     console.log(this);
       return(
         <div className='item'>
-          <h3>Apic Trace</h3>
+
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div className='vote-one'>
+                <h3>Apic Trace</h3>
               <label>Source</label>
               <input type="source" ref="sourceIP" />
             </div>
