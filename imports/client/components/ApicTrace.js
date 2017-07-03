@@ -20,12 +20,11 @@ export default class ApicTrace extends Component {
 
         <div className='item'>
           <div className='vote-one'>
-            <label>Source</label>
+            <label> Source </label>
             <input type="source" ref="sourceIP" />
         </div>
-        <span>VS</span>
         <div className='vote-two'>
-          <label>Destination</label>
+          <label> Destination </label>
           <input type="destination" ref="destinationIP" />
         </div>
         </div>
