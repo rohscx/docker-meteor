@@ -11,23 +11,34 @@ export default class ApicTrace extends Component {
     console.log(this);
     }
 
+    traceForm(){
+        if(this.props.showTrace){
+          return (
+            <div className='trace'>
+              <div className='source'>
+                <label> Source </label>
+                <input type="source" ref="sourceIP" />
+            </div>
+            <div className='destination'>
+              <label> Destination </label>
+              <input type="destination" ref="destinationIP" />
+            </div>
+            </div>
+          );
+        } else {
+          return (
+            <div>CATS DSFSD</div>
+          );
+        }
+    }
+
   render() {
     let categoryOptions = this.props.categories.map(category => {
       return <option key={category} value="category">{category}</option>
     });
     console.log(this);
       return(
-        if(this.props.showTrace){
-          <div className='trace'>
-            <div className='source'>
-              <label> Source </label>
-              <input type="source" ref="sourceIP" />
-          </div>
-          <div className='destination'>
-            <label> Destination </label>
-            <input type="destination" ref="destinationIP" />
-          </div>
-          </div>
-        })
+        {this.traceForm()}
+      )
   }
 }
