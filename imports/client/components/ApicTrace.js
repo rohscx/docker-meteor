@@ -38,7 +38,9 @@ export default class ApicTrace extends Component {
     });
     console.log(this);
       return(
+      <div>
         {this.traceForm()}
+      </div>
       )
   }
 }
