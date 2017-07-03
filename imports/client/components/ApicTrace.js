@@ -19,12 +19,12 @@ export default class ApicTrace extends Component {
       return(
 
         <div className='item'>
-          <div className='vote-one' onClick={this.voteOne.bind(this)}>
+          <div className='vote-one'}>
             <label>Source</label>
             <input type="source" ref="sourceIP" />
         </div>
         <span>VS</span>
-        <div className='vote-two' onClick={this.voteTwo.bind(this)}>
+        <div className='vote-two'}>
           <label>Destination</label>
           <input type="destination" ref="destinationIP" />
         </div>
