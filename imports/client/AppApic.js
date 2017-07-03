@@ -21,8 +21,8 @@ import ApicMenu from './components/ApicMenu';
      super();
      this.state = {
        ticket: {},
-       greeting:,
-       requestStatus:,
+       greeting: "",
+       requestStatus:"",
        menu: []
      }
    }
