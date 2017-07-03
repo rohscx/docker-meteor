@@ -27,7 +27,7 @@ export default class ApicTrace extends Component {
           );
         } else {
           return (
-            <div>CATS DSFSD</div>
+            <div/>
           );
         }
     }
