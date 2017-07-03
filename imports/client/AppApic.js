@@ -146,8 +146,6 @@ import ApicTrace from './components/ApicTrace';
      );
    }
 
-   }
-
   render() {
     //console.log(Session.get("apicResponse")[0]);
     //console.log(this);
