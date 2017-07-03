@@ -97,6 +97,20 @@ import ApicTrace from './components/ApicTrace';
      }
    }
 
+   showTrace() {
+     if(this.props.showTrace) {
+       Session.set('showTrace', false);
+       console.log('True it exists');
+       console.log(this.props.showTrace);
+       console.log(this.state.showTrace);
+     } else {
+       Session.set('showTrace', true);
+       console.log('false it does not exist');
+       console.log(this.props.showTrace);
+       console.log(this.state.showTrace);
+     }
+   }
+
    ticketStatus(){
      if(this.props.items.length != 0){
        if(this.props.items["0"].apicData.text) {
@@ -147,7 +161,7 @@ import ApicTrace from './components/ApicTrace';
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
           <ApicMenu {... this.state} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this) ticketTrace={this.ticketTrace.bind(this)}/>
             <ApicTrace />
               {this.props.showList ?
                 <ReactCSSTransitionGroup
@@ -172,6 +186,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let showList = Session.get('showList');
+  let showTrace = Session.get('showTrace');
   let itemsArray;
   if(params.id) {
     itemsArray = ItemsApic.find({_id: params.id}).fetch();
@@ -186,6 +201,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     showList,
+    showTrace,
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
