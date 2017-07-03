@@ -18,6 +18,10 @@ export default class ApicTrace extends Component {
     console.log(this);
       return(
 
+        <div> <p>cats</p> </div>
+
+        /*
+
         <div className='trace'>
           <div className='source'>
             <label> Source </label>
@@ -28,7 +32,7 @@ export default class ApicTrace extends Component {
           <input type="destination" ref="destinationIP" />
         </div>
         </div>
-
+*/
 
         /*
         <div className='item'>
