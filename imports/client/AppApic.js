@@ -20,25 +20,39 @@ import ApicMenu from './components/ApicMenu';
    constructor() {
      super();
      this.state = {
-       ticket: {
-         number: "Not Yet Requested",
-         ready: false
-       },
-       greeting: "Welome to the APIC-EM App",
-       requestStatus: true,
-       menu: [
-         "1",
-         "2",
-         "3"
-       ]       
+       ticket: {},
+       greeting:,
+       requestStatus:,
+       menu: []
      }
    }
 
-/*
-   componentDidMount() {
-      this.getItems();
+
+   componentWillMount() {
+      this.setState({
+        ticket: {
+          number: "Not Yet Requested",
+          ready: false
+        }
+      });
+
+      this.setState({
+        greeting: "Welome to the APIC-EM App"
+      });
+
+      this.setState({
+        requestStatus: true,
+      });
+
+      this.setState({
+        menu: [
+          "1",
+          "2",
+          "3"
+        ]
+      });
     }
-*/
+
   getItems() {
     let apic = new restRequest('GET', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/host', {
           headers: { 'conten-type': 'application/json'}
@@ -107,6 +121,12 @@ import ApicMenu from './components/ApicMenu';
          Show {this.props.showList ? 'One': 'All'}
        </button>
      );
+   }
+
+   list123(){ () => {
+
+   }
+
    }
 
   render() {
