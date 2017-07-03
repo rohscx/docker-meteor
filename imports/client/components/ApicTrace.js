@@ -8,7 +8,7 @@ export default class ApicTrace extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.refs.title.value);
+    console.log(this);
     }
 
   render() {
