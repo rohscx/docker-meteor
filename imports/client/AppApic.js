@@ -138,8 +138,12 @@ import ApicTrace from './components/ApicTrace';
      );
    }
 
-   list123(){ () => {
-
+   ipTrace(){ () => {
+     return (
+       <button type="button" className="btn btn-primary" onClick={this.ipTrace}>
+         Trace {this.props.ipTrace ? 'Show': 'Hide'}
+       </button>
+     );
    }
 
    }
@@ -161,7 +165,7 @@ import ApicTrace from './components/ApicTrace';
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
           <ApicMenu {... this.state} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ticketTrace={this.ticketTrace.bind(this)}/>
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ipTrace={this.ipTrace.bind(this)}/>
             <ApicTrace />
               {this.props.showList ?
                 <ReactCSSTransitionGroup
