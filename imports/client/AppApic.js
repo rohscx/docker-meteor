@@ -14,7 +14,7 @@ import ItemApic from './ItemApic';
 import Header from './components/Header';
 import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
-import ApicMenu from './components/ApicTrace';
+import ApicTrace from './components/ApicTrace';
 
 @autobind
  class AppApic extends Component {
