@@ -14,7 +14,7 @@ export default class ApicTrace extends Component {
     traceForm(){
         if(this.props.showTrace){
           return (
-            <form>
+            <div className='trace'>
               <div className='source'>
                 <label> Source </label>
                 <input type="source" ref="sourceIP" />
@@ -23,7 +23,7 @@ export default class ApicTrace extends Component {
               <label> Destination </label>
               <input type="destination" ref="destinationIP" />
             </div>
-          </form>
+            </div>
           );
         } else {
           return (
@@ -38,9 +38,9 @@ export default class ApicTrace extends Component {
     });
     console.log(this);
       return(
-      <div calssName='trace'>
+      <form>
         {this.traceForm()}
-      </div>
+      </form>
       )
   }
 }
