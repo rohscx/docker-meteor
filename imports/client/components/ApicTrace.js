@@ -23,8 +23,6 @@ export default class ApicTrace extends Component {
             <div>
               <label>Source</label>
               <input type="source" ref="sourceIP" />
-              <label>Destination</label>
-              <input type="destination" ref="destinationIP" />
             </div>
             <span>VS</span>
             <div>
