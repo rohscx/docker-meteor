@@ -14,6 +14,7 @@ import ItemApic from './ItemApic';
 import Header from './components/Header';
 import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
+import ApicMenu from './components/ApicTrace';
 
 @autobind
  class AppApic extends Component {
@@ -147,6 +148,7 @@ import ApicMenu from './components/ApicMenu';
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
           <ApicMenu {... this.state} />
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}/>
+            <ApicTrace />
               {this.props.showList ?
                 <ReactCSSTransitionGroup
                   transitionName='itemApic'
