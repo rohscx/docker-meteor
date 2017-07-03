@@ -165,7 +165,7 @@ import ApicTrace from './components/ApicTrace';
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
           <ApicMenu {... this.state} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ipTrace={this.ipTrace.bind(this)}/>
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ipTrace={this.ipTrace.bind(this)} />
             <ApicTrace />
               {this.props.showList ?
                 <ReactCSSTransitionGroup
