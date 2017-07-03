@@ -140,7 +140,7 @@ import ApicTrace from './components/ApicTrace';
 
    ipTrace(){ () => {
      return (
-       <button type="button" className="btn btn-primary" onClick={this.ipTrace}>
+       <button type="button" className="btn btn-primary" onClick={this.showTrace}>
          Trace {this.props.ipTrace ? 'Show': 'Hide'}
        </button>
      );
