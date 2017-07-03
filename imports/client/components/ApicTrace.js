@@ -25,7 +25,7 @@ export default class ApicTrace extends Component {
                 <input type="destination" ref="destinationIP" />
               </div>
               </div>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" className="btn"/>
             </form>
 
           );
