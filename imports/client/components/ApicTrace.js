@@ -17,6 +17,7 @@ export default class ApicTrace extends Component {
 
   handleChange(event) {
     this.setState({value:{source: event.target.value}});
+    this.setState({value:{destination: event.target.value}});
   }
 
   handleSubmit(event) {
