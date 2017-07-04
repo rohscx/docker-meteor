@@ -53,7 +53,7 @@ makeRequest() {
       console.log(res); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       // attempt at error correct on 0 items in array, need to fix this
-      if(response.date.length == 0){
+      if(response.data.length == 0){
         this.dataObj = {response: {data: {dataError: emptyArray}}};
         this.addToDB();
       } else {
