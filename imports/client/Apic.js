@@ -56,13 +56,13 @@ makeRequest() {
       if(response.data.response.length == 0){
 
         this.dataObj = {response: {data: {dataError: emptyArray}}};
-        this.addToDB();
+        //this.addToDB();
       } else {
         console.log('datadetected');
         this.dataObj = res.data;
         // console.log(this.dataObj);
         //Session.set("apicResponse", res.data.response);
-        this.addToDB();
+        //this.addToDB();
       }
     }
   })};
