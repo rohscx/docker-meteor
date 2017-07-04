@@ -51,19 +51,17 @@ makeRequest() {
       // will need to build response if the array return with zero returns
       // success!
       console.log(res); // debug
-      console.log(res.data.response.length);
+      // console.log(res.data.response.length); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       // attempt at error correct on 0 items in array, need to fix this
       if(res.data.response.length == 0){
-
         this.dataObj = {response: {data: {dataError: emptyArray}}};
-        //this.addToDB();
+        this.addToDB();
       } else {
-        console.log('datadetected');
         this.dataObj = res.data;
         // console.log(this.dataObj);
         //Session.set("apicResponse", res.data.response);
-        //this.addToDB();
+        this.addToDB();
       }
     }
   })};
