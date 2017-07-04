@@ -9,16 +9,16 @@ export default class ApicTrace extends Component {
     sourceIP: '',
     destinationIP: ''};
 
-  this.handleChange = this.handleChangeSourceIP.bind(this);
-  this.handleChange = this.handleChangeDestinationIP.bind(this);
+  this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
+  this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeSourceIP(event) {
-    this.setState({sourceIP:event.target.value});
+    this.setState({sourceIP: event.target.value});
   }
   handleChangeDestinationIP(event) {
-    this.setState({destinationIP:event.target.value});
+    this.setState({destinationIP: event.target.value});
   }
 
   handleSubmit(event) {
