@@ -6,18 +6,18 @@ export default class ApicTrace extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    value: {
-      source:'',
-      destination:''
-    }};
+    sourceIP: "";
+    destinationIP: "";
 
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value:{source: event.target.value, destination: event.target.value}});
-    console.log(event);
+  handleChangeSourceIP(event) {
+    this.setState({sourceIP:event.target.value});
+  }
+  handleChangeDestinationIP(event) {
+    this.setState({destinationIP:event.target.value});
   }
 
   handleSubmit(event) {
@@ -39,11 +39,11 @@ export default class ApicTrace extends Component {
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
-                <input type="text" value={this.state.value.source} onChange={this.handleChange} />
+                <input type="text" value={this.state.sourceIP} onChange={this.handleChangeSourceIP} />
             </div>
             <div className='destination'>
               <label> Destination </label>
-              <input type="text" value={this.state.value.destination} onChange={this.handleChange}/>
+              <input type="text" value={this.state.destinationIP} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
             <input type="submit" value="Submit" className="btn"/>
