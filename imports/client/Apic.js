@@ -53,11 +53,12 @@ makeRequest() {
       console.log(res); // debug
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       // attempt at error correct on 0 items in array, need to fix this
-      if(response.data.length == 0){
-        console.log('datadetected');
+      if(response.data.response.length == 0){
+
         this.dataObj = {response: {data: {dataError: emptyArray}}};
         this.addToDB();
       } else {
+        console.log('datadetected');
         this.dataObj = res.data;
         // console.log(this.dataObj);
         //Session.set("apicResponse", res.data.response);
