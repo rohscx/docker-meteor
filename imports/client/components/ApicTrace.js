@@ -6,8 +6,8 @@ export default class ApicTrace extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    sourceIP: '',
-    destinationIP: ''};
+    sourceIP: '1.1.1.1.',
+    destinationIP: '2.2.2.2'};
 
   this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
   this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
