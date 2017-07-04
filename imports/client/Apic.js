@@ -58,7 +58,6 @@ makeRequest() {
         this.addToDB();
       } else {
         this.dataObj = res.data;
-        this.response = res;
         // console.log(this.dataObj);
         //Session.set("apicResponse", res.data.response);
         this.addToDB();
