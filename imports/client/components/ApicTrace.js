@@ -16,11 +16,11 @@ export default class ApicTrace extends Component {
   }
 
   handleChange(event) {
-    this.setState({value.source: event.target.value});
+    this.setState({value:{source: event.target.value}});
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('A name was submitted: ' + this.state.value.source);
     event.preventDefault();
   }
 
