@@ -51,9 +51,10 @@ makeRequest() {
       // will need to build response if the array return with zero returns
       // success!
       console.log(res); // debug
+      console.log(res.data.response.length);
       // console.log(JSON.parse(JSON.stringify(res))); // debug
       // attempt at error correct on 0 items in array, need to fix this
-      if(response.data.response.length == 0){
+      if(res.data.response.length == 0){
 
         this.dataObj = {response: {data: {dataError: emptyArray}}};
         //this.addToDB();
