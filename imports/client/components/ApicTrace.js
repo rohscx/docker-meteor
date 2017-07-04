@@ -43,7 +43,7 @@ export default class ApicTrace extends Component {
             </div>
             <div className='destination'>
               <label> Destination </label>
-              <input type="text" />
+              <input type="text" value={this.state.value.destination} onChange={this.handleChange}/>
             </div>
             </div>
             <input type="submit" value="Submit" className="btn"/>
