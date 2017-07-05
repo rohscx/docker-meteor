@@ -108,7 +108,7 @@ componentDidMount() {
       // console.log(apic);
       // console.log('making Ticket');
       apic.makeTicket();
-      this.setStat({isLoading: false});
+      this.setState({isLoading: false});
       // console.log('After');
 }
 
