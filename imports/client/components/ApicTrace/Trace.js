@@ -9,7 +9,7 @@ export default class Trace extends Component {
   }
 }
 
-  loadData(){ (type, url, options) => {
+  loadData(){ () => {
 
     console.log(this);
 
