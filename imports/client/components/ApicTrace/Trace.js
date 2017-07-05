@@ -13,13 +13,13 @@ componentDidMount() {
   return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
+      //'Accept': 'application/json',
       'Content-Type': 'application/json',
       'x-auth-token': 'ST-16078-bxln4UnFdXm0IFgeD1im-cas'
     },
     body: JSON.stringify({
-      "sourceIP": "10.2.1.22",
-      "destIP": "10.1.12.20",
+      sourceIP: '10.2.1.22',
+      destIP: '10.1.12.20'
     })
   })
   .then((response) => response.json())
