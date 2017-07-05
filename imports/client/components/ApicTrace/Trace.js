@@ -11,15 +11,17 @@ export default class Trace extends Component {
 
 componentDidMount() {
   return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
-    credentials: "same-origin",
     method: 'POST',
     body: JSON.stringify({
       sourceIP: '10.2.1.22',
       destIP: '10.1.12.20'
     }),
     headers: {
+      credentials: "same-origin",
       'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "cache-control": "no-cache",
+      "postman-token": "e803146b-13a4-4994-5a88-0765d4a02bb9"
     }
   })
   .then((response) => response.json())
