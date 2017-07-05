@@ -45,7 +45,7 @@ componentDidMount() {
 
   // Method USE the ticket from APIC
   restRequest.prototype.makeFlowID = function() {
-    Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
+    Meteor.call('checkApic', this.typeFlow, this.urlFlow, this.optionsFlow, (err, res) => {
     let emptyArray = "This is unfortunate. No data has been returned..."
     if (err) {
       alert(err);
@@ -61,7 +61,7 @@ componentDidMount() {
       } else {
         this.dataObj = res.data;
         console.log(this.dataObj);
-        //Session.set("apicResponse", res.data.response);
+        Session.set("apicFlowResponse", res.data.response);
         //this.addToDB();
       }
     }
