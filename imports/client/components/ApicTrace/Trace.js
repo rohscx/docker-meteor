@@ -19,7 +19,7 @@ export default class Trace extends Component {
       this.apicFlow = '/flow-analysis';
       this.apicFlowAnalysisId= '';
       this.apicTicketURL = this.apicAPI + this.apicTicket;
-      this.apicFlowURL = this.apicAPI + his.apicFlow;
+      this.apicFlowURL = this.apicAPI + this.apicFlow;
       this.apicFlowAnalysisIdURL= this.apicAPI + his.apicFlow + this.apicFlowAnalysisId;
       this.apicTicketOptions = {
         headers: { 'content-type': 'application/json' },
