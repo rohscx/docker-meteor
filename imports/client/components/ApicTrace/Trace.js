@@ -51,7 +51,9 @@ export default class Trace extends Component {
         //Session.set("apicTicket", res.data.response.serviceTicket);
         this.makeFlowID();
       }
-    })};
+    })
+    console.log('IF IB LUCKY');
+      };
 
 
     // Method USE the ticket from APIC
