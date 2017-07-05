@@ -34,7 +34,7 @@ componentDidMount() {
   })
   .catch((error) => {
     console.log(error);
-  }
+  });
 }
 
   render() {
