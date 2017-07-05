@@ -9,12 +9,7 @@ export default class Trace extends Component {
   }
 }
 
-  loadData(){ () => {
-
-    console.log(this);
-
-  }
-  /*
+  loadData(){
     console.log(this);
     // Constructor
     function restRequest(type, url, options) {
@@ -110,11 +105,10 @@ export default class Trace extends Component {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
         apic.makeTicket();
-        */
   }
 
   componentDidMount() {
-    this.loadData();
+    loadData(this.props.dispatch, this.props.userId);
   }
 
   render() {
