@@ -19,6 +19,7 @@ export default class ApicTrace extends Component {
        sourceIP:'1.1.1.1',
        destinationIP:'2.2.2.2.'
      });
+   }
 
   handleChangeSourceIP(event) {
     this.setState({sourceIP: event.target.value});
