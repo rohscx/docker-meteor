@@ -34,7 +34,7 @@ makeRequest() {
       // success!
       console.log(res);	// debug
       this.ticket = res.data.response.serviceTicket;
-      this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
+      this.options.headers.push(['x-auth-token'] = res.data.response.serviceTicket);
       //Session.set("apicTicket", res.data.response.serviceTicket);
       this.useTicket();
     }
