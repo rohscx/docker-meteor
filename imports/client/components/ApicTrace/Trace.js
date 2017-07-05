@@ -21,9 +21,9 @@ componentDidMount() {
     this.typeTicket = 'POST';
     this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
     this.optionsTicket = {
-          headers: { 'content-type': 'application/json' },
-  	data: {username: 'devnetuser', password: 'Cisco123!'}
-     };
+      headers: { 'content-type': 'application/json' },
+  	  data: {username: 'devnetuser', password: 'Cisco123!'}
+    };
   }
 
   // Method REQUEST a ticket from APIC
@@ -111,7 +111,11 @@ componentDidMount() {
       apic.makeTicket();
       //this.setState({isLoading: false});
       // console.log('After');
-}
+    }
+
+  setSetter(){
+    this.setState({isLoading: false}).bind(this);
+  }
 
   render() {
     if (this.state.isLoading) {
