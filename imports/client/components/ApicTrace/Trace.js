@@ -105,6 +105,7 @@ export default class Trace extends Component {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
         apic.makeTicket();
+        console.log('LAST ACTION');
   }
 
   componentDidMount() {
