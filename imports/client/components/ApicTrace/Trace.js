@@ -115,7 +115,7 @@ componentDidMount() {
     }
 
   setSetter(){
-    this.setState({isLoading: false}).bind(this);
+    this.setState({isLoading: false});
   }
 
   render() {
