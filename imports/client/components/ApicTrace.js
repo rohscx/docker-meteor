@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
+import Trace from './ApicTrace/Trace';
 
 export default class ApicTrace extends Component {
 
@@ -8,6 +9,7 @@ export default class ApicTrace extends Component {
   this.state = {
     sourceIP: null,
     destinationIP: null,
+    traceRady: false
   };
 
   this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
@@ -67,9 +69,9 @@ export default class ApicTrace extends Component {
   }
 
   render() {
-    let categoryOptions = this.props.categories.map(category => {
-      return <option key={category} value="category">{category}</option>
-    });
+    if(this.state.traceready){
+    <Trace />
+    }
     console.log(this);
       return(
       <div>
