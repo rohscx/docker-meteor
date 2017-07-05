@@ -26,10 +26,13 @@ export default class Trace extends Component {
         data: {username: 'devnetuser', password: 'Cisco123!'}
       }
       this.apicFlowOptions = options;
+      this.apicFlowOptions = {
+        headers: { 'content-type': 'application/json' },
+      }
 
-      this.typeFlow = type;
+
       this.urlFlow = url;
-      this.optionsFlow = options;
+
       this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
       this.optionsTicket = {
         headers: { 'content-type': 'application/json' },
@@ -47,7 +50,7 @@ export default class Trace extends Component {
         console.log(res);	// debug
         console.log(this); // debug
         this.ticket = res.data.response.serviceTicket;
-        this.optionsFlow.headers['x-auth-token'] = res.data.response.serviceTicket;
+        this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
         //Session.set("apicTicket", res.data.response.serviceTicket);
         this.makeFlowID();
       }
@@ -56,7 +59,7 @@ export default class Trace extends Component {
 
     // Method USE the ticket from APIC
     restRequest.prototype.makeFlowID = function() {
-      Meteor.call('checkApic', this.typeFlow, this.urlFlow, this.optionsFlow, (err, res) => {
+      Meteor.call('checkApic', 'POST', this.apicFlowURL, this.apicFlowOptions, (err, res) => {
       let emptyArray = "This is unfortunate. No data has been returned..."
       if (err) {
         alert(err);
@@ -69,13 +72,12 @@ export default class Trace extends Component {
           console.log(this.dataObj);
           //Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
           //this.addToDB();
-          return {this.setState({isLoading: false})};
         }
       }
     })};
 
     restRequest.prototype.useFlowID = function() {
-      Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
+      Meteor.call('checkApic', 'GET', this.url, this.options, (err, res) => {
       let emptyArray = "This is unfortunate. No data has been returned..."
       if (err) {
         alert(err);
