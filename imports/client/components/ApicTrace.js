@@ -70,9 +70,9 @@ export default class ApicTrace extends Component {
   render() {
     if (this.state.isLoading) {
   return (
-    <View style={{flex: 1, paddingTop: 20}}>
+    <div style={{flex: 1, paddingTop: 20}}>
       <p>PLACE HOLDER TEXT</p>
-    </View>
+    </div>
   );
 }
     let categoryOptions = this.props.categories.map(category => {
