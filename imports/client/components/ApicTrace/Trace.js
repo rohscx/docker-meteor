@@ -2,9 +2,47 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 // WORK IN PROGRESS
 export default class Trace extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    isLoading: true
+  }
+}
+
+componentDidMount() {
+  return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "x-auth-token": "ST-16078-bxln4UnFdXm0IFgeD1im-cas",
+    },
+    body: JSON.stringify({
+      "sourceIP": "10.2.1.22",
+      "destIP": "10.1.12.20",
+    })
+  })
+  .then((response) => response.json())
+  .then((responseJson) => {
+    console.log(responseJson);
+    this.setState({
+      isLoading: false,
+      //dataSource: ds.cloneWithRows(responseJson.movies),
+    }, function() {
+   // do something with new state
+      });
+  })
+
+}
+
   render() {
+    if (this.state.isLoading) {
+      return (
+        <p>Loading Trace data!!!!....!!!</p>
+      );
+    }
     return(
-      <p>Apic Trace PLACE HOLDER</p>
+      <p>Apic Trace Complet</p>
     )
   }
 }
