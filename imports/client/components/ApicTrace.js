@@ -6,13 +6,19 @@ export default class ApicTrace extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    sourceIP: '1.1.1.1',
-    destinationIP: '2.2.2.2'};
+    sourceIP: null,
+    destinationIP: null};
 
   this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
   this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentWillMount() {
+     this.setState({
+       sourceIP:'1.1.1.1',
+       destinationIP:'2.2.2.2.'
+     });
 
   handleChangeSourceIP(event) {
     this.setState({sourceIP: event.target.value});
