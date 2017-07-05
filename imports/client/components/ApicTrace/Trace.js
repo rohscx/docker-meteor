@@ -69,7 +69,7 @@ export default class Trace extends Component {
           console.log(this.dataObj);
           //Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
           //this.addToDB();
-          return console.log('THIS SHOULD BE COMPLETED SOME TIME IN THE PAST OR SOMETHING LIKE THAT');
+          return this.setState({isLoading: false});
         }
       }
     })};
