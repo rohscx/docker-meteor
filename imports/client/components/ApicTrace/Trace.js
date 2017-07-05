@@ -11,7 +11,6 @@ export default class Trace extends Component {
 
 componentDidMount() {
   return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
-    mode: 'no-cors',
     method: 'POST',
     headers: {
       'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
