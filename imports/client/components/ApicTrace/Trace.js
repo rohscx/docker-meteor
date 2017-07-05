@@ -69,6 +69,7 @@ export default class Trace extends Component {
           console.log(this.dataObj);
           //Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
           //this.addToDB();
+          retur console.log('THIS SHOULD BE COMPLETED SOME TIME IN THE PAST OR SOMETHING LIKE THAT');
         }
       }
     })};
@@ -104,10 +105,8 @@ export default class Trace extends Component {
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
-
-        return new Promise(function(resolve) {
-        apic.makeTicket(resolve);
-        });
+        apic.makeTicket();
+        console.log('LAST ACTION');
   }
 
   componentDidMount() {
