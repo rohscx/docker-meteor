@@ -104,7 +104,10 @@ export default class Trace extends Component {
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
-        promise = new Promise(apic.makeTicket() {});
+
+        return new Promise(function(resolve) {
+        apic.makeTicket(resolve);
+        });
   }
 
   componentDidMount() {
