@@ -15,6 +15,7 @@ componentDidMount() {
 
   fetch(url, {
   method: "POST",
+  mode: "CORS"
   body: JSON.stringify(data),
   headers: {
     "Content-Type": "application/json",
