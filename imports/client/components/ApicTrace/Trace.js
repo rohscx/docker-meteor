@@ -47,11 +47,11 @@ export default class Trace extends Component {
         alert(err);
       } else {
         // success!
-        console.log(res);	// debug
-        console.log(this); // debug
         this.ticket = res.data.response.serviceTicket;
         this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
         //Session.set("apicTicket", res.data.response.serviceTicket);
+        console.log(res);	// debug
+        console.log(this); // debug
         this.makeFlowID();
       }
     })};
