@@ -12,14 +12,14 @@ export default class Trace extends Component {
 componentDidMount() {
   return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
     method: 'POST',
-    headers: {
-      'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify({
       sourceIP: '10.2.1.22',
       destIP: '10.1.12.20'
-    })
+    }),
+    headers: {
+      'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
+      'Content-Type': 'application/json'
+    }
   })
   .then((response) => response.json())
   .then((responseJson) => {
