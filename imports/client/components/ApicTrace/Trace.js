@@ -19,7 +19,8 @@ componentDidMount() {
     headers: {
       'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
       'Content-Type': 'application/json'
-    }
+    },
+    credentials: "same-origin"
   })
   .then((response) => response.json())
   .then((responseJson) => {
