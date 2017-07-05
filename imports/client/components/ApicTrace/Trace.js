@@ -61,7 +61,7 @@ componentDidMount() {
       } else {
         this.dataObj = res.data;
         console.log(this.dataObj);
-        Session.set("apicFlowResponse", this.data.response.flowAnalysisId);
+        Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
         trace.setState({isLoading: false});
         //this.addToDB();
       }
