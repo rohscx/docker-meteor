@@ -36,7 +36,7 @@ componentDidMount() {
       console.log(res);	// debug
       console.log(this); // debug
       this.ticket = res.data.response.serviceTicket;
-      this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
+      this.optionsFlow.headers['x-auth-token'] = res.data.response.serviceTicket;
       //Session.set("apicTicket", res.data.response.serviceTicket);
       this.makeFlowID();
     }
