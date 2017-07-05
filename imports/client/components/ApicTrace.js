@@ -7,7 +7,9 @@ export default class ApicTrace extends Component {
   super(props);
   this.state = {
     sourceIP: null,
-    destinationIP: null};
+    destinationIP: null,
+    isLoading: true
+  };
 
   this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
   this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
@@ -66,6 +68,13 @@ export default class ApicTrace extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+  return (
+    <View style={{flex: 1, paddingTop: 20}}>
+      <p>PLACE HOLDER TEXT</p>
+    </View>
+  );
+}
     let categoryOptions = this.props.categories.map(category => {
       return <option key={category} value="category">{category}</option>
     });
