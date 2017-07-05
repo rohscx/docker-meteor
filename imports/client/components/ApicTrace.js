@@ -9,7 +9,7 @@ export default class ApicTrace extends Component {
   this.state = {
     sourceIP: null,
     destinationIP: null,
-    traceRady: false
+    traceRady: true
   };
 
   this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
