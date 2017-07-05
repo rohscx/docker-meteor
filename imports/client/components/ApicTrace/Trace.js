@@ -32,6 +32,8 @@ componentDidMount() {
    // do something with new state
       });
   })
+  .catch((error) => {
+    console.log(error);
 
 }
 
