@@ -15,9 +15,9 @@ componentDidMount() {
   // Constructor
   function restRequest(type, url, options) {
     // always initialize all instance properties
-    this.type = type;
-    this.url = url;
-    this.options = options;
+    this.typeFlow = type;
+    this.urlFlow = url;
+    this.optionsFlow = options;
     this.typeTicket = 'POST';
     this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
     this.optionsTicket = {
@@ -38,13 +38,13 @@ componentDidMount() {
       this.ticket = res.data.response.serviceTicket;
       this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
       //Session.set("apicTicket", res.data.response.serviceTicket);
-      this.useTicket();
+      this.makeFlowID();
     }
   })};
 
 
   // Method USE the ticket from APIC
-  restRequest.prototype.useTicket = function() {
+  restRequest.prototype.makeFlowID = function() {
     Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
     let emptyArray = "This is unfortunate. No data has been returned..."
     if (err) {
@@ -58,7 +58,29 @@ componentDidMount() {
       // attempt at error correct on 0 items in array, need to fix this
       if(res.data.response.length == 0){
         this.dataObj = {response: {data: {dataError: emptyArray}}};
-        this.addToDB();
+      } else {
+        this.dataObj = res.data;
+        console.log(this.dataObj);
+        //Session.set("apicResponse", res.data.response);
+        //this.addToDB();
+      }
+    }
+  })};
+
+  restRequest.prototype.useFlowID = function() {
+    Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
+    let emptyArray = "This is unfortunate. No data has been returned..."
+    if (err) {
+      alert(err);
+    } else {
+      // will need to build response if the array return with zero returns
+      // success!
+      console.log(res); // debug
+      // console.log(res.data.response.length); // debug
+      // console.log(JSON.parse(JSON.stringify(res))); // debug
+      // attempt at error correct on 0 items in array, need to fix this
+      if(res.data.response.length == 0){
+        this.dataObj = {response: {data: {dataError: emptyArray}}};
       } else {
         this.dataObj = res.data;
         console.log(this.dataObj);
@@ -86,6 +108,7 @@ componentDidMount() {
       // console.log(apic);
       // console.log('making Ticket');
       apic.makeTicket();
+      this.stateSet(isLoading: false);
       // console.log('After');
 }
 
@@ -96,7 +119,7 @@ componentDidMount() {
       );
     }
     return(
-      <p>Apic Trace Complet</p>
+      <p>Apic Trace Complete</p>
     )
   }
 }
