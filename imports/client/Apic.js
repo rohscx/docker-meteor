@@ -8,7 +8,11 @@ import React, {Component} from 'react';
 export default class Apic extends Component {
 
 
-makeRequest() { => restRequest(type, url, options) {
+makeRequest() {
+  console.log(this);
+
+  // Constructor
+  function restRequest(type, url, options) {
     // always initialize all instance properties
     this.type = type;
     this.url = url;
