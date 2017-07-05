@@ -70,7 +70,9 @@ export default class ApicTrace extends Component {
 
   render() {
     if(this.state.traceReady){
-    <Trace />
+      return (
+        <Trace />
+      )
     }
     console.log(this);
       return(
