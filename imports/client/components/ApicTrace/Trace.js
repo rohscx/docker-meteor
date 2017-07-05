@@ -10,33 +10,81 @@ export default class Trace extends Component {
 }
 
 componentDidMount() {
-  return fetch('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
-    method: 'POST',
-    body: JSON.stringify({
-      sourceIP: '10.2.1.22',
-      destIP: '10.1.12.20'
-    }),
-    headers: {
-      credentials: "same-origin",
-      'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas',
-      'Content-Type': 'application/json',
-      "cache-control": "no-cache",
-      "postman-token": "e803146b-13a4-4994-5a88-0765d4a02bb9"
+  console.log(this);
+
+  // Constructor
+  function restRequest(type, url, options) {
+    // always initialize all instance properties
+    this.type = type;
+    this.url = url;
+    this.options = options;
+    this.typeTicket = 'POST';
+    this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
+    this.optionsTicket = {
+          headers: { 'content-type': 'application/json' },
+  	data: {username: 'devnetuser', password: 'Cisco123!'}
+     };
+  }
+
+  // Method REQUEST a ticket from APIC
+  restRequest.prototype.makeTicket = function() {
+    Meteor.call('checkApic', this.typeTicket, this.urlTicket, this.optionsTicket, (err, res) => {
+    if (err) {
+      alert(err);
+    } else {
+      // success!
+      console.log(res);	// debug
+      this.ticket = res.data.response.serviceTicket;
+      this.options.headers['x-auth-token'] = res.data.response.serviceTicket;
+      //Session.set("apicTicket", res.data.response.serviceTicket);
+      this.useTicket();
     }
-  })
-  .then((response) => response.json())
-  .then((responseJson) => {
-    console.log(responseJson);
-    this.setState({
-      isLoading: false,
-      //dataSource: ds.cloneWithRows(responseJson.movies),
-    }, function() {
-   // do something with new state
+  })};
+
+
+  // Method USE the ticket from APIC
+  restRequest.prototype.useTicket = function() {
+    Meteor.call('checkApic', this.type, this.url, this.options, (err, res) => {
+    let emptyArray = "This is unfortunate. No data has been returned..."
+    if (err) {
+      alert(err);
+    } else {
+      // will need to build response if the array return with zero returns
+      // success!
+      console.log(res); // debug
+      // console.log(res.data.response.length); // debug
+      // console.log(JSON.parse(JSON.stringify(res))); // debug
+      // attempt at error correct on 0 items in array, need to fix this
+      if(res.data.response.length == 0){
+        this.dataObj = {response: {data: {dataError: emptyArray}}};
+        this.addToDB();
+      } else {
+        this.dataObj = res.data;
+        console.log(this.dataObj);
+        //Session.set("apicResponse", res.data.response);
+        //this.addToDB();
+      }
+    }
+  })};
+
+  restRequest.prototype.addToDB = function() {
+    Meteor.call('insertNewApic', this.ticket, this.dataObj, (err, res) => {
+    if (err) {
+      alert(err);
+    } else {
+      // console.log('Ticket submitted');
+    }
+  })};
+
+  let apic = new restRequest('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
+        headers: { 'content-type': 'application/json'}
       });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+      //apic.makeTicket();
+      // console.log('Ticket Rquested');
+      // console.log(apic);
+      // console.log('making Ticket');
+      apic.makeTicket();
+      // console.log('After');
 }
 
   render() {
