@@ -92,7 +92,7 @@ componentDidMount() {
   let apic = new restRequest('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
         headers: { 'content-type': 'application/json'},
         data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-      };
+      });
       apic.makeTicket();
     }
 
