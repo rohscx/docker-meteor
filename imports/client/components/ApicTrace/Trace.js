@@ -108,7 +108,7 @@ export default class Trace extends Component {
   }
 
   componentDidMount() {
-    loadData(this.props.dispatch, this.props.userId);
+    this.loadData();
   }
 
   render() {
