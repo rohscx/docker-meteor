@@ -13,7 +13,7 @@ componentDidMount() {
   console.log(this);
 
   // Constructor
-  function restRequest(type, url, options, ransome) {
+  function restRequest(type, url, options) {
     // always initialize all instance properties
     this.typeFlow = type;
     this.urlFlow = url;
@@ -104,7 +104,7 @@ componentDidMount() {
   let apic = new restRequest('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
         headers: { 'content-type': 'application/json'},
         data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-      },this.setSetter());
+      };
       //apic.makeTicket();
       // console.log('Ticket Rquested');
       // console.log(apic);
@@ -113,10 +113,6 @@ componentDidMount() {
       //this.setState({isLoading: false});
       // console.log('After');
     }
-
-  setSetter(){
-    this.setState({isLoading: false});
-  }
 
   render() {
     if (this.state.isLoading) {
