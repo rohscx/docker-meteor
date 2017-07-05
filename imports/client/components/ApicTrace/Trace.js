@@ -61,7 +61,8 @@ componentDidMount() {
       } else {
         this.dataObj = res.data;
         console.log(this.dataObj);
-        Session.set("apicFlowResponse", res.data.response);
+        Session.set("apicFlowResponse", this.response.flowAnalysisId;
+        trace.setState({isLoading: false});
         //this.addToDB();
       }
     }
@@ -108,7 +109,7 @@ componentDidMount() {
       // console.log(apic);
       // console.log('making Ticket');
       apic.makeTicket();
-      this.setState({isLoading: false});
+      //this.setState({isLoading: false});
       // console.log('After');
 }
 
