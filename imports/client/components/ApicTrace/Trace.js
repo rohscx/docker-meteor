@@ -16,10 +16,10 @@ componentDidMount() {
       'Content-Type': 'application/json',
       'x-auth-token': 'ST-16107-dceuVqK762QDjBDcRfXh-cas'
     },
-    body: JSON.stringify({
+    body:{
       sourceIP: '10.2.1.22',
       destIP: '10.1.12.20'
-    })
+    }
   })
   .then((response) => response.json())
   .then((responseJson) => {
