@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
+import { setName }from '../actions/userActions'
 
 class ApicTrace extends Component {
 
@@ -94,10 +95,7 @@ const mapSateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setName: (name) => {
-      dispatch({
-        type: "SET_NAME",
-        payload: name
-      });
+      dispatch(setName(name));
     }
   };
 };
