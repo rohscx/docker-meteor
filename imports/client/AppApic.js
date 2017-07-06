@@ -16,7 +16,7 @@ import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 // initializes the state
 const initailState = {
@@ -24,7 +24,10 @@ const initailState = {
   lastValues: []
 };
 
-const reducer = (state = initailState, action) => {
+const mathReducer = (state = {
+  result: 1,
+  lastValues: []
+}, action) => {
   switch (action.type) {
     case "ADD":
       state = {
@@ -45,7 +48,31 @@ const reducer = (state = initailState, action) => {
   return state;
 }
 
-const store = createStore(reducer);
+const userReducer = (state = {
+  result: "RedEye",
+  age: [300]
+}, action) => {
+  switch (action.type) {
+    case "ADD":
+      state = {
+        ...state,
+        result: state.result + action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      break;
+    case "SUBTRACT":
+      state.result = {
+        ...state,
+        result: state.result - action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      state.lastValues.push(action.payload);
+      break;
+  }
+  return state;
+}
+// uses combineReducers as redux otherwise can only take one reducer
+const store = createStore(combineReducers({mathReducer, userReducer}));
 
 store.subscribe(() =>{
   console.log("Store Updated", store.getState());
