@@ -19,10 +19,6 @@ import ApicTrace from './components/ApicTrace';
 import { createStore, combineReducers } from 'redux';
 
 // initializes the state
-const initailState = {
-  result: 1,
-  lastValues: []
-};
 
 const mathReducer = (state = {
   result: 1,
@@ -49,18 +45,18 @@ const mathReducer = (state = {
 }
 
 const userReducer = (state = {
-  result: "RedEye",
+  name: "RedEye",
   age: [300]
 }, action) => {
   switch (action.type) {
-    case "ADD":
+    case "SET_NAME":
       state = {
         ...state,
         result: state.result + action.payload,
         lastValues: [...state.lastValues, action.payload]
       };
       break;
-    case "SUBTRACT":
+    case "SET_AGE":
       state.result = {
         ...state,
         result: state.result - action.payload,
