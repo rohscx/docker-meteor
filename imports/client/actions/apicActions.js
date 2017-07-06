@@ -25,7 +25,21 @@ export function setTrace(trace) {
 export function getTicket(ticket) {
   return dispatch => {
     //dispatch(getTicket(ticket))
-    return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`)
+    const  myHeaders = new Headers ({
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    });
+    const myBody = new Body ({
+      username: 'devnetuser',
+      password: 'Cisco123!'
+    });
+    const myInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: myBody
+
+    };
+    return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
       .then(response => response.json())
       .then(console.log("CANT DO IT MNA!"))
   }
