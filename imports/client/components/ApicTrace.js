@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
-import { setTicket, setDevices, setTrace }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, getTicket }from '../actions/apicActions'
 
 class ApicTrace extends Component {
 
