@@ -28,21 +28,21 @@ import { Provider } from 'react-redux';
 // uses combineReducers as redux otherwise can only take one reducer
 
 
-store.subscribe(() => {
-  console.log("Store Updated", store.getState());
+Store.subscribe(() => {
+  console.log("Store Updated", Store.getState());
 });
 
-store.dispatch({
+Store.dispatch({
   type: "ADD",
   payload: 10
 });
 
-store.dispatch({
+Store.dispatch({
   type: "ADD",
   payload: 100
 });
 
-store.dispatch({
+Store.dispatch({
   type: "SUBTRACT",
   payload: 50
 });
@@ -186,7 +186,7 @@ store.dispatch({
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
     return (
-      <Provider store={store}>
+      <Provider store={Store}>
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
