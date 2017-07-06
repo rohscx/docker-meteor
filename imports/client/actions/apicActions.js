@@ -64,5 +64,7 @@ export function getTicket(ticket) {
             let ram = apic.makeTicket();
             await ram;
           }
+
+          test();
   }
 }
