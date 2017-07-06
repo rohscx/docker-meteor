@@ -46,21 +46,19 @@ const mathReducer = (state = {
 
 const userReducer = (state = {
   name: "RedEye",
-  age: [300]
+  age: 300
 }, action) => {
   switch (action.type) {
     case "SET_NAME":
       state = {
         ...state,
-        result: state.result + action.payload,
-        lastValues: [...state.lastValues, action.payload]
+        name: state.result + action.payload,
       };
       break;
     case "SET_AGE":
       state.result = {
         ...state,
-        result: state.result - action.payload,
-        lastValues: [...state.lastValues, action.payload]
+        age: state.result - action.payload,
       };
       state.lastValues.push(action.payload);
       break;
