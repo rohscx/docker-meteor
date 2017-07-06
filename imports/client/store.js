@@ -9,6 +9,8 @@ const myLogger = (store) => (next) => (action) => {
 };
 export default createStore(combineReducers({
   mathReducer,
-  userReducer}),
+  userReducer,
+  apicReducer
+}),
    {},
     applyMiddleware(myLogger));
