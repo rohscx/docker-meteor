@@ -23,20 +23,13 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    async function getApicTicket() {
-      let options = {
-        url: "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket",
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
-        },
-        body: {
-          "username": 'devnetuser',
-          "password": 'Cisco123!'
-        }
-      };
-      return await request.get(options);
-    }
-    let body = await getApicTicket();
+    request
+    .post('/api/pet')
+    .send({ name: 'Manny', species: 'cat' }) // sends a JSON post body
+    .set('X-API-Key', 'foobar')
+    .set('Accept', 'application/json')
+    .end(function(err, res){
+      // Calling the end function will send the request
+    });
   }
 }
