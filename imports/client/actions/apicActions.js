@@ -59,10 +59,8 @@ export function getTicket(ticket) {
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
-        function (query, response) {
-          apic.makeTicket(function(response) {
-            callback(response);
-          });
-        }
+
+        apic.makeTicket()
+
   }
 }

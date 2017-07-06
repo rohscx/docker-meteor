@@ -9,10 +9,10 @@ export default class Trace extends Component {
   }
 }
 
-  loadData(cats){
+  loadData(){
     console.log(this);
     // Constructor
-    function restRequest(options,cats) {
+    function restRequest(options) {
       // always initialize all instance properties
       this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
       this.apicTicket = '/api/v1/ticket';
@@ -26,9 +26,7 @@ export default class Trace extends Component {
         data: {username: 'devnetuser', password: 'Cisco123!'}
       }
       this.apicFlowOptions = options;
-      this.app = runable;
     }
-
 
     // Method REQUEST a ticket from APIC
     restRequest.prototype.makeTicket = function() {
@@ -42,8 +40,7 @@ export default class Trace extends Component {
         //Session.set("apicTicket", res.data.response.serviceTicket);
         console.log(res);	// debug
         console.log(this); // debug
-        //this.makeFlowID();
-        return this.app("CAN DO!");
+        this.makeFlowID();
       }
     })};
 
@@ -100,13 +97,13 @@ export default class Trace extends Component {
     let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-        }, cats);
+        });
         apic.makeTicket();
         console.log('LAST ACTION');
   }
 
   componentDidMount() {
-    this.loadData({this.props.setName.bind(this)});
+    this.loadData();
   }
 
   render() {
