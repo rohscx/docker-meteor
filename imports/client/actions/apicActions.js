@@ -28,7 +28,7 @@ export function getTicket(ticket) {
     const  myHeaders = new Headers ({
       "content-type": "application/json; charset=UTF-8",
       "cache-control": "no-cache",
-      "Access-Control-Allow-Origin: *"
+      "Access-Control-Allow-Origin:" "*"
     });
     const myBody = new FormData ({
       username: 'devnetuser',
@@ -37,7 +37,8 @@ export function getTicket(ticket) {
     const myInit = {
       method: 'POST',
       headers: myHeaders,
-      body: myBody
+      body: myBody,
+      mode: 'cors'
 
     };
     return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
