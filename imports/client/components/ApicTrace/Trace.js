@@ -12,7 +12,7 @@ export default class Trace extends Component {
   loadData(){
     console.log(this);
     // Constructor
-    function restRequest(type, url, options) {
+    function restRequest(options) {
       // always initialize all instance properties
       this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1';
       this.apicTicket = '/ticket';
@@ -103,7 +103,7 @@ export default class Trace extends Component {
       }
     })};
 
-    let apic = new restRequest('POST', 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/flow-analysis', {
+    let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
