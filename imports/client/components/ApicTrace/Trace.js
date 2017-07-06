@@ -106,17 +106,12 @@ export default class Trace extends Component {
     this.loadData();
   }
 
-  namesetter(){
-    let setname = this.props.setName('CATS DOGS');
-    return setname;
-  }
-
   render() {
     if (this.state.isLoading) {
       return (
         <div>
           <p>Loading Trace data!!!!....!!! </p>
-          <button onClick={this.namesetter()}>THIS IS A BUTTON</button>
+          <button onClick={() => this.props.setName("gRAY MONKEY IN THE WOODZ"))}>THIS IS A BUTTON</button>
         </div>
       );
     }
