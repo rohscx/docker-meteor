@@ -107,7 +107,8 @@ export default class Trace extends Component {
   }
 
   namesetter(){
-    return {this.props.setName("Garv!!!!")};
+    let setname = this.props.setName('aasdf');
+    return setname;
   }
 
   render() {
@@ -115,7 +116,7 @@ export default class Trace extends Component {
       return (
         <div>
           <p>Loading Trace data!!!!....!!! </p>
-          <button onClick={this.namesetter}>THIS IS A BUTTON</button>
+          <button onClick={this.namesetter()}>THIS IS A BUTTON</button>
         </div>
       );
     }
