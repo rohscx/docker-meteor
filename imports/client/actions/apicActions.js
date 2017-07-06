@@ -62,7 +62,7 @@ export function getTicket(ticket) {
 
           async function test () {
             let ram = apic.makeTicket();
-            await ram;
+            await console.log(ram);
           }
 
           test();
