@@ -105,7 +105,7 @@ const mapSateToProps = (state) => {
     user: state.userReducer,
     math: state.mathReducer
   };
-}:
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
