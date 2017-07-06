@@ -60,8 +60,8 @@ export function getTicket(ticket) {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
         const makeRequest = async () => {
-          console.log("THis Happends before done?", await apic.makeTicket())
-          return console.log("done");
+          const data = JSON.parse(await apic.makeTicket())
+          console.log(data);
         }
       makeRequest()
 
