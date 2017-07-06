@@ -26,8 +26,9 @@ export default class Trace extends Component {
         data: {username: 'devnetuser', password: 'Cisco123!'}
       }
       this.apicFlowOptions = options;
-    },
-    this.app = runable;
+      this.app = runable;
+    }
+
 
     // Method REQUEST a ticket from APIC
     restRequest.prototype.makeTicket = function() {
