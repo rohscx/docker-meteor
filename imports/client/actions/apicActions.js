@@ -37,10 +37,10 @@ export function getTicket(ticket) {
         "content-type": "application/json",
         "cache-control": "no-cache"
       },
-      body: qs.stringify ({
+      body: {
         username: 'devnetuser',
         password: 'Cisco123!'
-      })
+      }
     };
     console.log(myInit);
 
