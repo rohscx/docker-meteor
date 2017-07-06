@@ -39,14 +39,13 @@ export function getTicket(ticket) {
 
     let myInit = new Request(url, {
       method: 'POST',
-      //mode: 'no-cors',
       headers: Headers,
       body: data
     })
 
     console.log(myInit);
 
-    
+
     return fetch(myInit)
       .then(function(response) {
         console.log(response);
