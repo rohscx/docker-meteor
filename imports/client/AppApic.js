@@ -16,6 +16,30 @@ import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
+import { createstore } from 'redux';
+
+const reducer = (state,action) => {
+  switch (action.type) {
+    case "ADD":
+      state = state + action.value;
+      break;
+    case "SUBTRACT":
+      break;
+  }
+  return state;
+}
+
+const store = createstore(,1);
+
+store.subscribe(() =>{
+  console.log("Store Updated", store.getState());
+});
+
+store.dispatch({
+  type: "ADD",
+  payload: 10
+});
+
 @autobind
  class AppApic extends Component {
    constructor() {
