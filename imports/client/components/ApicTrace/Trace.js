@@ -107,7 +107,7 @@ export default class Trace extends Component {
   }
 
   namesetter(){
-    this.setName("Garv!!!!");
+    this.props.setName("Garv!!!!");
   }
 
   render() {
