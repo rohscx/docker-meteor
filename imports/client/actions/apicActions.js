@@ -60,8 +60,8 @@ export function getTicket(ticket) {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         }, (err,data) =>{
           console.log("THIS IS THE DATA AND SHOULD SHOW UP LATER",data);
-        };
-      )
+        }
+      );
         apic.makeTicket();
         console.log('LAST ACTION');
   }
