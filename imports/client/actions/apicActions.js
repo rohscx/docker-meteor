@@ -42,6 +42,7 @@ export function getTicket(ticket) {
     };
     return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
       .then(response => response.json())
+      .then(console.log(response))
       .then(console.log("CANT DO IT MNA!"))
   }
 }
