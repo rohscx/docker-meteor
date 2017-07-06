@@ -60,10 +60,8 @@ export function getTicket(ticket) {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
 
-        const getFistUser(){
-          return pic.makeTicket().then(function(users) {
-            return console.log(this);
-          });
+        async function getFistUser () {
+          
         }
 
   }
