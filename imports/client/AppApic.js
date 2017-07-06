@@ -24,6 +24,7 @@ const reducer = (state,action) => {
       state = state + action.payload;
       break;
     case "SUBTRACT":
+      state = state - action.payload
       break;
   }
   return state;
@@ -38,6 +39,16 @@ store.subscribe(() =>{
 store.dispatch({
   type: "ADD",
   payload: 10
+});
+
+store.dispatch({
+  type: "ADD",
+  payload: 100
+});
+
+store.dispatch({
+  type: "SUBTRACT",
+  payload: 50
 });
 
 @autobind
