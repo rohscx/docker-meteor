@@ -20,7 +20,7 @@ import { createStore } from 'redux';
 
 // initializes the state
 const initailState = {
-  result = 1,
+  result: 1,
   lastValues: []
 };
 
