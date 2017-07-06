@@ -26,7 +26,7 @@ export function getTicket(ticket) {
   return dispatch => {
     //dispatch(getTicket(ticket))
     const  myHeaders = new Headers ({
-      "content-type": "application/json",
+      "content-type": "text/plain",
       "cache-control": "no-cache"
     });
     const myBody = new FormData ({
