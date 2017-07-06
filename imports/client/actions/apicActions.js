@@ -51,6 +51,7 @@ export function getTicket(ticket) {
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
+        return "BIRD MAN!!!!";
       }
     })};
 
