@@ -106,12 +106,16 @@ export default class Trace extends Component {
     this.loadData();
   }
 
+  namesetter(){
+    this.setName("Garv!!!!");
+  }
+
   render() {
     if (this.state.isLoading) {
       return (
         <div>
           <p>Loading Trace data!!!!....!!! </p>
-          <button onClick={this.props.setName()}>THIS IS A BUTTON</button>
+          <button onClick={this.namesetter}>THIS IS A BUTTON</button>
         </div>
       );
     }
