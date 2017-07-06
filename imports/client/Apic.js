@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 
 
-export default class Apic extends Component {
+class Apic extends Component {
 
 
 makeRequest() {
@@ -100,3 +100,21 @@ render() {
   )
 }
 }
+const mapSateToProps = (state) => {
+  return {
+    user: state.userReducer,
+    math: state.mathReducer
+  };
+}:
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch({
+        type: "SET_NAME",
+        payload: name
+      });
+    }
+  };
+}:
+export default connect(mapSateToProps, mapDispatchToProps) (Apic);
