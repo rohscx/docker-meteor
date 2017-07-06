@@ -75,13 +75,13 @@ class ApicTrace extends Component {
     if(this.state.traceReady){
       return (
         <Trace />
+        {this.props.user.name}
       )
     }
     console.log(this);
       return(
       <div>
         {this.traceForm()}
-        {this.props.user.name}
       </div>
       )
   }
