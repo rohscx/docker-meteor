@@ -43,7 +43,7 @@ export function getTicket(ticket) {
     let myRequest = new Request("https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket", myInit);
     return fetch(myRequest)
       .then(function(response) {
-        console.log(response);
+        console.log(response.body);
         return response.blob();
       })
       .then(function(myBlob) {
