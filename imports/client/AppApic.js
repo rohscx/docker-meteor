@@ -15,66 +15,18 @@ import Header from './components/Header';
 import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
+import Store from './Store';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+
 import { Provider } from 'react-redux';
 
 // initializes the state
 
-const mathReducer = (state = {
-  result: 1,
-  lastValues: []
-}, action) => {
-  switch (action.type) {
-    case "ADD":
-      state = {
-        ...state,
-        result: state.result + action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      break;
-    case "SUBTRACT":
-      state.result = {
-        ...state,
-        result: state.result - action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      state.lastValues.push(action.payload);
-      break;
-  }
-  return state;
-}
-
-const userReducer = (state = {
-  name: "RedEye",
-  age: 300
-}, action) => {
-  switch (action.type) {
-    case "SET_NAME":
-      state = {
-        ...state,
-        name: state.result + action.payload,
-      };
-      break;
-    case "SET_AGE":
-      state.result = {
-        ...state,
-        age: state.result - action.payload,
-      };
-      state.lastValues.push(action.payload);
-      break;
-  }
-  return state;
-}
-
 // formation redux expects store next action. THis is middle I created that logs.. stuff
-const myLogger = (store) => (next) => (action) => {
-  console.log("Logged Action: ", action);
-  next(action);
-};
+
 
 // uses combineReducers as redux otherwise can only take one reducer
-const store = createStore(combineReducers({mathReducer, userReducer}), {}, applyMiddleware(myLogger));
+
 
 store.subscribe(() => {
   console.log("Store Updated", store.getState());
