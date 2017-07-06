@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import fetch from 'isomorphic-fetch';
+import qs from 'qs';
 
 export function setTicket(ticket) {
   return {
@@ -33,7 +34,7 @@ export function getTicket(ticket) {
       method: 'POST',
       mode: 'no-cors',
       headers: myHeaders,
-      body: JSON.stringify ({
+      body: qs.stringify ({
         username: 'devnetuser',
         password: 'Cisco123!'
       })
