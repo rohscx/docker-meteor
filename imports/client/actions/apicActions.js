@@ -36,7 +36,7 @@ export function getTicket(ticket) {
     });
     const myInit = {
       method: 'POST',
-      mode: 'cors',
+      mode: 'no-cors',
       headers: myHeaders,
       body: myBody,
 
