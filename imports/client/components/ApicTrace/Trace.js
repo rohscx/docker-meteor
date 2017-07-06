@@ -57,8 +57,8 @@ export default class Trace extends Component {
           this.dataObj = {response: {data: {dataError: emptyArray}}};
         } else {
           this.dataObj = res.data;
-          this.apicFlowAnalysisId = res.data.response.url
-          console.log(this.dataObj);
+          this.apicFlowAnalysisId = res.data.response.url;
+          console.log(this);
           //Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
           //this.addToDB();
         }
