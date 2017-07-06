@@ -109,7 +109,7 @@ export default class Trace extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <p>Loading Trace data!!!!....!!! {this.props.apic.devices}</p>
+        <p>Loading Trace data!!!!....!!! {this.props.apic.devices} {this.props.setName('Garv')}</p>
       );
     }
     return(
