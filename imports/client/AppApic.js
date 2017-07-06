@@ -18,6 +18,7 @@ import ApicTrace from './components/ApicTrace';
 
 import { createStore } from 'redux';
 
+// initializes the state
 const initailState = {
   result = 1,
   lastValues: []
@@ -26,10 +27,10 @@ const initailState = {
 const reducer = (state = initailState, action) => {
   switch (action.type) {
     case "ADD":
-      state = state + action.payload;
+      state.result += action.payload;
       break;
     case "SUBTRACT":
-      state = state - action.payload
+      state.result -= action.payload
       break;
   }
   return state;
