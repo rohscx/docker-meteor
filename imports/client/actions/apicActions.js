@@ -58,10 +58,10 @@ export function getTicket(ticket) {
     let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-        });
-        apic.makeTicket((err,data) =>{
+        }), (err,data) =>{
           console.log("THIS IS THE DATA AND SHOULD SHOW UP LATER",data);
-        });
+        };
+        apic.makeTicket();
         console.log('LAST ACTION');
   }
 }
