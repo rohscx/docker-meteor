@@ -33,7 +33,10 @@ export function getTicket(ticket) {
     const myInit = {
       method: 'POST',
       mode: 'no-cors',
-      headers: myHeaders,
+      headers: qs.stringify ({
+        "content-type": "application/json",
+        "cache-control": "no-cache"
+      }),
       body: qs.stringify ({
         username: 'devnetuser',
         password: 'Cisco123!'
