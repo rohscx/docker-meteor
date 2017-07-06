@@ -14,7 +14,7 @@ export default class Trace extends Component {
     // Constructor
     function restRequest(options) {
       // always initialize all instance properties
-      this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em/';
+      this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
       this.apicTicket = '/api/v1/ticket';
       this.apicFlow = '/api/v1/flow-analysis';
       this.apicFlowAnalysisId= '';
