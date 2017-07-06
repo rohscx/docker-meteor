@@ -29,14 +29,14 @@ const reducer = (state = initailState, action) => {
     case "ADD":
       state = {
         ...state,
-        result: state.result + action.payload
+        result: state.result + action.payload,
         lastValues:[..state.lastValues, action.payload]
       };
       break;
     case "SUBTRACT":
       state.result = {
         ...state,
-        result: state.result - action.payload
+        result: state.result - action.payload,
         lastValues:[..state.lastValues, action.payload]
       };
       state.lastValues.push(action.payload);
