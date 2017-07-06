@@ -16,7 +16,7 @@ import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
-import { createstore } from 'redux';
+import { createStore } from 'redux';
 
 const reducer = (state,action) => {
   switch (action.type) {
@@ -29,7 +29,7 @@ const reducer = (state,action) => {
   return state;
 }
 
-const store = createstore(reducer,1);
+const store = createStore(reducer,1);
 
 store.subscribe(() =>{
   console.log("Store Updated", store.getState());
