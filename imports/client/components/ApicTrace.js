@@ -90,9 +90,7 @@ const mapSateToProps = (state) => {
   return {
     user: state.userReducer,
     math: state.mathReducer,
-    apicTicket: state.apicTicket,
-    apicDevices: state.apicDevices,
-    apicTrace: state.apicTrace
+    apic: state.apicReducer,
   };
 };
 
