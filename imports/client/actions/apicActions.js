@@ -23,47 +23,20 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    function restRequest(options) {
-      // always initialize all instance properties
-      this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
-      this.apicTicket = '/api/v1/ticket';
-      this.apicFlow = '/api/v1/flow-analysis';
-      this.apicFlowAnalysisId= '';
-      this.apicTicketURL = this.apicAPI + this.apicTicket;
-      this.apicFlowURL = this.apicAPI + this.apicFlow;
-      this.apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
-      this.apicTicketOptions = {
-        headers: { 'content-type': 'application/json' },
-        data: {username: 'devnetuser', password: 'Cisco123!'}
-      }
-      this.apicFlowOptions = options;
-    }
-    // Method REQUEST a ticket from APIC
-    restRequest.prototype.makeTicket = function() {
-      Meteor.call('checkApic', 'POST', this.apicTicketURL, this.apicTicketOptions, (err, res) => {
-      if (err) {
-        alert(err);
-      } else {
-        // success!
-        this.ticket = res.data.response.serviceTicket;
-        this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
-        //Session.set("apicTicket", res.data.response.serviceTicket);
-        console.log(res);	// debug
-        console.log(this); // debug
-        //this.makeFlowID();
-        return "BIRD MAN!!!!";
-      }
-    })};
-
-    let apic = new restRequest({
-          headers: { 'content-type': 'application/json'},
-          data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-        });
-        const makeRequest = async () => {
-          const data = await apic.makeTicket();
-          return console.log("Dogs Dogd", data);
+    async function getApicTicket() {
+      var options = {
+        url: "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket",
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache"
+        },
+        body: {
+          "username": 'devnetuser',
+          "password": 'Cisco123!'
         }
-      makeRequest()
+      };
+      return await request.get(options);
+    }
 
-  }
+    var body = await getCamoJson();
 }
