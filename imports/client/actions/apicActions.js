@@ -25,10 +25,10 @@ export function setTrace(trace) {
 export function getTicket(ticket) {
   return dispatch => {
     request
-    .post('/api/pet')
-    .send({ name: 'Manny', species: 'cat' }) // sends a JSON post body
-    .set('X-API-Key', 'foobar')
-    .set('Accept', 'application/json')
+    .post('https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket')
+    .send({ username: 'devnetuser', password: 'Cisco123!' }) // sends a JSON post body
+    .set("content-type": "application/json")
+    .set("cache-control": "no-cache")
     .end(function(err, res){
       // Calling the end function will send the request
     });
