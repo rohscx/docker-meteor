@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import mathReducer from './reducers/mathReducer';
 import userReducer from './reducers/userReducer';
 import apicReducer from './reducers/apicReducer';
@@ -13,4 +14,4 @@ export default createStore(combineReducers({
   apicReducer
 }),
    {},
-    applyMiddleware(myLogger));
+    applyMiddleware(myLogger, thunk));
