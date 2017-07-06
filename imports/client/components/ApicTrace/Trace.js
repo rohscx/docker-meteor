@@ -111,7 +111,7 @@ export default class Trace extends Component {
       return (
         <div>
           <p>Loading Trace data!!!!....!!! </p>
-          <button onClick={() => this.props.setName("gRAY MONKEY IN THE WOODZ"))}>THIS IS A BUTTON</button>
+          <button onClick={() => this.props.setName("gRAY MONKEY IN THE WOODZ")}>THIS IS A BUTTON</button>
         </div>
       );
     }
