@@ -100,7 +100,7 @@ export default class Trace extends Component {
     let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
-        }, cats;
+        }, cats);
         apic.makeTicket();
         console.log('LAST ACTION');
   }
