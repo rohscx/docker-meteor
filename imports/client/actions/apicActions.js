@@ -26,13 +26,12 @@ export function getTicket(ticket) {
   return dispatch => {
     //dispatch(getTicket(ticket))
     const  myHeaders = new Headers ({
-      'Access-Control-Allow-Origin':'*',
-      "content-type": "multipart/form-data",
+      "content-type", "application/json",
       "cache-control": "no-cache",
     });
     const myBody = new FormData ({
-      username: 'devnetuser',
-      password: 'Cisco123!'
+      "username": 'devnetuser',
+      "password": 'Cisco123!'
     });
     const myInit = {
       method: 'POST',
