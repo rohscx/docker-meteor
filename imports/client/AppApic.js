@@ -67,7 +67,7 @@ const userReducer = (state = {
 }
 
 // formation redux expects store next action
-cosnt myLogger = (store) => (next) => (action) => {
+const myLogger = (store) => (next) => (action) => {
   console.log("Logged Action: ", action);
   next(action);
 };
