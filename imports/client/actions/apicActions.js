@@ -32,7 +32,7 @@ export function getTicket(ticket) {
     });
     const myInit = {
       method: 'POST',
-      mode: 'no-cors',
+      //mode: 'no-cors',
       headers: {
         "content-type": "application/json",
         "cache-control": "no-cache"
