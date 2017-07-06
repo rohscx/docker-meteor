@@ -107,6 +107,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setTrace: (trace) => {
       dispatch(setTrace(trace));
+    },
+    getTicket: (ticket) => {
+      dispatch(getTicket(ticket));
     }
   };
 };

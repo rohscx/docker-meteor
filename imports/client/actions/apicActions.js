@@ -21,7 +21,7 @@ export function setTrace(trace) {
   };
 }
 
-export function getTicket(trace) {
+export function getTicket(ticket) {
   return dispatch => {
     function restRequest(options) {
       // always initialize all instance properties
@@ -53,7 +53,7 @@ export function getTicket(trace) {
         //this.makeFlowID();
       }
     })};
-    
+
     let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
