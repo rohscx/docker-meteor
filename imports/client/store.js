@@ -14,4 +14,5 @@ export default createStore(combineReducers({
   apicReducer
 }),
    {},
-    applyMiddleware(myLogger, thunk));
+    applyMiddleware(myLogger, thunk)
+  );
