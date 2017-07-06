@@ -51,7 +51,7 @@ export function getTicket(ticket) {
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
-        return "BIRD MAN!!!!";
+        return this;
       }
     })};
 
@@ -60,7 +60,9 @@ export function getTicket(ticket) {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
 
-          let cats = apic.makeTicket();
-          console.log(cats);
+          async function test () {
+            let ram = apic.makeTicket();
+            await ram;
+          }
   }
 }
