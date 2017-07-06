@@ -16,7 +16,7 @@ import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 // initializes the state
 
@@ -65,10 +65,17 @@ const userReducer = (state = {
   }
   return state;
 }
-// uses combineReducers as redux otherwise can only take one reducer
-const store = createStore(combineReducers({mathReducer, userReducer}));
 
-store.subscribe(() =>{
+// formation redux expects store next action
+cosnt myLogger = (store) => (next) => (action) => {
+  console.log("Logged Action: ", action);
+  next(action);
+};
+
+// uses combineReducers as redux otherwise can only take one reducer
+const store = createStore(combineReducers({mathReducer, userReducer}), {}, applyMiddleware(myLogger));
+
+store.subscribe(() => {
   console.log("Store Updated", store.getState());
 });
 
