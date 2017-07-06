@@ -27,7 +27,8 @@ export function getTicket(ticket) {
     //dispatch(getTicket(ticket))
     const  myHeaders = new Headers ({
       "content-type": "application/json; charset=UTF-8",
-      "cache-control": "no-cache"
+      "cache-control": "no-cache",
+      "Access-Control-Allow-Origin": *
     });
     const myBody = new FormData ({
       username: 'devnetuser',
