@@ -17,6 +17,7 @@ import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { provider } from 'react-redux';
 
 // initializes the state
 
@@ -66,7 +67,7 @@ const userReducer = (state = {
   return state;
 }
 
-// formation redux expects store next action
+// formation redux expects store next action. THis is middle I created that logs.. stuff
 const myLogger = (store) => (next) => (action) => {
   console.log("Logged Action: ", action);
   next(action);
@@ -233,6 +234,7 @@ store.dispatch({
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
     return (
+      <Provider store={store}>
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
@@ -255,8 +257,8 @@ store.dispatch({
                   })}
                 </ReactCSSTransitionGroup> : <p>CATS</p>
               }
-
         </main>
+      </Provider>
     );
   }
 }
