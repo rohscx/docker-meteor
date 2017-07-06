@@ -26,8 +26,9 @@ export function getTicket(ticket) {
   return dispatch => {
     //dispatch(getTicket(ticket))
     const  myHeaders = new Headers ({
-      "content-type": "text/plain",
-      "cache-control": "no-cache"
+      "content-type": "application/json",
+      "cache-control": "no-cache",
+      "postman-token", "19f73ba6-3cc6-6ec4-4778-e0a3f0b6cc41"
     });
     const myBody = new FormData ({
       username: 'devnetuser',
