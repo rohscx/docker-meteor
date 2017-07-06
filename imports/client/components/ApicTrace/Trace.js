@@ -20,7 +20,7 @@ export default class Trace extends Component {
       this.apicFlowAnalysisId= '';
       this.apicTicketURL = this.apicAPI + this.apicTicket;
       this.apicFlowURL = this.apicAPI + this.apicFlow;
-      this.apicFlowAnalysisIdURL= this.apicAPI + this.apicFlow + this.apicFlowAnalysisId;
+      this.apicFlowAnalysisIdURL= '';
       this.apicTicketOptions = {
         headers: { 'content-type': 'application/json' },
         data: {username: 'devnetuser', password: 'Cisco123!'}
@@ -75,9 +75,9 @@ export default class Trace extends Component {
         }
       }
     })};
-
+/*
     restRequest.prototype.useFlowID = function() {
-      Meteor.call('checkApic', 'GET', this.url, this.options, (err, res) => {
+      Meteor.call('checkApic', 'GET', this.apicFlowAnalysisIdURL, this.apicFlowOptions, (err, res) => {
       let emptyArray = "This is unfortunate. No data has been returned..."
       if (err) {
         alert(err);
@@ -86,7 +86,7 @@ export default class Trace extends Component {
         if(res.data.response.length == 0){
           this.dataObj = {response: {data: {dataError: emptyArray}}};
         } else {
-          this.dataObj = res.data;
+          //this.dataObj = res.data;
           console.log(this.dataObj);
           //Session.set("apicResponse", res.data.response);
           //this.addToDB();
@@ -102,7 +102,7 @@ export default class Trace extends Component {
         // console.log('Ticket submitted');
       }
     })};
-
+*/
     let apic = new restRequest({
           headers: { 'content-type': 'application/json'},
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
