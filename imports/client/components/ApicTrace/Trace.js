@@ -29,15 +29,6 @@ export default class Trace extends Component {
       this.apicFlowOptions = {
         headers: { 'content-type': 'application/json' },
       }
-
-
-      this.urlFlow = url;
-
-      this.urlTicket = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket';
-      this.optionsTicket = {
-        headers: { 'content-type': 'application/json' },
-    	  data: {username: 'devnetuser', password: 'Cisco123!'}
-      }
     }
 
     // Method REQUEST a ticket from APIC
