@@ -30,8 +30,8 @@ export function getTicket(ticket) {
       "cache-control": "no-cache",
     });
     const myBody = new FormData ({
-      "username": 'devnetuser',
-      "password": 'Cisco123!'
+      username: 'devnetuser',
+      password: 'Cisco123!'
     });
     const myInit = {
       method: 'POST',
