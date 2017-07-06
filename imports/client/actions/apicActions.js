@@ -37,9 +37,9 @@ export function getTicket(ticket) {
       method: 'POST',
       mode: 'no-cors',
       headers: myHeaders,
-      body: myBody,
-
+      body: myBody
     };
+    
     return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
       .then(response => response.json())
       .then(console.log(response))
