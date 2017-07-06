@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
-import { connect } from 'react-redux;
+import { connect } from 'react-redux';
 
 class ApicTrace extends Component {
 
