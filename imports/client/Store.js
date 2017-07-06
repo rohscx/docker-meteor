@@ -11,3 +11,4 @@ export default createStore(combineReducers({
   userReducer}),
    {},
     applyMiddleware(myLogger));
+    

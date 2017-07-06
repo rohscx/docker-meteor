@@ -15,7 +15,7 @@ import Header from './components/Header';
 import ItemsApic from '../api/request'
 import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
-import Store from './Store';
+import store from './store';
 
 
 import { Provider } from 'react-redux';
@@ -28,21 +28,21 @@ import { Provider } from 'react-redux';
 // uses combineReducers as redux otherwise can only take one reducer
 
 
-Store.subscribe(() => {
-  console.log("Store Updated", Store.getState());
+store.subscribe(() => {
+  console.log("Store Updated", store.getState());
 });
 
-Store.dispatch({
+store.dispatch({
   type: "ADD",
   payload: 10
 });
 
-Store.dispatch({
+store.dispatch({
   type: "ADD",
   payload: 100
 });
 
-Store.dispatch({
+store.dispatch({
   type: "SUBTRACT",
   payload: 50
 });
@@ -186,7 +186,7 @@ Store.dispatch({
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
     return (
-      <Provider store={Store}>
+      <Provider store={store}>
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
