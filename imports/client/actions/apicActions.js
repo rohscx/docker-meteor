@@ -65,5 +65,7 @@ export function getTicket(ticket) {
           return console.log(users);
         }
 
+        getFistUser();
+
   }
 }
