@@ -101,13 +101,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setName: (name) => {
       dispatch(setName(name));
-    }
+    },
     setTicket: (ticket) => {
       dispatch(setTicket(ticket));
-    }
+    },
     setDevices: (devices) => {
       dispatch(setDevices(devices));
-    }
+    },
     setTrace: (trace) => {
       dispatch(setTrace(trace));
     }
