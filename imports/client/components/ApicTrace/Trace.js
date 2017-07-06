@@ -26,9 +26,6 @@ export default class Trace extends Component {
         data: {username: 'devnetuser', password: 'Cisco123!'}
       }
       this.apicFlowOptions = options;
-      this.apicFlowOptions = {
-        headers: { 'content-type': 'application/json' },
-      }
     }
 
     // Method REQUEST a ticket from APIC
