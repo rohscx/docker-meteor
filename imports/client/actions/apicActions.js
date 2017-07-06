@@ -29,7 +29,7 @@ export function getTicket(ticket) {
       "content-type": "application/json",
       "cache-control": "no-cache",
     });
-    const myBody = new JSON.stringify ({
+    const myBody = json.stringify ({
       username: 'devnetuser',
       password: 'Cisco123!'
     });
