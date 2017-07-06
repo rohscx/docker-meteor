@@ -60,12 +60,7 @@ export function getTicket(ticket) {
           data: { 'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
         });
 
-        async function getFistUser () {
-          let users = await apic.makeTicket();
-          return console.log("HAHahahaha", users);
-        }
-
-        getFistUser();
-
+          let cats = apic.makeTicket();
+          console.log(cats);
   }
 }
