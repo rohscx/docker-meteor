@@ -39,6 +39,7 @@ export function getTicket(ticket) {
         password: 'Cisco123!'
       })
     };
+    console.log(myInit);
 
     let myRequest = new Request("https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket", myInit);
     return fetch(myRequest)
