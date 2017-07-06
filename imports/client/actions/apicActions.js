@@ -29,7 +29,7 @@ export function getTicket(ticket) {
     const  myHeaders = new Headers ({
       "content-type": "application/json",
       "cache-control": "no-cache",
-      "Access-Control-Allow-Origin":"*"
+      "withCredentials": true,
     });
     let url = "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket";
 
