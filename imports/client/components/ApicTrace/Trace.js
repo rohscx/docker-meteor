@@ -26,7 +26,8 @@ export default class Trace extends Component {
         data: {username: 'devnetuser', password: 'Cisco123!'}
       }
       this.apicFlowOptions = options;
-    }
+    },
+    this.app = runable;
 
     // Method REQUEST a ticket from APIC
     restRequest.prototype.makeTicket = function() {
@@ -41,7 +42,7 @@ export default class Trace extends Component {
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
-        return "CAT MAN NAME"
+        return this.app("CAN DO!");
       }
     })};
 
