@@ -74,8 +74,7 @@ class ApicTrace extends Component {
   render() {
     if(this.state.traceReady){
       return (
-        <Trace />
-        {this.props.user.name}
+        <Trace test={this.props.user.name}/>
       )
     }
     console.log(this);
