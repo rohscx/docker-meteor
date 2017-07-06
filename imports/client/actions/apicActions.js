@@ -29,15 +29,14 @@ export function getTicket(ticket) {
       "content-type": "application/json",
       "cache-control": "no-cache",
     });
-    const myBody = json.stringify ({
-      username: 'devnetuser',
-      password: 'Cisco123!'
-    });
     const myInit = {
       method: 'POST',
       mode: 'no-cors',
       headers: myHeaders,
-      body: myBody
+      body: JSON.stringify ({
+        username: 'devnetuser',
+        password: 'Cisco123!'
+      })
     };
 
     let myRequest = new Request("https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket", myInit);
