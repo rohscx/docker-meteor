@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import request from 'superagent';
 
 export function setTicket(ticket) {
   return {
