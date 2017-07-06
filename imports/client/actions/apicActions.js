@@ -24,7 +24,7 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    dispatch(requestPosts(ticket))
+    //dispatch(getTicket(ticket))
     return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`)
       .then(response => response.json())
   }
