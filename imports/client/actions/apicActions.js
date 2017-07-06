@@ -24,7 +24,7 @@ export function setTrace(trace) {
 export function getTicket(ticket) {
   return dispatch => {
     async function getApicTicket() {
-      var options = {
+      let options = {
         url: "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket",
         headers: {
           "content-type": "application/json",
@@ -37,7 +37,6 @@ export function getTicket(ticket) {
       };
       return await request.get(options);
     }
-
-    var body = await getApicTicket();
-}
+    let body = await getApicTicket();
+  }
 }
