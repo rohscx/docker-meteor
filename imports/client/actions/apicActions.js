@@ -39,7 +39,10 @@ export function getTicket(ticket) {
 
     let myInit = new Request(url, {
       method: 'POST',
-      headers: Headers,
+      headers: new Headers ({
+        "content-type": "application/json",
+        "cache-control": "no-cache",
+      }),
       body: data
     })
 
