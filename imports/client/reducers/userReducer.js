@@ -6,7 +6,7 @@ const userReducer = (state = {
     case "SET_NAME":
       state = {
         ...state,
-        name: state.result + action.payload,
+        name: action.payload,
       };
       break;
     case "SET_AGE":
