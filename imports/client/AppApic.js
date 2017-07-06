@@ -17,7 +17,7 @@ import ApicMenu from './components/ApicMenu';
 import ApicTrace from './components/ApicTrace';
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 // initializes the state
 
@@ -234,9 +234,8 @@ store.dispatch({
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
     return (
-
+      <Provider store={store}>
         <main>
-          <Provider store={store}>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
               Show {this.props.showAll ? 'One': 'All'}
@@ -258,9 +257,8 @@ store.dispatch({
                   })}
                 </ReactCSSTransitionGroup> : <p>CATS</p>
               }
-            </Provider>
         </main>
-
+      </Provider>
     );
   }
 }
