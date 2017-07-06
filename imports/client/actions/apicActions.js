@@ -62,7 +62,7 @@ export function getTicket(ticket) {
 
         async function getFistUser () {
           let users = await apic.makeTicket();
-          return console.log(users);
+          return console.log("HAHahahaha", users);
         }
 
         getFistUser();
