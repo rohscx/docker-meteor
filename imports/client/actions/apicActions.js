@@ -39,10 +39,14 @@ export function getTicket(ticket) {
       headers: myHeaders,
       body: myBody
     };
-    
-    return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
-      .then(response => response.json())
-      .then(console.log(response))
-      .then(console.log("CANT DO IT MNA!"))
+
+    let myRequest = new Request("https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket", myInit);
+    return fetch(myRequest)
+      .then(function(response) {
+        return response.blob();
+      })
+      .then(function(myBlob) {
+        console.log(myBlob);
+      });
   }
 }
