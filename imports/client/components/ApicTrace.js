@@ -3,6 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
+import { setTicket, setDevices, setTrace }from '../actions/apicActions'
 
 class ApicTrace extends Component {
 
@@ -80,6 +81,7 @@ class ApicTrace extends Component {
       return(
       <div>
         {this.traceForm()}
+        {this.props.user.name}
       </div>
       )
   }
@@ -88,7 +90,10 @@ class ApicTrace extends Component {
 const mapSateToProps = (state) => {
   return {
     user: state.userReducer,
-    math: state.mathReducer
+    math: state.mathReducer,
+    apicTicket: state.apicTicket,
+    apicDevices: state.apicDevices,
+    apicTrace: state.apicTrace
   };
 };
 
@@ -96,6 +101,15 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setName: (name) => {
       dispatch(setName(name));
+    }
+    setTicket: (ticket) => {
+      dispatch(setTicket(ticket));
+    }
+    setDevices: (devices) => {
+      dispatch(setDevices(devices));
+    }
+    setTrace: (trace) => {
+      dispatch(setTrace(trace));
     }
   };
 };
