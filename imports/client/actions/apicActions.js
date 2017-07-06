@@ -30,22 +30,24 @@ export function getTicket(ticket) {
       "content-type": "application/json",
       "cache-control": "no-cache",
     });
-    const myInit = {
+    let url = "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket";
+
+    let data = {
+      username: 'devnetuser',
+      password: 'Cisco123!'
+    };
+
+    let myInit = new Request(url, {
       method: 'POST',
       //mode: 'no-cors',
-      headers: {
-        "content-type": "application/json",
-        "cache-control": "no-cache"
-      },
-      body: {
-        username: 'devnetuser',
-        password: 'Cisco123!'
-      }
-    };
+      headers: Headers,
+      body: data
+    })
+
     console.log(myInit);
 
-    let myRequest = new Request("https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket", myInit);
-    return fetch(myRequest)
+    
+    return fetch(myInit)
       .then(function(response) {
         console.log(response);
         return response.blob();
