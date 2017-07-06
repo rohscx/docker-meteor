@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
+import { connect } from 'react-redux;
 
-export default class ApicTrace extends Component {
+class ApicTrace extends Component {
 
   constructor(props) {
   super(props);
@@ -82,3 +83,22 @@ export default class ApicTrace extends Component {
       )
   }
 }
+
+const mapSateToProps = (state) => {
+  return {
+    user: state.userReducer,
+    math: state.mathReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch({
+        type: "SET_NAME",
+        payload: name
+      });
+    }
+  };
+};
+export default connect(mapSateToProps, mapDispatchToProps) (ApicTrace);
