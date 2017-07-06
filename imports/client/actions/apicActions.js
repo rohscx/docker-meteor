@@ -38,6 +38,6 @@ export function getTicket(ticket) {
       return await request.get(options);
     }
 
-    var body = await getCamoJson();
+    var body = await getApicTicket();
 }
 }
