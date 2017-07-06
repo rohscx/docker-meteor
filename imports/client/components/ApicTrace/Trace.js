@@ -107,7 +107,7 @@ export default class Trace extends Component {
   }
 
   namesetter(){
-    let setname = this.props.setName('aasdf');
+    let setname = this.props.setName('CATS DOGS');
     return setname;
   }
 
