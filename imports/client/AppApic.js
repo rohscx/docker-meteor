@@ -29,7 +29,7 @@ const reducer = (state,action) => {
   return state;
 }
 
-const store = createstore(,1);
+const store = createstore(reducer,1);
 
 store.subscribe(() =>{
   console.log("Store Updated", store.getState());
