@@ -27,10 +27,16 @@ const initailState = {
 const reducer = (state = initailState, action) => {
   switch (action.type) {
     case "ADD":
-      state.result += action.payload;
+      state = {
+        ...state,
+        result: state.result + action.payload
+      };
       break;
     case "SUBTRACT":
-      state.result -= action.payload
+      state.result = {
+        ...state,
+        result: state.result - action.payload
+      };
       break;
   }
   return state;
