@@ -39,7 +39,7 @@ export function getTicket(ticket) {
       body: myBody
 
     };
-    return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
+    return fetch(`http://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`, myInit)
       .then(response => response.json())
       .then(console.log("CANT DO IT MNA!"))
   }
