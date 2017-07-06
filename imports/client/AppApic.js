@@ -21,7 +21,7 @@ import { createstore } from 'redux';
 const reducer = (state,action) => {
   switch (action.type) {
     case "ADD":
-      state = state + action.value;
+      state = state + action.payload;
       break;
     case "SUBTRACT":
       break;
