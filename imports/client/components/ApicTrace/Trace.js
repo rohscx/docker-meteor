@@ -14,13 +14,13 @@ export default class Trace extends Component {
     // Constructor
     function restRequest(options) {
       // always initialize all instance properties
-      this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em/api/v1';
-      this.apicTicket = '/ticket';
-      this.apicFlow = '/flow-analysis';
+      this.apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em/';
+      this.apicTicket = '/api/v1/ticket';
+      this.apicFlow = '/api/v1/flow-analysis';
       this.apicFlowAnalysisId= '';
       this.apicTicketURL = this.apicAPI + this.apicTicket;
       this.apicFlowURL = this.apicAPI + this.apicFlow;
-      this.apicFlowAnalysisIdURL= '';
+      this.apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
       this.apicTicketOptions = {
         headers: { 'content-type': 'application/json' },
         data: {username: 'devnetuser', password: 'Cisco123!'}
@@ -57,6 +57,7 @@ export default class Trace extends Component {
           this.dataObj = {response: {data: {dataError: emptyArray}}};
         } else {
           this.dataObj = res.data;
+          this.apicFlowAnalysisId = res.data.response.url
           console.log(this.dataObj);
           //Session.set("apicFlowResponse", res.data.response.flowAnalysisId);
           //this.addToDB();
