@@ -24,7 +24,6 @@ const apicReducer = (state = {
       };
       break;
     }
-  };
   return state;
 };
 
