@@ -22,7 +22,7 @@ export function setTrace(trace) {
   };
 }
 
-function getTicket(ticket) {
+export function getTicket(ticket) {
   return dispatch => {
     dispatch(requestPosts(ticket))
     return fetch(`https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket`)
