@@ -7,20 +7,20 @@ const apicReducer = (state = {
     case "SET_TICKET":
       state = {
         ...state,
-        name: state.ticket
+        ticket
       };
       break;
     case "SET_DEVICES":
       state.result = {
         ...state,
-        age: state.devices
+        devices
       };
       state.lastValues.push(action.payload);
       break;
     case "SET_TRACE":
       state.result = {
         ...state,
-        age: state.trace
+        trace
       };
       break;
     }
