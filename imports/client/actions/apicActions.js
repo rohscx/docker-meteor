@@ -118,7 +118,7 @@ export function getFlow(ticket,flowId) {
       data: {}
     };
 
-    return Meteor.call('checkApic', 'POST', apicFlowAnalysisIdURL, apicOptions, (err, res) => {
+    return Meteor.call('checkApic', 'GET', apicFlowAnalysisIdURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
       } else {
