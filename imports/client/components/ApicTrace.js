@@ -115,7 +115,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getTicket());
     },
     getFlowId: (ticket) => {
-      dispatch(getFlowId());
+      dispatch(getFlowId(ticket));
     }
   };
 };
