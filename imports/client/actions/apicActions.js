@@ -26,22 +26,23 @@ export function setTrace(trace) {
 export function getTicket(ticket) {
   return dispatch => {
     //dispatch(getTicket(ticket))
+
+    const myData = new FormData();
+    myData.append("username", 'devnetuser');
+    fmyData.append("password", 'Cisco123');
+
     const  myHeaders = new Headers ({
-      "content-type": "application/json",
-      "cache-control": "no-cache",
-      "withCredentials": "true",
+      "cache-control": "no-cache"
+
     });
     let url = "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket";
 
-    let data = {
-      username: 'devnetuser',
-      password: 'Cisco123!'
-    };
+
 
     let myInit = new Request(url, {
       method: 'POST',
       headers: myHeaders,
-      body: data
+      body: myData
     })
 
     console.log(myInit);
