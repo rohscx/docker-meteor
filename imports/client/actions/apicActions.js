@@ -67,7 +67,7 @@ export function getTicket() {
   }
 }
 
-export function getFlowID(ticket) {
+export function getFlowId(ticket) {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
@@ -77,7 +77,10 @@ export function getFlowID(ticket) {
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
     apicOptions = {
-      headers: { 'content-type': 'application/json' },
+      headers: { 
+        'content-type': 'application/json',
+        'x-auth-token', ticket
+      },
       data: {'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
     };
 
