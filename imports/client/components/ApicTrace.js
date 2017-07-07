@@ -95,7 +95,7 @@ class ApicTrace extends Component {
             Object.keys(this.dataObj).map(function(key,index){
               this.dataObj = this.dataObj[key];
             })
-            //console.log("Object deobjectified", this.dataObj);
+            return console.log("Object deobjectified", this.dataObj);
           }
         };
 
