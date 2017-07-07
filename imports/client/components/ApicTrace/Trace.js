@@ -7,7 +7,7 @@ export default class Trace extends Component {
     Object.keys(item).map(function(key,index){
       console.log(item[key]);
       return (
-        <div>{key}</div>
+        <div>HELLLO</div>
       );
     })
   }
