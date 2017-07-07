@@ -3,7 +3,7 @@ const apicReducer = (state = {
   devices: "NO DEVICES",
   trace: "NO TRACES",
   flowId: "NO FLOW ID",
-  flow: "NO FLOW"
+  flow: [{id: "NO FLOW"}]
 }, action) => {
   switch (action.type) {
     case "SET_TICKET":
