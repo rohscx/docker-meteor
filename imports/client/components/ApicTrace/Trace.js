@@ -113,9 +113,7 @@ export default class Trace extends Component {
           <p>Loading Trace data!!!!....!!! <br/>
           {this.props.apic.ticket} <br/>
           {this.props.apic.flowId} <br/>
-          {this.props.apic.flow.map(item => {
-            return item
-          })}
+          {this.props.apic.flow}
         </p>
           <button onClick={
             () => this.props.getTicket()
