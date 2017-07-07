@@ -115,8 +115,8 @@ export default class Trace extends Component {
           {this.props.apic.flowId} <br/>
           {this.props.apic.flow.map(item => {
             console.log(item);
-            Object.keys(item).map(function(k,i){
-              return k, i;
+            Object.keys(item).map(function(key,value){
+              return key, value;
             })
           })}
         </p>
