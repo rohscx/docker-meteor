@@ -106,6 +106,20 @@ export default class Trace extends Component {
     this.loadData();
   }
 
+  trace(){
+    this.props.apic.flow.map(item => {
+      console.log(item);
+      let flowObj = Object.keys(item).map(function(key,index){
+        return (
+          <div key={index}>
+            {item[key]}
+          </div>
+        );
+      })
+      return flowObj;
+    })
+  }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -113,17 +127,7 @@ export default class Trace extends Component {
           <p>Loading Trace data!!!!....!!! <br/>
           {this.props.apic.ticket} <br/>
           {this.props.apic.flowId} <br/>
-          {this.props.apic.flow.map(item => {
-            console.log(item);
-            let flowObj = Object.keys(item).map(function(key,index){
-              return (
-                <div key={index}>
-                  {item[key]}
-                </div>
-              );
-            })
-            return flowObj;
-          })}
+          {this.trace}
         </p>
           <button onClick={
             () => this.props.getTicket()
