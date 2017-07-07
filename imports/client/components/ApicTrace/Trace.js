@@ -6,9 +6,12 @@ export default class Trace extends Component {
 
   render() {
     return(
-      <div>
-          {this.props.traceValue}
-      </div>
+      Object.keys(this.props.traceObj).map(function(key,index){
+        console.log(item[key]);
+        return (
+          {key}
+        );
+      })
     )
   }
 }

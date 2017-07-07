@@ -41,19 +41,10 @@ class ApicTrace extends Component {
 
 
   trace(){
-    let cats = this.props.apic.flow.map(item => {
+    this.props.apic.flow.map(item => {
       console.log(item);
-      let flowObj = Object.keys(item).map(function(key,index){
-        console.log(item[key]);
-        return (
-          <div key={index}>
-            <Trace traceItem={key} traceValue={item[key]} />
-          </div>
-        );
-      })
-      return flowObj;
+      return <Trace traceObj={item} />
     })
-    return cats;
   }
 
 
