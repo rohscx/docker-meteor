@@ -24,21 +24,19 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    Meteor.methods({
-      checkTwitter(userId) {
-        check(userId, String);
-        this.unblock();
-        try {
-          const result = HTTP.call('GET', 'https://jsonplaceholder.typicode.com/posts/1', {
-            params: { }
-          });
-          console.log(result);
-        return true;
-        } catch (e) {
-          // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-          return false;
-        }
-      }
-    });
+    Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com", {}, (err, res) => {
+    if (err) {
+      alert(err);
+    } else {
+      // success!
+      //this.ticket = res.data.response.serviceTicket;
+      //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
+      //Session.set("apicTicket", res.data.response.serviceTicket);
+      console.log(res);	// debug
+      console.log(this); // debug
+      //this.makeFlowID();
+    }
+  })
+
   }
 }
