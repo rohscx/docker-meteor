@@ -4,10 +4,11 @@ import { Session } from 'meteor/session';
 export default class Trace extends Component {
 
   loopThrough(){
-    Object.keys(this.props.traceObj).map(function(key,index){
+    let item = this.props.traceObj;
+    Object.keys(item).map(function(key,index){
       console.log(item[key]);
       return (
-        {item[key]}
+        item[key]
       );
     })
   }
