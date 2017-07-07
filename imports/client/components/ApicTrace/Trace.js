@@ -122,7 +122,7 @@ export default class Trace extends Component {
                 </div>
               );
             })
-            return FlowObj;
+            return flowObj;
           })}
         </p>
           <button onClick={
