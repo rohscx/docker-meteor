@@ -107,7 +107,7 @@ export default class Trace extends Component {
   }
 
   trace(){
-    this.props.apic.flow.map(item => {
+    let cats = this.props.apic.flow.map(item => {
       console.log(item);
       let flowObj = Object.keys(item).map(function(key,index){
         return (
@@ -118,6 +118,7 @@ export default class Trace extends Component {
       })
       return flowObj;
     })
+    return cats;
   }
 
   render() {
