@@ -40,6 +40,22 @@ class ApicTrace extends Component {
   }
 
 
+  trace(){
+    let cats = this.props.apic.flow.map(item => {
+      console.log(item);
+      let flowObj = Object.keys(item).map(function(key,index){
+        console.log(item[key]);
+        return (
+          <div key={index}>
+            {item[key]}
+          </div>
+        );
+      })
+      return flowObj;
+    })
+    return cats;
+  }
+
 
   static defaultProps = {
     categories: ['Web Design', 'Web Development', 'Mobile Development']
@@ -75,6 +91,18 @@ class ApicTrace extends Component {
     if(this.state.traceReady){
       return (
         <Trace {... this.props}/>
+        <button onClick={
+          () => this.props.getTicket()
+        }>GET TICKET</button>
+        <button onClick={
+          () => this.props.getFlowId(this.props.apic.ticket)
+        }>GET FLOW ID</button>
+        <button onClick={
+          () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
+        }>GET FLOW</button>
+        <button onClick={
+          () => console.log(this.props)
+        }>LOG PROPS</button>
       )
     }
     console.log(this);
