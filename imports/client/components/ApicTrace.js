@@ -92,7 +92,7 @@ class ApicTrace extends Component {
 
         deObjectify.prototype.objCheck = function(){
           while(typeof this.dataObj === 'object'){
-            Object.keys(this.dataObj).map(function(key,index){
+            Object.keys(this.dataObj.bind(this)).map(function(key,index){
               console.log("this is an object", this.dataObj);
               this.dataObj = this.dataObj[key];
             })
