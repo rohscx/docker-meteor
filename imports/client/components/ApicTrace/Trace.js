@@ -122,7 +122,7 @@ export default class Trace extends Component {
             () => this.props.getFlowId(this.props.apic.ticket)
           }>GET FLOW ID</button>
           <button onClick={
-            () => this.props.getFlow(this.props.apic.ticket, this.props.flowId)
+            () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
           }>GET FLOW</button>
         </div>
       );
