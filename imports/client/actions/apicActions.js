@@ -24,7 +24,7 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com/posts/1", {}, (err, res) => {
+    return Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com/posts/1", {}, (err, res) => {
     if (err) {
       alert(err);
     } else {
@@ -35,8 +35,10 @@ export function getTicket(ticket) {
       console.log(res);	// debug
       console.log(this); // debug
       //this.makeFlowID();
+      return res;
     }
   })
+  .then(console.log("This should happen last"))
 
   }
 }
