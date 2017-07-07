@@ -95,7 +95,7 @@ export function getFlowId(ticket) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          return dispatch(setTicket(res.data.response.flowAnalysisId));
+          return dispatch(setFlowId(res.data.response.flowAnalysisId));
         }
     })
   }
