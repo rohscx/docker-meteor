@@ -24,7 +24,19 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    return Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com/posts/1", {}, (err, res) => {
+    apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
+    apicTicket = '/api/v1/ticket';
+    apicFlow = '/api/v1/flow-analysis';
+    apicFlowAnalysisId= '';
+    apicTicketURL = this.apicAPI + this.apicTicket;
+    apicFlowURL = this.apicAPI + this.apicFlow;
+    apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
+    apicTicketOptions = {
+      headers: { 'content-type': 'application/json' },
+      data: {username: 'devnetuser', password: 'Cisco123!'}
+    };
+    this.apicFlowOptions = options;
+    return Meteor.call('checkApic', 'POST', apicTicketURL, apicTicketOptions, (err, res) => {
     if (err) {
       alert(err);
     } else {
@@ -35,7 +47,7 @@ export function getTicket(ticket) {
       console.log(res);	// debug
       console.log(this); // debug
       //this.makeFlowID();
-      return dispatch(setTicket(res.data.body));
+      //return dispatch(setTicket(res.data.body));
     }
   })
 
