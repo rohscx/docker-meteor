@@ -47,7 +47,7 @@ class ApicTrace extends Component {
         console.log(item[key]);
         return (
           <div key={index}>
-            {item[key]}
+            <Trace traceItem={item} traceValue={item[key]} />
           </div>
         );
       })
@@ -93,6 +93,7 @@ class ApicTrace extends Component {
         <div>
         {this.props.apic.ticket} <br/>
         {this.props.apic.flowId} <br/>
+        {this.trace()}
         <button onClick={
           () => this.props.getTicket()
         }>GET TICKET</button>
@@ -105,7 +106,7 @@ class ApicTrace extends Component {
         <button onClick={
           () => console.log(this.props)
         }>LOG PROPS</button>
-        {this.trace()}
+
       </div>
       )
     }
