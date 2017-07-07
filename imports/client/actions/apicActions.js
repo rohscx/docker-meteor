@@ -29,7 +29,7 @@ export function getTicket(ticket) {
 
     const myData = new FormData();
     myData.append("username", 'devnetuser');
-    fmyData.append("password", 'Cisco123');
+    myData.append("password", 'Cisco123');
 
     const  myHeaders = new Headers ({
       "cache-control": "no-cache"
