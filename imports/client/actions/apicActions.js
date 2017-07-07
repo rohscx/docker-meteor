@@ -77,9 +77,9 @@ export function getFlowId(ticket) {
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
     apicOptions = {
-      headers: { 
+      headers: {
         'content-type': 'application/json',
-        'x-auth-token', ticket
+        'x-auth-token': ticket
       },
       data: {'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
     };
