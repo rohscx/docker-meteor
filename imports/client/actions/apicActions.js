@@ -129,7 +129,7 @@ export function getFlow(ticket,flowId) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          //return dispatch(setFlowId(res.data.response.flowAnalysisId));
+          return dispatch(setFlow(res.data.response.networkElementsInfo));
         }
     })
   }
