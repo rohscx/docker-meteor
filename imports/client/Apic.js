@@ -96,7 +96,6 @@ render() {
       </button>
       {this.props.ticketList()}
       {this.props.ipTrace()}
-      {this.props.user.name}
     </div>
 
   )
