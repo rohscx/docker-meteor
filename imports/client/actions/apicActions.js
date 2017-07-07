@@ -35,7 +35,7 @@ export function getTicket(ticket) {
       headers: { 'content-type': 'application/json' },
       data: {username: 'devnetuser', password: 'Cisco123!'}
     };
-    this.apicFlowOptions = options;
+    
     return Meteor.call('checkApic', 'POST', apicTicketURL, apicTicketOptions, (err, res) => {
     if (err) {
       alert(err);
