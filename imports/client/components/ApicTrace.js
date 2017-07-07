@@ -77,10 +77,6 @@ class ApicTrace extends Component {
         <div>
         {this.props.apic.ticket} <br/>
         {this.props.apic.flowId} <br/>
-        {this.props.apic.flow.map(item => {
-          console.log(item);
-          return <Trace {... this.props} traceObj={item} key={item} />
-        })}
         <button onClick={
           () => this.props.getTicket()
         }>GET TICKET</button>
@@ -93,7 +89,10 @@ class ApicTrace extends Component {
         <button onClick={
           () => console.log(this.props)
         }>LOG PROPS</button>
-
+        {this.props.apic.flow.map(item => {
+          console.log(item);
+          return <Trace {... this.props} traceObj={item} key={item} />
+        })}
       </div>
       )
     }
