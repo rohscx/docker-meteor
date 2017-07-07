@@ -40,10 +40,6 @@ class ApicTrace extends Component {
   }
 
 
-  trace(){
-
-  }
-
 
   static defaultProps = {
     categories: ['Web Design', 'Web Development', 'Mobile Development']

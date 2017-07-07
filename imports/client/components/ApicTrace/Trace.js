@@ -9,7 +9,7 @@ export default class Trace extends Component {
       console.log("key: ",key);
       console.log("index: ",index);
       return (
-        <div key={key}>{item[key]}</div>
+        <div key={index}>{item[key]}</div>
       );
     })
     return myReturn;
