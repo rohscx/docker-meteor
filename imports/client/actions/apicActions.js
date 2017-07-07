@@ -25,36 +25,20 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    //dispatch(getTicket(ticket))
-
-    const myData = new FormData();
-    myData.append("username", 'devnetuser');
-    myData.append("password", 'Cisco123');
-
-    const  myHeaders = new Headers ({
-      "accept": '*'
-
+    Meteor.methods({
+      checkTwitter(userId) {
+        check(userId, String);
+        this.unblock();
+        try {
+          const result = HTTP.call('GET', 'https://jsonplaceholder.typicode.com/posts/1', {
+            params: { }
+          });
+        return true;
+        } catch (e) {
+          // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+          return false;
+        }
+      }
     });
-    let url = "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket";
-
-
-
-    let myInit = new Request(url, {
-      method: 'POST',
-      headers: myHeaders,
-      body: myData
-    })
-
-    console.log(myInit);
-
-
-    return fetch(myInit)
-      .then(function(response) {
-        console.log(response);
-        return response.blob();
-      })
-      .then(function(myBlob) {
-        console.log(myBlob);
-      });
   }
 }
