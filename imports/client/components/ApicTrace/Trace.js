@@ -114,6 +114,7 @@ export default class Trace extends Component {
           {this.props.apic.ticket} <br/>
           {this.props.apic.flowId} <br/>
           {this.props.apic.flow.map(item => {
+            console.log(item);
             Object.entries(item).forEach(([key, value]) => {
               return key + ' : ' + value;
             })
