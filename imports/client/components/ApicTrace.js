@@ -79,7 +79,7 @@ class ApicTrace extends Component {
         {this.props.apic.flowId} <br/>
         {this.props.apic.flow.map(item => {
           console.log(item);
-          return <Trace traceObj={item} key={item} />
+          return <Trace {... this.props} traceObj={item} key={item} />
         })}
         <button onClick={
           () => this.props.getTicket()

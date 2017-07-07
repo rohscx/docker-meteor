@@ -21,7 +21,7 @@ export default class Trace extends Component {
       <div>
       {this.loopThrough(this.props.traceObj)}
       <button onClick={
-        () => console.log(this.props)
+        () => console.log(this)
       }>LOG PROPS TRACE</button>
     </div>
     )
