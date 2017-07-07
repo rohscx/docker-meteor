@@ -82,6 +82,7 @@ class ApicTrace extends Component {
           <Trace flowItem={item[key]} flowIndex={index} key={index} />
         );
       })
+      return myReturn;
     })
   }
 
