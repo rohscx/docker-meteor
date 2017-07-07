@@ -6,8 +6,10 @@ export default class Trace extends Component {
   loopThrough(item){
     let myReturn = Object.keys(item).map(function(key,index){
       console.log(item[key]);
+      console.log(key);
+      console.log(index);
       return (
-        <div>HELLLO</div>
+        <div key={key}>{item[key]}</div>
       );
     })
     return myReturn;
