@@ -83,11 +83,25 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
-        let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
-        function testFunction(){
 
+        let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
+
+        function deObjectify(dataObj){
+          this.dataObj = dataObj;
         };
+
+        deObjectify.prototype.objCheck = function(){
+          while(typeof this.dataObj === 'object'){
+            Object.keys(this.dataObj).map(function(key,index){
+              this.dataObj = this.dataObj[key]
+            }
+            return console.log("Object deobjectified", this.dataObj);
+          }
+        }
+
         if(typeof item[key] === 'object'){
+          test = new deObjectify(item);
+          test.deObjectify();
         }
         return (
           htmlReturn
