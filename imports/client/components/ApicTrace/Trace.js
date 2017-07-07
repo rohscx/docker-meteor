@@ -115,8 +115,15 @@ export default class Trace extends Component {
           {this.props.apic.flow} <br/>
           {this.props.apic.flowId}
         </p>
-          <button onClick={() => this.props.getTicket()}>GET TICKET</button>
-          <button onClick={() => this.props.getFlowId(this.props.apic.ticket)}>GET FLOW ID</button>
+          <button onClick={
+            () => this.props.getTicket()
+          }>GET TICKET</button>
+          <button onClick={
+            () => this.props.getFlowId(this.props.apic.ticket)
+          }>GET FLOW ID</button>
+          <button onClick={
+            () => this.props.getFlow(this.props.apic.ticket, this.props.flowId)
+          }>GET FLOW ID</button>
         </div>
       );
     }
