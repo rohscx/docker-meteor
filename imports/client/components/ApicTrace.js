@@ -94,8 +94,12 @@ class ApicTrace extends Component {
           let local = this.dataObj;
           while(typeof local === 'object'){
             Object.keys(local).map(function(key,index){
-              console.log("this is an object", this.dataObj);
-              this.dataObj = local;
+              if(typeof local !== 'object'){
+                console.log("I think this is not an object ", local[key])
+              } else {
+                console.log("this is an object", this.dataObj);
+                this.dataObj = local;
+              }
             })
             console.log("Object deobjectified");
           }
