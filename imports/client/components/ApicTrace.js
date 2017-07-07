@@ -92,6 +92,8 @@ class ApicTrace extends Component {
       return (
         <div>
         <Trace {... this.props}/>
+        {this.props.apic.ticket} <br/>
+        {this.props.apic.flowId} <br/>
         <button onClick={
           () => this.props.getTicket()
         }>GET TICKET</button>
