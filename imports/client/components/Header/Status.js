@@ -4,7 +4,7 @@ import { Session } from 'meteor/session';
 export default class Status extends Component {
   render() {
     return(
-      <p>Cats</p>
+      <p>STUSTUS.JS Component</p>
     )
   }
 }

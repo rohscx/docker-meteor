@@ -75,13 +75,6 @@ store.dispatch({
         requestStatus: true,
       });
 
-      this.setState({
-        menu: [
-          "1",
-          "2",
-          "3"
-        ]
-      });
     }
 
   getItems() {
