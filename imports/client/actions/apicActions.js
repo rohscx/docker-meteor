@@ -32,7 +32,8 @@ export function getTicket(ticket) {
     myData.append("password", 'Cisco123');
 
     const  myHeaders = new Headers ({
-      "cache-control": "no-cache"
+      "cache-control": "no-cache",
+      "Accept": '*'
 
     });
     let url = "https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket";
