@@ -121,7 +121,7 @@ export default class Trace extends Component {
                 </div>
               )
             }
-          )}}
+          })}
         </p>
           <button onClick={
             () => this.props.getTicket()
