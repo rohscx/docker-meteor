@@ -110,7 +110,7 @@ export default class Trace extends Component {
     if (this.state.isLoading) {
       return (
         <div>
-          <p>Loading Trace data!!!!....!!! </p>
+          <p>Loading Trace data!!!!....!!! {this.props.apic.ticket}</p>
           <button onClick={() => this.props.getTicket()}>THIS IS A BUTTON</button>
         </div>
       );

@@ -35,10 +35,11 @@ export function getTicket(ticket) {
       console.log(res);	// debug
       console.log(this); // debug
       //this.makeFlowID();
-      return res;
+      return dispatch({
+        
+      });
     }
   })
-  .then(console.log("This should happen last"))
 
   }
 }
