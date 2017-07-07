@@ -78,11 +78,9 @@ class ApicTrace extends Component {
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
-        /*
         return (
-          <div key={index}>{key} ==> {item[key]}</div>
+          <Trace flowItem={item[key]} flowIndex={index} key={index}>
         );
-        */
       })
     })
   }
