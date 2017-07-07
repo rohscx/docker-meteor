@@ -84,7 +84,7 @@ export function getFlowId(ticket) {
       data: {'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
     };
 
-    return Meteor.call('checkApic', 'POST', apicTicketURL, apicOptions, (err, res) => {
+    return Meteor.call('checkApic', 'POST', apicFlowURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
       } else {
