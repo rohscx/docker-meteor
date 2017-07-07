@@ -117,7 +117,6 @@ export default class Trace extends Component {
             Object.entries(item).forEach(([key, value]) => {
               return key + ' : ' + value;
             })
-          })
           })}
         </p>
           <button onClick={
