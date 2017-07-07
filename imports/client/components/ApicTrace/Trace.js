@@ -115,10 +115,14 @@ export default class Trace extends Component {
           {this.props.apic.flowId} <br/>
           {this.props.apic.flow.map(item => {
             console.log(item);
-            let cats = Object.keys(item).map(function(k,i){
-              return item[k];
+            let flowObj = Object.keys(item).map(function(k,i){
+              return (
+                <div>
+                  item[k]
+                </div>
+              );
             })
-            return cats;
+            return FlowObj;
           })}
         </p>
           <button onClick={
