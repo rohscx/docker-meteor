@@ -22,7 +22,21 @@ export function setTrace(trace) {
   };
 }
 
-export function getTicket(ticket) {
+export function setFlowId(flowId) {
+  return {
+    type: "SET_FLOW_ID",
+    payload: flowId
+  };
+}
+
+export function setFlow(flow) {
+  return {
+    type: "SET_FLOW",
+    payload: flow
+  };
+}
+
+export function getTicket() {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
@@ -31,25 +45,55 @@ export function getTicket(ticket) {
     apicTicketURL = this.apicAPI + this.apicTicket;
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
-    apicTicketOptions = {
+    apicOptions = {
       headers: { 'content-type': 'application/json' },
       data: {username: 'devnetuser', password: 'Cisco123!'}
     };
-    
-    return Meteor.call('checkApic', 'POST', apicTicketURL, apicTicketOptions, (err, res) => {
-    if (err) {
-      alert(err);
-    } else {
-      // success!
-      //this.ticket = res.data.response.serviceTicket;
-      //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
-      //Session.set("apicTicket", res.data.response.serviceTicket);
-      console.log(res);	// debug
-      console.log(this); // debug
-      //this.makeFlowID();
-      return dispatch(setTicket(res.data.response.serviceTicket));
-    }
-  })
 
+    return Meteor.call('checkApic', 'POST', apicTicketURL, apicOptions, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+          // success!
+          //this.ticket = res.data.response.serviceTicket;
+          //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
+          //Session.set("apicTicket", res.data.response.serviceTicket);
+          console.log(res);	// debug
+          console.log(this); // debug
+          //this.makeFlowID();
+          return dispatch(setTicket(res.data.response.serviceTicket));
+        }
+    })
+  }
+}
+
+export function getFlowID(ticket) {
+  return dispatch => {
+    apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
+    apicTicket = '/api/v1/ticket';
+    apicFlow = '/api/v1/flow-analysis';
+    apicFlowAnalysisId= '';
+    apicTicketURL = this.apicAPI + this.apicTicket;
+    apicFlowURL = this.apicAPI + this.apicFlow;
+    apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
+    apicOptions = {
+      headers: { 'content-type': 'application/json' },
+      data: {'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
+    };
+
+    return Meteor.call('checkApic', 'POST', apicTicketURL, apicOptions, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+          // success!
+          //this.ticket = res.data.response.serviceTicket;
+          //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
+          //Session.set("apicTicket", res.data.response.serviceTicket);
+          console.log(res);	// debug
+          console.log(this); // debug
+          //this.makeFlowID();
+          return dispatch(setTicket(res.data.response.flowAnalysisId));
+        }
+    })
   }
 }

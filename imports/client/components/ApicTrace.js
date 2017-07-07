@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
-import { setTicket, setDevices, setTrace, getTicket }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, setFlowId, setFlow, getTicket, getFlowId }from '../actions/apicActions'
 
 class ApicTrace extends Component {
 
@@ -108,8 +108,14 @@ const mapDispatchToProps = (dispatch) => {
     setTrace: (trace) => {
       dispatch(setTrace(trace));
     },
-    getTicket: (ticket) => {
-      dispatch(getTicket(ticket));
+    setFlowId: (flowId) => {
+      dispatch(setTrace(trace));
+    },
+    getTicket: () => {
+      dispatch(getTicket());
+    },
+    getFlowId: () => {
+      dispatch(getFlow());
     }
   };
 };
