@@ -32,6 +32,7 @@ export function getTicket(ticket) {
           const result = HTTP.call('GET', 'https://jsonplaceholder.typicode.com/posts/1', {
             params: { }
           });
+          console.log(result);
         return true;
         } catch (e) {
           // Got a network error, timeout, or HTTP error in the 400 or 500 range.
