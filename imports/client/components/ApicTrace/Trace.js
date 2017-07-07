@@ -5,11 +5,6 @@ export default class Trace extends Component {
 
 
   render() {
-    if (this.state.isLoading) {
-      return (
-
-      );
-    }
     return(
       <div>
           {this.props.traceValue}
