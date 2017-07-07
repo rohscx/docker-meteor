@@ -71,6 +71,22 @@ class ApicTrace extends Component {
       }
   }
 
+  loopThrough(floowArray){
+    flowArray.map(item => {
+      console.log(item);
+      let myReturn = Object.keys(item).map(function(key,index){
+        console.log("item[key]: ",item[key]);
+        console.log("key: ",key);
+        console.log("index: ",index);
+        /*
+        return (
+          <div key={index}>{key} ==> {item[key]}</div>
+        );
+        */
+      })
+    })
+  }
+
   render() {
     if(this.state.traceReady){
       return (
@@ -89,10 +105,7 @@ class ApicTrace extends Component {
         <button onClick={
           () => console.log(this.props)
         }>LOG PROPS</button>
-        {this.props.apic.flow.map(item => {
-          console.log(item);
-          return <div key={item} ><Trace {... this.props} traceObj={item} key={item} /></div>
-        })}
+        {this.loopThrough()}
       </div>
       )
     }
