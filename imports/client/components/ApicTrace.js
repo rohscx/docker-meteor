@@ -72,7 +72,7 @@ class ApicTrace extends Component {
   }
 
   loopThrough(flowArray){
-    flowArray.map(item => {
+    let thisReturn = flowArray.map(item => {
       console.log(item);
       let myReturn = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
@@ -84,6 +84,7 @@ class ApicTrace extends Component {
       })
       return myReturn;
     })
+    return thisReturn;
   }
 
   render() {
