@@ -24,7 +24,7 @@ export function setTrace(trace) {
 
 export function getTicket(ticket) {
   return dispatch => {
-    Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com", {}, (err, res) => {
+    Meteor.call('checkApic', 'GET', "https://jsonplaceholder.typicode.com/posts/1", {}, (err, res) => {
     if (err) {
       alert(err);
     } else {
