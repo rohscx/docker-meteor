@@ -111,8 +111,10 @@ export default class Trace extends Component {
     if (this.state.isLoading) {
       return (
         <div>
-          <p>Loading Trace data!!!!....!!!
-        </p>
+          <p>
+            {this.props.traceValue}
+            Loading Trace data!!!!....!!!
+          </p>
         </div>
       );
     }
