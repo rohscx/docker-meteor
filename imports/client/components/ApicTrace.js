@@ -79,7 +79,7 @@ class ApicTrace extends Component {
         console.log("key: ",key);
         console.log("index: ",index);
         return (
-          <Trace flowItem={item[key]} flowIndex={index} key={index}>
+          <Trace flowItem={item[key]} flowIndex={index} key={index} />
         );
       })
     })
