@@ -120,7 +120,7 @@ export default class Trace extends Component {
                   {key}:{value}
                 </div>
               )
-            }
+            })
           })}
         </p>
           <button onClick={
