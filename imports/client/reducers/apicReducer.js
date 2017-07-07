@@ -7,7 +7,7 @@ const apicReducer = (state = {
     case "SET_TICKET":
       state = {
         ...state,
-        ticket
+        ticket: action.payload
       };
       break;
     case "SET_DEVICES":
