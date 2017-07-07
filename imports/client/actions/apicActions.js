@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import fetch from 'isomorphic-fetch';
-import qs from 'qs';
+import { HTTP } from 'meteor/http'
 
 export function setTicket(ticket) {
   return {
