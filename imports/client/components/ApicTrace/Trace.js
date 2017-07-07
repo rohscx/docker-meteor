@@ -19,7 +19,7 @@ export default class Trace extends Component {
   render() {
     return(
       <div>
-      {this.loopThrough(this.props.traceObj)}
+      {this.loopThrough(this.props.apic.flow)}
       <button onClick={
         () => console.log(this.props)
       }>LOG PROPS TRACE</button>
