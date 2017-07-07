@@ -47,7 +47,7 @@ class ApicTrace extends Component {
         console.log(item[key]);
         return (
           <div key={index}>
-            <Trace test={item[key]}/>
+            {item[key]}
           </div>
         );
       })
