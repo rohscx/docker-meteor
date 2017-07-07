@@ -97,7 +97,7 @@ class ApicTrace extends Component {
               console.log("this is an object", this.dataObj);
               this.dataObj = local;
             })
-            return console.log("Object deobjectified");
+            console.log("Object deobjectified");
           }
         };
 
