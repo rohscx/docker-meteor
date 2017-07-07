@@ -13,14 +13,14 @@ const apicReducer = (state = {
     case "SET_DEVICES":
       state = {
         ...state,
-        devices
+        devices: action.payload
       };
       state.lastValues.push(action.payload);
       break;
     case "SET_TRACE":
       state = {
         ...state,
-        trace
+        trace: action.payload
       };
       break;
     }
