@@ -15,7 +15,9 @@ export default class Trace extends Component {
 
   render() {
     return(
+      <div>
       {this.loopThrough()}
+    </div>
     )
   }
 }
