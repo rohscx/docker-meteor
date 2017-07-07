@@ -105,8 +105,8 @@ class ApicTrace extends Component {
         <button onClick={
           () => console.log(this.props)
         }>LOG PROPS</button>
+        {this.trace()}
       </div>
-      {this.trace()}
       )
     }
     console.log(this);
