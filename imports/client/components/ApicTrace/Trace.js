@@ -118,7 +118,7 @@ export default class Trace extends Component {
             let flowObj = Object.keys(item).map(function(k,i){
               return (
                 <div>
-                  item[k]
+                  {item[k]}
                 </div>
               );
             })
