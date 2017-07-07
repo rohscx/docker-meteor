@@ -90,6 +90,7 @@ class ApicTrace extends Component {
   render() {
     if(this.state.traceReady){
       return (
+        <div>
         <Trace {... this.props}/>
         <button onClick={
           () => this.props.getTicket()
@@ -103,6 +104,7 @@ class ApicTrace extends Component {
         <button onClick={
           () => console.log(this.props)
         }>LOG PROPS</button>
+      </div>
       )
     }
     console.log(this);
