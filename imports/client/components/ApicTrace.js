@@ -83,8 +83,14 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
+        let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
+        function testFunction(){
+
+        };
+        if(typeof item[key] === 'object'){
+        }
         return (
-          <Trace flowItem={item[key]} flowIndex={index} key={index} />
+          htmlReturn
         );
       })
       return myReturn;
