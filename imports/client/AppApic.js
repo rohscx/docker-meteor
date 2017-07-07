@@ -12,8 +12,7 @@ import { Template } from 'meteor/templating';
 
 import ItemApic from './ItemApic';
 import Header from './components/Header';
-import ItemsApic from '../api/request'
-import ApicMenu from './components/ApicMenu';
+import ItemsApic from '../api/request';
 import ApicTrace from './components/ApicTrace';
 import store from './store';
 
@@ -194,7 +193,6 @@ store.dispatch({
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-          <ApicMenu {... this.state} />
             <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ipTrace={this.ipTrace.bind(this)} />
             <ApicTrace {... this.props}/>
               {this.props.showList ?
