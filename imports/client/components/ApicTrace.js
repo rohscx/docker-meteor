@@ -107,7 +107,7 @@ class ApicTrace extends Component {
         };
 
         if(typeof item[key] === 'object'){
-          test = new deObjectify(item);
+          test = new deObjectify(item[key]);
           test.objCheck();
         }
         return (
