@@ -75,8 +75,8 @@ class ApicTrace extends Component {
 
     const pathTrace = flowArray.map(item => {
       console.log(item);
+      let htmlReturn = "";
       Object.keys(item).map(function(key,index){
-        let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
@@ -85,7 +85,7 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
-        return htmlReturn;
+        htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
       })
     })
     return Promise.all(pathTrace)
