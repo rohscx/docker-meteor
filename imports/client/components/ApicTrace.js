@@ -93,8 +93,8 @@ class ApicTrace extends Component {
           return <Trace flowItem={item[key]} flowIndex={index} key={index} />;
         }
       })
+      return tracer;
     })
-    return tracer;
   }
 
   render() {
