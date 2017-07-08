@@ -82,7 +82,7 @@ export function getTicket() {
   }
 }
 
-export function getFlowId(ticket, sourceIp, destIp) {
+export function getFlowId(ticket, source, destination) {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
@@ -96,10 +96,11 @@ export function getFlowId(ticket, sourceIp, destIp) {
         'content-type': 'application/json',
         'x-auth-token': ticket
       },
-      data: {'sourceIP': sourceIp, 'destIP': destIp}
+      data: {'sourceIP': source,
+       'destIP': destination
+     }
     };
     console.log("REST OPTIONS", apicOptions);
-    console.log(store.getState());
     return Meteor.call('checkApic', 'POST', apicFlowURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
