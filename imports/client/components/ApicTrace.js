@@ -41,7 +41,6 @@ class ApicTrace extends Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value.source);
     event.preventDefault();
   }
 
@@ -116,7 +115,7 @@ class ApicTrace extends Component {
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
       }>Path Trace Form {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
-      
+
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getTicket()
       }>GET TICKET</button>
