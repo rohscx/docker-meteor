@@ -105,14 +105,6 @@ class ApicTrace extends Component {
     })
   }
 
-  flowID(){
-    this.props.getFlowId(
-      this.props.apic.ticket,
-      this.props.apic.ticket,
-      this.props.apic.traceIp["destination"]
-    )
-  }
-
 
   render() {
     console.log(this);
@@ -125,7 +117,11 @@ class ApicTrace extends Component {
       }>GET TICKET</button>
 
       <button onClick={
-        () => this.flowID()
+        () => this.props.getFlowId(
+          this.props.apic.ticket,
+          this.props.apic.traceIp.source,
+          this.props.apic.traceIp.destination
+        )
       }>GET FLOW ID</button>
 
       <button onClick={
@@ -182,8 +178,8 @@ const mapDispatchToProps = (dispatch) => {
     getTicket: () => {
       dispatch(getTicket());
     },
-    getFlowId: (ticket) => {
-      dispatch(getFlowId(ticket));
+    getFlowId: (ticket, sourceIp, destIp) => {
+      dispatch(getFlowId(ticket, sourceIp, destIp));
     },
     getFlow: (ticket,flowId) => {
       dispatch(getFlow(ticket,flowId));
