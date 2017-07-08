@@ -10,7 +10,7 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-import ItemApic from '../components/ItemApic';
+import ItemApic from './components/ItemApic';
 import Header from './components/Header';
 import ItemsApic from '../api/request';
 import ApicTrace from './components/ApicTrace';
