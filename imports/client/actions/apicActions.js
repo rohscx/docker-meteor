@@ -84,6 +84,7 @@ export function getTicket() {
 
 export function getFlowId(ticket,source,destination) {
   return dispatch => {
+    console.log("this was passed", source, destination)
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
     apicFlow = '/api/v1/flow-analysis';
