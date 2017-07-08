@@ -53,7 +53,7 @@ class ApicTrace extends Component {
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
-                <input type="text" value={this.props.traceIp.source onChange={this.handleChangeSourceIP} />
+                <input type="text" value={this.props.traceIp.source} onChange={this.handleChangeSourceIP} />
             </div>
             <div className='destination'>
               <label> Destination </label>
@@ -74,7 +74,7 @@ class ApicTrace extends Component {
   loopThrough(flowArray){
     return flowArray.map(item => {
 
-      console.log(item.length);
+      console.log("LENTHGH",item.length);
       if(item.length == 0){
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={index} />;
       }else{
@@ -100,7 +100,7 @@ class ApicTrace extends Component {
   }
 
   render() {
-
+    console.log(this);
     return(
       <div>
       {this.props.apic.ticket} <br/>
