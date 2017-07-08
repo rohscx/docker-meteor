@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
-import { setTicket, setDevices, setTrace, setFlowId, setFlow, getTicket, getFlowId, getFlow }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, getTicket, getFlowId, getFlow }from '../actions/apicActions'
 
 class ApicTrace extends Component {
 
@@ -100,33 +100,27 @@ class ApicTrace extends Component {
   }
 
   render() {
-    if(this.state.traceReady){
-      return (
-        <div>
-        {this.props.apic.ticket} <br/>
-        {this.props.apic.flowId} <br/>
-        <button onClick={
-          () => this.props.getTicket()
-        }>GET TICKET</button>
-        <button onClick={
-          () => this.props.getFlowId(this.props.apic.ticket)
-        }>GET FLOW ID</button>
-        <button onClick={
-          () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
-        }>GET FLOW</button>
-        <button onClick={
-          () => console.log(this.props)
-        }>LOG PROPS</button>
-        {this.loopThrough(this.props.apic.flow)}
-      </div>
-      )
-    }
-    console.log(this);
-      return(
+
+    return(
       <div>
-        {this.traceForm()}
-      </div>
-      )
+      {this.props.apic.ticket} <br/>
+      {this.props.apic.flowId} <br/>
+      <button onClick={
+        () => this.props.getTicket()
+      }>GET TICKET</button>
+      <button onClick={
+        () => this.props.getFlowId(this.props.apic.ticket)
+      }>GET FLOW ID</button>
+      <button onClick={
+        () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
+      }>GET FLOW</button>
+      <button onClick={
+        () => console.log(this.props)
+      }>LOG PROPS</button>
+      {this.loopThrough(this.props.apic.flow)}
+      {this.traceForm()}
+    </div>
+    )
   }
 }
 
@@ -154,6 +148,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setFlowId: (flowId) => {
       dispatch(setTrace(trace));
+    },
+    setShowTrace: (showTrace) => {
+      dispatch(setShowTrace(showTrace));
     },
     getTicket: () => {
       dispatch(getTicket());

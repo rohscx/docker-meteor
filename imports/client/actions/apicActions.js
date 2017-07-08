@@ -36,6 +36,13 @@ export function setFlow(flow) {
   };
 }
 
+export function setShowTrace(showTrace) {
+  return {
+    type: "SET_SHOW_TRACE",
+    payload: showTrae
+  };
+}
+
 export function getTicket() {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
