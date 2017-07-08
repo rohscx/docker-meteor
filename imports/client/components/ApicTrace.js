@@ -112,10 +112,15 @@ class ApicTrace extends Component {
       <div>
       {this.props.apic.ticket} <br/>
       {this.props.apic.flowId} <br/>
+
+      <button type="button" className="btn btn-primary" onClick={
+        () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
+      }>Path Trace Form {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
+      <p> - > </p>
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getTicket()
       }>GET TICKET</button>
-
+      <p> - > </p>
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlowId(
           this.props.apic.ticket,
@@ -123,18 +128,13 @@ class ApicTrace extends Component {
           this.props.apic.traceIp.destination
         )
       }>GET FLOW ID</button>
-
+      <p> - > </p>
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
       }>GET FLOW</button>
-
       <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)
       }>LOG PROPS</button>
-
-      <button type="button" className="btn btn-primary" onClick={
-        () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
-      }>Trace {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
 
       {this.loopThrough(this.props.apic.flow)}
 
