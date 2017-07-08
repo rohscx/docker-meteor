@@ -9,7 +9,6 @@ import { render } from 'react-dom';
 import App from './App';
 import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
-import Apic from './pages/Apic';
 import AppApic from './AppApic';
 
 Meteor.startup(() => {
@@ -20,7 +19,7 @@ Meteor.startup(() => {
         <Route path="/apic" component={AppApic} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
-        
+
       </Route>
     </Router>,
     document.getElementById('render-target')
