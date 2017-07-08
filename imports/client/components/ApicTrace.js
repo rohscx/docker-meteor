@@ -125,9 +125,7 @@ class ApicTrace extends Component {
           );
         }
       })
-      return myReturn;
     })
-    return thisReturn;
   }
 
   render() {
