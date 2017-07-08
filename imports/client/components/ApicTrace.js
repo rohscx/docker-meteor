@@ -89,7 +89,7 @@ class ApicTrace extends Component {
     })
     return Promise.all(pathTrace)
     .then(function() {
-    return cosole.log("BIG TEST");}
+    return cosole.log("BIG TEST");})
   }
 
   render() {
