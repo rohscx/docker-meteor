@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Apic from './components/Apic';
+import Apic from '../components/Apic';
 
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
