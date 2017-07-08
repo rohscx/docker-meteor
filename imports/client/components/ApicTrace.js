@@ -53,11 +53,11 @@ class ApicTrace extends Component {
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
-                <input type="text" value={this.props.traceIp.source} onChange={this.handleChangeSourceIP} />
+                <input type="text" value={this.props.apic.traceIp.source} onChange={this.handleChangeSourceIP} />
             </div>
             <div className='destination'>
               <label> Destination </label>
-              <input type="text" value={this.props.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
+              <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
             <input type="submit" value="Submit" className="btn"/>
