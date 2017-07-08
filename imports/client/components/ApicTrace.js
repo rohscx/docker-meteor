@@ -72,7 +72,8 @@ class ApicTrace extends Component {
   }
 
   loopThrough(flowArray){
-    const cats = flowArray.map(item => {
+    flowArray.map(item => {
+      let tracer = "";
       //console.log(item);
       Object.keys(item).map(function(key,index){
         /*
@@ -87,13 +88,13 @@ class ApicTrace extends Component {
         */
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-          return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
+          tracer = <Trace flowItem={item[key]} flowIndex={key} key={index} />;
         } else {
-          return <Trace flowItem={item[key]} flowIndex={index} key={index} />;
+          tracer = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
         }
       })
     })
-    return cats;
+    return tracer;
   }
 
   render() {
