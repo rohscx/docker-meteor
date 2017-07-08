@@ -6,7 +6,6 @@ export default class Trace extends Component {
   render() {
     return(
       <div>
-        {() => this.props.setShowTrace(false)}
         {this.props.flowIndex} ===>>>> {this.props.flowItem}
       </div>
     )
