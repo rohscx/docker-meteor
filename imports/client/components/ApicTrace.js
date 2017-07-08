@@ -28,7 +28,7 @@ class ApicTrace extends Component {
    }
 
   handleChangeSourceIP(event) {
-    this.setState({sourceIP: event.target.value});
+    this.props.setTraceIp({source:event.target.value, destination:this.props.apic.traceIp.destination});
   }
   handleChangeDestinationIP(event) {
     this.setState({destinationIP: event.target.value});
