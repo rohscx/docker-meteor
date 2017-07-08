@@ -73,9 +73,9 @@ class ApicTrace extends Component {
 
   loopThrough(flowArray){
 
-    flowArray.map(item => {
+    const pathTrace = flowArray.map(item => {
       console.log(item);
-      const pathTrace = Object.keys(item).map(function(key,index){
+      Object.keys(item).map(function(key,index){
         let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
