@@ -96,7 +96,7 @@ export function getFlowId(ticket,sourceIp,destIp) {
         'content-type': 'application/json',
         'x-auth-token': ticket
       },
-      data: {'sourceIP': '10.2.1.22', 'destIP': '10.1.12.20'}
+      data: {'sourceIP': sourceIp, 'destIP': destIp}
     };
 
     return Meteor.call('checkApic', 'POST', apicFlowURL, apicOptions, (err, res) => {
