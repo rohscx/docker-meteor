@@ -75,7 +75,7 @@ class ApicTrace extends Component {
 let htmlReturn = "";
     const pathTrace = flowArray.map(item => {
       console.log(item);
-      
+
       Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
@@ -90,7 +90,7 @@ let htmlReturn = "";
     })
     return Promise.all(pathTrace)
     .then(function() {
-    return htmlReturn;
+    return <div>THEST WORKSLLL</div>;
   })
   }
 
