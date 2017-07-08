@@ -107,8 +107,7 @@ class ApicTrace extends Component {
 
         if(typeof item === 'object'){
           test = new deObjectify(item);
-          //test.objCheck();
-          .egressInterface.physicalInterface.name
+          test.objCheck();
         }
         return (
           htmlReturn
