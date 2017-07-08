@@ -75,30 +75,9 @@ class ApicTrace extends Component {
 
     let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
 
-    function deObjectify(dataObj){
-      this.dataObj = dataObj;
-    };
-
-    deObjectify.prototype.objCheck = function(){
-      item = this.dataObj;
-      Object.keys(item).map(function(key,index){
-        Object.keys(item[key]).map(function(key2,index2){
-          console.log("item[key]: ",item[key][key2]);
-          console.log("key: ",key2);
-          console.log("index: ",index2);
-          console.log("item: ", item[key]);
-          console.log("typeof item: ",typeof item[key]);
-          console.log("typeof item[key]: ",typeof item[key][key2]);
-          console.log("typeof key: ",typeof key2);
-          console.log("typeof index: ",typeof index2);
-        })
-      })
-    };
-
-    let thisReturn = flowArray.map(item => {
+    flowArray.map(item => {
       console.log(item);
       let myReturn = Object.keys(item).map(function(key,index){
-        /*
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
@@ -107,19 +86,8 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
-        */
-
-
-        if(typeof item[key] === 'object'){
-          test = new deObjectify(item[key]);
-          test.objCheck();
-          console.log("OBJECT HIT");
-        }else{
-          return (
-            htmlReturn
-          );
-        }
-      })})
+      })
+    })
   }
 
   render() {
