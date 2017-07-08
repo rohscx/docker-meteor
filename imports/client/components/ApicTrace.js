@@ -87,7 +87,8 @@ class ApicTrace extends Component {
         console.log("typeof index: ",typeof index);
       })
     })
-    return Promise.all(pathTrace).then(function() {
+    return Promise.all(pathTrace)
+    .then(function() {
     return cosole.log("BIG TEST");}
   }
 
