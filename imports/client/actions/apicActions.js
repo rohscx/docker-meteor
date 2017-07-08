@@ -82,7 +82,7 @@ export function getTicket() {
   }
 }
 
-export function getFlowId(ticket) {
+export function getFlowId(ticket,sourceIp,destIp) {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
