@@ -87,7 +87,7 @@ class ApicTrace extends Component {
           console.log("key: ",key2);
           console.log("index: ",index2);
           console.log("item: ", item[key]);
-          console.log("typeof item: ",typeof item);
+          console.log("typeof item: ",typeof item[key]);
           console.log("typeof item[key]: ",typeof item[key][key2]);
           console.log("typeof key: ",typeof key2);
           console.log("typeof index: ",typeof index2);
