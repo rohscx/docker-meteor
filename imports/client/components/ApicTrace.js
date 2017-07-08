@@ -125,7 +125,7 @@ class ApicTrace extends Component {
       }>GET TICKET</button>
 
       <button onClick={
-        this.flowID()
+        () => this.flowID()
       }>GET FLOW ID</button>
 
       <button onClick={
