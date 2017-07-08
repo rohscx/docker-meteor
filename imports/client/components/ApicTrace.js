@@ -47,7 +47,7 @@ class ApicTrace extends Component {
 
 
   traceForm(){
-      if(this.props.showTrace){
+      if(this.props.apic.showTrace){
         return (
           <form onSubmit={this.handleSubmit}>
             <div className='trace'>
