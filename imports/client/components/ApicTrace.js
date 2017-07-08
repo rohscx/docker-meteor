@@ -94,6 +94,16 @@ class ApicTrace extends Component {
         deObjectify.prototype.objCheck = function(){
           item = this.dataObj;
           Object.keys(item).map(function(key,index){
+            Object.keys(item).map(function(key,index){
+              console.log("item[key]: ",item[key]);
+              console.log("key: ",key);
+              console.log("index: ",index);
+              console.log("item: ", item);
+              console.log("typeof item: ",typeof item);
+              console.log("typeof item[key]: ",typeof item[key]);
+              console.log("typeof key: ",typeof key);
+              console.log("typeof index: ",typeof index);
+            })
             console.log("item[key]: ",item[key]);
             console.log("key: ",key);
             console.log("index: ",index);
