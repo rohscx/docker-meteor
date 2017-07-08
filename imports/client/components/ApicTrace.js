@@ -132,7 +132,7 @@ class ApicTrace extends Component {
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
       }>GET FLOW</button>
-       - > 
+      < - 
       <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)
       }> LOG PROPS</button>
