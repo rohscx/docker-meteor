@@ -180,7 +180,7 @@ store.dispatch({
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}} />
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
             <ApicTrace {... this.props}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
