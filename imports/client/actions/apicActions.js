@@ -99,6 +99,7 @@ export function getFlowId(ticket, sourceIp, destIp) {
       data: {'sourceIP': sourceIp, 'destIP': destIp}
     };
     console.log("REST OPTIONS", apicOptions);
+    console.log(store.getState());
     return Meteor.call('checkApic', 'POST', apicFlowURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
