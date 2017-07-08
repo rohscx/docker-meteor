@@ -119,7 +119,7 @@ class ApicTrace extends Component {
       <button onClick={
         () => this.props.getFlowId(
           this.props.apic.ticket,
-          this.props.apic.traceIp.source,
+          '11111111',
           this.props.apic.traceIp.destination
         )
       }>GET FLOW ID</button>
