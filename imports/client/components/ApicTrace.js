@@ -84,7 +84,7 @@ class ApicTrace extends Component {
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
         if(typeof item[key] === 'object'){
-          console.log(item[key].physicalInterface.name);
+          console.log("item[key].physicalInterface.name: ",item[key].physicalInterface.name);
         } else {
           Return = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
         }
