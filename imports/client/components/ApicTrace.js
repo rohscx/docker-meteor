@@ -74,7 +74,7 @@ class ApicTrace extends Component {
   loopThrough(flowArray){
     return flowArray.map(item => {
 
-      //console.log(item);
+      console.log(item.length);
       if(item.length == 0){
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={index} />;
       }else{
