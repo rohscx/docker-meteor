@@ -78,24 +78,24 @@ class ApicTrace extends Component {
       if(item.length == 0){
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={index} />;
       }else{
-        console.log("item[key]: ",item[key]);
-        console.log("key: ",key);
-        console.log("index: ",index);
-        console.log("item: ", item);
-        console.log("typeof item: ",typeof item);
-        console.log("typeof item[key]: ",typeof item[key]);
-        console.log("typeof key: ",typeof key);
-        console.log("typeof index: ",typeof index);
+        return Object.keys(item).map(function(key,index){
+          console.log("item[key]: ",item[key]);
+          console.log("key: ",key);
+          console.log("index: ",index);
+          console.log("item: ", item);
+          console.log("typeof item: ",typeof item);
+          console.log("typeof item[key]: ",typeof item[key]);
+          console.log("typeof key: ",typeof key);
+          console.log("typeof index: ",typeof index);
 
-        if(typeof item[key] === 'object'){
-          console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-          return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
-        } else {
-          return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
-        }
-      })
+          if(typeof item[key] === 'object'){
+            console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
+            return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
+          } else {
+            return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
+          }
+        })
       }
-      return Object.keys(item).map(function(key,index){
     })
   }
 
