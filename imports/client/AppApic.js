@@ -163,7 +163,7 @@ store.dispatch({
 
    ipTrace(){
      return (
-       <button type="button" className="btn btn-primary" onClick={this.showTrace}>
+       <button type="button" className="btn btn-primary" onClick={this.showTrace.bind(this)}>
          Trace {this.props.showTrace ? 'Shown': 'Hidden'}
        </button>
      );
