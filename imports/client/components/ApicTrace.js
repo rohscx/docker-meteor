@@ -116,10 +116,10 @@ class ApicTrace extends Component {
         () => this.props.getTicket()
       }>GET TICKET</button>
       <button onClick={
-        () => this.props.getFlowId(this.props.apic.ticket, this.props)
+        () => this.props.getFlowId(this.props.apic.ticket, this.this.props.apic.traceIp.source, this.props.apic.traceIp.destination)
       }>GET FLOW ID</button>
       <button onClick={
-        () => this.props.getFlow(this.props.apic.ticket, this.props.apic.traceIp.source, this.props.apic.traceIp.destination)
+        () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
       }>GET FLOW</button>
       <button onClick={
         () => console.log(this.props)
