@@ -75,6 +75,7 @@ class ApicTrace extends Component {
     let thisReturn = flowArray.map(item => {
       console.log(item);
       let myReturn = Object.keys(item).map(function(key,index){
+        /*
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
@@ -83,7 +84,7 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
-
+        */
         let htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
 
         function deObjectify(dataObj){
@@ -91,23 +92,23 @@ class ApicTrace extends Component {
         };
 
         deObjectify.prototype.objCheck = function(){
-          let local = this.dataObj;
-          while(typeof local === 'object'){
-            Object.keys(local).map(function(key,index){
-              if(typeof local !== 'object'){
-                console.log("I think this is not an object ", local[key])
-              } else {
-                console.log("this is an object", this.dataObj);
-                this.dataObj = local;
-              }
-            })
-            console.log("Object deobjectified");
-          }
+          Object.keys(this.dataObj).map(function(key,index){
+            console.log("item[key]: ",this.dataObj[key]);
+            console.log("key: ",key);
+            console.log("index: ",index);
+            console.log("item: ", item);
+            console.log("typeof item: ",typeof item);
+            console.log("typeof item[key]: ",typeof item[key]);
+            console.log("typeof key: ",typeof key);
+            console.log("typeof index: ",typeof index);
+
+          })
         };
 
         if(typeof item === 'object'){
           test = new deObjectify(item);
           //test.objCheck();
+          .egressInterface.physicalInterface.name
         }
         return (
           htmlReturn
