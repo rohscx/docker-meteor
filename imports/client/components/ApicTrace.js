@@ -85,11 +85,12 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
+        return htmlReturn;
       })
     })
     return Promise.all(pathTrace)
     .then(function() {
-    return console.log("BIG TEST");
+    return htmlReturn;
   })
   }
 
