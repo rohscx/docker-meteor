@@ -176,7 +176,7 @@ store.dispatch({
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
-              Show {this.props.showAll ? 'One': 'All'}
+              Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
