@@ -108,8 +108,8 @@ class ApicTrace extends Component {
   flowID(){
     this.props.getFlowId(
       this.props.apic.ticket,
-      this.props.apic.traceIp[source],
-      this.props.apic.traceIp[destination]
+      this.props.apic.traceIp["source"],
+      this.props.apic.traceIp["destination"]
     )
   }
 
