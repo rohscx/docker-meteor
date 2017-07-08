@@ -96,7 +96,7 @@ export function getFlowId(ticket, source, destination) {
         'content-type': 'application/json',
         'x-auth-token': ticket
       },
-      data: {'sourceIP': source,
+      data: {'sourceIP': "asdfasdfasdf",
        'destIP': destination
      }
     };
