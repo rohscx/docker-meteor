@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import Apic from './Apic';
-import ItemsApic from '../api/request'
-import List from './components/List'
+import Apic from '../Apic';
+import ItemsApic from '../../api/request'
+import List from './ItemApic/List'
 
 import { Session } from 'meteor/session';
 
