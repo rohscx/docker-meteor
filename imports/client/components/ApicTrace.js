@@ -75,6 +75,7 @@ class ApicTrace extends Component {
     const cats = flowArray.map(item => {
       console.log(item);
       Object.keys(item).map(function(key,index){
+        /*
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
@@ -83,6 +84,7 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
+        */
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",item[key].physicalInterface.name);
         } else {
