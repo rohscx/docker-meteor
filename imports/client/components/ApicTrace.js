@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
-import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, getTicket, getFlowId, getFlow }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlow }from '../actions/apicActions'
 
 class ApicTrace extends Component {
 
@@ -53,11 +53,11 @@ class ApicTrace extends Component {
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
-                <input type="text" value={this.state.sourceIP} onChange={this.handleChangeSourceIP} />
+                <input type="text" value={this.props.traceIp.source onChange={this.handleChangeSourceIP} />
             </div>
             <div className='destination'>
               <label> Destination </label>
-              <input type="text" value={this.state.destinationIP} onChange={this.handleChangeDestinationIP}/>
+              <input type="text" value={this.props.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
             <input type="submit" value="Submit" className="btn"/>
@@ -145,6 +145,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setTrace: (trace) => {
       dispatch(setTrace(trace));
+    },
+    setTraceIp: (traceIp) => {
+      dispatch(setTraceIp(traceIp));
     },
     setFlowId: (flowId) => {
       dispatch(setTrace(trace));

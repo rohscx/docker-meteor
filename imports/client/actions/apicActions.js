@@ -39,9 +39,17 @@ export function setFlow(flow) {
 export function setShowTrace(showTrace) {
   return {
     type: "SET_SHOW_TRACE",
-    payload: showTrae
+    payload: showTrace
   };
 }
+
+export function setTraceIp(traceIp) {
+  return {
+    type: "SET_TRACEIP",
+    payload: traceIp
+  };
+}
+
 
 export function getTicket() {
   return dispatch => {
