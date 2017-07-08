@@ -161,13 +161,7 @@ store.dispatch({
      );
    }
 
-   ipTrace(){
-     return (
-       <button type="button" className="btn btn-primary" onClick={this.props.showTrace  }>
-         Trace {this.props.showTrace ? 'Shown': 'Hidden'}
-       </button>
-     );
-   }
+
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
@@ -186,7 +180,7 @@ store.dispatch({
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} ipTrace={this.ipTrace.bind(this)} />
+            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)}} />
             <ApicTrace {... this.props}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup

@@ -99,6 +99,7 @@ class ApicTrace extends Component {
     })
   }
 
+
   render() {
     console.log(this);
     return(
@@ -117,7 +118,12 @@ class ApicTrace extends Component {
       <button onClick={
         () => console.log(this.props)
       }>LOG PROPS</button>
+      <button type="button" className="btn btn-primary" onClick={
+        this.props.showTrace ? this.props.setTrace(false) : this.props.setTrace(true)
+      }>Trace {this.props.showTrace ? 'Shown': 'Hidden'}
+      </button>
       {this.loopThrough(this.props.apic.flow)}
+
       {this.traceForm()}
     </div>
     )

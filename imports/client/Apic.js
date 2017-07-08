@@ -95,7 +95,6 @@ render() {
         New Apic Ticket
       </button>
       {this.props.ticketList()}
-      {this.props.ipTrace()}
     </div>
 
   )
