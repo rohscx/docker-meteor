@@ -87,11 +87,11 @@ class ApicTrace extends Component {
         console.log("typeof index: ",typeof index);
         htmlReturn = <Trace flowItem={item[key]} flowIndex={index} key={index} />;
       })
+      return Promise.all(pathTrace)
+      .then(function() {
+      return htmlReturn;
     })
-    return Promise.all(pathTrace)
-    .then(function() {
-    return htmlReturn;
-  })
+    })
   }
 
   render() {
