@@ -112,11 +112,11 @@ class ApicTrace extends Component {
       <div>
       {this.props.apic.ticket} <br/>
       {this.props.apic.flowId} <br/>
-      <button onClick={
+      <button type="button" className="btn btn-primary" onClick={
         () => this.props.getTicket()
       }>GET TICKET</button>
 
-      <button onClick={
+      <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlowId(
           this.props.apic.ticket,
           this.props.apic.traceIp.source,
@@ -124,11 +124,11 @@ class ApicTrace extends Component {
         )
       }>GET FLOW ID</button>
 
-      <button onClick={
+      <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
       }>GET FLOW</button>
 
-      <button onClick={
+      <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)
       }>LOG PROPS</button>
 
