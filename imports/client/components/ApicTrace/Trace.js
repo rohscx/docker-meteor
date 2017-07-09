@@ -6,10 +6,10 @@ export default class Trace extends Component {
   render() {
     return(
       <div className="row">
-        <div class="col-sm-4" style="background-color:lavender;">
+        <div className="col-sm-4" style="background-color:lavender;">
           {this.props.flowIndex}
         </div>
-        <div class="col-sm-4" style="background-color:lavenderblush;">
+        <div className="col-sm-4" style="background-color:lavenderblush;">
           {this.props.flowItem}
         </div>
       </div>
