@@ -70,7 +70,12 @@ class ApicTrace extends Component {
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
       if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
         console.log("DEFAULT WAS RUN");
-        return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
+        let num = 1;
+        while(num < 10){
+          console.log("LOOK AT NUM ====> "num);
+          num ++;
+        }
+        //return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
         console.log("REAL RESULT WAS RUN");
         return Object.keys(item).map(function(key,index){
