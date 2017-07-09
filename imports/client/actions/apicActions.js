@@ -156,7 +156,7 @@ export function getFlowStatus(ticket,flowId) {
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
-        return dispatch(setTraceStatus(res.data.response.request));
+        return dispatch(setTraceStatus(res.data.response.request)).bind(this);
       }
     })
   }
