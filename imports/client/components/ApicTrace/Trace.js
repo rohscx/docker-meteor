@@ -18,7 +18,7 @@ export default class Trace extends Component {
             <div className="col-sm-4" style={divStyleLavBlush}>
               {this.props.flowItem}
             </div>
-          <div/>
+          </div>
         </div>
       </div>
     )
