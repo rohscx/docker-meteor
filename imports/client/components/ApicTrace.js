@@ -146,8 +146,7 @@ class ApicTrace extends Component {
               </a>
             </h5>
           </div>
-        </div>
-      </div>
+
 
       <div id="collapseOne" className="collapse show" role="tabpanel" ariaLabelledby="headingOne">
   <div className="card-block">
