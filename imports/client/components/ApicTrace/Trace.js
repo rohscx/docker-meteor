@@ -9,7 +9,7 @@ export default class Trace extends Component {
     };
     const divStyleLavBlush = {
       backgroundColor: "lavenderblush",
-      textAlign: "center";
+      textAlign: "center"
     };
     return(
       <div className="row">
