@@ -85,9 +85,9 @@ class ApicTrace extends Component {
           console.log("typeof index: ",typeof index);
           if(typeof item[key] === 'object'){
             console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-            return <Trace flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
+            return <div className="row"> <Trace flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} /></div>;
           } else {
-            return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
+            return <div className="row"> <Trace flowItem={item[key]} flowIndex={key} key={index} /> </div>;
           }
         })
       }
@@ -121,7 +121,9 @@ class ApicTrace extends Component {
 
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId)
-      }>GET FLOW STATUS <span className={this.props.apic.traceStatus.isReady ? "" : "glyphicon glyphicon-refresh glyphicon-refresh-animate"}></span></button>
+      }>GET FLOW STATUS <span className={
+        this.props.apic.traceStatus.isReady ? "" : "glyphicon glyphicon-refresh glyphicon-refresh-animate"
+      }></span></button>
 
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
