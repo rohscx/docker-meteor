@@ -11,7 +11,7 @@ const apicReducer = (state = {
   },
   traceStatus: {
     status: null,
-    dataReady: true
+    isReady: true
   }
 }, action) => {
   switch (action.type) {
