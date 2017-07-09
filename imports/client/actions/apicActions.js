@@ -145,9 +145,9 @@ export function getFlowStatus(ticket,flowId) {
       if (err) {
         alert(err);
       } else if (res.data.response.request.status != "COMPLETED") {
-          console.log("STATUS OF REQUEST : ", res.data.response.request.status)
-          setTimeout(getFlowStatus(ticket,flowId), 1000);
-          return dispatch(setTraceStatus(res.data.response.request));
+        console.log("STATUS OF REQUEST : ", res.data.response.request.status)
+        setTimeout(getFlowStatus(ticket,flowId), 1000);
+        return dispatch(setTraceStatus(res.data.response.request));
       } else {
         // success!
         //this.ticket = res.data.response.serviceTicket;
