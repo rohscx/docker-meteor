@@ -119,9 +119,9 @@ class ApicTrace extends Component {
         )
       }>GET FLOW ID</button>
 
-      <button type="button" className="btn btn-primary ld-ext-right running" onClick={
+      <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId)
-      }><i className={this.props.apic.traceStatus.isready ? "" : "<div class=\"ld ld-ring ld-spin\"></div>"} ></i>GET FLOW STATUS</button>
+      }><i className={this.props.apic.traceStatus.isready ? "" : "spinner"} ></i>GET FLOW STATUS</button>
 
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
@@ -130,11 +130,6 @@ class ApicTrace extends Component {
       <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)
       }> LOG PROPS</button>
-
-      <div class="btn btn-default ld-ext-right running">
-  My Button
-  <div class="ld ld-ring ld-spin"></div>
-</div>
 
       {this.loopThrough(this.props.apic.flow)}
 
