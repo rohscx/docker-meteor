@@ -7,26 +7,6 @@ import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setT
 
 class ApicTrace extends Component {
 
-  constructor(props) {
-  super(props);
-  this.state = {
-    sourceIP: null,
-    destinationIP: null,
-    traceReady: true
-  };
-
-  this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
-  this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillMount() {
-     this.setState({
-       sourceIP:'1.1.1.1',
-       destinationIP:'2.2.2.2.'
-     });
-   }
-
   handleChangeSourceIP(event) {
     this.props.setTraceIp({
       source:event.target.value,
