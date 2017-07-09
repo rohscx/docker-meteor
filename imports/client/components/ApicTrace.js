@@ -131,6 +131,11 @@ class ApicTrace extends Component {
         () => console.log(this.props)
       }> LOG PROPS</button>
 
+      <div class="btn btn-default ld-ext-right running">
+  My Button
+  <div class="ld ld-ring ld-spin"></div>
+</div>
+
       {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
