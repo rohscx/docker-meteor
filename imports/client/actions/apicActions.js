@@ -148,7 +148,7 @@ export function getFlowStatus(ticket,flowId) {
         setTimeout(function() {
           getFlowStatus(ticket,flowId);
         }, 1000);
-        return dispatch(setTraceStatus(res.data.response.request));
+        dispatch(setTraceStatus(res.data.response.request));
       } else {
         // success!
         //this.ticket = res.data.response.serviceTicket;
