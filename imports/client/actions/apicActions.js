@@ -152,10 +152,10 @@ export function getFlow(ticket,flowId) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          return (
-            dispatch(setTraceStatus(res.data.response.request))
-            dispatch(setFlow(res.data.response.networkElementsInfo))
-          );
+          return dispatch(
+            setFlow(res.data.response.networkElementsInfo),
+            setTraceStatus(res.data.response.request)
+        );
         }
     })
   }
