@@ -153,9 +153,11 @@ export function getFlowStatus(ticket,flowId) {
         console.log(this); // debug
         //this.makeFlowID();
         if(res.data.response.request.status == "INPROGRESS"){
+          // used for loading button
           res.data.response.request.isReady = false;
           return dispatch(setTraceStatus(res.data.response.request));
         } else {
+          // used for loading button
           res.data.response.request.isReady = true;
           return dispatch(setTraceStatus(res.data.response.request));
         }
