@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 // WORK IN PROGRESS
 export default class Trace extends Component {
-  const divStyleLav = {
-    backgroundColor:"lavender"
-  };
-  const divStyleLavBlush = {
-    backgroundColor:"lavenderblush"
-  };
-
 
   render() {
+    const divStyleLav = {
+      backgroundColor:"lavender"
+    };
+    const divStyleLavBlush = {
+      backgroundColor:"lavenderblush"
+    };
     return(
       <div className="row">
         <div className="col-sm-4" style={divStyleLav}>
