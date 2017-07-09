@@ -72,6 +72,7 @@ class ApicTrace extends Component {
         console.log("DEFAULT WAS RUN");
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
+        console.log("REAL RESULT WAS RUN");
         return Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
           console.log("key: ",key);
