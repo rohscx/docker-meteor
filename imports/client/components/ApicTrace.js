@@ -65,7 +65,6 @@ class ApicTrace extends Component {
 
   loopThrough(flowArray){
     return flowArray.map(item => {
-
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
       if(Object.getOwnPropertyNames(item).length == 1){
@@ -81,7 +80,6 @@ class ApicTrace extends Component {
           console.log("typeof item[key]: ",typeof item[key]);
           console.log("typeof key: ",typeof key);
           console.log("typeof index: ",typeof index);
-
           if(typeof item[key] === 'object'){
             console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
             return <Trace flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;

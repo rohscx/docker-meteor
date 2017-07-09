@@ -192,7 +192,7 @@ store.dispatch({
                   {this.props.items.map((item) => {
                     return <ItemApic item={item} key={item}/>
                   })}
-                </ReactCSSTransitionGroup> : <p>CATS</p>
+                </ReactCSSTransitionGroup> : <p></p>
               }
         </main>
       </Provider>
