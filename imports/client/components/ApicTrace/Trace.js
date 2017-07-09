@@ -14,9 +14,11 @@ export default class Trace extends Component {
       <div className="row">
         <div className="col-sm-4" style={divStyleLav}>
           {this.props.flowIndex}
-        </div>
-        <div className="col-sm-4" style={divStyleLavBlush}>
-          {this.props.flowItem}
+          <div class="row">
+            <div className="col-sm-4" style={divStyleLavBlush}>
+              {this.props.flowItem}
+            </div>
+          <div/>
         </div>
       </div>
     )
