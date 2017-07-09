@@ -147,7 +147,7 @@ export function getFlowStatus(ticket,flowId) {
       } else if (res.data.response.request.status != "COMPLETED") {
         console.log("STATUS OF REQUEST : ", res.data.response.request.status)
         setTimeout(getFlowStatus(ticket,flowId), 1000);
-        return dispatch(setTraceStatus(res.data.response.request));
+        //return dispatch(setTraceStatus(res.data.response.request));
       } else {
         // success!
         //this.ticket = res.data.response.serviceTicket;
@@ -157,7 +157,8 @@ export function getFlowStatus(ticket,flowId) {
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
-        return dispatch(setTraceStatus(res.data.response.request));
+        //return dispatch(setTraceStatus(res.data.response.request));
+        getFlow(ticket,flowId);
       }
     })
   }
@@ -190,6 +191,7 @@ export function getFlow(ticket,flowId) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
+          dispatch(setTraceStatus(res.data.response.request);
           return dispatch(setFlow(res.data.response.networkElementsInfo));
         }
     })
