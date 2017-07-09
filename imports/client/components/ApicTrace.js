@@ -98,6 +98,7 @@ class ApicTrace extends Component {
       <div>
       {this.props.apic.ticket} <br/>
       {this.props.apic.flowId} <br/>
+      {this.props.apic.traceStatus.status} <br/>
 
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
