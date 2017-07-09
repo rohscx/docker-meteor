@@ -5,8 +5,14 @@ const apicReducer = (state = {
   flowId: "NO FLOW ID",
   flow: [{defaultData: "NO FLOW"}],
   showTrace: false,
-  traceIp:{source:"10.2.1.22", destination:"10.1.12.20"},
-  traceStatus: {status: null}
+  traceIp:{
+    source:"10.2.1.22",
+    destination:"10.1.12.20"
+  },
+  traceStatus: {
+    status: null,
+    dataReady: true
+  }
 }, action) => {
   switch (action.type) {
     case "SET_TICKET":
