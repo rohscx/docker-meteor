@@ -72,7 +72,7 @@ class ApicTrace extends Component {
         console.log("DEFAULT WAS RUN");
         let num = 1;
         while(num < 10){
-          console.log("LOOK AT NUM ====> "num);
+          console.log("LOOK AT NUM ====> ", num);
           num ++;
         }
         //return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
