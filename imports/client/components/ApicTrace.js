@@ -136,16 +136,18 @@ class ApicTrace extends Component {
       {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
-      <div id="accordion" role="tablist" ariaMmultiselectable="true">
-  <div className="card">
-    <div className="card-header" role="tab" id="headingOne">
-      <h5 className="mb-0">
-        <a dataToggle="collapse" dataParent="#accordion" href="#collapseOne" ariaExpanded="true" ariaControls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
-    </div>
 
+      <div id="accordion" role="tablist" ariaMmultiselectable="true">
+        <div className="card">
+          <div className="card-header" role="tab" id="headingOne">
+            <h5 className="mb-0">
+              <a dataToggle="collapse" dataParent="#accordion" href="#collapseOne" ariaExpanded="true" ariaControls="collapseOne">
+          Collapsible Group Item #1
+          </a>
+        </h5>
+      </div>
+
+    </div>
     )
   }
 }
