@@ -80,7 +80,7 @@ class ApicTrace extends Component {
           t = setTimeout(() =>{ timedCount() }, 1000);
         }
 
-        function startCount() {
+        () => {
           if (!timer_is_on) {
             timer_is_on = 1;
             timedCount();
