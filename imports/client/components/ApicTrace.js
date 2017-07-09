@@ -6,6 +6,13 @@ import { setName }from '../actions/userActions'
 import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlow }from '../actions/apicActions'
 
 class ApicTrace extends Component {
+  constructor(props) {
+  super(props);
+
+  this.handleChangeSourceIP = this.handleChangeSourceIP.bind(this);
+  this.handleChangeDestinationIP = this.handleChangeDestinationIP.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleChangeSourceIP(event) {
     this.props.setTraceIp({
