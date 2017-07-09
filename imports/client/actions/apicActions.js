@@ -144,7 +144,7 @@ export function getFlowStatus(ticket,flowId) {
     return Meteor.call('checkApic', 'GET', apicFlowAnalysisIdURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
-      } else if (res.data.response.request.status != "COMPLETED") {
+      } else if (res.data.response.request.status == "COMPLETED") {
         //dispatch(setTraceStatus(res.data.response.request));
         console.log("STATUS OF REQUEST : ", res.data.response.request.status)
         setTimeout(getFlowStatus(ticket,flowId), 1000);
