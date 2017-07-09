@@ -69,6 +69,7 @@ class ApicTrace extends Component {
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
       if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
+        console.log("DEFAULT WAS RUN");
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
         return Object.keys(item).map(function(key,index){
