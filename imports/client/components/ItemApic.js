@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Apic from '../Apic';
+import Apic from './Apic';
 import ItemsApic from '../../api/request'
 import List from './ItemApic/List'
 
