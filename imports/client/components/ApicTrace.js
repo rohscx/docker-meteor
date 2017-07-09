@@ -64,9 +64,6 @@ class ApicTrace extends Component {
   }
 
   loopThrough(flowArray){
-    while(this.props.apic.traceStatus.status == 'INPROGRESS'){
-      return <div> Hello Cat!!</div>
-    }
     return flowArray.map(item => {
 
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
