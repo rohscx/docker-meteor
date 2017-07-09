@@ -662,53 +662,17 @@ li a:hover:not(.active) {
     background-color: #111;
 }
 
-.spinner {
-  height: 6px;
-  width: 6px;
-  position: relative;
-  -webkit-animation: rotation .6s infinite linear;
-  -moz-animation: rotation .6s infinite linear;
-  -o-animation: rotation .6s infinite linear;
-  animation: rotation .6s infinite linear;
-  border-left: 3px solid rgba(0, 174, 239, .15);
-  border-right: 3px solid rgba(0, 174, 239, .15);
-  border-bottom: 3px solid rgba(0, 174, 239, .15);
-  border-top: 3px solid rgba(0, 174, 239, .8);
-  border-radius: 100%;
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
 }
 
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-  }
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
 }
 
-@-moz-keyframes rotation {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(359deg);
-  }
-}
-
-@-o-keyframes rotation {
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(359deg);
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }
