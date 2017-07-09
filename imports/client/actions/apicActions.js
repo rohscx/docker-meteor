@@ -145,10 +145,10 @@ export function getFlowStatus(ticket,flowId) {
       if (err) {
         alert(err);
       } else if (res.data.response.request != "COMPLETED") {
+        dispatch(setTraceStatus(res.data.response.request));
         setTimeout(function() {
           getFlowStatus(ticket,flowId);
         }, 1000);
-        dispatch(setTraceStatus(res.data.response.request));
       } else {
         // success!
         //this.ticket = res.data.response.serviceTicket;
