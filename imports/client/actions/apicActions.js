@@ -144,16 +144,21 @@ export function getFlowStatus(ticket,flowId) {
     return Meteor.call('checkApic', 'GET', apicFlowAnalysisIdURL, apicOptions, (err, res) => {
       if (err) {
         alert(err);
+      } else if (res.data.response.request != "COMPLETED") {
+        setTimeout(function() {
+          getFlowStatus(ticket,flowId);
+        }, 1000);
+        return dispatch(setTraceStatus(res.data.response.request));
       } else {
-          // success!
-          //this.ticket = res.data.response.serviceTicket;
-          //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
-          //Session.set("apicTicket", res.data.response.serviceTicket);
-          console.log(res);	// debug
-          console.log(this); // debug
-          //this.makeFlowID();
-          return dispatch(setTraceStatus(res.data.response.request));
-        }
+        // success!
+        //this.ticket = res.data.response.serviceTicket;
+        //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
+        //Session.set("apicTicket", res.data.response.serviceTicket);
+        console.log(res);	// debug
+        console.log(this); // debug
+        //this.makeFlowID();
+        return dispatch(setTraceStatus(res.data.response.request));
+      }
     })
   }
 }
