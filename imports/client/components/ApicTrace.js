@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions'
-import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlow }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow }from '../actions/apicActions'
 
 class ApicTrace extends Component {
   constructor(props) {
@@ -65,34 +65,12 @@ class ApicTrace extends Component {
 
   loopThrough(flowArray){
     return flowArray.map(item => {
-      let c = 0;
-      let t;
-      let timer_is_on = 0;
-      function timedCount() {
-        console.log("Attempt : ", c);
-        c ++;
-        t = setTimeout(() =>{ timedCount() }, 1000);
-      }
-
-      function startCount() {
-        if (!timer_is_on) {
-          timer_is_on = 1;
-          timedCount();
-        }
-      }
-
-      function stopCount() {
-        clearTimeout(t);
-        timer_is_on = 0;
-      }
 
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
       if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
         console.log("DEFAULT WAS RUN");
-        startCount();
-
-        //return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
+        return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
         console.log("REAL RESULT WAS RUN");
         return Object.keys(item).map(function(key,index){
@@ -140,6 +118,10 @@ class ApicTrace extends Component {
           this.props.apic.traceIp.destination
         )
       }>GET FLOW ID</button>
+
+      <button type="button" className="btn btn-primary" onClick={
+        () => this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId)
+      }>GET FLOW STATUS</button>
 
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
@@ -193,6 +175,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getFlowId: (ticket, sourceIp, destIp) => {
       dispatch(getFlowId(ticket, sourceIp, destIp));
+    },
+    getFlowStatus: (ticket,flowId) => {
+      dispatch(getFlowStatus(ticket,flowId));
     },
     getFlow: (ticket,flowId) => {
       dispatch(getFlow(ticket,flowId));
