@@ -153,10 +153,11 @@ export function getFlowStatus(ticket,flowId) {
         //this.ticket = res.data.response.serviceTicket;
         //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
         //Session.set("apicTicket", res.data.response.serviceTicket);
+        console.log("STATUS OF REQUEST : ", res.data.response.request.status)
         console.log(res);	// debug
         console.log(this); // debug
         //this.makeFlowID();
-        return dispatch(setTraceStatus(res.data.response.request)).bind(this);
+        return dispatch(setTraceStatus(res.data.response.request));
       }
     })
   }
