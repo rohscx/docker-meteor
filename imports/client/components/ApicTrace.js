@@ -68,7 +68,7 @@ class ApicTrace extends Component {
 
       console.log("LENTHGH",Object.getOwnPropertyNames(item).length);
       if(Object.getOwnPropertyNames(item).length == 1){
-        return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={index} />;
+        return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
         return Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
