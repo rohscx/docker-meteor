@@ -64,14 +64,14 @@ class ApicTrace extends Component {
   }
 
   loopThrough(flowArray){
+    //if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
     return flowArray.map(item => {
-
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
-      if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
+      while(this.props.apic.traceStatus.status == 'INPROGRESS'){
         console.log("DEFAULT WAS RUN");
         return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
-      }else{
+      }
         console.log("REAL RESULT WAS RUN");
         return Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
@@ -90,7 +90,7 @@ class ApicTrace extends Component {
             return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
           }
         })
-      }
+
     })
   }
 
