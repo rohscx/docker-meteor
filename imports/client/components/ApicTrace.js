@@ -119,7 +119,7 @@ class ApicTrace extends Component {
         )
       }>GET FLOW ID</button>
 
-      <button type="button" className="btn btn-primary fa fa-circle-o-notch fa-spin" onClick={
+      <button type="button" className="btn btn-primary" className="fa fa-circle-o-notch fa-spin" onClick={
         () => this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId)
       }>GET FLOW STATUS</button>
 
