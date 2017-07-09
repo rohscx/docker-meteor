@@ -50,6 +50,13 @@ export function setTraceIp(traceIp) {
   };
 }
 
+export function setTraceStatus(traceStatus) {
+  return {
+    type: "SET_TRACESTATUS",
+    payload: traceStatus
+  };
+}
+
 
 export function getTicket() {
   return dispatch => {
@@ -145,7 +152,10 @@ export function getFlow(ticket,flowId) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          return dispatch(setFlow(res.data.response.networkElementsInfo));
+          return (
+            dispatch(setTraceStatus(res.data.response.request))
+            dispatch(setFlow(res.data.response.networkElementsInfo))
+          );
         }
     })
   }
