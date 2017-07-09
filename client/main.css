@@ -662,27 +662,41 @@ li a:hover:not(.active) {
     background-color: #111;
 }
 
-.active {
-    background-color: #4CAF50;
-}
+// ------------- loading spinner -------------
 
-.loader {
-  border: 3px solid #f3f3f3;
+$loadingSpinnerDiameter: 28px;
+$loadingSpinnerStrokeWidth: 4px;
+$loadingSpinnerStrokeColor: #FFF;
+$loadingSpinnerOpacity: .8;
+$loadingSpinnerStrokeStyle: solid; // solid, dashed, dotted
+$loadingSpinnerSpeed: .7s;
+
+.loadingSpinner {
+  border: $loadingSpinnerStrokeWidth $loadingSpinnerStrokeStyle $loadingSpinnerStrokeColor;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  width: $loadingSpinnerDiameter - ($loadingSpinnerStrokeWidth * 2);
+  height: $loadingSpinnerDiameter - ($loadingSpinnerStrokeWidth * 2);
+  opacity: $loadingSpinnerOpacity;
   border-radius: 50%;
-  border-top: 3px solid blue;
-  border-bottom: 3px solid blue;
-  width: 10px;
-  height: 10px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  animation: loadingSpinner $loadingSpinnerSpeed infinite linear;
+  -webkit-animation: loadingSpinner $loadingSpinnerSpeed infinite linear;
 }
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+button .loadingSpinner {
+  margin-top: -$loadingSpinnerDiameter / 2;
+  margin-left: -$loadingSpinnerDiameter / 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes loadingSpinner {
+    from { transform: rotate(0deg)   }
+    to   { transform: rotate(360deg) }
+}
+
+@-webkit-keyframes loadingSpinner {
+    from { -webkit-transform: rotate(0deg)   }
+    to   { -webkit-transform: rotate(360deg) }
 }
