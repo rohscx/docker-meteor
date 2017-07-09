@@ -5,10 +5,11 @@ export default class Trace extends Component {
 
   render() {
     const divStyleLav = {
-      backgroundColor:"lavender"
+      backgroundColor: "lavender"
     };
     const divStyleLavBlush = {
-      backgroundColor:"lavenderblush"
+      backgroundColor: "lavenderblush",
+      textAlign: "center";
     };
     return(
       <div className="row">
