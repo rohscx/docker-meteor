@@ -65,32 +65,35 @@ class ApicTrace extends Component {
 
   loopThrough(flowArray){
     return flowArray.map(item => {
+      let c = 0;
+      let t;
+      let timer_is_on = 0;
+      function timedCount() {
+        console.log("Attempt : ", c);
+        c ++;
+        t = setTimeout(() =>{ timedCount() }, 1000);
+      }
+
+      function startCount() {
+        if (!timer_is_on) {
+          timer_is_on = 1;
+          timedCount();
+        }
+      }
+
+      function stopCount() {
+        clearTimeout(t);
+        timer_is_on = 0;
+      }
 
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
       console.log("PROP STATUS",this.props.apic.traceStatus.status);
       if(Object.getOwnPropertyNames(item).length == 1 && this.props.apic.traceStatus.status == 'INPROGRESS'){
         console.log("DEFAULT WAS RUN");
-
-        let c = 0;
-        let t;
-        let timer_is_on = 0;
-        function timedCount() {
-          console.log("Attempt : ", c);
-          c ++;
-          t = setTimeout(() =>{ timedCount() }, 1000);
+        while(c < 11){
+          startCount();
         }
 
-        () => {
-          if (!timer_is_on) {
-            timer_is_on = 1;
-            timedCount();
-          }
-        }
-
-        function stopCount() {
-          clearTimeout(t);
-          timer_is_on = 0;
-        }
         //return <Trace flowItem={'NOT:'} flowIndex={'READY'} key={'0'} />;
       }else{
         console.log("REAL RESULT WAS RUN");
