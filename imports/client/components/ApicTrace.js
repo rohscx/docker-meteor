@@ -142,10 +142,13 @@ class ApicTrace extends Component {
           <div className="card-header" role="tab" id="headingOne">
             <h5 className="mb-0">
               <a dataToggle="collapse" dataParent="#accordion" href="#collapseOne" ariaExpanded="true" ariaControls="collapseOne">
-          Collapsible Group Item #1
-          </a>
-        </h5>
+                Collapsible Group Item #1
+              </a>
+            </h5>
+          </div>
+        </div>
       </div>
+
 
     </div>
     )
