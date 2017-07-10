@@ -138,13 +138,20 @@ class ApicTrace extends Component {
 
       {this.traceForm()}
       <Accordion
-  {...this.props}
-  uniqId={'testAccordion'}
-  singleOpen={true}>
+        {...this.props}
+        uniqId={'testAccordion'}>
 
-  {"asdfasfsdfasdf"}
+        <AccordionSection
+         title="Section 1">
+         {"OLD1"}
+        </AccordionSection>
 
-</Accordion>
+        <AccordionSection
+         title="Section 2">
+         {"OLD2"}
+        </AccordionSection>
+
+      </Accordion>
 
     </div>
     )
