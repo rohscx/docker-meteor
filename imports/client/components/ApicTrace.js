@@ -120,19 +120,9 @@ class ApicTrace extends Component {
         }
       })
 
-
       return (
         <div>
-        <Accordion
-          {...this.props}
-          uniqId={"this.props.flowIndex"}>
-          <AccordionSection
-             title={"key"}>
-
-                {tata}
-          </AccordionSection>
-
-        </Accordion>
+          <Test flowItem={item[key]} flowIndex={key} key={index} />;
       </div>
       );
     })}

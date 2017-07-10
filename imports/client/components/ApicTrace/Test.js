@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 // WORK IN PROGRESS
-export default class Trace extends Component {
+export default class Test extends Component {
 
   traceData(){
     const divStyleLavTraceData = {
@@ -10,16 +10,10 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    const ransom = this.props.listTest;
-    //ransom = ransom.join("");
-    const listItems = ransom.map((ransom) =>
-    <li>{ransom}</li>
-    );
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData} >
-          {listItems}
-
+        <div className="col-sm-12" style={divStyleLavTraceData}>
+          {this.props.flowItem}
         </div>
       </div>
     );
@@ -34,7 +28,7 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
-          {"ddd"}
+          {this.props.flowIndex}
         </div>
       </div>
     );
@@ -46,18 +40,16 @@ export default class Trace extends Component {
 
     return(
       <div>
-          <Accordion
-            {...this.props}
-            uniqId={"dddd"}>
-            <AccordionSection
-               title={this.trace()}>
+        <Accordion
+          {...this.props}
+          uniqId={this.props.flowIndex}>
+          <AccordionSection
+             title={this.trace()}>
 
-                  {this.traceData()}
+                {this.traceData()}
 
-
-            </AccordionSection>
-          </Accordion>
-
+          </AccordionSection>
+        </Accordion>
         <br/>
       </div>
     )
