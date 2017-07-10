@@ -42,7 +42,7 @@ export default class Test extends Component {
       <div>
         <Accordion
           {...this.props}
-          uniqId={this.props.flowIndex}>
+          uniqId={"this.props.flowIndex"}>
           <AccordionSection
              title={this.trace()}>
 
