@@ -98,7 +98,7 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
 
-    return flowArray.map(item => {
+    return flowArray.map((item,index) => {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
@@ -128,9 +128,8 @@ class ApicTrace extends Component {
       })
 
       return (
-        <div >
+        <div key={item}>
           <Trace
-          
             flowItem={deviceInfo.join(" : <==> : ")}
             flowItemType={deviceType.join(" : <==> : ")}
             flowItemName={deviceName.join(" : <==> : ")}
