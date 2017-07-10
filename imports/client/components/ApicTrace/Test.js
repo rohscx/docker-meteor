@@ -15,7 +15,7 @@ export default class Trace extends Component {
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
 
-            {ransom.join("")}
+            {toString(ransom.join(""))}
 
         </div>
       </div>
