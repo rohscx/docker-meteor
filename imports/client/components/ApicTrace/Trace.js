@@ -8,14 +8,12 @@ export default class Trace extends Component {
 
     return(
       <Accordion
-        {...this.props} contentBackgroundColor="blue"
+        {...this.props} contentBackgroundColor={"blue"}
         uniqId={this.props.flowIndex}>
         <AccordionSection
            title={this.props.flowIndex}>
             {this.props.flowItem}
         </AccordionSection>
-
-
       </Accordion>
     )
   }
