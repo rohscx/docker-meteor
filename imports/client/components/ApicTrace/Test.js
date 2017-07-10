@@ -13,11 +13,9 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
-          <ul>
-          <li>
+
             {this.props.listTest}
-          </li>
-        </ul>
+
         </div>
       </div>
     );
