@@ -9,14 +9,14 @@ export default class Trace extends Component {
     return(
       <Accordion
         uniqId={'testAccordion'}
-        settings={{
+        settings={
           headerBackgroundColor: "red",
           headerBackgroundColorActive: 'pink',
           headerColor: "black",
           contentBackgroundColor: "blue",
           borderBottom: "2px solid yellow"
           round: "4px"
-        }}
+        }
         >
 
         {"DKSJFLSDFL:SDJ"}
