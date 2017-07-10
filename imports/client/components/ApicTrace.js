@@ -150,7 +150,14 @@ class ApicTrace extends Component {
   >
 
     <AccordionSection
-   title="Section 1">
+   title="Section 1"   settings={{
+       headerBackgroundColor: "red",
+       headerBackgroundColorActive: 'pink',
+       headerColor: "black",
+       contentBackgroundColor: "blue",
+       borderBottom: "2px solid yellow",
+       round: "4px"
+     }}>
    {"asdfasdfasdfasdf"}
   </AccordionSection>
 
