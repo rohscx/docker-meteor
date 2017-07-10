@@ -8,7 +8,7 @@ export default class Trace extends Component {
 
     return(
       <Accordion
-        {...this.props} uniqId={this.props.flowIndex}
+        uniqId={'testAccordion'}
         settings={{
           headerBackgroundColor: "red",
           headerBackgroundColorActive: 'pink',
@@ -16,8 +16,11 @@ export default class Trace extends Component {
           contentBackgroundColor: "blue",
           borderBottom: "2px solid yellow"
           round: "4px"
-        }}>
-        {this.props.flowItem}
+        }}
+        >
+
+        {"DKSJFLSDFL:SDJ"}
+
       </Accordion>
     )
   }
