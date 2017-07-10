@@ -120,13 +120,12 @@ class ApicTrace extends Component {
           deviceInfo.push(item[key]);
           deviceType.push(item.type)
           deviceType.push(item.ip)
-          if (item == "name"){
-
+          if (Object.keys(item) == "name"){
             deviceName.push(item[key])
           }
         }
       })
-      console.log(deviceName);
+
       return (
         <div>
           <Test
