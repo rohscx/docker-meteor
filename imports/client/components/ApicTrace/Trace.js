@@ -17,17 +17,7 @@ export default class Trace extends Component {
     borderBottom: "2px solid yellow",
     round: "4px"
   }}>
-
-        <AccordionSection
-         title="Section 1">
-         {"OLD1"}
-        </AccordionSection>
-
-        <AccordionSection
-         title="Section 2">
-         {"OLD2"}
-        </AccordionSection>
-
+      {"LDFJL:SDJF:LKSDJF"}
       </Accordion>
     )
   }
