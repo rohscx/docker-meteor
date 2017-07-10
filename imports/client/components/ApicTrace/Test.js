@@ -10,12 +10,15 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    let ransom = [1,2,3,4,5,6];
+    const ransom = [1,2,3,4,5,6];
     //ransom = ransom.join("");
+    const listItems = ransom.map((ransom) =>
+    <li>{ransom}</li>
+    );
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData} >
-          <li>{ransom}</li>
+          {ransom}
 
         </div>
       </div>
