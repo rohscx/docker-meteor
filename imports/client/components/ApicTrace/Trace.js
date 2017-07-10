@@ -40,7 +40,7 @@ export default class Trace extends Component {
           uniqId={this.props.flowIndex}>
           <AccordionSection
              title={this.props.flowIndex}>
-              <div style={divStyleLavBlush}>
+              <div style={divStyleLavTraceData}>
                 {this.traceData.bind(this)}
               </div>
           </AccordionSection>
