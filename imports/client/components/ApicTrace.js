@@ -107,7 +107,7 @@ class ApicTrace extends Component {
         if(this.props.apic.traceStatus.status == "INPROGRESS"){
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
           setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 1000);
-        } 
+        }
       }else{
         let rickets = Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
@@ -186,7 +186,7 @@ class ApicTrace extends Component {
       }> LOG PROPS</button>
 
 
-      {this.testtest(this.props.apic.flow)}
+      {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
 
