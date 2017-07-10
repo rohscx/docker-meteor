@@ -98,11 +98,11 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
 
-    return flowArray.map((item,index) => {
+    return flowArray.map(item => {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
-      let rickets = Object.keys(item[index]).map(function(key,index){
+      let rickets = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
@@ -128,7 +128,7 @@ class ApicTrace extends Component {
       })
 
       return (
-        <div key={item}>
+        <div key={"1"}>
           <Trace
             flowItem={deviceInfo.join(" : <==> : ")}
             flowItemType={deviceType.join(" : <==> : ")}
