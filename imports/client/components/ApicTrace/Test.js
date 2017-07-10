@@ -10,7 +10,7 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    const ransom = ["<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li>"];
+    let ransom = ["<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li>"];
     ransom = ransom.join(",");
     ransom = "<ul>" + ransom + "</>";
     return (
