@@ -42,7 +42,7 @@ export default class Trace extends Component {
       <div>
           <Accordion
             {...this.props}
-            uniqId={dddd}>
+            uniqId={"dddd"}>
             <AccordionSection
                title={this.trace()}>
 
