@@ -10,7 +10,8 @@ const apicReducer = (state = {
     },
     {
       defaultData: "NO FLOW2",
-      moreData: "2adfsadsfasdf"
+      moreData: "2adfsadsfasdf",
+      name: "LIKE THE OLY NAME"
     },
     {
       defaultData: "NO FLOW3",
