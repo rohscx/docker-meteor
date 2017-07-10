@@ -11,7 +11,7 @@ export default class Trace extends Component {
       borderBottomWidth: 10
     };
     let ransom = ["<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li>"];
-    ransom = ransom.join(",");
+    ransom = ransom.join("");
     //ransom = "<ul>" + ransom + "</ul>";
     return (
       <div className="row">
