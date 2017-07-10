@@ -98,7 +98,18 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
     let list = [];
+    let listMap = () => {
+      return (
+        <AccordionSection
+           title={"HOBAR"}>
+
+              {list}
+
+        </AccordionSection>
+      );
+    };
     return flowArray.map(item => {
+
       let rickets = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
@@ -115,7 +126,7 @@ class ApicTrace extends Component {
           list.push(item[key]);
         }
       })
-
+      console.log(list);
 
 
       return (
@@ -123,7 +134,7 @@ class ApicTrace extends Component {
         <Accordion
           {...this.props}
           uniqId={"this.props.flowIndex"}>
-          {rickets}
+          {listMap}
         </Accordion>
       </div>
       );
