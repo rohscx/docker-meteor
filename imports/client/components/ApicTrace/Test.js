@@ -29,7 +29,9 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
+          <ul>
           {"ddd"}
+          </ul>
         </div>
       </div>
     );
