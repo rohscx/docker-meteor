@@ -114,14 +114,7 @@ class ApicTrace extends Component {
         console.log("typeof index: ",typeof index);
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-          return(
-            <AccordionSection
-               title={key}>
-
-                  {item[key].physicalInterface.name}
-            </AccordionSection>
-          )
-
+          tata.push(item[key].physicalInterface.name);
         } else {
           tata.push(item[key]);
         }
