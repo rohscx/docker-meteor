@@ -14,7 +14,7 @@ export default class Trace extends Component {
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
 
-            {<li>adfasf</li>}
+            {<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li>}
 
         </div>
       </div>
