@@ -27,12 +27,13 @@ export default class Trace extends Component {
       <Accordion
         {...this.props}
         uniqId={'testAccordion'}>
-        <div style={divStyleLavBlush}>
-          <AccordionSection
-            singleOpen={true} title={this.props.flowIndex}>
-             {this.trace()}
-          </AccordionSection>
-        </div>
+        <AccordionSection
+          singleOpen={true} title={this.props.flowIndex}>
+            <div style={divStyleLavBlush}>
+              {this.trace()}
+            </div>
+        </AccordionSection>
+
 
       </Accordion>
     )
