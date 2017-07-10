@@ -102,30 +102,39 @@ class ApicTrace extends Component {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
-      let rickets = Object.keys(item).map(function(key,index){
-        console.log("item[key]: ",item[key]);
-        console.log("key: ",key);
-        console.log("index: ",index);
-        console.log("item: ", item);
-        console.log("typeof item: ",typeof item);
-        console.log("typeof item[key]: ",typeof item[key]);
-        console.log("typeof key: ",typeof key);
-        console.log("typeof index: ",typeof index);
-        if(typeof item[key] === 'object'){
-          console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-          deviceInfo.push(key);
-          deviceInfo.push(item[key].physicalInterface.name);
-        } else {
-          deviceInfo.push(key);
-          deviceInfo.push(item[key]);
-          if (item.hasOwnProperty('name') && deviceName.length == 0){
-            deviceName.push(item.name)
-          }else if(deviceType.length == 0){
-            deviceType.push(item.type);
-            deviceType.push(item.ip);
-          }
+      if(Object.getOwnPropertyNames(item).length == 1){
+        if(this.props.apic.traceStatus.status == "INPROGRESS"){
+          console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
+          setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 1000);
         }
-      })
+      }else{
+        let rickets = Object.keys(item).map(function(key,index){
+          console.log("item[key]: ",item[key]);
+          console.log("key: ",key);
+          console.log("index: ",index);
+          console.log("item: ", item);
+          console.log("typeof item: ",typeof item);
+          console.log("typeof item[key]: ",typeof item[key]);
+          console.log("typeof key: ",typeof key);
+          console.log("typeof index: ",typeof index);
+          if(typeof item[key] === 'object'){
+            console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
+            deviceInfo.push(key);
+            deviceInfo.push(item[key].physicalInterface.name);
+          } else {
+            deviceInfo.push(key);
+            deviceInfo.push(item[key]);
+            if (item.hasOwnProperty('name') && deviceName.length == 0){
+              deviceName.push(item.name)
+            }else if(deviceType.length == 0){
+              deviceType.push(item.type);
+              deviceType.push(item.ip);
+            }
+          }
+        })
+      }
+  
+
 
       return (
         <div>
