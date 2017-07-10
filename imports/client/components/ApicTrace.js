@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
 import { connect } from 'react-redux';
-import { setName }from '../actions/userActions'
+import Accordion from 'redux-accordion';
+import { setName }from '../actions/userActions';
 import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow }from '../actions/apicActions'
 
 class ApicTrace extends Component {
@@ -136,7 +137,24 @@ class ApicTrace extends Component {
       {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
-      
+
+
+      <Accordion
+  {...this.props}
+  uniqId={'testAccordion'}>
+
+  <AccordionSection
+   title="Section 1">
+   {*/ Content Goes Here /*}
+  </AccordionSection>
+
+  <AccordionSection
+   title="Section 2">
+   {*/ Content Goes Here /*}
+  </AccordionSection>
+
+</Accordion>
+
     </div>
     )
   }
