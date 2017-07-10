@@ -129,7 +129,9 @@ class ApicTrace extends Component {
       );
       */
     })
-    return console.log("THIS SHOULD BE THE LIST", list);
+    return (
+      <Test listTest={list}/>
+    );
   }
 
 

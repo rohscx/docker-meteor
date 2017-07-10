@@ -13,7 +13,7 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
-          {this.props.flowItem}
+          {this.props.listTest}
         </div>
       </div>
     );
@@ -28,7 +28,7 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
-          {this.props.flowIndex}
+          {"ddd"}
         </div>
       </div>
     );
@@ -40,13 +40,17 @@ export default class Trace extends Component {
 
     return(
       <div>
+          <Accordion
+            {...this.props}
+            uniqId={dddd}>
+            <AccordionSection
+               title={this.trace()}>
 
-          <AccordionSection
-             title={this.trace()}>
+                  {this.traceData()}
 
-                {this.traceData()}
+            </AccordionSection>
+          </Accordion>
 
-          </AccordionSection>
         <br/>
       </div>
     )
