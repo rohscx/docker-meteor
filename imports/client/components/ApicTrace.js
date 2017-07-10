@@ -125,7 +125,7 @@ class ApicTrace extends Component {
             <AccordionSection
                title={key}>
 
-                  {item[key]}
+                  {list}
             </AccordionSection>
           )
         }
