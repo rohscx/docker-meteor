@@ -11,6 +11,8 @@ export default class Trace extends Component {
       borderBottomWidth: 10
     };
     const ransom = ["<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li>"];
+    ransom = ransom.join(",");
+    ransom = "<ul>" + ransom + "</>";
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html: ransom}}>
