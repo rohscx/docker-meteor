@@ -106,7 +106,7 @@ class ApicTrace extends Component {
       if(Object.getOwnPropertyNames(item).length != 0){
         if(this.props.apic.traceStatus.status == "INPROGRESS"){
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
-          setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 3000);
+          setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 5000);
         }
         // remove this if default data is to be seen
         return <div></div>
