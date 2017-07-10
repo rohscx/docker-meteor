@@ -13,9 +13,8 @@ export default class Trace extends Component {
     const ransom = ["<div><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li></div>"];
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData} >
-          <ul dangerouslySetInnerHTML={{__html: ransom.join("")}}>
-          </ul>
+        <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html:>ransom.join("")}}>
+
         </div>
       </div>
     );
@@ -47,8 +46,9 @@ export default class Trace extends Component {
             uniqId={"dddd"}>
             <AccordionSection
                title={this.trace()}>
-
+               <ul>
                   {this.traceData()}
+                </ul>
 
             </AccordionSection>
           </Accordion>
