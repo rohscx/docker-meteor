@@ -113,6 +113,7 @@ class ApicTrace extends Component {
         } else {
           return <Test flowItem={item[key]} flowIndex={key} key={index} />;
         }
+      })
 
 
       return (
