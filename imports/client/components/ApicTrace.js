@@ -102,7 +102,6 @@ class ApicTrace extends Component {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
-      console.log("IDDDDDDDDDD", index);
       let rickets = Object.keys(item).map(function(key,index){
         /*
         console.log("item[key]: ",item[key]);
@@ -131,9 +130,8 @@ class ApicTrace extends Component {
       })
 
       return (
-        <div key={item.id}>
+        <div key={index}>
           <Trace
-            key={item.id}
             flowItem={deviceInfo.join(" : <==> : ")}
             flowItemType={deviceType.join(" : <==> : ")}
             flowItemName={deviceName.join(" : <==> : ")}
