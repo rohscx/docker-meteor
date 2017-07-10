@@ -102,7 +102,7 @@ class ApicTrace extends Component {
           {...this.props}
           uniqId={"this.props.flowIndex"}>
           <AccordionSection
-             title={item}>
+             title={item.defaultData1}>
 
                 {item.defaultData1}
 
