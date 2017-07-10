@@ -3,21 +3,7 @@ const apicReducer = (state = {
   devices: "NO DEVICES",
   trace: "NO TRACES",
   flowId: "NO FLOW ID",
-  flow: [
-    {
-      defaultData: "NO FLOW1",
-      moreData: "1adfsadsfasdf"
-    },
-    {
-      defaultData: "NO FLOW2",
-      moreData: "2adfsadsfasdf",
-      name: "LIKE THE OLY NAME"
-    },
-    {
-      defaultData: "NO FLOW3",
-      moreData: "3adfsadsfasdf"
-    }
-  ],
+  flow: [],
   showTrace: false,
   traceIp:{
     source:"10.2.1.22",
