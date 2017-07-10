@@ -6,13 +6,12 @@ export default class Trace extends Component {
 
   render() {
     let setting = {
-headerBackgroundColor: "red",
-headerBackgroundColorActive: 'pink',
-headerColor: "black",
-contentBackgroundColor: "blue",
-borderBottom: "2px solid yellow"
-round: "4px"
-};
+"headerBackgroundColor": "red",
+"headerBackgroundColorActive": 'pink',
+"headerColor": "black",
+"contentBackgroundColor": "blue",
+"borderBottom": "2px solid yellow"
+"round": "4px"};
     return(
       <Accordion
         {...this.props}
