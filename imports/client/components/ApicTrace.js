@@ -97,8 +97,8 @@ class ApicTrace extends Component {
   }
 
   testtest(flowArray){
+    let list = [];
     return flowArray.map(item => {
-      let list = [];
       let rickets = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
@@ -115,10 +115,10 @@ class ApicTrace extends Component {
           list.push(item[key]);
         }
       })
-      console.log(list);
 
 
-      return (
+
+      /*return (
         <div>
         <Accordion
           {...this.props}
@@ -127,7 +127,8 @@ class ApicTrace extends Component {
         </Accordion>
       </div>
       );
-    })}
+      */
+    }) console.log(list);}
 
 
   render() {
