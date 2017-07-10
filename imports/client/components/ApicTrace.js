@@ -76,7 +76,8 @@ class ApicTrace extends Component {
       }else{
         console.log("REAL RESULT WAS RUN");
         return (
-          Object.keys(item).map(function(key,index){
+
+          let cats = Object.keys(item).map(function(key,index){
             console.log("item[key]: ",item[key]);
             console.log("key: ",key);
             console.log("index: ",index);
@@ -92,6 +93,17 @@ class ApicTrace extends Component {
               return <Trace flowItem={item[key]} flowIndex={key} key={index} />;
             }
           })
+
+          <Accordion
+            {...this.props}
+            uniqId={"test"}>
+            <AccordionSection
+               title={"more test"
+
+                  {cats}
+
+            </AccordionSection>
+          </Accordion>
         )
       }
     })
