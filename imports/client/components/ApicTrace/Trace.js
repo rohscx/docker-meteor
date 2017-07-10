@@ -20,7 +20,7 @@ export default class Trace extends Component {
   }
   trace(){
     const divStyleTrace = {
-      backgroundColor: "blue",
+      backgroundColor: "#3575dd",
       color: "white"
     };
     return (
