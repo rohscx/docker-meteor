@@ -119,13 +119,13 @@ class ApicTrace extends Component {
               console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
               return <Trace flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
             } else {
-              return return(
+              return(
                 <AccordionSection
                   title={key}>
 
                     {item[key]}
                   </AccordionSection>
-                ); 
+                );
             }
           })
         }
