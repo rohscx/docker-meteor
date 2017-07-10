@@ -4,7 +4,10 @@ const apicReducer = (state = {
   trace: "NO TRACES",
   flowId: "NO FLOW ID",
   flow: [
-    {defaultData: "NO FLOW1"},
+    {
+      defaultData: "NO FLOW1",
+      moreData: "adfsadsfasdf"
+    },
     {defaultData: "NO FLOW2"},
     {defaultData: "NO FLOW3"}
   ],
