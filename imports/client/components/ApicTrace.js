@@ -107,26 +107,26 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
+        let list = [];
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
+          list.push(item[key].physicalInterface.name);
           return(
             <AccordionSection
                title={key}>
 
-                  {item[key].physicalInterface.name}
+                  {list}
             </AccordionSection>
           )
 
         } else {
+          list.push(item[key]);
           return(
+            <AccordionSection
+               title={key}>
 
-
-                 <AccordionSection
-                    title={key}>
-
-                       {item[key]}
-                 </AccordionSection>
-
+                  {item[key]}
+            </AccordionSection>
           )
         }
       })
