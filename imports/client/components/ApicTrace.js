@@ -103,7 +103,7 @@ class ApicTrace extends Component {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
-      if(Object.getOwnPropertyNames(item).length <= 1){
+      if(Object.getOwnPropertyNames(item).length >= 1){
         console.log("THIS IS SOME PROP",Object.getOwnPropertyNames(item).length);
         if(this.props.apic.traceStatus.status == "INPROGRESS"){
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
