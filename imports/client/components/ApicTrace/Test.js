@@ -13,7 +13,7 @@ export default class Trace extends Component {
     const ransom = ["<div><ul><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li></ul></div>"];
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html: ransom.join("")}}>
+        <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html: ransom.join(",")}}>
 
         </div>
       </div>
