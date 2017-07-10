@@ -136,7 +136,7 @@ class ApicTrace extends Component {
           <AccordionSection
              title={"key"}>
 
-                {blah}
+                {tata}
           </AccordionSection>
 
         </Accordion>
