@@ -77,7 +77,7 @@ class ApicTrace extends Component {
         console.log("REAL RESULT WAS RUN");
         return (
 
-          let cats = Object.keys(item).map(function(key,index){
+          const cats = Object.keys(item).map(function(key,index){
             console.log("item[key]: ",item[key]);
             console.log("key: ",key);
             console.log("index: ",index);
