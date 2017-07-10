@@ -8,16 +8,19 @@ export default class Trace extends Component {
 
     return(
       <Accordion
-        {...this.props}
-        uniqId={'testAccordion'} singleOpen={true} openByDefault={true}   settings={{
-    headerBackgroundColor: "red",
-    headerBackgroundColorActive: 'pink',
-    headerColor: "black",
-    contentBackgroundColor: "blue",
-    borderBottom: "2px solid yellow",
-    round: "4px"
-  }}>
-      {"LDFJL:SDJF:LKSDJF"}
+        {...this.props} uniqId={this.props.flowIndex}
+        settings={{
+          headerBackgroundColor: "red",
+          headerBackgroundColorActive: 'pink',
+          headerColor: "black",
+          contentBackgroundColor: "blue",
+          borderBottom: "2px solid yellow"
+          round: "4px"
+        }}>
+        <AccordionSection
+           title={this.props.flowIndex}>
+
+        </AccordionSection>
       </Accordion>
     )
   }
