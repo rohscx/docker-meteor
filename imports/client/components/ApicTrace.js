@@ -97,7 +97,7 @@ class ApicTrace extends Component {
   }
 
   testtest(flowArray){
-    const tata = [];
+    let tata = [];
     let blah = () => {
       return (
         <AccordionSection
