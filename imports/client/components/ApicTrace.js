@@ -128,9 +128,9 @@ class ApicTrace extends Component {
       })
 
       return (
-        <div key={item}>
+        <div >
           <Trace
-            key={item}
+          
             flowItem={deviceInfo.join(" : <==> : ")}
             flowItemType={deviceType.join(" : <==> : ")}
             flowItemName={deviceName.join(" : <==> : ")}
