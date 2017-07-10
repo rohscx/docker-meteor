@@ -10,7 +10,7 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    const ransom = this.props.list;
+    const ransom = this.props.listTest;
     //ransom = ransom.join("");
     const listItems = ransom.map((ransom) =>
     <li>{ransom}</li>
