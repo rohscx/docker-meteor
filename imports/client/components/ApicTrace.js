@@ -95,6 +95,24 @@ class ApicTrace extends Component {
     })
   }
 
+  testtest(){
+    return flowArray.map(item => {
+      return (
+        <Accordion
+          {...this.props}
+          uniqId={"this.props.flowIndex"}>
+          <AccordionSection
+             title={item}>
+
+                {item.defaultData1}
+
+          </AccordionSection>
+        </Accordion>
+      )
+    }
+
+    })
+
 
   render() {
     console.log(this);
@@ -135,6 +153,7 @@ class ApicTrace extends Component {
       }> LOG PROPS</button>
 
       {this.loopThrough(this.props.apic.flow)}
+      {this.testtest(this.props.apic.flow)}
 
       {this.traceForm()}
 
