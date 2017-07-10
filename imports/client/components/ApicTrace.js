@@ -98,6 +98,7 @@ class ApicTrace extends Component {
   testtest(flowArray){
     return flowArray.map(item => {
       return (
+        <div>
         <Accordion
           {...this.props}
           uniqId={"this.props.flowIndex"}>
@@ -108,6 +109,7 @@ class ApicTrace extends Component {
 
           </AccordionSection>
         </Accordion>
+      </div>
       );
     })}
 
