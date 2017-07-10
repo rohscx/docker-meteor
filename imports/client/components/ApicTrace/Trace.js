@@ -25,7 +25,7 @@ export default class Trace extends Component {
 
     return(
       <Accordion
-        {...this.props} singleOpen={true}
+        {...this.props}
         uniqId={this.props.flowIndex}>
         <AccordionSection
            title={this.props.flowIndex}>
