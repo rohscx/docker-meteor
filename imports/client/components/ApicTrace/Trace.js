@@ -7,7 +7,7 @@ export default class Trace extends Component {
   trace(){
     return (
       <div className="row">
-        <div className="col-sm-4">
+        <div className="col-sm-12">
           {this.props.flowItem}
         </div>
       </div>
@@ -27,10 +27,13 @@ export default class Trace extends Component {
       <Accordion
         {...this.props}
         uniqId={'testAccordion'}>
-        <AccordionSection
-          singleOpen={true} title={this.props.flowIndex}>
-          <div style={divStyleLavBlush}> {this.trace()}</div>
-        </AccordionSection>
+        <div style={divStyleLavBlush}>
+          <AccordionSection
+            singleOpen={true} title={this.props.flowIndex}>
+             {this.trace()}
+          </AccordionSection>
+        </div>
+
       </Accordion>
     )
   }
