@@ -129,7 +129,7 @@ class ApicTrace extends Component {
 
       return (
         <div>
-          <Test
+          <Trace
             flowItem={deviceInfo.join(" : <==> : ")}
             flowItemType={deviceType.join(" : <==> : ")}
             flowItemName={deviceName.join(" : <==> : ")}

@@ -28,7 +28,7 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
-          {this.props.flowIndex}
+          {this.props.flowItemName + " " + this.props.flowItemType}
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ export default class Trace extends Component {
       <div>
         <Accordion
           {...this.props}
-          uniqId={this.props.flowIndex}>
+          uniqId={"this.props.flowIndex"}>
           <AccordionSection
              title={this.trace()}>
 
