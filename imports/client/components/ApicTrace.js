@@ -109,7 +109,14 @@ class ApicTrace extends Component {
         console.log("typeof index: ",typeof index);
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-          return <Test flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
+          return(
+            <AccordionSection
+               title={key}>
+
+                  {item[key].physicalInterface.name}
+            </AccordionSection>
+          )
+
         } else {
           return(
             <AccordionSection
@@ -172,7 +179,7 @@ class ApicTrace extends Component {
         () => console.log(this.props)
       }> LOG PROPS</button>
 
-      
+
       {this.testtest(this.props.apic.flow)}
 
       {this.traceForm()}
