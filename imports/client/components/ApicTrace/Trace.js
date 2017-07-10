@@ -8,18 +8,11 @@ export default class Trace extends Component {
 
     return(
       <Accordion
+        {...this.props}
         uniqId={'testAccordion'}
-        settings={
-          headerBackgroundColor: "red",
-          headerBackgroundColorActive: 'pink',
-          headerColor: "black",
-          contentBackgroundColor: "blue",
-          borderBottom: "2px solid yellow"
-          round: "4px"
-        }
-        >
+        singleOpen={true}>
 
-        {"DKSJFLSDFL:SDJ"}
+        {"asdfasdf"}
 
       </Accordion>
     )

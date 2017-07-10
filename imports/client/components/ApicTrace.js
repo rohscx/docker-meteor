@@ -137,6 +137,14 @@ class ApicTrace extends Component {
       {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
+      <Accordion
+  {...this.props}
+  uniqId={'testAccordion'}
+  singleOpen={true}>
+
+  {"asdfasfsdfasdf"}
+
+</Accordion>
 
     </div>
     )
