@@ -25,18 +25,19 @@ export default class Trace extends Component {
     };
 
     return(
-      <Accordion
-        {...this.props}
-        uniqId={this.props.flowIndex}>
-        <AccordionSection
-           title={this.props.flowIndex}>
-            <div style={divStyleLavBlush}>
-              {this.trace()}
-            </div>
-        </AccordionSection>
-
-
-      </Accordion>
+      <div>
+        <Accordion
+          {...this.props}
+          uniqId={this.props.flowIndex}>
+          <AccordionSection
+             title={this.props.flowIndex}>
+              <div style={divStyleLavBlush}>
+                {this.trace()}
+              </div>
+          </AccordionSection>
+        </Accordion>
+        <br/>
+      </div>
     )
   }
 }
