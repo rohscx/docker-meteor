@@ -12,7 +12,7 @@ export default class Trace extends Component {
     };
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData.bind(this)}>
+        <div className="col-sm-12" style={divStyleLavTraceData}>
           {this.props.flowItem}
         </div>
       </div>
