@@ -98,38 +98,28 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
     return flowArray.map(item => {
-      let rickets = () => {
-        if(Object.getOwnPropertyNames(item).length == 1){
-          if(this.props.apic.traceStatus.status == "INPROGRESS"){
-            console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
-            setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 1000);
-          }
-        }else{
-          console.log("REAL RESULT WAS RUN");
-          return Object.keys(item).map(function(key,index){
-            console.log("item[key]: ",item[key]);
-            console.log("key: ",key);
-            console.log("index: ",index);
-            console.log("item: ", item);
-            console.log("typeof item: ",typeof item);
-            console.log("typeof item[key]: ",typeof item[key]);
-            console.log("typeof key: ",typeof key);
-            console.log("typeof index: ",typeof index);
-            if(typeof item[key] === 'object'){
-              console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
-              return <Trace flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
-            } else {
-              return(
-                <AccordionSection
-                  title={key}>
+      let rickets = Object.keys(item).map(function(key,index){
+        console.log("item[key]: ",item[key]);
+        console.log("key: ",key);
+        console.log("index: ",index);
+        console.log("item: ", item);
+        console.log("typeof item: ",typeof item);
+        console.log("typeof item[key]: ",typeof item[key]);
+        console.log("typeof key: ",typeof key);
+        console.log("typeof index: ",typeof index);
+        if(typeof item[key] === 'object'){
+          console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
+          return <Test flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
+        } else {
+          return(
+            <AccordionSection
+               title={key}>
 
-                    {item[key]}
-                  </AccordionSection>
-                );
-            }
-          })
+                  {item[key]}
+            </AccordionSection>
+          )
         }
-      };
+      })
 
 
       return (
@@ -182,7 +172,7 @@ class ApicTrace extends Component {
         () => console.log(this.props)
       }> LOG PROPS</button>
 
-      {this.loopThrough(this.props.apic.flow)}
+      
       {this.testtest(this.props.apic.flow)}
 
       {this.traceForm()}
