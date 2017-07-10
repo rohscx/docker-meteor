@@ -108,10 +108,8 @@ class ApicTrace extends Component {
 
           </AccordionSection>
         </Accordion>
-      )
-    }
-
-    })
+      );
+    })}
 
 
   render() {
