@@ -128,7 +128,9 @@ class ApicTrace extends Component {
       </div>
       );
       */
-    }) console.log(list);}
+    })
+    console.log(list);
+  }
 
 
   render() {
