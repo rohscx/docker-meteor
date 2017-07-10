@@ -43,7 +43,7 @@ export default class Trace extends Component {
           <AccordionSection
              title={this.props.flowIndex}>
 
-                {this.traceData.bind(this)}
+                {this.traceData()}
 
           </AccordionSection>
         </Accordion>
