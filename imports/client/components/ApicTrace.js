@@ -119,7 +119,7 @@ class ApicTrace extends Component {
 
 
 
-      /*return (
+      return (
         <div>
         <Accordion
           {...this.props}
@@ -128,9 +128,7 @@ class ApicTrace extends Component {
         </Accordion>
       </div>
       );
-      */
-      return (
-        <Test listTest={list}/>)
+      
     )}
   }
 
