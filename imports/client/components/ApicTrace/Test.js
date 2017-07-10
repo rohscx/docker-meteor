@@ -11,10 +11,11 @@ export default class Trace extends Component {
       borderBottomWidth: 10
     };
     return (
+      let ransom = ["<div><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>"];
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
 
-            {<div><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>}
+            {ransom}
 
         </div>
       </div>
