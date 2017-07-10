@@ -4,6 +4,16 @@ import {Accordion, AccordionSection}  from 'redux-accordion';
 // WORK IN PROGRESS
 export default class Trace extends Component {
 
+  trace(){
+    return (
+      <div className="row">
+        <div className="col-sm-4" style={divStyleLavBlush}>
+          {this.props.flowItem}
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const divStyleLav = {
       backgroundColor: "lavender"
@@ -19,7 +29,7 @@ export default class Trace extends Component {
         uniqId={'testAccordion'}>
         <AccordionSection
           title={this.props.flowIndex}>
-          {this.props.flowItem}
+          {this.trace()}
         </AccordionSection>
       </Accordion>
     )
