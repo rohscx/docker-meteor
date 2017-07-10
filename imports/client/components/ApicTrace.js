@@ -131,7 +131,7 @@ class ApicTrace extends Component {
       */
       return (
         <Test listTest={list}/>)
-    );}
+    )}
   }
 
 
