@@ -28,7 +28,7 @@ export default class Test extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
-          {this.props.flowItemType + "" + this.props.flowItemName}
+          {this.props.flowItemName + " " + this.props.flowItemType}
         </div>
       </div>
     );
