@@ -9,7 +9,7 @@ export default class Trace extends Component {
     return(
       <Accordion
         {...this.props}
-        uniqId={'testAccordion'} singleOpen={true}>
+        uniqId={'testAccordion'} singleOpen={true} openByDefault={true}>
 
         <AccordionSection
          title="Section 1">
