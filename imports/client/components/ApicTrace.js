@@ -97,6 +97,7 @@ class ApicTrace extends Component {
   }
 
   testtest(flowArray){
+    const tata = [];
     let blah = () => {
       return (
         <AccordionSection
@@ -127,9 +128,7 @@ class ApicTrace extends Component {
           )
 
         } else {
-          return(
-
-          )
+          tata.push(item[key]);
         }
       })
 
