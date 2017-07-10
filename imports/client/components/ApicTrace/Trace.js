@@ -28,7 +28,7 @@ export default class Trace extends Component {
         {...this.props} singleOpen={true}
         uniqId={this.props.flowIndex}>
         <AccordionSection
-          openByDefault={true} title={this.props.flowIndex}>
+           title={this.props.flowIndex}>
             <div style={divStyleLavBlush}>
               {this.trace()}
             </div>
