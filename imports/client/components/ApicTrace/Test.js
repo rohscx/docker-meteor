@@ -10,13 +10,12 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    let ransom = "<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>";
+    let ransom = [1,2,3,4,5,6];
     //ransom = ransom.join("");
-    ransom = "<ul>" + ransom + "</ul>";
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html: ransom}}>
-
+        <div className="col-sm-12" style={divStyleLavTraceData} >
+          <li>{ransom}</li>
 
         </div>
       </div>
@@ -50,7 +49,7 @@ export default class Trace extends Component {
             <AccordionSection
                title={this.trace()}>
 
-                  <ul> <li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></ul>
+                  {this.traceData()}
 
 
             </AccordionSection>
