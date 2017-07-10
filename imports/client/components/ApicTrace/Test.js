@@ -13,8 +13,8 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
-          
-            {this.props.listTest}
+
+            {this.props.listTest.toString()}
 
         </div>
       </div>
