@@ -98,7 +98,8 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
     let list = [];
-    flowArray.map(item => {
+    return flowArray.map(item => {
+
       let rickets = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
@@ -128,9 +129,8 @@ class ApicTrace extends Component {
       </div>
       );
       */
-    })
-    return (
-      <Test listTest={list}/>
+      return (
+        <Test listTest={list}/>})
     );
   }
 
