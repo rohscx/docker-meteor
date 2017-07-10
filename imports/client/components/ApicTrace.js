@@ -149,7 +149,10 @@ class ApicTrace extends Component {
   }}
   >
 
-  {"adsfasdfasdfadffasdfa"}
+    <AccordionSection
+   title="Section 1">
+   {"asdfasdfasdfasdf"}
+  </AccordionSection>
 
 </Accordion>
 
