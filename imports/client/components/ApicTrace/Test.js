@@ -10,12 +10,11 @@ export default class Trace extends Component {
       borderBottomColor: "black",
       borderBottomWidth: 10
     };
-    const ransom = ["<div><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li></div>"];
+    const ransom = ["<div><ul><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>","<li>1231f</li><li>1231231</li></ul></div>"];
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData} >
-          <ul dangerouslySetInnerHTML={{__html: ransom.join("")}}>
-          </ul>
+        <div className="col-sm-12" style={divStyleLavTraceData} dangerouslySetInnerHTML={{__html: ransom.join("")}}>
+
         </div>
       </div>
     );
