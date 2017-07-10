@@ -121,7 +121,7 @@ class ApicTrace extends Component {
 
       return (
         <div>
-          <Test flowItem={tata} />;
+          <Test flowItem={tata.join(" : <==> : ")} />
       </div>
       );
     })}
