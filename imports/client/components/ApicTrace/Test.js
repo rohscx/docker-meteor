@@ -14,7 +14,7 @@ export default class Trace extends Component {
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData}>
           <li>
-            {this.props.listTest}
+            {makeUL(this.props.listTest)}
           </li>
         </div>
       </div>
