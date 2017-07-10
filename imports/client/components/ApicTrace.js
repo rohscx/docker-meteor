@@ -129,7 +129,7 @@ class ApicTrace extends Component {
       );
       */
     })
-    console.log(list);
+    console.log("THIS SHOULD BE THE LIST", list);
   }
 
 
