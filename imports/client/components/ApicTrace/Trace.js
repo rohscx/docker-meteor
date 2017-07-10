@@ -5,33 +5,35 @@ import {Accordion, AccordionSection}  from 'redux-accordion';
 export default class Trace extends Component {
 
   traceData(){
+    const divStyleLavTraceData = {
+      textAlign: "center",
+      borderBottomColor: "black",
+      borderBottomWidth: 10
+    };
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleTrace}>
+        <div className="col-sm-12" style={divStyleLavTraceData}>
           {this.props.flowItem}
         </div>
       </div>
     );
   }
   trace(){
+    const divStyleTrace = {
+      backgroundColor: "lavender"
+    };
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
-          {this.props.flowItem}
+          {this.props.flowIndex}
         </div>
       </div>
     );
   }
 
   render() {
-    const divStyleTrace = {
-      backgroundColor: "lavender"
-    };
-    const divStyleLavTraceData = {
-      textAlign: "center",
-      borderBottomColor: "black",
-      borderBottomWidth: 10
-    };
+
+
 
     return(
       <div>
