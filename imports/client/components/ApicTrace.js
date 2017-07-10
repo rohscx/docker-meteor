@@ -64,7 +64,7 @@ class ApicTrace extends Component {
         );
       }
   }
-
+/*
   loopThrough(flowArray){
     return flowArray.map(item => {
       console.log("LENGTH",Object.getOwnPropertyNames(item).length);
@@ -95,8 +95,9 @@ class ApicTrace extends Component {
       }
     })
   }
+*/
 
-  testtest(flowArray){
+  loopThrough(flowArray){
 
     return flowArray.map(item => {
       let deviceInfo = [];
@@ -106,7 +107,7 @@ class ApicTrace extends Component {
         if(this.props.apic.traceStatus.status == "INPROGRESS"){
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
           setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 1000);
-        }
+        } 
       }else{
         let rickets = Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
@@ -133,8 +134,6 @@ class ApicTrace extends Component {
           }
         })
       }
-  
-
 
       return (
         <div>
