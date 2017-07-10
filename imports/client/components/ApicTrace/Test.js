@@ -50,7 +50,7 @@ export default class Trace extends Component {
             <AccordionSection
                title={this.trace()}>
 
-                  {this.traceData()}
+                  {"<li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li><li>adfasf</li></div>"}
 
 
             </AccordionSection>
