@@ -106,7 +106,7 @@ class ApicTrace extends Component {
         console.log("THIS IS SOME PROP",Object.getOwnPropertyNames(item).length);
         if(this.props.apic.traceStatus.status == "INPROGRESS"){
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
-          setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 10000);
+          setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 20000);
         } else if (this.props.apic.traceStatus.status === "false" && Object.getOwnPropertyNames(item).length != 0){
           this.props.setTrace({});
         }
