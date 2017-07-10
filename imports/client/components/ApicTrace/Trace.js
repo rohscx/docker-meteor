@@ -10,7 +10,7 @@ export default class Trace extends Component {
 "headerBackgroundColorActive": 'pink',
 "headerColor": "black",
 "contentBackgroundColor": "blue",
-"borderBottom": "2px solid yellow"
+"borderBottom": "2px solid yellow",
 "round": "4px"};
     return(
       <Accordion
