@@ -98,6 +98,7 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
     return flowArray.map(item => {
+      let list = [];
       let rickets = Object.keys(item).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
@@ -107,29 +108,14 @@ class ApicTrace extends Component {
         console.log("typeof item[key]: ",typeof item[key]);
         console.log("typeof key: ",typeof key);
         console.log("typeof index: ",typeof index);
-        let list = [];
         if(typeof item[key] === 'object'){
           console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
           list.push(item[key].physicalInterface.name);
-          return(
-            <AccordionSection
-               title={key}>
-
-                  {list}
-            </AccordionSection>
-          )
-
         } else {
           list.push(item[key]);
-          return(
-            <AccordionSection
-               title={key}>
-
-                  {list}
-            </AccordionSection>
-          )
         }
       })
+      console.log(list);
 
 
       return (
