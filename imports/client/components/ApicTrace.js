@@ -103,7 +103,7 @@ class ApicTrace extends Component {
         <AccordionSection
            title={"HOBAR"}>
 
-              {list}
+              {"HAHAH"}
 
         </AccordionSection>
       );
