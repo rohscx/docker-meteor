@@ -108,6 +108,8 @@ class ApicTrace extends Component {
           console.log("STATUS OF REQUEST : ", this.props.apic.traceStatus.status)
           setTimeout(this.props.getFlowStatus(this.props.apic.ticket, this.props.apic.flowId), 1000);
         }
+        // remove this if default data is to be seen
+        return <div></div>
       }else{
         let rickets = Object.keys(item).map(function(key,index){
           console.log("item[key]: ",item[key]);
