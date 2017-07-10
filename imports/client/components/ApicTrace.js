@@ -138,20 +138,20 @@ class ApicTrace extends Component {
 
       {this.traceForm()}
       <Accordion
-        {...this.props}
-        uniqId={'testAccordion'}> 
+  uniqId={'testAccordion'}
+  settings={{
+    headerBackgroundColor: "red",
+    headerBackgroundColorActive: 'pink',
+    headerColor: "black",
+    contentBackgroundColor: "blue",
+    borderBottom: "2px solid yellow",
+    round: "4px"
+  }}
+  >
 
-        <AccordionSection
-         title="Section 1">
-         {"OLD1"}
-        </AccordionSection>
+  {"adsfasdfasdfadffasdfa"}
 
-        <AccordionSection
-         title="Section 2">
-         {"OLD2"}
-        </AccordionSection>
-
-      </Accordion>
+</Accordion>
 
     </div>
     )
