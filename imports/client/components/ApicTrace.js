@@ -119,16 +119,14 @@ class ApicTrace extends Component {
 
         } else {
           return(
-    
-               <Accordion
-                 {...this.props}
-                 uniqId={"this.props.flowIndex"}>
+
+
                  <AccordionSection
                     title={key}>
 
                        {item[key]}
                  </AccordionSection>
-               </Accordion>
+
           )
         }
       })
