@@ -18,7 +18,7 @@ export default class Trace extends Component {
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleLavTraceData} >
-          {ransom}
+          {listItems}
 
         </div>
       </div>
