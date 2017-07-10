@@ -95,7 +95,7 @@ class ApicTrace extends Component {
     })
   }
 
-  testtest(){
+  testtest(flowArray){
     return flowArray.map(item => {
       return (
         <Accordion
