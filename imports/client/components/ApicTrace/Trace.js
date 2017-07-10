@@ -17,10 +17,7 @@ export default class Trace extends Component {
           borderBottom: "2px solid yellow"
           round: "4px"
         }}>
-        <AccordionSection
-           title={this.props.flowIndex}>
-            {this.props.flowItem}
-        </AccordionSection>
+        {this.props.flowItem}
       </Accordion>
     )
   }
