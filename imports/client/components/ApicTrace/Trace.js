@@ -21,7 +21,7 @@ export default class Trace extends Component {
     const divStyleLavBlush = {
       textAlign: "center",
       borderBottomColor: "black",
-      borderBottomWidth: "10"
+      borderBottomWidth: 10
     };
 
     return(
