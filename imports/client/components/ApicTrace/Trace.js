@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
+import {Accordion, AccordionSection}  from 'redux-accordion';
 // WORK IN PROGRESS
 export default class Trace extends Component {
 
@@ -11,17 +12,16 @@ export default class Trace extends Component {
       backgroundColor: "lavenderblush",
       textAlign: "center"
     };
+
     return(
-      <div className="row">
-        <div className="col-sm-4" style={divStyleLav}>
-          {this.props.flowIndex}
-          <div className="row">
-            <div className="col-sm-12" style={divStyleLavBlush}>
-              {this.props.flowItem}
-            </div>
-          </div>
-        </div>
-      </div>
+      <Accordion
+        {...this.props}
+        uniqId={'testAccordion'}>
+        <AccordionSection
+          title={this.props.flowIndex}>
+          {this.props.flowItem}
+        </AccordionSection>
+      </Accordion>
     )
   }
 }
