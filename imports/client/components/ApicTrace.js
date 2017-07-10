@@ -137,31 +137,6 @@ class ApicTrace extends Component {
       {this.loopThrough(this.props.apic.flow)}
 
       {this.traceForm()}
-      <Accordion
-  uniqId={'testAccordion'}
-  settings={{
-    headerBackgroundColor: "red",
-    headerBackgroundColorActive: 'pink',
-    headerColor: "black",
-    contentBackgroundColor: "blue",
-    borderBottom: "2px solid yellow",
-    round: "4px"
-  }}
-  >
-
-    <AccordionSection
-   title="Section 1"   settings={{
-       headerBackgroundColor: "red",
-       headerBackgroundColorActive: 'pink',
-       headerColor: "black",
-       contentBackgroundColor: "blue",
-       borderBottom: "2px solid yellow",
-       round: "4px"
-     }}>
-   {"asdfasdfasdfasdf"}
-  </AccordionSection>
-
-</Accordion>
 
     </div>
     )
