@@ -3,7 +3,8 @@ import { Session } from 'meteor/session';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 // WORK IN PROGRESS
 export default class Trace extends Component {
-  trace(){
+
+  traceData(){
     return (
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
@@ -12,10 +13,10 @@ export default class Trace extends Component {
       </div>
     );
   }
-  traceData(){
+  trace(){
     return (
       <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData}>
+        <div className="col-sm-12" style={divStyleTrace}>
           {this.props.flowItem}
         </div>
       </div>
@@ -39,7 +40,9 @@ export default class Trace extends Component {
           uniqId={this.props.flowIndex}>
           <AccordionSection
              title={this.props.flowIndex}>
-                {this.traceData()}
+              <div style={divStyleLavBlush}>
+                {this.traceData.bind(this)}
+              </div>
           </AccordionSection>
         </Accordion>
         <br/>
