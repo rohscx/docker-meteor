@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import Trace from './ApicTrace/Trace';
+import Test from './ApicTrace/Test';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
@@ -97,17 +98,29 @@ class ApicTrace extends Component {
 
   testtest(flowArray){
     return flowArray.map(item => {
+      let rickets = Object.keys(item).map(function(key,index){
+        console.log("item[key]: ",item[key]);
+        console.log("key: ",key);
+        console.log("index: ",index);
+        console.log("item: ", item);
+        console.log("typeof item: ",typeof item);
+        console.log("typeof item[key]: ",typeof item[key]);
+        console.log("typeof key: ",typeof key);
+        console.log("typeof index: ",typeof index);
+        if(typeof item[key] === 'object'){
+          console.log("item[key].physicalInterface.name: ",key,item[key].physicalInterface.name);
+          return <Test flowItem={item[key].physicalInterface.name} flowIndex={key} key={index} />;
+        } else {
+          return <Test flowItem={item[key]} flowIndex={key} key={index} />;
+        }
+
+
       return (
         <div>
         <Accordion
           {...this.props}
           uniqId={"this.props.flowIndex"}>
-          <AccordionSection
-             title={Object.getOwnPropertyNames(item)}>
-
-                {item.defaultData}
-
-          </AccordionSection>
+          {rickets}
         </Accordion>
       </div>
       );
