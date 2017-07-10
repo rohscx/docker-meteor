@@ -102,7 +102,7 @@ class ApicTrace extends Component {
       let deviceInfo = [];
       let deviceType = [];
       let deviceName = [];
-      let rickets = Object.keys(item).map(function(key,index){
+      let rickets = Object.keys(item[index]).map(function(key,index){
         console.log("item[key]: ",item[key]);
         console.log("key: ",key);
         console.log("index: ",index);
