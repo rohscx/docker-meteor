@@ -145,12 +145,12 @@ class ApicTrace extends Component {
 
   <AccordionSection
    title="Section 1">
-   {*/ Content Goes Here /*}
+   {"BLERB1"}
   </AccordionSection>
 
   <AccordionSection
    title="Section 2">
-   {*/ Content Goes Here /*}
+   {"BLERB2"}
   </AccordionSection>
 
 </Accordion>
