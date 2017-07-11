@@ -38,11 +38,12 @@ class ApicTrace extends Component {
     categories: ['Web Design', 'Web Development', 'Mobile Development']
   }
 
+  tracePath(){
+    this.props.getTicket()
+  }
+
 
   traceForm(){
-    let tracePath = () => {
-      this.props.getTicket()
-    };
 
     const mainDiv = {
       "borderRadius": "5%",
@@ -62,7 +63,7 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' onClick={()=>tracePath}>
+            <div className='footer' onClick={()=>tracePath()}>
               BUTTOn
             </div>
           </div>
