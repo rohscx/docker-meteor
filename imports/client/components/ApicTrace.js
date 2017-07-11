@@ -90,6 +90,9 @@ class ApicTrace extends Component {
             </div>
             <div className='footer' onClick={this.props.apic.traceStatus.dataReady ? ()=>this.getFlow() : ()=>this.tracePath()}>
               {this.props.apic.traceStatus.dataReady ? "Trace Complete" : "Submit"}
+              <span className={
+                this.props.apic.traceStatus.isReady ? "" : "glyphicon glyphicon-refresh glyphicon-refresh-animate"
+              }></span>
             </div>
           </div>
             <input type="submit" value="Submit" className="btn"/>
