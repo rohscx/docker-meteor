@@ -41,6 +41,7 @@ class ApicTrace extends Component {
           resolve(x);
         });
     }
+  }
     async function add1(x) {
       var a = resolveAfter2Seconds(20);
       var b = resolveAfter2Seconds(30);
