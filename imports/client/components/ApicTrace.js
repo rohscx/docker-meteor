@@ -37,6 +37,30 @@ class ApicTrace extends Component {
     const sourceIp = this.props.apic.traceIp.source;
     const destIp = this.props.apic.traceIp.destination;
     this.props.getTicket(sourceIp,destIp);
+    function resolveAfter2Seconds(x) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            if(this.props.apic.traceStatus.status == "INPROGRESS"){
+              console.log("INPROGRESS");
+              resolve(x);
+            }
+            console.log("NOT INPROGRESS");
+            resolve(x);
+          }, 2000);
+        });
+      }
+
+      async function add1(x) {
+        var a = resolveAfter2Seconds(20);
+        var b = resolveAfter2Seconds(30);
+        return x + await a + await b;
+      }
+
+      add1(10).then(v => {
+        console.log(v);  // prints 60 after 2 seconds.
+      });
+    var myVar = setInterval(myTimer ,1000);
+
   }
 
 
@@ -75,8 +99,8 @@ class ApicTrace extends Component {
       }
   }
 
-  loopThrough(flowArray){
-
+  loopThrough(){
+    let flowArray = this.props.apic.flow;
     return flowArray.map(item => {
       let deviceInfo = [];
       let deviceType = [];
@@ -169,7 +193,7 @@ class ApicTrace extends Component {
       }> LOG PROPS</button>
 
 
-      {this.loopThrough(this.props.apic.flow)}
+      {this.loopThrough()}
 
 
 
