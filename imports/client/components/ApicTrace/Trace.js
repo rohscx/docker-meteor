@@ -51,7 +51,6 @@ export default class Trace extends Component {
 
           </AccordionSection>
         </Accordion>
-        <br/>
       </div>
     )
   }
