@@ -40,7 +40,7 @@ class ApicTrace extends Component {
 
 
   traceForm(){
-    const tracePath(){
+    tracePath(){
       this.props.getTicket()
     }
 
