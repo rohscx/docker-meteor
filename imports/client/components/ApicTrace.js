@@ -34,15 +34,14 @@ class ApicTrace extends Component {
 
 
   tracePath(){
-    async function getProcessedData(rest) {
-      let v;
-      try {
-        v = await rest;
-      } catch(e) {
-        v = await rest;
-      }
-      console.log("CANT STOP!!");
-      return v;
+    function getProcessedData(url) {
+      return url // returns a promise
+        .catch(e => {
+          return console.log("LOT S OF ERRORSSDFS"); // returns a promise
+        })
+        .then(v => {
+          return console.log("THIS SHOULD RETURN AFTER THE REQUEST"); // returns a promise
+        });
     }
     getProcessedData(this.props.getTicket());
 
