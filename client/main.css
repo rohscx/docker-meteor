@@ -641,18 +641,16 @@ button[type='submit'] {
   transition: all 10s ease-out;
 }
 
+.footer:hover {
+  background-color: #2e6da4;
+  transition: all 0s ease-in;
+}
 
 .footer:active {
   background-color: #3e8e41;
-  transition: all 0s ease-in;
+  transition: none;
 
 }
-
-.footer:hover {
-  background-color: #2e6da4;
-
-}
-
 
 ul {
     list-style-type: none;
