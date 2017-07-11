@@ -647,11 +647,7 @@ button[type='submit'] {
 .footer:focus {
   background-color: #3e8e41;
 }
-.footer:active {
-  background-color: #3e8e41;
 
-
-}
 
 ul {
     list-style-type: none;
