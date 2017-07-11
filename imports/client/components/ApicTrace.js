@@ -39,7 +39,8 @@ class ApicTrace extends Component {
   }
 
   tracePath(){
-    this.props.getTicket()
+    alert("CATS");
+    this.props.getTicket();
   }
 
 
