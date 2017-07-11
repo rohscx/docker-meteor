@@ -34,8 +34,8 @@ class ApicTrace extends Component {
 
 
   tracePath(){
-    const sourceIp = this.props.apic.traceIp.source;
-    const destIp = this.props.apic.traceIp.destination;
+    let sourceIp = this.props.apic.traceIp.source;
+    let destIp = this.props.apic.traceIp.destination;
 
     this.props.getTicket(sourceIp,destIp);
   }
