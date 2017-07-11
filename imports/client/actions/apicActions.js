@@ -121,7 +121,9 @@ export function getFlowId(ticket,sourceIp,destIp) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          return dispatch(setFlowId(res.data.response.flowAnalysisId));
+          flowId = res.data.response.flowAnalysisId;
+          dispatch(getFlowStatus(ticket, flowId))
+          return dispatch(setFlowId(flowId));
         }
     })
   }
