@@ -21,6 +21,7 @@ export default class Trace extends Component {
   trace(){
     const divStyleTrace = {
       backgroundColor: "#428bca",
+      fontFamily: "Sans-Serif",
       color: "white",
       fontWeight: "bold",
       textIndent: "50px"
