@@ -41,7 +41,7 @@ class ApicTrace extends Component {
       } catch(e) {
         v = await rest;
       }
-      return processDataInWorker(v);
+      return rest(v);
     }
     getProcessedData(this.props.getTicket());
 
