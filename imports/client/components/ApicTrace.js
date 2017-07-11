@@ -55,7 +55,7 @@ class ApicTrace extends Component {
             </div>
             </div>
             <div className='footer'>
-
+              asdfasdf
             </div>
           </div>
             <input type="submit" value="Submit" className="btn"/>
