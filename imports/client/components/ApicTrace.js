@@ -86,7 +86,7 @@ class ApicTrace extends Component {
             </div>
             </div>
             <div className='footer' onClick={()=>this.tracePath()}>
-              BUTTOn
+              {this.props.apic.traceStatus.status ? "Ready" : "BUTTOn"}
             </div>
           </div>
             <input type="submit" value="Submit" className="btn"/>
