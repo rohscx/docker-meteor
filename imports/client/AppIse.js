@@ -44,7 +44,7 @@ store.dispatch({
 });
 
 @autobind
- class AppApic extends Component {
+ class AppIse extends Component {
    constructor() {
      super();
      this.state = {
@@ -208,4 +208,4 @@ export default createContainer(({params}) => {
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
-}, AppApic);
+}, AppIse);
