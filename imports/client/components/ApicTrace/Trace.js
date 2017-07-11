@@ -35,11 +35,11 @@ export default class Trace extends Component {
   }
 
   render() {
-    const demo = {width: "80%"};
+    const styleData = {width: "80%",margin: "auto"};
 
 
     return(
-      <div style = {demo}>
+      <div style = {styleData}>
         <Accordion
           {...this.props}
           uniqId={"this.props.flowIndex"}>
