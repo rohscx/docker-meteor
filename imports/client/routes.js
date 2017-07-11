@@ -10,6 +10,7 @@ import App from './App';
 import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
 import AppApic from './AppApic';
+mport AppApic from './AppIse';
 
 Meteor.startup(() => {
   render(
@@ -17,6 +18,7 @@ Meteor.startup(() => {
       <Route path="/" component={MainLayout} >
         <IndexRoute component={App} />
         <Route path="/apic" component={AppApic} />
+        <Route path="/ise" component={AppIse} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
 
