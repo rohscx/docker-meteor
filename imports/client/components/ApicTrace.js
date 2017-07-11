@@ -43,6 +43,7 @@ class ApicTrace extends Component {
       if(this.props.apic.showTrace){
         return (
           <form onSubmit={this.handleSubmit}>
+            <div className="footer">This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.</div>
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
