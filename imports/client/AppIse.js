@@ -6,7 +6,6 @@ import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
-import ItemApic from './components/ItemApic';
 import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
