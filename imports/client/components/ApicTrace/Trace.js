@@ -44,7 +44,7 @@ export default class Trace extends Component {
           {...this.props}
           uniqId={"this.props.flowIndex"}>
           <AccordionSection
-            style={demo}
+            style={false}
             setting={demo}
              title={this.trace()}>
 
