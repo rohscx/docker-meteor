@@ -9,7 +9,8 @@ export default class Trace extends Component {
       fontFamily: "Sans-Serif",
       color: "#fff",
       fontWeight: "bold",
-      textIndent: "50px"
+      textIndent: "50px",
+      borderRadius: "5%" "5%" "5%" "5%";
     };
     return (
       <div className="row">
@@ -19,7 +20,7 @@ export default class Trace extends Component {
       </div>
     );
   }
-  
+
   traceData(){
     const divStyleLavTraceData = {
       textAlign: "center",

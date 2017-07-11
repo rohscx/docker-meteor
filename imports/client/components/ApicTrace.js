@@ -175,7 +175,7 @@ class ApicTrace extends Component {
 
       <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)
-      }> LOG PROPS</button>
+      }> LOG PROPS DEBUG </button>
 
       {this.loopThrough()}
 

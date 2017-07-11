@@ -584,6 +584,7 @@ button[type='submit'] {
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  border-radius: 5% 5% 0% 0%;
 }
 
 .trace p {
@@ -635,6 +636,7 @@ button[type='submit'] {
   text-align: center;
   font-family: Sans-Serif;
   color: #fff;
+  border-radius: 0% 0% 5% 5%;
 }
 
 .footer:hover {
