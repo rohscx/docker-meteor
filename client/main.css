@@ -641,15 +641,17 @@ button[type='submit'] {
   transition:0s 7s;
 }
 
-.footer:hover {
-  background: #2e6da4;
-  transition: none;
-}
-
 .footer:active {
   background-color: #3e8e41;
   transition:0s;
 }
+
+.footer:hover {
+  background: #2e6da4;
+  transition: 0s 2s;
+}
+
+
 
 ul {
     list-style-type: none;
