@@ -57,9 +57,9 @@ class ApicTrace extends Component {
               <label> Destination </label>
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
-            </div>
             <div className='footer'>
               BUTTOn
+            </div>
             </div>
           </div>
             <input type="submit" value="Submit" className="btn"/>
