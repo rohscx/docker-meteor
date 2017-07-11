@@ -39,7 +39,8 @@ class ApicTrace extends Component {
       return new Promise(resolve => {
         this.props.getTicket((x) =>{
           resolve(x);
-        });
+        }
+      ));
     }
   };
     async function add1(x) {
