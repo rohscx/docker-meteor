@@ -40,14 +40,14 @@ class ApicTrace extends Component {
 
 
   traceForm(){
-    let tracePath =()=>{
+    let tracePath = () => {
       this.props.getTicket()
-    }
+    };
 
     const mainDiv = {
       "borderRadius": "5%",
       width: "40%"
-    }
+    };
       if(this.props.apic.showTrace){
         return (
           <form onSubmit={this.handleSubmit}>
