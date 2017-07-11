@@ -20,9 +20,9 @@ export default class Trace extends Component {
   }
   trace(){
     const divStyleTrace = {
-      backgroundColor: "#428bca",
+      backgroundColor: "#337ab7",
       fontFamily: "Sans-Serif",
-      color: "white",
+      color: "#fff",
       fontWeight: "bold",
       textIndent: "50px"
     };
@@ -36,7 +36,12 @@ export default class Trace extends Component {
   }
 
   render() {
-    const styleData = {width: "80%",margin: "auto",fontFamily: "Sans-Serif"};
+    const styleData = {
+      width: "80%",
+      margin: "auto",
+      fontFamily: "Sans-Serif",
+      color: "#fff"
+    };
 
 
     return(
