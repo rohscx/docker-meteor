@@ -73,7 +73,7 @@ class ApicTrace extends Component {
     const mainDiv = {
       borderRadius: "5%",
       width: "40%",
-      paddingTop: "5%",
+      paddingTop: "1%",
       paddingBottom: "5%"
     };
       if(this.props.apic.showTrace){
