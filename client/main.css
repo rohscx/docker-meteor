@@ -638,21 +638,16 @@ button[type='submit'] {
   color: #fff;
   border-bottom-left-radius: .2em;
   border-bottom-right-radius: .2em;
-  
+
 }
 
 .footer:hover {
   background-color: #2e6da4;
-
 }
-
-.footer:active {
-  background-color: #3e8e41;
-
-
-}
-
 .footer:focus {
+  background-color: #3e8e41;
+}
+.footer:active {
   background-color: #3e8e41;
 
 
