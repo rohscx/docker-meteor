@@ -58,7 +58,7 @@ export function setTraceStatus(traceStatus) {
 }
 
 
-export function getTicket() {
+export function getTicket(sourceIp,destIp) {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
     apicTicket = '/api/v1/ticket';
@@ -83,7 +83,9 @@ export function getTicket() {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          return dispatch(setTicket(res.data.response.serviceTicket));
+          let ticket = res.data.response.serviceTicket;
+          dispatch(getFlowId(ticket,sourceIp,destIp));
+          return dispatch(setTicket(ticket));
         }
     })
   }

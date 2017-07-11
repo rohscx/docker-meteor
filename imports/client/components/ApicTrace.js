@@ -34,17 +34,10 @@ class ApicTrace extends Component {
 
 
   tracePath(){
-    function getProcessedData(url) {
-      return url // returns a promise
-        .catch(e => {
-          return console.log("LOT S OF ERRORSSDFS"); // returns a promise
-        })
-        .then(v => {
-          return console.log("THIS SHOULD RETURN AFTER THE REQUEST"); // returns a promise
-        });
-    }
-    getProcessedData(this.props.getTicket());
+    const sourceIp = this.props.apic.traceIp.source;
+    const destIp = this.props.apic.traceIp.destination;
 
+    this.props.getTicket(sourceIp,destIp);
   }
 
 
@@ -217,7 +210,7 @@ const mapDispatchToProps = (dispatch) => {
     setShowTrace: (showTrace) => {
       dispatch(setShowTrace(showTrace));
     },
-    getTicket: () => {
+    getTicket: (sourceIp,destIp) => {
       dispatch(getTicket());
     },
     getFlowId: (ticket, sourceIp, destIp) => {
