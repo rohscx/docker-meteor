@@ -647,7 +647,7 @@ button[type='submit'] {
 
 .footer:active {
   background-color: #3e8e41;
-  transition:5s;
+  transition:.2s;
 }
 
 ul {
