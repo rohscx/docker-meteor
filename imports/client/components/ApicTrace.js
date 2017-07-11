@@ -42,7 +42,7 @@ class ApicTrace extends Component {
   traceForm(){
     const mainDiv = {
       width: "40%",
-      borderRadius:"25%"
+      borderRadius: "5%"
     }
       if(this.props.apic.showTrace){
         return (
