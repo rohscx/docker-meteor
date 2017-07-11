@@ -638,11 +638,13 @@ button[type='submit'] {
   color: #fff;
   border-bottom-left-radius: .2em;
   border-bottom-right-radius: .2em;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-.footer:hover {
-  background: #2e6da4;
-}
+
 
 .footer:after {
     content: "";
