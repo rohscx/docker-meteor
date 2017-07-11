@@ -37,10 +37,11 @@ class ApicTrace extends Component {
     const sourceIp = this.props.apic.traceIp.source;
     const destIp = this.props.apic.traceIp.destination;
     this.props.getTicket(sourceIp,destIp);
-    function resolveAfter2Seconds(x) {
+
+    function resolveAfter2Seconds(x,status) {
         return new Promise(resolve => {
           setTimeout(() => {
-            if(this.props.apic.traceStatus.status == "INPROGRESS"){
+            if(status == "INPROGRESS"){
               console.log("INPROGRESS");
               resolve(x);
             }
@@ -56,10 +57,10 @@ class ApicTrace extends Component {
         return x + await a + await b;
       }
 
-      add1(10).then(v => {
+      add1(10,this.props.apic.traceStatus.status).then(v => {
         console.log(v);  // prints 60 after 2 seconds.
       });
-    var myVar = setInterval(myTimer ,1000);
+    //var myVar = setInterval(myTimer ,1000);
 
   }
 
