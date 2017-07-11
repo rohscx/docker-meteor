@@ -585,7 +585,10 @@ button[type='submit'] {
   display: flex;
   justify-content: space-between;
 }
-
+.trace .footer {
+  background-color: #efefef;
+  text-align: center;
+}
 .trace p {
   font-size: 18px;
   margin: 0;
@@ -598,9 +601,6 @@ button[type='submit'] {
   transition: 0.3s ease all;
   border-bottom: solid 10px;
 
-}
-.trace .border {
-  border-bottom-color: black;
 }
 
 .trace > span {
