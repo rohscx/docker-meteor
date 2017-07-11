@@ -41,8 +41,7 @@ class ApicTrace extends Component {
 
   traceForm(){
     const footerBtn = {
-      width: "40%",
-      backgroundColor: "#337ab7"
+      width: "40%"
     }
       if(this.props.apic.showTrace){
         return (
