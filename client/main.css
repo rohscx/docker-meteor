@@ -642,7 +642,8 @@ button[type='submit'] {
 }
 
 .footer:hover {
-  background: #2e6da4;
+  background: red;
+  transition: none;
 }
 
 .footer:active {
