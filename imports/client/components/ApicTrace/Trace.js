@@ -3,21 +3,6 @@ import { Session } from 'meteor/session';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 // WORK IN PROGRESS
 export default class Trace extends Component {
-
-  traceData(){
-    const divStyleLavTraceData = {
-      textAlign: "center",
-      borderBottomColor: "black",
-      borderBottomWidth: 10
-    };
-    return (
-      <div className="row">
-        <div className="col-sm-12" style={divStyleLavTraceData}>
-          {this.props.flowItem}
-        </div>
-      </div>
-    );
-  }
   trace(){
     const divStyleTrace = {
       backgroundColor: "#337ab7",
@@ -30,6 +15,21 @@ export default class Trace extends Component {
       <div className="row">
         <div className="col-sm-12" style={divStyleTrace}>
           {this.props.flowItemName + " " + this.props.flowItemType}
+        </div>
+      </div>
+    );
+  }
+  
+  traceData(){
+    const divStyleLavTraceData = {
+      textAlign: "center",
+      borderBottomColor: "black",
+      borderBottomWidth: 10
+    };
+    return (
+      <div className="row">
+        <div className="col-sm-12" style={divStyleLavTraceData}>
+          {this.props.flowItem}
         </div>
       </div>
     );
