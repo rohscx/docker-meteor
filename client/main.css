@@ -643,12 +643,18 @@ button[type='submit'] {
 
 .footer:hover {
   background-color: #2e6da4;
-  transition: all 0s ease-in;
+
 }
 
 .footer:active {
   background-color: #3e8e41;
-  transition: none;
+  transition: all 0s ease-in;
+
+}
+
+.footer:focus {
+  background-color: #3e8e41;
+  transition: all 0s ease-in;
 
 }
 
