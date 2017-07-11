@@ -10,7 +10,8 @@ export default class Trace extends Component {
       color: "#fff",
       fontWeight: "bold",
       textIndent: "50px",
-      borderRadius: "5% 5% 5% 5%"
+      borderBottomLeftRadius: ".2em",
+      borderBottomRightRadius: ".2em"
     };
     return (
       <div className="row">

@@ -636,8 +636,8 @@ button[type='submit'] {
   text-align: center;
   font-family: Sans-Serif;
   color: #fff;
-  border-bottom-left-radius: .5em;
-  border-bottom-right-radius: .5em;
+  border-bottom-left-radius: .2em;
+  border-bottom-right-radius: .2em;
 }
 
 .footer:hover {
