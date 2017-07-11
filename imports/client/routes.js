@@ -10,7 +10,7 @@ import App from './App';
 import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
 import AppApic from './AppApic';
-mport AppIse from './AppIse';
+import AppIse from './AppIse';
 
 Meteor.startup(() => {
   render(
