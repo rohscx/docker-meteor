@@ -44,7 +44,6 @@ class ApicTrace extends Component {
         return (
           <form onSubmit={this.handleSubmit}>
             <div className='trace'>
-              <div class="footer"> <strong>not fixed</strong>.
               <div className='source'>
                 <label> Source </label>
                 <input type="text" value={this.props.apic.traceIp.source} onChange={this.handleChangeSourceIP} />
@@ -52,7 +51,6 @@ class ApicTrace extends Component {
             <div className='destination'>
               <label> Destination </label>
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
-            </div>
             </div>
             </div>
             <input type="submit" value="Submit" className="btn"/>
