@@ -33,11 +33,6 @@ class ApicTrace extends Component {
   }
 
 
-
-  static defaultProps = {
-    categories: ['Web Design', 'Web Development', 'Mobile Development']
-  }
-
   tracePath(){
     this.props.getTicket(function(err, result) {
       if (err) {
