@@ -637,7 +637,7 @@ button[type='submit'] {
   color: #fff;
 }
 
-.footer div:hover {
+.footer:hover {
   background: #EEE;
 }
 
