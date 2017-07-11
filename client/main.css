@@ -597,14 +597,9 @@ button[type='submit'] {
   text-align: center;
   transition: 0.3s ease all;
   border-bottom: solid 10px;
-}
-.trace .source {
   border-bottom-color: black;
 }
 
-.trace .destination {
-  border-bottom-color: black;
-}
 
 .trace > span {
   font-style: italic;
