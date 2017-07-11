@@ -40,7 +40,10 @@ class ApicTrace extends Component {
 
   tracePath(){
     this.props.getTicket(function(err, result) {
-      console.log("THIS IS THE RESULT", result)
+      if (err) {
+        console.log("ERROR",error);
+      }
+      console.log("THIS IS THE RESULT", result);
     });
   }
 
