@@ -33,8 +33,9 @@ class ApicTrace extends Component {
   }
 
 
-  tracePath(sourceIp,destIp){
-
+  tracePath(){
+    const sourceIp = this.props.apic.traceIp.source;
+    const destIp = this.props.apic.traceIp.destination;
     this.props.getTicket(sourceIp,destIp);
   }
 
@@ -59,7 +60,7 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' onClick={()=>this.tracePath(this.props.apic.traceIp.source,this.props.apic.traceIp.destination)}>
+            <div className='footer' onClick={()=>this.tracePath()}>
               BUTTOn
             </div>
           </div>
@@ -209,7 +210,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setShowTrace(showTrace));
     },
     getTicket: (sourceIp,destIp) => {
-      dispatch(getTicket());
+      dispatch(getTicket(sourceIp,destIp));
     },
     getFlowId: (ticket, sourceIp, destIp) => {
       dispatch(getFlowId(ticket, sourceIp, destIp));
