@@ -644,7 +644,9 @@ button[type='submit'] {
   overflow: hidden;
 }
 
-
+.footer:hover {
+  background: #2e6da4;
+}
 
 .footer:after {
     content: "";
@@ -664,6 +666,7 @@ button[type='submit'] {
     margin: 0;
     opacity: 1;
     transition: 0s
+  }
 
 ul {
     list-style-type: none;
