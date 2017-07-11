@@ -58,7 +58,7 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' onClick={alert("DONKEYBALLS")}>
+            <div className='footer' onClick={()=>alert("DONKEYBALLS")}>
               BUTTOn
             </div>
           </div>
