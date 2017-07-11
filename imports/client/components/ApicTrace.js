@@ -41,6 +41,7 @@ class ApicTrace extends Component {
       } catch(e) {
         v = await rest;
       }
+      console.log("CANT STOP!!");
       return v;
     }
     getProcessedData(this.props.getTicket());
