@@ -35,17 +35,15 @@ export default class Trace extends Component {
   }
 
   render() {
-    const demo = {backgroundColor:"red",background:"red",contentBackgroundColor: "red"};
+    const demo = {width: "80%"};
 
 
     return(
-      <div>
+      <div style = {demo}>
         <Accordion
           {...this.props}
           uniqId={"this.props.flowIndex"}>
           <AccordionSection
-            style={false}
-            setting={demo}
              title={this.trace()}>
 
                 {this.traceData()}
