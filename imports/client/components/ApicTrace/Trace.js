@@ -35,7 +35,7 @@ export default class Trace extends Component {
   }
 
   render() {
-    const styleData = {width: "80%",margin: "auto",fontFamily: Sans-Serif};
+    const styleData = {width: "80%",margin: "auto",fontFamily: "Sans-Serif"};
 
 
     return(
