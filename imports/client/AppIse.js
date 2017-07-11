@@ -54,7 +54,6 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   return {
-    showAll,
-    ready: itemsSub.ready() && userSub.ready(),
+    showAll
   }
 }, AppIse);
