@@ -585,7 +585,7 @@ button[type='submit'] {
   display: flex;
   justify-content: space-between;
 }
-.trace .footer {
+.footer {
   background-color: #efefef;
   text-align: center;
 }
