@@ -11,7 +11,9 @@ export default class Trace extends Component {
       fontWeight: "bold",
       textIndent: "50px",
       borderBottomLeftRadius: ".2em",
-      borderBottomRightRadius: ".2em"
+      borderBottomRightRadius: ".2em",
+      borderTopLeftRadius: ".2em",
+      borderTopRightRadius: ".2em"
     };
     return (
       <div className="row">
