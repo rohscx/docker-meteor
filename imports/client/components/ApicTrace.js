@@ -34,12 +34,23 @@ class ApicTrace extends Component {
 
 
   tracePath(){
-    this.props.getTicket(function(err, result) {
-      if (err) {
-        console.log("ERROR",error);
-      }
-      console.log("THIS IS THE RESULT", result);
+
+    function resolveAfter2Seconds(x) {
+      return new Promise(resolve => {
+        this.props.getTicket((x) =>{
+          resolve(x);
+        });
+    }
+    async function add1(x) {
+      var a = resolveAfter2Seconds(20);
+      var b = resolveAfter2Seconds(30);
+      return x + await a + await b;
+    }
+
+    add1(10).then(v => {
+      console.log(v);  // prints 60 after 2 seconds.
     });
+
   }
 
 
