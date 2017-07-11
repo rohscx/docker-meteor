@@ -90,7 +90,7 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' {this.props.apic.traceStatus.isReady ? style=\{backgroundColor:"green"\} : ""}  onClick={this.props.apic.traceStatus.dataReady ? ()=>this.getFlow() : ()=>this.tracePath()}>
+            <div className='footer' {this.props.apic.traceStatus.isReady ? style={{backgroundColor:"green"}} : ""}  onClick={this.props.apic.traceStatus.dataReady ? ()=>this.getFlow() : ()=>this.tracePath()}>
               {this.props.apic.traceStatus.dataReady ? "Trace Complete" : "Submit "}
               <span className={
                 this.props.apic.traceStatus.isReady ? "" : "glyphicon glyphicon-refresh glyphicon-refresh-animate"
