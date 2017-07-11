@@ -52,7 +52,7 @@ class ApicTrace extends Component {
               <label> Destination </label>
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
-            <div className="border">
+            <div className='border'>
               <h1>Diamond Sponsors</h1>
             </div>
             </div>
