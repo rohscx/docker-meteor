@@ -643,7 +643,6 @@ button[type='submit'] {
 
 .footer:hover {
   background-color: #2e6da4;
-  transition-property: none;
 }
 
 .footer:active {
