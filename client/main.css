@@ -638,17 +638,15 @@ button[type='submit'] {
   color: #fff;
   border-bottom-left-radius: .2em;
   border-bottom-right-radius: .2em;
-  transition:0s 5s;
 }
 
 .footer:hover {
   background: #2e6da4;
-  transition:.2s;
 }
 
 .footer:active {
   background-color: #3e8e41;
-  transition:0s;
+  transition:0s 7s;
 }
 
 ul {
