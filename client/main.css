@@ -649,6 +649,7 @@ button[type='submit'] {
 .footer:active {
   background-color: #3e8e41;
   transition: all 0s ease-in;
+}
 
 ul {
     list-style-type: none;
