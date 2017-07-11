@@ -64,6 +64,9 @@ class ApicTrace extends Component {
 
   }
 
+  getFlow(){
+    this.props.getFlow(this.props.apic.ticket, this.props.apic.flowId)
+  }
 
   traceForm(){
 
@@ -85,8 +88,8 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' onClick={()=>this.tracePath()}>
-              {this.props.apic.traceStatus.dataReady? "Trace Complete" : "Submit"}
+            <div className='footer' onClick={this.props.apic.traceStatus.dataReady ? ()=>this.getFlow() : ()=>this.tracePath()}>
+              {this.props.apic.traceStatus.dataReady ? "Trace Complete" : "Submit"}
             </div>
           </div>
             <input type="submit" value="Submit" className="btn"/>
