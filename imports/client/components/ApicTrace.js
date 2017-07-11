@@ -46,7 +46,7 @@ class ApicTrace extends Component {
       if(this.props.apic.showTrace){
         return (
           <form onSubmit={this.handleSubmit}>
-            <div style={fotterBtn}>
+            <div style={footerBtn}>
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
