@@ -35,7 +35,7 @@ export default class Trace extends Component {
   }
 
   render() {
-    const demo = {backgroundColor:"red",background:"red"};
+    const demo = {backgroundColor:"red",background:"red",contentBackgroundColor: "red"};
 
 
     return(
