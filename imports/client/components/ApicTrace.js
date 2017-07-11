@@ -33,9 +33,7 @@ class ApicTrace extends Component {
   }
 
 
-  tracePath(){
-    let sourceIp = this.props.apic.traceIp.source;
-    let destIp = this.props.apic.traceIp.destination;
+  tracePath(sourceIp,destIp){
 
     this.props.getTicket(sourceIp,destIp);
   }
@@ -61,7 +59,7 @@ class ApicTrace extends Component {
               <input type="text" value={this.props.apic.traceIp.destination} onChange={this.handleChangeDestinationIP}/>
             </div>
             </div>
-            <div className='footer' onClick={()=>this.tracePath()}>
+            <div className='footer' onClick={()=>this.tracePath(this.props.apic.traceIp.source,this.props.apic.traceIp.destination)}>
               BUTTOn
             </div>
           </div>
