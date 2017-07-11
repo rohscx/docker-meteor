@@ -163,6 +163,7 @@ export function getFlowStatus(ticket,flowId) {
         } else {
           // used for loading button
           res.data.response.request.isReady = true;
+          res.data.response.request.dataReady = true;
           return dispatch(setTraceStatus(res.data.response.request));
         }
       }
