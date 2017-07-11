@@ -40,13 +40,13 @@ class ApicTrace extends Component {
 
 
   traceForm(){
-    const footerBtn = {
+    const mainDiv = {
       width: "40%"
     }
       if(this.props.apic.showTrace){
         return (
           <form onSubmit={this.handleSubmit}>
-            <div style={footerBtn}>
+            <div style={mainDiv}>
             <div className='trace'>
               <div className='source'>
                 <label> Source </label>
