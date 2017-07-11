@@ -592,7 +592,7 @@ button[type='submit'] {
 }
 
 .trace div {
-  width: 80%;
+  width: 100%;
   cursor: pointer;
   padding: 5px;
   text-align: center;
