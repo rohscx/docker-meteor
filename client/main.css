@@ -638,7 +638,7 @@ button[type='submit'] {
   color: #fff;
   border-bottom-left-radius: .2em;
   border-bottom-right-radius: .2em;
-  transition: .2s ease-in, background-color 8s;
+  transition: .2s ease-in, .2s ease-out, background-color 8s;
 }
 
 .footer:hover {
@@ -648,7 +648,6 @@ button[type='submit'] {
 
 .footer:active {
   background-color: #3e8e41;
-  transition:0s;
 }
 
 ul {
