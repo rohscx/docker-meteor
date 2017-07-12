@@ -30,7 +30,7 @@ class Ise extends Component {
     };
     return(
       <div style={divStyles}>
-        {this.iseSearchForm()}
+        {"asfdsafsad"}
       </div>
     )
   }
