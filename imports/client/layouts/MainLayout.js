@@ -14,7 +14,7 @@ const activeStyleObj = {
 };
 
 // stateless functional component. Functuion returns what ever you like
-const MainLayout = ({children}) =>
+const MainLayout = ({children}) =>{
 
   return (
     <div className='main-layout'>
@@ -31,5 +31,9 @@ const MainLayout = ({children}) =>
       {children}
     </div>
   )
+
+}
+
+
 
 export default MainLayout;
