@@ -61,7 +61,10 @@ const MainLayout = ({children}) =>
       </div>
     </div>
   </nav>
-  {children}
+  <div>
+    {children}
+  </div>
+
 </body>
 </div>
 
