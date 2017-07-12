@@ -9,7 +9,7 @@ import { addNumber } from '../actions/iseActions'
 class Ise extends Component {
   iseSearchForm(){
     const divStyles = {
-      width: "40%"
+      width: "20%"
     };
     return (
       <div style={divStyles}>
