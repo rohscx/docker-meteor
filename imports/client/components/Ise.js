@@ -15,15 +15,9 @@ class Ise extends Component {
       <div style={divStyles}>
         <Form horizontal>
           <FormGroup controlId="formInlineName">
-            <ControlLabel>Name</ControlLabel>
+            <ControlLabel>Host MAC</ControlLabel>
             {' '}
-            <FormControl type="text" placeholder="Jane Doe" />
-          </FormGroup>
-          {' '}
-          <FormGroup controlId="formInlineEmail">
-            <ControlLabel>Email</ControlLabel>
-            {' '}
-            <FormControl type="email" placeholder="jane.doe@example.com" />
+            <FormControl type="text" placeholder="34:17:eb:a6:28:e5" />
           </FormGroup>
           {' '}
           <Button type="submit">
