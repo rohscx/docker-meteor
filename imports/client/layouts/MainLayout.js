@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
-import {Navbar,Nav,NavItem,NavDropdown, MenuItem, Header} from 'react-bootstrap';
+import {Navbar,Nav,NavMenu,NavBrand,NavItem,NavDropdown, MenuItem, Header} from 'react-bootstrap';
 
 
 // style object for nav bar
@@ -41,10 +41,10 @@ const MainLayout = ({children}) =>
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <NavBrand linkTo={this.props.brand.linkTo} text={this.props.brand.text} />
+      fghjk
     </div>
     <div className="collapse navbar-collapse" id="navbar-collapse">
-      <NavMenu links={this.props.links} />
+      gfhj
     </div>
   </div>
 </nav>
