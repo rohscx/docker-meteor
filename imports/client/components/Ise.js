@@ -9,22 +9,31 @@ import { addNumber } from '../actions/iseActions'
 class Ise extends Component {
   iseSearchForm(){
     const divStyles = {
-      width: "20%"
+      width: "40%"
     };
     return (
-      <div style={divStyles}>
-        <Form horizontal>
-          <FormGroup controlId="formInlineName">
-            <ControlLabel>Host MAC</ControlLabel>
-            {' '}
-            <FormControl type="text" placeholder="34:17:eb:a6:28:e5" />
-          </FormGroup>
-          {' '}
-          <Button type="submit">
-            Send invitation
-          </Button>
-        </Form>
-      </div>
+              <Form horizontal>
+    <FormGroup controlId="formHorizontalMac">
+      <Col componentClass={ControlLabel} sm={2}>
+        MAC
+      </Col>
+      <Col sm={10}>
+        <FormControl type="text" placeholder="Host MAC ADDRESS" />
+      </Col>
+    </FormGroup>
+
+
+    <FormGroup>
+      <Col smOffset={2} sm={10}>
+        <Button type="submit">
+          Sign in
+        </Button>
+      </Col>
+    </FormGroup>
+  </Form>
+
+      </div>    
+      
     );
   }
 
