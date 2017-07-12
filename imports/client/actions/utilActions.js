@@ -14,7 +14,13 @@ export function subtractNumber(number) {
 
 export function checkMac(mac) {
   return dispatch => {
-    
-    return dispatch(setFlow(res.data.response.networkElementsInfo));
+      var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
+      var mac_address = mac;
+    if(regexp.test(mac_address)) {
+      console.log("Valid: "+ mac_address);
+      return dispatch(setMacValidate("success"));
+    } else {
+      return dispatch(setMacValidate("error"));
+    }
   }
 }
