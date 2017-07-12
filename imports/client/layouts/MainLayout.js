@@ -36,7 +36,7 @@ const activeStyleObj = {
 
 
 export default class MainLayout extends Component {
-  MainLayout({children}) =>{
+  MainLayout(children){
     <div>
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
