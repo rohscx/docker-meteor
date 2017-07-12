@@ -69,7 +69,6 @@ class Apic extends Component {
   }
 
   traceForm(){
-
     const mainDiv = {
       borderRadius: "5%",
       width: "40%",
@@ -173,7 +172,7 @@ class Apic extends Component {
         () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
       }>Path Trace Form {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
 
-      {this.traceForm()}
+      <TraceForm traceFrom={this.traceForm.bind(this)} />
 
       <button type="button" className="btn btn-primary" onClick={
         () => console.log(this.props)

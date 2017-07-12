@@ -26,6 +26,19 @@ store.subscribe(() => {
 
 @autobind
  class AppIse extends Component {
+   constructor() {
+     super();
+     this.state = {
+       greeting: ""
+     }
+   }
+
+
+   componentWillMount() {
+      this.setState({
+        greeting: "Welome to the ISE App"
+      });
+    }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
