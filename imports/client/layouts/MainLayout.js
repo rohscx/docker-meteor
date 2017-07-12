@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
-import * from 'react-bootstrap';
+import 'react-bootstrap';
 
 
 // style object for nav bar
