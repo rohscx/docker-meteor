@@ -32,6 +32,7 @@ const activeStyleObj = {
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
+<div>
   <Navbar inverse collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -57,7 +58,6 @@ const MainLayout = ({children}) =>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
-  <div>
   {children}
 </div>
 
