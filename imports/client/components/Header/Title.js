@@ -9,8 +9,8 @@ export default class Title extends Component {
         paddingBottom:"10%"
       };
     return(
-      <div sytle={divStyles}>
-        <h1>{this.props.greeting}</h1>
+      <div>
+        <h1 sytle={divStyles}>{this.props.greeting}</h1>
 
       </div>
     )
