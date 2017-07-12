@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { Form, FieldGroup,ControlLable, Button } from 'react-bootstrap';
+import { Form, FormGroup,ControlLable, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/iseActions'
 
 class Ise extends Component {
