@@ -163,8 +163,12 @@ class Apic extends Component {
 
   render() {
     console.log(this);
+    const divStyles = {
+      paddingTop: "10%",
+      paddingBottom:"10%"
+    };
     return(
-      const divStyles = {paddingTop: "10%"};
+
       <div style={divStyles}>
         <button  type="button" className="btn btn-primary" onClick={
           () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
