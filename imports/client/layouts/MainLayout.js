@@ -47,7 +47,7 @@ const MainLayout = ({children}) =>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
-            <li><a><Link to='/apic' >APIC-EM</Link></a></li>
+            <li><Link to='/apic' ><a>APIC-EM</a></Link></li>
             <li><a><Link to='/ise' >ISE</Link></a></li>
             <li><a><Link to='/about' s>About</Link></a></li>
             <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Tools<span className="caret"></span></a>
