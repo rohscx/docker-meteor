@@ -55,6 +55,6 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   return {
     showAll,
-    ready: "",
+    ready: "k",
   }
 }, AppIse);
