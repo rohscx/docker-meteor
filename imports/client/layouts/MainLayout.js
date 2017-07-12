@@ -33,7 +33,7 @@ const activeStyleObj = {
 
 
 const link1 () {
-  r<Link to='/apic'/>
+  <Link to='/apic'/>
 };
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
