@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { FieldGroup } from 'react-bootstrap';
-import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow } from '../actions/apicActions'
+import { addNumber } from '../actions/iseActions'
 
 class Ise extends Component {
   iseSearchForm(){
@@ -35,15 +35,14 @@ class Ise extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    user: state.userReducer,
-    math: state.mathReducer,
+    ise: state.iseReducer
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setName: (name) => {
-      dispatch(setName(name));
+    addNumber: (number) => {
+      dispatch(setName(number));
     }
   };
 };
