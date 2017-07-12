@@ -19,12 +19,12 @@ export function validateMac(mac) {
     if(regexp.test(mac_address)) {
       console.log("Valid: "+ mac_address);
       return dispatch(setMacValidation({
-          macAddress: mac,
+          macAddress: mac_address,
           validationStatus: "success"
         }));
     } else {
       return dispatch(setMacValidation({
-          macAddress: mac,
+          macAddress: mac_address,
           validationStatus: "error"
         }));
     }
