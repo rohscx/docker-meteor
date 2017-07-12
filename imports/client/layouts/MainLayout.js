@@ -42,7 +42,7 @@ const MainLayout = ({children}) =>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
         </button>
-        <Link to='/'><a className="navbar-brand">WebSiteName</a></Link>
+        <Link to='/'><a className="navbar-brand">FROST</a></Link>
       </div>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
