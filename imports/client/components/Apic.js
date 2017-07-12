@@ -165,8 +165,8 @@ class Apic extends Component {
     console.log(this);
     return(
       const divStyles = {paddingTop: "10%"};
-      <div>
-        <button style={divStyles} type="button" className="btn btn-primary" onClick={
+      <div style={divStyles}>
+        <button  type="button" className="btn btn-primary" onClick={
           () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
         }>Path Trace Form {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
         <TraceForm traceFrom={this.traceForm.bind(this)} />
