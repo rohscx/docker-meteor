@@ -32,8 +32,7 @@ const activeStyleObj = {
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
 <div>
-  <body dataSpy="scroll" dataTarget=".navbar" dataOffset="50">
-
+  <body>
   <nav className="navbar navbar-inverse navbar-fixed-top">
     <div className="container-fluid">
       <div className="navbar-header">
