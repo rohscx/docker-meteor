@@ -18,9 +18,15 @@ export function validateMac(mac) {
       var mac_address = mac;
     if(regexp.test(mac_address)) {
       console.log("Valid: "+ mac_address);
-      return dispatch(setMacValidation("success"));
+      return dispatch(setMacValidation({
+          macAddress: mac,
+          validationStatus: "success"
+        }));
     } else {
-      return dispatch(setMacValidation("error"));
+      return dispatch(setMacValidation({
+          macAddress: mac,
+          validationStatus: "error"
+        }));
     }
   }
 }

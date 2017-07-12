@@ -1,8 +1,5 @@
 const utilReducer = (state = {
-  macValidation: {
-    macAddress:null,
-    validationStatus:""
-  }
+  macValidation: 'default'
 }, action) => {
   switch (action.type) {
     case "MAC_VALIDATION":
