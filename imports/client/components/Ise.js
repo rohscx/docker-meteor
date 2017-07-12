@@ -54,7 +54,7 @@ class Ise extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    ise: state.iseReducer
+    ise: state.iseReducer,
     util: state.utilReducer
   };
 };
