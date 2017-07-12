@@ -16,6 +16,7 @@ export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
       var mac_address = mac;
+      console.log("Input: "+ mac);
     if(regexp.test(mac_address)) {
       console.log("Valid: "+ mac_address);
       return dispatch(setMacValidation({
