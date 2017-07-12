@@ -21,7 +21,7 @@ export function validateMac(mac) {
       return dispatch(setMacValidation({
           macAddress: mac_address,
           validationStatus: "success",
-          bthStyle: true
+          btnStyle: true
         }));
     } else {
       console.log("Not Valid: "+ mac_address)
