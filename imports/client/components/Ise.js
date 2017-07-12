@@ -13,7 +13,7 @@ class Ise extends Component {
     };
     return (
       <div style={divStyles}>
-        <Form inline>
+        <Form horizontal>
           <FormGroup controlId="formInlineName">
             <ControlLabel>Name</ControlLabel>
             {' '}
