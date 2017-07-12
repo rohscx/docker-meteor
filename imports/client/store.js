@@ -4,6 +4,7 @@ import mathReducer from './reducers/mathReducer';
 import userReducer from './reducers/userReducer';
 import apicReducer from './reducers/apicReducer';
 import iseReducer from './reducers/iseReducer';
+import utilReducer from './reducers/iseReducer';
 
 const myLogger = (store) => (next) => (action) => {
   console.log("Logged Action: ", action);
@@ -13,7 +14,8 @@ export default createStore(combineReducers({
   mathReducer,
   userReducer,
   apicReducer,
-  iseReducer
+  iseReducer,
+  utilReducer
 }),
    {},
     applyMiddleware(myLogger, thunk)
