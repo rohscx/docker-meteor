@@ -8,6 +8,14 @@ import { addNumber } from '../actions/iseActions'
 import { validateMac } from '../actions/utilActions'
 
 class Ise extends Component {
+  constructor() {
+    super();
+    this.state = {
+      macFormInput: ""
+    }
+  }
+
+
   iseSearchForm(){
     const divStyles = {
       width: "40%"
@@ -15,7 +23,7 @@ class Ise extends Component {
     return (
       <div style={divStyles}>
         <Form horizontal>
-          <FormGroup controlId="formHorizontalMac" validationState={this.props.validateMac()}>
+          <FormGroup controlId="formHorizontalMac">
             <Col componentClass={ControlLabel} sm={2}>
               MAC
             </Col>
