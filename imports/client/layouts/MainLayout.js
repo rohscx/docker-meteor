@@ -49,13 +49,9 @@ const MainLayout = ({children}) =>
             <li><Link to='/apic'>APIC-EM</Link></li>
             <li><Link to='/ise'>ISE</Link></li>
             <li><Link to='/about'>About</Link></li>
-            <DropdownButton title="Dropdown">
-  <MenuItem href="#books">Books</MenuItem>
-  <MenuItem href="#podcasts">Podcasts</MenuItem>
-  <MenuItem href="#">Tech I Like</MenuItem>
-  <MenuItem href="#">About me</MenuItem>
-  <MenuItem href="#addBlog">Add a Blog</MenuItem>
-</DropdownButton>
+            <li className="dropdown"><Link to='/' className="dropdown-toggle">Section 4 <span className="caret"></span></Link>
+              <MenuItem >Books</MenuItem>
+            </li>
           </ul>
         </div>
       </div>
