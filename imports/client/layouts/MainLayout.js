@@ -31,7 +31,7 @@ const activeStyleObj = {
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
-  <body>
+  <div>
   <nav className="navbar navbar-inverse navbar-fixed-top">
     <div className="container-fluid">
       <div className="navbar-header">
@@ -62,8 +62,7 @@ const MainLayout = ({children}) =>
   <div>
     {children}
   </div>
-
-</body>
+</div>
 
 
 export default MainLayout;
