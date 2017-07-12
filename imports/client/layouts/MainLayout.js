@@ -42,18 +42,18 @@ const MainLayout = ({children}) =>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand"><Link to='/'>FROST</Link></a>
+        <a className="navbar-brand">Frost</a>
       </div>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
-            <li><Link to='/apic' ><a>APIC-EM</a></Link></li>
-            <li><a><Link to='/ise' >ISE</Link></a></li>
-            <li><a><Link to='/about' s>About</Link></a></li>
-            <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Tools<span className="caret"></span></a>
+            <li><a>Section 1</a></li>
+            <li><a>Section 2</a></li>
+            <li><a>Section 3</a></li>
+            <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown">Section 4 <span className="caret"></span></a>
               <ul className="dropdown-menu">
-                <li><a><Link to='/about' s>About1</Link></a></li>
-                <li><a><Link to='/about' s>About2</Link></a></li>
+                <li><a>Section 4-1</a></li>
+                <li><a>Section 4-2</a></li>
               </ul>
             </li>
           </ul>
