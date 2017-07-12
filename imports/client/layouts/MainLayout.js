@@ -45,7 +45,7 @@ const MainLayout = ({children}) =>
     <Navbar.Collapse>
       <Nav>
         <LinkContainer to="/apic">
-          <NavItem eventKey={1} onClick={'/apic'}>Link</NavItem>
+          <NavItem eventKey={1}>Link</NavItem>
         </LinkContainer>
 
         <NavItem eventKey={2} href="#">Link</NavItem>
