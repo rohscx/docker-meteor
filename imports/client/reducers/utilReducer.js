@@ -1,6 +1,6 @@
 const utilReducer = (state = {
   macValidation: {
-    macAddress:null,
+    macAddress:"",
     validationStatus:""
   }
 }, action) => {
