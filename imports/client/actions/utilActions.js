@@ -23,8 +23,8 @@ export function validateMac(mac) {
           validationStatus: "success"
         }));
     } else {
+      console.log("Not Valid: "+ mac_address)
       return dispatch(setMacValidation({
-        console.log("Not Valid: "+ mac_address)
           macAddress: mac_address,
           validationStatus: "error"
         }));
