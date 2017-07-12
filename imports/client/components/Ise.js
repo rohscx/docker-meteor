@@ -13,7 +13,6 @@ class Ise extends Component {
       width: "40%"
     };
     return (
-      console.log(this);
       <div style={divStyles}>
         <Form horizontal>
           <FormGroup controlId="formHorizontalMac">
@@ -44,6 +43,7 @@ class Ise extends Component {
       paddingTop: "5%",
       paddingBottom:"5%"
     };
+    console.log(this);
     return(
       <div style={divStyles}>
         {this.iseSearchForm()}
