@@ -13,28 +13,26 @@ class Ise extends Component {
     };
     return (
       <div style={divStyles}>
-              <Form horizontal>
-    <FormGroup controlId="formHorizontalMac">
-      <Col componentClass={ControlLabel} sm={2}>
-        MAC
-      </Col>
-      <Col sm={10}>
-        <FormControl type="text" placeholder="Host MAC ADDRESS" />
-      </Col>
-    </FormGroup>
+        <Form horizontal>
+          <FormGroup controlId="formHorizontalMac">
+            <Col componentClass={ControlLabel} sm={2}>
+              MAC
+            </Col>
+            <Col sm={12}>
+              <FormControl type="text" placeholder="Host MAC ADDRESS" />
+            </Col>
+          </FormGroup>
+          <FormGroup>
+            <Col smOffset={2} sm={10}>
+              <Button type="submit">
+                Sign in
+              </Button>
+            </Col>
+          </FormGroup>
+        </Form>
 
+      </div>
 
-    <FormGroup>
-      <Col smOffset={2} sm={10}>
-        <Button type="submit">
-          Sign in
-        </Button>
-      </Col>
-    </FormGroup>
-  </Form>
-
-      </div>    
-      
     );
   }
 
