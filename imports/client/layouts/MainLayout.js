@@ -45,12 +45,17 @@ const MainLayout = ({children}) =>
       </div>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
-          <ul className="nggav navbjjsar-nav">
+          <ul className="nav navbar-nav">
             <li><Link to='/apic'>APIC-EM</Link></li>
             <li><Link to='/ise'>ISE</Link></li>
             <li><Link to='/about'>About</Link></li>
-            <li className="dropdown"><Link to='/' className="dropdown-toggle">Section 4 <span className="caret"></span></Link>
-            </li>
+            <DropdownButton title="Dropdown">
+<MenuItem href="#books">Books</MenuItem>
+<MenuItem href="#podcasts">Podcasts</MenuItem>
+<MenuItem href="#">Tech I Like</MenuItem>
+<MenuItem href="#">About me</MenuItem>
+<MenuItem href="#addBlog">Add a Blog</MenuItem>
+</DropdownButton>
           </ul>
         </div>
       </div>
