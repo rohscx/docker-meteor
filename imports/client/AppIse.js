@@ -10,6 +10,9 @@ import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
 
+
+import Ise from './components/Ise';
+
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
@@ -57,6 +60,7 @@ store.subscribe(() => {
             </button>
           </IsRole>
           <Header {... this.state}/>
+          <Ise {...}/>
         </main>
       </Provider>
     );
