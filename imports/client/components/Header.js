@@ -8,9 +8,12 @@ export default class Header extends Component {
     console.log(this);
   }
   render() {
-    console.log(this);
+    const divStyles = {
+      paddingTop: "5%",
+      paddingBottom:"5%"
+    };
       return(
-        <div>
+        <div style={divStyles}>
           <Title {... this.props}/>
         </div>
       )
