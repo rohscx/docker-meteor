@@ -29,7 +29,7 @@ class Ise extends Component {
             </Col>
           </FormGroup>
           <FormGroup>
-            {this.props.util.macValidation.btnStyle ? <Col smOffset={2} sm={10}><Button type="submit">Submit</Button></Col> : <Col smOffset={2} sm={10}><Button  type="submit" disabled>Submit</Button></Col>}
+            {this.props.util.macValidation.btnStyle ? <Col smOffset={2} sm={10}><Button type="submit">Submit</Button></Col> : <Col smOffset={2} sm={10}><Button  type="submit" disabled>...</Button></Col>}
           </FormGroup>
         </Form>
 
