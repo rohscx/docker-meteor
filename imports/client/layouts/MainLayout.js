@@ -30,7 +30,7 @@ const activeStyleObj = {
 
 </div>
 */
-
+console.log(this);
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
