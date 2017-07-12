@@ -42,14 +42,14 @@ const MainLayout = ({children}) =>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand" href="#">WebSiteName</a>
+        <a className="navbar-brand" href="/">Frost</a>
       </div>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
-            <li><a href="#section1">Section 1</a></li>
-            <li><a href="#section2">Section 2</a></li>
-            <li><a href="#section3">Section 3</a></li>
+            <li><a href="/apic">Section 1</a></li>
+            <li><a href="/ise">Section 2</a></li>
+            <li><a href="about">Section 3</a></li>
             <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
               <ul className="dropdown-menu">
                 <li><a href="#section41">Section 4-1</a></li>
@@ -61,6 +61,9 @@ const MainLayout = ({children}) =>
       </div>
     </div>
   </nav>
+</div>
+<div>
+  {children})
 </div>
 
 
