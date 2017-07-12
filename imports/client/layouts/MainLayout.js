@@ -16,7 +16,7 @@ const activeStyleObj = {
 /*
 <div className='main-layout'>
   <header>
-    <h1><Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link></h1>
+    <h1><Link to='/'>FROST</Link></h1>
     <LoginButtons/>
     <nav>
       <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}>APIC-EM</Link> |
@@ -42,7 +42,7 @@ const MainLayout = ({children}) =>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand" href="#">WebSiteName</a>
+        <Link to='/'><a className="navbar-brand">WebSiteName</a></Link>
       </div>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
