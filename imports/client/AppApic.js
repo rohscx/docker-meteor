@@ -181,7 +181,6 @@ store.dispatch({
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
             <Apic {... this.props} {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
-            <ApicTrace {... this.props}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
                   transitionName='itemApic'
