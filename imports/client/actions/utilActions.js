@@ -1,7 +1,7 @@
-export function addNumber(number) {
+export function setMacValidation(status) {
   return {
-    type: "ADD",
-    payload: number
+    type: "MAC_VALIDATION",
+    payload: status
   };
 }
 
@@ -12,15 +12,15 @@ export function subtractNumber(number) {
   };
 }
 
-export function checkMac(mac) {
+export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
       var mac_address = mac;
     if(regexp.test(mac_address)) {
       console.log("Valid: "+ mac_address);
-      return dispatch(setMacValidate("success"));
+      return dispatch(setMacValidation("success"));
     } else {
-      return dispatch(setMacValidate("error"));
+      return dispatch(setMacValidation("error"));
     }
   }
 }

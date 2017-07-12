@@ -1,20 +1,12 @@
 const utilReducer = (state = {
-  macValidate: '';
+  macValidation: '';
 }, action) => {
   switch (action.type) {
-    case "MAC_VALIDATE":
+    case "MAC_VALIDATION":
       state = {
         ...state,
-        macValidate: action.payload
+        macValidation: action.payload
       };
-      break;
-    case "SUBTRACT":
-      state.result = {
-        ...state,
-        result: state.result - action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      state.lastValues.push(action.payload);
       break;
   }
   return state;

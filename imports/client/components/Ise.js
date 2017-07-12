@@ -5,6 +5,7 @@ import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/iseActions'
+import { validateMac } from '../actions/utilActions'
 
 class Ise extends Component {
   iseSearchForm(){
@@ -12,13 +13,14 @@ class Ise extends Component {
       width: "40%"
     };
     return (
+      console.log(this);
       <div style={divStyles}>
         <Form horizontal>
           <FormGroup controlId="formHorizontalMac">
             <Col componentClass={ControlLabel} sm={2}>
               MAC
             </Col>
-            <Col sm={12}>
+            <Col sm={10}>
               <FormControl type="text" placeholder="Host MAC ADDRESS" />
             </Col>
           </FormGroup>
@@ -53,6 +55,7 @@ class Ise extends Component {
 const mapSateToProps = (state) => {
   return {
     ise: state.iseReducer
+    util: state.utilReducer
   };
 };
 
@@ -60,6 +63,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addNumber: (number) => {
       dispatch(setName(number));
+    },
+    validateMac: (mac) => {
+      dispatch(validateMac(mac));
     }
   };
 };
