@@ -19,9 +19,9 @@ const activeStyleObj = {
     <h1><Link to='/'>FROST</Link></h1>
     <LoginButtons/>
     <nav>
-      <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}>APIC-EM</Link> |
-      <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}>ISE</Link> |
-      <Link to='/about' style={styleObj} activeStyle={activeStyleObj}>About</Link>
+      <Link to='/apic'>APIC-EM</Link> |
+      <Link to='/ise'>ISE</Link> |
+      <Link to='/about'>About</Link>
 
     </nav>
   </header>
@@ -45,9 +45,9 @@ const MainLayout = ({children}) =>
       <div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
-            <li><a href="#section1">Section 1</a></li>
-            <li><a href="#section2">Section 2</a></li>
-            <li><a href="#section3">Section 3</a></li>
+            <li><Link to='/apic'>APIC-EM</Link></li>
+            <li><Link to='/ise'>ISE</Link></li>
+            <li><Link to='/about'>About</Link></li>
             <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
               <ul className="dropdown-menu">
                 <li><a href="#section41">Section 4-1</a></li>
