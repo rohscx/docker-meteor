@@ -31,6 +31,10 @@ const activeStyleObj = {
 </div>
 */
 
+
+const link1 = {
+  <Link to='/apic'/>
+}
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
 <div>
@@ -43,7 +47,7 @@ const MainLayout = ({children}) =>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="/apic">Link</NavItem>
+        <NavItem eventKey={1} onClick={()=>link1}>Link</NavItem>
         <NavItem eventKey={2} href="#">Link</NavItem>
         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1}>Action</MenuItem>
