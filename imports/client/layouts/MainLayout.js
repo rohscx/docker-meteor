@@ -75,7 +75,7 @@ export default class MainLayout extends Component {
 
   render() {
     return (
-      {"this.MainLayout"}
+      "this.MainLayout"
     )
   }
 }
