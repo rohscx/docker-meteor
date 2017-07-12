@@ -2,7 +2,7 @@ import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
 import {Navbar,Nav,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
-import {reactDom} from 'react-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 // style object for nav bar
@@ -44,7 +44,10 @@ const MainLayout = ({children}) =>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} onClick={<Link to='/apic'/>}>Link</NavItem>
+        <LinkContainer to="/apic">
+          <NavItem eventKey={1} onClick={'/apic'}>Link</NavItem>
+        </LinkContainer>
+
         <NavItem eventKey={2} href="#">Link</NavItem>
         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1}>Action</MenuItem>
