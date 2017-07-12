@@ -1,7 +1,7 @@
-import React from 'react';
+
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
-import { Link } from 'react-router';
-import {Navbar,Nav,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
+import { Route, RouteHandler, Link } from 'react-router';
+import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 
@@ -32,40 +32,51 @@ const activeStyleObj = {
 */
 
 // stateless functional component. Functuion returns what ever you like
-const MainLayout = ({children}) =>
-<div>
-  <nav className="navbar navbar-inverse navbar-fixed-top">
-    <div className="container-fluid">
-      <div className="navbar-header">
-          <button type="button" className="navbar-toggle" dataToggle="collapse" dataTarget="#myNavbar">
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-        </button>
-        <a className="navbar-brand" href="/">Frost</a>
-      </div>
-      <div>
-        <div className="collapse navbar-collapse" id="myNavbar">
-          <ul className="nav navbar-nav">
-            <li><a href="/apic">Section 1</a></li>
-            <li><a href="/ise">Section 2</a></li>
-            <li><a href="about">Section 3</a></li>
-            <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
-              <ul className="dropdown-menu">
-                <li><a href="#section41">Section 4-1</a></li>
-                <li><a href="#section42">Section 4-2</a></li>
-              </ul>
-            </li>
-          </ul>
+const MainLayout = ({children}) =>{
+  <div>
+    <nav className="navbar navbar-inverse navbar-fixed-top">
+      <div className="container-fluid">
+        <div className="navbar-header">
+            <button type="button" className="navbar-toggle" dataToggle="collapse" dataTarget="#myNavbar">
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+          </button>
+          <a className="navbar-brand" href="/">Frost</a>
+        </div>
+        <div>
+          <div className="collapse navbar-collapse" id="myNavbar">
+            <ul className="nav navbar-nav">
+              <li><a href="/apic">Section 1</a></li>
+              <li><a href="/ise">Section 2</a></li>
+              <li><a href="about">Section 3</a></li>
+              <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
+                <ul className="dropdown-menu">
+                  <li><a href="#section41">Section 4-1</a></li>
+                  <li><a href="#section42">Section 4-2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+    </nav>
+    <div>
+      {children})
     </div>
-  </nav>
-  <div>
-    {children})
   </div>
-</div>
+}
 
+
+export default class Item extends Component {
+
+
+  render() {
+    return (
+      {MainLayout()}
+    )
+  }
+}
 
 
 export default MainLayout;
