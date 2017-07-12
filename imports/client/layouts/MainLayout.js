@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
-import {DropdownButton, MenuItem} from 'react-bootstrap';
+import {Navbar,Nav,NavItem,NavDropdown, MenuItem} from 'react-bootstrap';
 
 
 // style object for nav bar
@@ -32,38 +32,31 @@ const activeStyleObj = {
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
-  <div>
-  <nav className="navbar navbar-inverse navbar-fixed-top">
-    <div className="container-fluid">
-      <div className="navbar-header">
-          <button type="button" className="navbar-toggle">
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-        </button>
-        <Link to='/' className="navbar-brand">FROST</Link>
-      </div>
-      <div>
-        <div className="collapse navbar-collapse" id="myNavbar">
-          <ul className="nav navbar-nav">
-            <li><Link to='/apic'>APIC-EM</Link></li>
-            <li><Link to='/ise'>ISE</Link></li>
-            <li><Link to='/about'>About</Link></li>
-            <li className="dropdown"><a className="dropdown-toggle" datTtoggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
-            <ul className="dropdown-menu">
-              <li><a href="#section41">Section 4-1</a></li>
-              <li><a href="#section42">Section 4-2</a></li>
-            </ul>
-          </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div>
-    {children}
-  </div>
-</div>
+<Navbar inverse collapseOnSelect>
+ <Navbar.Header>
+   <Navbar.Brand>
+     <a href="#">React-Bootstrap</a>
+   </Navbar.Brand>
+   <Navbar.Toggle />
+ </Navbar.Header>
+ <Navbar.Collapse>
+   <Nav>
+     <NavItem eventKey={1} href="#">Link</NavItem>
+     <NavItem eventKey={2} href="#">Link</NavItem>
+     <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+       <MenuItem eventKey={3.1}>Action</MenuItem>
+       <MenuItem eventKey={3.2}>Another action</MenuItem>
+       <MenuItem eventKey={3.3}>Something else here</MenuItem>
+       <MenuItem divider />
+       <MenuItem eventKey={3.3}>Separated link</MenuItem>
+     </NavDropdown>
+   </Nav>
+   <Nav pullRight>
+     <NavItem eventKey={1} href="#">Link Right</NavItem>
+     <NavItem eventKey={2} href="#">Link Right</NavItem>
+   </Nav>
+ </Navbar.Collapse>
+</Navbar>
 
 
 export default MainLayout;
