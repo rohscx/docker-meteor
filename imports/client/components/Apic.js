@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
-import Trace from './Apic/Trace';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow }from '../actions/apicActions'
+import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow } from '../actions/apicActions'
+import Trace from './Apic/Trace';
+import TraceForm from './Apic/TraceForm';
 
 class Apic extends Component {
   constructor(props) {
