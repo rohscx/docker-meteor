@@ -17,7 +17,7 @@ const activeStyleObj = {
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>{
-  retun class Cats extends Component {
+ class Cats extends Component {
 
     render() {
       return (
@@ -56,7 +56,7 @@ const MainLayout = ({children}) =>{
       };
 
     }
-
+    return Cats;
   }
 
 
