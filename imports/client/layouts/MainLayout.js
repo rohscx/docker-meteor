@@ -48,10 +48,10 @@ const MainLayout = ({children}) =>
             <li><Link to='/apic'>APIC-EM</Link></li>
             <li><Link to='/ise'>ISE</Link></li>
             <li><Link to='/about'>About</Link></li>
-            <li className="dropdown"><Link to='/' className="dropdown-toggle" dataToggle="dropdown">Section 4 <span className="caret"></span></Link>
+            <li className="dropdown"><Link to='/' className="dropdown-toggle">Section 4 <span className="caret"></span></Link>
               <ul className="dropdown-menu">
-                <li><a href="#section41">Section 4-1</a></li>
-                <li><a href="#section42">Section 4-2</a></li>
+                <li><Link to='/about'>Section 4-1</Link></li>
+                <li><Link to='/about'>Section 4-2</Link></li>
               </ul>
             </li>
           </ul>
