@@ -1,4 +1,4 @@
-const IseReducer = (state = {
+const iseReducer = (state = {
   ticket: "NO APIC TICKET",
   devices: "NO DEVICES"
 }, action) => {
