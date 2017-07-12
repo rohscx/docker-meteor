@@ -9,13 +9,23 @@ import { addNumber } from '../actions/iseActions'
 class Ise extends Component {
   iseSearchForm(){
     return (
-      <Form inline>
-        <FormGroup controlId="formInlineName">
-          <ControlLable>NAME</ControlLable>
-          {''}
-          <FormControl type="text" placeholder="Jimmy me Jules" />
-        </FormGroup>
-      </Form>
+  <Form inline>
+    <FormGroup controlId="formInlineName">
+      <ControlLabel>Name</ControlLabel>
+      {' '}
+      <FormControl type="text" placeholder="Jane Doe" />
+    </FormGroup>
+    {' '}
+    <FormGroup controlId="formInlineEmail">
+      <ControlLabel>Email</ControlLabel>
+      {' '}
+      <FormControl type="email" placeholder="jane.doe@example.com" />
+    </FormGroup>
+    {' '}
+    <Button type="submit">
+      Send invitation
+    </Button>
+  </Form>
     );
   }
 
