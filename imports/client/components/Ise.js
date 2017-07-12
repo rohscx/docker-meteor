@@ -12,6 +12,7 @@ class Ise extends Component {
       width: "40%"
     };
     return (
+      <div>
               <Form horizontal>
     <FormGroup controlId="formHorizontalMac">
       <Col componentClass={ControlLabel} sm={2}>
