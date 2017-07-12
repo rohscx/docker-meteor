@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { FieldGroup } from 'react-bootstrap';
+import { FieldGroup, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/iseActions'
 
 class Ise extends Component {
@@ -16,6 +16,9 @@ class Ise extends Component {
           label="Text"
           placeholder="Enter Text"
         />
+        <Button type="submit">
+          Submit
+        </Button>
       </form>
     );
   }
