@@ -30,39 +30,38 @@ const activeStyleObj = {
 
 </div>
 */
-console.log(this);
 
 // stateless functional component. Functuion returns what ever you like
 const MainLayout = ({children}) =>
 <div>
-  <Navbar inverse collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="#">React-Bootstrap</a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav>
-        <NavItem eventKey={1} onClick={ e => this.props.history.push("/apic") }>Link</NavItem>
-        <NavItem eventKey={2} href="#">Link</NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
-        </NavDropdown>
-      </Nav>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="#">Link Right</NavItem>
-        <NavItem eventKey={2} href="#">Link Right</NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-  {children}
+  <nav className="navbar navbar-inverse navbar-fixed-top">
+    <div className="container-fluid">
+      <div className="navbar-header">
+          <button type="button" className="navbar-toggle" dataToggle="collapse" dataTarget="#myNavbar">
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+        </button>
+        <a className="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <div>
+        <div className="collapse navbar-collapse" id="myNavbar">
+          <ul className="nav navbar-nav">
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+            <li className="dropdown"><a className="dropdown-toggle" dataToggle="dropdown" href="#">Section 4 <span className="caret"></span></a>
+              <ul className="dropdown-menu">
+                <li><a href="#section41">Section 4-1</a></li>
+                <li><a href="#section42">Section 4-2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
 </div>
-
 
 
 export default MainLayout;
