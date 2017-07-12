@@ -233,4 +233,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
-export default connect(mapSateToProps, mapDispatchToProps) (ApicTrace);
+export default connect(mapSateToProps, mapDispatchToProps) (Apic);
