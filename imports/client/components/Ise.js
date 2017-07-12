@@ -3,23 +3,19 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { FieldGroup, Button } from 'react-bootstrap';
+import { Form, FieldGroup,ControlLable, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/iseActions'
 
 class Ise extends Component {
   iseSearchForm(){
     return (
-      <form>
-        <FieldGroup
-          id="formContolsText"
-          type="text"
-          label="Text"
-          placeholder="Enter Text"
-        />
-        <Button type="submit">
-          Submit
-        </Button>
-      </form>
+      <Form inline>
+        <FormGroup controlId="formInlineName">
+          <ControlLable>NAME</ControlLable>
+          {''}
+          <FormControl type="text" placeholder="Jimmy me Jules" />
+        </FormGroup>
+      <Form/>
     );
   }
   render() {
@@ -30,7 +26,7 @@ class Ise extends Component {
     };
     return(
       <div style={divStyles}>
-        {"asfdsafsad"}
+        {this.iseSearchForm()}
       </div>
     )
   }
