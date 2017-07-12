@@ -166,7 +166,7 @@ class Apic extends Component {
     return(
       <div>
 
-
+      <br/>
       <button type="button" className="btn btn-primary" onClick={
         () => this.props.apic.showTrace ? this.props.setShowTrace(false) : this.props.setShowTrace(true)
       }>Path Trace Form {this.props.apic.showTrace ? 'Shown': 'Hidden'}</button>
