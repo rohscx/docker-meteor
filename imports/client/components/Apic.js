@@ -164,8 +164,8 @@ class Apic extends Component {
   render() {
     console.log(this);
     const divStyles = {
-      paddingTop: "10%",
-      paddingBottom:"10%"
+      paddingTop: "5%",
+      paddingBottom:"5%"
     };
     return(
 
