@@ -20,13 +20,13 @@ export function validateMac(mac) {
       console.log("Valid: "+ mac_address);
       return dispatch(setMacValidation({
           macAddress: mac,
-          validationStatus:"success"
+          validationStatus: "success"
         }));
     } else {
       return dispatch(setMacValidation({
           macAddress: mac,
-          validationStatus:"error"
-        }));;
+          validationStatus: "error"
+        }));
     }
   }
 }
