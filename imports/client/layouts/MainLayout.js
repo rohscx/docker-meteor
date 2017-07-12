@@ -19,7 +19,7 @@ const activeStyleObj = {
 const MainLayout = ({children}) =>{
  class Cats extends Component {
 
-    render() {
+    return render() {
       return (
         <div>
           <Navbar inverse collapseOnSelect>
