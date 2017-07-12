@@ -8,6 +8,9 @@ import { addNumber } from '../actions/iseActions'
 import { validateMac } from '../actions/utilActions'
 
 class Ise extends Component {
+  handleSearchFormInput(event) {
+    this.props.validateMac(event.target.value);
+  }
 
   iseSearchForm(){
     const divStyles = {
@@ -21,7 +24,7 @@ class Ise extends Component {
               MAC
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={this.props.util.macValidation.macAddress} placeholder="Host MAC ADDRESS" onChange={()=>this.props.validateMac()} />
+              <FormControl type="email" value={this.props.util.macValidation.macAddress} placeholder="Host MAC ADDRESS" onChange={()=>this.handleSearchFormInput} />
             </Col>
           </FormGroup>
           <FormGroup>
