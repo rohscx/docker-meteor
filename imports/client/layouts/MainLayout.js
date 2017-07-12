@@ -42,7 +42,7 @@ const MainLayout = ({children}) =>
    </Navbar.Header>
    <Navbar.Collapse>
      <Nav>
-       <NavItem eventKey={1} ><Link to='/apic'>APIC-EM</Link></NavItem>
+       <Link to='/apic'><NavItem eventKey={1} href="#">APIC-EM</NavItem></Link>
        <NavItem eventKey={2} href="#">Link</NavItem>
        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
          <MenuItem eventKey={3.1}>Action</MenuItem>
