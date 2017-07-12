@@ -61,10 +61,11 @@ const MainLayout = ({children}) =>
       </div>
     </div>
   </nav>
+  <div>
+    {children})
+  </div>
 </div>
-<div>
-  {children})
-</div>
+
 
 
 export default MainLayout;
