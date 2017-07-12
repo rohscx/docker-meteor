@@ -50,7 +50,10 @@ const MainLayout = ({children}) =>
             <li><Link to='/ise'>ISE</Link></li>
             <li><Link to='/about'>About</Link></li>
             <li className="dropdown"><Link to='/' className="dropdown-toggle">Section 4 <span className="caret"></span></Link>
-              <MenuItem >Books</MenuItem>
+              <ul className="dropdown-menu">
+                <li><Link to='/about'>Section 4-1</Link></li>
+                <li><Link to='/about'>Section 4-2</Link></li>
+              </ul>
             </li>
           </ul>
         </div>
