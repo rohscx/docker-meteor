@@ -6,7 +6,16 @@ import { setName }from '../actions/userActions';
 import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setTraceIp, getTicket, getFlowId, getFlowStatus, getFlow } from '../actions/apicActions'
 
 class Ise extends Component {
-
+  iseSearchForm(){
+    return (
+      <FieldGroup
+        id="formContolsText"
+        type="text"
+        label="Text"
+        placeholder="Enter Text"
+      />
+    )
+  }
   render() {
     console.log(this);
     const divStyles = {
@@ -15,7 +24,7 @@ class Ise extends Component {
     };
     return(
       <div style={divStyles}>
-
+        {this.iseSearchForm()}
       </div>
     )
   }
