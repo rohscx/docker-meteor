@@ -7,7 +7,7 @@ export default class Title extends Component {
       const divStyles = {paddingBottom: "10%"};
     return(
       <div sytle={divStyles}>
-        <h1 sytle={divStyles}>{this.props.greeting}</h1>
+        <h1>{this.props.greeting}</h1>
 
       </div>
     )
