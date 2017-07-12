@@ -36,13 +36,13 @@ const MainLayout = ({children}) =>
   <Navbar inverse collapseOnSelect>
    <Navbar.Header>
      <Navbar.Brand>
-       <Link to='/'>FROST</Link>
+       <a href="/">FROST</a>
      </Navbar.Brand>
      <Navbar.Toggle />
    </Navbar.Header>
    <Navbar.Collapse>
      <Nav>
-       <Link to='/apic'><NavItem eventKey={1} href="#">APIC-EM</NavItem></Link>
+       <NavItem eventKey={1} href="#">Link</NavItem>
        <NavItem eventKey={2} href="#">Link</NavItem>
        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
          <MenuItem eventKey={3.1}>Action</MenuItem>
