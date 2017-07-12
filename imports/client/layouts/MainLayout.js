@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Route, RouteHandler, Link } from 'react-router';
 import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
