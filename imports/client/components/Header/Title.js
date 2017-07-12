@@ -7,6 +7,7 @@ export default class Title extends Component {
     return(
       <div>
         <h1>{this.props.greeting}</h1>
+        
       </div>
     )
   }
