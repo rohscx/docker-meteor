@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
-import Trace from './ApicTrace/Trace';
+import Trace from './Apic/Trace';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';

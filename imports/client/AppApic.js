@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Apic from './components/Apic';
+
 
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
@@ -13,7 +13,7 @@ import { Template } from 'meteor/templating';
 import ItemApic from './components/ItemApic';
 import Header from './components/Header';
 import ItemsApic from '../api/request';
-import ApicTrace from './components/ApicTrace';
+import Apic from './components/Apic';
 import store from './store';
 
 
@@ -180,7 +180,7 @@ store.dispatch({
             </button>
           </IsRole>
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-            <Apic {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
+            <Apic {... this.props} {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
             <ApicTrace {... this.props}/>
               {this.props.showList ?
                 <ReactCSSTransitionGroup
