@@ -8,13 +8,15 @@ import { setTicket, setDevices, setTrace, setFlowId, setFlow, setShowTrace, setT
 class Ise extends Component {
   iseSearchForm(){
     return (
-      <FieldGroup
-        id="formContolsText"
-        type="text"
-        label="Text"
-        placeholder="Enter Text"
-      />
-    )
+      <form>
+        <FieldGroup
+          id="formContolsText"
+          type="text"
+          label="Text"
+          placeholder="Enter Text"
+        />
+      </form>
+    );
   }
   render() {
     console.log(this);
