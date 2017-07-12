@@ -15,9 +15,10 @@ class Ise extends Component {
           {''}
           <FormControl type="text" placeholder="Jimmy me Jules" />
         </FormGroup>
-      <Form/>
+      </Form>
     );
   }
+
   render() {
     console.log(this);
     const divStyles = {
