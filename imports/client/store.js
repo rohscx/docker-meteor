@@ -11,7 +11,7 @@ const myLogger = (store) => (next) => (action) => {
   const actionObj = (action) => {
     makeObj = {actionObj: action};
     return (
-      makeObj
+      JSON.parse(makeObj);
     );
   };
   console.log("Logged Action: ", actionObj());
