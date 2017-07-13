@@ -13,7 +13,7 @@ class Ise extends Component {
   }
 
   iseSearchForm(){
-    btnActive => {
+    const btnActive = () => {
       return (
         <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
       )
