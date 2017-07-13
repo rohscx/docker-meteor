@@ -19,8 +19,25 @@ class Ise extends Component {
       );
     };
     const btnDisabled = () => {
-      return <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>;
+      return (
+        <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>
+      );
     };
+    const macAddress = () => {
+      return (
+        this.props.util.macValidation.macAddress
+      );
+    };
+    const fromInput = () => {
+      return (
+        this.handleSearchFormInput.bind(this)
+      );
+    };
+    cosnt validationStatus = () => {
+      return (
+        this.props.util.macValidation.validationStatus
+      );
+    }
 
     const divStyles = {
       width: "40%"
@@ -28,12 +45,12 @@ class Ise extends Component {
     return (
       <div style={divStyles}>
         <Form horizontal>
-          <FormGroup controlId="formHorizontalMac" validationState={this.props.util.macValidation.validationStatus}>
+          <FormGroup controlId="formHorizontalMac" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
               MAC
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={this.props.util.macValidation.macAddress} placeholder="Host MAC ADDRESS" onChange={this.handleSearchFormInput.bind(this)} />
+              <FormControl type="email" value={macAddress()} placeholder="Host MAC ADDRESS" onChange={fromInput()} />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
