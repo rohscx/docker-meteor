@@ -1,10 +1,19 @@
 {
+  "private": {
+    "iseRest": {
+        "uName": "NotAName",
+        "uPass": "NotREallyIt"
+    }
+},
+  "public" : {
+    "ciscoApicEM": {
+      "uName": "devnetuser",
+      "uPass": "Cisco123!"
+    }
+}, 
   "admins" : [
     "rohscx@gmail.com",
     "test2@gmail.com",
     "test5@gmail.com"
-  ],
-  "public" : {
-    
-  }
+  ]
 }
