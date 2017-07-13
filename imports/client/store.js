@@ -7,7 +7,7 @@ import iseReducer from './reducers/iseReducer';
 import utilReducer from './reducers/utilReducer';
 
 const myLogger = (store) => (next) => (action) => {
-
+  console.log(typeof('action'));
   console.log("Logged Action: ", action);
   next(action);
 };
