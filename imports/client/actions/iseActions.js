@@ -12,26 +12,24 @@ export function subtractNumber(number) {
   };
 }
 
-export function getRestIse(ticket,sourceIp,destIp) {
+export function getRestIse(path,options,destIp) {
   return dispatch => {
-    apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
+    iseAPI = 'https://agaisepr01.fpicore.fpir.pvt/admin/API/mnt';
     apicTicket = '/api/v1/ticket';
-    apicFlow = '/api/v1/flow-analysis';
-    apicFlowAnalysisId= '';
-    apicTicketURL = this.apicAPI + this.apicTicket;
+    iseApiPath = path;
+    iseApiOptions= options;
+    iseApiRequest = iseAPI + iseApiPath + iseApiOptions;
+    encodedSecrets = btoa(Meteor.settings.iseRest.uname + Meteor.settings.iseRest.uPass);
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
     apicOptions = {
       headers: {
-        'content-type': 'application/json',
-        'x-auth-token': ticket
+        'authorization': 'Basic 'encodedSecrets
       },
       data: {
-        'sourceIP': sourceIp,
-       'destIP': destIp
      }
     };
-    return Meteor.call('checkApic', 'POST', apicFlowURL, apicOptions, (err, res) => {
+    return Meteor.call('checkApic', 'GET', iseApiRequest, iseApiOptions, (err, res) => {
       if (err) {
         alert(err);
       } else {
@@ -42,9 +40,9 @@ export function getRestIse(ticket,sourceIp,destIp) {
           console.log(res);	// debug
           console.log(this); // debug
           //this.makeFlowID();
-          flowId = res.data.response.flowAnalysisId;
-          dispatch(getFlowStatus(ticket, flowId))
-          return dispatch(setFlowId(flowId));
+          //flowId = res.data.response.flowAnalysisId;
+          //dispatch(getFlowStatus(ticket, flowId))
+          //return dispatch(setFlowId(flowId));
         }
     })
   }
