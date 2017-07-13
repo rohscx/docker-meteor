@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 export function addNumber(number) {
   return {
     type: "ADD",
