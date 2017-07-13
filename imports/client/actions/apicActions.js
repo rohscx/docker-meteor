@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import React, {Component} from 'react';
 import { HTTP } from 'meteor/http'
 
@@ -67,9 +69,11 @@ export function getTicket(sourceIp,destIp) {
     apicTicketURL = this.apicAPI + this.apicTicket;
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
+    apicUname = Meteor.settings.public.ciscoApicEM.uName;
+    apicUpass = Meteor.settings.public.ciscoApicEM.uPass;
     apicOptions = {
       headers: { 'content-type': 'application/json' },
-      data: {username: 'devnetuser', password: 'Cisco123!'}
+      data: {username: apicUname, password: apicUpass}
     };
 
     return Meteor.call('checkApic', 'POST', apicTicketURL, apicOptions, (err, res) => {
