@@ -69,8 +69,10 @@ export function getTicket(sourceIp,destIp) {
     apicTicketURL = this.apicAPI + this.apicTicket;
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
+    // serverside secrets
     apicUname = Meteor.settings.public.ciscoApicEM.uName;
     apicUpass = Meteor.settings.public.ciscoApicEM.uPass;
+    
     apicOptions = {
       headers: { 'content-type': 'application/json' },
       data: {username: apicUname, password: apicUpass}
