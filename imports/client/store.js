@@ -8,13 +8,13 @@ import utilReducer from './reducers/utilReducer';
 
 const myLogger = (store) => (next) => (action) => {
 
-  actionObj = (action) => {
+  const actionObj = (action) => {
     makeObj = {actionObj: action};
     return (
       makeObj
     );
   };
-  console.log("Logged Action: ", actionObj;
+  console.log("Logged Action: ", actionObj();
   next(action);
 };
 export default createStore(combineReducers({
