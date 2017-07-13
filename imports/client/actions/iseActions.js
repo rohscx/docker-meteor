@@ -19,7 +19,7 @@ export function getRestIse(path,options,destIp) {
     iseApiPath = path;
     iseApiOptions= options;
     iseApiRequest = iseAPI + iseApiPath + iseApiOptions;
-    encodedSecrets = btoa(Meteor.settings.iseRest.uname + Meteor.settings.iseRest.uPass);
+    encodedSecrets = btoa(Meteor.settings.private.iseRest.uname + Meteor.settings.private.iseRest.uPass);
     apicFlowURL = this.apicAPI + this.apicFlow;
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
     apicOptions = {
