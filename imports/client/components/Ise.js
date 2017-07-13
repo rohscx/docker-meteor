@@ -13,8 +13,13 @@ class Ise extends Component {
   }
 
   iseSearchForm(){
-    const btnActive = () => {
-      return <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>;
+    const btnEnabled = () => {
+      return (
+        <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
+      );
+    };
+    const btnDisabled = () => {
+      return <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>;
     };
 
     const divStyles = {
@@ -33,7 +38,7 @@ class Ise extends Component {
             </Col>
           </FormGroup>
           <FormGroup>
-            {this.props.util.macValidation.btnStyle ? btnActive() : <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>}
+            {this.props.util.macValidation.btnStyle ? btnEnabled() : btnDisabled()}
           </FormGroup>
         </Form>
 
