@@ -33,7 +33,7 @@ class Ise extends Component {
         this.handleSearchFormInput.bind(this)
       );
     };
-    cosnt validationStatus = () => {
+    const validationStatus = () => {
       return (
         this.props.util.macValidation.validationStatus
       );
@@ -42,7 +42,7 @@ class Ise extends Component {
     const divStyles = {
       width: "40%"
     };
-    
+
     return (
       <div style={divStyles}>
         <Form horizontal>
