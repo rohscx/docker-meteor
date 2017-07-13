@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import React, {Component} from 'react';
-import { HTTP } from 'meteor/http'
+import { HTTP } from 'meteor/http';
 
 export function setTicket(ticket) {
   return {

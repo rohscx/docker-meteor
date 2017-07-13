@@ -26,7 +26,7 @@ export function getRestIse(path,options,destIp) {
     apicFlowAnalysisIdURL= this.apicAPI + this.apicFlowAnalysisId;
     apicOptions = {
       headers: {
-        'authorization': 'Basic 'encodedSecrets
+        'authorization': 'Basic ' + encodedSecrets
       },
       data: {
      }
