@@ -9,10 +9,10 @@ import utilReducer from './reducers/utilReducer';
 const myLogger = (store) => (next) => (action) => {
   const actionObj = (action) => {
     return (
-      JSON.parse(action);
+      //JSON.parse(action);
     );
   };
-  console.log("Logged Action: ", actionObj());
+  console.log("Logged Action: ", action;
   next(action);
 };
 export default createStore(combineReducers({
