@@ -37,11 +37,12 @@ class Ise extends Component {
       return (
         this.props.util.macValidation.validationStatus
       );
-    }
+    };
 
     const divStyles = {
       width: "40%"
     };
+    
     return (
       <div style={divStyles}>
         <Form horizontal>
