@@ -35,7 +35,7 @@ class Ise extends Component {
             </Col>
           </FormGroup>
           <FormGroup>
-            {this.props.util.macValidation.btnStyle ? btnActive : <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>}
+            {this.props.util.macValidation.btnStyle ? btnActive() : <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>}
           </FormGroup>
         </Form>
 
