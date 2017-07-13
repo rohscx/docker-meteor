@@ -14,7 +14,7 @@ const myLogger = (store) => (next) => (action) => {
       makeObj
     );
   };
-  console.log("Logged Action: ", actionObj();
+  console.log("Logged Action: ", actionObj;
   next(action);
 };
 export default createStore(combineReducers({
