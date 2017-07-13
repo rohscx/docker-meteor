@@ -7,7 +7,12 @@ import iseReducer from './reducers/iseReducer';
 import utilReducer from './reducers/utilReducer';
 
 const myLogger = (store) => (next) => (action) => {
-  console.log("Logged Action: ", action);
+  const actionObj = (action) => {
+    return (
+      {action}
+    );
+  };
+  console.log("Logged Action: ", actionObj());
   next(action);
 };
 export default createStore(combineReducers({
