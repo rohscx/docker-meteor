@@ -14,9 +14,7 @@ class Ise extends Component {
 
   iseSearchForm(){
     const btnActive = () => {
-      return (
-        <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
-      )
+      return <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>;
     };
 
     const divStyles = {
