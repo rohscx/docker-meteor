@@ -12,7 +12,8 @@ const apicReducer = (state = {
   traceStatus: {
     status: null,
     isReady: true
-  }
+  },
+  fabricConfig: ""
 }, action) => {
   switch (action.type) {
     case "SET_TICKET":
@@ -62,6 +63,12 @@ const apicReducer = (state = {
     state = {
       ...state,
       traceStatus: action.payload
+    };
+    break;
+    case "SET_CONFIG":
+    state = {
+      ...state,
+      fabricConfig: action.payload
     };
     break;
     }
