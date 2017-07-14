@@ -19,7 +19,7 @@ ENV NODE_ENV development
 # Install Utilities
 RUN apt-get update \
 && apt-get install -qy curl \
- apt-get locale-gen \
+ locale-gen \
  git
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -28,7 +28,7 @@ RUN locale-gen en_US.UTF-8
 # Install metoer
  RUN curl https://install.meteor.com/ | sh
  RUN apt-get clean \
- RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 USER meteor
