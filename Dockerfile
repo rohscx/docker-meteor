@@ -27,8 +27,8 @@ RUN apt-get update -q  \
 
 # Install nodejs
  RUN curl https://install.meteor.com/ | sh
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ RUN apt-get clean \
+ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 USER meteor
