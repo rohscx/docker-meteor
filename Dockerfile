@@ -18,7 +18,8 @@ ENV NODE_ENV development
 
 # Install Utilities
 RUN apt-get update \
-&& apt-get install -qy curl \
+&& apt-get install -qy apt-utils \
+ curl \
  locales \
  git
 RUN apt-get clean
