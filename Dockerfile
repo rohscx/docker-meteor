@@ -19,7 +19,7 @@ ENV NODE_ENV development
 # Install Utilities
 RUN apt-get update \
 && apt-get install -qy curl \
- locale-gen \
+ locale \
  git
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
