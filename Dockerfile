@@ -1,17 +1,17 @@
 # Build:
-# docker build -t meanjs/mean .
+# docker build -t meteorjs/mean .
 #
 # Run:
-# docker run -it meanjs/mean
+# docker run -it meteor/mean
 #
 # Compose:
 # docker-compose up -d
 
 FROM ubuntu:latest
-MAINTAINER RoHscx
+MAINTAINER MEAN.JS
 
-# 80 = HTTP, 443 = HTTPS, 3000 = Meteor server, 35729 = livereload, 8080 = node-inspector
-EXPOSE 3000
+# 80 = HTTP, 443 = HTTPS, 3000 = MEAN.JS server, 35729 = livereload, 8080 = node-inspector
+EXPOSE 80 443 3000 35729 8080
 
 # Set development environment as default
 ENV NODE_ENV development
@@ -20,29 +20,27 @@ ENV NODE_ENV development
 RUN apt-get update -q  \
  && apt-get install -yqq \
  curl \
+ apt-get locale-gen \
  git \
- ssh \
- gcc \
- make \
- build-essential \
- libkrb5-dev \
- sudo \
- apt-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install meteor
-RUN sudo apt-get install -yq nodejs \
+# Install nodejs
+ RUN curl https://install.meteor.com/ | sh
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN curl https://install.meteor.com/ | sh
 
-# Install Meteor Prerequisites
-RUN useradd -ms /bin/bash meteor
+
 USER meteor
-RUN git clone https://github.com/rohscx/docker-meteor.git meteor-web
-WORKDIR /home/meteor-web
- 
+RUN cd ~/
+RUN git clone https://github.com/rohscx/docker-meteor.git
+RUN meteor npm install --quiet && npm cache clean
+WORKDIR /home/docker-meteor
+# Copies the local package.json file to the container
+# and utilities docker container cache to not needing to rebuild
+# and install node_modules/ everytime we build the docker, but only
+# when the local package.json file changes.
+# Install npm packages
 
-# Run Meteor server
-CMD meteor
+# Run MEAN.JS server
+CMD bash
