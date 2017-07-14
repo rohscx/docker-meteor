@@ -18,14 +18,14 @@ ENV NODE_ENV development
 
 # Install Utilities
 RUN apt-get update -q  \
- && apt-get install -yqq \
  curl \
  apt-get locale-gen \
  git \
- && apt-get clean \
+ && apt-get clean
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN locale-gen en_US.UTF-8
 
-# Install nodejs
+# Install metoer
  RUN curl https://install.meteor.com/ | sh
  RUN apt-get clean \
  RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
