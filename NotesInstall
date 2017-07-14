@@ -1,0 +1,8 @@
+curl https://install.meteor.com/ | sh
+
+apt-get locale-gen en_US.UTF-8
+locale-gen en_US.UTF-8
+meteor npm update
+
+adduser meteor
+
