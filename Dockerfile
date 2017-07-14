@@ -17,8 +17,8 @@ EXPOSE 80 443 3000 35729 8080
 ENV NODE_ENV development
 
 # Install Utilities
-RUN apt-get update \
- curl \
+RUN apt-get update
+&& apt-get install -qy curl \
  apt-get locale-gen \
  git
 RUN apt-get clean
