@@ -21,8 +21,8 @@ RUN apt-get update -q  \
  curl \
  apt-get locale-gen \
  git
- && apt-get clean
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 
 # Install metoer
