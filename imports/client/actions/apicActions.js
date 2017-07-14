@@ -62,7 +62,9 @@ export function setTraceStatus(traceStatus) {
 
 export function getTicket(sourceIp,destIp) {
   return dispatch => {
-    apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
+    // keep in mind that this value is LOCAL to EACH deployment SERVER...
+    apicAPI = Meteor.settings.public.ApicEM.url;
+    
     apicTicket = '/api/v1/ticket';
     apicFlow = '/api/v1/flow-analysis';
     apicFlowAnalysisId= '';
@@ -82,6 +84,17 @@ export function getTicket(sourceIp,destIp) {
       if (err) {
         alert(err);
       } else {
+        
+          switch(expression) {
+            case n:
+              code block
+              break;
+            case n:
+              code block
+              break;
+            default:
+            code block
+          }
           // success!
           //this.ticket = res.data.response.serviceTicket;
           //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
@@ -180,6 +193,39 @@ export function getFlowStatus(ticket,flowId) {
 export function getFlow(ticket,flowId) {
   return dispatch => {
     apicAPI = 'https://devnetapi.cisco.com/sandbox/apic_em';
+    apicTicket = '/api/v1/ticket';
+    apicFlow = '/api/v1/flow-analysis';
+    apicFlowAnalysisId= "/" + flowId;
+    apicTicketURL = this.apicAPI + this.apicTicket;
+    apicFlowURL = this.apicAPI + this.apicFlow;
+    apicFlowAnalysisIdURL= apicFlowURL + apicFlowAnalysisId;
+    apicOptions = {
+      headers: {
+        'content-type': 'application/json',
+        'x-auth-token': ticket
+      },
+      data: {}
+    };
+    return Meteor.call('checkApic', 'GET', apicFlowAnalysisIdURL, apicOptions, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+          // success!
+          //this.ticket = res.data.response.serviceTicket;
+          //this.apicFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
+          //Session.set("apicTicket", res.data.response.serviceTicket);
+          console.log(res);	// debug
+          console.log(this); // debug
+          //this.makeFlowID();
+          return dispatch(setFlow(res.data.response.networkElementsInfo));
+        }
+    })
+  }
+}
+
+export function getConfig(ticket,flowId) {
+  return dispatch => {
+    apicAPI = Meteor.settings.public.ApicEM.url;
     apicTicket = '/api/v1/ticket';
     apicFlow = '/api/v1/flow-analysis';
     apicFlowAnalysisId= "/" + flowId;
