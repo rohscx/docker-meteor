@@ -64,7 +64,7 @@ export function getTicket(sourceIp,destIp) {
   return dispatch => {
     // keep in mind that this value is LOCAL to EACH deployment SERVER...
     apicAPI = Meteor.settings.public.ApicEM.url;
-    
+
     apicTicket = '/api/v1/ticket';
     apicFlow = '/api/v1/flow-analysis';
     apicFlowAnalysisId= '';
@@ -74,7 +74,7 @@ export function getTicket(sourceIp,destIp) {
     // serverside secrets
     apicUname = Meteor.settings.public.ciscoApicEM.uName;
     apicUpass = Meteor.settings.public.ciscoApicEM.uPass;
-    
+
     apicOptions = {
       headers: { 'content-type': 'application/json' },
       data: {username: apicUname, password: apicUpass}
@@ -84,16 +84,16 @@ export function getTicket(sourceIp,destIp) {
       if (err) {
         alert(err);
       } else {
-        
+
           switch(expression) {
             case n:
-              code block
+              console.log("this");
               break;
             case n:
-              code block
+              console.log("this");
               break;
             default:
-            code block
+            console.log("this");
           }
           // success!
           //this.ticket = res.data.response.serviceTicket;

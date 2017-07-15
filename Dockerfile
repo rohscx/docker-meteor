@@ -31,13 +31,15 @@ RUN locale-gen en_US.UTF-8
  RUN apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN cd /opt
+RUN adduser meteor
+
+USER meteor
+RUN cd ~/
 RUN git clone https://github.com/rohscx/docker-meteor.git
 RUN cd /docker-meteor
 RUN meteor npm update --quiet
 
-WORKDIR /opt/docker-meteor
-
+WORKDIR ~/docker-meteor
 
 # Run METEOR.js server
 CMD bash
