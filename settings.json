@@ -12,7 +12,7 @@
       "uPass": "Cisco123!"
     },
     "apicEM": {
-      "url": "",
+      "url": "https://devnetapi.cisco.com/sandbox/apic_em",
       "uName": "",
       "uPass": ""
     }
