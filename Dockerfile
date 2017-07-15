@@ -36,7 +36,7 @@ RUN git clone https://github.com/rohscx/docker-meteor.git
 RUN cd /docker-meteor
 RUN meteor npm update --quiet
 USER meteor
-WORKDIR /home/docker-meteor
+WORKDIR /opt/docker-meteor
 
 
 # Run METEOR.js server
