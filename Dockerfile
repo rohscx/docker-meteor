@@ -38,16 +38,16 @@ RUN apt-get clean \
 RUN adduser --disabled-password --gecos "" meteor
 
 
-# Set Docker default user
-USER meteor
-
-
 # Run Entrypoint script
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 RUN chmod 755 /docker-entrypoint.sh
 
-# Set Docker working directory
+
+# Set Docker default user and  working directory
+USER meteor
 WORKDIR /home/meteor/meteor-app
+
+
 # Run METEOR.js server/app
 CMD [ "-s" ]
