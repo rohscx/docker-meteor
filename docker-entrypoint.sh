@@ -30,7 +30,7 @@ usage() {
 
 initConfig() {
   if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_HOME})"  ]; then
-    cd ${METEOR_HOME})
+    cd ${METEOR_HOME}
     touch cats.dogs
     git clone https://github.com/rohscx/docker-meteor.git ${METEOR_PROJECT_NAME}
     cd ${METEOR_PROJECT_NAME}
