@@ -29,7 +29,7 @@ usage() {
 
 
 initConfig() {
-  if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_HOME})"  ]; then
+  if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A /home)"  ]; then
     su meteor
     cd ~/
     git clone https://github.com/rohscx/docker-meteor.git ${METEOR_PROJECT_NAME}
