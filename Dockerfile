@@ -46,7 +46,7 @@ RUN chmod 755 /docker-entrypoint.sh
 
 # Set Docker default user and  working directory
 USER meteor
-WORKDIR /home/meteor/meteor-app
+WORKDIR /home/meteor
 
 
 # Run METEOR.js server/app
