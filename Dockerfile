@@ -32,14 +32,15 @@ RUN apt-get clean \
 
 # Add Meteor user
 RUN adduser --disabled-password --gecos "" meteor
-USER meteor
-WORKDIR /home/meteor/docker-meteor
 
 # Clone application
 RUN cd /home/meteor/ \
   && git clone https://github.com/rohscx/docker-meteor.git \
-  && cd /home/meteor/docker-meteor \
-  && meteor npm update --quiet
+  && cd /home/meteor/docker-meteor
+
+USER meteor
+WORKDIR /home/meteor/docker-meteor
+RUN meteor npm update --quiet
 
 # Run METEOR.js server/app
 CMD bash
