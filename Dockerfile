@@ -47,8 +47,14 @@ RUN chmod 755 /docker-entrypoint.sh
 # Set Docker default user and  working directory
 USER meteor
 WORKDIR /home/meteor
+
+
+# setup Meteor environment
 RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app \
-&& meteor npm update --quiet
+&& cd meteor-app \
+&& meteor npm update --quiet \
+
+
 
 
 
