@@ -42,4 +42,4 @@ RUN cd ~/ \
   && meteor npm update --quiet
 
 # Run METEOR.js server/app
-CMD meteor --settings settings.json
+CMD bin/bash
