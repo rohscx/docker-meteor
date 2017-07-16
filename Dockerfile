@@ -36,7 +36,8 @@ USER meteor
 WORKDIR ~/docker-meteor
 
 # Clone application
-RUN cd ~/ \
+RUN su meteor \
+  && cd ~/ \
   && git clone https://github.com/rohscx/docker-meteor.git \
   && cd ~/docker-meteor \
   && meteor npm update --quiet
