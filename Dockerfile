@@ -49,13 +49,10 @@ USER meteor
 WORKDIR /home/meteor
 
 
-# setup Meteor environment
+# setup Meteor environmentt
 RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app \
 && cd meteor-app \
 && meteor npm update --quiet \
-
-
-
 
 
 # Run METEOR.js server/app
