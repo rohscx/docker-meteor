@@ -33,7 +33,7 @@ RUN apt-get clean \
 # Add Meteor user
 RUN adduser --disabled-password --gecos "" meteor
 USER meteor
-WORKDIR ~/docker-meteor
+WORKDIR /home/meteor/docker-meteor
 
 # Clone application
 RUN cd /home/meteor/ \
