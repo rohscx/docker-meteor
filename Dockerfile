@@ -34,13 +34,13 @@ RUN locale-gen en_US.UTF-8
 RUN adduser meteor
 
 # add meteor user
-adduser --disabled-password --gecos "" username
+RUN adduser --disabled-password --gecos "" username
 USER meteor
 WORKDIR ~/docker-meteor
-RUN cd ~/
-RUN git clone https://github.com/rohscx/docker-meteor.git
-RUN cd /docker-meteor
-RUN meteor npm update --quiet
+RUN cd ~/ \
+  && git clone https://github.com/rohscx/docker-meteor.git \
+  && cd /docker-meteor
+  && meteor npm update --quiet
 
-# Run METEOR.js server
-CMD bash
+# Run METEOR.js server/app
+CMD meteor --settings settings.json
