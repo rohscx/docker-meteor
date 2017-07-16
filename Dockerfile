@@ -36,6 +36,7 @@ RUN apt-get clean \
 
 # Add Meteor user
 RUN adduser --disabled-password --gecos "" meteor
+RUN echo "cats"
 
 
 # Run Entrypoint script
@@ -49,7 +50,7 @@ USER meteor
 WORKDIR /home/meteor
 
 
-# setup Meteor environmentt
+# setup Meteor environment
 RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app \
 && cd meteor-app \
 && meteor npm update --quiet \
