@@ -31,7 +31,7 @@ RUN apt-get clean \
 
 
 # Add Meteor user
-RUN adduser --disabled-password --gecos "" username
+RUN adduser --disabled-password --gecos "" meteor
 USER meteor
 WORKDIR ~/docker-meteor
 
@@ -42,4 +42,4 @@ RUN cd ~/ \
   && meteor npm update --quiet
 
 # Run METEOR.js server/app
-CMD bin/bash
+CMD meteor --settings settings.json
