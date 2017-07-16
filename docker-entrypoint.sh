@@ -30,10 +30,8 @@ usage() {
 
 initConfig() {
   if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
-    touch cats.dogs
-    git clone https://github.com/rohscx/docker-meteor.git ${METEOR_PROJECT_NAME}
     cd ${METEOR_PROJECT_NAME}
-    meteor npm update --quiet
+    git pull
   else
     echo "Meteor configuration already initialized........."
   fi
