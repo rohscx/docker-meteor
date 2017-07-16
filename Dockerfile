@@ -10,11 +10,14 @@
 FROM ubuntu:latest
 MAINTAINER RoHscx
 
+
 # 80 = HTTP, 443 = HTTPS, 3000 = Meteor.JS server
 EXPOSE 80 443 3000
 
+
 # Set development environment as default
 ENV NODE_ENV development
+
 
 # Install Utilities
 RUN apt-get update \
@@ -26,6 +29,7 @@ RUN apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 && locale-gen en_US.UTF-8
 
+
 # Install Meteor.js
  RUN curl https://install.meteor.com/ | sh
 
@@ -33,14 +37,17 @@ RUN apt-get clean \
 # Add Meteor user
 RUN adduser --disabled-password --gecos "" meteor
 
-# Clone application
-RUN cd /home/meteor/ \
-  && git clone https://github.com/rohscx/docker-meteor.git \
-  && cd /home/meteor/docker-meteor
 
+# Run Entrypoint script
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+RUN chmod 755 /docker-entrypoint.sh
+
+
+# Set Docker default user
 USER meteor
-WORKDIR /home/meteor/docker-meteor
-RUN meteor npm update --quiet
+WORKDIR /home/meteor/meteor-app
+
 
 # Run METEOR.js server/app
-CMD bash
+CMD [ "-s" ]
