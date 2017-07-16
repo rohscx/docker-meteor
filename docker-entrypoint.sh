@@ -42,7 +42,8 @@ initConfig() {
 
 start() {
   sleep ${START_DELAY}
-  cd ${METEOR_PROJECT_NAME} meteor --settings settings.json
+  cd ${METEOR_PROJECT_NAME}
+  meteor --settings settings.json
 }
 
 # Evaluate arguments for build script.
