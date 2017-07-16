@@ -36,7 +36,6 @@ RUN apt-get clean \
 
 # Add Meteor user
 RUN adduser --disabled-password --gecos "" meteor
-RUN echo "cats"
 
 
 # Run Entrypoint script
