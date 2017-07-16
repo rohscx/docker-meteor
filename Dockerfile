@@ -22,19 +22,20 @@ RUN apt-get update \
  curl \
  locales \
  git
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN locale-gen en_US.UTF-8
+RUN apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+&& locale-gen en_US.UTF-8
 
 # Install Meteor.js
  RUN curl https://install.meteor.com/ | sh
- RUN apt-get clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Add meteor user
+
+# Add Meteor user
 RUN adduser --disabled-password --gecos "" username
 USER meteor
 WORKDIR ~/docker-meteor
+
+# Clone application
 RUN cd ~/ \
   && git clone https://github.com/rohscx/docker-meteor.git \
   && cd ~/docker-meteor \
