@@ -12,6 +12,8 @@ START_DELAY=5
 METEOR_HOME=/home/meteor/
 METEOR_PROJECT_NAME=meteor-app
 METEOR_PROJECT_HOME=/home/meteor/meteor-app
+METEOR_PROJECT_APP=/home/meteor/meteor-app
+
 
 # Error codes
 E_ILLEGAL_ARGS=126
@@ -40,7 +42,7 @@ initConfig() {
 
 start() {
   sleep ${START_DELAY}
-  meteor --settings settings.json
+  cd ${METEOR_PROJECT_NAME} meteor --settings settings.json
 }
 
 # Evaluate arguments for build script.
