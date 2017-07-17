@@ -13,6 +13,7 @@ METEOR_HOME=/home/meteor/
 METEOR_PROJECT_NAME=meteor-app
 METEOR_PROJECT_HOME=/home/meteor/meteor-app
 METEOR_PROJECT_APP=/home/meteor/meteor-app
+METEOR_PROJECT_CD="cd ~/meteor-app"
 
 
 # Error codes
@@ -32,7 +33,7 @@ usage() {
 
 initConfig() {
   if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
-    cd ${METEOR_PROJECT_NAME}
+    METEOR_PROJECT_CD
     git pull
   else
     echo "Meteor configuration already initialized........."
@@ -43,7 +44,7 @@ initConfig() {
 start() {
   sleep ${START_DELAY}
   #meteor --settings settings.json
-  ping google.com
+  /bin/bash
 }
 
 # Evaluate arguments for build script.
