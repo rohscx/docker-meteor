@@ -43,7 +43,8 @@ initConfig() {
 
 start() {
   sleep ${START_DELAY}
-  meteor --settings settings.json
+  #meteor --settings settings.json
+  bash
 }
 
 # Evaluate arguments for build script.
