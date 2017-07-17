@@ -7,7 +7,7 @@
 #
 # =====================================================================
 
-START_DELAY=5
+START_DELAY=2
 
 METEOR_HOME=/home/meteor/
 METEOR_PROJECT_NAME=meteor-app
