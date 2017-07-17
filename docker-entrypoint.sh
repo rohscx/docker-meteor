@@ -33,7 +33,7 @@ usage() {
 
 initConfig() {
   if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
-    METEOR_PROJECT_CD
+    ${METEOR_PROJECT_CD}
     git pull
   else
     echo "Meteor configuration already initialized........."
