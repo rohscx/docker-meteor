@@ -31,7 +31,7 @@ usage() {
 
 
 initConfig() {
-  if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
+  if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
     cd ${METEOR_PROJECT_NAME}
     git pull
   else
