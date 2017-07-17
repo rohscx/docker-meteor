@@ -57,7 +57,8 @@ RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app ; cd meteor
 RUN cd meteor-app \
 && meteor npm install --save --quiet babel-runtime react simpl-schema react-router \
   react-dom core-decorators react-addons-css-transition-group react-redux \
-  redux-accordion redux redux-thunk react-bootstrap classnames react-addons-update
+  redux-accordion redux redux-thunk react-bootstrap classnames \
+  react-addons-update meteor-node-stubs transform-decorators-legacy
 
 
 # Run METEOR.js server/app
