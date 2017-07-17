@@ -56,4 +56,5 @@ RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app \
 
 
 # Run METEOR.js server/app
-CMD [ "-s" ]
+#CMD [ "-s" ]
+CMD bash
