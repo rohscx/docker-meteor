@@ -50,8 +50,7 @@ WORKDIR /home/meteor
 
 
 # Clone Meteor project
-RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app \
-&& cd meteor-app
+RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app ; cd meteor-app
 
 
 # Install npm components
