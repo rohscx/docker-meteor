@@ -42,9 +42,8 @@ initConfig() {
 
 start() {
   sleep ${START_DELAY}
-  cd ${METEOR_PROJECT_NAME}
   #meteor --settings settings.json
-  /bin/bash
+  ping google.com
 }
 
 # Evaluate arguments for build script.
