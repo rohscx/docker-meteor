@@ -58,8 +58,8 @@ RUN cd meteor-app \
 && meteor npm install --save --quiet babel-runtime react simpl-schema react-router \
   react-dom core-decorators react-addons-css-transition-group react-redux \
   redux-accordion redux redux-thunk react-bootstrap classnames \
-  react-addons-update meteor-node-stubs transform-decorators-legacy \
-  react-komposer meteor-node-stubs 
+  react-addons-update meteor-node-stubs \
+  react-komposer meteor-node-stubs
 
 
 # Run METEOR.js server/app
