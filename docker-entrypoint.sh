@@ -14,6 +14,7 @@ METEOR_PROJECT_NAME=meteor-app
 METEOR_PROJECT_HOME=/home/meteor/meteor-app
 METEOR_PROJECT_APP=/home/meteor/meteor-app
 METEOR_PROJECT_CD="cd ~/meteor-app"
+METEOR_PROJECT_GIT_PULL="git pull"
 METEOR_PROJECT_START="meteor --settings settings.json > logs/stdout.log 2 > logs/stderr.log"
 
 
@@ -35,7 +36,7 @@ usage() {
 initConfig() {
   if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
     ${METEOR_PROJECT_CD}
-    git pull
+    ${METEOR_PROJECT_GIT_PULL}
   else
     echo "Meteor configuration already initialized........."
   fi
