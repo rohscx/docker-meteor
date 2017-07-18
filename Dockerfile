@@ -60,6 +60,7 @@ RUN cd meteor-app \
   react-addons-update meteor-node-stubs react-komposer meteor-node-stubs \
   babel-plugin-transform-decorators-legacy
 
+WORKDIR /home/meteor/meteor-app
 
 # Run METEOR.js server/app
 CMD [ "-s" ]
