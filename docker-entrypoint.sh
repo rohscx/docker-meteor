@@ -46,6 +46,7 @@ initConfig() {
 
 start() {
   #sleep ${START_DELAY}
+  ${METEOR_PROJECT_CD}
   ${METEOR_PROJECT_START}
 }
 
