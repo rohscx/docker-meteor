@@ -34,7 +34,7 @@ usage() {
 
 
 initConfig() {
-  if [ ! "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
+  if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
     ${METEOR_PROJECT_GIT_PULL}
   else
     echo "Meteor configuration already initialized........."
@@ -44,7 +44,8 @@ initConfig() {
 
 start() {
   #sleep ${START_DELAY}
-  ${METEOR_PROJECT_START}
+  cd ~/meteor-app
+  meteor --settings settings.json debug
 }
 
 # Evaluate arguments for build script.
