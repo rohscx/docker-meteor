@@ -58,7 +58,7 @@ RUN cd meteor-app \
   react-dom core-decorators react-addons-css-transition-group react-redux \
   redux-accordion redux redux-thunk react-bootstrap classnames \
   react-addons-update meteor-node-stubs react-komposer meteor-node-stubs \
-  babel-plugin-transform-decorators-legacy
+  babel-plugin-transform-decorators-legacy bcrypt
 
 WORKDIR /home/meteor/meteor-app
 
