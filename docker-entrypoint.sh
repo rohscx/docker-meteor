@@ -45,7 +45,7 @@ initConfig() {
 start() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
-  meteor --settings settings.json debug
+  meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
 }
 
 # Evaluate arguments for build script.
