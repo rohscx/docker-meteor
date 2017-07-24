@@ -20,5 +20,3 @@ let removeEmptyElements = (matches) => {
   console.log(matches);
 }
 removeEmptyElements(matches);
-
-.
