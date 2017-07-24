@@ -11,13 +11,14 @@ matches = test.testData.split(/\r?\n/);
 
 let removeEmptyElements = (matches) => {
 	console.log(matches);
-	for (i = 0; i < matches.length; i++) { 
+	for (i = 0; i < matches.length; i++) {
 		if (matches[i].length == 0) {
 			var index = matches.indexOf("");
 			matches.splice(index, 1);
 		}
 	}
   console.log(matches);
-} 
+}
 removeEmptyElements(matches);
 
+.
