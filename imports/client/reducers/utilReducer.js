@@ -3,6 +3,11 @@ const utilReducer = (state = {
     macAddress:"",
     validationStatus:"",
     btnStyle: false
+  },
+  hostName: {
+    name:"",
+    validationStatus:"",
+    btnStyle: false
   }
 }, action) => {
   switch (action.type) {
