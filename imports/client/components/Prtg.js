@@ -92,8 +92,8 @@ const mapDispatchToProps = (dispatch) => {
     addNumber: (number) => {
       dispatch(setName(number));
     },
-    hostName: (hostName) => {
-      dispatch(hostName(hostName));
+    hostName: (name) => {
+      dispatch(hostName(name));
     }
   };
 };
