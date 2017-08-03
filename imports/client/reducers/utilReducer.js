@@ -6,7 +6,7 @@ const utilReducer = (state = {
   },
   hostName: {
     name:"",
-    validationStatus:"error",
+    validationStatus:"",
     btnStyle: false
   }
 }, action) => {
