@@ -43,7 +43,7 @@ export function validateMac(mac) {
 
 export function hostName(hostName) {
   return dispatch => {
-
+    let newHostName = hostName.trim().toLowerCase()
     if(hostName.length <= 0 ){
       return dispatch(setHostName({
         name: newHostName,
