@@ -17,7 +17,7 @@ const iseReducer = (state = {
     case "SET_HOSTNAME":
     state = {
       ...state,
-      hostname: action.payload
+      hostName: action.payload
     };
     state.lastValues.push(action.payload);
     break;
