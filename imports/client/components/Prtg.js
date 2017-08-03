@@ -47,7 +47,7 @@ class Prtg extends Component {
         <Form horizontal>
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
-              MAC
+              Search
             </Col>
             <Col sm={10}>
               <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
