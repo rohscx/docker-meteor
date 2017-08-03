@@ -14,7 +14,7 @@ export function subtractNumber(number) {
   };
 }
 
-export function getRestIse(path,options,destIp) {
+export function getRestPrtg(path,options,destIp) {
   return dispatch => {
     prtgAPI = 'https://agaprtgpr01.fpicore.fpir.pvt/admin/API/mnt';
     prtgTicket = '/api/v1/ticket';
