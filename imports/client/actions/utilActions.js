@@ -41,24 +41,13 @@ export function validateMac(mac) {
   }
 }
 
-export function getHostName(hostName) {
+export function HostName(hostName) {
   return dispatch => {
-      let newHostName = hostName.trim().toLowerCase()
-      var mac_address = mac;
-    if(regexp.test(mac_address)) {
-      console.log("Valid: "+ mac_address);
-      return dispatch(setMacValidation({
-          macAddress: mac_address,
-          validationStatus: "success",
-          btnStyle: true
-        }));
-    } else {
-      console.log("Not Valid: "+ mac_address)
-      return dispatch(setMacValidation({
-          macAddress: mac_address,
-          validationStatus: "error",
-          btnStyle: false
-        }));
-    }
+    let newHostName = hostName.trim().toLowerCase()
+    return dispatch(setMacValidation({
+      macAddress: newHostName,
+      validationStatus: "success",
+      btnStyle: true
+    }));
   }
 }

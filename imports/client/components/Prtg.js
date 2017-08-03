@@ -5,7 +5,7 @@ import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/prtgActions'
-import { getHost } from '../actions/getRestPrtg'
+import { hostName } from '../actions/utilActions'
 
 class Prtg extends Component {
   handleSearchFormInput(event) {
@@ -92,8 +92,8 @@ const mapDispatchToProps = (dispatch) => {
     addNumber: (number) => {
       dispatch(setName(number));
     },
-    getHost: (hostName) => {
-      dispatch(validateMac(hostName));
+    hostName: (hostName) => {
+      dispatch(setHostName(hostName));
     }
   };
 };
