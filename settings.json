@@ -3,6 +3,11 @@
     "iseRest": {
         "uName": "NotAName",
         "uPass": "NotREallyIt"
+    },
+    "prtgRest": {
+      "uName": "NotAName",
+      "uPass": "NotREallyIt",
+      "baseUrl": "NotReallyGoodAtThis"
     }
 },
   "public" : {
