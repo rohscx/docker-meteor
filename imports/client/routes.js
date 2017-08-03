@@ -19,6 +19,7 @@ Meteor.startup(() => {
         <IndexRoute component={App} />
         <Route path="/apic" component={AppApic} />
         <Route path="/ise" component={AppIse} />
+        <Route path="/prtg" component={AppPrtg} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
 
