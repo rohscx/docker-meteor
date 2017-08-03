@@ -11,6 +11,8 @@ import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
 import AppApic from './AppApic';
 import AppIse from './AppIse';
+import AppPrtg from './AppPrtg';
+
 
 Meteor.startup(() => {
   render(
