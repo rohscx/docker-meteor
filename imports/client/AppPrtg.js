@@ -11,7 +11,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 
 
-import Ise from './components/Ise';
+import Prtg from './components/Prtg';
 
 // initializes the state
 
