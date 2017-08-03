@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import mathReducer from './reducers/mathReducer';
 import userReducer from './reducers/userReducer';
 import apicReducer from './reducers/apicReducer';
-import prtgReducer from './reducers/iseReducer';
+import iseReducer from './reducers/iseReducer';
 import utilReducer from './reducers/utilReducer';
 import prtgReducer from './reducers/prtgReducer';
 
