@@ -1,4 +1,4 @@
-const iseReducer = (state = {
+const prtgReducer = (state = {
   ticket: "NO APIC TICKET",
   devices: "NO DEVICES"
 }, action) => {
@@ -14,16 +14,10 @@ const iseReducer = (state = {
       ...state,
       devices: action.payload
     };
-    break;
-    case "SET_HOSTNAME":
-    state = {
-      ...state,
-      hostName: action.payload
-    };
     state.lastValues.push(action.payload);
     break;
     }
   return state;
 };
 
-export default iseReducer;
+export default prtgReducer;
