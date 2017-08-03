@@ -89,9 +89,6 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNumber: (number) => {
-      dispatch(setName(number));
-    },
     hostName: (name) => {
       dispatch(hostName(name));
     }
