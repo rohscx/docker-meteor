@@ -45,7 +45,7 @@ export function HostName(hostName) {
   return dispatch => {
     let newHostName = hostName.trim().toLowerCase()
     return dispatch(setMacValidation({
-      macAddress: newHostName,
+      name: newHostName,
       validationStatus: "success",
       btnStyle: true
     }));

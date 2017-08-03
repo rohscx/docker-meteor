@@ -15,7 +15,7 @@ const utilReducer = (state = {
     case "SET_HOSTNAME":
     state = {
       ...state,
-      hostname: action.payload
+      hostName: action.payload
     }
     break;
   }

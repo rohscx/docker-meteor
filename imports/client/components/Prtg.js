@@ -9,7 +9,7 @@ import { hostName } from '../actions/utilActions'
 
 class Prtg extends Component {
   handleSearchFormInput(event) {
-    this.props.validateMac(event.target.value);
+    this.props.hostName(event.target.value);
   }
 
   prtgSearchForm(){
@@ -23,9 +23,9 @@ class Prtg extends Component {
         <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>
       );
     };
-    const macAddress = () => {
+    const hostName = () => {
       return (
-        this.props.util.macValidation.macAddress
+        this.props.util.hostName.name
       );
     };
     const formInput = () => {
@@ -35,7 +35,7 @@ class Prtg extends Component {
     };
     const validationStatus = () => {
       return (
-        this.props.util.macValidation.validationStatus
+        this.props.util.hostName.validationStatus
       );
     };
 
@@ -51,12 +51,12 @@ class Prtg extends Component {
               MAC
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={macAddress()} placeholder="Host Name" onChange={formInput()} />
+              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
           <FormGroup>
-            {this.props.util.macValidation.btnStyle ? btnEnabled() : btnDisabled()}
+            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
           </FormGroup>
         </Form>
 
