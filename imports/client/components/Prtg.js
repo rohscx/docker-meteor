@@ -5,7 +5,7 @@ import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { addNumber } from '../actions/prtgActions'
-import { validateMac } from '../actions/utilActions'
+import { getHost } from '../actions/getRestPrtg'
 
 class Prtg extends Component {
   handleSearchFormInput(event) {
@@ -28,7 +28,7 @@ class Prtg extends Component {
         this.props.util.macValidation.macAddress
       );
     };
-    const fromInput = () => {
+    const formInput = () => {
       return (
         this.handleSearchFormInput.bind(this)
       );
@@ -46,12 +46,12 @@ class Prtg extends Component {
     return (
       <div style={divStyles}>
         <Form horizontal>
-          <FormGroup controlId="formHorizontalMac" validationState={validationStatus()}>
+          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
               MAC
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={macAddress()} placeholder="Host MAC ADDRESS" onChange={fromInput()} />
+              <FormControl type="email" value={macAddress()} placeholder="Host Name" onChange={formInput()} />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
@@ -92,8 +92,8 @@ const mapDispatchToProps = (dispatch) => {
     addNumber: (number) => {
       dispatch(setName(number));
     },
-    validateHostName: (mac) => {
-      dispatch(validateMac(mac));
+    getHost: (hostName) => {
+      dispatch(validateMac(hostName));
     }
   };
 };

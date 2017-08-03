@@ -10,8 +10,14 @@ const utilReducer = (state = {
       state = {
         ...state,
         macValidation: action.payload
-      };
+      }
       break;
+    case "SET_HOSTNAME":
+    state = {
+      ...state,
+      hostname: action.payload
+    }
+    break;
   }
   return state;
 };
