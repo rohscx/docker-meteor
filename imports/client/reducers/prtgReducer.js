@@ -14,6 +14,7 @@ const iseReducer = (state = {
       ...state,
       devices: action.payload
     };
+    break;
     case "SET_HOSTNAME":
     state = {
       ...state,
