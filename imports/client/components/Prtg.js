@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
-import { addNumber } from '../actions/prtgActions'
 import { hostName } from '../actions/utilActions'
 
 class Prtg extends Component {
@@ -82,7 +81,6 @@ class Prtg extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    prtg: state.prtgReducer,
     util: state.utilReducer
   };
 };
