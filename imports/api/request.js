@@ -39,9 +39,11 @@ if (Meteor.isServer) {
 
   Meteor.publish('prtgDeviceList', function() {
     let type = "GET";
-    let url = Meteor.settings.private.prtgRest.baseUrl;
+    let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
     let uName = Meteor.settings.private.prtgRest.uName;
     let uPass = Meteor.settings.private.prtgRest.uPass;
+    let uCreds = "&username="+uName+"&passhash="+uPass;
+    let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
     let options = "";
     const result = HTTP.call(type, url, options);
     console.log(result)
