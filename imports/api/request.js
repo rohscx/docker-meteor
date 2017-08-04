@@ -103,7 +103,8 @@ if (Meteor.isServer) {
       console.log("TREE",newData.treesize)
       console.log("PUBLISHED KEYS",publishedKeys)
       newData.sensors.map((data) => {
-        console.log("DOCCCC",data)
+        console.log("DOCCCC ",data)
+        console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           this.changed(COLLECTION_NAME, data._id, data);
         } else {
