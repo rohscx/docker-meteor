@@ -97,7 +97,7 @@ if (Meteor.isServer) {
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
-      let newData = data;
+      let newData = data.content;
       console.log("DATAAAA  NEW",JSON.parse(newData.content))
       console.log("SENSORS",newData["sensors"])
       console.log("TREE",newData.treesize)
