@@ -72,7 +72,7 @@ store.subscribe(() => {
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let prtgItemsSub = Meteor.subscribe('allPrtgItems');
+  let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray;
   prtgArray = ItemsPrtg.find({}, {}).fetch()
   console.log("ITEMSSSSSSS", ItemsPrtg.find({}, {}).fetch())
