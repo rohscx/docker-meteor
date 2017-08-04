@@ -50,8 +50,8 @@ export function getDevices() {
           //this.ticket = res.data.response.serviceTicket;
           //this.prtgFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
           //Session.set("prtgTicket", res.data.response.serviceTicket);
-          console.log("RESPONSE",res);	// debug
-          console.log("ERROR",err);	// debug
+          //console.log("RESPONSE",res);	// debug
+          alert(res);
           //console.log(this); // debug
           //this.makeFlowID();
           //flowId = res.data.response.flowAnalysisId;
