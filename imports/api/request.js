@@ -44,6 +44,7 @@ if (Meteor.isServer) {
     let uPass = Meteor.settings.private.prtgRest.uPass;
     let options = "";
     const result = HTTP.call(type, url, options);
+    console.log(result)
   });
 
 
