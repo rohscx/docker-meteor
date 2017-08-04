@@ -99,7 +99,7 @@ if (Meteor.isServer) {
       const data = HTTP.get(url, options);
       let newData = data;
       console.log("DATAAAA  NEW",newData)
-      console.log("SENSORS",newData.content["sensors"])
+      console.log("SENSORS",newData.["sensors"])
       newData.content.map((data) => {
         console.log("DOCCCC",data)
         if (publishedKeys[data._id]) {
