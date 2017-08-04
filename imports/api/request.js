@@ -49,12 +49,12 @@ if (Meteor.isServer) {
     let uPass = Meteor.settings.private.prtgRest.uPass;
     let uCreds = "&username="+uName+"&passhash="+uPass;
     let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
-    let options = {strictSSL: false};
+    let npmRequestOptions = {strictSSL: false};
     let agent;
     const publishedKeys = {};
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-      const data = HTTP.get(url, options);
+      const data = HTTP.get(url, npmRequestOptions);
       console.log("DATAAAAA",data)
       data.forEach((doc) => {
         if (publishedKeys[doc._id]) {
