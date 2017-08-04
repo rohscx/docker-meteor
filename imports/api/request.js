@@ -39,9 +39,9 @@ if (Meteor.isServer) {
 
   Meteor.publish('prtgDeviceList', function() {
     let type = "GET";
-    let url = Meteor.settings.prtgRest.baseUrl;
-    let uName = Meteor.settings.prtgRest.uName;
-    let uPass = Meteor.settings.prtgRest.uPass;
+    let url = Meteor.settings.private.prtgRest.baseUrl;
+    let uName = Meteor.settings.private.prtgRest.uName;
+    let uPass = Meteor.settings.private.prtgRest.uPass;
     let options = "";
     const result = HTTP.call(type, url, options);
   });
