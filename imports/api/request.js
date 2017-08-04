@@ -43,6 +43,7 @@ const ItemPrtgSchema = new SimpleSchema ({
   }
 });
 
+
 const ItemsPrtgSchema = new SimpleSchema ({
   prtgData: ItemPrtgSchema
 });
@@ -114,6 +115,7 @@ if (Meteor.isServer) {
                 dateTime: dateTime
               }
             });
+            ItemsApic.remove()
           //this.changed(COLLECTION_NAME, data._id, data);
         } else {
           publishedKeys[data._id] = true;
@@ -126,6 +128,7 @@ if (Meteor.isServer) {
                 dateTime: dateTime
               }
             });
+            ItemsApic.remove()
           //this.added(COLLECTION_NAME, data._id, data);
         }
       });
