@@ -95,4 +95,4 @@ if (Meteor.isServer) {
 }
 
 
-module.exports =  {ItemsApic: ItemsApic,ItemsPrtg:ItemsPrtg};
+module.exports =  {ItemsApic: ItemsApic};
