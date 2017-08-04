@@ -131,6 +131,12 @@ if (Meteor.isServer) {
           //this.added(COLLECTION_NAME, data._id, data);
         }
       });
+      return ItemsPrtg.find({}, {
+        // limits the number of return json items from DB
+        //limit: 50,
+        // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+        //sort: {"prtgData.dateTime" : -1}
+      });
     };
     poll();
     this.ready();
