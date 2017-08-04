@@ -68,8 +68,8 @@ if (Meteor.isServer) {
       const data = HTTP.get(url, options);
       let newData = data;
       console.log("DATAAAA  NEW",newData.content)
-      /*
-      data.forEach((doc) => {
+      
+      newData.content.forEach((doc) => {
         console.log("DOCCCC",doc)
         if (publishedKeys[doc._id]) {
           this.changed(COLLECTION_NAME, doc._id, doc);
@@ -77,7 +77,7 @@ if (Meteor.isServer) {
           publishedKeys[doc._id] = true;
           this.added(COLLECTION_NAME, doc._id, doc);
         }
-      });*/
+      });
     };
     poll();
     this.ready();
