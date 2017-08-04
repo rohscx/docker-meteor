@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
-import { hostName } from '../actions/utilActions'
+import { hostName } from '../actions/utilActions';
+import { getDevices } from '../actions/prtgActions';
 
 class Prtg extends Component {
   handleSearchFormInput(event) {
@@ -81,7 +82,8 @@ class Prtg extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    util: state.utilReducer
+    util: state.utilReducer,
+    prtg: state.prtgReducer
   };
 };
 
@@ -89,6 +91,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     hostName: (name) => {
       dispatch(hostName(name));
+    },
+    getDevices: () => {
+      dispatch(getDevices());
     }
   };
 };

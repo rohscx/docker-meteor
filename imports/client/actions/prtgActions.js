@@ -14,11 +14,20 @@ export function subtractNumber(number) {
   };
 }
 
-export function getRestPrtg(path,options,destIp) {
+export function setDevices(devices) {
+  return {
+    type: "SET_DEVICES",
+    payload: devices
+  };
+}
+
+export function getDevices() {
   return dispatch => {
-    prtgAPI = 'https://agaprtgpr01.fpicore.fpir.pvt/admin/API/mnt';
-    prtgTicket = '/api/v1/ticket';
-    prtgApiPath = path;
+    prtgBase = Meteor.settings.private.prtgRest.baseUrl
+    prtgAPI = "/api/table.json";
+    prtgDevices = "?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite";
+    prtgCreds = "&username="+Meteor.settings.private.prtgRest.uName+"&passhash="+Meteor.settings.private.prtgRest.uPass;;
+    prtgApiPath = prtgBase+prtgAPI+prtgDevices+prtgCreds;
     prtgApiOptions= options;
     prtgApiRequest = prtgAPI + prtgApiPath + prtgApiOptions;
     // serverside secrets
@@ -41,12 +50,13 @@ export function getRestPrtg(path,options,destIp) {
           //this.ticket = res.data.response.serviceTicket;
           //this.prtgFlowOptions.headers['x-auth-token'] = res.data.response.serviceTicket;
           //Session.set("prtgTicket", res.data.response.serviceTicket);
-          console.log(res);	// debug
-          console.log(this); // debug
+          console.log("RESPONSE",res);	// debug
+          console.log("ERROR",err);	// debug
+          //console.log(this); // debug
           //this.makeFlowID();
           //flowId = res.data.response.flowAnalysisId;
           //dispatch(getFlowStatus(ticket, flowId))
-          //return dispatch(setFlowId(flowId));
+          return dispatch(setDevices(res));
         }
     })
   }
