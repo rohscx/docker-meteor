@@ -9,7 +9,7 @@ import { Template } from 'meteor/templating';
 import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
-import ItemsApic from '../api/prtg';
+import ItemsApic from '../api/request';
 
 
 
