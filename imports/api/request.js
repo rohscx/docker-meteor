@@ -108,6 +108,7 @@ if (Meteor.isServer) {
         if (publishedKeys[data._id]) {
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
+          ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
           ItemsPrtg.insert({
               prtgData: {
                 dataObj: data,
@@ -115,7 +116,6 @@ if (Meteor.isServer) {
                 dateTime: dateTime
               }
             });
-            ItemsApic.remove({  "prtgData.requestTime": {"$gte" : Math.round(new Date().getTime()/1000 - 30000) } })
           //this.changed(COLLECTION_NAME, data._id, data);
         } else {
           publishedKeys[data._id] = true;
@@ -128,7 +128,6 @@ if (Meteor.isServer) {
                 dateTime: dateTime
               }
             });
-            ItemsApic.remove({  "prtgData.requestTime": {"$gte" : Math.round(new Date().getTime()/1000 - 30000) } })
           //this.added(COLLECTION_NAME, data._id, data);
         }
       });
