@@ -73,14 +73,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
-  let prtgArray;
-  prtgArray = ItemsPrtg.find({}, {}).fetch()
-  console.log("ITEMSSSSSSS", ItemsPrtg.find({}, {
-    // ternary operator. a form of IF THEN statement
-    limit: showAll ? 50 : 1,
-    // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-    sort: {"prtgData.requestTime": -1}
-  }).fetch())
+  let prtgArray = Session.get('allPrtgItems')
   return {
     showAll,
     ready: prtgItemsSub.ready(),

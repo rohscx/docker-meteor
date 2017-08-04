@@ -65,11 +65,11 @@ if (Meteor.isServer) {
 
   Meteor.publish('allPrtgItems', function() {
     return ItemsPrtg.find({}, {
-      // limits the number of return json items from DB
-      //limit: 50,
+      // ternary operator. a form of IF THEN statement
+      limit: showAll ? 50 : 1,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      //sort: {"prtgData.dateTime" : -1}
-    });
+      sort: {"prtgData.requestTime": -1}
+    }).fetch()
   });
 
 
