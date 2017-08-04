@@ -73,7 +73,7 @@ if (Meteor.isServer) {
   });
 
 
-  const POLL_INTERVAL = 30000;
+  const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
     /*
       data contains the entire return object
@@ -100,15 +100,15 @@ if (Meteor.isServer) {
       let newData = JSON.parse(data.content);
       //console.log("DATAAAA  NEW",newData)
       //console.log("SENSORS",newData.sensors)
-      console.log("TREE",newData.treesize)
-      console.log("PUBLISHED KEYS",publishedKeys)
+      //console.log("TREE",newData.treesize)
+      //console.log("PUBLISHED KEYS",publishedKeys)
+      ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data) => {
         //console.log("DOCCCC ",data)
         console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
-          ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
           ItemsPrtg.insert({
               prtgData: {
                 dataObj: data,
