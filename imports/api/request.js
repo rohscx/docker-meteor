@@ -29,26 +29,6 @@ const ItemsApicSchema = new SimpleSchema ({
 ItemsApic.attachSchema(ItemsApicSchema);
 
 
-// prtg
-const ItemsPrtg = new Mongo.Collection('itemsprtg');
-
-const ItemPrtgSchema = new SimpleSchema ({
-  dataObj: {
-    type: Object,
-    blackbox: true
-  },
-  requestTime: SimpleSchema.Integer,
-  dateTime : {
-    type: Date
-  }
-});
-
-
-const ItemsPrtgSchema = new SimpleSchema ({
-  prtgData: ItemPrtgSchema
-});
-
-ItemsPrtg.attachSchema(ItemsPrtgSchema);
 
 
 
@@ -65,74 +45,6 @@ if (Meteor.isServer) {
 
   Meteor.publish('allPrtgItems', function() {
     return ItemsPrtg.find()
-  });
-
-
-  const POLL_INTERVAL = 900000;
-  Meteor.publish('prtgDeviceList', function() {
-    /*
-      data contains the entire return object
-      data.content contains the contents
-      headers contains the headers
-      data.data.sensors contains an array of objects
-      data.statusCode contains status code
-      prtg data returns the following:
-      statusCode: 200,
-      content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
-    */
-    let type = "GET";
-    let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
-    let uName = Meteor.settings.private.prtgRest.uName;
-    let uPass = Meteor.settings.private.prtgRest.uPass;
-    let uCreds = "&username="+uName+"&passhash="+uPass;
-    let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
-    let options;
-    let agent;
-    const publishedKeys = {};
-    const poll = () => {
-      // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-      const data = HTTP.get(url, options);
-      let newData = JSON.parse(data.content);
-      //console.log("DATAAAA  NEW",newData)
-      //console.log("SENSORS",newData.sensors)
-      //console.log("TREE",newData.treesize)
-      //console.log("PUBLISHED KEYS",publishedKeys)
-      ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
-      newData.sensors.map((data) => {
-        //console.log("DOCCCC ",data)
-        //console.log("DATA ID ",data._id)
-        if (publishedKeys[data._id]) {
-          let timeNow = Math.round(new Date().getTime() / 1000);
-          let dateTime = new Date();
-          ItemsPrtg.insert({
-              prtgData: {
-                dataObj: data,
-                requestTime: timeNow,
-                dateTime: dateTime
-              }
-            });
-          //this.changed(COLLECTION_NAME, data._id, data);
-        } else {
-          publishedKeys[data._id] = true;
-          let timeNow = Math.round(new Date().getTime() / 1000);
-          let dateTime = new Date();
-          ItemsPrtg.insert({
-              prtgData: {
-                dataObj: data,
-                requestTime: timeNow,
-                dateTime: dateTime
-              }
-            });
-          //this.added(COLLECTION_NAME, data._id, data);
-        }
-      });
-    };
-    poll();
-    this.ready();
-    const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-    this.onStop(() => {
-      Meteor.clearInterval(interval);
-    });
   });
 
 
