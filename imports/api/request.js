@@ -42,7 +42,7 @@ if (Meteor.isServer) {
 
 
 
-  const POLL_INTERVAL = 5000;
+  const POLL_INTERVAL = 30000;
   Meteor.publish('prtgDeviceList', function() {
     let type = "GET";
     let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
