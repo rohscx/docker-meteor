@@ -188,4 +188,5 @@ if (Meteor.isServer) {
 }
 
 
-export {ItemsApic,ItemsPrtg};
+export {ItemsApic};
+export {ItemsPrtg};
