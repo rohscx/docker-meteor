@@ -4,6 +4,7 @@ import Items from '../imports/api/Items';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
+import '../imports/api/prtg';
 
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {
