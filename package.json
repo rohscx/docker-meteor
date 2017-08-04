@@ -29,7 +29,6 @@
     "redux": "^3.7.2",
     "redux-accordion": "^1.0.721",
     "redux-thunk": "^2.2.0",
-    "request": "^2.81.0",
     "simpl-schema": "^0.3.1",
     "superagent": "^3.5.2"
   }
