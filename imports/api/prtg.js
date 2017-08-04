@@ -7,26 +7,6 @@ import request from 'request';
 import https from 'https';
 
 
-// apic
-const ItemsApic = new Mongo.Collection('itemsapic');
-
-const ItemApicSchema = new SimpleSchema ({
-  text: String,
-  dataObj: {
-    type: Object,
-    blackbox: true
-  },
-  requestTime: SimpleSchema.Integer,
-  dateTime : {
-    type: Date
-  }
-});
-
-const ItemsApicSchema = new SimpleSchema ({
-  apicData: ItemApicSchema
-});
-
-ItemsApic.attachSchema(ItemsApicSchema);
 
 
 // prtg
