@@ -9,7 +9,8 @@ import { Template } from 'meteor/templating';
 import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
-import ItemsPrtg from '../api/prtg';
+import ItemsApic from '../api/prtg';
+
 
 
 import Prtg from './components/Prtg';
@@ -73,9 +74,11 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
+  let prtgArray;
+  prtgArray = ItemsPrtg.find({}, {})
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgDevices: "s"
+    prtgItems: prtgArray
   }
 }, AppPrtg);
