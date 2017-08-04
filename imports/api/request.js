@@ -44,7 +44,7 @@ if (Meteor.isServer) {
     let uPass = Meteor.settings.private.prtgRest.uPass;
     let uCreds = "&username="+uName+"&passhash="+uPass;
     let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
-    let options = "";
+    let options = "rejectUnauthorized: false";
     const result = HTTP.call(type, url, options);
     console.log(result)
   });
