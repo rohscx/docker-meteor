@@ -7,7 +7,7 @@ import request from 'request';
 import https from 'https';
 
 
-
+// apic
 const ItemsApic = new Mongo.Collection('itemsapic');
 
 const ItemApicSchema = new SimpleSchema ({
@@ -28,6 +28,30 @@ const ItemsApicSchema = new SimpleSchema ({
 
 ItemsApic.attachSchema(ItemsApicSchema);
 
+
+// prtg
+const ItemsPrtg = new Mongo.Collection('itemsprtg');
+
+const ItemPrtgSchema = new SimpleSchema ({
+  text: String,
+  dataObj: {
+    type: Object,
+    blackbox: true
+  },
+  requestTime: SimpleSchema.Integer,
+  dateTime : {
+    type: Date
+  }
+});
+
+const ItemsPrtgSchema = new SimpleSchema ({
+  apicData: ItemPrtgSchema
+});
+
+ItemsPrtg.attachSchema(ItemsPrtgSchema);
+
+
+
 if (Meteor.isServer) {
 
   Meteor.publish('allApicItems', function() {
@@ -39,13 +63,20 @@ if (Meteor.isServer) {
     });
   });
 
-
+  Meteor.publish('allPrtgItems', function() {
+    return ItemsPrtg.find({}, {
+      // limits the number of return json items from DB
+      //limit: 50,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      //sort: {"prtgData.dateTime" : -1}
+    });
+  });
 
 
   const POLL_INTERVAL = 30000;
   Meteor.publish('prtgDeviceList', function() {
     /*
-      data contains the entire return object 
+      data contains the entire return object
       data.content contains the contents
       headers contains the headers
       data.data.sensors contains an array of objects
@@ -67,8 +98,8 @@ if (Meteor.isServer) {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
       let newData = data;
-      console.log("DATAAAA  NEW",newData.content)
-      
+      console.log("DATAAAA  NEW",newData.content.sensors)
+
       newData.content.forEach((doc) => {
         console.log("DOCCCC",doc)
         if (publishedKeys[doc._id]) {
