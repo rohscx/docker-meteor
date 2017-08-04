@@ -73,7 +73,7 @@ if (Meteor.isServer) {
   });
 
 
-  const POLL_INTERVAL = 900000;
+  const POLL_INTERVAL = 30000;
   Meteor.publish('prtgDeviceList', function() {
     /*
       data contains the entire return object
