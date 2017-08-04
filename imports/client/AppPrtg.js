@@ -77,6 +77,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgItems: ItemsPrtg.find({}, {
+    prtgItems: prtgArray
   }
 }, AppPrtg);
