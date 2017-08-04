@@ -44,6 +44,10 @@ if (Meteor.isServer) {
 
   const POLL_INTERVAL = 30000;
   Meteor.publish('prtgDeviceList', function() {
+    /*
+      data contains the entire return object 
+      data.content contains the contents
+    */
     let type = "GET";
     let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
     let uName = Meteor.settings.private.prtgRest.uName;
