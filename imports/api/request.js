@@ -56,7 +56,8 @@ if (Meteor.isServer) {
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
-      console.log("boddddy",body)
+      console.log("DATAAAA",data)
+      /*
       data.forEach((doc) => {
         console.log("DOCCCC",doc)
         if (publishedKeys[doc._id]) {
@@ -64,7 +65,7 @@ if (Meteor.isServer) {
         } else {
           publishedKeys[doc._id] = true;
           this.added(COLLECTION_NAME, doc._id, doc);
-        }
+        }*/
       });
     };
     poll();
