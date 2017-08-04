@@ -6,6 +6,30 @@ import SimpleSchema from 'simpl-schema';
 import request from 'request';
 import https from 'https';
 
+
+// apic
+const ItemsApic = new Mongo.Collection('itemsapic');
+
+const ItemApicSchema = new SimpleSchema ({
+  text: String,
+  dataObj: {
+    type: Object,
+    blackbox: true
+  },
+  requestTime: SimpleSchema.Integer,
+  dateTime : {
+    type: Date
+  }
+});
+
+const ItemsApicSchema = new SimpleSchema ({
+  apicData: ItemApicSchema
+});
+
+ItemsApic.attachSchema(ItemsApicSchema);
+
+
+// prtg
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
 
 const ItemPrtgSchema = new SimpleSchema ({
@@ -30,9 +54,27 @@ ItemsPrtg.attachSchema(ItemsPrtgSchema);
 
 if (Meteor.isServer) {
 
-  const POLL_INTERVAL = 30000;
+  Meteor.publish('allApicItems', function() {
+    return ItemsApic.find({}, {
+      // limits the number of return json items from DB
+      //limit: 50,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      sort: {"apicData.dateTime" : -1}
+    });
+  });
+
+  Meteor.publish('allPrtgItems', function() {
+    return ItemsPrtg.find({}, {
+      // ternary operator. a form of IF THEN statement
+      //limit: 2000,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      //sort: {"prtgData.requestTime": -1}
+    }).fetch()
+  });
+
+
+  const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
-    console.log("HIT")
     /*
       data contains the entire return object
       data.content contains the contents
@@ -56,10 +98,10 @@ if (Meteor.isServer) {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
       let newData = JSON.parse(data.content);
-      console.log("DATAAAA  NEW",newData)
-      console.log("SENSORS",newData.sensors)
-      console.log("TREE",newData.treesize)
-      console.log("PUBLISHED KEYS",publishedKeys)
+      //console.log("DATAAAA  NEW",newData)
+      //console.log("SENSORS",newData.sensors)
+      //console.log("TREE",newData.treesize)
+      //console.log("PUBLISHED KEYS",publishedKeys)
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data) => {
         //console.log("DOCCCC ",data)
@@ -100,8 +142,50 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
-
+    checkApic(type, url, options) {
+      this.unblock();
+      try {
+        const result = HTTP.call(type, url, options);
+        // console.log(result); // debug
+        return result;
+      } catch (e) {
+        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+        console.log(e) // debug
+        return e;
+      }
+    },
+    insertNewApic(apicTicket,dataObj) {
+      let timeNow = Math.round(new Date().getTime() / 1000);
+      let dateTime = new Date();
+      ItemsApic.insert({
+          apicData: {
+            text: apicTicket,
+            dataObj: dataObj,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+        Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
+    },
+    voteOnItemApic(item, position) {
+      check(item, Object);
+      let lastUpdated = new Date();
+      if(Meteor.userId()) {
+        if(position == 'itemOne') {
+          ItemsApic.update(item._id, {
+            $inc: {
+              'itemOne.value': 1
+            },
+            $set: {
+              lastUpdated
+            }
+          })
+        }
+        Roles.addUsersToRoles(Meteor.userId(), 'voter')
+      }
+    }
   });
 }
+
 
 export default ItemsPrtg;
