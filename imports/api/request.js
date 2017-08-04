@@ -188,4 +188,4 @@ if (Meteor.isServer) {
 }
 
 
-export default ItemsApic;
+module.exports =  {ItemsApic: ItemsApic,ItemsPrtg:ItemsPrtg};
