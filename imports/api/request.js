@@ -60,7 +60,8 @@ if (Meteor.isServer) {
       method: 'GET',
       agent: agent
     }, function (err, resp, body) {
-      console.log(response)
+      console.log(resp);
+      return resp;
     });
   });
 
