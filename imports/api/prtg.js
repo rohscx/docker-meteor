@@ -122,49 +122,7 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
-    checkApic(type, url, options) {
-      this.unblock();
-      try {
-        const result = HTTP.call(type, url, options);
-        // console.log(result); // debug
-        return result;
-      } catch (e) {
-        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-        console.log(e) // debug
-        return e;
-      }
-    },
-    insertNewApic(apicTicket,dataObj) {
-      let timeNow = Math.round(new Date().getTime() / 1000);
-      let dateTime = new Date();
-      ItemsApic.insert({
-          apicData: {
-            text: apicTicket,
-            dataObj: dataObj,
-            requestTime: timeNow,
-            dateTime: dateTime
-          }
-        });
-        Roles.addUsersToRoles(Meteor.userId(), 'sumitter')
-    },
-    voteOnItemApic(item, position) {
-      check(item, Object);
-      let lastUpdated = new Date();
-      if(Meteor.userId()) {
-        if(position == 'itemOne') {
-          ItemsApic.update(item._id, {
-            $inc: {
-              'itemOne.value': 1
-            },
-            $set: {
-              lastUpdated
-            }
-          })
-        }
-        Roles.addUsersToRoles(Meteor.userId(), 'voter')
-      }
-    }
-  });
+    
 }
 
 
