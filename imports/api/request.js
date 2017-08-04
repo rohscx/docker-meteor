@@ -65,8 +65,8 @@ if (Meteor.isServer) {
         } else {
           publishedKeys[doc._id] = true;
           this.added(COLLECTION_NAME, doc._id, doc);
-        }*/
-      });
+        }
+      });*/
     };
     poll();
     this.ready();
