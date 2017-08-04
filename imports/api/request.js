@@ -107,7 +107,7 @@ if (Meteor.isServer) {
         //console.log("DOCCCC ",data)
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
-          console.log(ItemsPrtg.find({}, {}));
+          console.log(ItemsPrtg.find());
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
           ItemsPrtg.insert({
