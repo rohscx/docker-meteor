@@ -105,7 +105,7 @@ if (Meteor.isServer) {
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data) => {
         //console.log("DOCCCC ",data)
-        console.log("DATA ID ",data._id)
+        //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
