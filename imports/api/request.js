@@ -99,7 +99,7 @@ if (Meteor.isServer) {
       const data = HTTP.get(url, options);
       let newData = JSON.parse(data.content);
       //console.log("DATAAAA  NEW",newData)
-      console.log("SENSORS",newData.sensors)
+      //console.log("SENSORS",newData.sensors)
       console.log("TREE",newData.treesize)
       console.log("PUBLISHED KEYS",publishedKeys)
       newData.sensors.map((data) => {
