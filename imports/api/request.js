@@ -101,6 +101,7 @@ if (Meteor.isServer) {
       console.log("DATAAAA  NEW",newData)
       console.log("SENSORS",newData["sensors"])
       console.log("TREE",newData.treesize)
+      console.log("PUBLISHED KEYS",publishedKeys)
       newData.content.map((data) => {
         console.log("DOCCCC",data)
         if (publishedKeys[data._id]) {
