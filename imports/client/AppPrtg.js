@@ -71,8 +71,10 @@ store.subscribe(() => {
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
+  let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   return {
     showAll,
     ready: "k",
+    prtg: prtgItemsSub
   }
 }, AppPrtg);
