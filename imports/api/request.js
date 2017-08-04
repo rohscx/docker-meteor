@@ -44,7 +44,7 @@ const ItemPrtgSchema = new SimpleSchema ({
 });
 
 const ItemsPrtgSchema = new SimpleSchema ({
-  apicData: ItemPrtgSchema
+  prtgData: ItemPrtgSchema
 });
 
 ItemsPrtg.attachSchema(ItemsPrtgSchema);
