@@ -55,7 +55,7 @@ if (Meteor.isServer) {
 
   const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
-    console.log(ItemsPrtg.find())
+    console.log(ItemsPrtg.find().fetch())
     /*
       data contains the entire return object
       data.content contains the contents
