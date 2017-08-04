@@ -64,7 +64,6 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPrtgItems', function() {
-    console.log("LOTS OF DATA  ", ItemsPrtg.find())
     return ItemsPrtg.find()
   });
 
