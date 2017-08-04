@@ -55,7 +55,7 @@ if (Meteor.isServer) {
     };
 
     agent = new https.Agent(agentOptions);
-    request({
+    return request({
       url: url,
       method: 'GET',
       agent: agent
