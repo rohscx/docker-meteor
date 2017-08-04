@@ -23,6 +23,7 @@ export function setDevices(devices) {
 
 export function getDevices() {
   return dispatch => {
+    console.log(Meteor.settings)
     prtgBase = Meteor.settings.private.prtgRest.baseUrl
     prtgAPI = "/api/table.json";
     prtgDevices = "?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite";
