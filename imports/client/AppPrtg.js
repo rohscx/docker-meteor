@@ -75,6 +75,7 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('allPrtgItems');
   let prtgArray;
   prtgArray = ItemsPrtg.find({}, {}).fetch()
+  console.log("ITEMSSSSSSS", ItemsPrtg.find({}, {}).fetch())
   return {
     showAll,
     ready: prtgItemsSub.ready(),
