@@ -55,7 +55,12 @@ ItemsPrtg.attachSchema(ItemsPrtgSchema);
 if (Meteor.isServer) {
 
   Meteor.publish('allApicItems', function() {
-    return ItemsApic.find();
+    return ItemsApic.find({}, {
+      // limits the number of return json items from DB
+      //limit: 50,
+      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
+      sort: {"apicData.dateTime" : -1}
+    });
   });
 
   Meteor.publish('allPrtgItems', function() {
@@ -64,7 +69,7 @@ if (Meteor.isServer) {
       //limit: 2000,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
       //sort: {"prtgData.requestTime": -1}
-    }).fetch()
+    })
   });
 
 
