@@ -74,7 +74,8 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray;
-  prtgArray = ItemsPrtg.find({}, {})
+  prtgArray = ItemsPrtg.find()
+  console.log(ItemsPrtg.find())
   return {
     showAll,
     ready: prtgItemsSub.ready(),
