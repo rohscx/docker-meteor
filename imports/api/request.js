@@ -64,12 +64,7 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPrtgItems', function() {
-    return ItemsPrtg.find({}, {
-      // ternary operator. a form of IF THEN statement
-      //limit: 2000,
-      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      //sort: {"prtgData.requestTime": -1}
-    })
+    return ItemsPrtg.find()
   });
 
 
