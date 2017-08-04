@@ -1,4 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 import { HTTP } from 'meteor/http'
 import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo';
@@ -91,5 +90,4 @@ if (Meteor.isServer) {
   });
 }
 
-
-module.exports =  {ItemsApic: ItemsApic};
+export default ItemsApic;
