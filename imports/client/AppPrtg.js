@@ -75,6 +75,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtg:
+    prtg: prtgItemsSub
   }
 }, AppPrtg);
