@@ -44,7 +44,7 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPrtgItems', function() {
-    return ItemsPrtg.find().fetch()
+    return ItemsPrtg.find()
   });
 
 
