@@ -39,36 +39,29 @@ if (Meteor.isServer) {
 
 
   Meteor.publish('prtgDeviceList', function() {
+
     let type = "GET";
     let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
     let uName = Meteor.settings.private.prtgRest.uName;
     let uPass = Meteor.settings.private.prtgRest.uPass;
     let uCreds = "&username="+uName+"&passhash="+uPass;
     let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
-    let options = {rejectUnauthorized: false};
-    const result = HTTP.call(type, url, options);
-    console.log(result)
-    
+    let agentOptions;
+    let agent;
 
-let agentOptions;
-let agent;
+    agentOptions = {
+      rejectUnauthorized: false
+    };
 
-agentOptions = {
-  host: 'www.example.com'
-, port: '443'
-, path: '/'
-, rejectUnauthorized: false
-};
+    agent = new https.Agent(agentOptions);
 
-agent = new https.Agent(agentOptions);
-
-request({
-  url: "https://www.example.com/api/endpoint"
-, method: 'GET'
-, agent: agent
-}, function (err, resp, body) {
-  // ...
-});
+    request({
+      url: url,
+      method: 'GET',
+      agent: agent
+    }, function (err, resp, body) {
+      console.log(response)
+    });
   });
 
 
