@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import request from 'request';
+import https from 'https';
 
 
 
@@ -54,7 +55,6 @@ if (Meteor.isServer) {
     };
 
     agent = new https.Agent(agentOptions);
-
     request({
       url: url,
       method: 'GET',
