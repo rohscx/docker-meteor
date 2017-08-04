@@ -74,7 +74,7 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   return {
     showAll,
-    ready: "k",
-    prtg: prtgItemsSub.ready()
+    ready: prtgItemsSub.ready(),
+    prtg:
   }
 }, AppPrtg);
