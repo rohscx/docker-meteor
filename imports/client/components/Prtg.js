@@ -78,7 +78,6 @@ class Prtg extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
-        {this.getDevices()}
         {this.prtgSearchForm()}
       </div>
     )

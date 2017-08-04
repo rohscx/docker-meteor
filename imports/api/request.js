@@ -39,8 +39,10 @@ if (Meteor.isServer) {
   });
 
 
-  Meteor.publish('prtgDeviceList', function() {
 
+
+  const POLL_INTERVAL = 5000;
+  Meteor.publish('polled-prtgDeviceList', function() {
     let type = "GET";
     let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
     let uName = Meteor.settings.private.prtgRest.uName;
@@ -49,57 +51,25 @@ if (Meteor.isServer) {
     let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
     let agentOptions;
     let agent;
-
-    agentOptions = {
-      
-      
-      
-      const POLL_INTERVAL = 5000;
-Meteor.publish('polled-publication', function() {
-  const publishedKeys = {};
-  const poll = () => {
-    // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-    const data = HTTP.get(REST_URL, REST_OPTIONS);
-    data.forEach((doc) => {
-      if (publishedKeys[doc._id]) {
-        this.changed(COLLECTION_NAME, doc._id, doc);
-      } else {
-        publishedKeys[doc._id] = true;
-        this.added(COLLECTION_NAME, doc._id, doc);
-      }
-    });
-  };
-  poll();
-  this.ready();
-  const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-  this.onStop(() => {
-    Meteor.clearInterval(interval);
-  });
-});
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      rejectUnauthorized: false
+    const publishedKeys = {};
+    const poll = () => {
+      // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
+      const data = HTTP.get(url, options);
+      console.log("DATAAAAA",data)
+      data.forEach((doc) => {
+        if (publishedKeys[doc._id]) {
+          this.changed(COLLECTION_NAME, doc._id, doc);
+        } else {
+          publishedKeys[doc._id] = true;
+          this.added(COLLECTION_NAME, doc._id, doc);
+        }
+      });
     };
-
-    agent = new https.Agent(agentOptions);
-    return request({
-      url: url,
-      method: 'GET',
-      agent: agent
-    }, function (err, resp, body) {
-      console.log("RESPONSE",resp);
-      console.log("err",err);
-      return resp;
+    poll();
+    this.ready();
+    const interval = Meteor.setInterval(poll, POLL_INTERVAL);
+    this.onStop(() => {
+      Meteor.clearInterval(interval);
     });
   });
 
