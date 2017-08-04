@@ -100,7 +100,7 @@ if (Meteor.isServer) {
       let newData = data;
       console.log("DATAAAA  NEW",newData.content.sensors)
 
-      newData.content.forEach((doc) => {
+      newData.forEach((doc) => {
         console.log("DOCCCC",doc)
         if (publishedKeys[doc._id]) {
           this.changed(COLLECTION_NAME, doc._id, doc);
