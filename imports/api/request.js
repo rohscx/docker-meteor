@@ -2,6 +2,7 @@ import { HTTP } from 'meteor/http'
 import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+import request from 'request';
 
 
 
@@ -47,6 +48,27 @@ if (Meteor.isServer) {
     let options = {rejectUnauthorized: false};
     const result = HTTP.call(type, url, options);
     console.log(result)
+    
+
+let agentOptions;
+let agent;
+
+agentOptions = {
+  host: 'www.example.com'
+, port: '443'
+, path: '/'
+, rejectUnauthorized: false
+};
+
+agent = new https.Agent(agentOptions);
+
+request({
+  url: "https://www.example.com/api/endpoint"
+, method: 'GET'
+, agent: agent
+}, function (err, resp, body) {
+  // ...
+});
   });
 
 
