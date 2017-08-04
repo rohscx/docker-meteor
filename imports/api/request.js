@@ -29,26 +29,7 @@ const ItemsApicSchema = new SimpleSchema ({
 ItemsApic.attachSchema(ItemsApicSchema);
 
 
-// prtg
-const ItemsPrtg = new Mongo.Collection('itemsprtg');
 
-const ItemPrtgSchema = new SimpleSchema ({
-  dataObj: {
-    type: Object,
-    blackbox: true
-  },
-  requestTime: SimpleSchema.Integer,
-  dateTime : {
-    type: Date
-  }
-});
-
-
-const ItemsPrtgSchema = new SimpleSchema ({
-  prtgData: ItemPrtgSchema
-});
-
-ItemsPrtg.attachSchema(ItemsPrtgSchema);
 
 
 
