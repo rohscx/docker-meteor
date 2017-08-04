@@ -37,6 +37,7 @@ usage() {
 initConfig() {
   if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
     cd ~/meteor-app
+    git pull
     ${METEOR_PROJECT_GIT_PULL} > logs/stdout.log 2> logs/stderr.log
   else
     echo "Meteor configuration already initialized........."
