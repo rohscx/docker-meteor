@@ -70,7 +70,6 @@ class Prtg extends Component {
   }
 
   render() {
-    getDevices()
     console.log(this);
     const divStyles = {
       paddingTop: "5%",
@@ -79,6 +78,7 @@ class Prtg extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
+        {this.getDevices()}
         {this.prtgSearchForm()}
       </div>
     )
