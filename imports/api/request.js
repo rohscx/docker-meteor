@@ -99,14 +99,13 @@ if (Meteor.isServer) {
       const data = HTTP.get(url, options);
       let newData = data;
       console.log("DATAAAA  NEW",newData.content)
-
-      newData.forEach((doc) => {
-        console.log("DOCCCC",doc)
-        if (publishedKeys[doc._id]) {
-          this.changed(COLLECTION_NAME, doc._id, doc);
+      newData.map((data) => {
+        console.log("DOCCCC",data)
+        if (publishedKeys[data._id]) {
+          this.changed(COLLECTION_NAME, data._id, data);
         } else {
-          publishedKeys[doc._id] = true;
-          this.added(COLLECTION_NAME, doc._id, doc);
+          publishedKeys[data._id] = true;
+          this.added(COLLECTION_NAME, data._id, data);
         }
       });
     };
