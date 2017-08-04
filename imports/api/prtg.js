@@ -32,12 +32,6 @@ ItemsPrtg.attachSchema(ItemsPrtgSchema);
 
 if (Meteor.isServer) {
 
-
-  Meteor.publish('allPrtgItems', function() {
-    return ItemsPrtg.find()
-  });l
-
-
   const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
     /*
