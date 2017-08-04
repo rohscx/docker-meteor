@@ -33,7 +33,6 @@ ItemsApic.attachSchema(ItemsApicSchema);
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
 
 const ItemPrtgSchema = new SimpleSchema ({
-  text: String,
   dataObj: {
     type: Object,
     blackbox: true
@@ -106,10 +105,28 @@ if (Meteor.isServer) {
         console.log("DOCCCC ",data)
         console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
-          this.changed(COLLECTION_NAME, data._id, data);
+          let timeNow = Math.round(new Date().getTime() / 1000);
+          let dateTime = new Date();
+          ItemsPrtg.insert({
+              prtgData: {
+                dataObj: data,
+                requestTime: timeNow,
+                dateTime: dateTime
+              }
+            });
+          //this.changed(COLLECTION_NAME, data._id, data);
         } else {
           publishedKeys[data._id] = true;
-          this.added(COLLECTION_NAME, data._id, data);
+          let timeNow = Math.round(new Date().getTime() / 1000);
+          let dateTime = new Date();
+          ItemsPrtg.insert({
+              prtgData: {
+                dataObj: data,
+                requestTime: timeNow,
+                dateTime: dateTime
+              }
+            });
+          //this.added(COLLECTION_NAME, data._id, data);
         }
       });
     };
