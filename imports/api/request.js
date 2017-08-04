@@ -47,6 +47,7 @@ if (Meteor.isServer) {
     /*
       data contains the entire return object 
       data.content contains the contents
+      data.body contains the 
     */
     let type = "GET";
     let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
@@ -61,7 +62,7 @@ if (Meteor.isServer) {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
       let newData = data;
-      console.log("DATAAAA  NEW",newData.content)
+      console.log("DATAAAA  NEW",newData)
       /*
       data.forEach((doc) => {
         console.log("DOCCCC",doc)
