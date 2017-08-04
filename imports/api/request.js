@@ -64,11 +64,11 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPrtgItems', function() {
-    return ItemsPrtg.find({}, {
+    return ItemsApic.find({}, {
       // ternary operator. a form of IF THEN statement
-      limit: 2000,
+      //limit: 2000,
       // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {"prtgData.requestTime": -1}
+      //sort: {"prtgData.requestTime": -1}
     }).fetch()
   });
 
@@ -107,7 +107,7 @@ if (Meteor.isServer) {
         //console.log("DOCCCC ",data)
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
-          console.log(ItemsPrtg.find());
+          console.log(ItemsPrtg.find({}, {}));
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
           ItemsPrtg.insert({
