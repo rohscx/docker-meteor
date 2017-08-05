@@ -75,7 +75,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
-  let prtgArray;
+  let prtgArray = Session.get('myMethodResult')
   Meteor.call('getPrtgData', function(err,res){
     if (err) {
       alert(err)
@@ -84,10 +84,6 @@ export default createContainer(({params}) => {
       Session.set('myMethodResult', res)
     }
   })
-  Template.myTemplate.helpers({
-    myHelper: function(){
-      return Session.get('myMethodResult')
-    }
 
   })
   return {
