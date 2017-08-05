@@ -76,18 +76,18 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray;
-
-
+  console.log(Meteor.call('getPrtgData')
+  Meteor.call('getPrtgData', function(err,res){
+    if (err) {
+      alert(err)
+    } else {
+      console.log(res)
+      prtgArray =  res;
+    }
+  })
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgItems:   Meteor.call('getPrtgData', function(err,res){
-        if (err) {
-          alert(err)
-        } else {
-          console.log(res)
-          return res
-        }
-      })
+    prtgItems: prtgArray
   }
 }, AppPrtg);
