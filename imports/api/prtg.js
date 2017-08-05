@@ -82,7 +82,7 @@ if (Meteor.isServer) {
       //console.log("PUBLISHED KEYS",publishedKeys)
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data,value) => {
-        let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value]objId+uCreds;
+        let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value].objId+uCreds;
         let timeNow = Math.round(new Date().getTime() / 1000);
         let dateTime = new Date();
         console.log(newData.sensors[value])
