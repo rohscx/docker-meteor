@@ -64,14 +64,12 @@ class Prtg extends Component {
             {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
           </FormGroup>
         </Form>
-      <Devices {... this.props}/>
       </div>
 
     );
   }
 
   render() {
-    console.log(this);
     const divStyles = {
       paddingTop: "5%",
       paddingBottom:"5%"
@@ -80,6 +78,7 @@ class Prtg extends Component {
     return(
       <div style={divStyles}>
         {this.prtgSearchForm()}
+        <Devices {... this.props}/>
       </div>
     )
   }
