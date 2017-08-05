@@ -166,10 +166,6 @@ if (Meteor.isServer) {
         });
       } else {
         this.ready();
-        const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-        this.onStop(() => {
-          Meteor.clearInterval(interval);
-        });
       }
     }
   });
