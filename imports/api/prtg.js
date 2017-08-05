@@ -82,7 +82,7 @@ if (Meteor.isServer) {
         //console.log("SENSORS",newData.sensors)
         //console.log("TREE",newData.treesize)
         //console.log("PUBLISHED KEYS",publishedKeys)
-        ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
+
         newData.sensors.map((data,value) => {
           let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value].objid+uCreds;
           let timeNow = Math.round(new Date().getTime() / 1000);
@@ -114,26 +114,69 @@ if (Meteor.isServer) {
           }
         });
       };
+      poll();
+      this.ready();
+      const interval = Meteor.setInterval(poll, POLL_INTERVAL);
+      this.onStop(() => {
+        Meteor.clearInterval(interval);
+      });
     } else {
       // gets the current time epoch
       let currentTime = Math.round(new Date().getTime()/1000);
       // returns the oldest DB items epoch timestamp
       let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},fields:{"prtgData.requestTime": 1,_id:0},limit:1}).fetch();
+      // sets var to be only the epoch
+      oldestDocument = oldestDocument[0].prtgData.requestTime;
       console.log(oldestDocument[0].prtgData.requestTime);
-
-
+      if(currentTime - oldestDocument < 3600){
+        const poll = () => {
+          // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
+          const data = HTTP.get(url, options);
+          let newData = JSON.parse(data.content);
+          //console.log("DATAAAA  NEW",newData)
+          //console.log("SENSORS",newData.sensors)
+          //console.log("TREE",newData.treesize)
+          //console.log("PUBLISHED KEYS",publishedKeys)
+          newData.sensors.map((data,value) => {
+            let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value].objid+uCreds;
+            let timeNow = Math.round(new Date().getTime() / 1000);
+            let dateTime = new Date();
+            //console.log(newData.sensors[value].objid)
+            //console.log(typeof(newData.sensors[value].objid))
+            //console.log("DATA ID ",data._id)
+            if (publishedKeys[data._id]) {
+              data.graph = newUri;
+              ItemsPrtg.insert({
+                  prtgData: {
+                    dataObj: data,
+                    requestTime: timeNow,
+                    dateTime: dateTime
+                  }
+                });
+              //this.changed(COLLECTION_NAME, data._id, data);
+            } else {
+              publishedKeys[data._id] = true;
+              data.graph = newUri;
+              ItemsPrtg.insert({
+                  prtgData: {
+                    dataObj: data,
+                    requestTime: timeNow,
+                    dateTime: dateTime
+                  }
+                });
+              //this.added(COLLECTION_NAME, data._id, data);
+            }
+          });
+        };
+        poll();
+        this.ready();
+        const interval = Meteor.setInterval(poll, POLL_INTERVAL);
+        this.onStop(() => {
+          Meteor.clearInterval(interval);
+        });
+      }
     }
-
-    poll();
-    this.ready();
-    const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-    this.onStop(() => {
-      Meteor.clearInterval(interval);
-    });
-
   });
-
-
   Meteor.methods({
     'getPrtgData': function(){
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": -1,"prtgData.dataObj.device": 1}}).fetch()
