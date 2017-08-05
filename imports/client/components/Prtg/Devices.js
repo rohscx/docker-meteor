@@ -10,7 +10,7 @@ export default class Devices extends Component {
     this.setState({modalVisible: visible});
   }
 
-  handleCick2(){
+  handleClick2(){
       return (
       <View style={{marginTop: 22}}>
         <Modal
