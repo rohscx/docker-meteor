@@ -81,7 +81,7 @@ export default createContainer(({params}) => {
       alert(err)
     } else {
       console.log(res)
-      session.set('myMethodResult', res)
+      Session.set('myMethodResult', res)
     }
   })
   Template.myTemplate.helpers({
