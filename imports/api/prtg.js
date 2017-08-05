@@ -114,8 +114,8 @@ if (Meteor.isServer) {
       let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},fields:{"prtgData.requestTime": 1,_id:0},limit:1}).fetch();
       // sets var to be only the epoch
       let oldestDocumentEpoch = oldestDocument[0].prtgData.requestTime;
-      console.log(oldestDocumentEpoch);
-      if(currentTimeEpoch - oldestDocumentEpoch < 3600){
+      console.log("Document Epoch",oldestDocumentEpoch," == ","Elapsed Time",currentTimeEpoch - oldestDocumentEpoch);
+      if(currentTimeEpoch - oldestDocumentEpoch > 3600){
         console.log("HIT COLLECTION EXISTS!!! BUT IS OLD!!!!")
         // removes old DB collection documents
         ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
