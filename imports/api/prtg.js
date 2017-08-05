@@ -87,6 +87,8 @@ if (Meteor.isServer) {
         if (publishedKeys[data._id]) {
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
+          let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+data.objId+uCreds;
+          data.graph = newUri;
           ItemsPrtg.insert({
               prtgData: {
                 dataObj: data,
@@ -99,6 +101,8 @@ if (Meteor.isServer) {
           publishedKeys[data._id] = true;
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
+          let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+data.objId+uCreds;
+          data.graph = newUri;
           ItemsPrtg.insert({
               prtgData: {
                 dataObj: data,
