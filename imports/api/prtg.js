@@ -54,26 +54,26 @@ if (Meteor.isServer) {
   Meteor.publish('prtgDeviceList', function() {
     let countCollections = ItemsPrtg.find().count();
     console.log(countCollections);
-    if(countCollections <= 0){
-      /*
-        data contains the entire return object
-        data.content contains the contents
-        headers contains the headers
-        data.data.sensors contains an array of objects
-        data.statusCode contains status code
-        prtg data returns the following:
-        statusCode: 200,
-        content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
-      */
-      let type = "GET";
-      let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
-      let uName = Meteor.settings.private.prtgRest.uName;
-      let uPass = Meteor.settings.private.prtgRest.uPass;
-      let uCreds = "&username="+uName+"&passhash="+uPass;
-      let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
-      let options;
-      let agent;
-      const publishedKeys = {};
+    /*
+      data contains the entire return object
+      data.content contains the contents
+      headers contains the headers
+      data.data.sensors contains an array of objects
+      data.statusCode contains status code
+      prtg data returns the following:
+      statusCode: 200,
+      content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
+    */
+    let type = "GET";
+    let baseUrl = Meteor.settings.private.prtgRest.baseUrl;
+    let uName = Meteor.settings.private.prtgRest.uName;
+    let uPass = Meteor.settings.private.prtgRest.uPass;
+    let uCreds = "&username="+uName+"&passhash="+uPass;
+    let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
+    let options;
+    let agent;
+    const publishedKeys = {};
+    if(countCollections >= 0){
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
         const data = HTTP.get(url, options);
