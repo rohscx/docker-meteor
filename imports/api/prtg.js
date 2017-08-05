@@ -50,7 +50,6 @@ if (Meteor.isServer) {
   });
 
 
-  const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
     let countCollections = ItemsPrtg.find().count();
     console.log(countCollections);
@@ -102,10 +101,6 @@ if (Meteor.isServer) {
       };
       poll();
       this.ready();
-      const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-      this.onStop(() => {
-        Meteor.clearInterval(interval);
-      });
     } else {
       console.log("HIT COLLECTION EXISTS!!!")
       // gets the current time epoch
@@ -134,36 +129,18 @@ if (Meteor.isServer) {
             //console.log(newData.sensors[value].objid)
             //console.log(typeof(newData.sensors[value].objid))
             //console.log("DATA ID ",data._id)
-            if (publishedKeys[data._id]) {
-              data.graph = newUri;
-              ItemsPrtg.insert({
-                  prtgData: {
-                    dataObj: data,
-                    requestTime: timeNow,
-                    dateTime: dateTime
-                  }
-                });
-              //this.changed(COLLECTION_NAME, data._id, data);
-            } else {
-              publishedKeys[data._id] = true;
-              data.graph = newUri;
-              ItemsPrtg.insert({
-                  prtgData: {
-                    dataObj: data,
-                    requestTime: timeNow,
-                    dateTime: dateTime
-                  }
-                });
-              //this.added(COLLECTION_NAME, data._id, data);
-            }
+            data.graph = newUri;
+            ItemsPrtg.insert({
+                prtgData: {
+                  dataObj: data,
+                  requestTime: timeNow,
+                  dateTime: dateTime
+                }
+              });
           });
         };
         poll();
         this.ready();
-        const interval = Meteor.setInterval(poll, POLL_INTERVAL);
-        this.onStop(() => {
-          Meteor.clearInterval(interval);
-        });
       } else {
         this.ready();
       }

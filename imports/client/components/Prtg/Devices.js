@@ -10,7 +10,7 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id}>
-          <table className = "table table-striped">
+          <table className = "table table-striped table-hover">
             <thead>
               <tr>
                 <th>ACA</th>
