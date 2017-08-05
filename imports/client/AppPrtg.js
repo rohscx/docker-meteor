@@ -78,7 +78,11 @@ export default createContainer(({params}) => {
   let prtgArray;
 
   prtgArray = Meteor.call('getPrtgData', function(err,res){
-    console.log(res)
+    if (err) {
+      alert(err)
+    } else {
+      return res
+    }
   })
   return {
     showAll,
