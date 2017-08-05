@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Modalfrom 'react-modal';
+import Modalfrom from 'react-modal';
 import { Session } from 'meteor/session';
 
 export default class Devices extends Component {
