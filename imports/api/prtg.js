@@ -116,7 +116,8 @@ if (Meteor.isServer) {
       };
     } else {
       // gets the current time epoch
-      let currentTime = Math.round(new Date().getTime()/1000;
+      let currentTime = Math.round(new Date().getTime()/1000);
+      // returns the oldest DB items epoch timestamp
       let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},fields:{"prtgData.requestTime": 1,_id:0},limit:1}).fetch();
       console.log(oldestDocument[0].prtgData.requestTime);
 
