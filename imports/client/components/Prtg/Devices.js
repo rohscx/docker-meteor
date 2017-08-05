@@ -9,7 +9,7 @@ export default class Devices extends Component {
         return (
           <div className='two-a' key={key}><sup>{key}</sup><p >{value}</p></div>
         );
-      })
+      }
     })
     console.log(this)
     return(
