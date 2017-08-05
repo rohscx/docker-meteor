@@ -73,8 +73,8 @@ if (Meteor.isServer) {
     let options;
     let agent;
     const publishedKeys = {};
-    if(countCollections >= 0){
-      console.log("HIT COUNT COLLECTION FAILURE >= 0")
+    if(countCollections <= 0){
+      console.log("HIT COUNT COLLECTION FAILURE <= 0")
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
         const data = HTTP.get(url, options);
