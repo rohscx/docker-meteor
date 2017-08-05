@@ -80,7 +80,8 @@ export default createContainer(({params}) => {
     if (err) {
       alert(err)
     } else {
-      console.log(res)
+      // debug
+      //console.log(res)
       Session.set('myMethodResult', res)
     }
   })

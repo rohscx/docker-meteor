@@ -6,6 +6,7 @@ import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName } from '../actions/utilActions';
 import { getDevices } from '../actions/prtgActions';
+import Devices from './Prtg/Devices';
 
 class Prtg extends Component {
   handleSearchFormInput(event) {
@@ -63,7 +64,7 @@ class Prtg extends Component {
             {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
           </FormGroup>
         </Form>
-
+      <Devices {... this.props}/>
       </div>
 
     );
