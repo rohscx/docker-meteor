@@ -85,7 +85,8 @@ export default createContainer(({params}) => {
     }
   })
   Template.myTemplate.helpers({
-    prtgArray =  Session.get('myMethodResult')
+    console.log("DDDDD", Session.get('myMethodResult'))
+    return Session.get('myMethodResult')
   })
   return {
     showAll,
