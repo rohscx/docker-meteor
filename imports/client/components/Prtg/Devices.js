@@ -11,7 +11,7 @@ export default class Devices extends Component {
     console.log(this)
     return(
       <div>
-        {returnList}
+        <p> Hello Test</p>
       </div>
     )
   }
