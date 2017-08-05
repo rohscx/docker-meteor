@@ -7,7 +7,7 @@ export default class Devices extends Component {
       console.log(data);
       for (let [key, value] of Object.entries(data)) {
         return (
-          <div className='two-a' key={key}><sup>{key}</sup><p >{value}</p></div>
+          <div className='two-a' key={data[_id]}><sup>{key}</sup><p >{value}</p></div>
         );
       }
     })
