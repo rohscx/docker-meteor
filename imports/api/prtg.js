@@ -115,8 +115,10 @@ if (Meteor.isServer) {
         });
       };
     } else {
+      let currentTime = Math.round(new Date().getTime()/1000;
       let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},fields:{"prtgData.requestTime": 1,_id:0},limit:1}).fetch();
-      console.log(oldestDocument.prtgData.requestTime);
+      console.log(oldestDocument[0]prtgData.requestTime);
+
 
     }
 
