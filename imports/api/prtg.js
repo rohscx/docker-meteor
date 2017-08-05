@@ -81,7 +81,8 @@ if (Meteor.isServer) {
       //console.log("TREE",newData.treesize)
       //console.log("PUBLISHED KEYS",publishedKeys)
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
-      newData.sensors.map((data) => {
+      newData.sensors.map((data,value) => {
+        console.log("DOCCCC ",value)
         console.log("DOCCCC ",data)
         console.log(typeof('data'))
         //console.log("DATA ID ",data._id)
