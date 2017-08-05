@@ -7,7 +7,7 @@ export default class Devices extends Component {
       // debug
       //console.log(data);
       //console.log("adsfadf",data["_id"])
-      for (let [key, value] of Object.entries(data.prtgData.dataObj)) {
+      for (let [key, value] of Object.entries(data.prtgData.dataObj)){
         console.log(key,value)
         return (
           <div className='two-a' key={data._id}><sup>{key}</sup><p >{value}</p></div>
