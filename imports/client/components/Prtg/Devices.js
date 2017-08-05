@@ -32,7 +32,7 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={handleClick.bind(this)}>
+          <table className = "table table-striped table-hover table-responsive" onClick={this.handleClick.bind(this)}>
             <thead>
               <tr>
                 <th>ACA</th>
