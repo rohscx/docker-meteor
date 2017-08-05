@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, view} from 'react-native'
+import {Modal, Text, TouchableHighlight, View} from 'react-native'
 import { Session } from 'meteor/session';
 
 export default class Devices extends Component {
