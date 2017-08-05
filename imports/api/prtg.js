@@ -52,7 +52,8 @@ if (Meteor.isServer) {
 
   const POLL_INTERVAL = 900000;
   Meteor.publish('prtgDeviceList', function() {
-
+    let countCollections = ItemsPrtg.find().count;
+    console.log(countCollections);
     /*
       data contains the entire return object
       data.content contains the contents

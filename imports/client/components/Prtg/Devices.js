@@ -6,7 +6,7 @@ export default class Devices extends Component {
     returnList = this.props.prtgItems.map((data)=>{
       let newData = data.prtgData.dataObj;
       // debug
-      console.log(data.prtgData.dataObj);
+      //console.log(data.prtgData.dataObj);
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id}>
