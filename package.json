@@ -15,7 +15,7 @@
     "isomorphic-fetch": "^2.2.1",
     "meteor-node-stubs": "^0.2.11",
     "qs": "^6.5.0",
-    "react": "^15.6.1",
+    "react": "^16.0.0-alpah.12",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-addons-update": "^15.6.0",
