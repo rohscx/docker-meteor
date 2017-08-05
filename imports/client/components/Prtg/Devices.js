@@ -8,6 +8,7 @@ export default class Devices extends Component {
     })
   }
   render() {
+    console.log(this)
     return(
       <div>
         <h1>{deviceList()}</h1>
