@@ -68,7 +68,7 @@ if (Meteor.isServer) {
     let uName = Meteor.settings.private.prtgRest.uName;
     let uPass = Meteor.settings.private.prtgRest.uPass;
     let uCreds = "&username="+uName+"&passhash="+uPass;
-    let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite"+uCreds;
+    let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
     let options;
     let agent;
     const publishedKeys = {};
