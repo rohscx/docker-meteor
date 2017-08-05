@@ -169,6 +169,7 @@ if (Meteor.isServer) {
         const interval = Meteor.setInterval(poll, POLL_INTERVAL);
         this.onStop(() => {
           Meteor.clearInterval(interval);
+        });
       }
     }
   });
