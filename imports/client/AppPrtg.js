@@ -85,7 +85,10 @@ export default createContainer(({params}) => {
     }
   })
   Template.myTemplate.helpers({
-    return Session.get('myMethodResult')
+    myHelper: function(){
+      return Session.get('myMethodResult')
+    }
+
   })
   return {
     showAll,
