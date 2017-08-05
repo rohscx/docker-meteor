@@ -86,7 +86,7 @@ if (Meteor.isServer) {
         let timeNow = Math.round(new Date().getTime() / 1000);
         let dateTime = new Date();
         console.log(newData.sensors[value])
-        console.log(typeof('newData.sensors[value]'))
+        console.log(typeof(newData.sensors[value]))
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           data.graph = newUri;
