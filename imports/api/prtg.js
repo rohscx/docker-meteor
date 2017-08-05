@@ -82,14 +82,11 @@ if (Meteor.isServer) {
       //console.log("PUBLISHED KEYS",publishedKeys)
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data,value) => {
-        console.log("DOCCCC ",value)
-        console.log("DOCCCC ",newData.sensors[value])
-        console.log(typeof('data'))
+        let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value]+uCreds;
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
-          let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+data.objId+uCreds;
           data.graph = newUri;
           ItemsPrtg.insert({
               prtgData: {
@@ -103,7 +100,6 @@ if (Meteor.isServer) {
           publishedKeys[data._id] = true;
           let timeNow = Math.round(new Date().getTime() / 1000);
           let dateTime = new Date();
-          let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+data.objId+uCreds;
           data.graph = newUri;
           ItemsPrtg.insert({
               prtgData: {
