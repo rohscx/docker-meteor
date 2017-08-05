@@ -115,7 +115,7 @@ if (Meteor.isServer) {
         });
       };
     } else {
-      let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},limit:1});
+      let oldestDocument = ItemsPrtg.find({},{sort:{"prtgData.requestTime": -1},limit:1}).fetch();
       console.log(oldestDocument);
 
     }
