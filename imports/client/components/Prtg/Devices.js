@@ -5,8 +5,8 @@ export default class Devices extends Component {
   render() {
     returnList = this.props.prtgItems.map((data)=>{
       // debug
-      console.log(data);
-      //console.log("adsfadf",data["_id"])
+      console.log(data.prtgData.dataObj);
+      //console.log("DB_ID",data["_id"])
       for (let [key, value] of Object.entries(data.prtgData.dataObj)){
         console.log(key,value)
         return (
