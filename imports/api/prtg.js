@@ -85,8 +85,8 @@ if (Meteor.isServer) {
         let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value].objid+uCreds;
         let timeNow = Math.round(new Date().getTime() / 1000);
         let dateTime = new Date();
-        console.log(newData.sensors[value].objid)
-        console.log(typeof(newData.sensors[value].objid))
+        //console.log(newData.sensors[value].objid)
+        //console.log(typeof(newData.sensors[value].objid))
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
           data.graph = newUri;
