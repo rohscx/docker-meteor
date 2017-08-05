@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Modal, Text, TouchableHighlight, view} from 'react-native'
 import { Session } from 'meteor/session';
 
 export default class Devices extends Component {
@@ -12,6 +13,7 @@ export default class Devices extends Component {
 
   handleClick2(){
       return (
+      <View style={{marginTop: 22}}>
         <Modal
           animationType={"slide"}
           transparent={false}
@@ -38,6 +40,7 @@ export default class Devices extends Component {
           <Text>Show Modal</Text>
         </TouchableHighlight>
 
+      </View>
     );
   }
 
