@@ -81,6 +81,7 @@ export default createContainer(({params}) => {
     if (err) {
       alert(err)
     } else {
+      console.log(res)
       return res
     }
   })
