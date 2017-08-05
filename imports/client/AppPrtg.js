@@ -77,17 +77,17 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray;
 
-  Meteor.call('getPrtgData', function(err,res){
+  prtgArray = Meteor.call('getPrtgData', function(err,res){
     if (err) {
       alert(err)
     } else {
       console.log(res)
-      prtgArray = res;
+      return res
     }
   })
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgItems: prtgItemsSub
+    prtgItems: prtgArray
   }
 }, AppPrtg);
