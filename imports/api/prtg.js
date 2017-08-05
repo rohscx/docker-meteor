@@ -82,9 +82,8 @@ if (Meteor.isServer) {
       //console.log("PUBLISHED KEYS",publishedKeys)
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       newData.sensors.map((data,value) => {
-        data = JSON.parse(data);
         console.log("DOCCCC ",value)
-        console.log("DOCCCC ",data)
+        console.log("DOCCCC ",newData.sensors[value])
         console.log(typeof('data'))
         //console.log("DATA ID ",data._id)
         if (publishedKeys[data._id]) {
