@@ -33,28 +33,7 @@ export default class Devices extends Component {
 
   handleClick(){
 
-    return (
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </Modal>
 
-
-    )
   }
 
   render() {
@@ -65,7 +44,7 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.handleClick}}>
+          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal}}>
             <thead>
               <tr>
                 <th>ACA</th>
@@ -91,6 +70,24 @@ export default class Devices extends Component {
     return(
       <div>
         {returnList}
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+            <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+            <button onClick={this.closeModal}>close</button>
+            <div>I am a modal</div>
+            <form>
+              <input />
+              <button>tab navigation</button>
+              <button>stays</button>
+              <button>inside</button>
+              <button>the modal</button>
+            </form>
+          </Modal>
       </div>
     )
   }
