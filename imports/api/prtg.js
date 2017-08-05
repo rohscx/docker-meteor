@@ -74,6 +74,7 @@ if (Meteor.isServer) {
     let agent;
     const publishedKeys = {};
     if(countCollections >= 0){
+      console.log("HIT COUNT COLLECTION FAILURE >= 0")
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
         const data = HTTP.get(url, options);
@@ -82,7 +83,6 @@ if (Meteor.isServer) {
         //console.log("SENSORS",newData.sensors)
         //console.log("TREE",newData.treesize)
         //console.log("PUBLISHED KEYS",publishedKeys)
-
         newData.sensors.map((data,value) => {
           let newUri = baseUrl+"/chart.png?type=graph&graphid=0&width=925&height=300&id="+newData.sensors[value].objid+uCreds;
           let timeNow = Math.round(new Date().getTime() / 1000);
@@ -90,28 +90,14 @@ if (Meteor.isServer) {
           //console.log(newData.sensors[value].objid)
           //console.log(typeof(newData.sensors[value].objid))
           //console.log("DATA ID ",data._id)
-          if (publishedKeys[data._id]) {
-            data.graph = newUri;
-            ItemsPrtg.insert({
-                prtgData: {
-                  dataObj: data,
-                  requestTime: timeNow,
-                  dateTime: dateTime
-                }
-              });
-            //this.changed(COLLECTION_NAME, data._id, data);
-          } else {
-            publishedKeys[data._id] = true;
-            data.graph = newUri;
-            ItemsPrtg.insert({
-                prtgData: {
-                  dataObj: data,
-                  requestTime: timeNow,
-                  dateTime: dateTime
-                }
-              });
-            //this.added(COLLECTION_NAME, data._id, data);
-          }
+          data.graph = newUri;
+          ItemsPrtg.insert({
+              prtgData: {
+                dataObj: data,
+                requestTime: timeNow,
+                dateTime: dateTime
+              }
+            });
         });
       };
       poll();
@@ -121,6 +107,7 @@ if (Meteor.isServer) {
         Meteor.clearInterval(interval);
       });
     } else {
+      console.log("HIT COLLECTION EXISTS!!!")
       // gets the current time epoch
       let currentTime = Math.round(new Date().getTime()/1000);
       // returns the oldest DB items epoch timestamp
@@ -129,6 +116,9 @@ if (Meteor.isServer) {
       oldestDocument = oldestDocument[0].prtgData.requestTime;
       console.log(oldestDocument[0].prtgData.requestTime);
       if(currentTime - oldestDocument < 3600){
+        console.log("HIT COLLECTION EXISTS!!! BUT IS OLD!!!!")
+        // removes old DB collection documents
+        ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
         const poll = () => {
           // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
           const data = HTTP.get(url, options);
@@ -177,6 +167,8 @@ if (Meteor.isServer) {
       }
     }
   });
+
+
   Meteor.methods({
     'getPrtgData': function(){
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": -1,"prtgData.dataObj.device": 1}}).fetch()
