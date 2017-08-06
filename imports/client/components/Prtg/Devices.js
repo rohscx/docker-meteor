@@ -38,8 +38,8 @@ export default class Devices extends Component {
   content : {
     top                   : '50%',
     left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
+    right                 : '50%',
+    bottom                : '50%',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     background            : `url(${this.state.modalLink.newData.graph})`,
