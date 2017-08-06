@@ -56,7 +56,6 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       let statusDanger = () =>{
         if(newData.status.toLowerCase() == 'unusual'){
-          this.setState({statusDanger: true})
           return 'danger';
         } else {
           return '';
