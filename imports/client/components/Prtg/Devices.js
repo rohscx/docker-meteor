@@ -88,7 +88,7 @@ export default class Devices extends Component {
             contentLabel="Example Modal"
           >
               <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2>
-              <div><img src =  /></div>
+              <div></div>
               <button onClick={this.closeModal}>close</button>
 
             </Modal>
