@@ -67,10 +67,10 @@ export default class Devices extends Component {
             </thead>
             <tbody>
               <tr>
-                <td>{newData.group}</td>
-                <td>{newData.device}</td>
-                <td>{newData.status}</td>
-                <td>{newData.sensor}</td>
+                <td>{newData.group.trim()}</td>
+                <td>{newData.device.trim()}</td>
+                <td>{newData.status.trim()}</td>
+                <td>{newData.sensor.trim()}</td>
               </tr>
             </tbody>
           </table>
