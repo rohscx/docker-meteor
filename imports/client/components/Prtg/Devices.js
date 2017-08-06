@@ -42,7 +42,7 @@ export default class Devices extends Component {
     bottom                : 'auto',
     marginRight           : '-50%',
     height                : '300px',
-    maxWidth              : '920px',
+    width                 : '920px',
     transform             : 'translate(-50%, -50%)',
     background            : `url(${this.state.modalLink.newData.graph})`,
     backgroundSize        : 'contain'
@@ -89,9 +89,9 @@ export default class Devices extends Component {
             style={customStyles}
             contentLabel="Example Modal"
           >
-              <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2>
-              <div></div>
-              <button onClick={this.closeModal}>close</button>
+
+              <div><h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2><button onClick={this.closeModal}>close</button></div>
+
 
             </Modal>
         </div>
