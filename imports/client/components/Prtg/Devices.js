@@ -76,7 +76,7 @@ export default class Devices extends Component {
               <tr>
                 <td>{newData.group}</td>
                 <td>{newData.device}</td>
-                <td {statusDanger? "className=danger": ""} >{newData.status}</td>
+                <td {statusDanger ? "className=danger": ""} >{newData.status}</td>
                 <td>{newData.sensor}</td>
               </tr>
             </tbody>
