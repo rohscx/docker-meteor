@@ -7,7 +7,8 @@ export default class Devices extends Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      modalLink:""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -15,8 +16,9 @@ export default class Devices extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
+  openModal(link) {
     this.setState({modalIsOpen: true});
+    this.setState({modalLink: link})
   }
 
   afterOpenModal() {
@@ -29,12 +31,6 @@ export default class Devices extends Component {
   }
 
 
-
-
-  handleClick(){
-
-
-  }
 
   render() {
     const customStyles = {
@@ -54,7 +50,7 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal()}}>
+          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal(newData.group.graph)}}>
             <thead>
               <tr>
                 <th>ACA</th>
@@ -90,14 +86,8 @@ export default class Devices extends Component {
           >
               <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
               <button onClick={this.closeModal}>close</button>
-              <div>I am a modal</div>
-              <form>
-                <input />
-                <button>tab navigation</button>
-                <button>stays</button>
-                <button>inside</button>
-                <button>the modal</button>
-              </form>
+              <div>I am a modal{this.state.modalLink}</div>
+
             </Modal>
         </div>
       </div>
