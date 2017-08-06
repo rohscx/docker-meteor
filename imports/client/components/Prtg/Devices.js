@@ -45,7 +45,8 @@ export default class Devices extends Component {
     width                 : '920px',
     transform             : 'translate(-50%, -50%)',
     background            : `url(${this.state.modalLink.newData.graph})`,
-    backgroundSize        : 'contain'
+    backgroundSize        : 'contain',
+    opacity               : '.5'
   }
 };
     returnList = this.props.prtgItems.map((data)=>{
