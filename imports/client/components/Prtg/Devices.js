@@ -41,6 +41,8 @@ export default class Devices extends Component {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
+    height                : '200',
+    width                 :'200',
     transform             : 'translate(-50%, -50%)',
     background            : `url(${this.state.modalLink.newData.graph})`,
     backgroundSize        : 'contain'
