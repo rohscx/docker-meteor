@@ -54,6 +54,13 @@ export default class Devices extends Component {
       // debug
       //console.log(data.prtgData.dataObj);
       //console.log("DB_ID",data["_id"])
+      let statusDanger = () =>{
+        if(newData.status.toLowerCase() == 'unusual'){
+          return true;
+        } else {
+          return false;
+        }
+      }
       return (
         <div key={data._id} id={data._id}>
           <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData})}}>
@@ -69,7 +76,7 @@ export default class Devices extends Component {
               <tr>
                 <td>{newData.group}</td>
                 <td>{newData.device}</td>
-                <td>{newData.status}</td>
+                <td {statusDanger? "className=danger": ""} >{newData.status}</td>
                 <td>{newData.sensor}</td>
               </tr>
             </tbody>
