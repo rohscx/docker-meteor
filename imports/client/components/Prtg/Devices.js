@@ -41,7 +41,9 @@ export default class Devices extends Component {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    background:           : 'url('{this.state.modalLink.newData.graph}')',
+    backgroundSize:       : 'contain'
   }
 };
     returnList = this.props.prtgItems.map((data)=>{
@@ -86,7 +88,7 @@ export default class Devices extends Component {
             contentLabel="Example Modal"
           >
               <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2>
-              <div><img src = {this.state.modalLink.newData.graph} /></div>
+              <div><img src =  /></div>
               <button onClick={this.closeModal}>close</button>
 
             </Modal>
