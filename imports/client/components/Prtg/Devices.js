@@ -85,42 +85,29 @@ export default class Devices extends Component {
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
           >
-              <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-              <button onClick={this.closeModal}>close</button>
-              <div>I am a modal</div>
-              <form>
-                <input />
-                <button>tab navigation</button>
-                <button>stays</button>
-                <button>inside</button>
-                <button>the modal</button>
-              </form>
+            <div id="myModal" className="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <button type="button" class="close" dataDismiss="modal">&times;</button>
+                    <h4 className="modal-title">Modal Header</h4>
+                  </div>
+                  <div className="modal-body">
+                    <p>Some text in the modal.</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-default" dataDismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
             </Modal>
         </div>
       </div>
     )
   }
 }
-
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
