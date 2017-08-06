@@ -89,7 +89,6 @@ export default class Devices extends Component {
             <div id="myModal" className="modal fade" role="dialog">
               <div class="modal-dialog">
 
-                <!-- Modal content-->
                 <div className="modal-content">
                   <div className="modal-header">
                     <button type="button" class="close" dataDismiss="modal">&times;</button>
