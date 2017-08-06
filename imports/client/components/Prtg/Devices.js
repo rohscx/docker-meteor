@@ -77,7 +77,7 @@ export default class Devices extends Component {
     return(
       <div>
         {returnList}
-        <div className="modal-content">
+        <div className="modal modal-content">
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
