@@ -150,7 +150,7 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     'getPrtgData': function(){
-      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": -1,"prtgData.dataObj.device": 1}}).fetch()
+      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch()
     }
   });
 }
