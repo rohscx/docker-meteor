@@ -87,7 +87,7 @@ export default class Devices extends Component {
           >
               <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
               <button onClick={this.closeModal}>close</button>
-              <div>I am a modal{this.state.modalLink.newData.graph}</div>
+              <div><img src = {this.state.modalLink.newData.graph} /></div>
 
             </Modal>
         </div>
