@@ -87,13 +87,9 @@ export default class Devices extends Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStyles}
-            contentLabel="Example Modal"
+            contentLabel="PRTG Modal"
           >
-
-              <div><h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2><button onClick={this.closeModal}>close</button></div>
-
-
-            </Modal>
+          </Modal>
         </div>
       </div>
     )
