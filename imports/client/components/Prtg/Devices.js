@@ -9,7 +9,7 @@ export default class Devices extends Component {
     this.state = {
       modalIsOpen: false,
       modalLink: {newData:{graph:false}},
-      statusDanger: ""
+      statusDanger: false
     };
 
     this.openModal = this.openModal.bind(this);
