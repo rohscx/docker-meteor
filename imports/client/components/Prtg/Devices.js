@@ -8,7 +8,8 @@ export default class Devices extends Component {
 
     this.state = {
       modalIsOpen: false,
-      modalLink: {newData:{graph:false}}
+      modalLink: {newData:{graph:false}},
+      statusDanger: ""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -56,9 +57,9 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       let statusDanger = () =>{
         if(newData.status.toLowerCase() == 'unusual'){
-          return true;
+          this.setState({statusDanger: true})
         } else {
-          return false;
+          this.setState({statusDanger: false})
         }
       }
       return (
@@ -76,7 +77,7 @@ export default class Devices extends Component {
               <tr>
                 <td>{newData.group}</td>
                 <td>{newData.device}</td>
-                <td {statusDanger ? 'className=danger' : ''} >{newData.status}</td>
+                <td {this.state.statusDanger ? 'className = danger' : ''} >{newData.status}</td>
                 <td>{newData.sensor}</td>
               </tr>
             </tbody>
