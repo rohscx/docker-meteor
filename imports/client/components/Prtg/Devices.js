@@ -85,9 +85,9 @@ export default class Devices extends Component {
             style={customStyles}
             contentLabel="Example Modal"
           >
-              <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-              <button onClick={this.closeModal}>close</button>
+              <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.modalLink.newData.device}</h2>
               <div><img src = {this.state.modalLink.newData.graph} /></div>
+              <button onClick={this.closeModal}>close</button>
 
             </Modal>
         </div>
