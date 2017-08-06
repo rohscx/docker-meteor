@@ -50,8 +50,8 @@ export default class Devices extends Component {
       //console.log(data.prtgData.dataObj);
       //console.log("DB_ID",data["_id"])
       return (
-        <div key={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal(newData.group.graph.bind(this))}}>
+        <div key={data._id} id={data._id}>
+          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal(newData.group.graph)}}>
             <thead>
               <tr>
                 <th>ACA</th>
