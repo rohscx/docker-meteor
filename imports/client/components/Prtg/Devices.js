@@ -57,7 +57,7 @@ export default class Devices extends Component {
       let statusDanger = () =>{
         if(newData.status.toLowerCase() == 'unusual'){
           this.setState({statusDanger: true})
-          return 'className = danger';
+          return 'danger';
         } else {
           return '';
         }
@@ -77,7 +77,7 @@ export default class Devices extends Component {
               <tr>
                 <td>{newData.group}</td>
                 <td>{newData.device}</td>
-                <td {statusDanger()}> {newData.status}</td>
+                <td className={statusDanger()}> {newData.status}</td>
                 <td>{newData.sensor}</td>
               </tr>
             </tbody>
