@@ -51,7 +51,7 @@ export default class Devices extends Component {
       //console.log("DB_ID",data["_id"])
       return (
         <div key={data._id} id={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData})}}>
+          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData.graph})}}>
             <thead>
               <tr>
                 <th>ACA</th>
