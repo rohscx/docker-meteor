@@ -36,10 +36,10 @@ export default class Devices extends Component {
   render() {
     const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : '500px',
-    bottom                : '500px',
+    top                   : '100%',
+    left                  : '100%',
+    right                 : 'auto',
+    bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     background            : `url(${this.state.modalLink.newData.graph})`,
