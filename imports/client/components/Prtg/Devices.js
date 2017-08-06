@@ -19,7 +19,7 @@ export default class Devices extends Component {
   openModal(link) {
     this.setState({modalIsOpen: true});
     this.modalLink = link;
-    console.log(link);
+    console.log(this.modalLink);
   }
 
   afterOpenModal() {
