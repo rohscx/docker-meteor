@@ -36,8 +36,8 @@ export default class Devices extends Component {
   render() {
     const customStyles = {
   content : {
-    top                   : '100%',
-    left                  : '100%',
+    top                   : '50%',
+    left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
