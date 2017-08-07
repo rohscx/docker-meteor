@@ -150,5 +150,5 @@ const mapDispatchToProps = (dispatch) => {
 
     this.setState(newState);
   }
-}
+
 export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
