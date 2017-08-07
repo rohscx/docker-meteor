@@ -63,52 +63,21 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-    let disabled, dropup, emptyLabel, minLength;
-    disabled = this.state;
-    dropup = this.state;
-    emptyLabel = this.state;
-    minLength = this.state;
-    const {disabled, dropup, emptyLabel, minLength} = this.state;
+
     return (
       <div style={divStyles}>
         <Typeahead
           {...this.state}
-          emptyLabel={emptyLabel ? '' : undefined}
+          emptyLabel={''}
           labelKey="name"
           multiple
           options={options}
           placeholder="Choose a state..."
         />
         <FormGroup>
-          <Checkbox
-            checked={disabled}
-            name="disabled"
-            onChange={this._handleChange}>
-            Disable
-          </Checkbox>
-          <Checkbox
-            checked={dropup}
-            name="dropup"
-            onChange={this._handleChange}>
-            Dropup menu
-          </Checkbox>
-          <Checkbox
-            checked={!!minLength}
-            name="minLength"
-            onChange={this._handleChange}>
-            Require minimum input before showing results (2 chars)
-          </Checkbox>
-          <Checkbox
-            checked={emptyLabel}
-            name="emptyLabel"
-            onChange={this._handleChange}>
-            Hide the menu when there are no results
-          </Checkbox>
         </FormGroup>
       </div>
     );
-      </div>
-
     );
   }
 
