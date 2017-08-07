@@ -13,8 +13,13 @@ class PrtgSensors extends Component {
     super(props);
 
     this.state = {
-      multiple: false,
+      value:''
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event){
+    this.setState({value: event.target.value})
   }
 
   handleSearchFormInput(event) {
@@ -98,7 +103,7 @@ class PrtgSensors extends Component {
           labelKey="name"
           options={this.getDeviceNames()}
           placeholder="Select Devices..."
-          onChange= {this.handleSearchFormInputs()}
+          onChange= {this.handleChange}
         />
         <div style={divStyles}>
           {this.prtgSearchForm()}
