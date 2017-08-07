@@ -69,7 +69,6 @@ class PrtgSensors extends Component {
         <Typeahead
           {...this.state}
           emptyLabel={''}
-          labelKey="name"
           multiple
           options={{name:"name"}}
           placeholder="Choose a state..."
