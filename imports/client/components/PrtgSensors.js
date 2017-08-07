@@ -20,7 +20,10 @@ class PrtgSensors extends Component {
 
   render() {
     const {disabled, dropup, emptyLabel, minLength} = this.state;
-
+    let options = () =>{
+      let list = ["cats","dogs"];
+      return list
+    }
     return (
       <div>
         <Typeahead
