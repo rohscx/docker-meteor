@@ -25,6 +25,13 @@ class PrtgSensors extends Component {
     this.props.getDevices();
   }
 
+  getDeviceNames(){
+    let namesArray = [];
+    this.props.prtgDeviceNames.map((data)=>{
+      namesArray.push(data);
+    })
+    return namesArray;
+  }
 
   prtgSearchForm(){
     const options = () => {
@@ -84,8 +91,7 @@ class PrtgSensors extends Component {
       <div style={divStyles}>
       <div>
         <Typeahead
-          options={["badh","blahdddd"
-          ]}
+          options={this.getDeviceNames()}
         />
       </div>
         {this.prtgSearchForm()}
