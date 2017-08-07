@@ -8,6 +8,13 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+      multiple: false,
+    };
+  }
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
@@ -54,7 +61,7 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-
+const {multiple} = this.state;
     var myData = [
   'John',
   'Miles',
