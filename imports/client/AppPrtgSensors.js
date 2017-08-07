@@ -60,7 +60,7 @@ store.subscribe(() => {
             </button>
           </IsRole>
           <Header  {... this.state}/>
-          <Prtg {... this.props}/>
+          <PrtgSensors {... this.props}/>
         </main>
       </Provider>
     );
