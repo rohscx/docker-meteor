@@ -29,9 +29,10 @@ class PrtgSensors extends Component {
   prtgSearchForm(){
     const options = () => {
       let testArray = ["cats","dogs"];
-      this.props.prtgDeviceNames.map((data)=>{
-        return testArray
-      })
+      return testArray
+    /*  this.props.prtgDeviceNames.map((data)=>{
+
+    })*/
     };
 
     const btnEnabled = () => {
