@@ -89,7 +89,7 @@ class PrtgSensors extends Component {
 
     return(
       <div style={divStyles}>
-      <div>
+      <div style={divStyles}>
         <Typeahead
           clearButton
           labelKey="name"
