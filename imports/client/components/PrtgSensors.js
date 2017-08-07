@@ -84,7 +84,6 @@ class PrtgSensors extends Component {
       <div>
         <Typeahead
           labelKey="name"
-          multiple={false}
           options={"data"}
           placeholder="Choose a state..."
         />
