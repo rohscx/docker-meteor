@@ -8,7 +8,7 @@ import Table from './Prtg/Table';
 import { Mongo } from 'meteor/mongo';
 
 prtgClientDatabase = new Mongo.Collection('items.prtg');
-
+console.log(prtgClientDatabase.find());
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)
