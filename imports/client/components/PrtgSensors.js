@@ -101,6 +101,6 @@ const mapDispatchToProps = (dispatch) => {
     getDevices: () => {
       dispatch(getDevices());
     }
-  };
+  },
 };
 export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
