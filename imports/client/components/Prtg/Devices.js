@@ -74,10 +74,10 @@ export default class Devices extends Component {
             </thead>
             <tbody>
               <tr>
-                <td {verticalAlign: 'midddle'}>{newData.group}</td>
-                <td {verticalAlign: 'midddle'}>{newData.device}</td>
-                <td className={statusDanger()} {verticalAlign: 'midddle'}> {newData.status}</td>
-                <td {verticalAlign: 'midddle'}>{newData.sensor}</td>
+                <td style={verticalAlign: 'midddle'}>{newData.group}</td>
+                <td style={verticalAlign: 'midddle'}>{newData.device}</td>
+                <td className={statusDanger()} style={verticalAlign: 'midddle'}> {newData.status}</td>
+                <td style={verticalAlign: 'midddle'}>{newData.sensor}</td>
               </tr>
             </tbody>
           </table>
