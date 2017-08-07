@@ -64,7 +64,7 @@ class PrtgSensors extends Component {
 const {multiple} = this.state;
 
     return (
-
+      <div style={divStyles}>
         <Typeahead
           labelKey="name"
           multiple={multiple}
@@ -82,6 +82,7 @@ const {multiple} = this.state;
           onChange={console.log("Cats")}>
           Multi-Select
         </Checkbox>
+      </div>
 
     );
   }
@@ -94,7 +95,23 @@ const {multiple} = this.state;
     console.log(this);
     return(
       <div style={divStyles}>
-        {this.prtgSearchForm()}
+        <Typeahead
+          labelKey="name"
+          multiple={multiple}
+            options={[
+    {firstName: 'Art', lastName: 'Blakey'},
+    {firstName: 'Jimmy', lastName: 'Cobb'},
+    {firstName: 'Elvin', lastName: 'Jones'},
+    {firstName: 'Max', lastName: 'Roach'},
+    {firstName: 'Tony', lastName: 'Williams'},
+  ]}
+          placeholder="Choose a state..."
+        />
+        <Checkbox
+          checked={multiple}
+          onChange={console.log("Cats")}>
+          Multi-Select
+        </Checkbox>
         <Table {... this.props}/>
       </div>
     )
