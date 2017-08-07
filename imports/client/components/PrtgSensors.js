@@ -66,6 +66,7 @@ class PrtgSensors extends Component {
             </Col>
             <Col sm={10}>
               <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()}>
+                <option value="select">adsfasd</option>
               </FormControl>
               <FormControl.Feedback />
             </Col>
