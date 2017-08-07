@@ -8,15 +8,14 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      disabled: false,
-      dropup: false,
-      minLength: 0,
+      multiple: false,
     };
   }
+
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
