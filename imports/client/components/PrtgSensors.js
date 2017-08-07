@@ -93,6 +93,7 @@ const {multiple} = this.state;
       paddingBottom:"5%"
     };
     console.log(this);
+    const {multiple} = this.state;
     return(
       <div style={divStyles}>
         <Typeahead
