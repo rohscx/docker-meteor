@@ -101,6 +101,6 @@ export default createContainer(({params}) => {
     ready: prtgItemsSub.ready(),
     prtgItems: prtgArray,
     prtgDeviceNames: prtgDeviceNamesArray,
-    prtg: ItemsPrtg.find({}).fetch()
+    prtg2: ItemsPrtg.find({}).fetch()
   }
 }, AppPrtgSensors);
