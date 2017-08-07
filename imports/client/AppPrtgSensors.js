@@ -68,7 +68,7 @@ store.subscribe(() => {
 }
 
 AppPrtgSensors.propTypes = {
-  tasks: PropTypes.array.isRequired,
+  prtg2: PropTypes.array.isRequired,
 };
 
 export default createContainer(({params}) => {
