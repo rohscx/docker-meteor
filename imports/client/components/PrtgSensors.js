@@ -3,7 +3,8 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { Form, FormGroup, FormControl, ControlLabel, Col, Button, Typeahead } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Col, Button} from 'react-bootstrap';
+import {Typeahead} from 'react-bootstrap-typeahead';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
@@ -82,11 +83,16 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
       <div>
-        <Typeahead
-          labelKey="name"
-          options={"data"}
-          placeholder="Choose a state..."
-        />
+<Typeahead
+  labelKey={option => `${option.firstName} ${option.lastName}`}
+  options={[
+    {firstName: 'Art', lastName: 'Blakey'},
+    {firstName: 'Jimmy', lastName: 'Cobb'},
+    {firstName: 'Elvin', lastName: 'Jones'},
+    {firstName: 'Max', lastName: 'Roach'},
+    {firstName: 'Tony', lastName: 'Williams'},
+  ]}
+/>
       </div>
         {this.prtgSearchForm()}
         <Table {... this.props}/>
