@@ -57,7 +57,10 @@ class PrtgSensors extends Component {
       width: "40%"
     };
     let disabled, dropup, emptyLabel, minLength;
-    {disabled, dropup, emptyLabel, minLength} = this.state;
+    disabled = this.state;
+    dropup = this.state;
+    emptyLabel = this.state;
+    minLength = this.state;
     return (
       <div style={divStyles}>
         <Form horizontal>
