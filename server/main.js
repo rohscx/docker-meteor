@@ -16,5 +16,4 @@ Meteor.publish('currentUser', function() {
 
 Meteor.startup(() => {
   // code to run on server at startup
-  test = new Mongo.Collection('itemsprtg');
 });
