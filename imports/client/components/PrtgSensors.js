@@ -86,11 +86,11 @@ class PrtgSensors extends Component {
 <Typeahead
   labelKey={option => `${option.firstName} ${option.lastName}`}
   options={[
-    {firstName: 'Art', lastName: 'Blakey'},
-    {firstName: 'Jimmy', lastName: 'Cobb'},
-    {firstName: 'Elvin', lastName: 'Jones'},
-    {firstName: 'Max', lastName: 'Roach'},
-    {firstName: 'Tony', lastName: 'Williams'},
+    {firstName: 'Art'},
+    {firstName: 'Jimmy'},
+    {firstName: 'Elvin'},
+    {firstName: 'Max'},
+    {firstName: 'Tony'},
   ]}
 />
       </div>
