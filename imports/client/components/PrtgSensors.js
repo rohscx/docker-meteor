@@ -72,4 +72,4 @@ class PrtgSensors extends Component {
     this.setState(newState);
   }
 }
-export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
+export default connect() (PrtgSensors);
