@@ -28,7 +28,7 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
         <Typeahead
-          labelKey="name"
+          labelKey={option => `${option.firstName} ${option.lastName}`}
           multiple={multiple}
             options={[
               {firstName: 'Art', lastName: 'Blakey'},
