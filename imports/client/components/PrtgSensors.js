@@ -70,7 +70,7 @@ class PrtgSensors extends Component {
           {...this.state}
           emptyLabel={''}
           multiple
-          options={{name:"name"}}
+          options={"name"}
           placeholder="Choose a state..."
         />
         <FormGroup>
