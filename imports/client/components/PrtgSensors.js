@@ -31,9 +31,7 @@ class PrtgSensors extends Component {
     };
     console.log(this);
     const {submitFormOnEnter} = this.state;
-    let   options={[
-    {firs: 'Art', la: 'Blakey'}
-  ]};
+    let   options=["firstName", "lastNam"];
     return(
             <form onSubmit={e => alert('Form submitted!')}>
         <InputGroup>
