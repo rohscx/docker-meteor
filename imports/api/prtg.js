@@ -153,7 +153,7 @@ if (Meteor.isServer) {
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch()
     },
     'getPrtgDeviceNames': function(){
-      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1},fields:{"prtgData.objid.device": 1,_id:0}}).fetch()
+      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1},fields:{"prtgData.dataObj.device": 1,_id:0}}).fetch()
     }
   });
 }
