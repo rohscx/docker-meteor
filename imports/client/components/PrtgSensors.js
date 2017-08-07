@@ -67,8 +67,6 @@ class PrtgSensors extends Component {
     return (
       <div style={divStyles}>
         <Typeahead
-          {...this.state}
-          emptyLabel={''}
           multiple
           options={"name"}
           placeholder="Choose a state..."
