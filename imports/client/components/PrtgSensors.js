@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
-import { hostName } from '../actions/utilActions';
+import { hostName } from '../actions/prtgActions';
 import { getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 

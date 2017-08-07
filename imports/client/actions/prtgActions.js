@@ -21,6 +21,20 @@ export function setDevices(devices) {
   };
 }
 
+export function setDeviceNameList(namesObj) {
+  return {
+    type: "SET_DEVICE_NAME_LIST",
+    payload: devices
+  };
+}
+
+export function setHostName(status) {
+  return {
+    type: "SET_HOSTNAME",
+    payload: status
+  };
+}
+
 export function getDevices() {
   return dispatch => {
     console.log(Meteor.settings)
@@ -60,5 +74,45 @@ export function getDevices() {
           return dispatch(setDevices(res));
         }
     })
+  }
+}
+
+export function hostName(hostName) {
+  return dispatch => {
+    let newHostName = hostName.trim().toLowerCase()
+    if(hostName.length <= 0 ){
+      return dispatch(setHostName({
+        name: newHostName,
+        validationStatus: null,
+        btnStyle: false
+      }));
+    } else {
+      let newHostName = hostName.trim().toLowerCase()
+      return dispatch(setHostName({
+        name: newHostName,
+        validationStatus: "success",
+        btnStyle: true
+      }));
+    }
+  }
+}
+
+export function DeviceNameList(usrInput) {
+  return dispatch => {
+    let newHostName = hostName.trim().toLowerCase()
+    if(hostName.length <= 0 ){
+      return dispatch(setDeviceNameList({
+        name: newHostName,
+        validationStatus: null,
+        btnStyle: false
+      }));
+    } else {
+      let newHostName = hostName.trim().toLowerCase()
+      return dispatch(setDeviceNameList({
+        name: newHostName,
+        validationStatus: "success",
+        btnStyle: true
+      }));
+    }
   }
 }
