@@ -21,9 +21,7 @@ class PrtgSensors extends Component {
     const options = () => {
       this.props.prtgDeviceNames.map((data)=>{
 
-        return (
-          <option value="select">{data}</option>
-        )
+        return data
       })
     };
 
