@@ -62,7 +62,7 @@ store.subscribe(() => {
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          <Header  {... this.state}/>
+          <Header  {... this.state.cats}/>
           <Prtg {... this.props}/>
         </main>
       </Provider>
