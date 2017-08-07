@@ -62,7 +62,11 @@ class PrtgSensors extends Component {
         <Form horizontal>
         <Typeahead
           {...this.state}
-          
+          emptyLabel={emptyLabel ? '' : undefined}
+          labelKey="name"
+          multiple
+          options={options}
+          placeholder="Choose a state..."
         />
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
