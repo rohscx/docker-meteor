@@ -64,7 +64,7 @@ class PrtgSensors extends Component {
 const {multiple} = this.state;
 
     return (
-      <div style={divStyles}>
+
         <Typeahead
           labelKey="name"
           multiple={multiple}
@@ -82,7 +82,6 @@ const {multiple} = this.state;
           onChange={console.log("Cats")}>
           Multi-Select
         </Checkbox>
-      </div>
 
     );
   }
