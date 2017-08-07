@@ -78,7 +78,7 @@ const {multiple} = this.state;
         />
         <Checkbox
           checked={multiple}
-          onChange={e => this.setState({multiple: e.target.checked})}>
+          onChange={console.log("Cats")}>
           Multi-Select
         </Checkbox>
       </div>
