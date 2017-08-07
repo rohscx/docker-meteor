@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Col, Button, ListGroup } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
@@ -16,7 +16,16 @@ class PrtgSensors extends Component {
     this.props.getDevices();
   }
 
+
   prtgSearchForm(){
+    const options = () => {
+      this.props.prtgDeviceNames.map((data)=>{
+        return (
+          <option value="select">{data}</option>
+        )
+      })
+    };
+
     const btnEnabled = () => {
       return (
         <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
@@ -55,13 +64,16 @@ class PrtgSensors extends Component {
               Search
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
+              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()}>
+                {options()}
+              </FormControl>
               <FormControl.Feedback />
             </Col>
           </FormGroup>
           <FormGroup>
             {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
           </FormGroup>
+
         </Form>
       </div>
 
