@@ -139,4 +139,16 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
+
+  _handleChange = e => {
+    const {checked, name} = e.target;
+    const newState = {[name]: checked};
+
+    if (name === 'minLength') {
+      newState.minLength = checked ? 2 : 0;
+    }
+
+    this.setState(newState);
+  }
+}
 export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
