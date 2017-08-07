@@ -50,7 +50,7 @@ export default class Devices extends Component {
   }
 
   const tableAlignment = {
-    verticalAlign: 'middle'
+    verticalAlign :'middle'
   }
 };
     returnList = this.props.prtgItems.map((data)=>{
