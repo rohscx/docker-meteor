@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
@@ -77,3 +78,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
+=======
+>>>>>>> parent of ee863d1... setup
