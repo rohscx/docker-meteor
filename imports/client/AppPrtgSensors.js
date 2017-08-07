@@ -91,4 +91,4 @@ export default createContainer(({params}) => {
     ready: prtgItemsSub.ready(),
     prtgItems: prtgArray
   }
-}, AppPrtg);
+}, AppPrtgSensors);
