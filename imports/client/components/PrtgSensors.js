@@ -8,13 +8,6 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
-    constructor(props) {
-    super(props);
-
-    this.state = {
-      multiple: false,
-    };
-  }
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
@@ -31,26 +24,22 @@ class PrtgSensors extends Component {
     };
     console.log(this);
     const {multiple} = {multiple: false};
+
     return(
       <div style={divStyles}>
         <Typeahead
           labelKey="name"
           multiple={multiple}
             options={[
-    {firstName: 'Art', lastName: 'Blakey'},
-    {firstName: 'Jimmy', lastName: 'Cobb'},
-    {firstName: 'Elvin', lastName: 'Jones'},
-    {firstName: 'Max', lastName: 'Roach'},
-    {firstName: 'Tony', lastName: 'Williams'},
-  ]}
+              {firstName: 'Art', lastName: 'Blakey'},
+              {firstName: 'Jimmy', lastName: 'Cobb'},
+              {firstName: 'Elvin', lastName: 'Jones'},
+              {firstName: 'Max', lastName: 'Roach'},
+              {firstName: 'Tony', lastName: 'Williams'},
+            ]}
           placeholder="Choose a state..."
         />
-        <Checkbox
-          checked={multiple}
-          onChange={console.log("Cats")}>
-          Multi-Select
-        </Checkbox>
-        <Table {... this.props}/>
+        <Table />
       </div>
     )
   }
