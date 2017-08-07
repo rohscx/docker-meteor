@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Col, Button, Typeahead } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
@@ -12,7 +12,9 @@ class PrtgSensors extends Component {
     super(props);
 
     this.state = {
-      submitFormOnEnter: true,
+      disabled: false,
+      dropup: false,
+      minLength: 0,
     };
   }
   handleSearchFormInput(event) {
@@ -23,7 +25,15 @@ class PrtgSensors extends Component {
     this.props.getDevices();
   }
 
+
   prtgSearchForm(){
+    const options = () => {
+      this.props.prtgDeviceNames.map((data)=>{
+
+        return data
+      })
+    };
+
     const btnEnabled = () => {
       return (
         <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
@@ -53,23 +63,50 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-
+    let disabled, dropup, emptyLabel, minLength;
+    disabled = this.state;
+    dropup = this.state;
+    emptyLabel = this.state;
+    minLength = this.state;
+    const {disabled, dropup, emptyLabel, minLength} = this.state;
     return (
       <div style={divStyles}>
-        <Form horizontal>
-          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
-            <Col componentClass={ControlLabel} sm={2}>
-              Search
-            </Col>
-            <Col sm={10}>
-              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
-              <FormControl.Feedback />
-            </Col>
-          </FormGroup>
-          <FormGroup>
-            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
-          </FormGroup>
-        </Form>
+        <Typeahead
+          {...this.state}
+          emptyLabel={emptyLabel ? '' : undefined}
+          labelKey="name"
+          multiple
+          options={options}
+          placeholder="Choose a state..."
+        />
+        <FormGroup>
+          <Checkbox
+            checked={disabled}
+            name="disabled"
+            onChange={this._handleChange}>
+            Disable
+          </Checkbox>
+          <Checkbox
+            checked={dropup}
+            name="dropup"
+            onChange={this._handleChange}>
+            Dropup menu
+          </Checkbox>
+          <Checkbox
+            checked={!!minLength}
+            name="minLength"
+            onChange={this._handleChange}>
+            Require minimum input before showing results (2 chars)
+          </Checkbox>
+          <Checkbox
+            checked={emptyLabel}
+            name="emptyLabel"
+            onChange={this._handleChange}>
+            Hide the menu when there are no results
+          </Checkbox>
+        </FormGroup>
+      </div>
+    );
       </div>
 
     );
@@ -81,21 +118,10 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    var options = this.getDeviceNames();
-
-function logChange(val) {
-  console.log("Selected: " + val);
-}
     return(
-
-      <div className="section">
-        <Select
-        className="section"
-        name="form-field-name"
-        value="one"
-        options={options}
-        onChange={logChange}
-        />
+      <div style={divStyles}>
+        {this.prtgSearchForm()}
+        <Table {... this.props}/>
       </div>
     )
   }
