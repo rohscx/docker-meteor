@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
-import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
-import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest'
+import { Mongo } from 'meteor/mongo';
+
+prtgClientDatabase = new Mongo.Collection('items.prtg');
 
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
