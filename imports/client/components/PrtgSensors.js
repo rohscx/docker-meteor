@@ -54,37 +54,22 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-    let disabled, dropup, emptyLabel, minLength;
-    disabled = this.state;
-    dropup = this.state;
-    emptyLabel = this.state;
-    minLength = this.state;
+    
+    let option = ["data","data2"]
     return (
       <div style={divStyles}>
-        <Form horizontal>
         <Typeahead
-          {...this.state}
-          emptyLabel={emptyLabel ? '' : undefined}
           labelKey="name"
-          multiple
+          multiple={multiple}
           options={options}
           placeholder="Choose a state..."
         />
-          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
-            <Col componentClass={ControlLabel} sm={2}>
-              Search
-            </Col>
-            <Col sm={10}>
-              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()}/>
-                <option value="select">adsfasd</option>
-              <FormControl.Feedback />
-            </Col>
-          </FormGroup>
-          <FormGroup>
-            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
-          </FormGroup>
-
-        </Form>
+        <Checkbox
+          checked={multiple}
+          onChange={e => this.setState({multiple: e.target.checked})}>
+          Multi-Select
+        </Checkbox>
+      </div>
       </div>
 
     );
