@@ -11,10 +11,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
 import ItemsPrtg from '../api/prtg';
-
-
-
-import Prtg from './components/Prtg';
+import PrtgSensors from './components/PrtgSensors';
 
 // initializes the state
 
