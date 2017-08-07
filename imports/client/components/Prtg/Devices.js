@@ -49,9 +49,6 @@ export default class Devices extends Component {
     opacity               : '100'
   }
 
-  const tableAlignment = {
-    verticalAlign :'middle'
-  }
 };
     returnList = this.props.prtgItems.map((data)=>{
       let newData = data.prtgData.dataObj;
@@ -78,10 +75,10 @@ export default class Devices extends Component {
             </thead>
             <tbody>
               <tr>
-                <td style={tableAlignment}>{newData.group}</td>
-                <td style={tableAlignment}>{newData.device}</td>
-                <td className={statusDanger()} style={tableAlignment}> {newData.status}</td>
-                <td style={tableAlignment}>{newData.sensor}</td>
+                <td className="align-middle">{newData.group}</td>
+                <td className="align-middle">{newData.device}</td>
+                <td className="align-middle" className={statusDanger()}> {newData.status}</td>
+                <td className="align-middle">{newData.sensor}</td>
               </tr>
             </tbody>
           </table>
