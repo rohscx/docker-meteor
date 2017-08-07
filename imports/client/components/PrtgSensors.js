@@ -31,7 +31,7 @@ class PrtgSensors extends Component {
     };
     console.log(this);
     const {submitFormOnEnter} = this.state;
-    let   options=["firstName"];
+    let   options={firstName:"adsf";
     return(
             <form onSubmit={e => alert('Form submitted!')}>
         <InputGroup>
