@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-
+import { Mongo} from 'meteor/mongo';
 import Items from '../imports/api/Items';
 
 import '../imports/server/accounts';
@@ -17,4 +17,5 @@ Meteor.publish('currentUser', function() {
 
 Meteor.startup(() => {
   // code to run on server at startup
+  test = new Mongo.Collection('itemsprtg');
 });
