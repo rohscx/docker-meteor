@@ -98,7 +98,7 @@ class PrtgSensors extends Component {
           labelKey="name"
           options={this.getDeviceNames()}
           placeholder="Select Devices..."
-          onChange= {e => this.logTest(e)
+          onChange= {e => this.logTest(e)}
         />
       </div>
         {this.prtgSearchForm()}
