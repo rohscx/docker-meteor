@@ -8,12 +8,7 @@ import Table from './Prtg/Table';
 import { Template } from 'meteor/templating';
 import {ItemsPrtg} from '../../api/prtg';
 
-Template.body.helpers({
-  task() {
-    console.log(ItemsPrtg.find({}))
-    return ItemsPrtg.find({});
-  },
-});
+
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)

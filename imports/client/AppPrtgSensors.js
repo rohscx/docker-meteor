@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -67,6 +67,9 @@ store.subscribe(() => {
   }
 }
 
+AppPrtgSensors.propTypes = {
+  tasks: PropTypes.array.isRequired,
+};
 
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
@@ -97,6 +100,7 @@ export default createContainer(({params}) => {
     showAll,
     ready: prtgItemsSub.ready(),
     prtgItems: prtgArray,
-    prtgDeviceNames: prtgDeviceNamesArray
+    prtgDeviceNames: prtgDeviceNamesArray.
+    prtg: ItemsPrtg.find({}).fetch()
   }
 }, AppPrtgSensors);
