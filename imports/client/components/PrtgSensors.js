@@ -106,8 +106,6 @@ class PrtgSensors extends Component {
           </Checkbox>
         </FormGroup>
       </div>
-    );
-      </div>
 
     );
   }
