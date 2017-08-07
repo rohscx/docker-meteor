@@ -91,8 +91,7 @@ class PrtgSensors extends Component {
     console.log(this);
 
     return(
-      <div style={divStyles}>
-      <div style={divStyles}>
+      <div>
         <Typeahead
           clearButton
           labelKey="name"
@@ -100,9 +99,10 @@ class PrtgSensors extends Component {
           placeholder="Select Devices..."
           onInputChange= {console.log(this)}
         />
-      </div>
-        {this.prtgSearchForm()}
-        <Table {... this.props}/>
+        <div style={divStyles}>
+          {this.prtgSearchForm()}
+          <Table {... this.props}/>
+        </div>
       </div>
     )
   }
