@@ -78,7 +78,6 @@ class PrtgSensors extends Component {
         </FormGroup>
       </div>
     );
-    );
   }
 
   render() {
