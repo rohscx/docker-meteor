@@ -8,6 +8,15 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+      disabled: false,
+      dropup: false,
+      minLength: 0,
+    };
+  }
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
@@ -59,9 +68,9 @@ class PrtgSensors extends Component {
     dropup = this.state;
     emptyLabel = this.state;
     minLength = this.state;
+    const {disabled, dropup, emptyLabel, minLength} = this.state;
     return (
       <div style={divStyles}>
-        <Form horizontal>
         <Typeahead
           {...this.state}
           emptyLabel={emptyLabel ? '' : undefined}
@@ -70,21 +79,34 @@ class PrtgSensors extends Component {
           options={options}
           placeholder="Choose a state..."
         />
-          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
-            <Col componentClass={ControlLabel} sm={2}>
-              Search
-            </Col>
-            <Col sm={10}>
-              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()}/>
-                <option value="select">adsfasd</option>
-              <FormControl.Feedback />
-            </Col>
-          </FormGroup>
-          <FormGroup>
-            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
-          </FormGroup>
-
-        </Form>
+        <FormGroup>
+          <Checkbox
+            checked={disabled}
+            name="disabled"
+            onChange={this._handleChange}>
+            Disable
+          </Checkbox>
+          <Checkbox
+            checked={dropup}
+            name="dropup"
+            onChange={this._handleChange}>
+            Dropup menu
+          </Checkbox>
+          <Checkbox
+            checked={!!minLength}
+            name="minLength"
+            onChange={this._handleChange}>
+            Require minimum input before showing results (2 chars)
+          </Checkbox>
+          <Checkbox
+            checked={emptyLabel}
+            name="emptyLabel"
+            onChange={this._handleChange}>
+            Hide the menu when there are no results
+          </Checkbox>
+        </FormGroup>
+      </div>
+    );
       </div>
 
     );
