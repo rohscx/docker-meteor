@@ -24,69 +24,6 @@ class PrtgSensors extends Component {
   }
 
 
-  prtgSearchForm(){
-    const options = () => {
-      this.props.prtgDeviceNames.map((data)=>{
-
-        return data
-      })
-    };
-
-    const btnEnabled = () => {
-      return (
-        <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
-      );
-    };
-    const btnDisabled = () => {
-      return (
-        <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>
-      );
-    };
-    const hostName = () => {
-      return (
-        this.props.util.hostName.name
-      );
-    };
-    const formInput = () => {
-      return (
-        this.handleSearchFormInput.bind(this)
-      );
-    };
-    const validationStatus = () => {
-      return (
-        this.props.util.hostName.validationStatus
-      );
-    };
-
-    const divStyles = {
-      width: "40%"
-    };
-const {multiple} = this.state;
-
-    return (
-      <div style={divStyles}>
-        <Typeahead
-          labelKey="name"
-          multiple={multiple}
-            options={[
-    {firstName: 'Art', lastName: 'Blakey'},
-    {firstName: 'Jimmy', lastName: 'Cobb'},
-    {firstName: 'Elvin', lastName: 'Jones'},
-    {firstName: 'Max', lastName: 'Roach'},
-    {firstName: 'Tony', lastName: 'Williams'},
-  ]}
-          placeholder="Choose a state..."
-        />
-        <Checkbox
-          checked={multiple}
-          onChange={console.log("Cats")}>
-          Multi-Select
-        </Checkbox>
-      </div>
-
-    );
-  }
-
   render() {
     const divStyles = {
       paddingTop: "5%",
