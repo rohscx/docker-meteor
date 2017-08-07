@@ -92,7 +92,6 @@ class PrtgSensors extends Component {
       <div>
         <Typeahead
           clearButton
-          defaultSelected={options.slice(0,5)}
           labelKey="name"
           multiple
           options={this.getDeviceNames()}
