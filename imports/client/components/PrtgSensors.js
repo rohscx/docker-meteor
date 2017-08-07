@@ -6,7 +6,7 @@ import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName } from '../actions/utilActions';
 import { getDevices } from '../actions/prtgActions';
-import Devices from './Prtg/Devices';
+import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
@@ -78,7 +78,7 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
         {this.prtgSearchForm()}
-        <Devices {... this.props}/>
+        <Table {... this.props}/>
       </div>
     )
   }
