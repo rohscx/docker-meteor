@@ -7,6 +7,7 @@ import { Form, FormGroup, FormControl, ControlLabel, Col, Button} from 'react-bo
 import {Typeahead} from 'react-bootstrap-typeahead';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
+import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest'
 
 class PrtgSensors extends Component {
   constructor(props) {
@@ -98,13 +99,18 @@ class PrtgSensors extends Component {
 
     return(
       <div>
-        <Typeahead
-          clearButton
-          labelKey="name"
-          options={this.getDeviceNames()}
-          placeholder="Select Devices..."
-          onChange= {this.handleChange}
-        />
+        <FormGroup controlId="browserInput"
+    bsSize={bsSize} validationState={validationState}>
+  <ControlLabel>Browser</ControlLabel>
+  <Autosuggest
+    datalist={['Chrome', 'Firefox', 'Internet Explorer', 'Opera', 'Safari']}
+    placeholder="What browser do you use?"
+    value={browser}
+    onChange={onChange}
+    bsSize={bsSize} />
+  {validationState && <FormControl.Feedback />}
+  {validationState && <HelpBlock>Please select a browser</HelpBlock>}
+</FormGroup>
         <div style={divStyles}>
           {this.prtgSearchForm()}
           <Table {... this.props}/>
