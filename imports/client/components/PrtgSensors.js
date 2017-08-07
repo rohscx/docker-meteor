@@ -63,11 +63,7 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-    let disabled, dropup, emptyLabel, minLength;
-    disabled = this.state;
-    dropup = this.state;
-    emptyLabel = this.state;
-    minLength = this.state;
+
     const {disabled, dropup, emptyLabel, minLength} = this.state;
     return (
       <div style={divStyles}>
