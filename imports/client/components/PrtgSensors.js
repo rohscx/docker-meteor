@@ -8,6 +8,13 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+      submitFormOnEnter: true,
+    };
+  }
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
@@ -23,24 +30,27 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    const {multiple} = {multiple: false};
+    const {submitFormOnEnter} = this.state;
 
     return(
-      <div style={divStyles}>
-        <Typeahead
-          labelKey={option => `${option.firstName} ${option.lastName}`}
-          multiple={multiple}
-            options={[
-              {firstName: 'Art', lastName: 'Blakey'},
-              {firstName: 'Jimmy', lastName: 'Cobb'},
-              {firstName: 'Elvin', lastName: 'Jones'},
-              {firstName: 'Max', lastName: 'Roach'},
-              {firstName: 'Tony', lastName: 'Williams'},
-            ]}
-          placeholder="Choose a state..."
-        />
-        <Table />
-      </div>
+            <form onSubmit={e => alert('Form submitted!')}>
+        <InputGroup>
+          <Typeahead
+            labelKey="name"
+            options={options}
+            placeholder="Choose a state..."
+            submitFormOnEnter={submitFormOnEnter}
+          />
+          <InputGroup.Button>
+            <Button type="submit">Submit</Button>
+          </InputGroup.Button>
+        </InputGroup>
+        <Checkbox
+          checked={submitFormOnEnter}
+          onChange={e => this.setState({submitFormOnEnter: e.target.checked})}>
+          Allow form submission
+        </Checkbox>
+      </form>
     )
   }
 }
