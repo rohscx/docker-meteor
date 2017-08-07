@@ -35,30 +35,6 @@ class PrtgSensors extends Component {
           placeholder="Choose a state..."
         />
         <FormGroup>
-          <Checkbox
-            checked={disabled}
-            name="disabled"
-            onChange={this._handleChange}>
-            Disable
-          </Checkbox>
-          <Checkbox
-            checked={dropup}
-            name="dropup"
-            onChange={this._handleChange}>
-            Dropup menu
-          </Checkbox>
-          <Checkbox
-            checked={!!minLength}
-            name="minLength"
-            onChange={this._handleChange}>
-            Require minimum input before showing results (2 chars)
-          </Checkbox>
-          <Checkbox
-            checked={emptyLabel}
-            name="emptyLabel"
-            onChange={this._handleChange}>
-            Hide the menu when there are no results
-          </Checkbox>
         </FormGroup>
       </div>
     );
