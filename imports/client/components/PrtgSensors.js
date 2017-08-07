@@ -77,8 +77,18 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
+    const {multiple} = this.state;
+
     return(
       <div style={divStyles}>
+      <div>
+              <Typeahead
+          labelKey="name"
+          multiple={multiple}
+          options={options}
+          placeholder="Choose a state..."
+        />
+      </div>
         {this.prtgSearchForm()}
         <Table {... this.props}/>
       </div>
