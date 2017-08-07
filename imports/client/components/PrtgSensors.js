@@ -6,7 +6,7 @@ import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-b
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 import { Template } from 'meteor/templating';
-import {ItemsPrtg} from '../../.imports/api/prtg';
+import {ItemsPrtg} from '../../api/prtg';
 
 
 class PrtgSensors extends Component {
