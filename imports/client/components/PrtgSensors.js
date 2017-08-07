@@ -30,7 +30,7 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    const {multiple} = this.state;
+    const {multiple} = {multiple: false};
     return(
       <div style={divStyles}>
         <Typeahead
