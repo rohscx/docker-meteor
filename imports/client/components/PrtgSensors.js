@@ -20,6 +20,7 @@ class PrtgSensors extends Component {
   prtgSearchForm(){
     const options = () => {
       this.props.prtgDeviceNames.map((data)=>{
+
         return (
           <option value="select">{data}</option>
         )
@@ -66,6 +67,7 @@ class PrtgSensors extends Component {
             <Col sm={10}>
               <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()}>
                 {options()}
+                <option value="dddd">aaaaaaaaaa</option>
               </FormControl>
               <FormControl.Feedback />
             </Col>
