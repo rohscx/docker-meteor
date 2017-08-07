@@ -46,14 +46,15 @@ function logChange(val) {
 }
     return(
 
-<div className="section">
-      <Select
+      <div className="section">
+        <Select
+        className="section"
         name="form-field-name"
         value="one"
         options={options}
         onChange={logChange}
-      />
-        </div>
+        />
+      </div>
     )
   }
 }
