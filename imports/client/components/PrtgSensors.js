@@ -10,6 +10,7 @@ import {ItemsPrtg} from '../../api/prtg';
 
 Template.body.helpers({
   task() {
+    console.log(ItemsPrtg.find({}))
     return ItemsPrtg.find({});
   },
 });
