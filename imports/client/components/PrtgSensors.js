@@ -93,7 +93,7 @@ class PrtgSensors extends Component {
         <Typeahead
           clearButton
           labelKey="name"
-          multiple
+          multiple = {mutiple:true}
           options={this.getDeviceNames()}
           placeholder="Select Devices..."
         />
