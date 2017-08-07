@@ -30,10 +30,23 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    const {submitFormOnEnter} = this.state;
-    let   options={firstName:"adsf"};
+          var options = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' }
+];
+ 
+function logChange(val) {
+  console.log("Selected: " + val);
+}
     return(
-      
+
+ 
+<Select
+  name="form-field-name"
+  value="one"
+  options={options}
+  onChange={logChange}
+/>
     )
   }
 }
