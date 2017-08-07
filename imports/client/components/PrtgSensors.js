@@ -54,7 +54,7 @@ class PrtgSensors extends Component {
     const divStyles = {
       width: "40%"
     };
-    
+
     var myData = [
   'John',
   'Miles',
@@ -74,7 +74,6 @@ class PrtgSensors extends Component {
           onChange={e => this.setState({multiple: e.target.checked})}>
           Multi-Select
         </Checkbox>
-      </div>
       </div>
 
     );
