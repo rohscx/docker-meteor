@@ -110,17 +110,6 @@ class PrtgSensors extends Component {
 
     return(
       <div>
-        <FormGroup controlId="browserInput"
-  >
-  <ControlLabel>Browser</ControlLabel>
-  <Autosuggest
-    datalist={['Chrome', 'Firefox', 'Internet Explorer', 'Opera', 'Safari']}
-    placeholder="What browser do you use?"
-    onChange={console.log("cats")}
- />
-<FormControl.Feedback />}
-<HelpBlock>Please select a browser</HelpBlock>}
-</FormGroup>
         <div style={divStyles}>
           {this.prtgSearchForm()}
           <Table {... this.props}/>
