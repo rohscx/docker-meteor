@@ -23,6 +23,15 @@ class PrtgSensors extends Component {
     this.props.getDevices();
   }
 
+  getDeviceNames(){
+    let namesData = this.props.prtgDeviceNames;
+    let namesDataArray = [];
+    namesData.map((data, key)=>{
+      let listItem = {value: key, label: data};
+      namesDataArray.push(listItem);
+    })
+    return namesDataArray;
+  }
 
   render() {
     const divStyles = {
@@ -30,23 +39,20 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-          var options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' }
-];
- 
+    var options = this.getDeviceNames();
+
 function logChange(val) {
   console.log("Selected: " + val);
 }
     return(
 
- 
-<Select
-  name="form-field-name"
-  value="one"
-  options={options}
-  onChange={logChange}
-/>
+
+      <Select
+        name="form-field-name"
+        value="one"
+        options={options}
+        onChange={logChange}
+      />
     )
   }
 }
