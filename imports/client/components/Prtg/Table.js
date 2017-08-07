@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 
-export default class Devices extends Component {
+export default class Table extends Component {
   constructor() {
     super();
 
