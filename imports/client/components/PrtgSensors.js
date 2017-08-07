@@ -105,11 +105,10 @@ class PrtgSensors extends Component {
   <Autosuggest
     datalist={['Chrome', 'Firefox', 'Internet Explorer', 'Opera', 'Safari']}
     placeholder="What browser do you use?"
-    value={browser}
     onChange={onChange}
  />
-  {validationState && <FormControl.Feedback />}
-  {validationState && <HelpBlock>Please select a browser</HelpBlock>}
+<FormControl.Feedback />}
+<HelpBlock>Please select a browser</HelpBlock>}
 </FormGroup>
         <div style={divStyles}>
           {this.prtgSearchForm()}
