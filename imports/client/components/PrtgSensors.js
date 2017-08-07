@@ -5,10 +5,10 @@ import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
-import { Mongo } from 'meteor/mongo';
+import { Template } from 'meteor/templating';
+import {ItemsPrtg} from '../../.imports/api/prtg';
 
-//prtgClientDatabase = new Mongo.Collection('itemsprtg');
-//console.log(prtgClientDatabase.find());
+
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)

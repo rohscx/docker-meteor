@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Mongo} from 'meteor/mongo';
 import Items from '../imports/api/Items';
 
 import '../imports/server/accounts';
