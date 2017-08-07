@@ -36,7 +36,12 @@ store.subscribe(() => {
      }
    }
 
-
+  renderTasks() {
+    return this.props.prtg2.map((task) => (
+      <Task key={task._id} task={task} />
+    ));
+  }
+   
    componentWillMount() {
       this.setState({
         greeting: "Welome to the PRTG App"
@@ -54,6 +59,7 @@ store.subscribe(() => {
     return (
       <Provider store={store}>
         <main>
+        this.renderTasks()
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
               Show {this.props.showAll ? 'None': 'All'}
