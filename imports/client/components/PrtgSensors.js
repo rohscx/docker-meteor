@@ -96,11 +96,9 @@ class PrtgSensors extends Component {
     console.log(this);
 
     return(
-      <div>
-        <div style={divStyles}>
-          {this.prtgSearchForm()}
-          <Table {... this.props}/>
-        </div>
+      <div style={divStyles}>
+        {this.prtgSearchForm()}
+        <Table {... this.props}/>
       </div>
     )
   }
