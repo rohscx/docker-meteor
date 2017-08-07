@@ -31,7 +31,7 @@ store.subscribe(() => {
 
 
 @autobind
- class AppPrtg extends Component {
+ class AppPrtgSensors extends Component {
    constructor() {
      super();
      this.state = {

@@ -11,7 +11,7 @@ import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
 import AppApic from './AppApic';
 import AppIse from './AppIse';
-import AppPrtg from './AppPrtg';
+import AppPrtgSensors from './AppPrtgSensors';
 
 
 Meteor.startup(() => {
@@ -21,7 +21,7 @@ Meteor.startup(() => {
         <IndexRoute component={App} />
         <Route path="/apic" component={AppApic} />
         <Route path="/ise" component={AppIse} />
-        <Route path="/prtg" component={AppPrtg} />
+        <Route path="/prtg" component={AppPrtgSensors} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
 
