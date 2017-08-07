@@ -83,11 +83,10 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
       <div>
-<Typeahead
-  labelKey={option => `${option.firstName} ${option.lastName}`}
-  options={["badh","blahdddd"
-  ]}
-/>
+        <Typeahead
+          options={["badh","blahdddd"
+          ]}
+        />
       </div>
         {this.prtgSearchForm()}
         <Table {... this.props}/>
