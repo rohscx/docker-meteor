@@ -4,11 +4,6 @@ const prtgReducer = (state = {
   devicesNameList:{
     defaultNone0: "nothing to see 0",
     defaultNone1: "nothing to see 1"
-  },
-  hostName: {
-    name:"",
-    validationStatus: null,
-    btnStyle: false
   }
 }, action) => {
   switch (action.type) {
