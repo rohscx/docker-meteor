@@ -55,13 +55,18 @@ class PrtgSensors extends Component {
       width: "40%"
     };
     
-    let option = ["data","data2"]
+    var myData = [
+  'John',
+  'Miles',
+  'Charles',
+  'Herbie',
+];
     return (
       <div style={divStyles}>
         <Typeahead
           labelKey="name"
           multiple={multiple}
-          options={options}
+          options={myData}
           placeholder="Choose a state..."
         />
         <Checkbox
