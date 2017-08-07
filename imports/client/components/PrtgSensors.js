@@ -9,19 +9,6 @@ import Table from './Prtg/Table';
 import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest'
 
 class PrtgSensors extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value:''
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event){
-    this.setState({value: event.target.value})
-  }
-
   handleSearchFormInput(event) {
     console.log(event.target.value)
     this.props.hostName(event.target.value);
@@ -46,7 +33,6 @@ class PrtgSensors extends Component {
   prtgSearchForm(){
     const options = () => {
       this.props.prtgDeviceNames.map((data)=>{
-
         return data
       })
     };
