@@ -160,7 +160,7 @@ if (Meteor.isServer) {
         dataArray.push(data.prtgData.dataObj.device)
       })
 
-      return prtgData
+      return dataArray
     }
   });
 }
