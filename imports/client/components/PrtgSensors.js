@@ -3,8 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import {Accordion, AccordionSection}  from 'redux-accordion';
 import { setName }from '../actions/userActions';
-import { Form, FormGroup, FormControl, ControlLabel, Col, Button} from 'react-bootstrap';
-import {Typeahead} from 'react-bootstrap-typeahead';
+import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 import Autosuggest, { ItemAdapter } from 'react-bootstrap-autosuggest'
@@ -84,8 +83,20 @@ class PrtgSensors extends Component {
 
     return (
       <div style={divStyles}>
-        <FormGroup>
-        </FormGroup>
+        <Form horizontal>
+          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
+            <Col componentClass={ControlLabel} sm={2}>
+              Search
+            </Col>
+            <Col sm={10}>
+              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
+              <FormControl.Feedback />
+            </Col>
+          </FormGroup>
+          <FormGroup>
+            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
+          </FormGroup>
+        </Form>
       </div>
     );
   }
