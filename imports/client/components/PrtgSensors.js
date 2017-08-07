@@ -62,18 +62,19 @@ class PrtgSensors extends Component {
       width: "40%"
     };
 const {multiple} = this.state;
-    var myData = [
-  'John',
-  'Miles',
-  'Charles',
-  'Herbie',
-];
+
     return (
       <div style={divStyles}>
         <Typeahead
           labelKey="name"
           multiple={multiple}
-          options={myData}
+            options={[
+    {firstName: 'Art', lastName: 'Blakey'},
+    {firstName: 'Jimmy', lastName: 'Cobb'},
+    {firstName: 'Elvin', lastName: 'Jones'},
+    {firstName: 'Max', lastName: 'Roach'},
+    {firstName: 'Tony', lastName: 'Williams'},
+  ]}
           placeholder="Choose a state..."
         />
         <Checkbox
