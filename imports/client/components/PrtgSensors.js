@@ -8,7 +8,7 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
-    constructor(props) {
+      constructor(props) {
     super(props);
 
     this.state = {
@@ -17,63 +17,18 @@ class PrtgSensors extends Component {
       minLength: 0,
     };
   }
-  handleSearchFormInput(event) {
-    this.props.hostName(event.target.value);
-  }
 
-  getDevices(){
-    this.props.getDevices();
-  }
-
-
-  prtgSearchForm(){
-    const options = () => {
-      let testArray = ["cats","dogs"];
-      return testArray
-    /*  this.props.prtgDeviceNames.map((data)=>{
-
-    })*/
-    };
-
-    const btnEnabled = () => {
-      return (
-        <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
-      );
-    };
-    const btnDisabled = () => {
-      return (
-        <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>
-      );
-    };
-    const hostName = () => {
-      return (
-        this.props.util.hostName.name
-      );
-    };
-    const formInput = () => {
-      return (
-        this.handleSearchFormInput.bind(this)
-      );
-    };
-    const validationStatus = () => {
-      return (
-        this.props.util.hostName.validationStatus
-      );
-    };
-
-    const divStyles = {
-      width: "40%"
-    };
-
+  render() {
     const {disabled, dropup, emptyLabel, minLength} = this.state;
+
     return (
-      <div style={divStyles}>
+      <div>
         <Typeahead
           {...this.state}
           emptyLabel={emptyLabel ? '' : undefined}
           labelKey="name"
           multiple
-          options={"options"}
+          options={options}
           placeholder="Choose a state..."
         />
         <FormGroup>
@@ -103,42 +58,8 @@ class PrtgSensors extends Component {
           </Checkbox>
         </FormGroup>
       </div>
-
     );
   }
-
-  render() {
-    const divStyles = {
-      paddingTop: "5%",
-      paddingBottom:"5%"
-    };
-    console.log(this);
-    return(
-      <div style={divStyles}>
-        {this.prtgSearchForm()}
-        <Table {... this.props}/>
-      </div>
-    )
-  }
-}
-
-const mapSateToProps = (state) => {
-  return {
-    util: state.utilReducer,
-    prtg: state.prtgReducer
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    hostName: (name) => {
-      dispatch(hostName(name));
-    },
-    getDevices: () => {
-      dispatch(getDevices());
-    }
-  };
-};
 
   _handleChange = e => {
     const {checked, name} = e.target;
@@ -150,5 +71,5 @@ const mapDispatchToProps = (dispatch) => {
 
     this.setState(newState);
   }
-
+}
 export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
