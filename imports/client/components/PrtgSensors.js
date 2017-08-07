@@ -25,6 +25,10 @@ class PrtgSensors extends Component {
     this.props.getDevices();
   }
 
+  logTest(e){
+    console.log(e);
+  }
+
   getDeviceNames(){
     let namesArray = [];
     this.props.prtgDeviceNames.map((data)=>{
@@ -85,7 +89,6 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    const {multiple} = {mutiple:true};
 
     return(
       <div style={divStyles}>
@@ -93,9 +96,9 @@ class PrtgSensors extends Component {
         <Typeahead
           clearButton
           labelKey="name"
-          multiple = {multiple}
           options={this.getDeviceNames()}
           placeholder="Select Devices..."
+          onChange= {e => this.logTest(e)
         />
       </div>
         {this.prtgSearchForm()}
