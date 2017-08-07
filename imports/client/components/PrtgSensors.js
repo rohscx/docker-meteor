@@ -85,7 +85,7 @@ class PrtgSensors extends Component {
       paddingBottom:"5%"
     };
     console.log(this);
-    const {multiple} = this.state;
+    const {multiple} = {mutiple:true};
 
     return(
       <div style={divStyles}>
@@ -93,7 +93,7 @@ class PrtgSensors extends Component {
         <Typeahead
           clearButton
           labelKey="name"
-          multiple = {mutiple:true}
+          multiple = {multiple}
           options={this.getDeviceNames()}
           placeholder="Select Devices..."
         />
