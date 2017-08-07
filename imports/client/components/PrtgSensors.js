@@ -8,7 +8,7 @@ import { hostName } from '../actions/utilActions';
 import { getDevices } from '../actions/prtgActions';
 import Devices from './Prtg/Devices';
 
-class Prtg extends Component {
+class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     this.props.hostName(event.target.value);
   }
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
-export default connect(mapSateToProps, mapDispatchToProps) (Prtg);
+export default connect(mapSateToProps, mapDispatchToProps) (PrtgSensors);
