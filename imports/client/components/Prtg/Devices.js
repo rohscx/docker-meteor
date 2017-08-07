@@ -75,10 +75,10 @@ export default class Devices extends Component {
             </thead>
             <tbody>
               <tr>
-                <td className="align-middle">{newData.group}</td>
-                <td className="align-middle">{newData.device}</td>
-                <td className="align-middle" className={statusDanger()}> {newData.status}</td>
-                <td className="align-middle">{newData.sensor}</td>
+                <td>{newData.group}</td>
+                <td>{newData.device}</td>
+                <td className={statusDanger()}> {newData.status}</td>
+                <td>{newData.sensor}</td>
               </tr>
             </tbody>
           </table>
