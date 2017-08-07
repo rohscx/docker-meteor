@@ -73,7 +73,7 @@ class PrtgSensors extends Component {
           emptyLabel={emptyLabel ? '' : undefined}
           labelKey="name"
           multiple
-          options={options}
+          options={"options"}
           placeholder="Choose a state..."
         />
         <FormGroup>
