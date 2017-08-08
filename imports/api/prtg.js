@@ -6,9 +6,6 @@ import SimpleSchema from 'simpl-schema';
 import request from 'request';
 import https from 'https';
 
-
-
-
 // prtg
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
 
@@ -155,13 +152,14 @@ if (Meteor.isServer) {
     'getPrtgDeviceNames': function(){
       let dataArray=[];
       let prtgData = ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1},fields:{"prtgData.dataObj.device": 1,_id:0}}).fetch();
-
       prtgData.map((data)=>{
         dataArray.push(data.prtgData.dataObj.device)
       })
-
       return dataArray
-    }
+    },
+    'getPrtgDataFiltered': function(){
+      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch()
+    },
   });
 }
 

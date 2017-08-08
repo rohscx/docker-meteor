@@ -30,9 +30,6 @@ ItemsApic.attachSchema(ItemsApicSchema);
 
 
 
-
-
-
 if (Meteor.isServer) {
 
   Meteor.publish('allApicItems', function() {

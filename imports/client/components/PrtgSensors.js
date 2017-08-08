@@ -5,7 +5,6 @@ import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
-import { Template } from 'meteor/templating';
 import {ItemsPrtg} from '../../api/prtg';
 
 
