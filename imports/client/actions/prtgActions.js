@@ -137,4 +137,5 @@ export function DeviceNameList(usrInput) {
           name: newName
         }));
     }
+  }
 }
