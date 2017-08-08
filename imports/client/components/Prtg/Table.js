@@ -31,26 +31,8 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-
-
-  render() {
-    const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    height                : '300px',
-    width                 : '920px',
-    transform             : 'translate(-50%, -50%)',
-    background            : `url(${this.state.modalLink.newData.graph})`,
-    backgroundSize        : 'contain',
-    opacity               : '100'
-  }
-
-};
-    returnList = this.props.dbReturn.map((data)=>{
+  returnList() {
+    this.props.dbReturn.map((data)=>{
       let newData = data.prtgData.dataObj;
       // debug
       //console.log(data.prtgData.dataObj);
@@ -86,8 +68,30 @@ export default class Table extends Component {
 
       );
     })
+  }
 
-    test = this.props.dbReturnRdy ? returnList : "";
+
+
+  render() {
+    const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    height                : '300px',
+    width                 : '920px',
+    transform             : 'translate(-50%, -50%)',
+    background            : `url(${this.state.modalLink.newData.graph})`,
+    backgroundSize        : 'contain',
+    opacity               : '100'
+  }
+
+};
+
+
+    test = this.props.dbReturnRdy ? this.returnList() : "";
     console.log(this)
     return(
       <div>
