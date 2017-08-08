@@ -146,12 +146,12 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
-    'getPrtgData': function prtgGetAll(){
+    'getPrtgData': function (){
       // old pattern
       //ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}})
     },
-    'getPrtgDeviceNames': function prtgDeviceNames(){
+    'getPrtgDeviceNames': function (){
       let dataArray=[];
       let prtgData = ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1},fields:{"prtgData.dataObj.device": 1,_id:0}}).fetch();
       prtgData.map((data)=>{
@@ -159,7 +159,7 @@ if (Meteor.isServer) {
       })
       return dataArray
     },
-    'getPrtgDataFiltered': function collectionGetAll(data){
+    'getPrtgDataFiltered': function (data){
       const self = this;
       self.added('itemsprtg',Random.id(),{data});
       self.ready();
