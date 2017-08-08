@@ -42,9 +42,19 @@ class PrtgSensors extends Component {
       );
     };
     const validationStatus = () => {
+      let dataCount = this.props.dbReturn.length;
+      let dataReady = this.props.dbReturnRdy;
+      if(dataReady === false){
+        return "";
+      } else if(dataReady === true && dataCount <= 0){
+        return "error";
+      } else{
+        return "success";
+      }
+      /*
       return (
         this.props.util.hostName.validationStatus
-      );
+      );*/
     };
 
     const divStyles = {
@@ -60,7 +70,7 @@ class PrtgSensors extends Component {
               Search
             </Col>
             <Col sm={10}>
-              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} block />
+              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
