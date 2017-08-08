@@ -33,13 +33,8 @@ export default class Table extends Component {
   }
 
   returnList() {
-    return ()
-
-    return this.props.dbReturn.map((data)=>{
+    let test = this.props.dbReturn.map((data)=>{
       let newData = data.prtgData.dataObj;
-      // debug
-      //console.log(data.prtgData.dataObj);
-      //console.log("DB_ID",data["_id"])
       let statusDanger = () =>{
         if(newData.status.toLowerCase() == 'unusual'){
           return 'danger';
@@ -48,29 +43,31 @@ export default class Table extends Component {
         }
       }
       return (
-        <div key={data._id} id={data._id}>
-          <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData})}}>
-            <thead>
-              <tr>
-                <th>ACA</th>
-                <th>Device Name</th>
-                <th>Status</th>
-                <th>Sensor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{newData.group}</td>
-                <td>{newData.device}</td>
-                <td className={statusDanger()}> {newData.status}</td>
-                <td>{newData.sensor}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      );
+        <td>{newData.group}</td>
+        <td>{newData.device}</td>
+        <td className={statusDanger()}> {newData.status}</td>
+        <td>{newData.sensor}</td>
+      )
     })
+    return (
+      <div key={12}>
+        <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData})}}>
+          <thead>
+            <tr>
+              <th>ACA</th>
+              <th>Device Name</th>
+              <th>Status</th>
+              <th>Sensor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {test}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
   }
 
 
