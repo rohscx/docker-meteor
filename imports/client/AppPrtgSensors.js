@@ -68,8 +68,8 @@ store.subscribe(() => {
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          <Header  {... this.state} dbSearch= {this.dbSearch.bind(this)} />
-          <PrtgSensors {... this.props}/>
+          <Header  {... this.state} />
+          <PrtgSensors {... this.props} dbSearch= {this.dbSearch.bind(this)}/>
         </main>
       </Provider>
     );
