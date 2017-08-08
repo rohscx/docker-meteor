@@ -19,7 +19,6 @@ import PrtgSensors from './components/PrtgSensors';
 
 
 // uses combineReducers as redux otherwise can only take one reducer
-const test = new Mongo.Collection('test')
 store.subscribe(() => {
   console.log("Store Updated", store.getState());
 });
@@ -80,7 +79,7 @@ export default createContainer(({params}) => {
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
 
   Tracker.autorun(() => {
-    Meteor.subscribe('prtgDeviceList');
+    const handle = Meteor.subscribe('prtgDeviceList');
   })
   return {
     showAll,
