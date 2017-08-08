@@ -56,7 +56,6 @@ store.subscribe(() => {
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
-    Meteor.subscribe('allPrtgItems');
     return (
       <Provider store={store}>
         <main>
