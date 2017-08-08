@@ -54,7 +54,7 @@ export default class Table extends Component {
     return (
       <div key={12}>
         <table className = "table table-striped table-hover table-responsive">
-          <thead class="thead-default">
+          <thead className="thead-default">
             <tr>
               <th>ACA</th>
               <th>Device Name</th>
