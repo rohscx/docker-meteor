@@ -35,7 +35,7 @@ store.subscribe(() => {
      super();
      this.state = {
        greeting: "",
-       dbSearch: {noData:"noData"}
+       dbReturn: {noData:"noData"}
      }
    }
 
@@ -48,7 +48,7 @@ store.subscribe(() => {
     dbSearch(name){
       let data = ItemsPrtg.find().count()
       this.setState({
-        dbSearch: data,
+        dbReturn: data,
       });
     }
 
