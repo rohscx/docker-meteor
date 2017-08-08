@@ -41,9 +41,8 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('allPrtgItems', function() {
-    let data = [];
-    data.push(ItemsPrtg.find().fetch());
-    return data;
+
+    return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
   });
 
 
@@ -142,7 +141,6 @@ if (Meteor.isServer) {
         this.ready();
       }
     }
-    return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
   });
 
 

@@ -78,6 +78,7 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
+  Meteor.subscribe('allPrtgItems');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
   Meteor.call('getPrtgData', function(err,res){
     if (err) {
