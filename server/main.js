@@ -15,7 +15,7 @@ Meteor.publish('currentUser', function() {
 });
 
 Meteor.publish('test', function() {
-  return Meteor.itemsprtg.find({}, {});
+  return ItemsPrtg.find({}, {});
 });
 
 Meteor.startup(() => {
