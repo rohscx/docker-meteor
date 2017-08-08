@@ -10,8 +10,10 @@ import Table from './Prtg/Table';
 
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
-    console.log(event.target.value)
-    this.props.hostName(event.target.value);
+    let value = event.target.value
+    console.log(value)
+    this.props.dbSearch(value);
+    this.props.hostName(value);
   }
 
   getDevices(){
