@@ -19,7 +19,8 @@ export default class Table extends Component {
   openModal(link) {
     this.setState({modalIsOpen: true});
     this.setState({modalLink: link});
-    console.log(this.state.modalLink);
+    // debug
+    //console.log(this.state.modalLink);
   }
 
   afterOpenModal() {
@@ -91,11 +92,11 @@ export default class Table extends Component {
 };
 
 
-    test = this.props.dbReturnRdy ? this.returnList() : "false";
+    tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     console.log(this)
     return(
       <div>
-        {test}
+        {tableDiv}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
