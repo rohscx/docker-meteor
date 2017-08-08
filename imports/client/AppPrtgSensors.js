@@ -35,7 +35,7 @@ store.subscribe(() => {
      super();
      this.state = {
        greeting: "",
-       dbReturn: {noData:"noData"}
+       dbReturn: [{group:"",device:"",sensor:""}]
      }
    }
 
