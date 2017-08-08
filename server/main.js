@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import Items from '../imports/api/Items';
+import ItemsPrtg from '../imports/api/prtg';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
@@ -13,7 +14,6 @@ Meteor.publish('currentUser', function() {
     }
   });
 });
-
 Meteor.publish('prtgDeviceList', function() {
   let countCollections = ItemsPrtg.find().count();
   console.log(countCollections);
@@ -113,7 +113,6 @@ Meteor.publish('prtgDeviceList', function() {
     }
   }
 });
-
 Meteor.startup(() => {
   // code to run on server at startup
 });
