@@ -91,7 +91,7 @@ export default class Table extends Component {
 };
 
 
-    test = this.props.dbReturnRdy ? this.returnList() : "";
+    test = this.props.dbReturnRdy ? this.returnList() : "false";
     console.log(this)
     return(
       <div>
