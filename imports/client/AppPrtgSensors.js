@@ -13,6 +13,9 @@ import ItemsApic from '../api/request';
 import ItemsPrtg from '../api/prtg';
 import PrtgSensors from './components/PrtgSensors';
 
+
+
+const test = new Mongo.Collection('itemsprtg');
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
@@ -76,7 +79,6 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
-  let test = Meteor.subscribe('test');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
 
 
