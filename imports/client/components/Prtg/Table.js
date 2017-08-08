@@ -43,7 +43,7 @@ export default class Table extends Component {
         }
       }
       return (
-        <tr key={data._id}>
+        <tr key={data._id} onClick={()=>{this.openModal({newData})}>
         <td>{newData.group}</td>
         <td>{newData.device}</td>
         <td className={statusDanger()}> {newData.status}</td>
@@ -53,7 +53,7 @@ export default class Table extends Component {
     })
     return (
       <div key={12}>
-        <table className = "table table-striped table-hover table-responsive" onClick={()=>{this.openModal({newData})}}>
+        <table className = "table table-striped table-hover table-responsive"}>
           <thead>
             <tr>
               <th>ACA</th>
