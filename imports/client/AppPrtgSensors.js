@@ -16,7 +16,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-const ItemsPrtg = new Mongo.Collection('itemsprtg');
+export const ItemsPrtg = new Mongo.Collection('itemsprtg');
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
