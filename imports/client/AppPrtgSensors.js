@@ -15,8 +15,6 @@ import PrtgSensors from './components/PrtgSensors';
 import { Mongo } from 'meteor/mongo';
 
 
-
-export const ItemsPrtg = new Mongo.Collection('itemsprtg');
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
@@ -56,6 +54,7 @@ store.subscribe(() => {
     if (!this.props.ready) {
       return <div>Loading PRTG...</div>
     }
+    const ItemsPrtg = new Mongo.Collection('itemsprtg');
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(ItemsPrtg.find().count())
     return (
