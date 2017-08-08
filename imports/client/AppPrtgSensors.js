@@ -17,9 +17,17 @@ import { dbSearch} from './actions/prtgActions';
 
 
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
-// initializes the state
+ItemsPrtg.allow({
+  insert() { return false; },
+  update() { return false; },
+  remove() { return false; }
+});
 
-// formation redux expects store next action. THis is middle I created that logs.. stuff
+ItemsPrtg.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; }
+});
 
 
 // uses combineReducers as redux otherwise can only take one reducer
