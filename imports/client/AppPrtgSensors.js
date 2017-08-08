@@ -16,11 +16,11 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-
+const test = new Mongo.Collection('itemsprtg');
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
-const test = new Mongo.Collection('itemsprdddddddtg');
+
 
 // uses combineReducers as redux otherwise can only take one reducer
 store.subscribe(() => {
@@ -81,8 +81,6 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
-
-
   return {
     showAll,
     ready: "prtgItemsSub.ready()",
