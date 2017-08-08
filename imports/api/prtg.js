@@ -144,6 +144,9 @@ if (Meteor.isServer) {
     }
   });
 
+Meteor.publish('test1', function() {
+  return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
+});
 
   Meteor.methods({
     'getPrtgData': function prtgGetAll(){
@@ -159,7 +162,7 @@ if (Meteor.isServer) {
       })
       return dataArray
     },
-    'getPrtgDataFiltered': function collectionGetAll(data){
+    'getPrtgDataFiltered': function collectionGetAll(){
       const self = this;
       self.added('itemsprtg',Random.id(),{data});
       self.ready();
