@@ -13,7 +13,7 @@ import ItemsApic from '../api/request';
 //import ItemsPrtg from '../api/prtg';
 import PrtgSensors from './components/PrtgSensors';
 import { Mongo } from 'meteor/mongo';
-
+import { dbSearch} from '../actions/prtgActions';
 
 
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
@@ -74,6 +74,22 @@ store.subscribe(() => {
     );
   }
 }
+
+const mapSateToProps = (state) => {
+  return {
+    util: state.utilReducer,
+    prtg: state.prtgReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dbSearch: (name) => {
+      dispatch(hostName(name));
+    },
+  };
+};
+
 
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');

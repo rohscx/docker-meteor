@@ -35,6 +35,13 @@ export function setHostName(status) {
   };
 }
 
+export function setDbSearch(name) {
+  return {
+    type: "SET_DBSEARCH",
+    payload: name
+  };
+}
+
 export function getDevices() {
   return dispatch => {
     console.log(Meteor.settings)
@@ -115,4 +122,18 @@ export function DeviceNameList(usrInput) {
       }));
     }
   }
+
+  export function dbSearch(name) {
+    return dispatch => {
+      let newName = name.trim().toLowerCase()
+      if(hostName.length <= 0 ){
+        return dispatch(setDbSearch({
+          name: newName
+        }));
+      } else {
+        let newName = name.trim().toLowerCase()
+        return dispatch(setDbSearch({
+          name: newName
+        }));
+    }
 }

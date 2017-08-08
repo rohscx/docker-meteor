@@ -35,6 +35,12 @@ const prtgReducer = (state = {
       hostName: action.payload
     };
     break;
+    case "SET_DBSEARCH":
+    state = {
+      ...state,
+      hostName: action.payload
+    };
+    break;
     }
   return state;
 };
