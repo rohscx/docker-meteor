@@ -34,13 +34,21 @@ store.subscribe(() => {
    constructor() {
      super();
      this.state = {
-       greeting: ""
+       greeting: "",
+       dbSearch: {noData:"noData"}
      }
    }
 
    componentWillMount() {
       this.setState({
         greeting: "Welome to the PRTG App"
+      });
+    }
+
+    dbSearch(name){
+      let data = ItemsPrtg.find().count()
+      this.setState({
+        dbSearch: data,
       });
     }
 
@@ -98,7 +106,6 @@ export default createContainer(({params}) => {
       return false;
     }
   }
-  //let prtgDeviceNamesArray = Session.get('deviceNameArray');
 
   return {
     showAll,
