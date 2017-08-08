@@ -53,12 +53,14 @@ store.subscribe(() => {
         dbReturn: data,
       });
       if (ex.length <= 4){
-        console.log("false",ex.length)
+        // debug
+        //console.log("false",ex.length)
         this.setState({
           dbReturnRdy: false,
         });
       } else {
-        console.log("true",ex.length)
+        // debug
+        //console.log("true",ex.length)
         this.setState({
           dbReturnRdy: true,
         });
@@ -67,12 +69,11 @@ store.subscribe(() => {
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    console.log(this);
+    //console.log(this);
     if (!this.props.ready) {
       return <div>Loading PRTG...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
-    console.log(ItemsPrtg.find().count())
     return (
       <Provider store={store}>
         <main>
@@ -112,10 +113,12 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let mongoReady = () =>{
     if (ItemsPrtg.find().count() >= 1) {
-      console.log("TRUE HIT", prtgItemsSub.ready());
+      // debug
+      //console.log("TRUE HIT", prtgItemsSub.ready());
       return true;
     } else {
-      console.log("FASE HIT");
+      // debug
+      //console.log("FASE HIT");
       return false;
     }
   }
