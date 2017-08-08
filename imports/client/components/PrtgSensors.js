@@ -49,7 +49,7 @@ class PrtgSensors extends Component {
 
     const divStyles = {
       margin: "auto",
-      width: "100%"
+      width: "40%"
     };
 
     return (
@@ -60,7 +60,7 @@ class PrtgSensors extends Component {
               Search
             </Col>
             <Col sm={10}>
-              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} bsSize="lg" />
+              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} block />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
