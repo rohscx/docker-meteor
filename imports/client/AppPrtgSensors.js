@@ -81,7 +81,7 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
   let mongoReady = () =>{
-    if (ItemsPrtg.find().count() >= 0) {
+    if (ItemsPrtg.find().count() >= 1) {
       console.log("TRUE HIT", ItemsPrtg);
       return true;
     } else {
