@@ -36,7 +36,7 @@ store.subscribe(() => {
      this.state = {
        greeting: "",
        dbReturn: [{group:"",device:"",sensor:""}],
-       dbReturnRdy: false;
+       dbReturnRdy: false
      }
    }
 
