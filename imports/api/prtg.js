@@ -142,27 +142,15 @@ if (Meteor.isServer) {
         this.ready();
       }
     }
+    return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
   });
 
-Meteor.publish('test1', function() {
-  return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
-});
 
   Meteor.methods({
-    'getPrtgData': function prtgGetAll(){
-      // old pattern
-      //ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
-      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}})
+    'getPrtgData': function(){
+      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
     },
-    'getPrtgDeviceNames': function prtgDeviceNames(){
-      let dataArray=[];
-      let prtgData = ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1},fields:{"prtgData.dataObj.device": 1,_id:0}}).fetch();
-      prtgData.map((data)=>{
-        dataArray.push(data.prtgData.dataObj.device)
-      })
-      return dataArray
-    },
-    'getPrtgDataFiltered': function collectionGetAll(){
+    'getPrtgDataFiltered': function(){
       const self = this;
       self.added('itemsprtg',Random.id(),{data});
       self.ready();
