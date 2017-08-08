@@ -80,7 +80,7 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
   const test = new Mongo.Collection('test')
-  Tracker.autorn(() => {
+  Tracker.autorun(() => {
     Meteor.subscribe('prtgDeviceList');
   })
   return {
