@@ -64,7 +64,7 @@ Meteor.publish('prtgDeviceList', function() {
       });
     };
     poll();
-    this.ready();
+    //this.ready();
     return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
   } else {
     console.log("HIT COLLECTION EXISTS!!!")
@@ -105,10 +105,10 @@ Meteor.publish('prtgDeviceList', function() {
         });
       };
       poll();
-      this.ready();
+      //this.ready();
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
     } else {
-      this.ready();
+      //this.ready();
       return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
     }
   }
