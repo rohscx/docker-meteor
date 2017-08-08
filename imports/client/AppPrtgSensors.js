@@ -80,6 +80,15 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
+  let mongoReady = () =>{
+    if (ItemsPrtg.find().count() >= 0) {
+      console.log("TRUE HIT");
+      return true;
+    } else {
+      console.log("FASE HIT");
+      return false;
+    }
+  }
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
 
   return {
