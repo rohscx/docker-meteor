@@ -10,12 +10,12 @@ import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
-import ItemsPrtg from '../api/prtg';
+//import ItemsPrtg from '../api/prtg';
 import PrtgSensors from './components/PrtgSensors';
 
 
 
-const test = new Mongo.Collection('itemsprtg');
+const ItemsPrtg = new Mongo.Collection('itemsprtg');
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
