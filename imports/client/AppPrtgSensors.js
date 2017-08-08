@@ -57,7 +57,7 @@ store.subscribe(() => {
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
-    console.log("LOOOOOOOOK",ItemsPrtg.find())
+    console.log("LOOOOOOOOK",ItemsPrtg.find().fetch())
     return (
       <Provider store={store}>
         <main>
