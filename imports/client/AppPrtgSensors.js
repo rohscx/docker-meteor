@@ -57,7 +57,7 @@ store.subscribe(() => {
       return <div>Loading PRTG...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
-
+    console.log(test.)
     return (
       <Provider store={store}>
         <main>
