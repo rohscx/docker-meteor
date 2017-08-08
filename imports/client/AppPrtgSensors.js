@@ -81,7 +81,7 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
-  //const ItemsPrtg = new Mongo.Collection('itemsprtg');
+  const ItemsPrtg = new Mongo.Collection('itemsprtg');
 
   return {
     showAll,
