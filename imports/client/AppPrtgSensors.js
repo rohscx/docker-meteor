@@ -13,7 +13,7 @@ import ItemsApic from '../api/request';
 //import ItemsPrtg from '../api/prtg';
 import PrtgSensors from './components/PrtgSensors';
 import { Mongo } from 'meteor/mongo';
-import { dbSearch} from '../actions/prtgActions';
+import { dbSearch} from './actions/prtgActions';
 
 
 const ItemsPrtg = new Mongo.Collection('itemsprtg');
