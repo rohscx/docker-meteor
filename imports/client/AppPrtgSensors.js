@@ -40,7 +40,7 @@ store.subscribe(() => {
       <Task key={task._id} task={task} />
     ));
   }
-   
+
    componentWillMount() {
       this.setState({
         greeting: "Welome to the PRTG App"
@@ -76,8 +76,8 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
-  let prtgArray = Session.get('myMethodResult')
-  let prtgDeviceNamesArray = Session.get('deviceNameArray')
+  let prtgArray = Session.get('myMethodResult');
+  let prtgDeviceNamesArray = Session.get('deviceNameArray');
   Meteor.call('getPrtgData', function(err,res){
     if (err) {
       alert(err)
