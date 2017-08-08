@@ -60,12 +60,12 @@ class PrtgSensors extends Component {
               Search
             </Col>
             <Col sm={10}>
-              <FormControl type="email" value={hostName()} placeholder="Host Name" onChange={formInput()} />
+              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
           <FormGroup>
-            {this.props.util.hostName.btnStyle ? btnEnabled() : btnDisabled()}
+
           </FormGroup>
         </Form>
       </div>
