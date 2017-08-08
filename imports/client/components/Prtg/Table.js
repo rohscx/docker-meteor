@@ -33,6 +33,8 @@ export default class Table extends Component {
   }
 
   returnList() {
+    return ()
+
     return this.props.dbReturn.map((data)=>{
       let newData = data.prtgData.dataObj;
       // debug
