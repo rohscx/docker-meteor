@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
+import { Mongo } from 'meteor/mongo';
 import { connect } from 'react-redux';
 import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
@@ -7,7 +8,7 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 import {ItemsPrtg} from '../../api/prtg';
 
-
+const clientMongoData = new Mongo.Collection('itemsprtg');
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)
@@ -79,7 +80,7 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
         {this.prtgSearchForm()}
-        
+        <Table {... this.props}/>
       </div>
     )
   }

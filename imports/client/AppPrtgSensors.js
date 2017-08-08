@@ -80,19 +80,8 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   Meteor.subscribe('allPrtgItems');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
-  Meteor.call('getPrtgData', function(err,res){
-    if (err) {
-      alert(err)
-    } else {
-      // debug
-      //console.log(res)
-      Session.set('myMethodResult', res)
-    }
-  })
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgItems: prtgArray
-    //prtgDeviceNames: prtgDeviceNamesArray
-  }
+  };
 }, AppPrtgSensors);
