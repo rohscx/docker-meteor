@@ -45,7 +45,7 @@ class PrtgSensors extends Component {
       let dataCount = this.props.dbReturn.length;
       let dataReady = this.props.dbReturnRdy;
       if(dataReady === false){
-        return "";
+        return null;
       } else if(dataReady === true && dataCount <= 0){
         return "error";
       } else{
