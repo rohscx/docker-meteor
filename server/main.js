@@ -14,6 +14,10 @@ Meteor.publish('currentUser', function() {
   });
 });
 
+Meteor.publish('test', function() {
+  return Meteor.itemsprtg.find({}, {});
+});
+
 Meteor.startup(() => {
   // code to run on server at startup
 });
