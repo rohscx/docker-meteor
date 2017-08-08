@@ -89,16 +89,6 @@ export default createContainer(({params}) => {
       Session.set('myMethodResult', res)
     }
   })
-  Meteor.call('getPrtgDeviceNames', function(err,res){
-    if (err) {
-      alert(err)
-    } else {
-      // debug
-      //console.log(res)
-      Session.set('deviceNameArray', res)
-    }
-  })
-
   return {
     showAll,
     ready: prtgItemsSub.ready(),
