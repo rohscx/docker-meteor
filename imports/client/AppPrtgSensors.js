@@ -69,7 +69,7 @@ store.subscribe(() => {
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <PrtgSensors {... this.props} dbSearch= {this.dbSearch.bind(this)}/>
+          <PrtgSensors {... this.state} dbSearch= {this.dbSearch.bind(this)}/>
         </main>
       </Provider>
     );
