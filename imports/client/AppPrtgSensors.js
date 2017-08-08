@@ -46,7 +46,8 @@ store.subscribe(() => {
     }
 
     dbSearch(name){
-      let data = ItemsPrtg.find().count()
+      let ex = ".*"+name+".*";
+      let data = ItemsPrtg.find({"prtgData.dataObj.device":{$regex: ex}},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
       this.setState({
         dbReturn: data,
       });
