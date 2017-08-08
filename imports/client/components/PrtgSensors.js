@@ -16,6 +16,10 @@ class PrtgSensors extends Component {
     this.props.hostName(value);
   }
 
+  preventDefault(e){
+    e.preventDefault();
+  }
+
   getDevices(){
     this.props.getDevices();
   }
@@ -64,7 +68,7 @@ class PrtgSensors extends Component {
 
     return (
       <div style={divStyles}>
-        <Form horizontal onSubmit= {e =>{e.preventDefault}}>
+        <Form horizontal onSubmit= {this.preventDefault()}>
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
               Search
