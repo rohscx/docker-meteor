@@ -7,7 +7,7 @@ import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-b
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 //import {ItemsPrtg} from '../../api/prtg';
-
+const test = new Mongo.Collection('test')
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)
