@@ -97,6 +97,7 @@ if (Meteor.isServer) {
       };
       poll();
       this.ready();
+      return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
     } else {
       console.log("HIT COLLECTION EXISTS!!!")
       // gets the current time epoch
@@ -137,8 +138,10 @@ if (Meteor.isServer) {
         };
         poll();
         this.ready();
+        return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
       } else {
         this.ready();
+        return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
       }
     }
   });
