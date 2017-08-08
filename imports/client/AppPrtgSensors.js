@@ -56,6 +56,7 @@ store.subscribe(() => {
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this);
+    Meteor.subscribe('allPrtgItems');
     return (
       <Provider store={store}>
         <main>
@@ -78,7 +79,6 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
-  Meteor.subscribe('allPrtgItems');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
   return {
     showAll,
