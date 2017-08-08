@@ -60,7 +60,7 @@ class PrtgSensors extends Component {
               Search
             </Col>
             <Col sm={10}>
-              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} />
+              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} bsSize="lg" />
               <FormControl.Feedback />
             </Col>
           </FormGroup>
