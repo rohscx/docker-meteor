@@ -82,7 +82,7 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let mongoReady = () =>{
     if (ItemsPrtg.find().count() >= 0) {
-      console.log("TRUE HIT");
+      console.log("TRUE HIT", ItemsPrtg);
       return true;
     } else {
       console.log("FASE HIT");
