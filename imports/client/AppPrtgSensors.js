@@ -53,10 +53,12 @@ store.subscribe(() => {
         dbReturn: data,
       });
       if (ex.length <= 0){
+        console.log("false",ex.length)
         this.setState({
           dbReturnRdy: false,
         });
       } else {
+        console.log("true",ex.length)
         this.setState({
           dbReturnRdy: true,
         });
