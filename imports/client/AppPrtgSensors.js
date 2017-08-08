@@ -52,7 +52,7 @@ store.subscribe(() => {
       this.setState({
         dbReturn: data,
       });
-      if (ex.length <== 0){
+      if (ex.length <= 0){
         this.setState({
           dbReturnRdy: false,
         });
