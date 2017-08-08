@@ -86,10 +86,12 @@ export default class Table extends Component {
 
       );
     })
+
+    test = this.props.dbReturnRdy ? returnList : "";
     console.log(this)
     return(
       <div>
-        {returnList}
+        {test}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}

@@ -35,7 +35,8 @@ store.subscribe(() => {
      super();
      this.state = {
        greeting: "",
-       dbReturn: [{group:"",device:"",sensor:""}]
+       dbReturn: [{group:"",device:"",sensor:""}],
+       dbReturnRdy: false;
      }
    }
 
@@ -51,6 +52,15 @@ store.subscribe(() => {
       this.setState({
         dbReturn: data,
       });
+      if (ex.length === 0){
+        this.setState({
+          dbReturnRdy: false,
+        });
+      } else {
+        this.setState({
+          dbReturnRdy: true,
+        });
+      }
     }
 
   render() {
