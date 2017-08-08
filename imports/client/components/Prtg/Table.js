@@ -89,7 +89,7 @@ export default class Table extends Component {
     console.log(this)
     return(
       <div>
-        
+        {returnList}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
