@@ -8,7 +8,7 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
 import {ItemsPrtg} from '../../api/prtg';
 
-
+const ItemsPrtg = new Mongo.Collection('itemsprtg')
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)
@@ -80,7 +80,7 @@ class PrtgSensors extends Component {
     return(
       <div style={divStyles}>
         {this.prtgSearchForm()}
-        
+
       </div>
     )
   }
