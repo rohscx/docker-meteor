@@ -85,6 +85,6 @@ export default createContainer(({params}) => {
 
   return {
     showAll,
-    ready: ItemsPrtg.ready(),
+    ready: prtgItemsSub.ready(),
   };
 }, AppPrtgSensors);
