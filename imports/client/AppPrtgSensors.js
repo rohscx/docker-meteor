@@ -16,7 +16,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-const test = new Mongo.Collection('itemsprtg');
+
 // initializes the state
 
 // formation redux expects store next action. THis is middle I created that logs.. stuff
@@ -57,7 +57,7 @@ store.subscribe(() => {
       return <div>Loading PRTG...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
-    console.log(test.)
+
     return (
       <Provider store={store}>
         <main>
@@ -81,6 +81,8 @@ export default createContainer(({params}) => {
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
   //let prtgDeviceNamesArray = Session.get('deviceNameArray');
+  const test = new Mongo.Collection('itemsprtg');
+
   return {
     showAll,
     ready: "prtgItemsSub.ready()",
