@@ -68,7 +68,7 @@ class PrtgSensors extends Component {
 
     return (
       <div style={divStyles}>
-        <form horizontal onSubmit= {e =>{this.preventDefault(e)}}>
+        <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
               Search
