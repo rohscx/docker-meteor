@@ -43,10 +43,10 @@ export default class Table extends Component {
         }
       }
       return (
-        <td>{newData.group}</td>
+        `<td>{newData.group}</td>
         <td>{newData.device}</td>
         <td className={statusDanger()}> {newData.status}</td>
-        <td>{newData.sensor}</td>
+        <td>{newData.sensor}</td>`
       )
     })
     return (
