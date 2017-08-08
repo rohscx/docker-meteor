@@ -72,7 +72,7 @@ store.subscribe(() => {
   }
 }
 
-export default createContainer(({params}) => {
+export default AppPrtgSensors(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
