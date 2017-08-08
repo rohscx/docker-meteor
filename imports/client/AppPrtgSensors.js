@@ -76,9 +76,9 @@ store.subscribe(() => {
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  //let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
+  let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
-  let prtgDeviceNamesArray = Session.get('deviceNameArray');
+  //let prtgDeviceNamesArray = Session.get('deviceNameArray');
   Meteor.call('getPrtgData', function(err,res){
     if (err) {
       alert(err)
@@ -101,7 +101,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: prtgItemsSub.ready(),
-    prtgItems: prtgArray,
-    prtgDeviceNames: prtgDeviceNamesArray
+    prtgItems: prtgArray
+    //prtgDeviceNames: prtgDeviceNamesArray
   }
 }, AppPrtgSensors);
