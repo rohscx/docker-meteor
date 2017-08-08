@@ -52,7 +52,7 @@ store.subscribe(() => {
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    //console.log(this);
+    console.log(this);
     if (!this.props.ready) {
       return <div>Loading PRTG...</div>
     }
