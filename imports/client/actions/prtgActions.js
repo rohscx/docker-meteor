@@ -122,6 +122,7 @@ export function DeviceNameList(usrInput) {
       }));
     }
   }
+}
 
   export function dbSearch(name) {
     return dispatch => {
