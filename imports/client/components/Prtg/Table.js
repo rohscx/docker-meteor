@@ -39,7 +39,7 @@ export default class Table extends Component {
         if(newData.status.toLowerCase() == 'unusual'){
           return 'danger';
         } else {
-          return '';
+          return 'success';
         }
       }
       return (
