@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
 //import ItemsPrtg from '../api/prtg';
 import PrtgSensors from './components/PrtgSensors';
+import { Mongo } from 'meteor/mongo';
 
 
 
