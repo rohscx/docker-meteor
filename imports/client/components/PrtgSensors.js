@@ -6,9 +6,9 @@ import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './Prtg/Table';
-import {ItemsPrtg} from '../../api/prtg';
+//import {ItemsPrtg} from '../../api/prtg';
 
-const ItemsPrtg = new Mongo.Collection('itemsprtg')
+const ItemsPrtg = new Mongo.Collection('itemsprtg');
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     console.log(event.target.value)
