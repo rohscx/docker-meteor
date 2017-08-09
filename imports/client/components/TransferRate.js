@@ -88,7 +88,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title="Action"
+                 title="DataType"
                >
                  <MenuItem key="1">MB</MenuItem>
                  <MenuItem key="2">GB</MenuItem>
