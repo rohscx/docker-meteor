@@ -70,18 +70,20 @@ export function hostName(hostName) {
 
 export function bandwidthCalc(bandwidth) {
   return dispatch => {
-    console.log(typeof(bandwidth))
-    if (typeof(bandwidth) !== number){
-      return dispatch(setBandwidthCalc({
-        number: bandwidth,
-        validationStatus: true,
-        btnStyle: true
-      }));
-    } else {
+    let newData = bandwidth.trim().toLowerCase()
+    newData = Number(newData)
+    console.log(typeof(newData))
+    if (newData == 'NaN') {
       return dispatch(setBandwidthCalc({
         number: bandwidth,
         validationStatus: false,
         btnStyle: false
+      }));
+    } else {
+      return dispatch(setBandwidthCalc({
+        number: bandwidth,
+        validationStatus: true,
+        btnStyle: true
       }));
     }
   }
