@@ -23,7 +23,7 @@ const ItemTransferRateSchema = new SimpleSchema ({
 
 
 const ItemsTransferRateSchema = new SimpleSchema ({
-  transferRateData: ItemTransferRateSchema
+  siteData: ItemTransferRateSchema
 });
 
 ItemsTransferRate.attachSchema(ItemsTransferRateSchema);
