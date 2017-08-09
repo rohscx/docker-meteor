@@ -58,7 +58,7 @@ export default class Table extends Component {
         <td>{newData.branch}</td>
         <td className={statusDanger()}> {newData.wPortSpeed}</td>
         <td>{newData.wPortType}</td>
-        {inBits ? transTimeSeconds(inBits,byteType,newData.wPortType) : " Okay"}
+        {inBits ? transTimeSeconds(inBits,byteType,newData.wPortType) : null}
       </tr>
       )
     })
@@ -71,7 +71,7 @@ export default class Table extends Component {
               <th>Branch</th>
               <th>WAN Speed</th>
               <th>WAN TYPE</th>
-              {inBits ? <th>Time</th> : ""}
+              {inBits ? <th>Time</th> : null}
             </tr>
           </thead>
           <tbody>
