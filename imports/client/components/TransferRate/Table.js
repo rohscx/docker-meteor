@@ -45,11 +45,11 @@ export default class Table extends Component {
             let NaNCheck = isNaN(inSeconds);
             if (inSeconds <= 60){
               return (<td>{NaNCheck ? "n/a" : inSeconds} {NaNCheck ? "n/a" : " Seconds"}</td>)
-            } else if (inSeconds <= 60){
+            } else if (inSeconds == 60 && < 3600){
               return (<td>{NaNCheck ? "n/a" : inSeconds/60}{NaNCheck ? "n/a" : " Minutes"}</td>)
-            } else if (inSeconds <= 3600){
+            } else if (inSeconds == 3600 && < 86400){
               return (<td>{NaNCheck ? "n/a" : inSeconds/3600}{NaNCheck ? "n/a" : " Hours"}</td>)
-            } else if (inSeconds >= 86400 || inSeconds > 3600){
+            } else if (inSeconds >= 86400){
               return (<td>{NaNCheck ? "n/a" : inSeconds/86400}{NaNCheck ? "n/a" : " Days"}</td>)
             }
             break;
