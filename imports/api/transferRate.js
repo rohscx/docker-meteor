@@ -31,14 +31,15 @@ ItemsTransferRate.attachSchema(ItemsTransferRateSchema);
 
 
 if (Meteor.isServer) {
-  let sitesObj = tempData.tempData0();
+  let sitesObj = tempData;
   console.log(sitesObj.tempData0())
+  let temp = sitesObj.tempData0();
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
   //console.log(newData.sensors[value].objid)
   //console.log(typeof(newData.sensors[value].objid))
   //console.log("DATA ID ",data._id)
-  sitesObj.map((data)=>{
+  temp.map((data)=>{
     ItemsTransferRate.insert({
         siteData: {
           dataObj: data,
