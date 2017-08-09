@@ -75,7 +75,7 @@ export function bandwidthCalc(bandwidth, byteType) {
     if (isNaN(newData)) {
       return dispatch(setBandwidthCalc({
         number: bandwidth,
-        numberToBytes: ""
+        numberToBytes: "",
         validationStatus: false,
         btnStyle: false,
         byteType: byteType ? byteType : ""
