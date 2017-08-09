@@ -58,9 +58,9 @@ class TransferRate extends Component {
         return null;
       } else if (isNan(dataReturn) == true){
         return "error";
-      } else (
+      } else }
         return "success";
-      )
+      }
       /*
       return (
         this.props.util.hostName.validationStatus
