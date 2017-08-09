@@ -21,12 +21,6 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
-  handleSearchFormInput(event) {
-    let value = event.target.value
-    console.log(value)
-    this.props.dbSearch(value);
-    this.props.hostName(value);
-  }
 
   preventDefault(e){
     e.preventDefault();
