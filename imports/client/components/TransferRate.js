@@ -90,11 +90,11 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title="DataType"
                >
-                 <MenuItem key="1" onSelect= {("MB")=>{console.log(e)}}>MB</MenuItem>
-                 <MenuItem key="2">GB</MenuItem>
-                 <MenuItem key="3">TB</MenuItem>
-                 <MenuItem key="4">PB</MenuItem>
-                 <MenuItem key="5">ZB</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{console.log("MB")}}>MB</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{console.log("GB")}}>GB</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{console.log("TB")}}>TB</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{console.log("PB")}}>PB</MenuItem>
+                 <MenuItem key="5" onSelect= {()=>{console.log("ZB")}}>ZB</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
