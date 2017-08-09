@@ -44,13 +44,13 @@ export default class Table extends Component {
             let inSeconds = dataSize / portSpeed;
             let NaNCheck = isNaN(inSeconds);
             if (inSeconds <= 60){
-              return (<td>{NaNCheck ? "n/a" : inSeconds} {NaNCheck ? "n/a" : " Seconds"}</td>)
+              return (<td>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
             } else if (inSeconds > 60 && inSeconds < 3600){
-              return (<td>{NaNCheck ? "n/a" : inSeconds/60}{NaNCheck ? "n/a" : " Minutes"}</td>)
-            } else if (inSeconds > 3600 && inSeconds< 86400){
-              return (<td>{NaNCheck ? "n/a" : inSeconds/3600}{NaNCheck ? "n/a" : " Hours"}</td>)
+              return (<td>{NaNCheck ? "n/a" : Math.round(inSeconds/60)}{NaNCheck ? "n/a" : " Minutes"}</td>)
+            } else if (inSeconds > 3600 && inSeconds < 86400){
+              return (<td>{NaNCheck ? "n/a" : Math.round(inSeconds/3600)}{NaNCheck ? "n/a" : " Hours"}</td>)
             } else if (inSeconds >= 86400){
-              return (<td>{NaNCheck ? "n/a" : inSeconds/86400}{NaNCheck ? "n/a" : " Days"}</td>)
+              return (<td>{NaNCheck ? "n/a" : Math.round(inSeconds/86400)}{NaNCheck ? "n/a" : " Days"}</td>)
             }
             break;
           default:
