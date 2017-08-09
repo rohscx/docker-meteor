@@ -44,11 +44,11 @@ export default class Table extends Component {
             let inSeconds = dataSize / portSpeed;
             if (inSeconds <= 60){
               return (<td>{inSeconds}{" Seconds"}</td>)
-            } else if (inSeconds >= 60){
+            } else if (inSeconds <= 60){
               return (<td>{inSeconds/60}{" Minutes"}</td>)
-            } else if (inSeconds >= 3600){
+            } else if (inSeconds <= 3600){
               return (<td>{inSeconds/3600}{" Hours"}</td>)
-            } else if (inSeconds >= 86400){
+            } else if (inSeconds <= 86400){
               return (<td>{inSeconds/86400}{" Days"}</td>)
             }
             break;
