@@ -19,11 +19,10 @@ Meteor.startup(() => {
   render(
     <Router history={browserHistory}>
       <Route path="/" component={MainLayout} >
-        <IndexRoute component={App} />
+        <IndexRoute component={AppPrtgSensors} />
         <Route path="/apic" component={AppApic} />
         <Route path="/ise" component={AppIse} />
         <Route path="/prtg" component={AppPrtgSensors} />
-        <Route path="/trfr" component={AppTransferRate} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
       </Route>
