@@ -8,6 +8,12 @@ const utilReducer = (state = {
     name:"",
     validationStatus: null,
     btnStyle: false
+  },
+  bandwidthCalcData:{
+    number: bandwidth,
+    validationStatus: "",
+    btnStyle: false,
+    byteType: ""
   }
 }, action) => {
   switch (action.type) {
