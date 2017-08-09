@@ -19,7 +19,9 @@ Meteor.publish('currentUser', function() {
 });
 
 Meteor.publish('siteCircuitInfo', function() {
+  let countCollections = ItemsTransferRate.find().count();
 
+  if (countCollections <= 0){
     let sitesObj = tempData;
     //debug
     //console.log(sitesObj.tempData0())
@@ -39,7 +41,11 @@ Meteor.publish('siteCircuitInfo', function() {
         });
     });
   //return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
+
+} else {
   return ItemsTransferRate.find();
+}
+
 });
 
 Meteor.publish('prtgDeviceList', function() {
