@@ -32,7 +32,7 @@ ItemsTransferRate.attachSchema(ItemsTransferRateSchema);
 
 if (Meteor.isServer) {
   let sitesObj = tempData;
-  console.log(tempData)
+  console.log(tempData.tempData0())
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
   //console.log(newData.sensors[value].objid)
