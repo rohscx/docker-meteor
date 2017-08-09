@@ -96,8 +96,6 @@ export default class Table extends Component {
     return(
       <div>
         {tableDiv}
-        <div className="modal modal-content modal-responsive">
-        </div>
       </div>
     )
   }
