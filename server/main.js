@@ -1,10 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import Items from '../imports/api/Items';
 import ItemsPrtg from '../imports/api/prtg';
+import ItemsTransferRate from '../imports/api/transferRate';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
 import '../imports/api/prtg';
+import '../imports/api/transferRate';
 
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {
@@ -14,6 +16,12 @@ Meteor.publish('currentUser', function() {
     }
   });
 });
+
+Meteor.publish('siteCircuitInfo', function() {
+  //return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
+  return ItemsTransferRate.find();
+});
+
 Meteor.publish('prtgDeviceList', function() {
   let countCollections = ItemsPrtg.find().count();
   console.log(countCollections);
