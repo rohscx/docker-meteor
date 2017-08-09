@@ -23,6 +23,7 @@ const MainLayout = ({children}) =>
         <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
         <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
         <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
+        <Link to='/trans' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
         <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
 
       </nav>

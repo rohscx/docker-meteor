@@ -10,75 +10,49 @@ import Header from './components/Header';
 import store from './store';
 import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
-//import ItemsPrtg from '../api/prtg';
-import PrtgSensors from './components/PrtgSensors';
+//import ItemsTransferRate from '../api/prtg';
+import TransferRate from './components/TransferRate';
 import { Mongo } from 'meteor/mongo';
 
 
-const ItemsPrtg = new Mongo.Collection('itemsprtg');
-ItemsPrtg.allow({
+
+const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
+ItemsTransferRate.allow({
   insert() { return false; },
   update() { return false; },
   remove() { return false; }
 });
 
-ItemsPrtg.deny({
+ItemsTransferRate.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
 });
 
 
-// uses combineReducers as redux otherwise can only take one reducer
-store.subscribe(() => {
-  console.log("Store Updated", store.getState());
-});
-
-
-
-@autobind
- class AppPrtgSensors extends Component {
+ class AppTransferRate extends Component {
    constructor() {
      super();
      this.state = {
        greeting: "",
        dbReturn: [{group:"",device:"",sensor:""}],
-       dbReturnRdy: false
+       dbReturnRdy: false,
+       fileTransferStatus: false
      }
    }
 
    componentWillMount() {
       this.setState({
-        greeting: "Welome to the PRTG App"
+        greeting: "Welome to the file transfer circuit mesurement application"
       });
     }
 
-    dbSearch(name){
-      let ex = ".*"+name+".*";
-      let data = ItemsPrtg.find({"prtgData.dataObj.device":{$regex: ex}},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
-      this.setState({
-        dbReturn: data,
-      });
-      if (ex.length <= 4){
-        // debug
-        //console.log("false",ex.length)
-        this.setState({
-          dbReturnRdy: false,
-        });
-      } else {
-        // debug
-        //console.log("true",ex.length)
-        this.setState({
-          dbReturnRdy: true,
-        });
-      }
-    }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
     //console.log(this);
     if (!this.props.ready) {
-      return <div>Loading PRTG...</div>
+      return <div>Loading Application...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     return (
@@ -99,26 +73,12 @@ store.subscribe(() => {
 
 
 
-
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
   let prtgArray = Session.get('myMethodResult');
-  let mongoReady = () =>{
-    if (ItemsPrtg.find().count() >= 1) {
-      // debug
-      //console.log("TRUE HIT", prtgItemsSub.ready());
-      return true;
-    } else {
-      // debug
-      //console.log("FASE HIT");
-      return false;
-    }
-  }
-
   return {
     showAll,
-    ready: prtgItemsSub.ready() && mongoReady(),
-  };
-}, AppPrtgSensors);
+    ready: "REaDy-Bro"
+}, AppTransferRate);
