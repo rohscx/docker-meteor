@@ -70,7 +70,7 @@ export function hostName(hostName) {
 
 export function bandwidthCalc(bandwidth) {
   return dispatch => {
-    console.log("data")
+    console.log(typeof(bandwidth))
     if (typeof(bandwidth) !== number){
       return dispatch(setBandwidthCalc({
         number: bandwidth,
