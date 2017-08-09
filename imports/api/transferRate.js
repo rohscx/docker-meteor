@@ -29,7 +29,7 @@ const ItemsTransferRateSchema = new SimpleSchema ({
 ItemsTransferRate.attachSchema(ItemsTransferRateSchema);
 
 
-
+if (Meteor.isServer) {
 
 
 
