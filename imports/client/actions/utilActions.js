@@ -75,6 +75,7 @@ export function bandwidthCalc(bandwidth) {
     console.log(typeof(newData))
     if (newData == 'NaN') {
       console.log('NaN')
+      console.log(newData)
       return dispatch(setBandwidthCalc({
         number: bandwidth,
         validationStatus: false,
@@ -82,6 +83,7 @@ export function bandwidthCalc(bandwidth) {
       }));
     } else {
       console.log('Number')
+      console.log(newData)
       return dispatch(setBandwidthCalc({
         number: bandwidth,
         validationStatus: true,
