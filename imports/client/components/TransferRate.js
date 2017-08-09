@@ -56,7 +56,7 @@ class TransferRate extends Component {
       let dataReady = this.props.util.bandwidthCalcData.validationStatus;
       if(dataReturn.lenght <= 0){
         return null;
-      } else if (isNan(dataReturn) == true){
+      } else if (isNaN(dataReturn) == true){
         return "error";
       } else {
         return "success";
