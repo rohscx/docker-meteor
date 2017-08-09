@@ -52,12 +52,15 @@ class TransferRate extends Component {
       );
     };
     const validationStatus = () => {
+      let dataReturn = this.props.util.bandwidthCalcData.number;
       let dataReady = this.props.util.bandwidthCalcData.validationStatus;
-      if(dataReady === false){
+      if(dataReturn.lenght <= 0){
         return null;
-      } else {
+      } else if (isNan(dataReturn) == true){
+        return "error";
+      } else (
         return "success";
-      }
+      )
       /*
       return (
         this.props.util.hostName.validationStatus
