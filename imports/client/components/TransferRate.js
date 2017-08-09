@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
-
+import Table from './TransferRate/Table';
 //import {ItemsPrtg} from '../../api/prtg';
 
 class TransferRate extends Component {
@@ -109,7 +109,7 @@ class TransferRate extends Component {
 
     return(
       <div style={divStyles}>
-
+        <Table {... this.props}/>
       </div>
     )
   }
