@@ -30,7 +30,6 @@ Meteor.publish('siteCircuitInfo', function() {
     //console.log(typeof(newData.sensors[value].objid))
     //console.log("DATA ID ",data._id)
     temp.map((data)=>{
-      console.log("data =>", data)
       ItemsTransferRate.insert({
           siteData: {
             dataObj: data,
