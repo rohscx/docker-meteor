@@ -43,7 +43,7 @@ export default class Table extends Component {
         }
       }
       return (
-        <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
+        <tr key={data._id}}>
         <td>{newData.aca}</td>
         <td>{newData.branch}</td>
         <td className={statusDanger()}> {newData.wPortSpeed}</td>
@@ -97,14 +97,6 @@ export default class Table extends Component {
       <div>
         {tableDiv}
         <div className="modal modal-content modal-responsive">
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="PRTG Modal"
-          >
-          </Modal>
         </div>
       </div>
     )
