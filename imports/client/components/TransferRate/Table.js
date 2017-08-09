@@ -45,7 +45,7 @@ export default class Table extends Component {
             if (inSeconds <= 60){
               return (<td>{inSeconds}</td>)
             } else if (inSeconds >= 60){
-              return (<td>{"Dadasf" inSeconds/60}</td>)
+              return (<td>{"Dadasf", inSeconds/60}</td>)
             } else if (inSeconds >= 3600){
               return (<td>{inSeconds/3600}</td>)
             } else if (inSeconds >= 86400){
