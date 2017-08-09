@@ -82,22 +82,23 @@ class TransferRate extends Component {
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
-          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
-            <Col componentClass={ControlLabel} sm={2}>
-              Search
-            </Col>
-            <Col sm={10}>
-              <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} />
-              <FormControl.Feedback />
-            </Col>
-          </FormGroup>
           <FormGroup>
-
-          </FormGroup>
+             <InputGroup>
+               <FormControl type="text" />
+               <DropdownButton
+                 componentClass={InputGroup.Button}
+                 id="input-dropdown-addon"
+                 title="Action"
+               >
+                 <MenuItem key="1">Item</MenuItem>
+               </DropdownButton>
+             </InputGroup>
+           </FormGroup>
         </form>
       </div>
     );
   }
+
 
 
   render() {
