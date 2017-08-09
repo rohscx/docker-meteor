@@ -73,7 +73,7 @@ export function bandwidthCalc(bandwidth) {
     let newData = bandwidth.trim().toLowerCase()
     newData = Number(newData)
     console.log(typeof(newData))
-    if (newData == NaN) {
+    if (isNaN(newData)) {
       console.log('NaN')
       console.log(newData)
       return dispatch(setBandwidthCalc({
