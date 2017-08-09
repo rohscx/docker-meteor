@@ -117,7 +117,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        <Table {... this.props} byteType={this.state.byteType}/>
+        <Table {... this.props} byteType={this.state.byteType} bandwidthCalcData={this.props.util.bandwidthCalcData}/>
       </div>
     )
   }
