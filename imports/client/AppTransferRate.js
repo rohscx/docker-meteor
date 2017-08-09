@@ -76,10 +76,10 @@ ItemsTransferRate.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let prtgItemsSub = Meteor.subscribe('prtgDeviceList');
+  let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   return {
     showAll,
-    ready: "REaDy-Bro"
+    ready: transferRateItemsSub.ready()
   };
 }, AppTransferRate);
