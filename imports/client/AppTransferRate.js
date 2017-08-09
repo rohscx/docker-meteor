@@ -16,7 +16,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-//const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
+/*const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
 ItemsTransferRate.allow({
   insert() { return false; },
   update() { return false; },
@@ -27,7 +27,7 @@ ItemsTransferRate.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
-});
+});*/
 
 
  class AppTransferRate extends Component {
