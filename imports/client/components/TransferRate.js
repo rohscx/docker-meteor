@@ -90,7 +90,11 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title="Action"
                >
-                 <MenuItem key="1">Item</MenuItem>
+                 <MenuItem key="1">MB</MenuItem>
+                 <MenuItem key="2">GB</MenuItem>
+                 <MenuItem key="3">TB</MenuItem>
+                 <MenuItem key="4">PB</MenuItem>
+                 <MenuItem key="5">ZB</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
