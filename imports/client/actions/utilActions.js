@@ -68,26 +68,23 @@ export function hostName(hostName) {
   }
 }
 
-export function bandwidthCalc(bandwidth) {
+export function bandwidthCalc(bandwidth, byteType) {
   return dispatch => {
     let newData = bandwidth.trim().toLowerCase()
     newData = Number(newData)
-    console.log(typeof(newData))
     if (isNaN(newData)) {
-      console.log('NaN')
-      console.log(newData)
       return dispatch(setBandwidthCalc({
         number: bandwidth,
         validationStatus: false,
-        btnStyle: false
+        btnStyle: false,
+        byteType: byteType ? byteType : ""
       }));
     } else {
-      console.log('Number')
-      console.log(newData)
       return dispatch(setBandwidthCalc({
         number: bandwidth,
         validationStatus: true,
-        btnStyle: true
+        btnStyle: true,
+        byteType: byteType ? byteType : ""
       }));
     }
   }
