@@ -42,8 +42,12 @@ ItemsTransferRate.deny({
    }
 
    componentWillMount() {
+     let data = ItemsTransferRate.find()
       this.setState({
         greeting: "Welome to the file transfer circuit mesurement application"
+      });
+      this.setState({
+        dbReturn: data
       });
     }
 
@@ -64,7 +68,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-
+          <TransferRate {... this.state}/>
         </main>
       </Provider>
     );

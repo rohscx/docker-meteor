@@ -21,7 +21,8 @@ Meteor.publish('currentUser', function() {
 Meteor.publish('siteCircuitInfo', function() {
 
     let sitesObj = tempData;
-    console.log(sitesObj.tempData0())
+    //debug
+    //console.log(sitesObj.tempData0())
     let temp = sitesObj.tempData0();
     let timeNow = Math.round(new Date().getTime() / 1000);
     let dateTime = new Date();
