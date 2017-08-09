@@ -19,6 +19,13 @@ export function subtractNumber(number) {
   };
 }
 
+export function setBandwidthCalc(number) {
+  return {
+    type: "SET_BANDWIDTHCALC",
+    payload: number
+  };
+}
+
 export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
@@ -56,6 +63,25 @@ export function hostName(hostName) {
         name: newHostName,
         validationStatus: "success",
         btnStyle: true
+      }));
+    }
+  }
+}
+
+export function bandwidthCalc(bandwidth) {
+  return dispatch => {
+
+    if (typeof(bandwidth) !== number){
+      return dispatch(setBandwidthCalc({
+        number: bandwidth,
+        validationStatus: true,
+        btnStyle: true
+      }));
+    } else {
+      return dispatch(setBandwidthCalc({
+        number: bandwidth,
+        validationStatus: false,
+        btnStyle: false
       }));
     }
   }

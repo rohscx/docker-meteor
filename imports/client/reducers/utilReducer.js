@@ -12,15 +12,21 @@ const utilReducer = (state = {
 }, action) => {
   switch (action.type) {
     case "MAC_VALIDATION":
-      state = {
-        ...state,
-        macValidation: action.payload
-      };
-      break;
+    state = {
+      ...state,
+      macValidation: action.payload
+    };
+    break;
     case "SET_HOSTNAME":
     state = {
       ...state,
       hostName: action.payload
+    };
+    break;
+    case "SET_BANDWIDTHCALC":
+    state = {
+      ...state,
+      bandwidthCalcData: action.payload
     };
     break;
   }

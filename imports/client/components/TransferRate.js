@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './TransferRate/Table';
-//import {ItemsPrtg} from '../../api/prtg';
+import { bandwidthCalc } from '../actions/utilActions'
 
 class TransferRate extends Component {
   handleSearchFormInput(event) {
     let value = event.target.value
     console.log(value)
-    this.props.dbSearch(value);
-    this.props.hostName(value);
+    this.props.bandwidthCalc(value);
   }
 
   preventDefault(e){
@@ -37,7 +36,7 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
-  SearchForm(){
+  form(){
     const btnEnabled = () => {
       return (
         <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
@@ -84,11 +83,11 @@ class TransferRate extends Component {
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup>
              <InputGroup>
-               <FormControl type="text" />
+               <FormControl type="text" onChange={formInput()}/>
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title="DataType"
+                 title="ByteType"
                >
                  <MenuItem key="1" onSelect= {()=>{console.log("MB")}}>MB</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{console.log("GB")}}>GB</MenuItem>
@@ -114,7 +113,7 @@ class TransferRate extends Component {
 
     return(
       <div style={divStyles}>
-        {this.SearchForm()}
+        {this.form()}
         <Table {... this.props}/>
       </div>
     )
@@ -129,8 +128,8 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    hostName: (name) => {
-      dispatch(hostName(name));
+    bandwidthCalc: (number) => {
+      dispatch(bandwidthCalc(number));
     },
   };
 };
