@@ -39,8 +39,18 @@ export default class Table extends Component {
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         switch(dataType){
           case "MB":
-            console.log(dataSize,"  ",portSpeed)
-            return (<td>{dataSize / portSpeed}</td>)
+            // debug
+            //console.log(dataSize,"  ",portSpeed)
+            let inSeconds = dataSize / portSpeed;
+            if (inSeconds <= 60){
+              return (<td>{inSeconds}</td>)
+            } else if (inSeconds >= 60){
+              return (<td>{inSeconds/60}</td>)
+            } else if (inSeconds >= 3600){
+              return (<td>{inSeconds/3600}</td>)
+            } else if (inSeconds >= 86400){
+              return (<td>{inSeconds/86400}</td>)
+            }
             break;
           default:
         }
