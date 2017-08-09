@@ -10,6 +10,7 @@ class TransferRate extends Component {
   handleSearchFormInput(event) {
     let value = event.target.value
     console.log(value)
+    console.log(event)
     this.props.bandwidthCalc(value);
   }
 
