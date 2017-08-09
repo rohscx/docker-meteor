@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
-import { Mongo } from 'meteor/mongo';
 import { connect } from 'react-redux';
-import { setName }from '../actions/userActions';
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 
@@ -25,7 +23,6 @@ class TransferRate extends Component {
   }
 
 
-
   render() {
     const divStyles = {
       paddingTop: "1%",
@@ -35,7 +32,7 @@ class TransferRate extends Component {
 
     return(
       <div style={divStyles}>
-        <Table {... this.props}/>
+
       </div>
     )
   }
