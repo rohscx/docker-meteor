@@ -52,13 +52,10 @@ class TransferRate extends Component {
       );
     };
     const validationStatus = () => {
-      let dataCount = this.props.dbReturn.length;
-      let dataReady = this.props.dbReturnRdy;
+      let dataReady = this.props.util.bandwidthCalcData.validationStatus;
       if(dataReady === false){
         return null;
-      } else if(dataReady === true && dataCount <= 0){
-        return "error";
-      } else{
+      } else {
         return "success";
       }
       /*
@@ -77,7 +74,7 @@ class TransferRate extends Component {
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup>
              <InputGroup>
-               <FormControl type="text" onChange={formInput()}/>
+               <FormControl type="text" onChange={formInput()} validationState={validationStatus()/>
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
