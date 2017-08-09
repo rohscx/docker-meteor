@@ -49,7 +49,7 @@ export default class Table extends Component {
               return (<td>{NaNCheck ? "n/a" : inSeconds/60}{NaNCheck ? "n/a" : " Minutes"}</td>)
             } else if (inSeconds <= 3600){
               return (<td>{NaNCheck ? "n/a" : inSeconds/3600}{NaNCheck ? "n/a" : " Hours"}</td>)
-            } else if (inSeconds >= 86400){
+            } else if (inSeconds >= 86400 || inSeconds > 3600){
               return (<td>{NaNCheck ? "n/a" : inSeconds/86400}{NaNCheck ? "n/a" : " Days"}</td>)
             }
             break;
