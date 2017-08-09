@@ -33,7 +33,7 @@ export default class Table extends Component {
   }
 
   returnList() {
-    let trGenerator = this.props.dbReturn.map((data)=>{
+    let test = this.props.dbReturn.map((data)=>{
       let newData = data.siteData.dataObj;
       let statusDanger = () =>{
         if(!newData){
@@ -43,7 +43,7 @@ export default class Table extends Component {
         }
       }
       return (
-        <tr key={data._id}}>
+        <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
         <td>{newData.aca}</td>
         <td>{newData.branch}</td>
         <td className={statusDanger()}> {newData.wPortSpeed}</td>
@@ -63,7 +63,7 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {trGenerator}
+            {test}
           </tbody>
         </table>
       </div>
