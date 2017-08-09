@@ -37,7 +37,7 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
-  prtgSearchForm(){
+  SearchForm(){
     const btnEnabled = () => {
       return (
         <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
@@ -109,6 +109,7 @@ class TransferRate extends Component {
 
     return(
       <div style={divStyles}>
+        {this.SearchForm()}
         <Table {... this.props}/>
       </div>
     )
