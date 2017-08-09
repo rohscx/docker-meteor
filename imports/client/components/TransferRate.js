@@ -7,10 +7,15 @@ import Table from './TransferRate/Table';
 import { bandwidthCalc } from '../actions/utilActions'
 
 class TransferRate extends Component {
+  constructor() {
+    super();
+    this.state = {
+      byteType: ""
+    }
+  }
   handleSearchFormInput(event) {
     let value = event.target.value
     console.log(value)
-    console.log(event.target)
     this.props.bandwidthCalc(value);
   }
 
@@ -20,6 +25,12 @@ class TransferRate extends Component {
 
   getDevices(){
     this.props.getDevices();
+  }
+
+  setByteType(data){
+    this.setState({
+      byteType: data
+    });
   }
 
 
@@ -80,11 +91,11 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title="ByteType"
                >
-                 <MenuItem key="1" onSelect= {()=>{console.log("MB")}}>MB</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{console.log("GB")}}>GB</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{console.log("TB")}}>TB</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{console.log("PB")}}>PB</MenuItem>
-                 <MenuItem key="5" onSelect= {()=>{console.log("ZB")}}>ZB</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setByteType("MB")}}>MB</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setByteType("TB")}}>TB</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setByteType("PB")}}>PB</MenuItem>
+                 <MenuItem key="5" onSelect= {()=>{this.setByteType("ZB")}}>ZB</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
