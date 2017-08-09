@@ -69,7 +69,7 @@ export function hostName(hostName) {
 }
 
 export function bandwidthCalc(bandwidth, byteType) {
-  return dispatch => {
+  return dispatch =>
     let newData = bandwidth.trim().toLowerCase()
     newData = Number(newData)
     if (isNaN(newData)) {
