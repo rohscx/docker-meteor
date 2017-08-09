@@ -71,7 +71,7 @@ export default class Table extends Component {
               <th>Branch</th>
               <th>WAN Speed</th>
               <th>WAN TYPE</th>
-              {inBits ? "Time" : ""}
+              {inBits ? <th>Time</th> : ""}
             </tr>
           </thead>
           <tbody>
