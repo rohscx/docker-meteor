@@ -42,7 +42,7 @@ ItemsTransferRate.deny({
    }
 
    componentWillMount() {
-     let data = ItemsTransferRate.find()
+     let data = ItemsTransferRate.find().fetch()
       this.setState({
         greeting: "Welome to the file transfer circuit mesurement application"
       });
