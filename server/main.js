@@ -18,7 +18,7 @@ Meteor.publish('currentUser', function() {
 });
 
 Meteor.publish('siteCircuitInfo', function() {
-  if (Meteor.isServer) {
+
     let sitesObj = tempData;
     console.log(sitesObj.tempData0())
     let temp = sitesObj.tempData0();
