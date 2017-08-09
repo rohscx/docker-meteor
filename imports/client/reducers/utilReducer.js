@@ -11,7 +11,7 @@ const utilReducer = (state = {
   },
   bandwidthCalcData:{
     number: "",
-    numberToBytes: "",
+    numberToBits: false,
     validationStatus: "",
     btnStyle: false,
     byteType: ""

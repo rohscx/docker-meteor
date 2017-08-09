@@ -117,7 +117,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        <Table {... this.props}/>
+        <Table {... this.props} byteType={this.state.byteType}/>
       </div>
     )
   }

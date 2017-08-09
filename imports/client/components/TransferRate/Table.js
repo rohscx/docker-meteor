@@ -33,7 +33,17 @@ export default class Table extends Component {
   }
 
   returnList() {
+    let inBits = this.props.util.bandwidthCalcData.numberToBits;
+    let byteType = this.props.byteType;
     let test = this.props.dbReturn.map((data)=>{
+      let transTimeSeconds = (dataSize, dataType, portSpeed){
+        switch(dataType){
+          case "MB":
+            return (<td>{dataSize / portSpeed}</td>)
+            break;
+          default:
+        }
+      }
       let newData = data.siteData.dataObj;
       let statusDanger = () =>{
         if(!newData){
@@ -48,6 +58,7 @@ export default class Table extends Component {
         <td>{newData.branch}</td>
         <td className={statusDanger()}> {newData.wPortSpeed}</td>
         <td>{newData.wPortType}</td>
+        {inBits ? newData(inBits,byteType,newData.wPortType) : ""}
       </tr>
       )
     })
@@ -60,6 +71,7 @@ export default class Table extends Component {
               <th>Branch</th>
               <th>WAN Speed</th>
               <th>WAN TYPE</th>
+              {inBits ? "Time" : ""}
             </tr>
           </thead>
           <tbody>
