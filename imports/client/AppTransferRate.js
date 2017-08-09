@@ -16,7 +16,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 
-const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
+//const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
 ItemsTransferRate.allow({
   insert() { return false; },
   update() { return false; },
@@ -80,5 +80,6 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   return {
     showAll,
-    ready: "REaDy-Bro"
+    ready: "REaDy-Bro0"
+  };
 }, AppTransferRate);
