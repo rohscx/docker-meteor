@@ -5,7 +5,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import request from 'request';
 import https from 'https';
-import tempData0 from '../../server/tempData';
+import tempData from '../../server/tempData';
 
 // prtg
 const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
@@ -31,7 +31,7 @@ ItemsTransferRate.attachSchema(ItemsTransferRateSchema);
 
 
 if (Meteor.isServer) {
-  let sitesObj = tempData0();
+  let sitesObj = tempData.tempData0();
   console.log(sitesObj)
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
