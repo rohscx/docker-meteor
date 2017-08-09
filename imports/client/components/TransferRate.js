@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
-import { FormGroup, InputGroup, FormControl, DropdownButton } from 'react-bootstrap';
+import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './TransferRate/Table';
 //import {ItemsPrtg} from '../../api/prtg';
