@@ -63,7 +63,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.state}/>
+          <TransferRate {... this.props}/>
         </main>
       </Provider>
     );
