@@ -74,7 +74,7 @@ class TransferRate extends Component {
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup>
              <InputGroup>
-               <FormControl type="text" onChange={formInput()} validationState={validationStatus()/>
+               <FormControl type="text" onChange={formInput()} validationState={validationStatus()}/>
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
