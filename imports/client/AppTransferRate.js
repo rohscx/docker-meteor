@@ -64,7 +64,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <PrtgSensors {... this.state} dbSearch= {this.dbSearch.bind(this)}/>
+
         </main>
       </Provider>
     );
