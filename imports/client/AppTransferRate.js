@@ -35,7 +35,7 @@ ItemsTransferRate.deny({
      super();
      this.state = {
        greeting: "",
-       dbReturn: [{group:"",device:"",sensor:""}],
+       dbReturn: ItemsTransferRate.find().fetch(),
        dbReturnRdy: false,
        fileTransferStatus: false
      }
@@ -45,9 +45,6 @@ ItemsTransferRate.deny({
      let data = ItemsTransferRate.find().fetch()
       this.setState({
         greeting: "Welome to the file transfer circuit mesurement application"
-      });
-      this.setState({
-        dbReturn: data
       });
     }
 
