@@ -80,6 +80,6 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   return {
     showAll,
-    ready: "REaDy-Bro0"
+    ready: "REaDy-Bro"
   };
 }, AppTransferRate);
