@@ -35,7 +35,7 @@ ItemsTransferRate.deny({
      super();
      this.state = {
        greeting: "",
-       dbReturnRdy: false,
+       dbReturnRdy: true,
        fileTransferStatus: false
      }
    }
