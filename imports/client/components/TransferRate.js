@@ -10,13 +10,14 @@ class TransferRate extends Component {
   constructor() {
     super();
     this.state = {
-      byteType: ""
+      byteType: "MB"
     }
   }
   handleSearchFormInput(event) {
-    let value = event.target.value
+    let value = event.target.value;
+    let byteType = this.state.byteType;
     console.log(value)
-    this.props.bandwidthCalc(value);
+    this.props.bandwidthCalc(value, byteType);
   }
 
   preventDefault(e){
