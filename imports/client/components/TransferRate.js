@@ -29,6 +29,7 @@ class TransferRate extends Component {
   }
 
   setByteType(data){
+    this.props.bandwidthCalc(" ", byteType);
     this.setState({
       byteType: data
     });
