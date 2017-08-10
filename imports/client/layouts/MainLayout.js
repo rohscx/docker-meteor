@@ -36,7 +36,10 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-const styleDropDownObj = {
+const styleObj = {
+  color: 'black'
+};
+const activeStyleObj = {
   color: 'black'
 };
 const MainLayout = ({children}) =>
@@ -62,7 +65,7 @@ const MainLayout = ({children}) =>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1}>
-                <Link to='/trfr'> TRANSF..RATE </Link>
+                <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
               </MenuItem>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
