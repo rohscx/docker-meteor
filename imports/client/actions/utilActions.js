@@ -73,7 +73,6 @@ export function bandwidthCalc(bandwidth, byteType,bandwidthCurrent) {
   return dispatch => {
 
     if (bandwidth === null){
-      console.log("bandwidth",bandwidth)
       return dispatch(setBandwidthCalc({
           number: bandwidthCurrent,
           numberToBits: false,
