@@ -61,7 +61,7 @@ const MainLayout = ({children}) =>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <Link to='/trfr'>
-                <MenuItem eventKey={10.1}>TRANSF..RATE</>
+                <MenuItem eventKey={10.1}>TRANSF..RATE</MenuItem>
               </Link>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
