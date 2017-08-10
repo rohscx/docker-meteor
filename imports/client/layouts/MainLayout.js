@@ -34,7 +34,7 @@ const MainLayout = ({children}) =>
 */
 const divStyles = {
   margin: "auto",
-  width: "40%"
+  width: "60%"
 };
 const MainLayout = ({children}) =>
   <div>
