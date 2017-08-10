@@ -78,7 +78,7 @@ export function bandwidthCalc(bandwidth, byteType) {
         numberToBits: false,
         validationStatus: false,
         btnStyle: false,
-        byteType: byteType ? byteType : ""
+        byteType: byteType
       }));
     } else {
       return dispatch(setBandwidthCalc({
@@ -86,7 +86,7 @@ export function bandwidthCalc(bandwidth, byteType) {
         numberToBits: newData * 8,
         validationStatus: true,
         btnStyle: true,
-        byteType: byteType ? byteType : ""
+        byteType: byteType
       }));
     }
   }
