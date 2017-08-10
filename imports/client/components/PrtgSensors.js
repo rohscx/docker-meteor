@@ -11,7 +11,6 @@ import Table from './Prtg/Table';
 class PrtgSensors extends Component {
   handleSearchFormInput(event) {
     let value = event.target.value
-    console.log(value)
     this.props.dbSearch(value);
     this.props.hostName(value);
   }
