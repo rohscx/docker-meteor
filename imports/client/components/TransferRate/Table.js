@@ -168,7 +168,7 @@ export default class Table extends Component {
               <th>Branch</th>
               <th>WAN Speed</th>
               <th>WAN TYPE</th>
-              <th>INET Speed Up/Down</th>
+              <th>INET Speed Down/Up</th>
               <th>INET TYPE</th>
               {inBits ? <th>R1 DownLoad/UpLoad Time</th> : null}
               {inBits ? <th>R2 DownLoad Time</th> : null}
