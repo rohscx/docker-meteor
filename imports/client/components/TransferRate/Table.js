@@ -54,7 +54,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
             } else if (inSeconds >= 604800 && inSeconds < 2628000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-            } else if (inSeconds >= 2628000){
+            } else if (inSeconds >= 2628000 && inSeconds < 31540000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
@@ -75,7 +75,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
             } else if (inSeconds >= 604800 && inSeconds < 2628000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-            } else if (inSeconds >= 2628000){
+            } else if (inSeconds >= 2628000 && inSeconds < 31540000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
@@ -96,7 +96,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
             } else if (inSeconds >= 604800 && inSeconds < 2628000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-            } else if (inSeconds >= 2628000){
+            } else if (inSeconds >= 2628000 && inSeconds < 31540000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
@@ -117,7 +117,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
             } else if (inSeconds >= 604800 && inSeconds < 2628000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-            } else if (inSeconds >= 2628000){
+            } else if (inSeconds >= 2628000 && inSeconds < 31540000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
@@ -138,7 +138,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
             } else if (inSeconds >= 604800 && inSeconds < 2628000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-            } else if (inSeconds >= 2628000){
+            } else if (inSeconds >= 2628000 && inSeconds < 31540000){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
