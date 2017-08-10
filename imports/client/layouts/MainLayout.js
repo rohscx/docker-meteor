@@ -36,12 +36,7 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-const styleObj = {
-  color: 'black'
-};
-const activeStyleObj = {
-  color: 'black'
-};
+
 const MainLayout = ({children}) =>
   <div>
     <header>
