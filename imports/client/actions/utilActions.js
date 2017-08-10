@@ -26,12 +26,6 @@ export function setBandwidthCalc(number) {
   };
 }
 
-export function setBandwidthCalcByteType(string) {
-  return {
-    type: "SET_BANDWIDTHCALC_BYTETYPE",
-    payload: string
-  };
-}
 
 export function validateMac(mac) {
   return dispatch => {
