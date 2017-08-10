@@ -83,7 +83,7 @@ class TransferRate extends Component {
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
-          <FormGroup "formHorizontalHost" validationState={validationStatus()}>
+          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
              <InputGroup>
                <FormControl type="text" onChange={formInput()}/>
                <FormControl.Feedback />
