@@ -86,6 +86,7 @@ class TransferRate extends Component {
           <FormGroup validationState={validationStatus()}>
              <InputGroup>
                <FormControl type="text" onChange={formInput()}/>
+               <FormControl.Feedback />
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
