@@ -80,16 +80,14 @@ export function bandwidthCalc(bandwidth, byteType) {
 
     if (bandwidth === null){
       console.log("BANDWIDTH INPUTA ALSO HIT", bandwidth)
-      dispatch(setBandwidthCalc({
-        number: bandwidth,
-        numberToBits: false,
-        validationStatus: "",
-        btnStyle: false,
-        byteType: byteType
-      }));
-      return dispatch(setBandwidthCalcByteType(
-        byteType
-      ));
+
+      return dispatch(setBandwidthCalc({
+          number: bandwidth,
+          numberToBits: false,
+          validationStatus: "",
+          btnStyle: false,
+          byteType: byteType
+        }));
     } else {
       let newData = bandwidth.trim().toLowerCase()
       newData = Number(newData)
