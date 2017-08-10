@@ -151,6 +151,8 @@ export default class Table extends Component {
       let statusDanger = (time) =>{
         if(time >=216000){
           return 'danger';
+        } else if(time == "n/a") {
+          return null;
         } else {
           return 'success';
         }
