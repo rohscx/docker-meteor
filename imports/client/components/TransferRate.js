@@ -132,7 +132,7 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bandwidthCalc: (number) => {
+    bandwidthCalc: (number,byteType) => {
       dispatch(bandwidthCalc(number,byteType));
     },
   };

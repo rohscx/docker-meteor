@@ -14,7 +14,7 @@ const utilReducer = (state = {
     numberToBits: false,
     validationStatus: "",
     btnStyle: false,
-    byteType: ""
+    byteType: "MB"
   }
 }, action) => {
   switch (action.type) {
