@@ -79,7 +79,7 @@ export function bandwidthCalc(bandwidth, byteType) {
   return dispatch => {
     if (bandwidth === null){
       return dispatch(setBandwidthCalcByteType(
-        byteType;
+        byteType
       ));
     } else {
       let newData = bandwidth.trim().toLowerCase()
