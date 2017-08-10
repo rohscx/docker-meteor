@@ -37,12 +37,13 @@ export default class Table extends Component {
     let byteType = this.props.util.bandwidthCalcData.byteType;
     let test = this.props.dbReturn.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
+        let inSeconds, NaNCheck
         switch(dataType){
           case "MB":
             // debug
             //console.log(dataSize,"  ",portSpeed)
-            let inSeconds = dataSize / portSpeed;
-            let NaNCheck = isNaN(inSeconds);
+            inSeconds = dataSize / portSpeed;
+            NaNCheck = isNaN(inSeconds);
             if (inSeconds <= 60){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
             } else if (inSeconds > 60 && inSeconds < 3600){
@@ -57,6 +58,51 @@ export default class Table extends Component {
             // debug
             //console.log(dataSize,"  ",portSpeed)
             inSeconds = ((dataSize * 1024) / portSpeed);
+            NaNCheck = isNaN(inSeconds);
+            if (inSeconds <= 60){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
+            } else if (inSeconds > 60 && inSeconds < 3600){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/60)}{NaNCheck ? "n/a" : " Minutes"}</td>)
+            } else if (inSeconds > 3600 && inSeconds < 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/3600)}{NaNCheck ? "n/a" : " Hours"}</td>)
+            } else if (inSeconds >= 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/86400)}{NaNCheck ? "n/a" : " Days"}</td>)
+            }
+            break;
+          case "TB":
+            // debug
+            //console.log(dataSize,"  ",portSpeed)
+            inSeconds = (((dataSize * 1024)*1024) / portSpeed);
+            NaNCheck = isNaN(inSeconds);
+            if (inSeconds <= 60){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
+            } else if (inSeconds > 60 && inSeconds < 3600){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/60)}{NaNCheck ? "n/a" : " Minutes"}</td>)
+            } else if (inSeconds > 3600 && inSeconds < 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/3600)}{NaNCheck ? "n/a" : " Hours"}</td>)
+            } else if (inSeconds >= 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/86400)}{NaNCheck ? "n/a" : " Days"}</td>)
+            }
+            break;
+          case "PB":
+            // debug
+            //console.log(dataSize,"  ",portSpeed)
+            inSeconds = ((((dataSize * 1024)*1024)*1024) / portSpeed);
+            NaNCheck = isNaN(inSeconds);
+            if (inSeconds <= 60){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
+            } else if (inSeconds > 60 && inSeconds < 3600){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/60)}{NaNCheck ? "n/a" : " Minutes"}</td>)
+            } else if (inSeconds > 3600 && inSeconds < 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/3600)}{NaNCheck ? "n/a" : " Hours"}</td>)
+            } else if (inSeconds >= 86400){
+              return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/86400)}{NaNCheck ? "n/a" : " Days"}</td>)
+            }
+            break;
+          case "ZB":
+            // debug
+            //console.log(dataSize,"  ",portSpeed)
+            inSeconds = (((((dataSize * 1024)*1024)*1024)*1024) / portSpeed);
             NaNCheck = isNaN(inSeconds);
             if (inSeconds <= 60){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
