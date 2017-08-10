@@ -78,7 +78,7 @@ export function bandwidthCalc(bandwidth, byteType) {
       return dispatch(setBandwidthCalc({
           number: bandwidth,
           numberToBits: false,
-          validationStatus: "",
+          validationStatus: false,
           btnStyle: false,
           byteType: byteType
         }));
