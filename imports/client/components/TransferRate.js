@@ -83,10 +83,9 @@ class TransferRate extends Component {
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
-          <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
+          <FormGroup validationState={validationStatus()}>
              <InputGroup>
                <FormControl type="text" onChange={formInput()}/>
-               <FormControl.Feedback />
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
