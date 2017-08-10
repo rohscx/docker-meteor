@@ -67,6 +67,7 @@ class TransferRate extends Component {
     const validationStatus = () => {
       let dataReturn = this.props.util.bandwidthCalcData.number;
       let dataReady = this.props.util.bandwidthCalcData.validationStatus;
+      let byteType = this.props.util.bandwidthCalcData.byteType;
       if(dataReturn.length <= 0){
         return null;
       } else if (isNaN(dataReturn) == true){
@@ -90,7 +91,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title="ByteType"
+                 title={byteType}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setByteType("MB")}}>MB</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
@@ -132,7 +133,7 @@ const mapSateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     bandwidthCalc: (number) => {
-      dispatch(bandwidthCalc(number));
+      dispatch(bandwidthCalc(number,byteType));
     },
   };
 };
