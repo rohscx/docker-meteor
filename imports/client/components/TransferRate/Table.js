@@ -149,10 +149,8 @@ export default class Table extends Component {
       }
       let newData = data.siteData.dataObj;
       let statusDanger = (time) =>{
-        console.log("Time", time)
-        console.log("Time Type", typeof(time))
         if(isNaN(time)){
-          return 'danger';
+          return null;
         } else if(time >=216000) {
           return 'danger';
         } else {
