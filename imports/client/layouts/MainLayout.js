@@ -5,11 +5,12 @@ import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 
 // style object for nav bar
 const styleObj = {
-  textDecoration: 'none'
+  textDecoration: 'none',
+  color: '#9d9d9d'
 };
 // active style object for nav bar
 const activeStyleObj = {
-  //color: '#eee'
+  color: '#9d9d9d'
 };
 /*
 // stateless functional component. Functuion returns what ever you like
