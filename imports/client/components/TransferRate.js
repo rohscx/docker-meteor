@@ -34,7 +34,7 @@ class TransferRate extends Component {
     });
     let byteType = this.state.byteType;
     console.log("Changed",byteType )
-    this.props.bandwidthCalc("null", byteType);
+    this.props.bandwidthCalc(null, byteType);
   }
 
 

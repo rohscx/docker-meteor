@@ -26,6 +26,13 @@ export function setBandwidthCalc(number) {
   };
 }
 
+export function setBandwidthCalcByteType(string) {
+  return {
+    type: "SET_BANDWIDTHCALC_BYTETYPE",
+    payload: string
+  };
+}
+
 export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
@@ -70,24 +77,32 @@ export function hostName(hostName) {
 
 export function bandwidthCalc(bandwidth, byteType) {
   return dispatch => {
-    let newData = bandwidth.trim().toLowerCase()
-    newData = Number(newData)
-    if (isNaN(newData)) {
-      return dispatch(setBandwidthCalc({
-        number: bandwidth,
-        numberToBits: false,
-        validationStatus: false,
-        btnStyle: false,
-        byteType: byteType
-      }));
+    if (bandwidth === null){
+      return dispatch(setBandwidthCalcByteType(
+        byteType;
+      ));
     } else {
-      return dispatch(setBandwidthCalc({
-        number: bandwidth,
-        numberToBits: newData * 8,
-        validationStatus: true,
-        btnStyle: true,
-        byteType: byteType
-      }));
+      let newData = bandwidth.trim().toLowerCase()
+      newData = Number(newData)
+      if (isNaN(newData)) {
+        return dispatch(setBandwidthCalc({
+          number: bandwidth,
+          numberToBits: false,
+          validationStatus: false,
+          btnStyle: false,
+          byteType: byteType
+        }));
+      } else {
+        return dispatch(setBandwidthCalc({
+          number: bandwidth,
+          numberToBits: newData * 8,
+          validationStatus: true,
+          btnStyle: true,
+          byteType: byteType
+        }));
+      }
     }
+
+
   }
 }

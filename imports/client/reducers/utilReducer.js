@@ -36,6 +36,12 @@ const utilReducer = (state = {
       bandwidthCalcData: action.payload
     };
     break;
+    case "SET_BANDWIDTHCALC_BYTETYPE":
+    state = {
+      ...state,
+      bandwidthCalcData: {byteType:action.payload}
+    };
+    break;
   }
   return state;
 };
