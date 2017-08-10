@@ -69,7 +69,7 @@ export function hostName(hostName) {
   }
 }
 
-export function bandwidthCalc(bandwidth, byteType) {
+export function bandwidthCalc(bandwidth, byteType,bandwidthCurrent) {
   return dispatch => {
 
     if (bandwidth === null){
