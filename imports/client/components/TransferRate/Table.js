@@ -149,10 +149,10 @@ export default class Table extends Component {
       }
       let newData = data.siteData.dataObj;
       let statusDanger = (time) =>{
-        if(time >=216000){
-          return 'danger';
-        } else if(time == "n/a") {
+        if(time == "n/a"){
           return null;
+        } else if(time >=216000) {
+          return 'danger';
         } else {
           return 'success';
         }
