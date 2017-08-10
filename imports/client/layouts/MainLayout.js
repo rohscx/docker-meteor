@@ -5,12 +5,11 @@ import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 
 // style object for nav bar
 const styleObj = {
-  color: '#eee',
   textDecoration: 'none'
 };
 // active style object for nav bar
 const activeStyleObj = {
-  color: '#eee'
+  //color: '#eee'
 };
 /*
 // stateless functional component. Functuion returns what ever you like
@@ -60,9 +59,7 @@ const MainLayout = ({children}) =>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1}>
-                <span style={styleObj} >
-                  <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
-                </span>
+                <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
               </MenuItem>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
