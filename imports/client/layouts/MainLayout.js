@@ -38,7 +38,7 @@ const MainLayout = ({children}) =>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            ><Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
+            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -47,20 +47,29 @@ const MainLayout = ({children}) =>
             <NavItem eventKey={1}>
               <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
             </NavItem>
-            <NavItem eventKey={2} href="#">Link</NavItem>
-            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
+            <NavItem eventKey={2}>
+              <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
+            </NavItem>
+            <NavItem eventKey={3}>
+            <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
+            </NavItem>
+            <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
+              <MenuItem eventKey={10.1}>
+                <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
+              </MenuItem>
+              <MenuItem eventKey={10.2}>Another action</MenuItem>
+              <MenuItem eventKey={10.3}>Something else here</MenuItem>
               <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
+              <MenuItem eventKey={10.3}>Separated link</MenuItem>
             </NavDropdown>
           </Nav>
           <Nav pullRight>
             <NavItem eventKey={1}>
               <LoginButtons/>
             </NavItem>
-            <NavItem eventKey={2} href="#">Link Right</NavItem>
+            <NavItem eventKey={2}>
+              <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
+            </NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
