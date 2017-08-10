@@ -135,6 +135,7 @@ export default class Table extends Component {
         <td>{newData.iPortType}</td>
         {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
         {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUp) : null}
+        {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUdown) : null}
       </tr>
       )
     })
@@ -151,6 +152,7 @@ export default class Table extends Component {
               <th>INET TYPE</th>
               {inBits ? <th>R1 UpLoad/DownLoad Time</th> : null}
               {inBits ? <th>R2 UpLoad Time</th> : null}
+              {inBits ? <th>R2 DownLoad Time</th> : null}
             </tr>
           </thead>
           <tbody>
