@@ -131,6 +131,8 @@ export default class Table extends Component {
         <td>{newData.branch}</td>
         <td> {newData.wPortSpeed}</td>
         <td>{newData.wPortType}</td>
+        <td>{newData.iPortSpeedUp}/{newData.iPortSpeedDown}</td>
+        <td>{newData.iPortType}</td>
         {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
       </tr>
       )
@@ -144,6 +146,8 @@ export default class Table extends Component {
               <th>Branch</th>
               <th>WAN Speed</th>
               <th>WAN TYPE</th>
+              <th>INET Speed Up/Down</th>
+              <th>INET TYPE</th>
               {inBits ? <th>Time</th> : null}
             </tr>
           </thead>
