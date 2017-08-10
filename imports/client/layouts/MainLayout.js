@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
-import { Link } from 'react-router';
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 // style object for nav bar
 const styleObj = {
@@ -37,7 +37,8 @@ const divStyles = {
   width: "60%"
 };
 
-
+<LinkContainer to="/logout">
+  </LinkContainer>     
 const MainLayout = ({children}) =>
   <div>
     <header>
