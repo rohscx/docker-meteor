@@ -77,7 +77,7 @@ export function bandwidthCalc(bandwidth, byteType) {
           number: bandwidth,
           numberToBits: false,
           validationStatus: false,
-          btnStyle: false,
+          btnStyle: true,
           byteType: byteType
         }));
     } else {
