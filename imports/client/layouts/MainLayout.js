@@ -43,9 +43,9 @@ const MainLayout = ({children}) =>
     <header>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
-          </Navbar.Brand>
+          <LinkContainer to='/'>
+            <Navbar.Brand>About</Navbar.Brand>
+          </LinkContainer> 
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
