@@ -132,8 +132,8 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bandwidthCalc: (number,byteType,case) => {
-      dispatch(bandwidthCalc(number,byteType,case));
+    bandwidthCalc: (number,byteType,cdase) => {
+      dispatch(bandwidthCalc(number,byteType,cdase));
     },
   };
 };
