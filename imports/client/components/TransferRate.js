@@ -91,7 +91,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={this.byteType}
+                 title={this.byteType.bind(this)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setByteType("MB")}}>MB</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
