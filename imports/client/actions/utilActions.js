@@ -77,6 +77,7 @@ export function hostName(hostName) {
 
 export function bandwidthCalc(bandwidth, byteType) {
   return dispatch => {
+    console.log("BANDWIDTH INPUT", bandwidth)
     if (bandwidth == null){
       return dispatch(setBandwidthCalcByteType(
         byteType
