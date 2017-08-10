@@ -74,8 +74,8 @@ export function bandwidthCalc(bandwidth, byteType,bandwidthCurrent) {
 
     if (bandwidth === null){
       return dispatch(setBandwidthCalc({
-          number: bandwidthCurrent * 8,
-          numberToBits: false,
+          number: bandwidthCurrent,
+          numberToBits: bandwidthCurrent * 8,
           validationStatus: true,
           btnStyle: true,
           byteType: byteType
