@@ -10,7 +10,6 @@ class TransferRate extends Component {
   constructor() {
     super();
     this.state = {
-      byteType: "MB"
     }
   }
   handleSearchFormInput(event) {
@@ -29,9 +28,6 @@ class TransferRate extends Component {
   }
 
   setByteType(data){
-    this.setState({
-      byteType: data
-    });
     let byteType = data;
     console.log("Changed",byteType )
     this.props.bandwidthCalc(null, byteType);
