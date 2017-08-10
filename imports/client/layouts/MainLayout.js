@@ -32,6 +32,10 @@ const MainLayout = ({children}) =>
     {children}
   </div>
 */
+const divStyles = {
+  margin: "auto",
+  width: "40%"
+};
 const MainLayout = ({children}) =>
   <div>
     <header>
@@ -74,7 +78,9 @@ const MainLayout = ({children}) =>
         </Navbar.Collapse>
       </Navbar>
     </header>
-    {children}
+    <div style={divStyles}>
+      {children}
+    </div>
   </div>
 
 
