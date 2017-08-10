@@ -56,8 +56,8 @@ export default class Table extends Component {
           case "GB":
             // debug
             //console.log(dataSize,"  ",portSpeed)
-            let inSeconds = (dataSize * 1024) / portSpeed;
-            let NaNCheck = isNaN(inSeconds);
+            inSeconds = ((dataSize * 1024) / portSpeed);
+            NaNCheck = isNaN(inSeconds);
             if (inSeconds <= 60){
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds)} {NaNCheck ? "n/a" : " Seconds"}</td>)
             } else if (inSeconds > 60 && inSeconds < 3600){
