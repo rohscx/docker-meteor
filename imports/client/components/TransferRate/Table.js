@@ -142,7 +142,7 @@ export default class Table extends Component {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/2628000000)}{NaNCheck ? "n/a" : " Months"}</td>)
             } else {
               return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n/a" : Math.round(inSeconds/31540000000)}{NaNCheck ? "n/a" : " Years"}</td>)
-            } 
+            }
             break;
           default:
         }
