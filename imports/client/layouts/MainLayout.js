@@ -50,19 +50,19 @@ const MainLayout = ({children}) =>
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1}>
-              <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
-            </NavItem>
-            <NavItem eventKey={2}>
-              <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
-            </NavItem>
-            <NavItem eventKey={3}>
-            <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
-            </NavItem>
+            <LinkContainer to='/apic'>
+              <NavItem eventKey={1}>APIC-EM</NavItem>
+            </LinkContainer>
+            <LinkContainer to='/ise'>
+              <NavItem eventKey={2}>ISE</NavItem>
+            </LinkContainer>
+            <LinkContainer to='/prtg'>
+              <NavItem eventKey={3}>PRTG</NavItem>
+            </LinkContainer>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <LinkContainer to='/trfr'>
                 <MenuItem eventKey={10.1}>TRANSF..RATE</MenuItem>
-              </LinkContainer>  
+              </LinkContainer>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
               <MenuItem divider />
@@ -73,9 +73,9 @@ const MainLayout = ({children}) =>
             <NavItem eventKey={1}>
               <LoginButtons/>
             </NavItem>
-            <NavItem eventKey={2}>
-              <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
-            </NavItem>
+            <LinkContainer to='/about'>
+              <NavItem eventKey={2}>About</NavItem>
+            </LinkContainer> >
           </Nav>
         </Navbar.Collapse>
       </Navbar>
