@@ -16,7 +16,7 @@ class TransferRate extends Component {
     let value = event.target.value;
     let byteType = this.props.util.bandwidthCalcData.byteType;
     console.log(value," ",byteType)
-    this.props.bandwidthCalc(value, byteType,null);
+    this.props.bandwidthCalc(value,byteType,null);
   }
 
   preventDefault(e){
@@ -31,7 +31,7 @@ class TransferRate extends Component {
     let value = this.props.util.bandwidthCalcData.number;
     let byteType = data;
     console.log("Changed",byteType )
-    this.props.bandwidthCalc(null, byteType,value);
+    this.props.bandwidthCalc(value,byteType,null);
   }
 
 
@@ -132,8 +132,8 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bandwidthCalc: (number,byteType,numberCurrent) => {
-      dispatch(bandwidthCalc(number,byteType,numberCurrent));
+    bandwidthCalc: (number,byteType,case) => {
+      dispatch(bandwidthCalc(number,byteType,case));
     },
   };
 };
