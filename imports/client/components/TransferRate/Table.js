@@ -34,7 +34,7 @@ export default class Table extends Component {
 
   returnList() {
     let inBits = this.props.util.bandwidthCalcData.numberToBits;
-    let byteType = this.props.byteType;
+    let byteType = this.props.util.bandwidthCalcData;
     let test = this.props.dbReturn.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         switch(dataType){
