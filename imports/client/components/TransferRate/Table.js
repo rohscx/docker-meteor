@@ -131,7 +131,7 @@ export default class Table extends Component {
         <td>{newData.branch}</td>
         <td> {newData.wPortSpeed}</td>
         <td>{newData.wPortType}</td>
-        <td>{newData.iPortSpeedUp +"/"+ newData.iPortSpeedDown}</td>
+        <td>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
         <td>{newData.iPortType}</td>
         {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
       </tr>
