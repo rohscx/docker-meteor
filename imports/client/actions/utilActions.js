@@ -69,10 +69,9 @@ export function hostName(hostName) {
   }
 }
 
-export function bandwidthCalc(bandwidth, byteType,case) {
+export function bandwidthCalc(bandwidth,byteType,cdase) {
   return dispatch => {
-
-    if (case === null){
+    if (cdase === null){
       return dispatch(setBandwidthCalc({
           number: bandwidth,
           numberToBits: bandwidth * 8,
