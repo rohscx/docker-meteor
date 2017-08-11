@@ -35,6 +35,7 @@ ItemsTransferRate.deny({
      super();
      this.state = {
        greeting: "",
+       status: "",
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -43,6 +44,9 @@ ItemsTransferRate.deny({
    componentWillMount() {
       this.setState({
         greeting: "Welome to the file transfer circuit mesurement application"
+      });
+      this.setState({
+        status: "keep in mind this . that and this...."
       });
     }
 
