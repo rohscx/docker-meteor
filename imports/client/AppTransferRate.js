@@ -55,11 +55,11 @@ ItemsTransferRate.deny({
     }
 
   sortBy(sortBy) {
-    let a = "siteData.dataObj."+sortBy;
-    let dd[a] = 1
-    let cc["sort"] =dd;
-    console.log{dd}
-    console.log(typeof(dd))
+    let key = "siteData.dataObj."+sortBy;
+    let zz = {};
+    let zz["sort"][key] = 1
+    console.log{zz}
+    console.log(typeof(zz))
     let sortString = "siteData.dataObj."+sortBy;
     let newData = ItemsTransferRate.find({},cc).fetch();
     this.setState({
