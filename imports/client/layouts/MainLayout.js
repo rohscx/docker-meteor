@@ -42,14 +42,14 @@ const MainLayout = ({children}) =>
   <div>
     <header>
       <Navbar inverse collapseOnSelect>
+        <LinkContainer to='/'>
         <Navbar.Header>
-          <LinkContainer to='/'>
-            <Navbar.Brand>
-              FROST
-            </Navbar.Brand>
-          </LinkContainer>
+          <Navbar.Brand>
+            FROST
+          </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
+        </LinkContainer>
         <Navbar.Collapse>
           <Nav>
             <LinkContainer to='/apic'>
