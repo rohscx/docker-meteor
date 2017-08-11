@@ -2,6 +2,7 @@ import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 import { Route, RouteHandler, Link, IndexLinkContainer } from 'react-router';
+import { LinkContainer,IndexLinkContainer  } from 'react-router-bootstrap';
 // style object for nav bar
 const styleObj = {
   textDecoration: 'none',
