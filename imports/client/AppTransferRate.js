@@ -61,7 +61,7 @@ ItemsTransferRate.deny({
     for (var [key, value] of Object.entries(zz)) {
       console.log(key," ",value)
 
-      value = 1;
+      key[value] = 1;
       console.log(key[value])
       let newData = ItemsTransferRate.find({},key[value]).fetch();
       this.setState({
