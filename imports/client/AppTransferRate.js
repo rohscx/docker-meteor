@@ -111,7 +111,9 @@ export default createContainer(({params}) => {
     zz.sort[key1] = 1
     console.log(zz)
     console.log(ItemsTransferRate.find({},zz).fetch())
-    return ItemsTransferRate.find({},zz).fetch()
+    this.setState({
+      dbReturn: ItemsTransferRate.find({},zz).fetch()
+    });
   }
   return {
     showAll,
