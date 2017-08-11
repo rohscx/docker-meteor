@@ -44,10 +44,10 @@ ItemsTransferRate.deny({
 
    componentWillMount() {
       this.setState({
-        title: "Bandwidth Calculator"
+        title: "File Transfer Time Calculator"
       });
       this.setState({
-        greeting: "Welome to the file transfer circuit mesurement application"
+        greeting: "Welome, this application calcuations the time it will take to move a file..."
       });
       this.setState({
         status: ""

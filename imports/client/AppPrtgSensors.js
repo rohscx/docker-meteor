@@ -51,10 +51,10 @@ store.subscribe(() => {
 
    componentWillMount() {
      this.setState({
-       title: "Branch Hardware"
+       title: "Branch Network Status"
      });
      this.setState({
-       greeting: "Welome to the PRTG App"
+       greeting: "Welome, this applicaiton privides the status of network equipment in a branch..."
      });
      this.setState({
        status: ""
