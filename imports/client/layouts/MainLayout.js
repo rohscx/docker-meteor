@@ -4,15 +4,7 @@ import { Link } from 'react-router';
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
-// style object for nav bar
-const styleObj = {
-  textDecoration: 'none',
-  color: '#9d9d9d'
-};
-// active style object for nav bar
-const activeStyleObj = {
-  color: '#9d9d9d'
-};
+
 /*
 // stateless functional component. Functuion returns what ever you like
 
@@ -42,14 +34,14 @@ const MainLayout = ({children}) =>
   <div>
     <header>
       <Navbar inverse collapseOnSelect>
-        <LinkContainer to='/'>
         <Navbar.Header>
-          <Navbar.Brand>
-            FROST
-          </Navbar.Brand>
+          <LinkContainer to='/'>
+            <Navbar.Brand>
+              FROST
+            </Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle />
         </Navbar.Header>
-        </LinkContainer>
         <Navbar.Collapse>
           <Nav>
             <LinkContainer to='/apic'>
