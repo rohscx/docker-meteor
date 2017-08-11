@@ -42,21 +42,21 @@ const MainLayout = ({children}) =>
     <header>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <Navbar.Brand componentClass={Link} href='/' to='/'>
-            FROST
+          <Navbar.Brand>
+            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} componentClass={Link} href='/apic' to='/apic'>
-              APIC-EM
+            <NavItem eventKey={1} >
+              <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
             </NavItem>
-            <NavItem eventKey={2} componentClass={Link} href='/ise' to='/ise'>
-              ISE
+            <NavItem eventKey={2} >
+              <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
             </NavItem>
-            <NavItem eventKey={3} componentClass={Link} href='/prtg' to='/prtg'>
-              PRTG
+            <NavItem eventKey={3} >
+            <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1} componentClass={Link} href='/trfr' to='/trfr'>
@@ -72,8 +72,8 @@ const MainLayout = ({children}) =>
             <NavItem eventKey={1} >
               <LoginButtons/>
             </NavItem>
-            <NavItem eventKey={2} componentClass={Link} href='/about' to='/about'>
-              About
+            <NavItem eventKey={2} >
+              <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
             </NavItem>
           </Nav>
         </Navbar.Collapse>
