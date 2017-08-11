@@ -61,12 +61,11 @@ ItemsTransferRate.deny({
     blah[key1] = 1
     zz["sort"] = blah;
 
-
     zz.sort[key1] = 1
     console.log(zz)
-    let newData = ItemsTransferRate.find({},zz).fetch();
+    console.log(ItemsTransferRate.find({},zz).fetch();)
     this.setState({
-      dbReturn: newData
+      dbReturn: ItemsTransferRate.find({},zz).fetch();
     })
 
   }
