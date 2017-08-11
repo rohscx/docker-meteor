@@ -67,7 +67,6 @@ ItemsTransferRate.deny({
     this.setState({
       dbReturn: ItemsTransferRate.find({},zz).fetch()
     })
-
   }
 
   render() {
@@ -77,6 +76,7 @@ ItemsTransferRate.deny({
       return <div>Loading Application...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
+    console.log(this)
     return (
       <Provider store={store}>
         <main>
@@ -86,7 +86,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)} dbData={this.state.dbData}/>
+          <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );

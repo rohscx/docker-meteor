@@ -16,6 +16,19 @@ export default class Table extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  sortBy(sortBy) {
+    let key1 = "siteData.dataObj."+sortBy;
+    let zz = {};
+    let blah ={};
+    blah[key1] = 1
+    zz["sort"] = blah;
+
+    zz.sort[key1] = 1
+    console.log(zz)
+    console.log(ItemsTransferRate.find({},zz).fetch())
+    this.props.dbReturn = ItemsTransferRate.find({},zz).fetch()
+  }
+
   openModal(link) {
     this.setState({modalIsOpen: true});
     this.setState({modalLink: link});
@@ -176,12 +189,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.props.sortBy("aca")}}>ACA</th>
-              <th onClick={()=>{this.props.sortBy("branch")}}>Branch</th>
-              <th onClick={()=>{this.props.sortBy("wPortSpeed")}}>WAN Speed</th>
-              <th onClick={()=>{this.props.sortBy("wPortType")}}>WAN TYPE</th>
-              <th onClick={()=>{this.props.sortBy("iSpeedUp")}}>INET Speed Down/Up</th>
-              <th onClick={()=>{this.props.sortBy("iPortType")}}>INET TYPE</th>
+              <th onClick={()=>{this.sortBy("aca")}}>ACA</th>
+              <th onClick={()=>{this.sortBy("branch")}}>Branch</th>
+              <th onClick={()=>{this.sortBy("wPortSpeed")}}>WAN Speed</th>
+              <th onClick={()=>{this.sortBy("wPortType")}}>WAN TYPE</th>
+              <th onClick={()=>{this.sortBy("iSpeedUp")}}>INET Speed Down/Up</th>
+              <th onClick={()=>{this.sortBy("iPortType")}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
