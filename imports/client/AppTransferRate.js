@@ -49,6 +49,9 @@ ItemsTransferRate.deny({
       this.setState({
         greeting: "Welome to the file transfer circuit mesurement application"
       });
+      this.setState({
+        status: ""
+      });
     }
 
 

@@ -41,16 +41,24 @@ store.subscribe(() => {
    constructor() {
      super();
      this.state = {
-       greeting: "",
+       title: "",
+       greeting:"",
+       status: "",
        dbReturn: [{group:"",device:"",sensor:""}],
        dbReturnRdy: false
      }
    }
 
    componentWillMount() {
-      this.setState({
-        greeting: "Welome to the PRTG App"
-      });
+     this.setState({
+       title: "Branch Hardware"
+     });
+     this.setState({
+       greeting: "Welome to the PRTG App"
+     });
+     this.setState({
+       status: ""
+     });
     }
 
     dbSearch(name){

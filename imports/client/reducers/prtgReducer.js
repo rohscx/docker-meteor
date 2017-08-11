@@ -6,7 +6,7 @@ const prtgReducer = (state = {
     defaultNone1: "nothing to see 1"
   },
   hostName: {
-    name:"",
+    name:"aga",
     validationStatus: null,
     btnStyle: false
   }
