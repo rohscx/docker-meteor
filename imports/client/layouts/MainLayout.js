@@ -81,7 +81,6 @@ const MainLayout = ({children}) =>
         </Navbar.Collapse>
       </Navbar>
       </LinkContainer>
-
     </header>
     <div style={divStyles}>
       {children}
