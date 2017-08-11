@@ -37,6 +37,7 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
+       dataReturn: "",
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -52,6 +53,9 @@ ItemsTransferRate.deny({
       this.setState({
         status: ""
       });
+      this.setState({
+        dataReturn: ItemsTransferRate.find().fetch()
+      })
     }
 
   sortBy(sortBy) {
@@ -63,7 +67,7 @@ ItemsTransferRate.deny({
 
     zz.sort[key1] = 1
     console.log(zz)
-    //console.log(ItemsTransferRate.find({},zz).fetch())
+    console.log(ItemsTransferRate.find({},zz).fetch())
     return ItemsTransferRate.find({},zz).fetch()
   }
 
@@ -84,7 +88,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)}/>
+          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)} dataReturn={this.dataReturn}/>
         </main>
       </Provider>
     );
@@ -101,7 +105,6 @@ export default createContainer(({params}) => {
   let dbData = ItemsTransferRate.find().fetch()
   return {
     showAll,
-    ready: transferRateItemsSub.ready(),
-    dbReturn: dbData
+    ready: transferRateItemsSub.ready()
   };
 }, AppTransferRate);
