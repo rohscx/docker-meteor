@@ -70,7 +70,6 @@ class PrtgSensors extends Component {
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
-              Search
             </Col>
             <Col sm={10}>
               <FormControl type="text" value={hostName()} placeholder="Device Name..." onChange={formInput()} />
