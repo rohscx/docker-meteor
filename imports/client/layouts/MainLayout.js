@@ -36,7 +36,7 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-
+<NavItem componentClass={Link} href="/economies" to="/economies">Economies</NavItem>
 
 const MainLayout = ({children}) =>
   <div>
