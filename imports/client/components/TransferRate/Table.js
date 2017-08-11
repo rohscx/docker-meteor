@@ -39,7 +39,12 @@ export default class Table extends Component {
   returnList() {
     let inBits = this.props.util.bandwidthCalcData.numberToBits;
     let byteType = this.props.util.bandwidthCalcData.byteType;
-    let test = this.props.dbReturn.map((data)=>{
+    let anothertest = this.props.dbReturn;
+    let setMan = (blob)=>{
+      anothertest = blob;
+      console.log(hit)
+    }
+    let test = anothertest.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         let inSeconds, NaNCheck
         switch(dataType){
@@ -180,12 +185,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.tablethis("aca")}}>ACA</th>
-              <th onClick={()=>{this.tablethis("branch")}}>Branch</th>
-              <th onClick={()=>{this.tablethis("wPortSpeed")}}>WAN Speed</th>
-              <th onClick={()=>{this.tablethis("wPortType")}}>WAN TYPE</th>
-              <th onClick={()=>{this.tablethis("iSpeedUp")}}>INET Speed Down/Up</th>
-              <th onClick={()=>{this.tablethis("iPortType")}}>INET TYPE</th>
+              <th onClick={()=>{setMan(this.tablethis("aca"))}}>ACA</th>
+              <th onClick={()=>{setMan(this.tablethis("branch"))}}>Branch</th>
+              <th onClick={()=>{setMan(this.tablethis("wPortSpeed"))}}>WAN Speed</th>
+              <th onClick={()=>{setMan(this.tablethis("wPortType"))}}>WAN TYPE</th>
+              <th onClick={()=>{setMan(this.tablethis("iSpeedUp"))}}>INET Speed Down/Up</th>
+              <th onClick={()=>{setMan(this.tablethis("iPortType"))}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
