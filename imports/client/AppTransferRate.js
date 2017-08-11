@@ -37,7 +37,7 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       dbReturn: ItemsTransferRate.find().fetch()
+       dbReturn: ItemsTransferRate.find().fetch(),
        dbReturnRdy: true,
        fileTransferStatus: false
      }
