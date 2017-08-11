@@ -45,7 +45,7 @@ const MainLayout = ({children}) =>
         <Navbar.Header>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              FROST<
+              FROST
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle />
