@@ -62,6 +62,7 @@ ItemsTransferRate.deny({
       console.log(key," ",value)
       console.log(zz.sort[value])
       console.log(zz.sort[value])
+      console.log(zz)
       zz.sort[value] = 1;
       console.log(zz.key.value)
       let newData = ItemsTransferRate.find({},key.value).fetch();
