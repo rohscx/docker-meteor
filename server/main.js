@@ -40,7 +40,7 @@ Meteor.publish('siteCircuitInfo', function() {
           }
         });
     });
-  //return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
+  // return ready to load page, does not check data validity
   return this.ready()
 } else {
   return ItemsTransferRate.find();
