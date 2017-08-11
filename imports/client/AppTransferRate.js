@@ -62,7 +62,7 @@ ItemsTransferRate.deny({
       console.log(key," ",value)
 
       value = 1;
-      consonle.log(zz)
+      console.log(zz)
       let newData = ItemsTransferRate.find({},zz).fetch();
       this.setState({
         dbReturn: newData
