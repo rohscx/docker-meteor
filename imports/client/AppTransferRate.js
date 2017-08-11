@@ -104,6 +104,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn = dbData
+    dbReturn: dbData
   };
 }, AppTransferRate);
