@@ -60,7 +60,7 @@ const MainLayout = ({children}) =>
             <LinkContainer to='/prtg'>
             <NavItem eventKey={3} >PRTG
             </NavItem>
-           
+          </LinkContainer>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1}>
                 <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
