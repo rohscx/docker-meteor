@@ -33,13 +33,12 @@ const divStyles = {
 const MainLayout = ({children}) =>
   <div>
     <header>
+      <LinkContainer to='/'>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <LinkContainer to='/'>
-            <Navbar.Brand>
-              FROST
-            </Navbar.Brand>
-          </LinkContainer>
+          <Navbar.Brand>
+            FROST
+          </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
@@ -81,6 +80,8 @@ const MainLayout = ({children}) =>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      </LinkContainer>
+
     </header>
     <div style={divStyles}>
       {children}
