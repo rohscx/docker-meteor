@@ -55,7 +55,6 @@ ItemsTransferRate.deny({
     }
 
   sortBy(sortBy) {
-    {},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}
     let key1 = "siteData.dataObj."+sortBy;
     let zz = {};
     zz["sort"] = key1;
