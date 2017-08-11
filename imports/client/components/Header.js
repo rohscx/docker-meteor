@@ -11,7 +11,7 @@ export default class Header extends Component {
   render() {
     const divStyles = {
       paddingLeft:"10%",
-      paddingTop:"5%"
+      paddingTop:"5%",
       paddingBottom:"5%"
     };
       return(
