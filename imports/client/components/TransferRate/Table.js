@@ -176,12 +176,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th>ACA</th>
-              <th>Branch</th>
-              <th>WAN Speed</th>
-              <th>WAN TYPE</th>
-              <th>INET Speed Down/Up</th>
-              <th>INET TYPE</th>
+              <th onClick={()=>{console.log("ACA")}>ACA</th>
+              <th onClick={()=>{console.log("Branch")}>Branch</th>
+              <th onClick={()=>{console.log("WAN Speed")}>WAN Speed</th>
+              <th onClick={()=>{console.log("WAN TYPE")}>WAN TYPE</th>
+              <th onClick={()=>{console.log("INET Speed")}>INET Speed Down/Up</th>
+              <th onClick={()=>{console.log("INET TYPE")}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
