@@ -37,7 +37,6 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       dbReturn: ItemsTransferRate.find().fetch(),
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -101,8 +100,10 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
+  let dbData = ItemsTransferRate.find().fetch()
   return {
     showAll,
-    ready: transferRateItemsSub.ready()
+    ready: transferRateItemsSub.ready(),
+    dbReturn = dbData
   };
 }, AppTransferRate);
