@@ -83,7 +83,7 @@ const MainLayout = ({children}) =>
             </NavItem>
             <LinkContainer to='/about'>
             <NavItem eventKey={2}>
-              <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
+              About
             </NavItem>
             </LinkContainer>
           </Nav>
