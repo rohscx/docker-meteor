@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
-import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
+import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem,HelpBlock } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './TransferRate/Table';
 import { bandwidthCalc } from '../actions/utilActions'
@@ -85,7 +85,8 @@ class TransferRate extends Component {
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup validationState={validationStatus()}>
              <InputGroup>
-               <FormControl type="text" placeholder="Data Size..." onChange={formInput()}/>
+               <FormControl type="text" onChange={formInput()}/>
+               <HelpBlock>Enter data size to be transfered...</HelpBlock>
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
