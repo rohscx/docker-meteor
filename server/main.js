@@ -41,7 +41,7 @@ Meteor.publish('siteCircuitInfo', function() {
         });
     });
   //return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
-
+  return this.ready()
 } else {
   return ItemsTransferRate.find();
 }
