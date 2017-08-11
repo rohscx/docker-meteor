@@ -50,30 +50,30 @@ const MainLayout = ({children}) =>
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} componentClass="span">
+            <NavItem eventKey={1} componentClass="">
               <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
             </NavItem>
-            <NavItem eventKey={2} componentClass="span">
+            <NavItem eventKey={2} componentClass="">
               <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
             </NavItem>
-            <NavItem eventKey={3} componentClass="span">
+            <NavItem eventKey={3} componentClass="">
             <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1}>
                 <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
               </MenuItem>
-              <MenuItem eventKey={10.2} componentClass="span">Another action</MenuItem>
+              <MenuItem eventKey={10.2} componentClass="">Another action</MenuItem>
               <MenuItem eventKey={10.3} componentClass="span">Something else here</MenuItem>
               <MenuItem divider />
               <MenuItem eventKey={10.3} componentClass="span">Separated link</MenuItem>
             </NavDropdown>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} componentClass="span">
+            <NavItem eventKey={1} componentClass="">
               <LoginButtons/>
             </NavItem>
-            <NavItem eventKey={2} componentClass="span">
+            <NavItem eventKey={2} componentClass="">
               <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
             </NavItem>
           </Nav>
