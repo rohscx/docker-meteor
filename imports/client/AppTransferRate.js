@@ -57,7 +57,7 @@ ItemsTransferRate.deny({
   sortBy(sortBy) {
     let key = "siteData.dataObj."+sortBy;
     let zz = {};
-    let zz["sort"] = key;
+    zz["sort"] = key;
     for (var [key, value] of Object.entries(zz)) {
       console.log(key," ",value)
     }
