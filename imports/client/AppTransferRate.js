@@ -63,7 +63,7 @@ ItemsTransferRate.deny({
 
     zz.sort[key1] = 1
     console.log(zz)
-    console.log(ItemsTransferRate.find({},zz).fetch();)
+    console.log(ItemsTransferRate.find({},zz).fetch())
     this.setState({
       dbReturn: ItemsTransferRate.find({},zz).fetch();
     })
