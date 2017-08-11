@@ -1,8 +1,8 @@
 import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
+import { Link } from 'react-router';
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
-import { Route, RouteHandler, Link, IndexLinkContainer } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
+
 // style object for nav bar
 const styleObj = {
   textDecoration: 'none',
@@ -44,25 +44,25 @@ const MainLayout = ({children}) =>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            FROST
+            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to='/apic'>
-              <NavItem eventKey={1}>APIC-EM</NavItem>
-            </LinkContainer>
-            <LinkContainer to='/ise'>
-              <NavItem eventKey={2}>ISE</NavItem>
-            </LinkContainer>
-            <LinkContainer to='/prtg'>
-              <NavItem eventKey={3}>PRTG</NavItem>
-            </LinkContainer>
+            <NavItem eventKey={1}>
+              <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
+            </NavItem>
+            <NavItem eventKey={2}>
+              <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
+            </NavItem>
+            <NavItem eventKey={3}>
+            <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
+            </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
-              <LinkContainer to='/trfr'>
-                <MenuItem eventKey={10.1}>TRANSF..RATE</MenuItem>
-              </LinkContainer>
+              <MenuItem eventKey={10.1}>
+                <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
+              </MenuItem>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
               <MenuItem divider />
@@ -73,9 +73,9 @@ const MainLayout = ({children}) =>
             <NavItem eventKey={1}>
               <LoginButtons/>
             </NavItem>
-            <LinkContainer to='/about'>
-              <NavItem eventKey={2}>About</NavItem>
-            </LinkContainer> >
+            <NavItem eventKey={2}>
+              <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
+            </NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
