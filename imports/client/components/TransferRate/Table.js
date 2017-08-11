@@ -186,12 +186,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{setMan(this.tablethis("aca"))}}>ACA</th>
-              <th onClick={()=>{setMan(this.tablethis("branch"))}}>Branch</th>
-              <th onClick={()=>{setMan(this.tablethis("wPortSpeed"))}}>WAN Speed</th>
-              <th onClick={()=>{setMan(this.tablethis("wPortType"))}}>WAN TYPE</th>
-              <th onClick={()=>{setMan(this.tablethis("iSpeedUp"))}}>INET Speed Down/Up</th>
-              <th onClick={()=>{setMan(this.tablethis("iPortType"))}}>INET TYPE</th>
+              <th onClick={()=>{setMan(this.sortBy("aca"))}}>ACA</th>
+              <th onClick={()=>{setMan(this.sortBy("branch"))}}>Branch</th>
+              <th onClick={()=>{setMan(this.sortBy("wPortSpeed"))}}>WAN Speed</th>
+              <th onClick={()=>{setMan(this.sortBy("wPortType"))}}>WAN TYPE</th>
+              <th onClick={()=>{setMan(this.sortBy("iSpeedUp"))}}>INET Speed Down/Up</th>
+              <th onClick={()=>{setMan(this.sortBy("iPortType"))}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
