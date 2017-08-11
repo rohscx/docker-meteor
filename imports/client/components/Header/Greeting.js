@@ -10,7 +10,7 @@ export default class Greeting extends Component {
     };
     return(
       <div>
-        <p style={pStyles}>{this.props.status}</p>
+        <p style={pStyles}>{this.props.greeting}</p>
       </div>
     )
   }
