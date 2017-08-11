@@ -55,8 +55,9 @@ ItemsTransferRate.deny({
     }
 
   sortBy(sortBy) {
-    let sortString = '{{},{sort:{"siteData.dataObj.'+sortBy+'"+sortBy}}}';
-    let newData = ItemsTransferRate.find(sortString).fetch();
+    let dd = {{},{sort:{"siteData.dataObj."+sortBy+:1}}}
+    let sortString = "siteData.dataObj."+sortBy;
+    let newData = ItemsTransferRate.find(dd).fetch();
     this.setState({
       dbReturn: newData
     })
