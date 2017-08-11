@@ -64,6 +64,7 @@ class PrtgSensors extends Component {
       margin: "auto",
       width: "60%",
       paddingBottom:"4%",
+      paddingRight:"2%"
     };
 
     return (
