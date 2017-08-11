@@ -74,7 +74,7 @@ class PrtgSensors extends Component {
             </Col>
             <Col sm={10}>
               <FormControl type="text" value={hostName()} placeholder="Host Name" onChange={formInput()} />
-              <FormControl.Feedback />
+      
             </Col>
           </FormGroup>
           <FormGroup>
@@ -88,8 +88,7 @@ class PrtgSensors extends Component {
   render() {
     const divStyles = {
       paddingTop: "1%",
-      paddingBottom:"5%",
-      width: "105%"
+      paddingBottom:"5%"
     };
     console.log(this);
 
