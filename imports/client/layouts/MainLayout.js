@@ -36,7 +36,6 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-<NavItem componentClass={Link} href="/economies" to="/economies">Economies</NavItem>
 
 const MainLayout = ({children}) =>
   <div>
@@ -60,7 +59,7 @@ const MainLayout = ({children}) =>
             <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
-              <MenuItem eventKey={10.1} onClick={ e => this.props.history.push('/trfr')}>
+              <MenuItem eventKey={10.1} componentClass={Link} href='/trfr' to='/trfr'>
                 TRANSF..RATE
               </MenuItem>
               <MenuItem eventKey={10.2} >Another action</MenuItem>
