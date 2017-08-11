@@ -42,7 +42,8 @@ export default class Table extends Component {
     let anothertest = this.props.dbReturn;
     let setMan = (blob)=>{
       anothertest = blob;
-      console.log(hit)
+      console.log("hit")
+      console.log(blob)
     }
     let test = anothertest.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
