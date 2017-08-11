@@ -41,7 +41,7 @@ const MainLayout = ({children}) =>
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <h1 className="navbar-brand">
-          <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
+          <Link to='/'>FROST</Link>
         </h1>
         <button className="navbar-toggler" type="button" dataToggle="collapse" dataTarget="#navbarText" ariaControls="navbarText" ariaCxpanded="false" ariaLabel="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
