@@ -26,6 +26,12 @@ export function setBandwidthCalc(number) {
   };
 }
 
+export function setSortBy(text) {
+  return {
+    type: "SET_SORTBY",
+    payload: text
+  };
+}
 
 export function validateMac(mac) {
   return dispatch => {
@@ -100,7 +106,13 @@ export function bandwidthCalc(bandwidth,byteType,cdase) {
         }));
       }
     }
+  }
+}
 
-
+export function sortBy(text) {
+  return dispatch => {
+    return dispatch(setSortBy({
+        sortBy: text
+      }));
   }
 }

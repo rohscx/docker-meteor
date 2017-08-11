@@ -36,6 +36,12 @@ const utilReducer = (state = {
       bandwidthCalcData: action.payload
     };
     break;
+    case "SET_SORTBY":
+    state = {
+      ...state,
+      sortBy: action.payload
+    };
+    break;
   }
   return state;
 };

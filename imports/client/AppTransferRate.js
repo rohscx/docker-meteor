@@ -54,6 +54,13 @@ ItemsTransferRate.deny({
       });
     }
 
+  sortBy(sortBy) {
+    let sortString = "siteData.dataObj."+sortBy;
+    let newData = ItemsTransferRate.find({},{sort:{sortString: 1}}).fetch();
+    this.setState({
+      dbReturn: newData;
+    })
+  }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
@@ -71,7 +78,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.props} dbReturnRdy={true}/>
+          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy(sortSrting)}/>
         </main>
       </Provider>
     );
