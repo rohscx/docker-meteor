@@ -55,7 +55,7 @@ ItemsTransferRate.deny({
     }
 
   sortBy(sortBy) {
-    let dd = {sort:{"siteData.dataObj."+sortBy+:1}}
+    let dd = {sort:{"siteData.dataObj."sortBy\:1}}
     console.log{dd}
     console.log(typeof(dd))
     let sortString = "siteData.dataObj."+sortBy;
