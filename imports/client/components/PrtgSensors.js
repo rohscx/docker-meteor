@@ -62,9 +62,8 @@ class PrtgSensors extends Component {
 
     const divStyles = {
       margin: "auto",
-      width: "100%",
-      paddingBottom:"2%",
-      paddingRight:"2%"
+      width: "60%",
+      paddingBottom:"5%",
     };
 
     return (
