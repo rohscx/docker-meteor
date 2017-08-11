@@ -2,6 +2,7 @@ import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 // style object for nav bar
 const styleObj = {
@@ -56,9 +57,10 @@ const MainLayout = ({children}) =>
             <NavItem eventKey={2} >
               <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
             </NavItem>
-            <NavItem eventKey={3} >
-            <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
+            <LinkContainer to='/prtg'>
+            <NavItem eventKey={3} >PRTG
             </NavItem>
+           
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
               <MenuItem eventKey={10.1}>
                 <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
