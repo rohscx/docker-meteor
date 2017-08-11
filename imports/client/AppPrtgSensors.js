@@ -50,6 +50,9 @@ store.subscribe(() => {
    }
 
    componentWillMount() {
+     let name = "aga"
+     let ex = ".*"+name+".*";
+     let data = ItemsPrtg.find({"prtgData.dataObj.device":{$regex: ex}},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}).fetch();
      this.setState({
        title: "Branch Hardware"
      });
@@ -58,6 +61,14 @@ store.subscribe(() => {
      });
      this.setState({
        status: ""
+     });
+
+     this.setState({
+       dbReturn: data,
+     });
+
+     this.setState({
+       dbReturnRdy: true,
      });
     }
 
