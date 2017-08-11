@@ -17,6 +17,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
+const basic = ItemsTransferRate.find().fetch();
 ItemsTransferRate.allow({
   insert() { return false; },
   update() { return false; },
@@ -54,7 +55,7 @@ ItemsTransferRate.deny({
         status: ""
       });
       this.setState({
-        dataReturn: ItemsTransferRate.find().fetch()
+        dataReturn: basic
       })
     }
 
