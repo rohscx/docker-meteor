@@ -15,6 +15,7 @@ export default class Header extends Component {
       return(
         <div style={divStyles}>
           <Title {... this.props}/>
+          <Greeting {... this.props}/>
           <Status {... this.props}/>
         </div>
       )
