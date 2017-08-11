@@ -2,8 +2,6 @@ import React from 'react';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 import { Route, RouteHandler, Link, IndexLinkContainer } from 'react-router';
-import { LinkContainer  } from 'react-router-bootstrap';
-
 // style object for nav bar
 const styleObj = {
   textDecoration: 'none',
@@ -44,9 +42,9 @@ const MainLayout = ({children}) =>
     <header>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <IndexLinkContainer to='/'>
-            <Navbar.Brand>Frost</Navbar.Brand>
-          </IndexLinkContainer>
+          <Navbar.Brand>
+            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
+          </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
