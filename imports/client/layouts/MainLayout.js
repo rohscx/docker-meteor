@@ -60,8 +60,8 @@ const MainLayout = ({children}) =>
             <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
             </NavItem>
             <NavDropdown eventKey={10} title="Util" id="basic-nav-dropdown">
-              <MenuItem eventKey={10.1}>
-                <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
+              <MenuItem eventKey={10.1} onClick={ e => this.props.history.push('/trfr')>
+                TRANSF..RATE
               </MenuItem>
               <MenuItem eventKey={10.2} >Another action</MenuItem>
               <MenuItem eventKey={10.3} >Something else here</MenuItem>
