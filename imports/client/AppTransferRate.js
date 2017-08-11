@@ -58,7 +58,7 @@ ItemsTransferRate.deny({
     let sortString = "siteData.dataObj."+sortBy;
     let newData = ItemsTransferRate.find({},{sort:{sortString: 1}}).fetch();
     this.setState({
-      dbReturn: newData;
+      dbReturn: newData
     })
   }
 
