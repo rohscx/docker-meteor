@@ -55,17 +55,20 @@ ItemsTransferRate.deny({
     }
 
   sortBy(sortBy) {
+    {},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}}
     let key1 = "siteData.dataObj."+sortBy;
     let zz = {};
     zz["sort"] = key1;
     for (var [key, value] of Object.entries(zz)) {
       console.log(key," ",value)
+      value = 1;
+      let newData = ItemsTransferRate.find({},zz).fetch();
+      this.setState({
+        dbReturn: newData
+      })
     }
     let sortString = "siteData.dataObj."+sortBy;
-    let newData = ItemsTransferRate.find().fetch();
-    this.setState({
-      dbReturn: newData
-    })
+
   }
 
   render() {
