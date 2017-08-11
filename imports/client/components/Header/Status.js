@@ -5,7 +5,8 @@ export default class Status extends Component {
 
   render() {
     const pStyles = {
-      width:"90%"
+      width:"90%",
+      paddingLeft:"10%"
     };
     return(
       <div>
