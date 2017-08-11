@@ -65,7 +65,7 @@ ItemsTransferRate.deny({
     console.log(zz)
     console.log(ItemsTransferRate.find({},zz).fetch())
     this.setState({
-      dbReturn: ItemsTransferRate.find({},zz).fetch();
+      dbReturn: ItemsTransferRate.find({},zz).fetch()
     })
 
   }
