@@ -64,8 +64,7 @@ ItemsTransferRate.deny({
       console.log(zz.sort[value])
       console.log(zz)
       zz.sort.value = 1;
-      value = 1
-      console.log(zz.key.value)
+      console.log(zz.sort)
 
     }
     console.log(zz)
