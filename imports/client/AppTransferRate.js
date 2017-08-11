@@ -117,6 +117,6 @@ export default createContainer(({params}) => {
     showAll,
     ready: transferRateItemsSub.ready(),
     dbReturn: dbData,
-    sortBy: changeThis
+    sortBy: changeThis.bind(this)
   };
 }, AppTransferRate);
