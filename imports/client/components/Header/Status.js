@@ -8,7 +8,7 @@ export default class Status extends Component {
     };
     return(
       <div>
-        <p style={pStyles}>{this.props.greeting}</p>
+        <p style={pStyles}>{this.props.status}</p>
       </div>
     )
   }
