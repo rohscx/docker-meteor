@@ -84,6 +84,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
+          {this.props.ddd("dfasdf")}
           <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)}/>
         </main>
       </Provider>
@@ -99,9 +100,14 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
+  let blah = (d)=> {
+    dbData = d;
+    console.log("Changed bor!!!")
+  }
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: dbData
+    dbReturn: dbData,
+    ddd:blah.bind(this)
   };
 }, AppTransferRate);
