@@ -37,7 +37,6 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       dbReturn: this.props.dbReturnDefault,
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -64,10 +63,8 @@ ItemsTransferRate.deny({
 
     zz.sort[key1] = 1
     console.log(zz)
-    console.log(ItemsTransferRate.find({},zz).fetch())
-    this.setState({
-      dbReturn: ItemsTransferRate.find({},zz).fetch()
-    })
+    //console.log(ItemsTransferRate.find({},zz).fetch())
+    return ItemsTransferRate.find({},zz).fetch()
   }
 
   render() {
@@ -105,6 +102,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturnDefault: dbData
+    dbReturn: dbData
   };
 }, AppTransferRate);
