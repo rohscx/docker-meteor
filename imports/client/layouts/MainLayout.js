@@ -37,15 +37,21 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-
+<LinkContainer to='/'>
+  <Navbar.Brand>
+    FROST<
+  </Navbar.Brand>
+</LinkContainer>
 const MainLayout = ({children}) =>
   <div>
     <header>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link>
-          </Navbar.Brand>
+          <LinkContainer to='/'>
+            <Navbar.Brand>
+              FROST<
+            </Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
