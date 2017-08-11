@@ -17,7 +17,6 @@ import { Mongo } from 'meteor/mongo';
 
 
 const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
-const basic = ItemsTransferRate.find().fetch();
 ItemsTransferRate.allow({
   insert() { return false; },
   update() { return false; },
@@ -38,7 +37,6 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       dataReturn: "",
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -54,9 +52,6 @@ ItemsTransferRate.deny({
       this.setState({
         status: ""
       });
-      this.setState({
-        dataReturn: basic
-      })
     }
 
   sortBy(sortBy) {
@@ -89,7 +84,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)} dataReturn={this.state.dataReturn}/>
+          <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)}/>
         </main>
       </Provider>
     );
@@ -106,6 +101,7 @@ export default createContainer(({params}) => {
   let dbData = ItemsTransferRate.find().fetch()
   return {
     showAll,
-    ready: transferRateItemsSub.ready()
+    ready: transferRateItemsSub.ready(),
+    dbReturn: dbData
   };
 }, AppTransferRate);
