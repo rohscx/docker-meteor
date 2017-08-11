@@ -37,11 +37,7 @@ const divStyles = {
   margin: "auto",
   width: "60%"
 };
-<LinkContainer to='/'>
-  <Navbar.Brand>
-    FROST<
-  </Navbar.Brand>
-</LinkContainer>
+
 const MainLayout = ({children}) =>
   <div>
     <header>
