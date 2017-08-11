@@ -60,7 +60,9 @@ ItemsTransferRate.deny({
     zz["sort"] = key1;
     for (var [key, value] of Object.entries(zz)) {
       console.log(key," ",value)
+
       value = 1;
+      consonle.log(zz)
       let newData = ItemsTransferRate.find({},zz).fetch();
       this.setState({
         dbReturn: newData
