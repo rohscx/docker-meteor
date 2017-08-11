@@ -74,7 +74,6 @@ class PrtgSensors extends Component {
             </Col>
             <Col sm={10}>
               <FormControl type="text" value={hostName()} placeholder="Device Name..." onChange={formInput()} />
-
             </Col>
           </FormGroup>
           <FormGroup>
