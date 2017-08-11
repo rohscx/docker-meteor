@@ -101,8 +101,9 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
   let blah = (d)=> {
-    dbData = d;
+    dbReturn = d;
     console.log("Changed bor!!!")
+    console.log(dbReturn)
   }
   return {
     showAll,
