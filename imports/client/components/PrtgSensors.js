@@ -66,7 +66,7 @@ class PrtgSensors extends Component {
     };
 
     return (
-      <div>
+      <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup controlId="formHorizontalHost" validationState={validationStatus()}>
             <Col componentClass={ControlLabel} sm={2}>
@@ -89,6 +89,7 @@ class PrtgSensors extends Component {
     const divStyles = {
       paddingTop: "1%",
       paddingBottom:"5%"
+      width: "105%"
     };
     console.log(this);
 
