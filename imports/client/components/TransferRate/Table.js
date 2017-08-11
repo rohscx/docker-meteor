@@ -151,7 +151,7 @@ export default class Table extends Component {
       let statusDanger = (time) =>{
         if(isNaN(time)){
           return null;
-        } else if(time >=216000) {
+        } else if(time >=212400) {
           return 'danger';
         } else {
           return 'success';
