@@ -34,7 +34,7 @@ ItemsTransferRate.deny({
    constructor() {
      super();
      this.state = {
-       greeting: "",
+       title: "",
        status: "",
        dbReturnRdy: true,
        fileTransferStatus: false
@@ -43,10 +43,10 @@ ItemsTransferRate.deny({
 
    componentWillMount() {
       this.setState({
-        greeting: "Welome to the file transfer circuit mesurement application"
+        title: "Bandwidth Calculation"
       });
       this.setState({
-        status: "keep in mind this . that and this...."
+        status: "Welome to the file transfer circuit mesurement application"
       });
     }
 

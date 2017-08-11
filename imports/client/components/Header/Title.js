@@ -10,7 +10,7 @@ export default class Title extends Component {
     };
     return(
       <div>
-        <h1 style={h1Styles}>{this.props.greeting}</h1>
+        <h1 style={h1Styles}>{this.props.title}</h1>
 
       </div>
     )
