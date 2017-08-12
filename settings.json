@@ -12,12 +12,12 @@
 },
   "public" : {
     "ciscoApicEM": {
-      "url": "",
+      "url": "https://devnetapi.cisco.com/sandbox/apic_em",
       "uName": "devnetuser",
       "uPass": "Cisco123!"
     },
     "apicEM": {
-      "url": "https://devnetapi.cisco.com/sandbox/apic_em",
+      "url": "",
       "uName": "",
       "uPass": ""
     }
