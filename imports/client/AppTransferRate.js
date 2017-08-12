@@ -61,6 +61,8 @@ ItemsTransferRate.deny({
       console.log("BLAH HIT",result)
     })
 
+
+
   }
 
   setDbReturn (data){
@@ -106,7 +108,7 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
-  sortBy = (sortBy) =>{
+  sortBy = (sortBy,callback) =>{
     let keyString = "siteData.dataObj."+sortBy;
     let sortObj = {};
     let keyObj ={};
@@ -114,7 +116,7 @@ export default createContainer(({params}) => {
     sortObj["sort"] = keyObj;
     console.log("DDDD HIT",sortObj)
     console.log(ItemsTransferRate.find({},sortObj).fetch())
-    return ItemsTransferRate.find({},sortObj).fetch()
+    callback(return ItemsTransferRate.find({},sortObj).fetch())
   }
   return {
     showAll,
