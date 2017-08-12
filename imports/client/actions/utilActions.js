@@ -26,10 +26,10 @@ export function setBandwidthCalc(number) {
   };
 }
 
-export function setSortBy(text) {
+export function setSortBy(blob) {
   return {
     type: "SET_SORTBY",
-    payload: text
+    payload: blob
   };
 }
 
