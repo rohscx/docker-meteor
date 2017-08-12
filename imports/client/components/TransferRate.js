@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Table from './TransferRate/Table';
-import { bandwidthCalc, sortBy } from '../actions/utilActions'
+import { bandwidthCalc, sortBy22 } from '../actions/utilActions'
 
 class TransferRate extends Component {
   constructor() {
@@ -137,8 +137,8 @@ const mapDispatchToProps = (dispatch) => {
     bandwidthCalc: (number,byteType,cdase) => {
       dispatch(bandwidthCalc(number,byteType,cdase));
     },
-    sortBy: (blob)=>{
-      dispatch(sortBy(blob));
+    sortBy22: (blob)=>{
+      dispatch(sortBy22(blob));
     },
   };
 };
