@@ -99,7 +99,7 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
-  sortBy = () =>{
+  sortBy = (sortBy) =>{
     let keyString = "siteData.dataObj."+sortBy;
     let sortObj = {};
     let keyObj ={};
