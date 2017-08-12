@@ -81,7 +81,6 @@ ItemsTransferRate.deny({
           </IsRole>
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
-          {this.props.dbReturnSort("aca")}
         </main>
       </Provider>
     );
