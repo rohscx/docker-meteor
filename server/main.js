@@ -41,7 +41,8 @@ Meteor.publish('siteCircuitInfo', function() {
         });
     });
   // return ready to load page, does not check data validity
-  return this.ready()
+  this.ready()
+  return ItemsTransferRate.find();
 } else {
   return ItemsTransferRate.find();
 }
