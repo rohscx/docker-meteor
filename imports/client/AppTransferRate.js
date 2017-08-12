@@ -56,21 +56,17 @@ ItemsTransferRate.deny({
       });
     }
 
-    componentDidMount() {
-      console.log("DID MOUNT",this.props.dbReturnSort("aca"))
-      this.setState({
-        dbReturn: this.props.dbReturnSort("aca")
-      });
-    }
   sortBy() {
-    //let blah = this.props.dbReturnSort("aca")
-    //console.log("BLAH HIT",blah)
-    return "blah"
+    let blah = this.props.dbReturnSort("aca")
+    console.log("BLAH HIT",blah)
+    return blah
   }
 
   setDbReturn (data){
-    this.setState({
-      status: data
+    this.setState(this.props.dbReturnSort("aca"), (data)=>{
+      {
+        status: data
+      }
     });
   }
 
@@ -92,6 +88,7 @@ ItemsTransferRate.deny({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
+          {this.setDbReturn(this.sortBy())}
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
