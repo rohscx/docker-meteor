@@ -44,12 +44,7 @@ ItemsTransferRate.deny({
    }
 
    componentWillMount() {
-     this.props.dbReturnSort("aca",(dd)=>{
-       console.log("DD HIT", dd)
-       this.setState({
-         dbReturn: dd
-       });
-     })
+
       this.setState({
         title: "File Transfer Time Calculator"
       });
@@ -59,7 +54,12 @@ ItemsTransferRate.deny({
       this.setState({
         status: ""
       });
+      this.setState({
+        dbReturn: this.props.dbReturnSort("aca",(dd)=>{
+               console.log("DD HIT", dd)
 
+             })
+      });
     }
 
   sortBy(sortBy) {
