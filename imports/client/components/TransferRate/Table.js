@@ -186,12 +186,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{setMan(this.props.sortBy("aca"))}}>ACA</th>
-              <th onClick={()=>{setMan(this.props.sortBy("branch"))}}>Branch</th>
-              <th onClick={()=>{setMan(this.props.sortBy("wPortSpeed"))}}>WAN Speed</th>
-              <th onClick={()=>{setMan(this.props.sortBy("wPortType"))}}>WAN TYPE</th>
-              <th onClick={()=>{setMan(this.props.sortBy("iSpeedUp"))}}>INET Speed Down/Up</th>
-              <th onClick={()=>{setMan(this.props.sortBy("iPortType"))}}>INET TYPE</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("aca"))}}>ACA</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("branch"))}}>Branch</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("wPortSpeed"))}}>WAN Speed</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("wPortType"))}}>WAN TYPE</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("iSpeedUp"))}}>INET Speed Down/Up</th>
+              <th onClick={()=>{setMan(this.props.dbReturnSort("iPortType"))}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
