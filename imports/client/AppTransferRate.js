@@ -99,6 +99,7 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
+  console.log(this)
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
