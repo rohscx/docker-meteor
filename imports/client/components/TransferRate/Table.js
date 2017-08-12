@@ -162,6 +162,13 @@ export default class Table extends Component {
           return 'success';
         }
       }
+      let setActiveColumn = (columnName)=>{
+        if (sortUtilField == columName){
+          return true;
+        } else {
+          return false;
+        }
+      }
       return (
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
         <td>{newData.aca}</td>
@@ -181,7 +188,7 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>ACA</th>
+              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>{setActiveColumn("aca") ? <font color="red">ACA</font> : "ACA"}</th>
               <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}}>Branch</th>
               <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}}>WAN Speed</th>
               <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}}>WAN TYPE</th>
