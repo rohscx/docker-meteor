@@ -162,13 +162,6 @@ export default class Table extends Component {
           return 'success';
         }
       }
-      let setActiveColumn = (columnName)=>{
-        if (sortUtilField == columName){
-          return true;
-        } else {
-          return false;
-        }
-      }
       return (
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
         <td>{newData.aca}</td>
@@ -183,6 +176,13 @@ export default class Table extends Component {
       </tr>
       )
     })
+    let setActiveColumn = (columnName)=>{
+      if (sortUtilField == columName){
+        return true;
+      } else {
+        return false;
+      }
+    }
     return (
       <div key={12}>
         <table className = "table table-striped table-hover table-responsive">
