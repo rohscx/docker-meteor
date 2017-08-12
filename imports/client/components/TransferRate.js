@@ -16,9 +16,6 @@ class TransferRate extends Component {
     let value = event.target.value;
     let byteType = this.props.util.bandwidthCalcData.byteType;
     this.props.bandwidthCalc(value,byteType,null);
-    console.log(this.props.util.sortField)
-    this.props.sortBy("dddd")
-    console.log(this.props.util.sortField)
   }
 
   preventDefault(e){
@@ -122,7 +119,6 @@ class TransferRate extends Component {
       <div style={divStyles}>
         {this.form()}
         <Table {... this.props}/>
-        {this.setSortBy("ddddd")}
       </div>
     )
   }
