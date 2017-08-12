@@ -101,7 +101,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: sortBy("aca"),
+    dbReturn: sortBy("wPortSpeed"),
     dbReturnSort: sortBy("aca")
   };
 }, AppTransferRate);
