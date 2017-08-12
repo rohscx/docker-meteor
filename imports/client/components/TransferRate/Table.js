@@ -171,7 +171,7 @@ export default class Table extends Component {
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
         <td>{newData.aca}</td>
         <td>{newData.branch}</td>
-        <td> {newData.wPortSpeed}</td>
+        <td>{newData.wPortSpeed}</td>
         <td>{newData.wPortType}</td>
         <td>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
         <td>{newData.iPortType}</td>
