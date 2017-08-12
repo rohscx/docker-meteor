@@ -38,6 +38,7 @@ ItemsTransferRate.deny({
        greeting:"",
        status: "",
        dbReturn:"",
+       dbReturn2:""
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -59,9 +60,10 @@ ItemsTransferRate.deny({
   sortBy() {
     let blah = this.props.dbReturnSort("aca", (result)=>{
       console.log("BLAH HIT",result)
+      this.setState({
+        dbReturn2: result
+      });
     })
-
-
 
   }
 
