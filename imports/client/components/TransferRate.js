@@ -123,6 +123,7 @@ class TransferRate extends Component {
       <div style={divStyles}>
         {this.form()}
         <Table {... this.props}/>
+        {this.props.sortBy("bbb")}
       </div>
     )
   }
