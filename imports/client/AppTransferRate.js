@@ -90,6 +90,9 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
+  searchString = (string)=>{
+    return string;
+  }
   sortBy = (sortBy) =>{
     let keyString = "siteData.dataObj."+sortBy;
     let sortObj = {};
@@ -101,7 +104,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: sortBy("wPortSpeed"),
+    dbReturn: sortBy(searchString("wPortSpeed")),
     dbReturnSort: sortBy("aca")
   };
 }, AppTransferRate);
