@@ -26,10 +26,10 @@ export function setBandwidthCalc(number) {
   };
 }
 
-export function setSortBy(blob) {
+export function setSortBy(value) {
   return {
     type: "SET_SORTBY",
-    payload: blob
+    payload: value
   };
 }
 
@@ -109,10 +109,18 @@ export function bandwidthCalc(bandwidth,byteType,cdase) {
   }
 }
 
-export function sortBy(text) {
+export function sortBy(sortValue, sortOrder) {
   return dispatch => {
-    return dispatch(setSortBy({
-      field: text
-    }));
+    if (sortOrder == 1){
+      return dispatch(setSortBy({
+        field: sortValue,
+        order: -1
+      }));
+    } else (
+      return dispatch(setSortBy({
+        field: sortValue,
+        order: 1
+      }));
+    )
   }
 }

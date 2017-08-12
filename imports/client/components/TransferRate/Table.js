@@ -37,7 +37,9 @@ export default class Table extends Component {
   returnList() {
     let inBits = this.props.util.bandwidthCalcData.numberToBits;
     let byteType = this.props.util.bandwidthCalcData.byteType;
-    let anothertest = this.props.dbReturn(this.props.util.sortBy.field);
+    let sortUtilField = this.props.util.sortBy.field;
+    let sortUtilOrder = this.props.util.sortBy.order;
+    let anothertest = this.props.dbReturn(sortUtilField,sortUtilOrder);
     let test = anothertest.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         let inSeconds, NaNCheck
@@ -179,12 +181,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.props.sortBy("aca")}}>ACA</th>
-              <th onClick={()=>{this.props.sortBy("branch")}}>Branch</th>
-              <th onClick={()=>{this.props.sortBy("wPortSpeed")}}>WAN Speed</th>
-              <th onClick={()=>{this.props.sortBy("wPortType")}}>WAN TYPE</th>
-              <th onClick={()=>{this.props.sortBy("iSpeedUp")}}>INET Speed Down/Up</th>
-              <th onClick={()=>{this.props.sortBy("iPortType")}}>INET TYPE</th>
+              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>ACA</th>
+              <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}}>Branch</th>
+              <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}}>WAN Speed</th>
+              <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}}>WAN TYPE</th>
+              <th onClick={()=>{this.props.sortBy("iSpeedUp",sortUtilOrder)}}>INET Speed Down/Up</th>
+              <th onClick={()=>{this.props.sortBy("iPortType",sortUtilOrder)}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
