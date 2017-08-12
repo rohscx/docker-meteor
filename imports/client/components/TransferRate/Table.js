@@ -38,143 +38,146 @@ export default class Table extends Component {
     let byteType = this.props.util.bandwidthCalcData.byteType;
     let anothertest = this.props.dbReturn("aca", (response)=>{
       console.log("Callback REsponse TAble", response)
-      response.map((data)=>{
-        console.log("DATAATA",data)
-        let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
-          let inSeconds, NaNCheck
-          switch(dataType){
-            case "MB":
-              // debug
-              //console.log(dataSize,"  ",portSpeed)
-              inSeconds = dataSize / portSpeed;
-              NaNCheck = isNaN(inSeconds);
-              if (inSeconds <= 60){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
-              } else if (inSeconds >= 60 && inSeconds < 3600){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
-              } else if (inSeconds >= 3600 && inSeconds < 86400){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
-              } else if (inSeconds >= 86400 && inSeconds < 604800){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
-              } else if (inSeconds >= 604800 && inSeconds < 2628000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-              } else if (inSeconds >= 2628000 && inSeconds < 31540000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
-              } else {
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
-              }
-              break;
-            case "GB":
-              // debug
-              //console.log(dataSize,"  ",portSpeed)
-              inSeconds = ((dataSize * 1024) / portSpeed);
-              NaNCheck = isNaN(inSeconds);
-              if (inSeconds <= 60){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
-              } else if (inSeconds >= 60 && inSeconds < 3600){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
-              } else if (inSeconds >= 3600 && inSeconds < 86400){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
-              } else if (inSeconds >= 86400 && inSeconds < 604800){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
-              } else if (inSeconds >= 604800 && inSeconds < 2628000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-              } else if (inSeconds >= 2628000 && inSeconds < 31540000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
-              } else {
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
-              }
-              break;
-            case "TB":
-              // debug
-              //console.log(dataSize,"  ",portSpeed)
-              inSeconds = (((dataSize * 1024)*1024) / portSpeed);
-              NaNCheck = isNaN(inSeconds);
-              if (inSeconds <= 60){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
-              } else if (inSeconds >= 60 && inSeconds < 3600){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
-              } else if (inSeconds >= 3600 && inSeconds < 86400){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
-              } else if (inSeconds >= 86400 && inSeconds < 604800){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
-              } else if (inSeconds >= 604800 && inSeconds < 2628000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-              } else if (inSeconds >= 2628000 && inSeconds < 31540000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
-              } else {
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
-              }
-              break;
-            case "PB":
-              // debug
-              //console.log(dataSize,"  ",portSpeed)
-              inSeconds = ((((dataSize * 1024)*1024)*1024) / portSpeed);
-              NaNCheck = isNaN(inSeconds);
-              if (inSeconds <= 60){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
-              } else if (inSeconds >= 60 && inSeconds < 3600){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
-              } else if (inSeconds >= 3600 && inSeconds < 86400){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
-              } else if (inSeconds >= 86400 && inSeconds < 604800){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
-              } else if (inSeconds >= 604800 && inSeconds < 2628000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-              } else if (inSeconds >= 2628000 && inSeconds < 31540000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
-              } else {
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
-              }
-              break;
-            case "ZB":
-              // debug
-              //console.log(dataSize,"  ",portSpeed)
-              inSeconds = (((((dataSize * 1024)*1024)*1024)*1024) / portSpeed);
-              NaNCheck = isNaN(inSeconds);
-              if (inSeconds <= 60){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
-              } else if (inSeconds >= 60 && inSeconds < 3600){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
-              } else if (inSeconds >= 3600 && inSeconds < 86400){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
-              } else if (inSeconds >= 86400 && inSeconds < 604800){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
-              } else if (inSeconds >= 604800 && inSeconds < 2628000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
-              } else if (inSeconds >= 2628000 && inSeconds < 31540000){
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
-              } else {
-                return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
-              }
-              break;
-            default:
+      return (
+        response.map((data)=>{
+          console.log("DATAATA",data)
+          let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
+            let inSeconds, NaNCheck
+            switch(dataType){
+              case "MB":
+                // debug
+                //console.log(dataSize,"  ",portSpeed)
+                inSeconds = dataSize / portSpeed;
+                NaNCheck = isNaN(inSeconds);
+                if (inSeconds <= 60){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
+                } else if (inSeconds >= 60 && inSeconds < 3600){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
+                } else if (inSeconds >= 3600 && inSeconds < 86400){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
+                } else if (inSeconds >= 86400 && inSeconds < 604800){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
+                } else if (inSeconds >= 604800 && inSeconds < 2628000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
+                } else if (inSeconds >= 2628000 && inSeconds < 31540000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
+                } else {
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
+                }
+                break;
+              case "GB":
+                // debug
+                //console.log(dataSize,"  ",portSpeed)
+                inSeconds = ((dataSize * 1024) / portSpeed);
+                NaNCheck = isNaN(inSeconds);
+                if (inSeconds <= 60){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
+                } else if (inSeconds >= 60 && inSeconds < 3600){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
+                } else if (inSeconds >= 3600 && inSeconds < 86400){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
+                } else if (inSeconds >= 86400 && inSeconds < 604800){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
+                } else if (inSeconds >= 604800 && inSeconds < 2628000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
+                } else if (inSeconds >= 2628000 && inSeconds < 31540000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
+                } else {
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
+                }
+                break;
+              case "TB":
+                // debug
+                //console.log(dataSize,"  ",portSpeed)
+                inSeconds = (((dataSize * 1024)*1024) / portSpeed);
+                NaNCheck = isNaN(inSeconds);
+                if (inSeconds <= 60){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
+                } else if (inSeconds >= 60 && inSeconds < 3600){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
+                } else if (inSeconds >= 3600 && inSeconds < 86400){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
+                } else if (inSeconds >= 86400 && inSeconds < 604800){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
+                } else if (inSeconds >= 604800 && inSeconds < 2628000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
+                } else if (inSeconds >= 2628000 && inSeconds < 31540000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
+                } else {
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
+                }
+                break;
+              case "PB":
+                // debug
+                //console.log(dataSize,"  ",portSpeed)
+                inSeconds = ((((dataSize * 1024)*1024)*1024) / portSpeed);
+                NaNCheck = isNaN(inSeconds);
+                if (inSeconds <= 60){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
+                } else if (inSeconds >= 60 && inSeconds < 3600){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
+                } else if (inSeconds >= 3600 && inSeconds < 86400){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
+                } else if (inSeconds >= 86400 && inSeconds < 604800){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
+                } else if (inSeconds >= 604800 && inSeconds < 2628000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
+                } else if (inSeconds >= 2628000 && inSeconds < 31540000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
+                } else {
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
+                }
+                break;
+              case "ZB":
+                // debug
+                //console.log(dataSize,"  ",portSpeed)
+                inSeconds = (((((dataSize * 1024)*1024)*1024)*1024) / portSpeed);
+                NaNCheck = isNaN(inSeconds);
+                if (inSeconds <= 60){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds)} {NaNCheck ? "/a" : " Seconds"}</td>)
+                } else if (inSeconds >= 60 && inSeconds < 3600){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/60)}{NaNCheck ? "/a" : " Minutes"}</td>)
+                } else if (inSeconds >= 3600 && inSeconds < 86400){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/3600)}{NaNCheck ? "/a" : " Hours"}</td>)
+                } else if (inSeconds >= 86400 && inSeconds < 604800){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/86400)}{NaNCheck ? "/a" : " Days"}</td>)
+                } else if (inSeconds >= 604800 && inSeconds < 2628000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/604800)}{NaNCheck ? "/a" : " Weeks"}</td>)
+                } else if (inSeconds >= 2628000 && inSeconds < 31540000){
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/2628000)}{NaNCheck ? "/a" : " Months"}</td>)
+                } else {
+                  return (<td className={statusDanger(Math.round(inSeconds))}>{NaNCheck ? "n" : Math.round(inSeconds/31540000)}{NaNCheck ? "/a" : " Years"}</td>)
+                }
+                break;
+              default:
+            }
           }
-        }
-        let newData = data.siteData.dataObj;
-        let statusDanger = (time) =>{
-          if(isNaN(time)){
-            return null;
-          } else if(time >=212400) {
-            return 'danger';
-          } else {
-            return 'success';
+          let newData = data.siteData.dataObj;
+          let statusDanger = (time) =>{
+            if(isNaN(time)){
+              return null;
+            } else if(time >=212400) {
+              return 'danger';
+            } else {
+              return 'success';
+            }
           }
-        }
-        return (
-          <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-          <td>{newData.aca}</td>
-          <td>{newData.branch}</td>
-          <td>{newData.wPortSpeed}</td>
-          <td>{newData.wPortType}</td>
-          <td>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
-          <td>{newData.iPortType}</td>
-          {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
-          {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUp) : null}
-          {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedDown) : null}
-        </tr>
-        )
-      })
+          return (
+            <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
+            <td>{newData.aca}</td>
+            <td>{newData.branch}</td>
+            <td>{newData.wPortSpeed}</td>
+            <td>{newData.wPortType}</td>
+            <td>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
+            <td>{newData.iPortType}</td>
+            {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
+            {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUp) : null}
+            {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedDown) : null}
+          </tr>
+          )
+        })
+      )
+
     });
 
     return (
