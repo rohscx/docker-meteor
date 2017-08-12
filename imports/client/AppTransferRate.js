@@ -108,7 +108,10 @@ export default createContainer(({params}) => {
     showAll,
     ready: transferRateItemsSub.ready(),
     dbReturn: sortBy("wPortSpeed"),
-    dbReturnSort: function data(d){console.log(sortBy(d)) return sortBy(d)}
+    dbReturnSort: function data(d){
+      console.log(sortBy(d))
+      return sortBy(d)
+    }
 
   };
 }, AppTransferRate);
