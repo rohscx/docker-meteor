@@ -48,7 +48,7 @@ ItemsTransferRate.deny({
         title: "File Transfer Time Calculator"
       });
       this.setState({
-        greeting: "Welome, this application calculates the time it will take to move a file... 59Hours or less will be Green. You may sort by PRIMARY columns"
+        greeting: "Welome, this application calculates the time it will take to move a file... 59Hours or less will be Green."
       });
       this.setState({
         status: ""
