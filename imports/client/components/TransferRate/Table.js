@@ -45,7 +45,7 @@ export default class Table extends Component {
           switch(dataType){
             case "MB":
               // debug
-              console.log(dataSize,"  ",portSpeed)
+              //console.log(dataSize,"  ",portSpeed)
               inSeconds = dataSize / portSpeed;
               NaNCheck = isNaN(inSeconds);
               if (inSeconds <= 60){
@@ -163,7 +163,7 @@ export default class Table extends Component {
         }
         return (
           <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-          <td>{newData.aca}</td>
+          <td>{"newData.aca"}</td>
           <td>{newData.branch}</td>
           <td>{newData.wPortSpeed}</td>
           <td>{newData.wPortType}</td>
