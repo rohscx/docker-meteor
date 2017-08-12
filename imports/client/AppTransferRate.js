@@ -76,7 +76,6 @@ ItemsTransferRate.deny({
           </IsRole>
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
-          {a = this.props.dbReturnSort("aca") console.log(a)}
         </main>
       </Provider>
     );
@@ -102,7 +101,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: dbData,
-    dbReturnSort: (ba)=>{sortBy(ba)}
+    dbReturn: sortBy("aca"),
+    dbReturnSort: sortBy("aca")
   };
 }, AppTransferRate);
