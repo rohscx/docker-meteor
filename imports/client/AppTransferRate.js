@@ -56,17 +56,9 @@ ItemsTransferRate.deny({
       });
     }
 
-  sortBy(sortBy) {
-    let keyString = "siteData.dataObj."+sortBy;
-    let sortObj = {};
-    let keyObj ={};
-    keyObj[keyString] = 1
-    sortObj["sort"] = keyObj;
-
-    //zz.sort[key1] = 1
-    console.log(sortObj)
-    console.log(ItemsTransferRate.find({},sortObj).fetch())
-    return ItemsTransferRate.find({},sortObj).fetch()
+  sortBy() {
+    let blah = this.props.dbReturnSort("aca")
+    console.log("BLAH HIT",blah)
   }
 
   render() {
@@ -75,8 +67,7 @@ ItemsTransferRate.deny({
     if (!this.props.ready) {
       return <div>Loading Application...</div>
     }
-    let blah = this.props.dbReturnSort("aca")
-    console.log("BLAH HIT",blah)
+
 
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
@@ -88,6 +79,7 @@ ItemsTransferRate.deny({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
+          {this.sortBy()}
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
@@ -110,8 +102,6 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = 1
     sortObj["sort"] = keyObj;
-
-    //zz.sort[key1] = 1
     console.log("DDDD HIT",sortObj)
     console.log(ItemsTransferRate.find({},sortObj).fetch())
     return ItemsTransferRate.find({},sortObj).fetch()
