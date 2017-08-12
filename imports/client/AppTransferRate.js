@@ -67,7 +67,10 @@ ItemsTransferRate.deny({
   }
 
   setDbReturn (){
-    return this.props.dbReturnSort("aca", (response)=>{console.log(response) return response})
+    this.props.dbReturnSort("aca", (response)=>{
+      console.log(response)
+      return response
+    })
   }
 
   render() {
