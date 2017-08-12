@@ -17,7 +17,7 @@ const utilReducer = (state = {
     byteType: "MB"
   },
   sortBy:{
-    data:"ddddd"
+    data:"aca"
   }
 }, action) => {
   switch (action.type) {
