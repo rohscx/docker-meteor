@@ -59,7 +59,7 @@ ItemsTransferRate.deny({
   sortBy() {
     let blah = this.props.dbReturnSort("aca")
     console.log("BLAH HIT",blah)
-    return blah
+    return "blah"
   }
 
   setDbReturn (data){
