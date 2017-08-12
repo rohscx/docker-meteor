@@ -177,7 +177,7 @@ export default class Table extends Component {
       )
     })
     let setActiveColumn = (columnName)=>{
-      if (sortUtilField == columName){
+      if (sortUtilField == columnName){
         return true;
       } else {
         return false;
