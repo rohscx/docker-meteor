@@ -119,6 +119,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturnSort: sortBy.bind(this)
+    dbReturnSort: () => {sortBy.bind(this)}
   };
 }, AppTransferRate);
