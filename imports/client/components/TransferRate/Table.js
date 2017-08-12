@@ -39,13 +39,13 @@ export default class Table extends Component {
     let anothertest = this.props.dbReturn("aca", (response)=>{
       console.log("Callback REsponse TAble", response)
       return response.map((data)=>{
-        console.log("DATAATA",data)
+        console.log("DATAATA")
         let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
           let inSeconds, NaNCheck
           switch(dataType){
             case "MB":
               // debug
-              //console.log(dataSize,"  ",portSpeed)
+              console.log(dataSize,"  ",portSpeed)
               inSeconds = dataSize / portSpeed;
               NaNCheck = isNaN(inSeconds);
               if (inSeconds <= 60){
