@@ -39,6 +39,7 @@ export default class Table extends Component {
     let anothertest = this.props.dbReturn("aca", (response)=>{
       console.log("Callback REsponse TAble", response)
       response.map((data)=>{
+        console.log("DATAATA",data)
         let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
           let inSeconds, NaNCheck
           switch(dataType){
