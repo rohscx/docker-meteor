@@ -116,7 +116,7 @@ export default createContainer(({params}) => {
     sortObj["sort"] = keyObj;
     console.log("DDDD HIT",sortObj)
     console.log(ItemsTransferRate.find({},sortObj).fetch())
-    callback(return ItemsTransferRate.find({},sortObj).fetch())
+    callback(ItemsTransferRate.find({},sortObj).fetch())
   }
   return {
     showAll,
