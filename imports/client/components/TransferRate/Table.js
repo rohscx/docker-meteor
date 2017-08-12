@@ -191,7 +191,7 @@ export default class Table extends Component {
                     </tr>
                     )
                   })
-                });}
+                })}
           </tbody>
         </table>
       </div>
