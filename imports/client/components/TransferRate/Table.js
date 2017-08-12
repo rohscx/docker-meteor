@@ -152,6 +152,7 @@ export default class Table extends Component {
           }
         }
         let newData = data.siteData.dataObj;
+        console.log("Newdata",newData)
         let statusDanger = (time) =>{
           if(isNaN(time)){
             return null;
@@ -163,7 +164,7 @@ export default class Table extends Component {
         }
         return (
           <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-          <td>{"newData.aca"}</td>
+          <td>{newData.aca}</td>
           <td>{newData.branch}</td>
           <td>{newData.wPortSpeed}</td>
           <td>{newData.wPortType}</td>
