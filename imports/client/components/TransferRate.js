@@ -140,7 +140,7 @@ const mapDispatchToProps = (dispatch) => {
     bandwidthCalc: (number,byteType,cdase) => {
       dispatch(bandwidthCalc(number,byteType,cdase));
     },
-    sortBy: (blob)=>{
+    sortBy: (blob) => {
       dispatch(sortBy(blob));
     },
   };
