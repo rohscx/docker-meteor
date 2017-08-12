@@ -81,6 +81,7 @@ ItemsTransferRate.deny({
           </IsRole>
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
+          {this.props.dbReturnSort("aca")}
         </main>
       </Provider>
     );
@@ -107,7 +108,7 @@ export default createContainer(({params}) => {
     showAll,
     ready: transferRateItemsSub.ready(),
     dbReturn: sortBy("wPortSpeed"),
-    dbReturnSort: sortBy("aca"),
+    dbReturnSort: function data(d){console.log(sortBy(d)) return sortBy(d)}
 
   };
 }, AppTransferRate);
