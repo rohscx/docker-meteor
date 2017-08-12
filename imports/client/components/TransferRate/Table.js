@@ -188,12 +188,12 @@ export default class Table extends Component {
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>{setActiveColumn("aca") ? <font color="#d9534f">ACA</font> : "ACA"}</th>
-              <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}}>{setActiveColumn("branch") ? <font color="#d9534f">Branch</font> : "Branch"}</th>
-              <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}}>{setActiveColumn("wPortSpeed") ? <font color="#d9534f">WAN Speed</font> : "WAN Speed"}</th>
-              <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}}>{setActiveColumn("wPortType") ? <font color="#d9534f">WAN TYPE</font> : "WAN TYPE"}</th>
-              <th onClick={()=>{this.props.sortBy("iSpeedUp",sortUtilOrder)}}>{setActiveColumn("iSpeedUp") ? <font color="#d9534f">INET Speed Down/Up</font> : "INET Speed Down/Up"}</th>
-              <th onClick={()=>{this.props.sortBy("iPortType",sortUtilOrder)}}>{setActiveColumn("iPortType") ? <font color="#d9534f">INET TYPE</font> : "INET TYPE"}</th>
+              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>{setActiveColumn("aca") ? <font color="#428bca">ACA</font> : "ACA"}</th>
+              <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}}>{setActiveColumn("branch") ? <font color="#428bca">Branch</font> : "Branch"}</th>
+              <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}}>{setActiveColumn("wPortSpeed") ? <font color="#428bca">WAN Speed</font> : "WAN Speed"}</th>
+              <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}}>{setActiveColumn("wPortType") ? <font color="#428bca">WAN TYPE</font> : "WAN TYPE"}</th>
+              <th onClick={()=>{this.props.sortBy("iSpeedUp",sortUtilOrder)}}>{setActiveColumn("iSpeedUp") ? <font color="#428bca">INET Speed Down/Up</font> : "INET Speed Down/Up"}</th>
+              <th onClick={()=>{this.props.sortBy("iPortType",sortUtilOrder)}}>{setActiveColumn("iPortType") ? <font color="#428bca">INET TYPE</font> : "INET TYPE"}</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
