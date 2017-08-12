@@ -67,7 +67,7 @@ ItemsTransferRate.deny({
   }
 
   setDbReturn (data){
-    return this.props.dbReturnSort("aca"), (data)=>{
+    this.props.dbReturnSort("aca"), (data)=>{
       return data
     })
   }
@@ -91,7 +91,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          {this.sortData()}
+          {this.setDbReturn()}
         </main>
       </Provider>
     );
