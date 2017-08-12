@@ -182,7 +182,7 @@ export default class Table extends Component {
               <th onClick={()=>{this.props.sortBy("aca")}}>ACA</th>
               <th onClick={()=>{this.props.sortBy("branch")}}>Branch</th>
               <th onClick={()=>{this.props.sortBy("wPortSpeed")}}>WAN Speed</th>
-              <th onClick={()=>{this.props.sortBy("wPortType")}>WAN TYPE</th>
+              <th onClick={()=>{this.props.sortBy("wPortType")}}>WAN TYPE</th>
               <th onClick={()=>{this.props.sortBy("iSpeedUp")}}>INET Speed Down/Up</th>
               <th onClick={()=>{this.props.sortBy("iPortType")}}>INET TYPE</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
