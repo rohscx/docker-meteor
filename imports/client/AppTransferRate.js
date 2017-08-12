@@ -37,7 +37,6 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       yoyo: this.props.dbReturn,
        dbReturnRdy: true,
        fileTransferStatus: false
      }
