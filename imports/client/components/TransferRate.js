@@ -33,10 +33,10 @@ class TransferRate extends Component {
   }
 
   setSortBy(){
-    this.props.dbReturnSort("aca"), (result)=>{
+    this.props.dbReturnSort("aca", (result)=>{
       console.log("HITTTTT",result)
       this.props.sortBy(result)
-    }
+    })
   }
 
   preventDefault(e){
