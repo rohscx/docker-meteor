@@ -55,11 +55,7 @@ ItemsTransferRate.deny({
       });
     }
 
-  componentDidMount(){
-    window.test22 = function(){
-      console.log ("dafdasdfasdfasdfsd")
-    }
-  }
+
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
