@@ -55,6 +55,9 @@ ItemsTransferRate.deny({
       });
     }
 
+  componentDidMount(){
+    window.test22 = golden
+  }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
@@ -90,9 +93,6 @@ export default createContainer(({params}) => {
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsTransferRate.find().fetch()
-  searchString = (string)=>{
-    return string;
-  }
   sortBy = (sortBy) =>{
     let keyString = "siteData.dataObj."+sortBy;
     let sortObj = {};
@@ -104,7 +104,8 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: sortBy(searchString("wPortSpeed")),
-    dbReturnSort: sortBy("aca")
+    dbReturn: sortBy("wPortSpeed"),
+    dbReturnSort: sortBy("aca"),
+
   };
 }, AppTransferRate);
