@@ -37,6 +37,7 @@ export default class Table extends Component {
     let inBits = this.props.util.bandwidthCalcData.numberToBits;
     let byteType = this.props.util.bandwidthCalcData.byteType;
     let anothertest = this.props.dbReturn("aca", (response)=>{
+      console.log("Callback REsponse TAble", response)
       return response;
     });
     let test = anothertest.map((data)=>{
