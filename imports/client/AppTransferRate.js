@@ -37,6 +37,7 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
+       dbReturn:this.props.dbReturnSort("aca")
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -114,7 +115,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: dbData,
     dbReturnSort: sortBy.bind(this)
   };
 }, AppTransferRate);
