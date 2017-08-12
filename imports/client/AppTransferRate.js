@@ -36,7 +36,6 @@ ItemsTransferRate.deny({
      this.state = {
        title: "",
        greeting:"",
-       dbReturn2:"",
        status: "",
        dbReturnRdy: true,
        fileTransferStatus: false
@@ -56,23 +55,6 @@ ItemsTransferRate.deny({
       });
     }
 
-  sortBy() {
-    console.log("sortby")
-    this.props.dbReturn("aca", (result)=>{
-      console.log("BLAH HIT",result)
-      this.setState({
-        dbReturn2: result
-      });
-    })
-  }
-
-  setDbReturn (){
-    let ddd = this.props.dbReturnSort("aca", (response)=>{
-      console.log(response)
-      return response
-    })
-    console.log(ddd)
-  }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
@@ -93,7 +75,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          {this.setDbReturn()}
+          <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );

@@ -15,7 +15,8 @@ const utilReducer = (state = {
     validationStatus: false,
     btnStyle: false,
     byteType: "MB"
-  }
+  },
+  sortBy:""
 }, action) => {
   switch (action.type) {
     case "MAC_VALIDATION":
