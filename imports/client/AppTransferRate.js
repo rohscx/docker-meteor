@@ -56,7 +56,9 @@ ItemsTransferRate.deny({
     }
 
   componentDidMount(){
-    window.test22 = golden
+    window.test22 = function(){
+      console.log ("dafdasdfasdfasdfsd")
+    }
   }
 
   render() {
