@@ -116,11 +116,11 @@ export function sortBy(sortValue, sortOrder) {
         field: sortValue,
         order: -1
       }));
-    } else (
+    } else {
       return dispatch(setSortBy({
         field: sortValue,
         order: 1
       }));
-    )
+    }
   }
 }
