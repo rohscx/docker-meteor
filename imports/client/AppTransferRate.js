@@ -37,8 +37,6 @@ ItemsTransferRate.deny({
        title: "",
        greeting:"",
        status: "",
-       dbReturn:"",
-       dbReturn2:"",
        dbReturnRdy: true,
        fileTransferStatus: false
      }
@@ -60,11 +58,10 @@ ItemsTransferRate.deny({
   sortBy() {
     let blah = this.props.dbReturnSort("aca", (result)=>{
       console.log("BLAH HIT",result)
-      this.setState({
-        dbReturn2: result
-      });
     })
-
+    this.setState({
+      dbReturn2: blah
+    });
   }
 
   setDbReturn (data){
@@ -93,7 +90,6 @@ ItemsTransferRate.deny({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          {this.sortBy()}
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
@@ -123,6 +119,6 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturnSort: sortBy.bind(this)
+    dbReturn: sortBy.bind(this)
   };
 }, AppTransferRate);
