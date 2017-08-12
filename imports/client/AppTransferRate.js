@@ -85,7 +85,6 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          {this.props.ddd("dfasdf")}
           <TransferRate {... this.props} dbReturnRdy={true} sortBy={this.sortBy.bind(this)}/>
         </main>
       </Provider>
