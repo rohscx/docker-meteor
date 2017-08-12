@@ -59,8 +59,12 @@ ItemsTransferRate.deny({
   sortBy() {
     let blah = this.props.dbReturnSort("aca")
     console.log("BLAH HIT",blah)
+    return blah
+  }
+
+  setDbReturn (data){
     this.setState({
-      dbReturn: blah
+      status: ""
     });
   }
 
@@ -82,7 +86,7 @@ ItemsTransferRate.deny({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          {this.sortBy()}
+          {this.setDbReturn(this.sortBy())}
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
