@@ -38,7 +38,7 @@ ItemsTransferRate.deny({
        greeting:"",
        status: "",
        dbReturn:"",
-       dbReturn2:""
+       dbReturn2:"",
        dbReturnRdy: true,
        fileTransferStatus: false
      }
