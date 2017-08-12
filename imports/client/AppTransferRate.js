@@ -92,7 +92,6 @@ ItemsTransferRate.deny({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          {this.sortBy()}
           <Header  {... this.state} />
           <TransferRate {... this.props} dbReturnRdy={true}/>
         </main>
@@ -115,13 +114,12 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = 1
     sortObj["sort"] = keyObj;
-    console.log("DDDD HIT",sortObj)
-    console.log(ItemsTransferRate.find({},sortObj).fetch())
     callback(ItemsTransferRate.find({},sortObj).fetch())
   }
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: sortBy.bind(this)
+    dbReturn: dbData,
+    dbReturnSort: sortBy.bind(this)
   };
 }, AppTransferRate);
