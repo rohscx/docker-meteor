@@ -39,8 +39,8 @@ export default class Table extends Component {
     let byteType = this.props.util.bandwidthCalcData.byteType;
     let sortUtilField = this.props.util.sortBy.field;
     let sortUtilOrder = this.props.util.sortBy.order;
-    let anothertest = this.props.dbReturn(sortUtilField,sortUtilOrder);
-    let test = anothertest.map((data)=>{
+    let dbData = this.props.dbReturn(sortUtilField,sortUtilOrder);
+    let tdData = dbData.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         let inSeconds, NaNCheck
         switch(dataType){
@@ -193,7 +193,7 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {test}
+            {tdData}
           </tbody>
         </table>
       </div>

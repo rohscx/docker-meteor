@@ -103,7 +103,8 @@ export default createContainer(({params}) => {
     showAll,
     ready: transferRateItemsSub.ready(),
     dbReturn: function data(sortValue, sortOrder){
-      console.log(sortBy(sortValue, sortOrder))
+      //debug
+      //console.log(sortBy(sortValue, sortOrder))
       return sortBy(sortValue, sortOrder)
     }
 
