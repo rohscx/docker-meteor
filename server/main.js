@@ -44,6 +44,7 @@ Meteor.publish('siteCircuitInfo', function() {
   this.ready()
   return ItemsTransferRate.find();
 } else {
+  this.ready()
   return ItemsTransferRate.find();
 }
 
