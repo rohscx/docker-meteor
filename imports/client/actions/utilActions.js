@@ -109,10 +109,10 @@ export function bandwidthCalc(bandwidth,byteType,cdase) {
   }
 }
 
-export function sortBy(blob) {
+export function sortBy(text) {
   return dispatch => {
     return dispatch(setSortBy({
-        sortBy: blob
+        sortBy: text
       }));
   }
 }
