@@ -56,15 +56,15 @@ ItemsTransferRate.deny({
 
   sortBy(sortBy) {
     let keyString = "siteData.dataObj."+sortBy;
-    let mainObj = {};
+    let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = 1
-    mainObj["sort"] = keyObj;
+    sortObj["sort"] = keyObj;
 
-    zz.sort[key1] = 1
-    console.log(zz)
-    console.log(ItemsTransferRate.find({},zz).fetch())
-    return ItemsTransferRate.find({},zz).fetch()
+    //zz.sort[key1] = 1
+    console.log(sortObj)
+    console.log(ItemsTransferRate.find({},sortObj).fetch())
+    return ItemsTransferRate.find({},sortObj).fetch()
   }
 
   render() {
