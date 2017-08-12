@@ -106,8 +106,7 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturn: sortBy("wPortSpeed"),
-    dbReturnSort: function data(d){
+    dbReturn: function data(d){
       console.log(sortBy(d))
       return sortBy(d)
     }
