@@ -96,7 +96,7 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = 1
     sortObj["sort"] = keyObj;
-    let data = ItemsTransferRate.find({},sortObj).fetch()
+    data =>{ItemsTransferRate.find({},sortObj).fetch()}
     callback(data)
   }
   return {
