@@ -45,7 +45,7 @@ export default class Table extends Component {
           switch(dataType){
             case "MB":
               // debug
-              //console.log(dataSize,"  ",portSpeed)
+              console.log(dataSize,"  ",portSpeed)
               inSeconds = dataSize / portSpeed;
               NaNCheck = isNaN(inSeconds);
               if (inSeconds <= 60){
