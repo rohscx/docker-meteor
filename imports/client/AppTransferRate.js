@@ -75,12 +75,10 @@ ItemsTransferRate.deny({
     if (!this.props.ready) {
       return <div>Loading Application...</div>
     }
-    this.props.dbReturnSort("aca",(dd)=>{
-           console.log("DD HIT", dd)
-           this.setState({
-             dbReturn: dd
-           });
-         })
+    this.setState({
+      dbReturn: this.props.dbReturnSort("aca")
+    });
+
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
     return (
