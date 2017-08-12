@@ -112,13 +112,13 @@ export default createContainer(({params}) => {
     sortObj["sort"] = keyObj;
 
     //zz.sort[key1] = 1
-    console.log(sortObj)
+    console.log("DDDD HIT",sortObj)
     console.log(ItemsTransferRate.find({},sortObj).fetch())
     return ItemsTransferRate.find({},sortObj).fetch()
   }
   return {
     showAll,
     ready: transferRateItemsSub.ready(),
-    dbReturnSort: () => {sortBy.bind(this)}
+    dbReturnSort: sortBy.bind(this)
   };
 }, AppTransferRate);
