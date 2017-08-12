@@ -58,7 +58,7 @@ ItemsTransferRate.deny({
 
     componentDidMount() {
       this.setState({
-        dbReturn: "djdjdjdjddj"
+        dbReturn: this.props.dbReturnSort("aca")
       });
     }
   sortBy() {
