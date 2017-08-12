@@ -36,7 +36,9 @@ export default class Table extends Component {
   returnList() {
     let inBits = this.props.util.bandwidthCalcData.numberToBits;
     let byteType = this.props.util.bandwidthCalcData.byteType;
-    let anothertest = this.props.dbReturn("aca");
+    let anothertest = this.props.dbReturn("aca", (response)=>{
+      return response;
+    });
     let test = anothertest.map((data)=>{
       let transTimeSeconds = (dataSize, dataType, portSpeed)=>{
         let inSeconds, NaNCheck
