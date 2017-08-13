@@ -58,7 +58,8 @@ export default class Table extends Component {
 };
 
 
-    tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
+    //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
+    tableDiv = this.props.dbReturnRdy ? "" : "";
     console.log(this)
     return(
       <div>
