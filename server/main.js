@@ -43,7 +43,8 @@ Meteor.publish('apicDevices', function() {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-  console.log("ticket Test",apicTicket(type,url,options))
+
+  console.log("ticket Test",Meteor.call('apicTicket', type,url,options);)
   /*if(countCollections >= 99999999999){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
