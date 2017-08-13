@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
-import Table from './TransferRate/Table';
+import Layout from './ApicDevices/Layout';
 import { bandwidthCalc, sortBy } from '../actions/utilActions'
 
 class TransferRate extends Component {
@@ -118,7 +118,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        <Table {... this.props}/>
+        <Layout {... this.props}/>
       </div>
     )
   }
