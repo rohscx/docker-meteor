@@ -45,9 +45,9 @@ const MainLayout = ({children}) =>
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to='/apic'>
+            <LinkContainer to='/apicdev'>
               <NavItem eventKey={1}>
-                APIC-EM
+                APIC-EM Devices
               </NavItem>
             </LinkContainer>
             <LinkContainer to='/ise'>

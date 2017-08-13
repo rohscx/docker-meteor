@@ -1,6 +1,6 @@
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
-import TransferRate from './components/TransferRate';
+import ApicDevices from './components/ApicDevices';
 import { Mongo } from 'meteor/mongo';
 import {createContainer} from 'meteor/react-meteor-data';
 import React, {Component} from 'react';
@@ -10,26 +10,26 @@ import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
-//import ItemsTransferRate from '../api/prtg';
+//import ItemsApicDevices from '../api/prtg';
 
 
 
 
-const ItemsTransferRate = new Mongo.Collection('itemstransferrate');
-ItemsTransferRate.allow({
+const ItemsApicDevices = new Mongo.Collection('itemstransferrate');
+ItemsApicDevices.allow({
   insert() { return false; },
   update() { return false; },
   remove() { return false; }
 });
 
-ItemsTransferRate.deny({
+ItemsApicDevices.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
 });
 
 
- class AppTransferRate extends Component {
+ class AppApicDevices extends Component {
    constructor() {
      super();
      this.state = {
@@ -44,10 +44,10 @@ ItemsTransferRate.deny({
    componentWillMount() {
 
       this.setState({
-        title: "File Transfer Time Calculator"
+        title: "Apic Device List"
       });
       this.setState({
-        greeting: "Welome, this application calculates the time it will take to move a file... 59Hours or less will be Green."
+        greeting: "Welome, this application returns device informatio from Apic-EM."
       });
       this.setState({
         status: ""
@@ -75,7 +75,7 @@ ItemsTransferRate.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <TransferRate {... this.props} dbReturnRdy={true}/>
+          <ApicDevices {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );
@@ -87,20 +87,20 @@ ItemsTransferRate.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
+  let aicDevicesItemsSub = Meteor.subscribe('siteCircuitInfo');
   let prtgArray = Session.get('myMethodResult');
-  let dbData = ItemsTransferRate.find().fetch()
+  let dbData = ItemsApicDevices.find().fetch()
   sortBy = (sortValue, sortOrder) =>{
     let keyString = "siteData.dataObj."+sortValue;
     let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
-    return ItemsTransferRate.find({},sortObj).fetch();
+    return ItemsApicDevices.find({},sortObj).fetch();
   }
   return {
     showAll,
-    ready: transferRateItemsSub.ready(),
+    ready: aicDevicesItemsSub.ready(),
     dbReturn: function data(sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
@@ -108,4 +108,4 @@ export default createContainer(({params}) => {
     }
 
   };
-}, AppTransferRate);
+}, AppApicDevices);

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import Items from '../imports/api/Items';
 import ItemsPrtg from '../imports/api/prtg';
+import ItemsApicDevices from '../imports/api/apic';
 import ItemsTransferRate from '../imports/api/transferRate';
 import tempData from './tempData';
 
@@ -8,6 +9,7 @@ import '../imports/server/accounts';
 import '../imports/api/request';
 import '../imports/api/prtg';
 import '../imports/api/transferRate';
+import '../imports/api/apic';
 
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {
@@ -17,6 +19,60 @@ Meteor.publish('currentUser', function() {
     }
   });
 });
+
+Meteor.publish('apicDevices', function() {
+  let countCollections = ItemsApicDevices.find().count();
+  console.log(countCollections);
+  /*
+    data contains the entire return object
+    data.content contains the contents
+    headers contains the headers
+    data.data.sensors contains an array of objects
+    data.statusCode contains status code
+    prtg data returns the following:
+    statusCode: 200,
+    content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
+  */
+  let type = "POST";
+  let baseUrl = Meteor.settings.public.ciscoApicEM.baseUrl;
+  let uName = Meteor.settings.private.prtgRest.uName;
+  let uPass = Meteor.settings.private.prtgRest.uPass;
+  let apicTicket = '/api/v1/ticket';
+  let url = baseUrl + apicTicket;
+  let options = {
+    headers: { 'content-type': 'application/json' },
+    data: {username: uName, password: uPass}
+  };
+  console.log(apicTicket(type,url,options))
+  if(countCollections >= 99999999999){
+    console.log("HIT COUNT COLLECTION FAILURE <= 0")
+    const poll = () => {
+      // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
+      const data = HTTP.get(url, options);
+      let newData = JSON.parse(data.content);
+      newData.sensors.map((data,value) => {
+        let timeNow = Math.round(new Date().getTime() / 1000);
+        let dateTime = new Date();
+        //console.log(newData.sensors[value].objid)
+        //console.log(typeof(newData.sensors[value].objid))
+        //console.log("DATA ID ",data._id)
+        ItemsApicDevices.insert({
+            apicData: {
+              dataObj: data,
+              requestTime: timeNow,
+              dateTime: dateTime
+            }
+          });
+      });
+    };
+    poll();
+    //this.ready();
+    return ItemsApicDevices.find({},{});
+  } else {
+    console.log("HIT COLLECTION EXISTS!!!")
+  }
+});
+
 
 Meteor.publish('siteCircuitInfo', function() {
   let countCollections = ItemsTransferRate.find().count();

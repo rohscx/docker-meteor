@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 
 
@@ -182,16 +182,6 @@ store.dispatch({
           <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
             <Apic {... this.props} {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
               {this.props.showList ?
-                <ReactCSSTransitionGroup
-                  transitionName='itemApic'
-                  transitionEnterTimeout={600}
-                  transitionLeaveTimeout={600}
-                  transitionAppear={true}
-                  transistionAppearTimeout={600}>
-                  {this.props.items.map((item) => {
-                    return <ItemApic item={item} key={item}/>
-                  })}
-                </ReactCSSTransitionGroup> : <p></p>
               }
         </main>
       </Provider>
