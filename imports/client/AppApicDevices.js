@@ -15,7 +15,7 @@ import { autobind } from 'core-decorators';
 
 
 
-const ItemsApicDevices = new Mongo.Collection('itemstransferrate');
+const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
 ItemsApicDevices.allow({
   insert() { return false; },
   update() { return false; },
