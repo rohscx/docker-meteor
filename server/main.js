@@ -44,7 +44,7 @@ Meteor.publish('apicDevices', function() {
     data: {username: uName, password: uPass}
   };
   console.log(apicTicket(type,url,options))
-  if(countCollections >= 99999999999){
+  /*if(countCollections >= 99999999999){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
@@ -70,7 +70,7 @@ Meteor.publish('apicDevices', function() {
     return ItemsApicDevices.find({},{});
   } else {
     console.log("HIT COLLECTION EXISTS!!!")
-  }
+  }*/
 });
 
 
