@@ -8,7 +8,7 @@ import https from 'https';
 import tempData from '../../server/tempData';
 
 // prtg
-const ItemsApicDevices = new Mongo.Collection('itemstransferrate');
+const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
 
 const ItemTransferRateSchema = new SimpleSchema ({
   dataObj: {
