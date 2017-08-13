@@ -87,7 +87,7 @@ ItemsApicDevices.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let aicDevicesItemsSub = Meteor.subscribe('siteCircuitInfo');
+  let aicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (sortValue, sortOrder) =>{
