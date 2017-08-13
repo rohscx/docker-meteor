@@ -179,10 +179,7 @@ store.dispatch({
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
-          <Header {... this.state} ticketStatus={this.ticketStatus.bind(this)} />
-            <Apic {... this.props} {... this.state} ticketStatus={this.ticketStatus.bind(this)} ticketList={this.ticketList.bind(this)} />
-              {this.props.showList ?
-              }
+
         </main>
       </Provider>
     );
