@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
-import {PageHeader} from 'react-bootstrap';
+import {Jumbotron} from 'react-bootstrap';
 export default class Title extends Component {
 
   render() {
@@ -10,7 +10,7 @@ export default class Title extends Component {
     };
     return(
       <div>
-        <PageHeader>{this.props.title}</PageHeader>
+        <Jumbotron>{this.props.title}</Jumbotron>
       </div>
     )
   }
