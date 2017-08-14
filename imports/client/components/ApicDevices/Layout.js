@@ -34,7 +34,7 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  returnLayout() {
+  returnLayout(callback) {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
@@ -84,7 +84,7 @@ export default class Table extends Component {
         </div>
       )
     })
-    return colData;
+    callback(colData)
   }
 
 
@@ -105,21 +105,17 @@ export default class Table extends Component {
         opacity               : '100'
       }
     };
-    timeout = null;
-    clearTimeout(timeout);
-    dothis = this.returnLayout()
-    rat = "Nothing to see";
-    apic = this.props.apic.apicDevicesFind.validationStatus
-    timeout = setTimeout (function(){
-      console.log(this.rat)
-      return dothis
-    },500)
+
+
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    console.log(this)
+    just = "dd";
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout((response)=>{
+      just =  response}
+    ) : "";
+    //console.log(this)
     return(
       <div>
-        {dothis}
+        {just}
       </div>
     )
   }
