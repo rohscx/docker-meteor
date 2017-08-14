@@ -15,8 +15,8 @@ class TransferRate extends Component {
   }
   handleSearchFormInput(event) {
     let value = event.target.value;
-    let byteType = this.props.apic.apicdevices.byteType;
-    this.props.bandwidthCalc(value,byteType,null);
+    let deviceFilter = "ALL"
+    this.props.apicDevicesFind(value,deviceFilter,null);
   }
 
   preventDefault(e){
@@ -95,7 +95,7 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title={byteType}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setByteType("ALL")}}>MB</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setByteType("ALL")}}>ALL</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
                  <MenuItem key="3" onSelect= {()=>{this.setByteType("TB")}}>TB</MenuItem>
                  <MenuItem key="4" onSelect= {()=>{this.setByteType("PB")}}>PB</MenuItem>

@@ -35,6 +35,11 @@ export default class Table extends Component {
   }
 
   returnLayout() {
+    return (
+      <Row className="show-grid">
+      <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
+      </Row>
+    )
   }
 
 
@@ -59,7 +64,7 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    tableDiv = this.props.dbReturnRdy ? "" : "";
+    tableDiv = this.props.dbReturnRdy ? this.returnLayout() : "";
     console.log(this)
     return(
       <div>
