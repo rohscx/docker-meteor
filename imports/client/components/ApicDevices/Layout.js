@@ -41,7 +41,7 @@ export default class Table extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     let colData = dbData.map((data)=>{
       return (
-        <div key={data["_id"]}>
+        <div key={data["_id"]} style= {rowStyles}>
           <Row className="show-grid">
             <Col xs={6} ><code>&lt;{data.siteData.dataObj.hostname} /&gt;</code></Col>
           </Row>
@@ -71,6 +71,10 @@ export default class Table extends Component {
     background            : `url(${this.state.modalLink.newData.graph})`,
     backgroundSize        : 'contain',
     opacity               : '100'
+  }
+  const rowStyles = {
+    paddingTop: '5%',
+    paddingButtom: '5'
   }
 
 };
