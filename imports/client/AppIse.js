@@ -21,9 +21,12 @@ import Ise from './components/Ise';
 // uses combineReducers as redux otherwise can only take one reducer
 
 
+// uses combineReducers as redux otherwise can only take one reducer
+/*
 store.subscribe(() => {
   console.log("Store Updated", store.getState());
 });
+*/
 
 
 

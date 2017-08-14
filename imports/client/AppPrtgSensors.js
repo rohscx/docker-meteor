@@ -30,10 +30,11 @@ ItemsPrtg.deny({
 
 
 // uses combineReducers as redux otherwise can only take one reducer
+/*
 store.subscribe(() => {
   console.log("Store Updated", store.getState());
 });
-
+*/
 
 
 @autobind
