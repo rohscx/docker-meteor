@@ -39,6 +39,10 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
+    const rowStyles = {
+      paddingTop: '5%',
+      paddingButtom: '5'
+    };
     let colData = dbData.map((data)=>{
       return (
         <div key={data["_id"]} style= {rowStyles}>
@@ -72,10 +76,6 @@ export default class Table extends Component {
         backgroundSize        : 'contain',
         opacity               : '100'
       }
-    };
-    const rowStyles = {
-      paddingTop: '5%',
-      paddingButtom: '5'
     };
 
 
