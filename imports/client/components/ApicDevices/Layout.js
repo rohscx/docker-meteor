@@ -41,7 +41,7 @@ export default class Table extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     let timeout = null;
     clearTimeout(timeout);
-    timeOut = setTimeout(function(){
+    timeout = setTimeout(function(){
       let reachCheck = (status)=>{
         let passStyle = {
           backgroundColor:"#5cb85c"
