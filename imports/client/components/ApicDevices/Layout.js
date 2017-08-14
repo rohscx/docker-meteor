@@ -51,7 +51,7 @@ export default class Table extends Component {
         return false;
       }
     }
-    newStatus = statusCheck(data.siteData.dataObj.reachabilityStatus);
+
     const divStyles = {
       paddingTop: '5%',
       paddingButtom: '5%'
@@ -60,6 +60,7 @@ export default class Table extends Component {
       fontWeight: "bold"
     };
     let colData = dbData.map((data)=>{
+      let newStatus = statusCheck(data.siteData.dataObj.reachabilityStatus);
       return (
         <div key={data["_id"]} style= {divStyles}>
           <Row className="show-grid" style={rowStylesMain}>
