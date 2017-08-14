@@ -39,7 +39,7 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    return = dbData.map((data)=>{
+    let colData = dbData.map((data)=>{
       return (
         <div>
           <Row className="show-grid">
@@ -52,6 +52,7 @@ export default class Table extends Component {
         </div>
       )
     })
+    return colData;
   }
 
 
