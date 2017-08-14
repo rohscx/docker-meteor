@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
-import { sortBy } from '../actions/utilActions';
+import { sortBy } from '../actions/apicActions';
 import { apicDevicesFind } from '../actions/apicActions'
 
 class TransferRate extends Component {
@@ -33,8 +33,8 @@ class TransferRate extends Component {
     this.props.bandwidthCalc(value,byteType,null);
   }
 
-  setSortBy(){
-
+  setSortBy(sortName){
+    this.props.sortBy(sortName)
   }
 
   preventDefault(e){
@@ -95,11 +95,10 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title={byteType}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setByteType("ALL")}}>ALL</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setByteType("R1")}}>R1</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setByteType("R2")}}>R2</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setByteType("R1R2")}}>R1/R2</MenuItem>
-                 <MenuItem key="5" onSelect= {()=>{this.setByteType("SW")}}>SW</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname")}}>HostName</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus")}}>Reachability</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("upTime")}}>UpTime</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("softwareVersion")}}>IOS Version</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
@@ -137,8 +136,8 @@ const mapDispatchToProps = (dispatch) => {
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
       dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },
-    sortBy: (sortValue, sortOrder) => {
-      dispatch(sortBy(sortValue, sortOrder));
+    sortBy: (sortValue) => {
+      dispatch(sortBy(sortValue));
     },
   };
 };

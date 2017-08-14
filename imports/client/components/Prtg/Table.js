@@ -36,7 +36,7 @@ export default class Table extends Component {
     let test = this.props.dbReturn.map((data)=>{
       let newData = data.prtgData.dataObj;
       let statusDanger = () =>{
-        if(newData.status.toLowerCase() == 'unusual'){
+        if(newData.status.toLowerCase() == 'unusual' || newData.status.toLowerCase() == 'down'){
           return 'danger';
         } else {
           return 'success';

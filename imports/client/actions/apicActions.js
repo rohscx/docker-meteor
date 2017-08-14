@@ -105,6 +105,15 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
 }
 
 
+export function sortBy(sortName) {
+  return dispatch => {
+    return dispatch(setSortBy({
+      field:sortName,
+      order: 1
+    }));
+  }
+}
+
 export function getTicket(sourceIp,destIp) {
   return dispatch => {
     // keep in mind that this value is LOCAL to EACH deployment SERVER...
