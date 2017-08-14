@@ -35,8 +35,8 @@ Meteor.publish('apicDevices', function() {
   */
   let type = "POST";
   let baseUrl = Meteor.settings.public.ciscoApicEM.baseUrl;
-  let uName = Meteor.settings.private.prtgRest.uName;
-  let uPass = Meteor.settings.private.prtgRest.uPass;
+  let uName = Meteor.settings.public.prtgRest.uName;
+  let uPass = Meteor.settings.public.prtgRest.uPass;
   let apicTicket = '/api/v1/ticket';
   let url = baseUrl + apicTicket;
   let options = {
