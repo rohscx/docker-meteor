@@ -108,17 +108,14 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
+    just = "dd";
     tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout((response)=>{
-      console.log(response)
-      tableDiv =  response}
+      just =  response}
     ) : "";
     //console.log(this)
     return(
       <div>
-        {this.returnLayout((response)=>{
-          console.log(response)
-          return response}
-        )}
+        {just}
       </div>
     )
   }
