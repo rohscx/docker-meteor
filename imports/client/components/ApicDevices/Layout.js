@@ -52,10 +52,10 @@ export default class Table extends Component {
           <Row className="show-grid">
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
             <Col xs={6} md={1}>{data.siteData.dataObj.reachabilityStatus}</Col>
-            <Col xs={6} md={1}>{data.siteData.dataObj.softwareVersion}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.upTime}</Col>
+            <Col xs={6} md={1}>IOS: {data.siteData.dataObj.softwareVersion}</Col>
+            <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
-            <Col xs={6} md={1}>{data.siteData.dataObj.interfaceCount}</Col>
+            <Col xs={6} md={1}>Interface Count: {data.siteData.dataObj.interfaceCount}</Col>
           </Row>
         </div>
       )
