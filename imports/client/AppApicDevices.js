@@ -91,12 +91,14 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
+    let newFindValue = "\""+findValue+"\""
     let keyString = "siteData.dataObj."+sortValue;
     let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
-    return ItemsApicDevices.find({"siteData.dataObj.hostname":{$regex: findValue}},sortObj).fetch();
+
+    return ItemsApicDevices.find({"siteData.dataObj.hostname":{$regex: newFindValue}},sortObj).fetch();
   }
   return {
     showAll,
