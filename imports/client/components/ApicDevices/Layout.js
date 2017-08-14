@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
-
+import {Row,Col} from 'react-bootstrap';
 export default class Table extends Component {
   constructor() {
     super();
