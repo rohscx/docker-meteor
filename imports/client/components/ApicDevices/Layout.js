@@ -39,19 +39,6 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    function statusCheck(){
-      let status = data.siteData.dataObj.reachabilityStatus;
-      let statusStyle = {
-        mark: {
-          backgroundColor: 'green'
-        }
-      }
-      if (status == 'Reachable'){
-        return true;
-      } else {
-        return false;
-      }
-    }
 
     const divStyles = {
       paddingTop: '5%',
@@ -61,6 +48,19 @@ export default class Table extends Component {
       fontWeight: "bold"
     };
     let colData = dbData.map((data)=>{
+      function statusCheck(){
+        let status = data.siteData.dataObj.reachabilityStatus;
+        let statusStyle = {
+          mark: {
+            backgroundColor: 'green'
+          }
+        }
+        if (status == 'Reachable'){
+          return true;
+        } else {
+          return false;
+        }
+      }
       return (
         <div key={data["_id"]} style= {divStyles}>
           <Row className="show-grid" style={rowStylesMain}>
