@@ -44,8 +44,8 @@ Meteor.publish('apicDevices', function() {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-  let http = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-  let apicTicket = http.data.response.serviceTicket;
+  let httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  let apicTicket = httpTicket.data.response.serviceTicket;
   console.log(apicTicket)
   let apicDevicesOptions = {
     headers: {
@@ -53,8 +53,19 @@ Meteor.publish('apicDevices', function() {
       'x-auth-token': apicTicket
     }
   };
+  httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
   console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
+  httpDevices.map((data)=>{
+    ItemsApicDevices.insert({
+        siteData: {
+          dataObj: data,
+          requestTime: timeNow,
+          dateTime: dateTime
+        }
+      });
+  });
+  return ItemsApicDevices.find()
   /*if(countCollections >= 99999999999){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
