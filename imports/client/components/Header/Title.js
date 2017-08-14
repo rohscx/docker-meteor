@@ -4,13 +4,12 @@ import {Jumbotron} from 'react-bootstrap';
 export default class Title extends Component {
 
   render() {
-    const h1Styles = {
-      fontSize: "2em",
-      margin: "0.67em 0"
+    const pageHeaderStyles = {
+      textAlign:"center"
     };
     return(
       <div>
-        <Jumbotron><h1>{this.props.title}</h1></Jumbotron>
+        <Jumbotron style={pageHeaderStyles}><h1 style={}>{this.props.title}</h1></Jumbotron>
       </div>
     )
   }
