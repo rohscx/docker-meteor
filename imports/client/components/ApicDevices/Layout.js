@@ -47,12 +47,13 @@ export default class Table extends Component {
       }
       if (status == 'Reachable'){
         return (
-          <mark>{text}</mark>
+          <mark>{status}</mark>
         )
       } else {
-        return "dafsafa"
+        return (
+          {status}
+        )
       }
-      return "cats";
     }
     const divStyles = {
       paddingTop: '5%',
