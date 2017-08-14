@@ -44,7 +44,7 @@ export default class Table extends Component {
         backgroundColor:"#5cb85c"
       }
       let failStyle = {
-        backgroundColor:"#d953f"
+        backgroundColor:"#d9534f"
       }
       if(status == 'Reachable'){
         return (
