@@ -9,7 +9,7 @@ export default class Title extends Component {
     };
     return(
       <div>
-        <Jumbotron style={pageHeaderStyles}><h1 style={}>{this.props.title}</h1></Jumbotron>
+        <Jumbotron style={pageHeaderStyles}><h1>{this.props.title}</h1></Jumbotron>
       </div>
     )
   }
