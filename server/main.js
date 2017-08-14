@@ -71,7 +71,7 @@ Meteor.publish('apicDevices', function() {
         });
     });
     console.log("RETURNING APIC-EM DATA TO CLIENT")
-    return ItemsApicDevices.find({},{
+    return ItemsApicDevices.find({},{fields:{
       "siteData.dataObj.hostname": 1,
       "siteData.dataObj.role": 1,
       "siteData.dataObj.lastUpdated":1,
@@ -81,10 +81,11 @@ Meteor.publish('apicDevices', function() {
       "siteData.dataObj.interfaceCount":1,
       "siteData.dataObj.series":1,
       "siteData.dataObj.serialNumber":1
+    }
      })
   } else {
     console.log("APIC-EM DATABASE HAS ITEMS RETURNING DATA TO CLIENT")
-    return ItemsApicDevices.find({},{
+    return ItemsApicDevices.find({},{fields:{
       "siteData.dataObj.hostname": 1,
       "siteData.dataObj.role": 1,
       "siteData.dataObj.lastUpdated":1,
@@ -94,6 +95,7 @@ Meteor.publish('apicDevices', function() {
       "siteData.dataObj.interfaceCount":1,
       "siteData.dataObj.series":1,
       "siteData.dataObj.serialNumber":1
+    }
      })
   }
 });
