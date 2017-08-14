@@ -70,7 +70,7 @@ export default class Table extends Component {
           <Row className="show-grid" style={rowStylesMain}>
             <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
             <Col xs={6} md={2}>{data.siteData.dataObj.role}</Col>
-            <Col xs={6} md={3}>LastUpdate {data.siteData.dataObj.lastUpdated}</Col>
+            <Col xs={6} md={3}>Updated @ {data.siteData.dataObj.lastUpdated}</Col>
           </Row>
           <Row className="show-grid">
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>

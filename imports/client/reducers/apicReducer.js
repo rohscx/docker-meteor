@@ -15,7 +15,7 @@ const apicReducer = (state = {
   },
   fabricConfig: "",
   sortBy:{
-    field:"ALL",
+    field:"hostname",
     order: 1
   },
   apicDevicesFind:{
