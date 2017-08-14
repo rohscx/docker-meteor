@@ -83,7 +83,7 @@ class TransferRate extends Component {
       margin: "auto",
       width: "40%"
     };
-    let byteType = this.props.apic.apicDevicesFind.byteType;
+    let byteType = this.props.apic.sortBy.field;
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
@@ -93,7 +93,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={byteType}
+                 title={byteType.charAt(0).toUpperCase()}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname")}}>HostName</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus")}}>Reachability</MenuItem>
