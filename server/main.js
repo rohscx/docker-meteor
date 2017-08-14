@@ -33,6 +33,8 @@ Meteor.publish('apicDevices', function() {
     statusCode: 200,
     content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
   */
+  let timeNow = Math.round(new Date().getTime() / 1000);
+  let dateTime = new Date();
   let baseUrl = Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.public.ciscoApicEM.uPass;
