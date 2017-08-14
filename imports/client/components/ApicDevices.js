@@ -16,7 +16,7 @@ class TransferRate extends Component {
   handleSearchFormInput(event) {
     let value = event.target.value;
     let deviceFilter = "ALL"
-    this.props.apicDevicesFind(value,deviceFilter,null);
+    this.props.apicDevicesFind(value,deviceFilter,"cats");
   }
 
   preventDefault(e){
