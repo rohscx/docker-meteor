@@ -154,6 +154,7 @@ export default class Table extends Component {
       }
       let newData = data.siteData.dataObj;
       let statusDanger = (time) =>{
+        // changes color to green if the total transfer time is under 59Hours
         if(isNaN(time)){
           return null;
         } else if(time >=212400) {
