@@ -44,7 +44,8 @@ Meteor.publish('apicDevices', function() {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-  let apicTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  let http = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  let apicTicket = http.data.response.serviceTicket
   let apicDevicesOptions = {
     headers: {
       "content-type": "application/json",
