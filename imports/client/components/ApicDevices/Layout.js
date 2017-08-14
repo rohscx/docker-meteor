@@ -41,7 +41,9 @@ export default class Table extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     let reachCheck = (text)=>{
       if(text == 'Reachable'){
-        return text
+        return (
+          <mark>{text}</mark>
+        )
       } else {
         return "NNOOO"
       }
