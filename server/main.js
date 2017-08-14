@@ -80,11 +80,21 @@ Meteor.publish('apicDevices', function() {
       "siteData.dataObj.upTime":1,
       "siteData.dataObj.interfaceCount":1,
       "siteData.dataObj.series":1,
-      "siteData.dataObj.serialNumber":1    
+      "siteData.dataObj.serialNumber":1
      },{})
   } else {
     console.log("APIC-EM DATABASE HAS ITEMS RETURNING DATA TO CLIENT")
-    return ItemsApicDevices.find()
+    return ItemsApicDevices.find({
+      "siteData.dataObj.hostname": 1,
+      "siteData.dataObj.role": 1,
+      "siteData.dataObj.lastUpdated":1,
+      "siteData.dataObj.managementIpAddress":1,
+      "siteData.dataObj.softwareVersion":1,
+      "siteData.dataObj.upTime":1,
+      "siteData.dataObj.interfaceCount":1,
+      "siteData.dataObj.series":1,
+      "siteData.dataObj.serialNumber":1
+     },{})
   }
 });
 
