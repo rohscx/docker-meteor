@@ -41,7 +41,7 @@ export default class Table extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     const rowStyles = {
       paddingTop: '5%',
-      paddingButtom: '5'
+      paddingButtom: '5%'
     };
     let colData = dbData.map((data)=>{
       return (
