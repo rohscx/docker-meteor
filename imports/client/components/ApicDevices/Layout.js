@@ -112,6 +112,7 @@ export default class Table extends Component {
     tableDiv = this.props.apic.apicDevicesFind.validationStatus ? setTimeout(()=>{
       console.log("TIMEOUT")
       this.returnLayout((response)=>{
+        console.log(response)
         just =  response
       },500)
     }) : "";
