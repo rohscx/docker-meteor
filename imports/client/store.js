@@ -20,5 +20,5 @@ export default createStore(combineReducers({
   prtgReducer
 }),
    {},
-    applyMiddleware(myLogger, thunk)
+    applyMiddleware(thunk)
   );
