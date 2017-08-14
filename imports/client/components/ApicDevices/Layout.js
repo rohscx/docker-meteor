@@ -47,11 +47,11 @@ export default class Table extends Component {
       return (
         <div key={data["_id"]} style= {rowStyles}>
           <Row className="show-grid">
-            <Col xs={6} ><code>&lt;{data.siteData.dataObj.hostname} /&gt;</code></Col>
+            <Col xs={6} >{data.siteData.dataObj.hostname}</Col>
           </Row>
           <Row className="show-grid">
-            <Col md={6} mdPush={6}><code>&lt;{data.siteData.dataObj.managementIpAddress} /&gt;</code></Col>
-            <Col md={6} mdPull={6}><code>&lt;{data.siteData.dataObj.reachabilityStatus} /&gt;</code></Col>
+            <Col md={6} mdPush={6}>{data.siteData.dataObj.managementIpAddress}</Col>
+            <Col md={6} mdPull={6}>{data.siteData.dataObj.reachabilityStatus}</Col>
           </Row>
         </div>
       )
