@@ -39,7 +39,7 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    let statusCheck = () =>{
+    function statusCheck(){
       let status = data.siteData.dataObj.reachabilityStatus;
       let statusStyle = {
         mark: {
