@@ -10,7 +10,7 @@ export default class Title extends Component {
     };
     return(
       <div>
-        <PageHeader><small>{this.props.title}</small></PageHeader>
+        <PageHeader>{this.props.title}</PageHeader>
       </div>
     )
   }

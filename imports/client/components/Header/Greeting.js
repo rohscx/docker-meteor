@@ -11,7 +11,7 @@ export default class Greeting extends Component {
     };
     return(
       <div>
-        <PageHeader>{this.props.greeting}</PageHeader>
+        <PageHeader><small>{this.props.greeting}</small></PageHeader>
       </div>
     )
   }
