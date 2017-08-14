@@ -54,9 +54,10 @@ Meteor.publish('apicDevices', function() {
     }
   };
   httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
+  apicDevices = httpDevices.data.response;
   console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
-  httpDevices.map((data)=>{
+  apicDevices.map((data)=>{
     ItemsApicDevices.insert({
         siteData: {
           dataObj: data,
