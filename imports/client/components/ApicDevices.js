@@ -83,13 +83,13 @@ class TransferRate extends Component {
       margin: "auto",
       width: "40%"
     };
-    let byteType = this.props.util.bandwidthCalcData.byteType;
+    let byteType = this.props.apic.apicDevicesFind.byteType;
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
           <FormGroup validationState={validationStatus()}>
              <InputGroup>
-               <FormControl placeholder="Enter Data Size..." type="text" onChange={formInput()}/>
+               <FormControl placeholder="Enter Device Name..." type="text" onChange={formInput()}/>
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
