@@ -59,8 +59,8 @@ export default class Table extends Component {
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.series}</Col>
-            <Col xs={6} md={1}>Serial#: {data.siteData.dataObj.serialNumber}</Col>
+            <Col xs={6} md={3}>{data.siteData.dataObj.series}</Col>
+            <Col xs={6} md={2}>Serial#: {data.siteData.dataObj.serialNumber}</Col>
           </Row>
         </div>
       )
