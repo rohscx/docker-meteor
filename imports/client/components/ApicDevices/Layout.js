@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
-import {Row,Col} from 'react-bootstrap';
+import {Row,Col,Clearfix} from 'react-bootstrap';
 export default class Table extends Component {
   constructor() {
     super();
@@ -59,8 +59,9 @@ export default class Table extends Component {
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
+            <Clearfix visibleSmBlock><code>&lt;{'Clearfix visibleSmBlock'} /&gt;</code></Clearfix>
             <Col xs={6} md={1}>Interface Count: {data.siteData.dataObj.interfaceCount}</Col>
-            <Col xs={6} md={2}>Serial Number: {data.siteData.dataObj.serialNumber}</Col>
+            <Col xs={6} md={4}>Serial Number: {data.siteData.dataObj.serialNumber}</Col>
           </Row>
         </div>
       )
