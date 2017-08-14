@@ -94,7 +94,7 @@ export default class Table extends Component {
 
 
     tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    console.log(this)
+    //console.log(this)
     return(
       <div>
         {tableDiv}

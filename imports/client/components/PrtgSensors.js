@@ -88,7 +88,7 @@ class PrtgSensors extends Component {
   render() {
     const divStyles = {
     };
-    console.log(this);
+    //console.log(this);
 
     return(
       <div style={divStyles}>

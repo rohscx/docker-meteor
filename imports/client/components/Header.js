@@ -6,7 +6,7 @@ import Greeting from './Header/Greeting';
 
 export default class Header extends Component {
   handleChange(){
-    console.log(this);
+    //console.log(this);
   }
   render() {
     const divStyles = {
