@@ -48,11 +48,11 @@ export default class Table extends Component {
       if (status == 'Reachable'){
         return (
           <mark>{text}</mark>
-        ) else {
-          return (
-            {text}
-          )
-        }
+        )
+      } else {
+        return (
+          {text}
+        )
       }
     }
     const divStyles = {
