@@ -40,19 +40,18 @@ export default class Table extends Component {
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     let colData = dbData.map((data)=>{
-
+      return (
+        <div>
+          <Row className="show-grid">
+            <Col xs={6} ><code>&lt;{data.siteData.dataObj.hostname} /&gt;</code></Col>
+          </Row>
+          <Row className="show-grid">
+            <Col md={6} mdPush={6}><code>&lt;{data.siteData.dataObj.managementIpAddress} /&gt;</code></Col>
+            <Col md={6} mdPull={6}><code>&lt;{data.siteData.dataObj.reachabilityStatus} /&gt;</code></Col>
+          </Row>
+        </div>
+      )
     })
-    return (
-      <div>
-        <Row className="show-grid">
-          <Col xs={6} ><code>&lt;{'Col xs={6} xsOffset={6ddd}'} /&gt;</code></Col>
-        </Row>
-        <Row className="show-grid">
-          <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
-          <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
-        </Row>
-      </div>
-    )
   }
 
 
