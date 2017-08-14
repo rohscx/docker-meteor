@@ -43,19 +43,16 @@ export default class Table extends Component {
       paddingTop: '5%',
       paddingButtom: '5%'
     };
-    const divStylesRowMain = {
-      paddingButtom: '3%',
-      fontWeight: "bold",
+    const rowStylesMain = {
+      fontWeight: "bold"
     };
     let colData = dbData.map((data)=>{
       return (
         <div key={data["_id"]} style= {divStyles}>
-          <div style={divStylesRowMain}>
-            <Row className="show-grid">
-              <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
-              <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
-            </Row>
-          </div>
+          <Row className="show-grid" style={rowStylesMain}>
+            <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
+            <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
+          </Row>
           <Row className="show-grid">
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
             <Col xs={6} md={1}>{data.siteData.dataObj.reachabilityStatus}</Col>
