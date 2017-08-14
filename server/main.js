@@ -22,7 +22,7 @@ Meteor.publish('currentUser', function() {
 
 Meteor.publish('apicDevices', function() {
   let countCollections = ItemsApicDevices.find().count();
-  console.log(countCollections);
+  console.log("apicDevices Count = ",countCollections);
   /*
     data contains the entire return object
     data.content contains the contents
@@ -59,43 +59,23 @@ Meteor.publish('apicDevices', function() {
   apicDevices = httpDevices.data.response;
   console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
-  apicDevices.map((data)=>{
-    ItemsApicDevices.insert({
-        siteData: {
-          dataObj: data,
-          requestTime: timeNow,
-          dateTime: dateTime
-        }
-      });
-  });
-  return ItemsApicDevices.find()
-  /*if(countCollections >= 99999999999){
-    console.log("HIT COUNT COLLECTION FAILURE <= 0")
-    const poll = () => {
-      // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-      const data = HTTP.get(url, options);
-      let newData = JSON.parse(data.content);
-      newData.sensors.map((data,value) => {
-        let timeNow = Math.round(new Date().getTime() / 1000);
-        let dateTime = new Date();
-        //console.log(newData.sensors[value].objid)
-        //console.log(typeof(newData.sensors[value].objid))
-        //console.log("DATA ID ",data._id)
-        ItemsApicDevices.insert({
-            apicData: {
-              dataObj: data,
-              requestTime: timeNow,
-              dateTime: dateTime
-            }
-          });
-      });
-    };
-    poll();
-    //this.ready();
-    return ItemsApicDevices.find({},{});
+  if (countCollections <= 0){
+    console.log("Apic Devices DB Empty Requesting data")
+    apicDevices.map((data)=>{
+      ItemsApicDevices.insert({
+          siteData: {
+            dataObj: data,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+    });
+    console.log("RETURNING APIC-EM DATA TO CLIENT")
+    return ItemsApicDevices.find()
   } else {
-    console.log("HIT COLLECTION EXISTS!!!")
-  }*/
+    console.log("APIC-EM DATABASE HAS ITEMS RETURNING DATA TO CLIENT")
+    return ItemsApicDevices.find()
+  }
 });
 
 
