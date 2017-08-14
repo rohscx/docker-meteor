@@ -96,10 +96,10 @@ class TransferRate extends Component {
                  title={byteType}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setByteType("ALL")}}>ALL</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setByteType("TB")}}>TB</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setByteType("PB")}}>PB</MenuItem>
-                 <MenuItem key="5" onSelect= {()=>{this.setByteType("ZB")}}>ZB</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setByteType("R1")}}>R1</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setByteType("R2")}}>R2</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setByteType("R1R2")}}>R1/R2</MenuItem>
+                 <MenuItem key="5" onSelect= {()=>{this.setByteType("SW")}}>SW</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
