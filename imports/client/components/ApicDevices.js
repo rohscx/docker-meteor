@@ -128,6 +128,7 @@ class TransferRate extends Component {
 const mapSateToProps = (state) => {
   return {
     util: state.utilReducer,
+    apic: state.utilReducer,
   };
 };
 
