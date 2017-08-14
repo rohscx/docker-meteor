@@ -84,7 +84,7 @@ class TransferRate extends Component {
       width: "40%"
     };
     let sortField = this.props.apic.sortBy.field;
-    let buttonLabel = (textValue){
+    let buttonLabel = (textValue)=>{
       switch(textValue){
         case "hostname":
         return "HostName";
