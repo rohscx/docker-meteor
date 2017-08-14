@@ -105,14 +105,10 @@ export default class Table extends Component {
         opacity               : '100'
       }
     };
-
-
+    timeout = null;
+    clearTimeout(timeout);
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? timeout = null;
-        clearTimeout(timeout);
-        timeout = setTimeout (function(){
-          this.returnLayout()
-        }, 500); : "";
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? timeout = setTimeout (function(){this.returnLayout()}, 500); : "";
     //console.log(this)
     return(
       <div>
