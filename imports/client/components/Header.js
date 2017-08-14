@@ -10,9 +10,9 @@ export default class Header extends Component {
   }
   render() {
     const divStyles = {
-      paddingLeft:"10%",
+      margin:"auto",
       paddingTop:"2%",
-      paddingBottom:"5%"
+      paddingBottom:"2%"
     };
       return(
         <div style={divStyles}>
