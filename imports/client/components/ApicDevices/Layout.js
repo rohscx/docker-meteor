@@ -44,7 +44,7 @@ export default class Table extends Component {
       paddingButtom: '5%'
     };
     const rowStylesMain = {
-      paddingButtom: '1%',
+      paddingButtom: '3%',
       fontWeight: "bold",
     };
     let colData = dbData.map((data)=>{
