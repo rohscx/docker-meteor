@@ -39,14 +39,18 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    const rowStyles = {
+    const divStyles = {
       paddingTop: '5%',
       paddingButtom: '5%'
     };
+    const rowStylesMain = {
+      paddingButtom: '1%',
+      fontWeight: "bold",
+    };
     let colData = dbData.map((data)=>{
       return (
-        <div key={data["_id"]} style= {rowStyles}>
-          <Row className="show-grid">
+        <div key={data["_id"]} style= {divStyles}>
+          <Row className="show-grid" style={rowStylesMain}>
             <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
             <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
           </Row>
