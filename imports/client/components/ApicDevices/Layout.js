@@ -52,6 +52,7 @@ export default class Table extends Component {
       } else {
         return "dafsafa"
       }
+      return "cats";
     }
     const divStyles = {
       paddingTop: '5%',
