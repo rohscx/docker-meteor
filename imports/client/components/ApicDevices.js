@@ -93,7 +93,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={byteType.charAt(0).toUpperCase()}
+                 title={byteType.charAt(0).toUpperCase()s}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname")}}>HostName</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus")}}>Reachability</MenuItem>
