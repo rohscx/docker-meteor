@@ -40,12 +40,15 @@ export default class Table extends Component {
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
     let reachCheck = (text)=>{
+
       if(text == 'Reachable'){
         return (
-          <mark>{text}</mark>
+          <mark style={backgroundColor:"#5cb85c"}>{text}</mark>
         )
       } else {
-        return "NNOOO"
+        return (
+          <mark style={backgroundColor:"#d953f"}>{text}</mark>
+        )
       }
     }
     const divStyles = {
