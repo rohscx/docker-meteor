@@ -38,7 +38,7 @@ export default class Table extends Component {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
-    if (findField.length >= 2 || "."){
+    if (findField.length >= 2){
       console.log(findField.length)
       console.log(findField)
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
