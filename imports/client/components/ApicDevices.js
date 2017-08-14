@@ -33,8 +33,8 @@ class TransferRate extends Component {
     this.props.bandwidthCalc(value,byteType,null);
   }
 
-  setSortBy(sortName){
-    this.props.sortBy(sortName)
+  setSortBy(sortName, sortOrder){
+    this.props.sortBy(sortName, sortOrder)
   }
 
   preventDefault(e){
@@ -111,10 +111,10 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title={buttonLabel(sortField)}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname")}}>HostName</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus")}}>Reachability</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("upTime")}}>UpTime</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("softwareVersion")}}>IOS Version</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname",1)}}>HostName</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus",-1)}}>Reachability</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("upTime",1)}}>UpTime</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("softwareVersion",1)}}>IOS Version</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
@@ -152,8 +152,8 @@ const mapDispatchToProps = (dispatch) => {
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
       dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },
-    sortBy: (sortValue) => {
-      dispatch(sortBy(sortValue));
+    sortBy: (sortValue, sortOrder) => {
+      dispatch(sortBy(sortValue, sortOrder));
     },
   };
 };

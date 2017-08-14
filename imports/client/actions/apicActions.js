@@ -105,11 +105,11 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
 }
 
 
-export function sortBy(sortName) {
+export function sortBy(sortName, sortOrder) {
   return dispatch => {
     return dispatch(setSortBy({
       field:sortName,
-      order: -1
+      order: sortOrder
     }));
   }
 }
