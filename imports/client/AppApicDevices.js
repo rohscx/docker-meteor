@@ -103,10 +103,10 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: aicDevicesItemsSub.ready(),
-    dbReturn: function data(sortValue, sortOrder){
+    dbReturn: function data(findValue,sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
-      return sortBy(sortValue, sortOrder)
+      return sortBy(findValue,sortValue, sortOrder)
     }
 
   };
