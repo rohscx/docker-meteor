@@ -50,9 +50,7 @@ export default class Table extends Component {
           <mark>{text}</mark>
         )
       } else {
-        return (
-          {text}
-        )
+        return "dafsafa"
       }
     }
     const divStyles = {
