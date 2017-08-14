@@ -91,7 +91,8 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
-    console.log(findValue," ",sortValue," ",sortOrder)
+    // debug
+    //console.log(findValue," ",sortValue," ",sortOrder)
     let keyString = "siteData.dataObj."+sortValue;
     let sortObj = {};
     let keyObj ={};
