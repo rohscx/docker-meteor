@@ -44,10 +44,10 @@ ItemsApicDevices.deny({
    componentWillMount() {
 
       this.setState({
-        title: "Apic Device List"
+        title: "Cisco Network Device Information"
       });
       this.setState({
-        greeting: "Welome, this application returns device informatio from Apic-EM."
+        greeting: "Welome, this application returns the general status of all Cisco network devices connected to Apic-EM"
       });
       this.setState({
         status: ""
