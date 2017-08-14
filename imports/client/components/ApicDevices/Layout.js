@@ -39,56 +39,52 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    let timeout = null;
-    clearTimeout(timeout);
-    return  setTimeout(function(){
-      let reachCheck = (status)=>{
-        let passStyle = {
-          backgroundColor:"#5cb85c"
-        }
-        let failStyle = {
-          backgroundColor:"#d9534f"
-        }
-        if(status == 'Reachable'){
-          return (
-            <mark style={passStyle}>{status}</mark>
-          )
-        } else {
-          return (
-            <mark style={failStyle}>{status}</mark>
-          )
-        }
+    let reachCheck = (status)=>{
+      let passStyle = {
+        backgroundColor:"#5cb85c"
       }
-      const divStyles = {
-        paddingTop: '5%',
-        paddingButtom: '5%'
-      };
-      const rowStylesMain = {
-        fontWeight: "bold"
-      };
-      let colData = dbData.map((data)=>{
-        let status = data.siteData.dataObj.reachabilityStatus;
+      let failStyle = {
+        backgroundColor:"#d9534f"
+      }
+      if(status == 'Reachable'){
         return (
-          <div key={data["_id"]} style= {divStyles}>
-            <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
-              <Col xs={6} md={2}>{data.siteData.dataObj.role}</Col>
-              <Col xs={6} md={3}>Updated @ {data.siteData.dataObj.lastUpdated}</Col>
-            </Row>
-            <Row className="show-grid">
-              <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
-              <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
-              <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
-              <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
-              <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
-              <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
-              <Col xs={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
-            </Row>
-          </div>
+          <mark style={passStyle}>{status}</mark>
         )
-      })
-      return colData
+      } else {
+        return (
+          <mark style={failStyle}>{status}</mark>
+        )
+      }
+    }
+    const divStyles = {
+      paddingTop: '5%',
+      paddingButtom: '5%'
+    };
+    const rowStylesMain = {
+      fontWeight: "bold"
+    };
+    let colData = dbData.map((data)=>{
+      let status = data.siteData.dataObj.reachabilityStatus;
+      return (
+        <div key={data["_id"]} style= {divStyles}>
+          <Row className="show-grid" style={rowStylesMain}>
+            <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
+            <Col xs={6} md={2}>{data.siteData.dataObj.role}</Col>
+            <Col xs={6} md={3}>Updated @ {data.siteData.dataObj.lastUpdated}</Col>
+          </Row>
+          <Row className="show-grid">
+            <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
+            <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
+            <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
+            <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
+            <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
+            <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
+          </Row>
+        </div>
+      )
     })
+    return colData
   }
 
 
