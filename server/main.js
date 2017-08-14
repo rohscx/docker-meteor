@@ -35,9 +35,9 @@ Meteor.publish('apicDevices', function() {
   */
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
-  let baseUrl = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.ciscoApicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
-  let uName = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.ciscoApicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
-  let uPass = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.ciscoApicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+  let baseUrl = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+  let uName = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
+  let uPass = Meteor.settings.private.ciscoApicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
