@@ -47,8 +47,8 @@ export default class Table extends Component {
       return (
         <div key={data["_id"]} style= {rowStyles}>
           <Row className="show-grid">
-            <Col xs={6} md={2}>{data.siteData.dataObj.hostname}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.type}</Col>
+            <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
+            <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
           </Row>
           <Row className="show-grid">
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
