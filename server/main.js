@@ -33,7 +33,6 @@ Meteor.publish('apicDevices', function() {
     statusCode: 200,
     content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
   */
-  let type = "POST";
   let baseUrl = Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.public.ciscoApicEM.uPass;
@@ -51,8 +50,8 @@ Meteor.publish('apicDevices', function() {
       "x-auth-token": apicTicket
     }
   };
-  console.log("ticket Test",Meteor.call('apicTicket', type,url,apicTicketOptions))
-  console.log("Devices Test",Meteor.call('apicHttpRequest', type,url,apicDevicesOptions))
+  console.log("ticket Test",Meteor.call('apicTicket', "POST",url,apicTicketOptions))
+  console.log("Devices Test",Meteor.call('apicHttpRequest', "GET",url,apicDevicesOptions))
   /*if(countCollections >= 99999999999){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
