@@ -84,7 +84,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
         }));
     } else {
       let newData = deviceName.trim().toLowerCase()
-      if (newData.length = <= 0) {
+      if (newData.length <= 0) {
         return dispatch(setApicDevicesFind({
           deviceName: deviceName,
           validationStatus: false,

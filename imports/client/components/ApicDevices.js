@@ -15,7 +15,7 @@ class TransferRate extends Component {
   }
   handleSearchFormInput(event) {
     let value = event.target.value;
-    let byteType = this.props.util.bandwidthCalcData.byteType;
+    let byteType = this.props.apic.apicdevices.byteType;
     this.props.bandwidthCalc(value,byteType,null);
   }
 
@@ -133,8 +133,8 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    bandwidthCalc: (number,byteType,cdase) => {
-      dispatch(bandwidthCalc(number,byteType,cdase));
+    apicDevicesFind: (deviceName,deviceFilter,cdase) => {
+      dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },
     sortBy: (sortValue, sortOrder) => {
       dispatch(sortBy(sortValue, sortOrder));
