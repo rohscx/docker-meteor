@@ -5,13 +5,12 @@ import {PageHeader} from 'react-bootstrap';
 export default class Greeting extends Component {
 
   render() {
-    const pStyles = {
-      width:"90%",
-      paddingLeft:"2%"
+    const pageHeaderStyles = {
+      textAlign:"center"
     };
     return(
       <div>
-        <PageHeader><p><small>{this.props.greeting}</small></p></PageHeader>
+        <PageHeader style={pageHeaderStyles}><p><small>{this.props.greeting}</small></p></PageHeader>
       </div>
     )
   }
