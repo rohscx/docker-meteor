@@ -13,7 +13,17 @@ const apicReducer = (state = {
     status: null,
     isReady: true
   },
-  fabricConfig: ""
+  fabricConfig: "",
+  sortBy:{
+    field:"aca",
+    order: 1
+  },
+  apicDevicesFind:{
+    number: "",
+    validationStatus: false,
+    btnStyle: false,
+    byteType: "ALL"
+  },
 }, action) => {
   switch (action.type) {
     case "SET_TICKET":
@@ -69,6 +79,18 @@ const apicReducer = (state = {
     state = {
       ...state,
       fabricConfig: action.payload
+    };
+    break;
+    case "SET_APICDEVICESFIND":
+    state = {
+      ...state,
+      apicDevicesFind: action.payload
+    };
+    break;
+    case "SET_SORTBY":
+    state = {
+      ...state,
+      sortBy: action.payload
     };
     break;
     }

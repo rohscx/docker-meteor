@@ -59,6 +59,50 @@ export function setTraceStatus(traceStatus) {
   };
 }
 
+export function setApicDevicesFind(number) {
+  return {
+    type: "SET_APICDEVICESFIND",
+    payload: number
+  };
+}
+
+export function setSortBy(value) {
+  return {
+    type: "SET_SORTBY",
+    payload: value
+  };
+}
+
+export function apicDevicesFind(deviceName,deviceFilter,cdase) {
+  return dispatch => {
+    if (cdase === null){
+      return dispatch(setApicDevicesFind({
+          deviceName: deviceName,
+          validationStatus: true,
+          btnStyle: true,
+          byteType: deviceFilter
+        }));
+    } else {
+      let newData = deviceName.trim().toLowerCase()
+      if (newData.length = <= 0) {
+        return dispatch(setApicDevicesFind({
+          deviceName: deviceName,
+          validationStatus: false,
+          btnStyle: false,
+          byteType: deviceFilter
+        }));
+      } else {
+        return dispatch(setApicDevicesFind({
+          deviceName: deviceName,
+          validationStatus: true,
+          btnStyle: true,
+          byteType: deviceFilter
+        }));
+      }
+    }
+  }
+}
+
 
 export function getTicket(sourceIp,destIp) {
   return dispatch => {

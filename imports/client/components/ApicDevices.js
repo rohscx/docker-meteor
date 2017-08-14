@@ -94,7 +94,7 @@ class TransferRate extends Component {
                  id="input-dropdown-addon"
                  title={byteType}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setByteType("MB")}}>MB</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setByteType("ALL")}}>MB</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setByteType("GB")}}>GB</MenuItem>
                  <MenuItem key="3" onSelect= {()=>{this.setByteType("TB")}}>TB</MenuItem>
                  <MenuItem key="4" onSelect= {()=>{this.setByteType("PB")}}>PB</MenuItem>
