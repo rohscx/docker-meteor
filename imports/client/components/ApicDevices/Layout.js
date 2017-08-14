@@ -48,28 +48,15 @@ export default class Table extends Component {
       fontWeight: "bold"
     };
     let colData = dbData.map((data)=>{
-      function statusCheck(){
-        let status = data.siteData.dataObj.reachabilityStatus;
-        let statusStyle = {
-          mark: {
-            backgroundColor: 'green'
-          }
-        }
-        if (status == 'Reachable'){
-          return true;
-        } else {
-          return false;
-        }
-      }
       return (
         <div key={data["_id"]} style= {divStyles}>
           <Row className="show-grid" style={rowStylesMain}>
             <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
             <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
           </Row>
-          <Row className="show-grid"> statusCheck
+          <Row className="show-grid">
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col xs={6} md={1}>{statusCheck() ? data.siteData.dataObj.reachabilityStatus : "NOPE"}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.reachabilityStatus}</Col>
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
