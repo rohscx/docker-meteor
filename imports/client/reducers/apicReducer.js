@@ -19,7 +19,7 @@ const apicReducer = (state = {
     order: 1
   },
   apicDevicesFind:{
-    number: "",
+    number: "aga",
     validationStatus: false,
     btnStyle: false,
     byteType: "ALL"
