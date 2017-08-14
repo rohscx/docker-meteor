@@ -110,8 +110,8 @@ export default class Table extends Component {
     dothis = this.returnLayout()
     rat = "Nothing to see"
     timeout = setTimeout (function(){
-      console.log(dothis)
-      rat =  dothis
+      console.log(this.rat)
+      this.rat =  dothis
     },500)
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
