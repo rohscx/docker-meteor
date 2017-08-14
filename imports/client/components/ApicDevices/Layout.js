@@ -37,9 +37,9 @@ export default class Table extends Component {
   returnLayout() {
     return (
       <Row className="show-grid">
-        <Col xs={6}><code>&lt;{'Device Name'} /&gt;</code></Col>
-        <Col md={6} mdPush={6}><code>&lt;{'DeviceData1'} /&gt;</code></Col>
-        <Col md={6} mdPull={6}><code>&lt;{'DeviceData2'} /&gt;</code></Col>
+        <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
+        <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
+        <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
       </Row>
     )
   }
