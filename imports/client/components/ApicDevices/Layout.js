@@ -108,7 +108,7 @@ export default class Table extends Component {
     timeout = null;
     clearTimeout(timeout);
     dothis = this.returnLayout()
-    rat = ""
+    rat = "Nothing to see"
     timeout = setTimeout (function(){
       console.log(dothis)
       rat =  dothis
@@ -118,7 +118,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {timeout}
+        {rat}
       </div>
     )
   }
