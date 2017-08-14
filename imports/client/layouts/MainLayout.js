@@ -44,7 +44,7 @@ const MainLayout = ({children}) =>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav>
+          <Nav bsStyle="tabs">
             <LinkContainer to='/apicdev'>
               <NavItem eventKey={1}>
                 APIC-EM Devices
