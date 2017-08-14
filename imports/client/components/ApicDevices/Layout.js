@@ -59,25 +59,24 @@ export default class Table extends Component {
 
   render() {
     const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    height                : '300px',
-    width                 : '920px',
-    transform             : 'translate(-50%, -50%)',
-    background            : `url(${this.state.modalLink.newData.graph})`,
-    backgroundSize        : 'contain',
-    opacity               : '100'
-  }
-  const rowStyles = {
-    paddingTop: '5%',
-    paddingButtom: '5'
-  }
-
-};
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        height                : '300px',
+        width                 : '920px',
+        transform             : 'translate(-50%, -50%)',
+        background            : `url(${this.state.modalLink.newData.graph})`,
+        backgroundSize        : 'contain',
+        opacity               : '100'
+      }
+    };
+    const rowStyles = {
+      paddingTop: '5%',
+      paddingButtom: '5'
+    };
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
