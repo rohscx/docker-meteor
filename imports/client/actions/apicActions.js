@@ -109,7 +109,7 @@ export function sortBy(sortName) {
   return dispatch => {
     return dispatch(setSortBy({
       field:sortName,
-      order: 1
+      order: -1
     }));
   }
 }
