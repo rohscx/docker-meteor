@@ -50,12 +50,12 @@ export default class Table extends Component {
             <Col xs={6} >{data.siteData.dataObj.hostname}</Col>
           </Row>
           <Row className="show-grid">
-            <Col xs={6} md={2}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.reachabilityStatus}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.softwareVersion}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.upTime}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.series}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.interfaceCount}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.reachabilityStatus}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.softwareVersion}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.upTime}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.series}</Col>
+            <Col xs={6} md={1}>{data.siteData.dataObj.interfaceCount}</Col>
           </Row>
         </div>
       )
