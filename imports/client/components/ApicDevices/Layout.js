@@ -72,7 +72,7 @@ export default class Table extends Component {
             <Col xs={6} md={4}>{data.siteData.dataObj.type}</Col>
           </Row>
           <Row className="show-grid">
-            <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
+            <Col xs={6} md={2}>{data.siteData.dataObj.managementIpAddress}</Col>
             <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
