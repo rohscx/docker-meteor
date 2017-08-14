@@ -46,7 +46,7 @@ export default class Table extends Component {
       let failStyle = {
         backgroundColor:"##d953f"
       }
-      if(text == 'Reachable'){
+      if(status == 'Reachable'){
         return (
           <mark style={passStyle}>{status}</mark>
         )
