@@ -107,9 +107,6 @@ export default class Table extends Component {
     };
     timeout = null;
     clearTimeout(timeout);
-    let blah = ()=>{
-      return
-    };
     dothis = this.returnLayout()
     timeout = setTimeout (function(dothis){return dothis},500)
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
@@ -117,7 +114,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {timout}
+        {timeout}
       </div>
     )
   }
