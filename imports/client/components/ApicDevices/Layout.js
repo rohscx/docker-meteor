@@ -69,7 +69,7 @@ export default class Table extends Component {
           </Row>
           <Row className="show-grid"> statusCheck
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col xs={6} md={1}>{statusCheck ? data.siteData.dataObj.reachabilityStatus : "NOPE"}</Col>
+            <Col xs={6} md={1}>{statusCheck() ? data.siteData.dataObj.reachabilityStatus : "NOPE"}</Col>
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
