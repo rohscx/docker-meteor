@@ -60,9 +60,9 @@ export default class Table extends Component {
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
             <Col xs={6} md={1}>Interface Count: {data.siteData.dataObj.interfaceCount}</Col>
-            <Col xs={6} md={4}>Serial Number: {data.siteData.dataObj.serialNumber}</Col>
             <Clearfix visibleXsBlock><code>&lt;{'Clearfix visibleSmBlock MD'} /&gt;</code></Clearfix>
             <Clearfix visibleMdBlock><code>&lt;{'Clearfix visibleSmBlockXS'} /&gt;</code></Clearfix>
+            <Col xs={6} md={4}>Serial Number: {data.siteData.dataObj.serialNumber}</Col>
           </Row>
         </div>
       )
