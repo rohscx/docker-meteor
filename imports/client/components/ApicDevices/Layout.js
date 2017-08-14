@@ -40,6 +40,7 @@ export default class Table extends Component {
     let sortOrderField = this.props.apic.sortBy.order;
     if (findField.length >= 2 || "."){
       console.log(findField.length)
+      console.log(findField)
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
       let reachCheck = (status)=>{
         let passStyle = {
