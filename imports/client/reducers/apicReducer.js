@@ -15,7 +15,7 @@ const apicReducer = (state = {
   },
   fabricConfig: "",
   sortBy:{
-    field:"aca",
+    field:"ALL",
     order: 1
   },
   apicDevicesFind:{

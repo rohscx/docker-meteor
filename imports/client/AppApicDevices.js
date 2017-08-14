@@ -90,13 +90,13 @@ export default createContainer(({params}) => {
   let aicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
-  sortBy = (sortValue, sortOrder) =>{
+  sortBy = (findValue,sortValue, sortOrder) =>{
     let keyString = "siteData.dataObj."+sortValue;
     let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
-    return ItemsApicDevices.find({},sortObj).fetch();
+    return ItemsApicDevices.find({"siteData.dataObj.hostname":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
