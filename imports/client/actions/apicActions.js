@@ -92,8 +92,9 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
           byteType: deviceFilter
         }));
       } else {
+        let newData = deviceName.trim().toLowerCase()
         return dispatch(setApicDevicesFind({
-          deviceName: deviceName,
+          deviceName: newData,
           validationStatus: true,
           btnStyle: true,
           byteType: deviceFilter
