@@ -10,7 +10,7 @@ export default class Title extends Component {
     };
     return(
       <div>
-        <Jumbotron>{this.props.title}</Jumbotron>
+        <Jumbotron><h1>{this.props.title}</h1></Jumbotron>
       </div>
     )
   }
