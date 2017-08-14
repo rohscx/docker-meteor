@@ -15,12 +15,12 @@ const apicReducer = (state = {
   },
   fabricConfig: "",
   sortBy:{
-    field:"hostname",
-    order: 1
+    field:"reachabilityStatus",
+    order: -1
   },
   apicDevicesFind:{
-    deviceName: "aga",
-    validationStatus: false,
+    deviceName: ".",
+    validationStatus: true,
     btnStyle: false,
     byteType: "ALL"
   },
