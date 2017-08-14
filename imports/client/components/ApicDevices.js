@@ -83,7 +83,23 @@ class TransferRate extends Component {
       margin: "auto",
       width: "40%"
     };
-    let byteType = this.props.apic.sortBy.field;
+    let sortField = this.props.apic.sortBy.field;
+    let buttonLabel = (textValue){
+      switch(textValue){
+        case "hostname":
+        return "HostName";
+      break;
+        case "reachabilityStatus":
+        return "Reachability";
+      break;
+        case "upTime":
+        return "UpTime";
+      break;
+      case "softwareVersion":
+      return "IOS Version";
+    break;
+      }
+    };
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
@@ -93,7 +109,7 @@ class TransferRate extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={byteType.charAt(0).toUpperCase()}
+                 title={buttonLabel(sortField)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname")}}>HostName</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus")}}>Reachability</MenuItem>
