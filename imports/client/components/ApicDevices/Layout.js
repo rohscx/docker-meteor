@@ -39,7 +39,8 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    let statusCheck = (status) =>{
+    let statusCheck = () =>{
+      let status = data.siteData.dataObj.reachabilityStatus;
       let statusStyle = {
         mark: {
           backgroundColor: 'green'
@@ -60,7 +61,6 @@ export default class Table extends Component {
       fontWeight: "bold"
     };
     let colData = dbData.map((data)=>{
-      let newStatus = statusCheck(data.siteData.dataObj.reachabilityStatus);
       return (
         <div key={data["_id"]} style= {divStyles}>
           <Row className="show-grid" style={rowStylesMain}>
@@ -69,7 +69,7 @@ export default class Table extends Component {
           </Row>
           <Row className="show-grid"> statusCheck
             <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col xs={6} md={1}>{newStatus ? data.siteData.dataObj.reachabilityStatus : "NOPE"}</Col>
+            <Col xs={6} md={1}>{statusCheck ? data.siteData.dataObj.reachabilityStatus : "NOPE"}</Col>
             <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
             <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
             <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
