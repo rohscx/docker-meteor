@@ -38,8 +38,8 @@ Meteor.publish('apicDevices', function() {
   let uPass = Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
-  let  = "/api/v1/network-device";
-  let devicesUrl = baseUrl+apicDevicesUrn;
+  let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
