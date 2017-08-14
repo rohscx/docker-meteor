@@ -108,7 +108,7 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    just = "dd";
+    timeout = null;
     clearTimeout(timeout);
     timeout = setTimeout (function(){
       this.returnLayout()
