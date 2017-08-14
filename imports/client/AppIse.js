@@ -53,7 +53,7 @@ store.subscribe(() => {
       return <div>Loading ISE...</div>
     }
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
-    console.log(this);
+    //console.log(this);
     return (
       <Provider store={store}>
         <main>

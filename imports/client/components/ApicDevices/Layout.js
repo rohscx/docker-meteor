@@ -115,7 +115,10 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {tableDiv}
+        {this.returnLayout((response)=>{
+          console.log(response)
+          return response}
+        )}
       </div>
     )
   }
