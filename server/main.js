@@ -37,21 +37,22 @@ Meteor.publish('apicDevices', function() {
   let uName = Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
-  let url = baseUrl + apicTicketUrn;
-  let apicDevicesUrn = "/api/v1/network-device";
+  let ticketUrl = baseUrl + apicTicketUrn;
+  let  = "/api/v1/network-device";
+  let devicesUrl = baseUrl+apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-  let apicTicket = Meteor.call('apicTicket', "POST",url,apicTicketOptions);
+  let apicTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
   let apicDevicesOptions = {
     headers: {
       "content-type": "application/json",
       "x-auth-token": apicTicket
     }
   };
-  console.log("ticket Test",Meteor.call('apicTicket', "POST",url,apicTicketOptions))
-  console.log("Devices Test",Meteor.call('apicHttpRequest', "GET",url,apicDevicesOptions))
+  console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
+  console.log("Devices Test",Meteor.call('apicHttpRequest', "GET",devicesUrl,apicDevicesOptions))
   /*if(countCollections >= 99999999999){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
