@@ -47,7 +47,7 @@ if (Meteor.isServer) {
         return e;
       }
     },
-    apicHttRequest(type, url, options) {
+    apicHttpRequest(type, url, options) {
       this.unblock();
       try {
         const result = HTTP.call(type, url, options);
