@@ -50,8 +50,8 @@ export default class Table extends Component {
             <Col xs={6} >{data.siteData.dataObj.hostname}</Col>
           </Row>
           <Row className="show-grid">
-            <Col md={6} mdPush={6}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col md={6} mdPull={6}>{data.siteData.dataObj.reachabilityStatus}</Col>
+            <Col md={6} md={4}>{data.siteData.dataObj.managementIpAddress}</Col>
+            <Col md={6} md={4}>{data.siteData.dataObj.reachabilityStatus}</Col>
           </Row>
         </div>
       )
