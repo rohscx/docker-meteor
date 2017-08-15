@@ -168,12 +168,12 @@ export default class Table extends Component {
       }
       return (
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-        <td style={tdSytles}>{newData.aca}</td>
-        <td style={tdSytles}>{newData.branch}</td>
-        <td style={tdSytles}>{newData.wPortSpeed}</td>
-        <td style={tdSytles}>{newData.wPortType}</td>
-        <td style={tdSytles}>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
-        <td style={tdSytles}>{newData.iPortType}</td>
+        <td style={tdSytlesPointer}>{newData.aca}</td>
+        <td style={tdSytlesPointer}>{newData.branch}</td>
+        <td style={tdSytlesPointer}>{newData.wPortSpeed}</td>
+        <td style={tdSytlesPointer}>{newData.wPortType}</td>
+        <td style={tdSytlesPointer}>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
+        <td style={tdSytlesPointer}>{newData.iPortType}</td>
         {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
         {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUp) : null}
         {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedDown) : null}
