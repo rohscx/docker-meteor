@@ -57,8 +57,8 @@ Meteor.publish('apicDevices', function() {
   };
   httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
   apicDevices = httpDevices.data.response;
-
-  console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
+  // debug
+  //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")

@@ -47,7 +47,7 @@ const MainLayout = ({children}) =>
           <Nav>
             <LinkContainer to='/apicdev'>
               <NavItem eventKey={1}>
-                APIC-EM Devices
+                Device-Info
               </NavItem>
             </LinkContainer>
             <LinkContainer to='/ise'>
@@ -57,12 +57,12 @@ const MainLayout = ({children}) =>
             </LinkContainer>
             <LinkContainer to='/prtg'>
             <NavItem eventKey={3}>
-              PRTG
+              Circuit-Info
             </NavItem>
             </LinkContainer>
             <NavDropdown eventKey={10} title="Utilities" id="basic-nav-dropdown">
               <LinkContainer to='/trfr'>
-                <MenuItem eventKey={10.1}>TRANSF..RATE</MenuItem>
+                <MenuItem eventKey={10.1}>Rate-Calc</MenuItem>
               </LinkContainer>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
