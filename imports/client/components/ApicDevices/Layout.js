@@ -76,6 +76,7 @@ export default class Table extends Component {
       }
       let colData = dbData.map((data)=>{
         let status = data.siteData.dataObj.reachabilityStatus;
+        let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
@@ -84,7 +85,7 @@ export default class Table extends Component {
               <Col xs={6} md={3}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={6} md={1} href={sshLinkGen(data.siteData.dataObj.managementIpAddress)}>{data.siteData.dataObj.managementIpAddress}</Col>
+              <Col xs={6} md={1} href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</Col>
               <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
               <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
