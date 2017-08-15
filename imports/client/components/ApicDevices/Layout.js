@@ -38,7 +38,7 @@ export default class Table extends Component {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
-    let settimout = null;
+    let timeout = null;
 
     let test123 = ()=>{
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
