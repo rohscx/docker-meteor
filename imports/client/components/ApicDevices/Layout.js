@@ -28,6 +28,7 @@ export default class Table extends Component {
     let timeout = null;
     clearTimeout(timeout);
     timeout = setTimeout(()=>{
+      console.log("hahaha")
       this.returnLayout;
     },500)
   }
