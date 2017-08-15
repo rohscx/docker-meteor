@@ -117,7 +117,8 @@ export default class Table extends Component {
     clearTimeout(timeout)
     timeout = setTimeout( () => {
       this.setTimePassed();
-    },1000);
+      console.log("HAHAHAHAHAHA")
+    },10000);
     tableDiv = this.state.timePassed ? this.returnLayout() : "";
     //tableDiv = setTimeout(function() { this.returnLayout() }.bind(this), 10000)
     //console.log(this)
