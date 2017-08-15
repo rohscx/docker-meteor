@@ -41,7 +41,7 @@ import Items from '../api/Items'
     }
     // inline conditional test. If true the conditional will be displayed
     const test = false;
-    return (
+    /*return (
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
@@ -70,7 +70,12 @@ import Items from '../api/Items'
           })}
         </ReactCSSTransitionGroup>
         </main>
-    );
+    );*/
+    return (
+        <main>
+          <IsRole role={['admin']} {... this.props}>
+          </IsRole>
+        );
   }
 }
 
