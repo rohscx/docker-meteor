@@ -25,13 +25,16 @@ export default class Table extends Component {
     //console.log(this.state.modalLink);
   }
   setTimeOut(){
-    let timeout = null;
-    clearTimeout(timeout);
-    timeout = setTimeout(()=>{
-      console.log("hahaha")
-      let cats = this.returnLayout;
-      return cats
-    },500)
+    return new Promise((resolve, reject) =>{
+      let timeout = null;
+      clearTimeout(timeout);
+      timeout = setTimeout(()=>{
+        console.log("hahaha")
+        let cats = this.returnLayout;
+        resolve(cats)
+      },500)
+    })
+
   }
 
   afterOpenModal() {
@@ -117,7 +120,7 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.setTimeOut() : "";
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.setTimeOut() .then((response)=>{return response}) : "";
     //console.log(this)
     return(
       <div>
