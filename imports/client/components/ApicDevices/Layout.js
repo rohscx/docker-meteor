@@ -36,7 +36,12 @@ export default class Table extends Component {
   }
 
   setTimePassed() {
-   this.setState({timePassed: true});
+   timeout = null;
+   clearTimeout(timeout)
+   timeout = setTimeout( () => {
+     this.setState({timePassed: true})
+     console.log("HAHAHAHAHAHA")
+   },10000);
   }
 
   returnLayout() {
@@ -113,14 +118,9 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    timeout = null;
-    clearTimeout(timeout)
-    timeout = setTimeout( () => {
-      clearTimeout(timeout)
-      this.setTimePassed();
-      console.log("HAHAHAHAHAHA")
-    },10000);
-    tableDiv = this.state.timePassed ? this.returnLayout() : "";
+    this.setTimePassed()
+    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
+    tableDiv = this.state.timePassed ? this.returnLayout() : ""
     //tableDiv = setTimeout(function() { this.returnLayout() }.bind(this), 10000)
     //console.log(this)
     return(
