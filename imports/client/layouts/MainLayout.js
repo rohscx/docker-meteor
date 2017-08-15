@@ -62,7 +62,7 @@ const MainLayout = ({children}) =>
             </LinkContainer>
             <NavDropdown eventKey={10} title="Utilities" id="basic-nav-dropdown">
               <LinkContainer to='/trfr'>
-                <MenuItem eventKey={10.1}>Bandwidth-Calc</MenuItem>
+                <MenuItem eventKey={10.1}>Bandwidth-Calculator</MenuItem>
               </LinkContainer>
               <MenuItem eventKey={10.2}>Another action</MenuItem>
               <MenuItem eventKey={10.3}>Something else here</MenuItem>
