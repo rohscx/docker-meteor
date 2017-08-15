@@ -36,12 +36,16 @@ export default class Table extends Component {
   }
 
   setTimePassed() {
-   timeout = null;
-   clearTimeout(timeout)
-   timeout = setTimeout( () => {
-     this.setState({timePassed: true})
-     console.log("HAHAHAHAHAHA")
-   },10000);
+
+    var delayTimer;
+function doSearch(text) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function() {
+      this.setState({timePassed: true})
+      console.log("HAHAHAHAHAHA")
+    }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
+}
+
   }
 
   returnLayout() {
