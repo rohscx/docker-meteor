@@ -8,8 +8,7 @@ export default class Table extends Component {
 
     this.state = {
       modalIsOpen: false,
-      modalLink: {newData:{graph:false}},
-      timePassed: false
+      modalLink: {newData:{graph:false}}
     };
 
     this.openModal = this.openModal.bind(this);
@@ -35,16 +34,7 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  setTimePassed() {
-   this.timeout = null;
-   clearTimeout(this.timeout)
-   this.timeout = setTimeout( () => {
-     this.setState({timePassed: true})
-     console.log("HAHAHAHAHAHA")
-   },10000);
-  }
-
-  returnLayout() {
+  returnLayout(callback) {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
@@ -94,7 +84,7 @@ export default class Table extends Component {
         </div>
       )
     })
-    return colData
+    callback(colData)
   }
 
 
@@ -118,10 +108,9 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    this.setTimePassed()
-    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    tableDiv = this.state.timePassed ? this.returnLayout() : ""
-    //tableDiv = setTimeout(function() { this.returnLayout() }.bind(this), 10000)
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout((response)=>{
+      just =  response}
+    ) : "";
     //console.log(this)
     return(
       <div>
