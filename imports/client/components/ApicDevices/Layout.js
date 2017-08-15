@@ -74,6 +74,8 @@ export default class Table extends Component {
         }
       }
       let colData = dbData.map((data)=>{
+        console.log(status = data.siteData.dataObj.reachabilityStatus)
+        console.log("hit")
         let status = data.siteData.dataObj.reachabilityStatus;
         return (
           <div key={data["_id"]} style= {divStyles}>
