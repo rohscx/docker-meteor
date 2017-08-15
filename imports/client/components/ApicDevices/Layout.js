@@ -36,9 +36,9 @@ export default class Table extends Component {
   }
 
   setTimePassed() {
-   timeout = null;
-   clearTimeout(timeout)
-   timeout = setTimeout( () => {
+   this.timeout = null;
+   clearTimeout(this.timeout)
+   this.timeout = setTimeout( () => {
      this.setState({timePassed: true})
      console.log("HAHAHAHAHAHA")
    },10000);
