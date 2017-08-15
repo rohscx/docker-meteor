@@ -67,7 +67,7 @@ export default class Table extends Component {
         fontWeight: "bold"
       };
       let sshLinkGen = (ipAddress)=>{
-        console.log(status = data.siteData.dataObj.reachabilityStatus)
+        console.log( "ssh://"+ipAddress)
         console.log("hit")
         if(ipAddress.length >= 5){
           return "ssh://"+ipAddress;
