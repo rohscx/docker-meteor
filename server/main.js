@@ -57,11 +57,15 @@ Meteor.publish('apicDevices', function() {
   };
   httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
   apicDevices = httpDevices.data.response;
+
+  console.log(normalizeHostName)
   console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
+      normalizeHostName = data.dataObj.hostname.toLowerCase();
+      data.dataObj.normalizeHostName = normalizeHostName;
       ItemsApicDevices.insert({
           siteData: {
             dataObj: data,
