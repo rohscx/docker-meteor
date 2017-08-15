@@ -33,9 +33,7 @@ const divStyles = {
 };
 
 const navBarStyles = {
-  navbar:{
-    borderRadius:'0px'
-  }
+  borderRadius:'0px'
 };
 
 const MainLayout = ({children}) =>
