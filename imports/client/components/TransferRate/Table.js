@@ -163,12 +163,9 @@ export default class Table extends Component {
           return 'success';
         }
       }
-      const tdSytlesPointer = {
-        cursor:"pointer"
-      }
       return (
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-        <td style={tdSytlesPointer}>{newData.aca}</td>
+        <td>{newData.aca}</td>
         <td style={tdSytlesPointer}>{newData.branch}</td>
         <td style={tdSytlesPointer}>{newData.wPortSpeed}</td>
         <td style={tdSytlesPointer}>{newData.wPortType}</td>
@@ -187,17 +184,20 @@ export default class Table extends Component {
         return false;
       }
     }
+    const tdSytlesPointer = {
+      cursor:"pointer"
+    }
     return (
       <div key={12}>
         <table className = "table table-striped table-hover table-responsive">
           <thead className="thead-default">
             <tr>
-              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}}>{setActiveColumn("aca") ? <font color="#428bca">ACA</font> : "ACA"}</th>
-              <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}}>{setActiveColumn("branch") ? <font color="#428bca">Branch</font> : "Branch"}</th>
-              <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}}>{setActiveColumn("wPortSpeed") ? <font color="#428bca">WAN Speed</font> : "WAN Speed"}</th>
-              <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}}>{setActiveColumn("wPortType") ? <font color="#428bca">WAN TYPE</font> : "WAN TYPE"}</th>
-              <th onClick={()=>{this.props.sortBy("iSpeedUp",sortUtilOrder)}}>{setActiveColumn("iSpeedUp") ? <font color="#428bca">INET Speed Down/Up</font> : "INET Speed Down/Up"}</th>
-              <th onClick={()=>{this.props.sortBy("iPortType",sortUtilOrder)}}>{setActiveColumn("iPortType") ? <font color="#428bca">INET TYPE</font> : "INET TYPE"}</th>
+              <th onClick={()=>{this.props.sortBy("aca",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("aca") ? <font color="#428bca">ACA</font> : "ACA"}</th>
+              <th onClick={()=>{this.props.sortBy("branch",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("branch") ? <font color="#428bca">Branch</font> : "Branch"}</th>
+              <th onClick={()=>{this.props.sortBy("wPortSpeed",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("wPortSpeed") ? <font color="#428bca">WAN Speed</font> : "WAN Speed"}</th>
+              <th onClick={()=>{this.props.sortBy("wPortType",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("wPortType") ? <font color="#428bca">WAN TYPE</font> : "WAN TYPE"}</th>
+              <th onClick={()=>{this.props.sortBy("iSpeedUp",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("iSpeedUp") ? <font color="#428bca">INET Speed Down/Up</font> : "INET Speed Down/Up"}</th>
+              <th onClick={()=>{this.props.sortBy("iPortType",sortUtilOrder)}} style={tdSytlesPointer}>{setActiveColumn("iPortType") ? <font color="#428bca">INET TYPE</font> : "INET TYPE"}</th>
               {inBits ? <th>R1 WAN Speed Down/Up Time</th> : null}
               {inBits ? <th>R2 INET Speed Down Time</th> : null}
               {inBits ? <th>R2 INET Speed Up Time</th> : null}
