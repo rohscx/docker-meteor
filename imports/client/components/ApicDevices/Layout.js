@@ -85,7 +85,7 @@ export default class Table extends Component {
               <Col xs={6} md={3}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={6} md={1} href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</Col>
+              <Col xs={6} md={1}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
               <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
