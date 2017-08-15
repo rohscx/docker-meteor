@@ -38,9 +38,9 @@ export default class Table extends Component {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
-    if (findField.length >= 3 || findField == "."){
-      console.log(findField.length)
-      console.log(findField)
+    let settimout = null;
+
+    let test123 = ()=>{
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
       let reachCheck = (status)=>{
         let passStyle = {
@@ -88,9 +88,12 @@ export default class Table extends Component {
         )
       })
       return colData
-    } else {
-      return ""
     }
+    clearTimeout(timeout)
+    timeout = setTimeout(()=>{
+      console.log("hahahas")
+      return test123
+    },500)
 
   }
 
