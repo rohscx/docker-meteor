@@ -90,6 +90,39 @@ Meteor.publish('apicDevices', function() {
     }
      })
   } else {
+    let currentTimeEpoch = Math.round(new Date().getTime()/1000);
+    // returns the oldest DB items epoch timestamp
+    let oldestDocument = ItemsPrtg.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
+    if (currentTimeEpoch - oldestDocumentEpoch > 120) {
+      ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+      console.log("Apic Devices DB STALE Requesting NEW data")
+      apicDevices.map((data)=>{
+        console.log(data.hostname.toLowerCase())
+        let normalize = data.hostname.toLowerCase();
+        data.normalizeHostName = normalize;
+        ItemsApicDevices.insert({
+            siteData: {
+              dataObj: data,
+              requestTime: timeNow,
+              dateTime: dateTime
+            }
+          });
+      });
+      return ItemsApicDevices.find({},{fields:{
+        "siteData.dataObj.hostname": 1,
+        "siteData.dataObj.role": 1,
+        "siteData.dataObj.lastUpdated":1,
+        "siteData.dataObj.managementIpAddress":1,
+        "siteData.dataObj.softwareVersion":1,
+        "siteData.dataObj.upTime":1,
+        "siteData.dataObj.interfaceCount":1,
+        "siteData.dataObj.series":1,
+        "siteData.dataObj.serialNumber":1,
+        "siteData.dataObj.reachabilityStatus":1,
+        "siteData.dataObj.normalizeHostName":1
+      }
+       })
+    } else {
     console.log("APIC-EM DATABASE HAS ITEMS RETURNING DATA TO CLIENT")
     return ItemsApicDevices.find({},{fields:{
       "siteData.dataObj.hostname": 1,
