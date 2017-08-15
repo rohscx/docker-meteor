@@ -138,7 +138,8 @@ Meteor.publish('apicDevices', function() {
       "siteData.dataObj.normalizeHostName":1
     }
      })
-  }
+   }
+ }
 });
 
 
