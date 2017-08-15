@@ -163,14 +163,17 @@ export default class Table extends Component {
           return 'success';
         }
       }
+      const tdSytlesPointer{
+        cursor:"pointer"
+      }
       return (
         <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
-        <td>{newData.aca}</td>
-        <td>{newData.branch}</td>
-        <td>{newData.wPortSpeed}</td>
-        <td>{newData.wPortType}</td>
-        <td>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
-        <td>{newData.iPortType}</td>
+        <td style={tdSytles}>{newData.aca}</td>
+        <td style={tdSytles}>{newData.branch}</td>
+        <td style={tdSytles}>{newData.wPortSpeed}</td>
+        <td style={tdSytles}>{newData.wPortType}</td>
+        <td style={tdSytles}>{newData.iSpeedUp +"/"+ newData.iSpeedDown}</td>
+        <td style={tdSytles}>{newData.iPortType}</td>
         {inBits ? transTimeSeconds(inBits,byteType,newData.wPortSpeed) : null}
         {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedUp) : null}
         {inBits ? transTimeSeconds(inBits,byteType,newData.iSpeedDown) : null}
