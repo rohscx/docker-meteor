@@ -92,7 +92,7 @@ Meteor.publish('apicDevices', function() {
   } else {
     let currentTimeEpoch = Math.round(new Date().getTime()/1000);
     // returns the oldest DB items epoch timestamp
-    let oldestDocument = ItemsPrtg.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
+    let oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
     if (currentTimeEpoch - oldestDocumentEpoch > 120) {
       ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Apic Devices DB STALE Requesting NEW data")
