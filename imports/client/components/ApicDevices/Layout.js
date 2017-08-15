@@ -112,7 +112,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {setTimeout(function() { this.returnLayout(); }.bind(this), 10000);}
+        {setTimeout(function() { this.returnLayout(); }.bind(this), 10000)}
       </div>
     )
   }
