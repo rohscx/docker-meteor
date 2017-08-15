@@ -24,18 +24,6 @@ export default class Table extends Component {
     // debug
     //console.log(this.state.modalLink);
   }
-  setTimeOut(){
-    return new Promise((resolve, reject) =>{
-      let timeout = null;
-      clearTimeout(timeout);
-      timeout = setTimeout(()=>{
-        console.log("hahaha")
-        let cats = this.returnLayout;
-        resolve(cats)
-      },500)
-    })
-
-  }
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -120,14 +108,20 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ?  : "";
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
     //console.log(this)
     return(
       <div>
-        {this.setTimeOut()
-          .then((response)=>{
-            {response}
-          })}
+        {
+          var delayTimer;
+          function doSearch(text) {
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(function() {
+            // Do the ajax stuff
+            return this.returnLayout()
+            }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
+          }
+        }
       </div>
     )
   }
