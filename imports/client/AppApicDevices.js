@@ -99,7 +99,7 @@ export default createContainer(({params}) => {
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
 
-    return ItemsApicDevices.find({"siteData.dataObj.hostname":{$regex: findValue}},sortObj).fetch();
+    return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
