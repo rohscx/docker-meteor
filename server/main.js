@@ -64,7 +64,7 @@ Meteor.publish('apicDevices', function() {
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
       console.log(data.dataObj.hostname.toLowerCase())
-      data.dataObj.normalizeHostName = data.hostname.toLowerCase();
+      data.normalizeHostName = data.hostname.toLowerCase();
       ItemsApicDevices.insert({
           siteData: {
             dataObj: data,
