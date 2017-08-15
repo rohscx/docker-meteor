@@ -40,7 +40,7 @@ export default class Table extends Component {
     var delayTimer;
     clearTimeout(delayTimer);
     delayTimer = setTimeout(function() {
-      this.setState({timePassed: true})
+      this.setState({timePassed: true}).bind(this)
       console.log("HAHAHAHAHAHA")
     }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
   }
