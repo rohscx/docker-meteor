@@ -94,6 +94,7 @@ export default class Table extends Component {
       console.log("hahahas")
       return test123
     },500)
+    return timeout
 
   }
 
