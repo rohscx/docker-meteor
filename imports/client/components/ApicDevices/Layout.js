@@ -34,57 +34,64 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  returnLayout(callback) {
+  returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
-    let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-    let reachCheck = (status)=>{
-      let passStyle = {
-        backgroundColor:"#5cb85c"
+    if (findField.length >= 3 || findField == "."){
+      console.log(findField.length)
+      console.log(findField)
+      let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
+      let reachCheck = (status)=>{
+        let passStyle = {
+          backgroundColor:"#5cb85c"
+        }
+        let failStyle = {
+          backgroundColor:"#d9534f"
+        }
+        if(status == 'Reachable'){
+          return (
+            <mark style={passStyle}>{status}</mark>
+          )
+        } else {
+          return (
+            <mark style={failStyle}>{status}</mark>
+          )
+        }
       }
-      let failStyle = {
-        backgroundColor:"#d9534f"
-      }
-      if(status == 'Reachable'){
+      const divStyles = {
+        paddingTop: '5%',
+        paddingButtom: '5%'
+      };
+      const rowStylesMain = {
+        fontWeight: "bold"
+      };
+      let colData = dbData.map((data)=>{
+        let status = data.siteData.dataObj.reachabilityStatus;
         return (
-          <mark style={passStyle}>{status}</mark>
+          <div key={data["_id"]} style= {divStyles}>
+            <Row className="show-grid" style={rowStylesMain}>
+              <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
+              <Col xs={6} md={2}>{data.siteData.dataObj.role}</Col>
+              <Col xs={6} md={3}>Updated @ {data.siteData.dataObj.lastUpdated}</Col>
+            </Row>
+            <Row className="show-grid">
+              <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
+              <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
+              <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
+              <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
+              <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
+              <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
+              <Col xs={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
+            </Row>
+          </div>
         )
-      } else {
-        return (
-          <mark style={failStyle}>{status}</mark>
-        )
-      }
+      })
+      return colData;
+    } else {
+      return "";
     }
-    const divStyles = {
-      paddingTop: '5%',
-      paddingButtom: '5%'
-    };
-    const rowStylesMain = {
-      fontWeight: "bold"
-    };
-    let colData = dbData.map((data)=>{
-      let status = data.siteData.dataObj.reachabilityStatus;
-      return (
-        <div key={data["_id"]} style= {divStyles}>
-          <Row className="show-grid" style={rowStylesMain}>
-            <Col xs={6} md={3}>{data.siteData.dataObj.hostname}</Col>
-            <Col xs={6} md={2}>{data.siteData.dataObj.role}</Col>
-            <Col xs={6} md={3}>Updated @ {data.siteData.dataObj.lastUpdated}</Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={6} md={1}>{data.siteData.dataObj.managementIpAddress}</Col>
-            <Col xs={6} md={1}>  {reachCheck(status)}  </Col>
-            <Col xs={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
-            <Col xs={6} md={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
-            <Col xs={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
-            <Col xs={6} md={4}>{data.siteData.dataObj.series}</Col>
-            <Col xs={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
-          </Row>
-        </div>
-      )
-    })
-    callback(colData)
+
   }
 
 
@@ -108,8 +115,8 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout : "";
-    //console.log(this)
+    tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
+    console.log(this)
     return(
       <div>
         {tableDiv}
