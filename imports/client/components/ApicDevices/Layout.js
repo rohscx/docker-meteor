@@ -68,7 +68,6 @@ export default class Table extends Component {
       };
       let sshLinkGen = (ipAddress)=>{
         if(ipAddress.length >= 5){
-          console.log("hit")
           return "ssh://"+ipAddress;
         } else {
           return ipAddress;
