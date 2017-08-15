@@ -26,7 +26,7 @@ import Header from './components/Header';
         title: "FROST"
       });
       this.setState({
-        greeting: "Welome, here are a couple of tools which we think will be useful"
+        greeting: "Welome, here are a couple of tools which we think will be useful."
       });
       this.setState({
         status: ""
