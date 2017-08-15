@@ -62,10 +62,10 @@ Meteor.publish('apicDevices', function() {
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
-    apicDevices.map((data,index)=>{
+    apicDevices.map((data)=>{
       console.log(data.hostname.toLowerCase())
-      let normalizeHostName = data.hostname.toLowerCase();
-      data.normalizeHostName = normalizeHostName;
+      let normalize = data.hostname.toLowerCase();
+      data.normalizeHostName = normalize;
       ItemsApicDevices.insert({
           siteData: {
             dataObj: data,
