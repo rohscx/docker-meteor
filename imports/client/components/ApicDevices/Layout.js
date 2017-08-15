@@ -8,7 +8,8 @@ export default class Table extends Component {
 
     this.state = {
       modalIsOpen: false,
-      modalLink: {newData:{graph:false}}
+      modalLink: {newData:{graph:false}},
+      timePassed: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -32,6 +33,10 @@ export default class Table extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+  setTimePassed() {
+   this.setState({timePassed: true});
   }
 
   returnLayout() {
@@ -108,9 +113,13 @@ export default class Table extends Component {
 
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-
-    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    tableDiv = setTimeout(function() { this.returnLayout() }.bind(this), 10000)
+    timeout = null;
+    clearTimout(timeout)
+    timeout = this.setTimeout( () => {
+      this.setTimePassed();
+    },1000);
+    tableDiv = this.state.timePassed ? this.returnLayout() : "";
+    //tableDiv = setTimeout(function() { this.returnLayout() }.bind(this), 10000)
     //console.log(this)
     return(
       <div>
