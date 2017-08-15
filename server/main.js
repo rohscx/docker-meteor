@@ -63,7 +63,6 @@ Meteor.publish('apicDevices', function() {
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
-      console.log(data.hostname.toLowerCase())
       let normalize = data.hostname.toLowerCase();
       data.normalizeHostName = normalize;
       ItemsApicDevices.insert({
@@ -98,7 +97,6 @@ Meteor.publish('apicDevices', function() {
       ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Apic Devices DB STALE Requesting NEW data")
       apicDevices.map((data)=>{
-        console.log(data.hostname.toLowerCase())
         let normalize = data.hostname.toLowerCase();
         data.normalizeHostName = normalize;
         ItemsApicDevices.insert({
