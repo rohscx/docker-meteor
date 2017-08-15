@@ -7,9 +7,31 @@ import Item from './Item'
 import IsRole from './utilities/IsRole';
 
 import Items from '../api/Items'
+import Header from './components/Header';
 
 @autobind
  class App extends Component {
+   constructor() {
+     super();
+     this.state = {
+       title: "",
+       greeting:"",
+       status: ""
+     }
+   }
+
+   componentWillMount() {
+
+      this.setState({
+        title: "Home Page"
+      });
+      this.setState({
+        greeting: "Welome, here are a couple of tools which we think will be of use to you"
+      });
+      this.setState({
+        status: ""
+      });
+    }
 
    addItems(event) {
      event.preventDefault();
@@ -37,7 +59,7 @@ import Items from '../api/Items'
 
   render() {
     if (!this.props.ready) {
-      return <div>Loading...</div>
+      return <div>Loading Application...</div>
     }
     // inline conditional test. If true the conditional will be displayed
     const test = false;
@@ -73,9 +95,9 @@ import Items from '../api/Items'
     );*/
     return (
         <main>
-          <IsRole role={['admin']} {... this.props}>
-          </IsRole>
-        );
+          <Header  {... this.state} />
+        </main>
+    );
   }
 }
 
