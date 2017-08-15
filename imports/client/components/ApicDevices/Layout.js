@@ -113,7 +113,7 @@ export default class Table extends Component {
     return(
       <div>
         {
-          var delayTimer;
+          delayTimer;
           function doSearch(text) {
             clearTimeout(delayTimer);
             delayTimer = setTimeout(function() {
