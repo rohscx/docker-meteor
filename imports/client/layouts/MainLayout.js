@@ -32,11 +32,17 @@ const divStyles = {
   width: "60%"
 };
 
+const navBarStyles = {
+  navbar:{
+    borderRadius:'0px'
+  }
+};
+
 const MainLayout = ({children}) =>
   <div>
     <header>
       <LinkContainer to='/'>
-      <Navbar inverse collapseOnSelect>
+      <Navbar inverse collapseOnSelect style={navBarStyles}>
         <Navbar.Header>
           <Navbar.Brand>
             FROST
