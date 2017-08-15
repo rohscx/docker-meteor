@@ -112,16 +112,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {
-          delayTimer;
-          function doSearch(text) {
-            clearTimeout(delayTimer);
-            delayTimer = setTimeout(function() {
-            // Do the ajax stuff
-            return this.returnLayout()
-            }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
-          }
-        }
+        {setTimeout(function() { this.returnLayout(); }.bind(this), 10000);}
       </div>
     )
   }
