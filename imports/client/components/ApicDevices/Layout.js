@@ -86,7 +86,7 @@ export default class Table extends Component {
             <Row className="show-grid">
               <Col xs={5} sm={6} md={3} lg={1}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={3} lg={2}>  {reachCheck(status)}  </Col>
-              <Col xs={6} sm={6} md={3} lg={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
+              <Col xs={6} sm={6} md={2} lg={4}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={4} lg={2}>Up Time: {data.siteData.dataObj.upTime}</Col>
               <Col xs={6} sm={6} md={2} lg={2}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
               <Col xs={6} sm={6} md={5} lg={5}>{data.siteData.dataObj.series}</Col>
