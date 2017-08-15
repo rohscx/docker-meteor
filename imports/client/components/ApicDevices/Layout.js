@@ -116,6 +116,7 @@ export default class Table extends Component {
     timeout = null;
     clearTimeout(timeout)
     timeout = setTimeout( () => {
+      clearTimeout(timeout)
       this.setTimePassed();
       console.log("HAHAHAHAHAHA")
     },10000);
