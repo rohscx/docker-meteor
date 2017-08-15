@@ -23,10 +23,10 @@ import Header from './components/Header';
    componentWillMount() {
 
       this.setState({
-        title: "Home Page"
+        title: "FROST"
       });
       this.setState({
-        greeting: "Welome, here are a couple of tools which we think will be of use to you"
+        greeting: "Welome, here are a couple of tools which we think will be useful"
       });
       this.setState({
         status: ""
