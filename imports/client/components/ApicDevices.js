@@ -67,12 +67,12 @@ class TransferRate extends Component {
       );
     };
     const validationStatus = () => {
-      let dataReturn = this.props.util.bandwidthCalcData.number;
-      let dataReady = this.props.util.bandwidthCalcData.validationStatus;
+      let dataReturn = this.props.apic.apicDevicesFind.deviceName;
+      let dataReady = this.props.apic.apicDevicesFind.validationStatus;
       let dataValueCheck = dataReturn ? 10 : ""
       if(dataValueCheck.length <= 0){
         return null;
-      } else if (isNaN(dataReturn) == true){
+      } else if (dataReady === false){
         return "error";
       } else {
         return "success";
