@@ -163,7 +163,7 @@ export default class Table extends Component {
           return 'success';
         }
       }
-      const tdSytlesPointer{
+      const tdSytlesPointer = {
         cursor:"pointer"
       }
       return (
