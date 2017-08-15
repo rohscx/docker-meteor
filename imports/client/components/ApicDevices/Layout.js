@@ -79,7 +79,7 @@ export default class Table extends Component {
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={8} sm={6} md={4} lg={1}>{data.siteData.dataObj.hostname}</Col>
+              <Col xs={8} sm={6} md={4} lg={3}>{data.siteData.dataObj.hostname}</Col>
               <Col xs={6} sm={6} md={3} lg={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6} lg={4}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
