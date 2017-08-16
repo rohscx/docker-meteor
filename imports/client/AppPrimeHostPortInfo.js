@@ -1,35 +1,34 @@
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
-import ApicDevices from './components/ApicDevices';
+import AppPrimeHostInfo from './components/AppPrimeHostInfo';
 import { Mongo } from 'meteor/mongo';
 import {createContainer} from 'meteor/react-meteor-data';
 import React, {Component} from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
-import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
-//import ItemsApicDevices from '../api/prtg';
+import ItemsPrimeHostPortInfo from '../api/prtg';
 
 
 
 
-const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
-ItemsApicDevices.allow({
+const ItemsPrimeHostPortInfo = new Mongo.Collection('itemprimehostportinfo');
+ItemsPrimeHostPortInfo.allow({
   insert() { return false; },
   update() { return false; },
   remove() { return false; }
 });
 
-ItemsApicDevices.deny({
+ItemsPrimeHostPortInfo.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
 });
 
 
- class AppApicDevices extends Component {
+ class AppAppPrimeHostInfo extends Component {
    constructor() {
      super();
      this.state = {
@@ -44,10 +43,10 @@ ItemsApicDevices.deny({
    componentWillMount() {
 
       this.setState({
-        title: "Cisco Network Device Information"
+        title: "Host Port Info"
       });
       this.setState({
-        greeting: "Welome, this application returns the general status of all Cisco network devices connected to Apic-EM"
+        greeting: "Welome, Lookup port status"
       });
       this.setState({
         status: ""
@@ -75,7 +74,7 @@ ItemsApicDevices.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true}/>
+          <AppPrimeHostInfo {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );
@@ -87,9 +86,9 @@ ItemsApicDevices.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
+  let primeDevicesItemsSub = Meteor.subscribe('primeHostPortInfo');
   let prtgArray = Session.get('myMethodResult');
-  let dbData = ItemsApicDevices.find().fetch()
+  let dbData = ItemsPrimeHostPortInfo.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
@@ -99,11 +98,11 @@ export default createContainer(({params}) => {
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
 
-    return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
+    return ItemsPrimeHostPortInfo.find({"hostData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
-    ready: apicDevicesItemsSub.ready(),
+    ready: primeDevicesItemsSub.ready(),
     dbReturn: function data(findValue,sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
@@ -111,4 +110,4 @@ export default createContainer(({params}) => {
     }
 
   };
-}, AppApicDevices);
+}, AppAppPrimeHostInfo);

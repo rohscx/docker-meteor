@@ -20,6 +20,14 @@ Meteor.publish('currentUser', function() {
   });
 });
 
+
+Meteor.publish('currentUser', function() {
+  console.log(Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt"))
+  let blah = Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt");
+  this.ready();
+  return blah;
+});
+
 Meteor.publish('apicDevices', function() {
   let countCollections = ItemsApicDevices.find().count();
   console.log("apicDevices Count = ",countCollections);
@@ -182,9 +190,6 @@ Meteor.publish('apicDevices', function() {
 Meteor.publish('siteCircuitInfo', function() {
   let countCollections = ItemsTransferRate.find().count();
   console.log(Meteor.call('getDateISO'));
-  console.log(Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt"))
-  let blah = Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt");
-  console.log(blah)
 
   if (countCollections <= 0){
     let sitesObj = tempData;

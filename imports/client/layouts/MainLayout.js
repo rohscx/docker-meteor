@@ -54,14 +54,19 @@ const MainLayout = ({children}) =>
                 Devices
               </NavItem>
             </LinkContainer>
-            <LinkContainer to='/ise'>
+            <LinkContainer to='/hpi'>
             <NavItem eventKey={2}>
-              ISE
+              Hosts
             </NavItem>
             </LinkContainer>
             <LinkContainer to='/prtg'>
             <NavItem eventKey={3}>
               Circuits
+            </NavItem>
+            </LinkContainer>
+            <LinkContainer to='/ise'>
+            <NavItem eventKey={4}>
+              ISE
             </NavItem>
             </LinkContainer>
             <NavDropdown eventKey={10} title="Utilities" id="basic-nav-dropdown">

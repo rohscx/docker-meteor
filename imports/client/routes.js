@@ -13,6 +13,7 @@ import AppApicDevices from './AppApicDevices';
 import AppIse from './AppIse';
 import AppPrtgSensors from './AppPrtgSensors';
 import AppTransferRate from './AppTransferRate';
+import AppHostPortInfo from './AppHostPortInfo';
 
 
 Meteor.startup(() => {
@@ -24,6 +25,7 @@ Meteor.startup(() => {
         <Route path="/ise" component={AppIse} />
         <Route path="/prtg" component={AppPrtgSensors} />
         <Route path="/trfr" component={AppTransferRate} />
+        <Route path="/hpi" component={AppHostPortInfo} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
       </Route>
