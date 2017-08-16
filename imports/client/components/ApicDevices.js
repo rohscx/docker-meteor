@@ -148,7 +148,6 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    apicValidationStatus
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
       dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },

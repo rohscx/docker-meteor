@@ -82,7 +82,7 @@ export function setValidationStatus(value) {
 
 export function apicValidationStatus(status) {
   return dispatch => {
-    return dispatch(setApicDevicesFind({
+    return dispatch(setValidationStatus({
         validationStatus: status
       }));
   }
