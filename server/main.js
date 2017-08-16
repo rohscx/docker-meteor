@@ -181,7 +181,7 @@ Meteor.publish('apicDevices', function() {
 
 Meteor.publish('siteCircuitInfo', function() {
   let countCollections = ItemsTransferRate.find().count();
-
+  console.log(Meteor.call('getDateISO'));
   if (countCollections <= 0){
     let sitesObj = tempData;
     //debug
@@ -192,8 +192,6 @@ Meteor.publish('siteCircuitInfo', function() {
     //console.log(newData.sensors[value].objid)
     //console.log(typeof(newData.sensors[value].objid))
     //console.log("DATA ID ",data._id)
-    console.log(Meteor.call('getDateISO'));
-
     temp.map((data)=>{
       ItemsTransferRate.insert({
           siteData: {
