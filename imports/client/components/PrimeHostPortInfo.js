@@ -5,6 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 're
 import { hostName, getDevices } from '../actions/prtgActions';
 //import Layout from './ApicDevices/Layout';
 import { dnsSuffix } from '../actions/utilActions';
+import dns from 'dns';
 
 class PrimeHostPortInfo extends Component {
   constructor() {
@@ -17,8 +18,13 @@ class PrimeHostPortInfo extends Component {
     value = value.trim()
     let suffix = this.props.util.dnsSuffix
     if (value.length == 3){
-      let blah = Meteor.call('getDnsLookup',value+suffix)
-      console.log(blah)
+      dns.lookup(value+suffix, (err, address, family) => {
+        console.log(hostName)
+        console.log('address: %j family: IPv%s', address, family);
+        if (family == 'IPv4'){
+         console.log(address);
+        }
+      })
     }
   }
 
