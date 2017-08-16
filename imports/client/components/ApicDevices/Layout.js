@@ -38,41 +38,41 @@ export default class Table extends Component {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
+    let passStyle = {
+      backgroundColor:"#5cb85c"
+    }
+    let failStyle = {
+      backgroundColor:"#d9534f"
+    }
+    const divStyles = {
+      paddingTop: '5%',
+      paddingButtom: '5%'
+    }
+    const rowStylesMain = {
+      fontWeight: "bold"
+    }
+    let reachCheck = (status)=>{
+      if(status == 'Reachable'){
+        return (
+          <mark style={passStyle}>{status}</mark>
+        )
+      } else {
+        return (
+          <mark style={failStyle}>{status}</mark>
+        )
+      }
+    }
+    let sshLinkGen = (ipAddress)=>{
+      if(ipAddress.length >= 5){
+        return "ssh://"+ipAddress;
+      } else {
+        return ipAddress;
+      }
+    }
     if (findField.length >= 3 || findField == "."){
       //console.log(findField.length)
       //console.log(findField)
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-      let reachCheck = (status)=>{
-        let passStyle = {
-          backgroundColor:"#5cb85c"
-        }
-        let failStyle = {
-          backgroundColor:"#d9534f"
-        }
-        if(status == 'Reachable'){
-          return (
-            <mark style={passStyle}>{status}</mark>
-          )
-        } else {
-          return (
-            <mark style={failStyle}>{status}</mark>
-          )
-        }
-      }
-      const divStyles = {
-        paddingTop: '5%',
-        paddingButtom: '5%'
-      };
-      const rowStylesMain = {
-        fontWeight: "bold"
-      };
-      let sshLinkGen = (ipAddress)=>{
-        if(ipAddress.length >= 5){
-          return "ssh://"+ipAddress;
-        } else {
-          return ipAddress;
-        }
-      }
       let colData = dbData.map((data)=>{
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
