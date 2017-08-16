@@ -79,8 +79,7 @@ Meteor.publish('apicDevices', function() {
       apicDevicesUrn = "/api/v1/network-device/501/500";
       devicesUrl = baseUrl + apicDevicesUrn;
       httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-      httpDevicesOver500.data.response
-      apicDevices.map((data)=>{
+      httpDevicesOver500.data.response.map((data)=>{
         let normalize = data.hostname.toLowerCase();
         data.normalizeHostName = normalize;
         ItemsApicDevices.insert({
