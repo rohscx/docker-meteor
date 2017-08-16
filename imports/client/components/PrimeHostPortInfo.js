@@ -89,9 +89,10 @@ class PrimeHostPortInfo extends Component {
     };
     let acaField = ()=>{
       let suffix = this.props.util.dnsSuffix;
-      let acaName = switch(suffix){
+      let acaName = ""
+      switch(suffix){
         case ".fpi.fpir.pvt":
-        return "fpi"
+        aca name = "fpi";
         break;
       }
       return acaName;
