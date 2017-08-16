@@ -5,10 +5,11 @@ const apicReducer = (state = {
   },
   apicDevicesFind:{
     deviceName: ".",
-    validationStatus: false,
+    validationStatus: true,
     btnStyle: false,
     byteType: "ALL"
   },
+  dbReady:false
 }, action) => {
   switch (action.type) {
     case "SET_APICDEVICESFIND":
@@ -17,10 +18,10 @@ const apicReducer = (state = {
       apicDevicesFind: action.payload
     };
     break;
-    case "SET_VALIDATIONSTATUS":
+    case "SET_DBREADY":
     state = {
       ...state,
-      apicDevicesFind.validationStatus: action.payload
+      dbReady: action.payload
     };
     break;
     case "SET_SORTBY":

@@ -17,18 +17,18 @@ export function setSortBy(value) {
   };
 }
 
-export function setValidationStatus(value) {
+export function setDbReady(value) {
   return {
-    type: "SET_VALIDATIONSTATUS",
+    type: "SET_DBREADY",
     payload: value
   };
 }
 
 
 
-export function apicValidationStatus(status) {
+export function apicDbReady(status) {
   return dispatch => {
-    return dispatch(setValidationStatus({
+    return dispatch(setDbReady({
         validationStatus: status
       }));
   }
