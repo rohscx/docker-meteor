@@ -88,6 +88,7 @@ class PrimeHostPortInfo extends Component {
       width: "40%"
     };
     let acaField = ()=>{
+      console.log("hittt")
       let suffix = this.props.util.dnsSuffix;
       let acaName = ""
       switch(suffix){
@@ -123,7 +124,7 @@ class PrimeHostPortInfo extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={buttonLabel(acaField())}
+                 title={buttonLabel(acaField}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setDnsSuffix(".fpi.fpir.pvt")}}>FPI</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setDnsSuffix("reachabilityStatus",-1)}}>AGC</MenuItem>
