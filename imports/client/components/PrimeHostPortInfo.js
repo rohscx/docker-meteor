@@ -95,6 +95,7 @@ class PrimeHostPortInfo extends Component {
         acaname = "fpi";
         break;
       }
+      console.log(acaName)
       return acaName;
     }
     let buttonLabel = (textValue)=>{
