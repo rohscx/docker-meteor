@@ -95,6 +95,7 @@ export default class Table extends Component {
           </div>
         )
       })
+      this.props.apicValidationStatus(true)
       return colData;
     } else {
       return "";
