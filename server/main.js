@@ -23,9 +23,8 @@ Meteor.publish('currentUser', function() {
 
 Meteor.publish('primeHostPortInfo', function(hostName) {
 
-  Meteor.call('getDnsLookup',hostName);
+  //Meteor.call('getDnsLookup',hostName);
   this.ready();
-  return blah;
 });
 
 Meteor.publish('apicDevices', function() {
