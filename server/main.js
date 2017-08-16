@@ -40,11 +40,8 @@ Meteor.publish('apicDevices', function(deviceName) {
   let uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
-  let apicDevicesUrnAga = "/api/v1/network-device?hostname=aga";
-  let apicDevicesUrnNwf = "/api/v1/network-device?hostname=nw";
-  let apicDevicesUrnFce = "/api/v1/network-device?hostname=fce";
-  let apicDevicesUrnFcw = "/api/v1/network-device?hostname=fcw";
-  let devicesUrl = baseUrl + apicDevicesUrnAga;
+  let apicDevicesUrn = "/api/v1/network-device?hostname="+deviceName;
+  let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
@@ -62,7 +59,7 @@ Meteor.publish('apicDevices', function(deviceName) {
   apicDevices = httpDevices.data.response;
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
-  console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
+  //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
