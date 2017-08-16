@@ -5,7 +5,7 @@ const apicReducer = (state = {
   },
   apicDevicesFind:{
     deviceName: ".",
-    validationStatus: true,
+    validationStatus: false,
     btnStyle: false,
     byteType: "ALL"
   },

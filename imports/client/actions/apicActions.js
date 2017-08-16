@@ -59,10 +59,10 @@ export function setTraceStatus(traceStatus) {
   };
 }
 
-export function setApicDevicesFind(number) {
+export function setApicDevicesFind(blob) {
   return {
     type: "SET_APICDEVICESFIND",
-    payload: number
+    payload: blob
   };
 }
 
