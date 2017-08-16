@@ -1,6 +1,6 @@
 import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
-import AppPrimeHostInfo from './components/AppPrimeHostInfo';
+import PrimeHostInfo from './components/PrimeHostInfo';
 import { Mongo } from 'meteor/mongo';
 import {createContainer} from 'meteor/react-meteor-data';
 import React, {Component} from 'react';
