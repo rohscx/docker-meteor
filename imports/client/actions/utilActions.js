@@ -49,9 +49,6 @@ export function dnsSuffix(suffix) {
   }
 }
 
-
-
-
 export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
