@@ -74,7 +74,7 @@ ItemsPrimeHostPortInfo.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <PrimeHostInfo {... this.props} dbReturnRdy={true}/>
+          <PrimeHostPortInfo {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );
