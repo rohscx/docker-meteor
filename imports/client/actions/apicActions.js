@@ -73,12 +73,27 @@ export function setSortBy(value) {
   };
 }
 
+export function setValidationStatus(value) {
+  return {
+    type: "SET_VALIDATIONSTATUS",
+    payload: value
+  };
+}
+
+export function apicValidationStatus(status) {
+  return dispatch => {
+    return dispatch(setApicDevicesFind({
+        validationStatus: status
+      }));
+  }
+}
+
 export function apicDevicesFind(deviceName,deviceFilter,cdase) {
   return dispatch => {
     if (cdase === null){
       return dispatch(setApicDevicesFind({
           deviceName: deviceName,
-          validationStatus: true,
+          validationStatus: false,
           btnStyle: true,
           byteType: deviceFilter
         }));
@@ -95,7 +110,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
         let newData = deviceName.trim().toLowerCase()
         return dispatch(setApicDevicesFind({
           deviceName: newData,
-          validationStatus: true,
+          validationStatus: false,
           btnStyle: true,
           byteType: deviceFilter
         }));

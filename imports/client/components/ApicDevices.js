@@ -5,7 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 're
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import { sortBy } from '../actions/apicActions';
-import { apicDevicesFind } from '../actions/apicActions'
+import { apicDevicesFind, apicValidationStatus } from '../actions/apicActions'
 
 class TransferRate extends Component {
   constructor() {
@@ -148,11 +148,15 @@ const mapSateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    apicValidationStatus
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
       dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },
     sortBy: (sortValue, sortOrder) => {
       dispatch(sortBy(sortValue, sortOrder));
+    },
+    apicValidationStatus: (status) => {
+      dispatch(apicValidationStatus(status));
     },
   };
 };
