@@ -9,11 +9,11 @@ import { render } from 'react-dom';
 import App from './App';
 import MainLayout from './layouts/MainLayout';
 import About from './pages/About';
-import AppPrimeApicDevices from './AppPrimeApicDevices';
+import AppApicDevices from './AppApicDevices';
 import AppIse from './AppIse';
 import AppPrtgSensors from './AppPrtgSensors';
 import AppTransferRate from './AppTransferRate';
-import AppHostPortInfo from './AppHostPortInfo';
+import AppPrimeHostPortInfo from './AppPrimeHostPortInfo';
 
 
 Meteor.startup(() => {
@@ -25,7 +25,7 @@ Meteor.startup(() => {
         <Route path="/ise" component={AppIse} />
         <Route path="/prtg" component={AppPrtgSensors} />
         <Route path="/trfr" component={AppTransferRate} />
-        <Route path="/hpi" component={AppPrimeApicDevices} />
+        <Route path="/hpi" component={AppHostPortInfo} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
       </Route>
