@@ -181,8 +181,8 @@ Meteor.publish('apicDevices', function() {
 
 Meteor.publish('siteCircuitInfo', function() {
   let countCollections = ItemsTransferRate.find().count();
-  let test = Meteor.call('getDateISO')
-  console.log(JSON.stringify(test));
+  Meteor.call('getDateISO')
+
   if (countCollections <= 0){
     let sitesObj = tempData;
     //debug
