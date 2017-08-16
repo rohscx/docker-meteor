@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
-import ItemsPrimeHostPortInfo from '../api/prtg';
+//import ItemsPrimeHostPortInfo from '../api/request';
 
 
 
