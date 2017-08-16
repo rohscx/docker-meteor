@@ -44,7 +44,7 @@ export function setDnsSuffix(value) {
 export function dnsSuffix(suffix) {
   return dispatch => {
     return dispatch(setDnsSuffix({
-      field: suffix
+      suffix
     }));
   }
 }
