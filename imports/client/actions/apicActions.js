@@ -38,7 +38,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
   return dispatch => {
     let nameValidator = (name)=>{
       if(name.length <= 0){
-        return false;
+        return null;
       } else {
         return true;
       }
