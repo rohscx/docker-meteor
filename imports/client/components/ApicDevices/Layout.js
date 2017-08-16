@@ -95,7 +95,7 @@ export default class Table extends Component {
           </div>
         )
       })
-      this.props.apicDbReady(true)
+      //this.props.apicDbReady(true)
       return colData;
     } else {
       return "";
