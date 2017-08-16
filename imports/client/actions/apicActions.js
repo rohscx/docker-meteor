@@ -3,62 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
 import { HTTP } from 'meteor/http';
 
-export function setTicket(ticket) {
-  return {
-    type: "SET_TICKET",
-    payload: ticket
-  };
-}
-
-export function setDevices(devices) {
-  return {
-    type: "SET_DEVICES",
-    payload: devices
-  };
-}
-
-export function setTrace(trace) {
-  return {
-    type: "SET_TRACE",
-    payload: trace
-  };
-}
-
-export function setFlowId(flowId) {
-  return {
-    type: "SET_FLOW_ID",
-    payload: flowId
-  };
-}
-
-export function setFlow(flow) {
-  return {
-    type: "SET_FLOW",
-    payload: flow
-  };
-}
-
-export function setShowTrace(showTrace) {
-  return {
-    type: "SET_SHOW_TRACE",
-    payload: showTrace
-  };
-}
-
-export function setTraceIp(traceIp) {
-  return {
-    type: "SET_TRACEIP",
-    payload: traceIp
-  };
-}
-
-export function setTraceStatus(traceStatus) {
-  return {
-    type: "SET_TRACESTATUS",
-    payload: traceStatus
-  };
-}
-
 export function setApicDevicesFind(blob) {
   return {
     type: "SET_APICDEVICESFIND",
@@ -79,6 +23,8 @@ export function setValidationStatus(value) {
     payload: value
   };
 }
+
+
 
 export function apicValidationStatus(status) {
   return dispatch => {
