@@ -84,7 +84,14 @@ class PrimeHostPortInfo extends Component {
       margin: "auto",
       width: "40%"
     };
-    let sortField = this.props.apic.sortBy.field;
+    let acaField = ()=>{
+      let suffix = this.props.util.dnsSuffix;:
+      switch(suffix){
+        case ".fpi.fpir.pvt":
+        return "fpi"
+        break;
+      }
+    }
     let buttonLabel = (textValue)=>{
       switch(textValue){
         case "hostname":
