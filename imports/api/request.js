@@ -119,7 +119,7 @@ if (Meteor.isServer) {
         };
         return dateRangeLabels
       }
-      return dateRange
+      return dateRange()
     }
   });
 }
