@@ -68,8 +68,10 @@ class PrimeHostPortInfo extends Component {
       );
     };
     const validationStatus = () => {
+      /*
       let dataReturn = this.props.apic.apicDevicesFind.deviceName;
       let dataReady = this.props.apic.apicDevicesFind.validationStatus;
+
       let dataValueCheck = dataReturn ? 10 : ""
       if(dataReady === null){
         return null;
@@ -77,7 +79,8 @@ class PrimeHostPortInfo extends Component {
         return "error";
       } else {
         return "success";
-      }
+      }*/
+      return null
     };
 
     const divStyles = {
