@@ -85,6 +85,40 @@ if (Meteor.isServer) {
         }
         Roles.addUsersToRoles(Meteor.userId(), 'voter')
       }
+    },
+    'getDateISO': function(){
+      let dateRange = ()=>{
+        convertDays = function (d) {
+            //Convert days into MilliSeconds
+            return d * 86400000;
+        }
+        let dateISO = (dateNum)=>{
+          let newToday = new Date();
+          let newLookupDate = new Date(newToday - convertDays(dateNum));
+          newLookupDate = newLookupDate.toISOString().split('T')
+          return newLookupDate[0];
+        }
+        let a = new Date()
+        let today = dateISO(0);
+        let yesterday = dateISO(1);
+        let lastWeekStart = dateISO(a.getDay() + 7);
+        let lastWeekEnd = dateISO(7 - a.getDay());
+        var dateRangeLabels = {
+            today: {
+                start: today,
+                end: today
+            },
+            yesterday: {
+                start: yesterday,
+                end: today
+            },
+            lastWeek: {
+                start: lastWeekStart,
+                end: lastWeekEnd
+            }
+        };
+        return dateRangeLabels
+      }
     }
   });
 }
