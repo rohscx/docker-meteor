@@ -87,22 +87,11 @@ class PrimeHostPortInfo extends Component {
       margin: "auto",
       width: "40%"
     };
-    let acaField = ()=>{
-      console.log("hittt")
-      let suffix = this.props.util.dnsSuffix;
-      let acaName = ""
-      switch(suffix){
-        case ".fpi.fpir.pvt":
-        acaname = "fpi";
-        break;
-      }
-      console.log(acaName)
-      return acaName;
-    }
+
     let buttonLabel = (textValue)=>{
       switch(textValue){
-        case "hostname":
-        return "HostName";
+        case ".fpi.fpir.pvt":
+        return "FPI";
       break;
         case "reachabilityStatus":
         return "Reachability";
@@ -124,7 +113,7 @@ class PrimeHostPortInfo extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={buttonLabel(acaField)}
+                 title={"Domain: "buttonLabel(this.props.util.dnsSuffix)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setDnsSuffix(".fpi.fpir.pvt")}}>FPI</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setDnsSuffix("reachabilityStatus",-1)}}>AGC</MenuItem>
