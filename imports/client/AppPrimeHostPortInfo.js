@@ -111,7 +111,7 @@ export default createContainer(({params}) => {
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
     },
-    dnsLookup: function data(){
+    dnsLookup: function data(hostName){
       return dnsLookup(hostName)
     }
 
