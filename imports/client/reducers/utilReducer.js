@@ -19,7 +19,8 @@ const utilReducer = (state = {
   sortBy:{
     field:"aca",
     order: 1
-  }
+  },
+  dnsSuffix: ".fpi.fpir.pvt"
 }, action) => {
   switch (action.type) {
     case "MAC_VALIDATION":
@@ -44,6 +45,12 @@ const utilReducer = (state = {
     state = {
       ...state,
       sortBy: action.payload
+    };
+    break;
+    case "SET_DNSSUFFIX":
+    state = {
+      ...state,
+      dnsSuffix: action.payload
     };
     break;
   }

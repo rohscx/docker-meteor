@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 //import Layout from './ApicDevices/Layout';
-import { sortBy } from '../actions/apicActions';
-import { apicDevicesFind, apicDbReady } from '../actions/apicActions'
+import { dnsSuffix } from '../actions/utilActions';
 
 class PrimeHostPortInfo extends Component {
   constructor() {
@@ -15,8 +14,10 @@ class PrimeHostPortInfo extends Component {
   }
   handleSearchFormInput(event) {
     let value = event.target.value;
-    let deviceFilter = "ALL"
-    this.props.apicDevicesFind(value,deviceFilter,"cats");
+    let suffix = this.props.util.dnsSuffix
+    if (value.trim().length == 3){
+      this.props.dnsLookup(value+suffix)
+    }
   }
 
   preventDefault(e){
@@ -33,8 +34,8 @@ class PrimeHostPortInfo extends Component {
     this.props.bandwidthCalc(value,byteType,null);
   }
 
-  setSortBy(sortName, sortOrder){
-    this.props.sortBy(sortName, sortOrder)
+  setDnsSuffix(suffix){
+    this.props.dnsSuffix(suffix)
   }
 
   preventDefault(e){
@@ -111,10 +112,10 @@ class PrimeHostPortInfo extends Component {
                  id="input-dropdown-addon"
                  title={buttonLabel(sortField)}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname",1)}}>HostName</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus",-1)}}>Reachability</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("upTime",1)}}>UpTime</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("softwareVersion",1)}}>IOS Version</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setDnsSuffix(".fpi.fpir.pvt")}}>FPI</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setDnsSuffix("reachabilityStatus",-1)}}>AGC</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setDnsSuffix("upTime",1)}}>FCW</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setDnsSuffix("softwareVersion",1)}}>NWFCS</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
@@ -141,21 +142,14 @@ class PrimeHostPortInfo extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    util: state.utilReducer,
-    apic: state.apicReducer,
+    util: state.utilReducer
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    apicDevicesFind: (deviceName,deviceFilter,cdase) => {
-      dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
-    },
-    sortBy: (sortValue, sortOrder) => {
-      dispatch(sortBy(sortValue, sortOrder));
-    },
-    apicDbReady: (status) => {
-      dispatch(apicDbReady(status));
+    dnsSuffix: (suffix) => {
+      dispatch(dnsSuffix(suffix));
     },
   };
 };

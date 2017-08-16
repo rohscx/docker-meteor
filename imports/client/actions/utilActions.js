@@ -33,6 +33,25 @@ export function setSortBy(value) {
   };
 }
 
+export function setDnsSuffix(value) {
+  return {
+    type: "SET_DNSSUFFIX",
+    payload: value
+  };
+}
+
+
+export function dnsSuffix(suffix) {
+  return dispatch => {
+    return dispatch(setDnsSuffix({
+      field: suffix
+    }));
+  }
+}
+
+
+
+
 export function validateMac(mac) {
   return dispatch => {
       var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;

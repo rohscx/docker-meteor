@@ -89,6 +89,9 @@ export default createContainer(({params}) => {
   let primeDevicesItemsSub = Meteor.subscribe('primeHostPortInfo');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsPrimeHostPortInfo.find().fetch()
+  dnsLookup = (hostName,)=>{
+    Meteor.call('getDnsLookup', hostName)
+  }
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
@@ -107,6 +110,9 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
+    },
+    dnsLookup: function data(){
+      return dnsLookup(hostName)
     }
 
   };
