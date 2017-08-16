@@ -43,6 +43,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
         return true;
       }
     }
+    let defaultResult = ".";
     if (cdase === null){
       return dispatch(setApicDevicesFind({
           deviceName: deviceName,
@@ -54,7 +55,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
       let newData = deviceName.trim().toLowerCase()
       if (newData.length <= 0) {
         return dispatch(setApicDevicesFind({
-          deviceName: deviceName,
+          deviceName: defaultResult,
           validationStatus: null,
           btnStyle: false,
           byteType: deviceFilter
