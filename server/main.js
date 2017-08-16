@@ -22,8 +22,9 @@ Meteor.publish('currentUser', function() {
 
 
 Meteor.publish('primeHostPortInfo', function(hostName,callback) {
-  console.log(Meteor.call('getDnsLookup',+hostName+".fpi.fpir.pvt"))
+
   let blah = Meteor.call('getDnsLookup',+hostName+".fpi.fpir.pvt");
+  console.log("blahresponse",blah)
   this.ready();
   return blah;
 });
