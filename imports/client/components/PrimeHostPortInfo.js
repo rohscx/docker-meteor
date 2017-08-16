@@ -16,9 +16,9 @@ class PrimeHostPortInfo extends Component {
     let value = event.target.value;
     let suffix = this.props.util.dnsSuffix
     if (value.trim().length == 3){
-      this.props.dnsLookup(value+suffix,response)=>{
+      this.props.dnsLookup(value+suffix,(response)=>{
         console.log(response)
-      }
+      })
       console.log(this.props.dnsLookup(value+suffix))
     }
   }
