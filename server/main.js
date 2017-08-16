@@ -20,7 +20,7 @@ Meteor.publish('currentUser', function() {
   });
 });
 
-Meteor.publish('apicDevices', function() {
+Meteor.publish('apicDevices', function(deviceName) {
   let countCollections = ItemsApicDevices.find().count();
   console.log("apicDevices Count = ",countCollections);
   /*
@@ -40,7 +40,7 @@ Meteor.publish('apicDevices', function() {
   let uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
-  let apicDevicesUrn = "/api/v1/network-device";
+  let apicDevicesUrn = "/api/v1/network-device?hostname="+deviceName;
   let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },

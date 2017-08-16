@@ -87,7 +87,9 @@ ItemsApicDevices.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let aicDevicesItemsSub = Meteor.subscribe('apicDevices');
+  let aicDevicesItemsSub = (hostName)=>{
+    return Meteor.subscribe('apicDevices',hostName)
+  };
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
@@ -98,12 +100,12 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
-
+    aicDevicesItemsSub(findValue)
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
-    ready: aicDevicesItemsSub.ready(),
+    ready: "aicDevicesItemsSub.ready()",
     dbReturn: function data(findValue,sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
