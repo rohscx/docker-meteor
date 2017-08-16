@@ -43,7 +43,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
         return true;
       }
     }
-    let defaultResult = ".";
+    let defaultResult = "(mpls|inet|dmvpn)";
     if (cdase === null){
       return dispatch(setApicDevicesFind({
           deviceName: deviceName,
