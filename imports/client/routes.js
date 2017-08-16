@@ -25,7 +25,7 @@ Meteor.startup(() => {
         <Route path="/ise" component={AppIse} />
         <Route path="/prtg" component={AppPrtgSensors} />
         <Route path="/trfr" component={AppTransferRate} />
-        <Route path="/hpi" component={AppHostPortInfo} />
+        <Route path="/hpi" component={AppPrimeHostPortInfo} />
         <Route path="/about" component={About} />
         <Route path="/:id" component={App} />
       </Route>
