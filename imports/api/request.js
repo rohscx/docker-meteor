@@ -5,6 +5,7 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import request from 'request';
 import https from 'https';
+import dns from 'dns';
 
 
 // apic
@@ -121,26 +122,31 @@ if (Meteor.isServer) {
       }
       return dateRange()
     },
-    'getDnsLookup': function(){
-      	let suffixArray = [
-	".fpi.fpir.pvt",".nfcs.fpir.pvt",
-	".farmcrediteast.fpir.pvt",
-	".agcountry.fpir.pvt",
-	".yankee.fpir.pvt",
-	".fpi.pvt",
-	".fpicorelab.fpir.pvt",
-	"fcc.fpir.pvt",
-	".nextgen.fpir.pvt",
-	".farmcreditwest.fpir.pvt"
-	];
+    'getDnsLookup': function(hostName){
 
-	dns.lookup(hostName, (err, address, family) => {
-	  console.log('address: %j family: IPv%s', address, family);
-	  if (family == 'IPv4'){
-		return address;
-	  }
-	});
-    },
+    	let suffixArray = [
+    	".fpi.fpir.pvt",".nfcs.fpir.pvt",
+    	".farmcrediteast.fpir.pvt",
+    	".agcountry.fpir.pvt",
+    	".yankee.fpir.pvt",
+    	".fpi.pvt",
+    	".fpicorelab.fpir.pvt",
+    	"fcc.fpir.pvt",
+    	".nextgen.fpir.pvt",
+    	".farmcreditwest.fpir.pvt"
+    	];
+
+      suffixArray.map((data)=>{
+
+      })
+    	dns.lookup(hostName, (err, address, family) => {
+    	  console.log('address: %j family: IPv%s', address, family);
+    	  if (family == 'IPv4'){
+          console.log(address)
+    		return address;
+    	  }
+    	})
+  },
   });
 }
 
