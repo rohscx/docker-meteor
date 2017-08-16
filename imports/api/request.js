@@ -117,7 +117,6 @@ if (Meteor.isServer) {
                 end: lastWeekEnd
             }
         };
-        return dateRangeLabels
       }
       return dateRange()
     }
