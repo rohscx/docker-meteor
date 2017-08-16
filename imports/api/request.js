@@ -139,10 +139,11 @@ if (Meteor.isServer) {
       suffixArray.map((data)=>{
 
       })
-    	return dns.lookup(hostName, (err, address, family) => {
+    	dns.lookup(hostName, (err, address, family) => {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
+      
     		return address;
     	  }
     	})
