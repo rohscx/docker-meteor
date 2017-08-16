@@ -17,6 +17,7 @@ class PrimeHostPortInfo extends Component {
     let suffix = this.props.util.dnsSuffix
     if (value.trim().length == 3){
       this.props.dnsLookup(value+suffix)
+      cosole.log(this.props.dnsLookup(value+suffix))
     }
   }
 
