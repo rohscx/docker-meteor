@@ -36,10 +36,17 @@ export function apicDbReady(status) {
 
 export function apicDevicesFind(deviceName,deviceFilter,cdase) {
   return dispatch => {
+    let nameValidator = (name)=>{
+      if(name.length <= 0){
+        return false;
+      } else {
+        return true;
+      }
+    }
     if (cdase === null){
       return dispatch(setApicDevicesFind({
           deviceName: deviceName,
-          validationStatus: true,
+          validationStatus: nameValidator(deviceName),
           btnStyle: true,
           byteType: deviceFilter
         }));
