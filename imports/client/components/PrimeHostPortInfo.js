@@ -92,7 +92,7 @@ class PrimeHostPortInfo extends Component {
       let acaName = ""
       switch(suffix){
         case ".fpi.fpir.pvt":
-        aca name = "fpi";
+        aca name = "fpi"; 
         break;
       }
       return acaName;
