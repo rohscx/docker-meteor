@@ -75,10 +75,11 @@ Meteor.publish('apicDevices', function() {
         });
     });
     if (apicDevices.length == 500){
-      console.log("Over 500 Devices!!!")
+      console.log("over 500 Devices!!!")
       apicDevicesUrn = "/api/v1/network-device/501/500";
       devicesUrl = baseUrl + apicDevicesUrn;
       httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
+      console.log("Adding to DB: ",httpDevicesOver500.data.response.length)
       httpDevicesOver500.data.response.map((data)=>{
         let normalize = data.hostname.toLowerCase();
         data.normalizeHostName = normalize;
