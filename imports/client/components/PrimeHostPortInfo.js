@@ -14,12 +14,11 @@ class PrimeHostPortInfo extends Component {
   }
   handleSearchFormInput(event) {
     let value = event.target.value;
+    value = value.trim()
     let suffix = this.props.util.dnsSuffix
-    if (value.trim().length == 3){
-      this.props.dnsLookup(value+suffix,(response)=>{
-        console.log(response)
-      })
-      console.log(this.props.dnsLookup(value+suffix))
+    if (value.length == 3){
+      let blah = Meteor.call('getDnsLookup',value+suffix)
+      console.log(blah)
     }
   }
 
