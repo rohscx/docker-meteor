@@ -84,15 +84,15 @@ const apicReducer = (state = {
     case "SET_APICDEVICESFIND":
     state = {
       ...state,
-      apicDevicesFind: {
-        validationStatus: action.payload
-      }
+      apicDevicesFind: action.payload
     };
     break;
     case "SET_VALIDATIONSTATUS":
     state = {
       ...state,
-      apicDevicesFind: action.payload
+      apicDevicesFind: {
+        validationStatus: action.payload
+      }
     };
     break;
     case "SET_SORTBY":
