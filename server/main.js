@@ -63,14 +63,6 @@ Meteor.publish('apicDevices', function() {
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
-    if (apicDevices.length == 500){
-      console.log("Over 500 Devices!!!")
-      apicDevicesUrn = "/api/v1/network-device/501/500";
-      devicesUrl = baseUrl + apicDevicesUrn;
-      httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-      httpDevicesOver500.data.response
-      apicDevices.push(httpDevicesOver500.data.response)
-    }
     apicDevices.map((data)=>{
       let normalize = data.hostname.toLowerCase();
       data.normalizeHostName = normalize;
@@ -82,6 +74,24 @@ Meteor.publish('apicDevices', function() {
           }
         });
     });
+    if (apicDevices.length == 500){
+      console.log("Over 500 Devices!!!")
+      apicDevicesUrn = "/api/v1/network-device/501/500";
+      devicesUrl = baseUrl + apicDevicesUrn;
+      httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
+      httpDevicesOver500.data.response
+      apicDevices.map((data)=>{
+        let normalize = data.hostname.toLowerCase();
+        data.normalizeHostName = normalize;
+        ItemsApicDevices.insert({
+            siteData: {
+              dataObj: data,
+              requestTime: timeNow,
+              dateTime: dateTime
+            }
+          });
+      });
+    }
     console.log("RETURNING APIC-EM DATA TO CLIENT")
     return ItemsApicDevices.find({},{fields:{
       "siteData.dataObj.hostname": 1,
