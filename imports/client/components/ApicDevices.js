@@ -70,7 +70,7 @@ class TransferRate extends Component {
       let dataReturn = this.props.apic.apicDevicesFind.deviceName;
       let dataReady = this.props.apic.apicDevicesFind.validationStatus;
       let dataValueCheck = dataReturn ? 10 : ""
-      if(dataValueCheck.length <= 0){
+      if(dataReady === null){
         return null;
       } else if (dataReady === false){
         return "error";

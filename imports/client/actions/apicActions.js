@@ -55,7 +55,7 @@ export function apicDevicesFind(deviceName,deviceFilter,cdase) {
       if (newData.length <= 0) {
         return dispatch(setApicDevicesFind({
           deviceName: deviceName,
-          validationStatus: false,
+          validationStatus: null,
           btnStyle: false,
           byteType: deviceFilter
         }));
