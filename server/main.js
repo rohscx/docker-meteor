@@ -57,19 +57,20 @@ Meteor.publish('apicDevices', function() {
   };
   httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
   apicDevices = httpDevices.data.response;
-  if (apicDevices.length == 500){
-    console.log("Over 500 Devices!!!")
-    apicDevicesUrn = "/api/v1/network-device/501/500";
-    devicesUrl = baseUrl + apicDevicesUrn;
-    httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-    httpDevicesOver500.data.response
-    apicDevices.push(httpDevicesOver500.data.response)
-  }
+
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
+    if (apicDevices.length == 500){
+      console.log("Over 500 Devices!!!")
+      apicDevicesUrn = "/api/v1/network-device/501/500";
+      devicesUrl = baseUrl + apicDevicesUrn;
+      httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
+      httpDevicesOver500.data.response
+      apicDevices.push(httpDevicesOver500.data.response)
+    }
     apicDevices.map((data)=>{
       let normalize = data.hostname.toLowerCase();
       data.normalizeHostName = normalize;
