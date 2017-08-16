@@ -20,7 +20,7 @@ Meteor.publish('currentUser', function() {
   });
 });
 
-Meteor.publish('apicDevices', function(deviceName) {
+Meteor.publish('apicDevices', function() {
   let countCollections = ItemsApicDevices.find().count();
   console.log("apicDevices Count = ",countCollections);
   /*
@@ -40,7 +40,7 @@ Meteor.publish('apicDevices', function(deviceName) {
   let uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
-  let apicDevicesUrn = "/api/v1/network-device?hostname="+deviceName;
+  let apicDevicesUrn = "/api/v1/network-device";
   let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
@@ -57,6 +57,14 @@ Meteor.publish('apicDevices', function(deviceName) {
   };
   httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
   apicDevices = httpDevices.data.response;
+  if (apicDevices.length == 500){
+    console.log("Over 500 Devices!!!")
+    apicDevicesUrn = "/api/v1/network-device/501/500";
+    devicesUrl = baseUrl + apicDevicesUrn;
+    httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
+    httpDevicesOver500.data.response
+    apicDevices.push(httpDevicesOver500.data.response)
+  }
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
