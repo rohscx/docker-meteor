@@ -124,17 +124,7 @@ if (Meteor.isServer) {
     },
     'getDnsLookup': function(hostName){
 
-    	let suffixArray = [
-    	".fpi.fpir.pvt",".nfcs.fpir.pvt",
-    	".farmcrediteast.fpir.pvt",
-    	".agcountry.fpir.pvt",
-    	".yankee.fpir.pvt",
-    	".fpi.pvt",
-    	".fpicorelab.fpir.pvt",
-    	"fcc.fpir.pvt",
-    	".nextgen.fpir.pvt",
-    	".farmcreditwest.fpir.pvt"
-    	];
+    	let dnsResponse = "";
 
       suffixArray.map((data)=>{
 
@@ -143,10 +133,11 @@ if (Meteor.isServer) {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
-      
-    		return address;
+
+    		dnsResponse =  address;
     	  }
     	})
+      return dnsResponse;
   },
   });
 }
