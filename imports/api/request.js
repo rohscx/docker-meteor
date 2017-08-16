@@ -140,6 +140,7 @@ if (Meteor.isServer) {
 
       })
     	dns.lookup(hostName, (err, address, family) => {
+        console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
           console.log(address)
