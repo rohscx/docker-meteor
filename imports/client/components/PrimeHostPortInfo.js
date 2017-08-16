@@ -113,7 +113,7 @@ class PrimeHostPortInfo extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={"Domain: "buttonLabel(this.props.util.dnsSuffix)}
+                 title={"Domain: "+buttonLabel(this.props.util.dnsSuffix)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setDnsSuffix(".fpi.fpir.pvt")}}>FPI</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setDnsSuffix("reachabilityStatus",-1)}}>AGC</MenuItem>
