@@ -123,9 +123,6 @@ if (Meteor.isServer) {
       return dateRange()
     },
     'getDnsLookup': function(hostName){
-
-    	let dnsResponse = "";
-
     	dns.lookup(hostName, (err, address, family) => {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
@@ -134,7 +131,6 @@ if (Meteor.isServer) {
     		dnsResponse =  address;
     	  }
     	})
-      return dnsResponse;
   },
   });
 }

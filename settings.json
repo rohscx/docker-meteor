@@ -13,6 +13,11 @@
       "uName": false,
       "uPass": false,
       "baseUrl": false
+    },
+    "prime":{
+      "uName": false,
+      "uPass": false,
+      "baseUrl": false
     }
 },
   "public" : {
