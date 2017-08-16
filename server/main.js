@@ -131,7 +131,7 @@ Meteor.publish('apicDevices', function() {
         apicDevicesUrn = "/api/v1/network-device/501/500";
         devicesUrl = baseUrl + apicDevicesUrn;
         httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-        console.log("Adding to DB: ",httpDevicesOver500.data.response.length)
+        console.log("Additional documents Added to DB: ",httpDevicesOver500.data.response.length)
         httpDevicesOver500.data.response.map((data)=>{
           let normalize = data.hostname.toLowerCase();
           data.normalizeHostName = normalize;
@@ -192,6 +192,8 @@ Meteor.publish('siteCircuitInfo', function() {
     //console.log(newData.sensors[value].objid)
     //console.log(typeof(newData.sensors[value].objid))
     //console.log("DATA ID ",data._id)
+    console.log(Meteor.call('getDateISO'));
+
     temp.map((data)=>{
       ItemsTransferRate.insert({
           siteData: {
