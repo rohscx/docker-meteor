@@ -21,7 +21,7 @@ Meteor.publish('currentUser', function() {
 });
 
 
-Meteor.publish('currentUser', function() {
+Meteor.publish('primeHostPortInfo', function() {
   console.log(Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt"))
   let blah = Meteor.call('getDnsLookup',"15g.fpi.fpir.pvt");
   this.ready();
