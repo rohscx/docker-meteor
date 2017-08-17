@@ -98,6 +98,7 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
+    console.log(sortObj)
 
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
