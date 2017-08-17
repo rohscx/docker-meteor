@@ -123,20 +123,18 @@ if (Meteor.isServer) {
       return dateRange()
     },
     'getDnsLookup': function(hostName, callback){
-      callback(
-        dns.lookup(hostName,(err, address, family) => {
-          console.log(hostName)
-          console.log('address: %j family: IPv%s', address, family);
-          if (family == 'IPv4'){
-            console.log("hit")
-            return address
-          } else {
-            console.log("hit ELSE")
-            return address
-          }
-        })
-      )
-
+      callback("cats")
+    	dns.lookup(hostName,(err, address, family) => {
+        console.log(hostName)
+    	  console.log('address: %j family: IPv%s', address, family);
+    	  if (family == 'IPv4'){
+          console.log("hit")
+          return address
+    	  } else {
+          console.log("hit ELSE")
+          return address
+        }
+    	})
   },
   'getPrimeHostInfo':function(ip){
     console.log("blah")
