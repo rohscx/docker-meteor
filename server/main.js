@@ -27,7 +27,7 @@ Meteor.publish('primeHosts', function(hostName) {
   let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&PolicyStatus=eq("FAILED")';
+  let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&securityPolicyStatus=eq("FAILED")';
   let devicesUrl = baseUrl + primeLookupUrn;
   let primeOptions = {
     headers: { 'authorization': uName+" "+uPass, "accept": "application/json" }
@@ -36,7 +36,7 @@ Meteor.publish('primeHosts', function(hostName) {
   console.log(devicesUrl)
   let primeHosts = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
-  console.log(httpPrimeIpLookup)
+  console.log(primeHosts)
   this.ready();
   primeHosts.map((data)=>{
     ItemsPrimeHosts.insert({
