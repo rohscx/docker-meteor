@@ -143,12 +143,16 @@ class PrimeHostPortInfo extends Component {
 
 const mapSateToProps = (state) => {
   return {
+    util: sate.utilReducer,
     prime: state.primeReducer
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    dnsSuffix: (suffix) => {
+      dispatch(dnsSuffix(suffix));
+    },
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
       dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
     },
