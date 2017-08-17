@@ -141,7 +141,7 @@ class PrimeHostPortInfo extends Component {
   }
 }
 
-const mapSateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     util: state.utilReducer,
     prime: state.primeReducer
