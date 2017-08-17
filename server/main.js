@@ -21,24 +21,33 @@ Meteor.publish('currentUser', function() {
 });
 
 
-Meteor.publish('primeHostPortInfo', function(hostName) {
+Meteor.publish('primeHosts', function(hostName) {
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
   let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&ipAddress=eq('+hostName+')';
+  let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&PolicyStatus=eq("FAILED")';
   let devicesUrl = baseUrl + primeLookupUrn;
   let primeOptions = {
     headers: { 'authorization': uName+" "+uPass, "accept": "application/json" }
   };
   console.log(baseUrl,uName,uPass)
   console.log(devicesUrl)
-  let httpPrimeIpLookup = Meteor.call('checkApic', "GET",devicesUrl,primeOptions);
+  let primeHosts = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
   console.log(httpPrimeIpLookup)
   this.ready();
-
+  primeHosts.map((data)=>{
+    ItemsPrimeHosts.insert({
+        hostData: {
+          dataObj: data,
+          requestTime: timeNow,
+          dateTime: dateTime
+        }
+      });
+  })
+  return ItemsPrimeHosts.find()
 });
 
 Meteor.publish('apicDevices', function() {

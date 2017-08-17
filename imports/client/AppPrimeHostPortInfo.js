@@ -14,14 +14,14 @@ import { autobind } from 'core-decorators';
 
 
 
-const ItemsPrimeHostPortInfo = new Mongo.Collection('itemprimehostportinfo');
-ItemsPrimeHostPortInfo.allow({
+const ItemsPrimeHosts = new Mongo.Collection('itemprimehosts');
+ItemsPrimeHosts.allow({
   insert() { return false; },
   update() { return false; },
   remove() { return false; }
 });
 
-ItemsPrimeHostPortInfo.deny({
+ItemsPrimeHosts.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
@@ -86,12 +86,8 @@ ItemsPrimeHostPortInfo.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let primeDevicesItemsSub = Meteor.subscribe('primeHostPortInfo');
-  let prtgArray = Session.get('myMethodResult');
-  let dbData = ItemsPrimeHostPortInfo.find().fetch()
-  dnsLookup = (hostName,)=>{
-    Meteor.call('primeHostPortInfo', hostName)
-  }
+  let primeDevicesItemsSub = Meteor.subscribe('primeHosts');
+  let dbData = ItemsPrimeHosts.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
@@ -101,7 +97,7 @@ export default createContainer(({params}) => {
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
 
-    return ItemsPrimeHostPortInfo.find({"hostData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
+    return ItemsPrimeHosts.find({"hostData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
@@ -110,10 +106,6 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
-    },
-    primeHostLookup: function data(hostName){
-      return dnsLookup(hostName)
     }
-
   };
 }, AppAppPrimeHostInfo);
