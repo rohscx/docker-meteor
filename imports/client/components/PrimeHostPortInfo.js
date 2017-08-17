@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
-import Layout from './primeHostPortInfo/Layout';
+import Layout from './PrimeHostPortInfo/Layout';
 import { dnsSuffix } from '../actions/utilActions';
 
 class PrimeHostPortInfo extends Component {
