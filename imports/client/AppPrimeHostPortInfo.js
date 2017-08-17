@@ -90,7 +90,7 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsPrimeHostPortInfo.find().fetch()
   dnsLookup = (hostName,)=>{
-    Meteor.call('getDnsLookup', hostName)
+    Meteor.call('primeHostPortInfo', hostName)
   }
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
