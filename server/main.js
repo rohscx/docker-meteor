@@ -24,6 +24,7 @@ Meteor.publish('currentUser', function() {
 
 
 Meteor.publish('primeHosts', function(hostName) {
+  let countCollections = ItemsPrimeHosts.find().count();
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
   let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
@@ -34,24 +35,43 @@ Meteor.publish('primeHosts', function(hostName) {
   let primeOptions = {
     headers: { 'authorization': uName+" "+uPass, "accept": "application/json" }
   };
-  console.log(baseUrl,uName,uPass)
-  console.log(devicesUrl)
   let httpReturn = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
   let primeHosts = httpReturn.content
   // for whatever reason it's returned as a string from prime...
   primeHosts = JSON.parse(httpReturn.content)
-  console.log(primeHosts)
-  primeHosts.queryResponse.entity.map((data)=>{
-    ItemsPrimeHosts.insert({
-        hostData: {
-          dataObj: data,
-          requestTime: timeNow,
-          dateTime: dateTime
-        }
-      });
-  })
-  return ItemsPrimeHosts.find()
+  if (countCollections <= 0){
+    primeHosts.queryResponse.entity.map((data)=>{
+      ItemsPrimeHosts.insert({
+          hostData: {
+            dataObj: data,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+    })
+    return ItemsPrimeHosts.find()
+  } else {
+    let currentTimeEpoch = Math.round(new Date().getTime()/1000);
+    // returns the oldest DB items epoch timestamp
+    let oldestDocument = ItemsPrimeHosts.find({},{sort:{"hostData.requestTime": -1},fields:{"hostData.requestTime": 1,_id:0},limit:1}).fetch();
+    let oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
+    if (currentTimeEpoch - oldestDocumentEpoch > 120) {
+      ItemsApicDevices.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+      console.log("Prime Devices DB STALE Requesting NEW data")
+      primeHosts.queryResponse.entity.map((data)=>{
+        ItemsPrimeHosts.insert({
+            hostData: {
+              dataObj: data,
+              requestTime: timeNow,
+              dateTime: dateTime
+            }
+          });
+      })
+      return ItemsPrimeHosts.find()
+    }
+    return ItemsPrimeHosts.find()
+  }
 });
 
 Meteor.publish('apicDevices', function() {
