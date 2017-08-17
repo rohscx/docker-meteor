@@ -27,7 +27,7 @@ Meteor.publish('primeHostPortInfo', function(hostName) {
   let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let primeLookupUrn = 'webacs/api/v1/data/Client.json?.full=true&ipAddress=eq("10.80.28.211")';
+  let primeLookupUrn = '/webacs/api/v1/data/Client.json?.full=true&ipAddress=eq("10.80.28.211")';
   let devicesUrl = baseUrl + primeLookupUrn;
   let primeOptions = {
     headers: { 'authorization': uName+" "+uPass }
