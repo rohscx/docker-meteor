@@ -26,7 +26,7 @@ export function setDbReady(value) {
 
 
 
-export function prmimeDbReady(status) {
+export function primeDbReady(status) {
   return dispatch => {
     return dispatch(setDbReady({
         validationStatus: status
