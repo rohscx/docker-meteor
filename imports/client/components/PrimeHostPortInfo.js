@@ -153,14 +153,14 @@ const mapDispatchToProps = (dispatch) => {
     dnsSuffix: (suffix) => {
       dispatch(dnsSuffix(suffix));
     },
-    apicDevicesFind: (deviceName,deviceFilter,cdase) => {
-      dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
+    primeDevicesFind: (deviceName,deviceFilter,cdase) => {
+      dispatch(primeDevicesFind(deviceName,deviceFilter,cdase));
     },
     sortBy: (sortValue, sortOrder) => {
       dispatch(sortBy(sortValue, sortOrder));
     },
-    apicDbReady: (status) => {
-      dispatch(apicDbReady(status));
+    primeDbReady: (status) => {
+      dispatch(primeDbReady(status));
     },
   };
 };
