@@ -91,7 +91,7 @@ export default createContainer(({params}) => {
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
-    let keyString = "siteData.dataObj.clientsDTO."+sortValue;
+    let keyString = "hostData.dataObj.clientsDTO."+sortValue;
     let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = sortOrder
