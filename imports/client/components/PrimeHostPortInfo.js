@@ -164,4 +164,4 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(mapSateToProps, mapDispatchToProps) (PrimeHostPortInfo);
+export default connect(mapStateToProps, mapDispatchToProps) (PrimeHostPortInfo);
