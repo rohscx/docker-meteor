@@ -41,6 +41,7 @@ Meteor.publish('primeHosts', function() {
   // for whatever reason it's returned as a string from prime...
   primeHosts = JSON.parse(httpReturn.content)
   if (countCollections <= 0){
+    console.log("Prime Devices DB EMPTY Requesting NEW data")
     primeHosts.queryResponse.entity.map((data)=>{
       ItemsPrimeHosts.insert({
           hostData: {
