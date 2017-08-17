@@ -127,6 +127,7 @@ if (Meteor.isServer) {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
+          console.log("hit")
           callback(address)
     	  }
     	})
