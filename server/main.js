@@ -33,6 +33,7 @@ Meteor.publish('primeHostPortInfo', function(hostName) {
     headers: { 'authorization': uName+" "+uPass }
   };
   console.log(baseUrl,uName,uPass)
+  console.log(devicesUrl)
   let httpPrimeIpLookup = Meteor.call('checkApic', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
   console.log(httpPrimeIpLookup)
