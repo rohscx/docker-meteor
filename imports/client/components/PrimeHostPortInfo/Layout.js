@@ -79,18 +79,18 @@ export default class Table extends Component {
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={8} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.clientInterface}</Col>
-              <Col xs={6} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.deviceName}</Col>
+              <Col xs={8} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.deviceName}</Col>
+              <Col xs={6} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.clientInterface}</Col>
               <Col xs={6} sm={6} md={5}>AssociationTime {data.hostData.dataObj.clientsDTO.associationTime}</Col>
             </Row>
             <Row className="show-grid">
               <Col xs={5} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.macAddress}</Col>
-              <Col xs={6} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.protocol}</Col>
-              <Col xs={6} sm={6} md={1}>{data.hostData.dataObj.clientsDTO.securityPolicyStatus}</Col>
-              <Col xs={6} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.userName}</Col>
-              <Col xs={6} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.vendor}</Col>
-              <Col xs={6} sm={6} md={1}>{data.hostData.dataObj.clientsDTO.vlan}</Col>
-              <Col xs={6} sm={6} md={1}>{data.hostData.dataObj.clientsDTO.vlanId}</Col>
+              <Col xs={6} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.ipAddress}</Col>
+              <Col xs={6} sm={6} md={1}>NacStatus: {data.hostData.dataObj.clientsDTO.securityPolicyStatus}</Col>
+              <Col xs={6} sm={6} md={2}>UserName:{data.hostData.dataObj.clientsDTO.userName}</Col>
+              <Col xs={6} sm={6} md={3}>Vendor:{data.hostData.dataObj.clientsDTO.vendor}</Col>
+              <Col xs={6} sm={6} md={1}>VlanName:{data.hostData.dataObj.clientsDTO.vlan}</Col>
+              <Col xs={6} sm={6} md={1}>VlanId:{data.hostData.dataObj.clientsDTO.vlanId}</Col>
             </Row>
           </div>
         )
