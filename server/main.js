@@ -3,6 +3,7 @@ import Items from '../imports/api/Items';
 import ItemsPrtg from '../imports/api/prtg';
 import ItemsApicDevices from '../imports/api/apic';
 import ItemsTransferRate from '../imports/api/transferRate';
+import ItemsPrimeHosts from '../imports/api/prime';
 import tempData from './tempData';
 
 import '../imports/server/accounts';
@@ -10,6 +11,7 @@ import '../imports/api/request';
 import '../imports/api/prtg';
 import '../imports/api/transferRate';
 import '../imports/api/apic';
+import '../imports/api/prime';
 
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {
