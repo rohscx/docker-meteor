@@ -6,7 +6,6 @@ import SimpleSchema from 'simpl-schema';
 import request from 'request';
 import https from 'https';
 import dns from 'dns';
-import dnsSync from 'dns-sync';
 
 
 // apic
@@ -124,17 +123,12 @@ if (Meteor.isServer) {
       return dateRange()
     },
     'getDnsLookup': function(hostName){
-
-      return dnsSync.resolve(hostName);
-
-      /*dns.lookup(hostName, (err, address, family) => {
+    	return dns.lookup(hostName, (err, address, family) => {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
-
-    		dnsResponse =  address;
     	  }
-    	})*/
+    	})
   },
   'getPrimeHostInfo':function(ip){
     console.log("blah")
