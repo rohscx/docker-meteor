@@ -30,7 +30,7 @@ Meteor.publish('primeHostPortInfo', function(hostName) {
   let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&ipAddress=eq("10.80.28.211")';
   let devicesUrl = baseUrl + primeLookupUrn;
   let primeOptions = {
-    headers: { 'authorization': uName+" "+uPass }
+    headers: { 'authorization': uName+" "+uPass, "accept": "application/json" }
   };
   console.log(baseUrl,uName,uPass)
   console.log(devicesUrl)
