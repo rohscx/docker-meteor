@@ -123,7 +123,11 @@ if (Meteor.isServer) {
       return dateRange()
     },
     'getDnsLookup': function(hostName){
-    	return dns.lookup(hostName,(err, address, family) => {
+      let lookup = Meteor.wrapAsync(dns.lookup);
+      let ip = lookup(hostName)
+      console.log(ip)
+      return ip
+    	dns.lookup(hostName,(err, address, family) => {
         console.log(hostName)
     	  console.log('address: %j family: IPv%s', address, family);
     	  if (family == 'IPv4'){
