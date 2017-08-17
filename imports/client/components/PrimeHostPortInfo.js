@@ -16,9 +16,9 @@ class PrimeHostPortInfo extends Component {
     let value = event.target.value;
     value = value.trim()
     let suffix = this.props.util.dnsSuffix
-    if (value.length == 3){
-
-      console.log(Meteor.call('getDnsLookup',value+suffix),"VATS")
+    if (value.length == 10){
+      this.props.primeHostLookup(value)
+      //console.log(Meteor.call('getDnsLookup',value+suffix),"VATS")
     }
   }
 
