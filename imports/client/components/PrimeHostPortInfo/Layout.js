@@ -35,7 +35,7 @@ export default class Table extends Component {
   }
 
   returnLayout() {
-    let findField = this.props.prime.primeDevicesFind.deviceName;
+    let findField = "."
     let sortField = this.props.prime.sortBy.field;
     let sortOrderField = this.props.prime.sortBy.order;
     let passStyle = {
