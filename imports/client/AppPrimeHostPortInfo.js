@@ -43,10 +43,10 @@ ItemsPrimeHosts.deny({
    componentWillMount() {
 
       this.setState({
-        title: "Host Port Info"
+        title: "Host NAC Status"
       });
       this.setState({
-        greeting: "Welome, Lookup port status"
+        greeting: "Welome, using a Username or Mac address for guests you can view hosts who have failed NAC"
       });
       this.setState({
         status: ""

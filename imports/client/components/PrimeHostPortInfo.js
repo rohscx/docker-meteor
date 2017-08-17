@@ -110,7 +110,7 @@ class PrimeHostPortInfo extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={buttonLabel(this.props.prime.sortBy.field)}
+                 title={"SortBy: "+buttonLabel(this.props.prime.sortBy.field)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setSortBy("associationTime", -1)}}>Time</MenuItem>
                  <MenuItem key="2" onSelect= {()=>{this.setSortBy("ipAddress",-1)}}>IP</MenuItem>
