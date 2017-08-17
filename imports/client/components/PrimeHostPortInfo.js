@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
-import { primeDevicesFind, primeDbReady,sortBy } from '../actions/primeActions'
+import { primeDevicesFind, primeDbReady, sortBy } from '../actions/primeActions'
 import Layout from './PrimeHostPortInfo/Layout';
 import { dnsSuffix } from '../actions/utilActions';
 
