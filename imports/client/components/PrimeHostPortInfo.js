@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
-import { hostName, getDevices } from '../actions/prtgActions';
+import { primeDevicesFind, primeDbReady } from '../actions/primeActions'
 import Layout from './PrimeHostPortInfo/Layout';
 import { dnsSuffix } from '../actions/utilActions';
 
@@ -143,14 +143,20 @@ class PrimeHostPortInfo extends Component {
 
 const mapSateToProps = (state) => {
   return {
-    util: state.utilReducer
+    prime: state.primeReducer
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    dnsSuffix: (suffix) => {
-      dispatch(dnsSuffix(suffix));
+    apicDevicesFind: (deviceName,deviceFilter,cdase) => {
+      dispatch(apicDevicesFind(deviceName,deviceFilter,cdase));
+    },
+    sortBy: (sortValue, sortOrder) => {
+      dispatch(sortBy(sortValue, sortOrder));
+    },
+    apicDbReady: (status) => {
+      dispatch(apicDbReady(status));
     },
   };
 };
