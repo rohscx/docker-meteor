@@ -122,11 +122,10 @@ if (Meteor.isServer) {
       }
       return dateRange()
     },
-    'getDnsLookup': function(hostName,callback,{
+    'getDnsLookup': function(hostName){
       let lookup = Meteor.wrapAsync(dns.lookup),
       ip = lookup(hostName)
       console.log(ip)
-      callback("cats")
       return ip
   },
   'getPrimeHostInfo':function(ip){

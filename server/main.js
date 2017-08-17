@@ -22,9 +22,24 @@ Meteor.publish('currentUser', function() {
 
 
 Meteor.publish('primeHostPortInfo', function(hostName) {
-
-  //Meteor.call('getDnsLookup',hostName);
+  let timeNow = Math.round(new Date().getTime() / 1000);
+  let dateTime = new Date();
+  let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+  let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
+  let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+  let apicTicketUrn = '/api/v1/ticket';
+  let ticketUrl = baseUrl + apicTicketUrn;
+  let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
+  let apicTicketOptions = {
+    headers: { 'content-type': 'application/json' },
+    data: {username: uName, password: uPass}
+  };
+  console.log(baseUrl,uName,uPass)
+  //let httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  //let apicTicket = httpTicket.data.response.serviceTicket;
   this.ready();
+
 });
 
 Meteor.publish('apicDevices', function() {
