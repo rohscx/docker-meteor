@@ -1,6 +1,6 @@
 const apicReducer = (state = {
   sortBy:{
-    field:"reachabilityStatus",
+    field:"associationTime",
     order: -1
   },
   primeDevicesFind:{
