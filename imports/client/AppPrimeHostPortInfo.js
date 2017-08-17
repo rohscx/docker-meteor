@@ -96,7 +96,7 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
-
+    console.log(sortObj)
     return ItemsPrimeHosts.find({"hostData.dataObj.clientsDTO.userName":{$regex: findValue}},sortObj).fetch();
   }
   return {
