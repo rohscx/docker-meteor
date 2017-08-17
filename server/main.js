@@ -57,7 +57,7 @@ Meteor.publish('primeHosts', function() {
     let oldestDocument = ItemsPrimeHosts.find({},{sort:{"hostData.requestTime": -1},fields:{"hostData.requestTime": 1,_id:0},limit:1}).fetch();
     let oldestDocumentEpoch = oldestDocument[0].hostData.requestTime;
     if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-      ItemsPrimeDevices.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+      ItemsPrimeHosts.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Prime Devices DB STALE Requesting NEW data")
       primeHosts.queryResponse.entity.map((data)=>{
         ItemsPrimeHosts.insert({
