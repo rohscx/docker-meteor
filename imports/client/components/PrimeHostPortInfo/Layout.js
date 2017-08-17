@@ -80,7 +80,7 @@ export default class Table extends Component {
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={8} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.deviceName}</Col>
-              <Col xs={6} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.clientInterface}</Col>
+              <Col xs={6} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.clientInterface}</Col>
               <Col xs={6} sm={6} md={3}>AssociationTime {data.hostData.dataObj.clientsDTO.associationTime}</Col>
               <Col xs={6} sm={6} md={2}>NacStatus: {reachCheck(data.hostData.dataObj.clientsDTO.securityPolicyStatus)}</Col>
             </Row>
