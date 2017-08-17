@@ -123,8 +123,8 @@ if (Meteor.isServer) {
       return dateRange()
     },
     'getDnsLookup': function(hostName){
-      let lookup = Meteor.wrapAsync(dns.lookup);
-      let ip = lookup(hostName)
+      let lookup = Meteor.wrapAsync(dns.lookup),
+      ip = lookup(hostName)
       console.log(ip)
       return ip
     	dns.lookup(hostName,(err, address, family) => {
