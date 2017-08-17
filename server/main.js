@@ -38,7 +38,7 @@ Meteor.publish('primeHosts', function() {
   let httpReturn = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
   let primeHosts = httpReturn.content
-  console.log(httpReturn)
+  //console.log(httpReturn)
   // for whatever reason it's returned as a string from prime...
   primeHosts = JSON.parse(httpReturn.content)
   if (countCollections <= 0){
