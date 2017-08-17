@@ -55,7 +55,7 @@ Meteor.publish('primeHosts', function(hostName) {
     let currentTimeEpoch = Math.round(new Date().getTime()/1000);
     // returns the oldest DB items epoch timestamp
     let oldestDocument = ItemsPrimeHosts.find({},{sort:{"hostData.requestTime": -1},fields:{"hostData.requestTime": 1,_id:0},limit:1}).fetch();
-    let oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
+    let oldestDocumentEpoch = oldestDocument[0].hostData.requestTime;
     if (currentTimeEpoch - oldestDocumentEpoch > 120) {
       ItemsApicDevices.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Prime Devices DB STALE Requesting NEW data")
