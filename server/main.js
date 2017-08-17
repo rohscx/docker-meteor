@@ -119,7 +119,7 @@ Meteor.publish('apicDevices', function() {
   if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
-      let normalize = data.hostname.toLowerCase();
+      let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
       ItemsApicDevices.insert({
           siteData: {
@@ -136,7 +136,7 @@ Meteor.publish('apicDevices', function() {
       httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
       console.log("Adding to DB: ",httpDevicesOver500.data.response.length)
       httpDevicesOver500.data.response.map((data)=>{
-        let normalize = data.hostname.toLowerCase();
+        let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
         data.normalizeHostName = normalize;
         ItemsApicDevices.insert({
             siteData: {
@@ -171,7 +171,7 @@ Meteor.publish('apicDevices', function() {
       ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Apic Devices DB STALE Requesting NEW data")
       apicDevices.map((data)=>{
-        let normalize = data.hostname.toLowerCase();
+        let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
         data.normalizeHostName = normalize;
         ItemsApicDevices.insert({
             siteData: {
@@ -188,7 +188,7 @@ Meteor.publish('apicDevices', function() {
         httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
         console.log("Additional documents Added to DB: ",httpDevicesOver500.data.response.length)
         httpDevicesOver500.data.response.map((data)=>{
-          let normalize = data.hostname.toLowerCase();
+          let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
           data.normalizeHostName = normalize;
           ItemsApicDevices.insert({
               siteData: {
