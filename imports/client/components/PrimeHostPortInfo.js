@@ -21,7 +21,7 @@ class PrimeHostPortInfo extends Component {
       console.log("asdfad")
       Meteor.call('getDnsLookup',value+suffix,(response)=>{
         console.log(response)
-      )}
+      })
     }
   }
 
