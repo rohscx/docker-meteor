@@ -4,7 +4,7 @@ const apicReducer = (state = {
     order: -1
   },
   primeDevicesFind:{
-    deviceName: "(mpls|inet|dmvpn)",
+    deviceName: ".",
     validationStatus: null,
     btnStyle: false,
     byteType: "ALL"
@@ -15,7 +15,7 @@ const apicReducer = (state = {
     case "SET_PRIMEDEVICESFIND":
     state = {
       ...state,
-      hostsDevicesFind: action.payload
+      primeDevicesFind: action.payload
     };
     break;
     case "SET_DBREADY":
