@@ -82,7 +82,7 @@ export default class Table extends Component {
               <Col xs={8} sm={6} md={3}>{data.hostData.dataObj.clientsDTO.deviceName}</Col>
               <Col xs={6} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.clientInterface}</Col>
               <Col xs={6} sm={6} md={3}>AssociationTime {data.hostData.dataObj.clientsDTO.associationTime}</Col>
-              <Col xs={6} sm={6} md={1}>NacStatus: {data.hostData.dataObj.clientsDTO.securityPolicyStatus}</Col>
+              <Col xs={6} sm={6} md={2}>NacStatus: {data.hostData.dataObj.clientsDTO.securityPolicyStatus}</Col>
             </Row>
             <Row className="show-grid">
               <Col xs={6} sm={6} md={3}>UserName:{data.hostData.dataObj.clientsDTO.userName}</Col>
