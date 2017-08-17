@@ -32,8 +32,8 @@ class PrimeHostPortInfo extends Component {
     this.props.bandwidthCalc(value,byteType,null);
   }
 
-  setDnsSuffix(suffix){
-    this.props.dnsSuffix(suffix)
+  setSortBy(sortName, sortOrder){
+    this.props.sortBy(sortName, sortOrder)
   }
 
   preventDefault(e){
@@ -88,17 +88,17 @@ class PrimeHostPortInfo extends Component {
 
     let buttonLabel = (textValue)=>{
       switch(textValue){
-        case ".fpi.fpir.pvt":
-        return "FPI";
+        case "associationTime":
+        return "Time";
       break;
-        case "reachabilityStatus":
-        return "Reachability";
+        case "ipAddress":
+        return "IP";
       break;
-        case "upTime":
-        return "UpTime";
+        case "macAddress":
+        return "MAC";
       break;
-      case "softwareVersion":
-      return "IOS Version";
+      case "deviceName":
+      return "DEVICE";
     break;
       }
     };
@@ -111,12 +111,12 @@ class PrimeHostPortInfo extends Component {
                <DropdownButton
                  componentClass={InputGroup.Button}
                  id="input-dropdown-addon"
-                 title={"Domain: "+buttonLabel(this.props.util.dnsSuffix)}
+                 title={buttonLabel(this.props.prime.sortBy.field)}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setDnsSuffix(".fpi.fpir.pvt")}}>FPI</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setDnsSuffix("reachabilityStatus",-1)}}>AGC</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setDnsSuffix("upTime",1)}}>FCW</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setDnsSuffix("softwareVersion",1)}}>NWFCS</MenuItem>
+                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("associationTime", -1)}}>Time</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("ipAddress",-1)}}>IP</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("macAddress",-1)}}>MAC</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("deviceName",1)}}>DEVICE</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
