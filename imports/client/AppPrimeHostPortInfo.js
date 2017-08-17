@@ -91,13 +91,13 @@ export default createContainer(({params}) => {
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
-    let keyString = "siteData.dataObj."+sortValue;
+    let keyString = "siteData.dataObj.clientsDTO"+sortValue;
     let sortObj = {};
     let keyObj ={};
     keyObj[keyString] = sortOrder
     sortObj["sort"] = keyObj;
 
-    return ItemsPrimeHosts.find({"hostData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
+    return ItemsPrimeHosts.find({"hostData.dataObj.clientsDTO.ipAddress":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,
