@@ -27,17 +27,15 @@ Meteor.publish('primeHostPortInfo', function(hostName) {
   let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
   let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let apicTicketUrn = '/api/v1/ticket';
-  let ticketUrl = baseUrl + apicTicketUrn;
-  let apicDevicesUrn = "/api/v1/network-device";
-  let devicesUrl = baseUrl + apicDevicesUrn;
-  let apicTicketOptions = {
-    headers: { 'content-type': 'application/json' },
-    data: {username: uName, password: uPass}
+  let primeLookupUrn = '/api/v1/data/Client.json?.full=true&ipAddress=eq("10.80.28.211")';
+  let devicesUrl = baseUrl + primeLookupUrn;
+  let primeOptions = {
+    headers: { 'authorization': uName+" "+uPass }
   };
   console.log(baseUrl,uName,uPass)
-  //let httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  let httpPrimeIpLookup = Meteor.call('checkApic', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
+  console.log(httpPrimeIpLookup)
   this.ready();
 
 });
