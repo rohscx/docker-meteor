@@ -129,7 +129,10 @@ if (Meteor.isServer) {
     	  if (family == 'IPv4'){
           console.log("hit")
           callback(address)
-    	  }
+    	  } else {
+          console.log("hit ELSE")
+          callback(address)
+        }
     	})
   },
   'getPrimeHostInfo':function(ip){
