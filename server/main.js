@@ -23,7 +23,7 @@ Meteor.publish('currentUser', function() {
 });
 
 
-Meteor.publish('primeHosts', function(hostName) {
+Meteor.publish('primeHosts', function() {
   let countCollections = ItemsPrimeHosts.find().count();
   let timeNow = Math.round(new Date().getTime() / 1000);
   let dateTime = new Date();
@@ -57,7 +57,7 @@ Meteor.publish('primeHosts', function(hostName) {
     let oldestDocument = ItemsPrimeHosts.find({},{sort:{"hostData.requestTime": -1},fields:{"hostData.requestTime": 1,_id:0},limit:1}).fetch();
     let oldestDocumentEpoch = oldestDocument[0].hostData.requestTime;
     if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-      ItemsApicDevices.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+      ItemsPrimeDevices.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Prime Devices DB STALE Requesting NEW data")
       primeHosts.queryResponse.entity.map((data)=>{
         ItemsPrimeHosts.insert({
