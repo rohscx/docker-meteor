@@ -6,6 +6,7 @@ import apicReducer from './reducers/apicReducer';
 import iseReducer from './reducers/iseReducer';
 import utilReducer from './reducers/utilReducer';
 import prtgReducer from './reducers/prtgReducer';
+import primeReducer from './reducers/prtgReducer';
 
 const myLogger = (store) => (next) => (action) => {
   console.log("Logged Action: ", action);
@@ -17,7 +18,8 @@ export default createStore(combineReducers({
   apicReducer,
   iseReducer,
   utilReducer,
-  prtgReducer
+  prtgReducer,
+  primeReducer,
 }),
    {},
     applyMiddleware(thunk)

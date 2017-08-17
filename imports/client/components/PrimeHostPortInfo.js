@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
-//import Layout from './ApicDevices/Layout';
+import Layout from './primeHostPortInfo/Layout';
 import { dnsSuffix } from '../actions/utilActions';
 
 class PrimeHostPortInfo extends Component {
@@ -14,12 +14,8 @@ class PrimeHostPortInfo extends Component {
   }
   handleSearchFormInput(event) {
     let value = event.target.value;
-    value = value.trim()
-    let suffix = this.props.util.dnsSuffix
-    if (value.length == 10){
-      this.props.primeHostLookup(value)
-      //console.log(Meteor.call('getDnsLookup',value+suffix),"VATS")
-    }
+    let deviceFilter = "ALL"
+    this.props.primeDevicesFind(value,deviceFilter,"cats");
   }
 
   preventDefault(e){
@@ -139,7 +135,7 @@ class PrimeHostPortInfo extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-
+        <Layout {... this.props}/>
       </div>
     )
   }
