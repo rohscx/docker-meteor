@@ -89,7 +89,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>NacStatus: {data.hostData.dataObj.clientsDTO.securityPolicyStatus}</Col>
               <Col xs={6} sm={6} md={2}>UserName:{data.hostData.dataObj.clientsDTO.userName}</Col>
               <Col xs={6} sm={6} md={3}>Vendor:{data.hostData.dataObj.clientsDTO.vendor}</Col>
-              <Col xs={6} sm={6} md={1}>VlanName:{data.hostData.dataObj.clientsDTO.vlan}</Col>
+              <Col xs={6} sm={6} md={2}>VlanName:{data.hostData.dataObj.clientsDTO.vlan}</Col>
               <Col xs={6} sm={6} md={1}>VlanId:{data.hostData.dataObj.clientsDTO.vlanId}</Col>
             </Row>
           </div>
