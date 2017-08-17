@@ -19,7 +19,7 @@ export default createStore(combineReducers({
   iseReducer,
   utilReducer,
   prtgReducer,
-  primeReducer,
+  primeReducer
 }),
    {},
     applyMiddleware(thunk)
