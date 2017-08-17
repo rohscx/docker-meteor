@@ -18,7 +18,7 @@ class PrimeHostPortInfo extends Component {
     let suffix = this.props.util.dnsSuffix
     if (value.length == 3){
       let blah = Meteor.call('getDnsLookup',value+suffix)
-      console.log("asdfad",blah)
+      console.log("asdfad",Meteor.call('getDnsLookup',value+suffix))
     }
   }
 
