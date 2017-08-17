@@ -69,7 +69,7 @@ export default class Table extends Component {
         return ipAddress;
       }
     }
-    if (findField == "."){
+    if (findField.length >= 1 || findField == "."){
       //console.log(findField.length)
       //console.log(findField)
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
