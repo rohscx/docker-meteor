@@ -39,7 +39,6 @@ Meteor.publish('primeHosts', function(hostName) {
   let primeHosts = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
   //let apicTicket = httpTicket.data.response.serviceTicket;
   console.log(primeHosts)
-  this.ready();
   primeHosts.map((data)=>{
     ItemsPrimeHosts.insert({
         hostData: {
