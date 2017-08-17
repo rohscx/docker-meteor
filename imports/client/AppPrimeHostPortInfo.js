@@ -111,7 +111,7 @@ export default createContainer(({params}) => {
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
     },
-    primeHostLookup: function data(){
+    primeHostLookup: function data(hostName){
       return dnsLookup(hostName)
     }
 
