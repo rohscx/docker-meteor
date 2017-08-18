@@ -85,7 +85,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>NacStatus: {reachCheck(data.hostData.dataObj.clientsDTO.securityPolicyStatus)}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={6} sm={6} md={3}>UserName:{data.hostData.dataObj.clientsDTO.userName}</Col>
+              <Col xs={6} sm={6} md={3}>UserName: {data.hostData.dataObj.clientsDTO.userName}</Col>
               <Col xs={6} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.ipAddress}</Col>
               <Col xs={5} sm={6} md={2}>{data.hostData.dataObj.clientsDTO.macAddress}</Col>
               <Col xs={6} sm={6} md={2}>VlanName: {data.hostData.dataObj.clientsDTO.vlan}</Col>
