@@ -46,7 +46,7 @@ ItemsPrimeHosts.deny({
         title: "Host NAC Status"
       });
       this.setState({
-        greeting: "Welome, using a Username or Mac address for guests you can view hosts who have failed NAC"
+        greeting: "Welome, using the site name you may display a list hosts who have failed NAC"
       });
       this.setState({
         status: ""
@@ -98,7 +98,7 @@ export default createContainer(({params}) => {
     sortObj["sort"] = keyObj;
     // debug
     //console.log(sortObj)
-    return ItemsPrimeHosts.find({"hostData.dataObj.clientsDTO.userName":{$regex: findValue}},sortObj).fetch();
+    return ItemsPrimeHosts.find({"hostData.dataObj.clientsDTO.deviceName":{$regex: findValue}},sortObj).fetch();
   }
   return {
     showAll,

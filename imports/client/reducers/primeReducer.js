@@ -4,7 +4,7 @@ const apicReducer = (state = {
     order: -1
   },
   primeDevicesFind:{
-    deviceName: ".",
+    deviceName: "aga",
     validationStatus: null,
     btnStyle: false,
     byteType: "ALL"
