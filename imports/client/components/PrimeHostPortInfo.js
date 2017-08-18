@@ -116,10 +116,10 @@ class PrimeHostPortInfo extends Component {
                  title={"SortBy: "+buttonLabel(this.props.prime.sortBy.field)}
                >
                  <MenuItem key="1" onSelect= {()=>{this.setSortBy("associationTime", -1)}}>Time</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("ipAddress",-1)}}>IP</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("macAddress",-1)}}>MAC</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("deviceName",1)}}>DeviceName</MenuItem>
-                 <MenuItem key="5" onSelect= {()=>{this.setSortBy("userName",-1)}}>UserName</MenuItem>
+                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("ipAddress",-1)}}>IP-Address</MenuItem>
+                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("macAddress",-1)}}>MAC-Address</MenuItem>
+                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("deviceName",1)}}>Device-Name</MenuItem>
+                 <MenuItem key="5" onSelect= {()=>{this.setSortBy("userName",-1)}}>User-Name</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
