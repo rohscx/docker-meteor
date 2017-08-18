@@ -43,7 +43,7 @@ export function primeDevicesFind(deviceName,deviceFilter,cdase) {
         return true;
       }
     }
-    let defaultResult = ".";
+    let defaultResult = "aga";
     if (cdase === null){
       return dispatch(setApicDevicesFind({
           deviceName: deviceName,
