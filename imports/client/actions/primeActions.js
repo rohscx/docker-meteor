@@ -52,7 +52,7 @@ export function primeDevicesFind(deviceName,deviceFilter,cdase) {
           byteType: deviceFilter
         }));
     } else {
-      let newData = deviceName.trim().toUpperCase()
+      let newData = deviceName.trim().toLowerCase()
       if (newData.length <= 0) {
         return dispatch(setApicDevicesFind({
           deviceName: defaultResult,
@@ -61,7 +61,7 @@ export function primeDevicesFind(deviceName,deviceFilter,cdase) {
           byteType: deviceFilter
         }));
       } else {
-        let newData = deviceName.trim().toUpperCase()
+        let newData = deviceName.trim().toLowerCase()
         return dispatch(setApicDevicesFind({
           deviceName: newData,
           validationStatus: true,
