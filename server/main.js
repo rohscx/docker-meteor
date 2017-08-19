@@ -110,6 +110,24 @@ Meteor.publish('apicDevices', function() {
       'x-auth-token': apicTicket
     }
   };
+
+  const miniMongo = ItemsApicDevices.find(
+    {},
+    {fields:{
+      "siteData.dataObj.hostname": 1,
+      "siteData.dataObj.role": 1,
+      "siteData.dataObj.lastUpdated":1,
+      "siteData.dataObj.managementIpAddress":1,
+      "siteData.dataObj.softwareVersion":1,
+      "siteData.dataObj.upTime":1,
+      "siteData.dataObj.interfaceCount":1,
+      "siteData.dataObj.series":1,
+      "siteData.dataObj.serialNumber":1,
+      "siteData.dataObj.reachabilityStatus":1,
+      "siteData.dataObj.normalizeHostName":1
+    }
+  });
+
   async function httpRequest(){
     const httpDevices = await Meteor.call('apicHttpRequest', "GET",devicesUrl,apicDevicesOptions);
     const apicDevices = await httpDevices.data.response;
@@ -125,7 +143,34 @@ Meteor.publish('apicDevices', function() {
       });
     }))
   }
-  httpRequest()
+  if (countCollections <= 0){
+    console.log("Apic Devices DB Empty Requesting data")
+    httpRequest()
+    if (apicDevices.length == 500){
+      console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+      apicDevicesUrn = "/api/v1/network-device/501/500";
+      devicesUrl = baseUrl + apicDevicesUrn;
+      httpRequest()
+    }
+    return miniMongo;
+  } else {
+    const currentTimeEpoch = Math.round(new Date().getTime()/1000);
+    // returns the oldest DB items epoch timestamp
+    const oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
+    const oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
+    if (currentTimeEpoch - oldestDocumentEpoch > 120) {
+      ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+      console.log("Apic Devices DB STALE Requesting NEW data")
+      httpRequest()
+      if (apicDevices.length == 500){
+        console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+        apicDevicesUrn = "/api/v1/network-device/501/500";
+        devicesUrl = baseUrl + apicDevicesUrn;
+        httpRequest()
+      }
+    }
+  }
+
 
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
@@ -245,20 +290,6 @@ Meteor.publish('apicDevices', function() {
      })
    }
  }*/
- return ItemsApicDevices.find({},{fields:{
-   "siteData.dataObj.hostname": 1,
-   "siteData.dataObj.role": 1,
-   "siteData.dataObj.lastUpdated":1,
-   "siteData.dataObj.managementIpAddress":1,
-   "siteData.dataObj.softwareVersion":1,
-   "siteData.dataObj.upTime":1,
-   "siteData.dataObj.interfaceCount":1,
-   "siteData.dataObj.series":1,
-   "siteData.dataObj.serialNumber":1,
-   "siteData.dataObj.reachabilityStatus":1,
-   "siteData.dataObj.normalizeHostName":1
- }
-  })
 });
 
 
