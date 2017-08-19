@@ -141,10 +141,7 @@ if (Meteor.isServer) {
       ip = lookup(hostName)
       console.log(ip)
       return ip
-  },
-  'getPrimeHostInfo':function(ip){
-    console.log("blah")
-  },
+    },
   });
 }
 
