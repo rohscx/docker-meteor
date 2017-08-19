@@ -182,6 +182,7 @@ Meteor.publish('apicDevices', function() {
       }
       return miniMongo()
     }
+    return miniMongo()
   })
 
 });
