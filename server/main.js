@@ -178,7 +178,7 @@ Meteor.publish('apicDevices', function() {
       return miniMongo()
     }
   }
-  return poll()
+  poll()
   Meteor.setInterval(()=>{
     console.log("INTERVAL HIT")
     return poll()
