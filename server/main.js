@@ -170,8 +170,8 @@ Meteor.publish('apicDevices', function() {
         devicesUrl = baseUrl + apicDevicesUrn;
         httpRequest("GET",devicesUrl,apicDevicesOptions)
       }
-      return miniMongo()
     }
+    return miniMongo()
   }
 });
 
