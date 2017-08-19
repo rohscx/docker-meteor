@@ -108,25 +108,23 @@ Meteor.publish('apicDevices', function() {
     statusCode: 200,
     content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
   */
-  let timeNow = Math.round(new Date().getTime() / 1000);
-  let dateTime = new Date();
-  let baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
-  let uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
-  let uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let apicTicketUrn = '/api/v1/ticket';
-  let ticketUrl = baseUrl + apicTicketUrn;
+  const timeNow = Math.round(new Date().getTime() / 1000);
+  const dateTime = new Date();
+  const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+  const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
+  const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+  const apicTicketUrn = '/api/v1/ticket';
+  const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
-  let devicesUrl = baseUrl + apicDevicesUrn;
-  let apicTicketOptions = {
+  const devicesUrl = baseUrl + apicDevicesUrn;
+  const apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-
-
-  let httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-  let apicTicket = httpTicket.data.response.serviceTicket;
+  const httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  const apicTicket = httpTicket.data.response.serviceTicket;
   console.log(apicTicket)
-  let apicDevicesOptions = {
+  const apicDevicesOptions = {
     headers: {
       'content-type': 'application/json',
       'x-auth-token': apicTicket
@@ -137,7 +135,7 @@ Meteor.publish('apicDevices', function() {
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
-      let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+      const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
       ItemsApicDevices.insert({
         siteData: {
