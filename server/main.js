@@ -116,7 +116,7 @@ Meteor.publish('apicDevices', function() {
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
-  const devicesUrl = baseUrl + apicDevicesUrn;
+  let devicesUrl = baseUrl + apicDevicesUrn;
   const apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
