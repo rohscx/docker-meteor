@@ -116,6 +116,7 @@ Meteor.publish('apicDevices', function() {
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
@@ -146,13 +147,11 @@ Meteor.publish('apicDevices', function() {
     }))
   }
   if (countCollections() <= 0){
-    let devicesUrl = baseUrl + apicDevicesUrn;
     console.log("Apic Devices DB Empty Requesting data")
     httpRequest("GET",devicesUrl,apicDevicesOptions)
     if (countCollections() == 500){
       console.log("over 9000!!! actually it's only only over 500 Devices!!!")
       apicDevicesUrn = "/api/v1/network-device/501/500";
-      let devicesUrl = baseUrl + apicDevicesUrn;
       httpRequest("GET",devicesUrl,apicDevicesOptions)
     }
     return miniMongo();
