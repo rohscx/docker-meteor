@@ -113,6 +113,7 @@ Meteor.publish('apicDevices', function() {
   const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
   const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+  let counter = 0;
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
@@ -178,11 +179,11 @@ Meteor.publish('apicDevices', function() {
       return miniMongo()
     }
   }
-
   Meteor.setInterval(()=>{
-    console.log("INTERVAL HIT")
-    return poll()
-  },5000)
+    counter++;
+    console.log("Apic Data Refreshed:",counter);
+    return poll();
+  },90000)
   return poll()
 });
 
