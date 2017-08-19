@@ -121,6 +121,8 @@ Meteor.publish('apicDevices', function() {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
+
+
   let httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
   let apicTicket = httpTicket.data.response.serviceTicket;
   console.log(apicTicket)
@@ -132,7 +134,7 @@ Meteor.publish('apicDevices', function() {
   };
 
   async function httpRequest(method,url,options){
-    const httpDevices = await Meteor.call('apicHttpRequest', method,url,options);
+    const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
       let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";

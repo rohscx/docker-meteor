@@ -130,7 +130,21 @@ if (Meteor.isServer) {
   },
   'getPrimeHostInfo':function(ip){
     console.log("blah")
-  }
+  },
+  httpRequest(type, url, options) {
+    this.unblock();
+    try {
+      return new Promise((resolve, reject) =>{
+        const result = HTTP.call(type, url, options);
+        // console.log(result); // debug
+        resolve(result)
+      })
+    } catch (e) {
+      reject(e)
+      // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+      console.log(e) // debugs
+    }
+  },
   });
 }
 
