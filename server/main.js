@@ -156,7 +156,7 @@ Meteor.publish('apicDevices', function() {
       devicesUrl = baseUrl + apicDevicesUrn;
       httpRequest()
     }
-    return miniMongo;
+    return miniMongo();
   } else {
     const currentTimeEpoch = Math.round(new Date().getTime()/1000);
     // returns the oldest DB items epoch timestamp
@@ -172,6 +172,7 @@ Meteor.publish('apicDevices', function() {
         devicesUrl = baseUrl + apicDevicesUrn;
         httpRequest()
       }
+      return miniMongo()
     }
   }
 
