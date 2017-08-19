@@ -135,6 +135,7 @@ Meteor.publish('apicDevices', function() {
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
+      console.log(data)
       let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
       ItemsApicDevices.insert({
