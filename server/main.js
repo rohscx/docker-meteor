@@ -124,8 +124,8 @@ Meteor.publish('apicDevices', function() {
         }
       });
     }))
-  };
-
+  }
+  httpRequest()
 
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
