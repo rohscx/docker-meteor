@@ -113,16 +113,15 @@ Meteor.publish('apicDevices', function() {
   const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
   const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-
+  const apicTicketUrn = '/api/v1/ticket';
+  const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
   let devicesUrl = baseUrl + apicDevicesUrn;
+  const apicTicketOptions = {
+    headers: { 'content-type': 'application/json' },
+    data: {username: uName, password: uPass}
+  };
   async function getApicTicket(method,url,options){
-    const apicTicketUrn = '/api/v1/ticket';
-    const ticketUrl = baseUrl + apicTicketUrn;
-    const apicTicketOptions = {
-      headers: { 'content-type': 'application/json' },
-      data: {username: uName, password: uPass}
-    };
     const httpTicket = await Meteor.call('httpRequest', method,url,options);
     const apicTicket = await httpTicket.data.response;
     console.log(apicTicket)
