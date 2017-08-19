@@ -76,7 +76,9 @@ Meteor.publish('primeHosts', function() {
 });
 
 Meteor.publish('apicDevices', function() {
-  let countCollections = ItemsApicDevices.find().count();
+  let countCollections = ()=>{
+    return ItemsApicDevices.find().count();
+  }
   console.log("apicDevices Count = ",countCollections);
   /*
     data contains the entire return object
@@ -143,10 +145,10 @@ Meteor.publish('apicDevices', function() {
       });
     }))
   }
-  if (countCollections <= 0){
+  if (countCollections() <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     httpRequest()
-    if (apicDevices.length == 500){
+    if (countCollections() == 500){
       console.log("over 9000!!! actually it's only only over 500 Devices!!!")
       apicDevicesUrn = "/api/v1/network-device/501/500";
       devicesUrl = baseUrl + apicDevicesUrn;
@@ -162,7 +164,7 @@ Meteor.publish('apicDevices', function() {
       ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Apic Devices DB STALE Requesting NEW data")
       httpRequest()
-      if (apicDevices.length == 500){
+      if (countCollections() == 500){
         console.log("over 9000!!! actually it's only only over 500 Devices!!!")
         apicDevicesUrn = "/api/v1/network-device/501/500";
         devicesUrl = baseUrl + apicDevicesUrn;
