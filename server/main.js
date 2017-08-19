@@ -123,7 +123,7 @@ Meteor.publish('apicDevices', function() {
           dateTime: dateTime
         }
       });
-    });
+    }))
   };
 
 
