@@ -121,9 +121,15 @@ Meteor.publish('apicDevices', function() {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
-  const httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-  const apicTicket = httpTicket.data.response.serviceTicket;
+  async function getApicTicket(method,url,options){
+    const httpTicket = await Meteor.call('httpRequest', method,url,options);
+    const apicTicket = await httpDevices.data.response;
+    return await apicTicket
+  }
+  //const httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+  const apicTicket = getApicTicket("POST",ticketUrl,apicTicketOptions);
   console.log(apicTicket)
+
   const apicDevicesOptions = {
     headers: {
       'content-type': 'application/json',
