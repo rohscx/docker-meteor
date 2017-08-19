@@ -129,10 +129,8 @@ Meteor.publish('apicDevices', function() {
   }
   //const httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
   getApicTicket("POST",ticketUrl,apicTicketOptions).then((result)=>{
-    const apicTicket = result;
+    const apicTicket = result.serviceTicket;
     console.log(".then", apicTicket)
-    console.log("ticket",apicTicket)
-
     const apicDevicesOptions = {
       headers: {
         'content-type': 'application/json',
