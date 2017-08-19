@@ -245,6 +245,20 @@ Meteor.publish('apicDevices', function() {
      })
    }
  }*/
+ return ItemsApicDevices.find({},{fields:{
+   "siteData.dataObj.hostname": 1,
+   "siteData.dataObj.role": 1,
+   "siteData.dataObj.lastUpdated":1,
+   "siteData.dataObj.managementIpAddress":1,
+   "siteData.dataObj.softwareVersion":1,
+   "siteData.dataObj.upTime":1,
+   "siteData.dataObj.interfaceCount":1,
+   "siteData.dataObj.series":1,
+   "siteData.dataObj.serialNumber":1,
+   "siteData.dataObj.reachabilityStatus":1,
+   "siteData.dataObj.normalizeHostName":1
+ }
+  })
 });
 
 
