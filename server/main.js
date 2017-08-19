@@ -132,7 +132,7 @@ Meteor.publish('apicDevices', function() {
   };
 
   async function httpRequest(method,url,options){
-    let httpDevices = await Meteor.call('apicHttpRequest', method,url,options);
+    let httpDevices = await Meteor.call('httpRequest', method,url,options);
     let apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
       console.log(data)
