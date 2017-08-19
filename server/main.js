@@ -76,8 +76,26 @@ Meteor.publish('primeHosts', function() {
 });
 
 Meteor.publish('apicDevices', function() {
-  let countCollections = ()=>{
+  const countCollections = ()=>{
     return ItemsApicDevices.find().count();
+  }
+  const miniMongo = ()=>{
+    return ItemsApicDevices.find(
+      {},
+      {fields:{
+        "siteData.dataObj.hostname": 1,
+        "siteData.dataObj.role": 1,
+        "siteData.dataObj.lastUpdated":1,
+        "siteData.dataObj.managementIpAddress":1,
+        "siteData.dataObj.softwareVersion":1,
+        "siteData.dataObj.upTime":1,
+        "siteData.dataObj.interfaceCount":1,
+        "siteData.dataObj.series":1,
+        "siteData.dataObj.serialNumber":1,
+        "siteData.dataObj.reachabilityStatus":1,
+        "siteData.dataObj.normalizeHostName":1
+      }
+    });
   }
   console.log("apicDevices Count = ",countCollections());
   /*
@@ -98,7 +116,6 @@ Meteor.publish('apicDevices', function() {
   let apicTicketUrn = '/api/v1/ticket';
   let ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
-  let devicesUrl = baseUrl + apicDevicesUrn;
   let apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
@@ -113,27 +130,8 @@ Meteor.publish('apicDevices', function() {
     }
   };
 
-  const miniMongo = ()=>{
-    return ItemsApicDevices.find(
-      {},
-      {fields:{
-        "siteData.dataObj.hostname": 1,
-        "siteData.dataObj.role": 1,
-        "siteData.dataObj.lastUpdated":1,
-        "siteData.dataObj.managementIpAddress":1,
-        "siteData.dataObj.softwareVersion":1,
-        "siteData.dataObj.upTime":1,
-        "siteData.dataObj.interfaceCount":1,
-        "siteData.dataObj.series":1,
-        "siteData.dataObj.serialNumber":1,
-        "siteData.dataObj.reachabilityStatus":1,
-        "siteData.dataObj.normalizeHostName":1
-      }
-    });
-  }
-
-  async function httpRequest(){
-    const httpDevices = await Meteor.call('apicHttpRequest', "GET",devicesUrl,apicDevicesOptions);
+  async function httpRequest(method,url,options){
+    const httpDevices = await Meteor.call('apicHttpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
       let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
@@ -148,13 +146,14 @@ Meteor.publish('apicDevices', function() {
     }))
   }
   if (countCollections() <= 0){
+    let devicesUrl = baseUrl + apicDevicesUrn;
     console.log("Apic Devices DB Empty Requesting data")
-    httpRequest()
+    httpRequest("GET",devicesUrl,apicDevicesOptions)
     if (countCollections() == 500){
       console.log("over 9000!!! actually it's only only over 500 Devices!!!")
       apicDevicesUrn = "/api/v1/network-device/501/500";
-      devicesUrl = baseUrl + apicDevicesUrn;
-      httpRequest()
+      let devicesUrl = baseUrl + apicDevicesUrn;
+      httpRequest("GET",devicesUrl,apicDevicesOptions)
     }
     return miniMongo();
   } else {
@@ -165,136 +164,16 @@ Meteor.publish('apicDevices', function() {
     if (currentTimeEpoch - oldestDocumentEpoch > 120) {
       ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
       console.log("Apic Devices DB STALE Requesting NEW data")
-      httpRequest()
+      httpRequest("GET",devicesUrl,apicDevicesOptions)
       if (countCollections() == 500){
         console.log("over 9000!!! actually it's only only over 500 Devices!!!")
         apicDevicesUrn = "/api/v1/network-device/501/500";
         devicesUrl = baseUrl + apicDevicesUrn;
-        httpRequest()
+        httpRequest("GET",devicesUrl,apicDevicesOptions)
       }
       return miniMongo()
     }
   }
-
-
-  // debug
-  //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
-  //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
-  /*if (countCollections <= 0){
-    console.log("Apic Devices DB Empty Requesting data")
-    apicDevices.map((data)=>{
-      let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-      data.normalizeHostName = normalize;
-      ItemsApicDevices.insert({
-          siteData: {
-            dataObj: data,
-            requestTime: timeNow,
-            dateTime: dateTime
-          }
-        });
-    });
-    if (apicDevices.length == 500){
-      console.log("over 500 Devices!!!")
-      apicDevicesUrn = "/api/v1/network-device/501/500";
-      devicesUrl = baseUrl + apicDevicesUrn;
-      httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-      console.log("Adding to DB: ",httpDevicesOver500.data.response.length)
-      httpDevicesOver500.data.response.map((data)=>{
-        let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-        data.normalizeHostName = normalize;
-        ItemsApicDevices.insert({
-            siteData: {
-              dataObj: data,
-              requestTime: timeNow,
-              dateTime: dateTime
-            }
-          });
-      });
-    }
-    console.log("RETURNING APIC-EM DATA TO CLIENT")
-    return ItemsApicDevices.find({},{fields:{
-      "siteData.dataObj.hostname": 1,
-      "siteData.dataObj.role": 1,
-      "siteData.dataObj.lastUpdated":1,
-      "siteData.dataObj.managementIpAddress":1,
-      "siteData.dataObj.softwareVersion":1,
-      "siteData.dataObj.upTime":1,
-      "siteData.dataObj.interfaceCount":1,
-      "siteData.dataObj.series":1,
-      "siteData.dataObj.serialNumber":1,
-      "siteData.dataObj.reachabilityStatus":1,
-      "siteData.dataObj.normalizeHostName":1
-    }
-     })
-  } else {
-    let currentTimeEpoch = Math.round(new Date().getTime()/1000);
-    // returns the oldest DB items epoch timestamp
-    let oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
-    let oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
-    if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-      ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
-      console.log("Apic Devices DB STALE Requesting NEW data")
-      apicDevices.map((data)=>{
-        let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-        data.normalizeHostName = normalize;
-        ItemsApicDevices.insert({
-            siteData: {
-              dataObj: data,
-              requestTime: timeNow,
-              dateTime: dateTime
-            }
-          });
-      });
-      if (apicDevices.length == 500){
-        console.log("over 500 Devices!!!")
-        apicDevicesUrn = "/api/v1/network-device/501/500";
-        devicesUrl = baseUrl + apicDevicesUrn;
-        httpDevicesOver500 = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-        console.log("Additional documents Added to DB: ",httpDevicesOver500.data.response.length)
-        httpDevicesOver500.data.response.map((data)=>{
-          let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-          data.normalizeHostName = normalize;
-          ItemsApicDevices.insert({
-              siteData: {
-                dataObj: data,
-                requestTime: timeNow,
-                dateTime: dateTime
-              }
-            });
-        });
-      }
-      return ItemsApicDevices.find({},{fields:{
-        "siteData.dataObj.hostname": 1,
-        "siteData.dataObj.role": 1,
-        "siteData.dataObj.lastUpdated":1,
-        "siteData.dataObj.managementIpAddress":1,
-        "siteData.dataObj.softwareVersion":1,
-        "siteData.dataObj.upTime":1,
-        "siteData.dataObj.interfaceCount":1,
-        "siteData.dataObj.series":1,
-        "siteData.dataObj.serialNumber":1,
-        "siteData.dataObj.reachabilityStatus":1,
-        "siteData.dataObj.normalizeHostName":1
-      }
-       })
-    } else {
-    console.log("APIC-EM DATABASE HAS ITEMS RETURNING DATA TO CLIENT")
-    return ItemsApicDevices.find({},{fields:{
-      "siteData.dataObj.hostname": 1,
-      "siteData.dataObj.role": 1,
-      "siteData.dataObj.lastUpdated":1,
-      "siteData.dataObj.managementIpAddress":1,
-      "siteData.dataObj.softwareVersion":1,
-      "siteData.dataObj.upTime":1,
-      "siteData.dataObj.interfaceCount":1,
-      "siteData.dataObj.series":1,
-      "siteData.dataObj.serialNumber":1,
-      "siteData.dataObj.reachabilityStatus":1,
-      "siteData.dataObj.normalizeHostName":1
-    }
-     })
-   }
- }*/
 });
 
 
