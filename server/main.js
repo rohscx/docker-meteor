@@ -79,7 +79,7 @@ Meteor.publish('apicDevices', function() {
   let countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
-  console.log("apicDevices Count = ",countCollections);
+  console.log("apicDevices Count = ",countCollections());
   /*
     data contains the entire return object
     data.content contains the contents
