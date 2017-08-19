@@ -179,12 +179,16 @@ Meteor.publish('apicDevices', function() {
       return miniMongo()
     }
   }
-  Meteor.setInterval(()=>{
+  const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Refreshed:",counter);
+    console.log("Apic Data Published: ",counter);
     return poll();
   },90000)
   return poll()
+  self.onStop(()=>{
+    console.log("Terminating Apic Publish after: ",counter);
+    Meteor.clearInterval(intervalId)
+  })
 });
 
 
