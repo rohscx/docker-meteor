@@ -154,16 +154,19 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }))
-    }
+
     if (countCollections() <= 0){
       console.log("Apic Devices DB Empty Requesting data")
-      httpRequest("GET",devicesUrl,apicDevicesOptions)
-      if (countCollections() == 500){
-        console.log("over 9000!!! actually it's only only over 500 Devices!!!")
-        apicDevicesUrn = "/api/v1/network-device/501/500";
-        httpRequest("GET",devicesUrl,apicDevicesOptions)
-      }
-      return miniMongo();
+      httpRequest("GET",devicesUrl,apicDevicesOptions).then((result)=>{
+        if (countCollections() == 500){
+          console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+          apicDevicesUrn = "/api/v1/network-device/501/500";
+          httpRequest("GET",devicesUrl,apicDevicesOptions).then((result)=>{
+            return miniMongo();
+          })
+        }
+        return miniMongo();
+      })
     } else {
       const currentTimeEpoch = Math.round(new Date().getTime()/1000);
       // returns the oldest DB items epoch timestamp
@@ -172,20 +175,22 @@ Meteor.publish('apicDevices', function() {
       if (currentTimeEpoch - oldestDocumentEpoch > 120) {
         ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
         console.log("Apic Devices DB STALE Requesting NEW data")
-        httpRequest("GET",devicesUrl,apicDevicesOptions)
-        if (countCollections() == 500){
-          console.log("over 9000!!! actually it's only only over 500 Devices!!!")
-          apicDevicesUrn = "/api/v1/network-device/501/500";
-          devicesUrl = baseUrl + apicDevicesUrn;
-          httpRequest("GET",devicesUrl,apicDevicesOptions)
-        }
+        httpRequest("GET",devicesUrl,apicDevicesOptions).then((result)=>{
+          if (countCollections() == 500){
+            console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+            apicDevicesUrn = "/api/v1/network-device/501/500";
+            devicesUrl = baseUrl + apicDevicesUrn;
+            httpRequest("GET",devicesUrl,apicDevicesOptions).then((result)=>{
+              return miniMongo();
+            })
+          }
+          return miniMongo();
+        })
       }
-      return miniMongo()
     }
     return miniMongo()
-  })
 
-});
+};
 
 
 Meteor.publish('siteCircuitInfo', function() {
