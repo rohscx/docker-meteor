@@ -179,6 +179,9 @@ Meteor.publish('apicDevices', function() {
     }
   }
   return poll()
+  Meteor.setTimeout({
+    return poll()
+  },5000)
 });
 
 
