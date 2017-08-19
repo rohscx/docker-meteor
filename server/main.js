@@ -117,19 +117,21 @@ Meteor.publish('apicDevices', function() {
   const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
   let devicesUrl = baseUrl + apicDevicesUrn;
-  let apicTicket = "";
   const apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
   async function getApicTicket(method,url,options){
     const httpTicket = await Meteor.call('httpRequest', method,url,options);
-    const ticket = await httpTicket.data.response;
+    const apicTicket = await httpTicket.data.response;
     console.log(apicTicket)
-    apicTicket = apicTicket;
+    return apicTicket
   }
   //const httpTicket = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-  getApicTicket("POST",ticketUrl,apicTicketOptions);
+  getApicTicket("POST",ticketUrl,apicTicketOptions).then((result)=>{
+    const apicTicket = result;
+    console.log(".then", apicTicket)
+  })
   console.log("ticket",apicTicket)
 
   const apicDevicesOptions = {
