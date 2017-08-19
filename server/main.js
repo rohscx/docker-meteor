@@ -110,13 +110,27 @@ Meteor.publish('apicDevices', function() {
       'x-auth-token': apicTicket
     }
   };
-  httpDevices = Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions);
-  apicDevices = httpDevices.data.response;
+  async function httpRequest(){
+    const httpDevices = await Meteor.call('apicHttpRequest', "GET",devicesUrl,apicDevicesOptions);
+    const apicDevices = await httpDevices.data.response;
+    return await Promise.all(apicDevices.map((data)=>{
+      let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+      data.normalizeHostName = normalize;
+      ItemsApicDevices.insert({
+        siteData: {
+          dataObj: data,
+          requestTime: timeNow,
+          dateTime: dateTime
+        }
+      });
+    });
+  };
+
 
   // debug
   //console.log("ticket Test",Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions))
   //console.log("Devices Test",Meteor.call('apicTicket', "GET",devicesUrl,apicDevicesOptions))
-  if (countCollections <= 0){
+  /*if (countCollections <= 0){
     console.log("Apic Devices DB Empty Requesting data")
     apicDevices.map((data)=>{
       let normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
@@ -230,7 +244,7 @@ Meteor.publish('apicDevices', function() {
     }
      })
    }
- }
+ }*/
 });
 
 
