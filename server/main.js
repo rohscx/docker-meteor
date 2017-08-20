@@ -123,9 +123,9 @@ Meteor.publish('apicDevices', function() {
   // generate client ID
   let clientId = false;
   const genClientId = () =>{
-    const clientIp = this.connection.clientAddress;
-    const newClientId = clientIp+":"+Random.id();
-    return newClientId;
+    const this.clientIp = this.connection.clientAddress;
+    const this.clientId = this.clientIp+":"+this.Random.id();
+    return this.clientId;
   }
   clientId ? clientId : genClientId();
 
