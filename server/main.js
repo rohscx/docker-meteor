@@ -131,8 +131,7 @@ Meteor.publish('apicDevices', function() {
       }
     }
   }
-  let clientId = new identClient;
-  clientId(this.connection.clientAddress)
+  identClient(this.connection.clientAddress)
 
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
