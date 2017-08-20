@@ -224,12 +224,12 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish Counter: ",clientIdent(this.connection.clientAddress) +": "+counter);
+    console.log("Apic Data Publish on client %s Counter: %n",clientIdent(this.connection.clientAddress),counter);
     apicTicket()
     return poll();
   },90000)
   self.onStop(()=>{
-    console.log("Terminating Apic Publish Counter After: ",clientIdent(this.connection.clientAddress) +": "+counter);
+    console.log("Terminating Apic Publish on client %s Counter After: %n",clientIdent(this.connection.clientAddress),counter);
     Meteor.clearInterval(intervalId)
   })
   apicTicket()
