@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Random } from 'meteor/random';
 import Items from '../imports/api/Items';
 import ItemsPrtg from '../imports/api/prtg';
 import ItemsApicDevices from '../imports/api/apic';
@@ -118,7 +119,7 @@ Meteor.publish('apicDevices', function() {
   let ticketSessionTimeout = 0;
   let oldApicTicket = "";
   const self = this
-  
+
   // generate client ID
   let clientId = false;
   const genClientId = () =>{
