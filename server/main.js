@@ -124,16 +124,10 @@ Meteor.publish('apicDevices', function() {
   const identClient = {
     clientId: false,
     clientIp: "",
-    genClientId:()=>{
-      if (this.clientId === false){
-        const newClientId = this.clientIp+":"+Random.id();
-        console.log(newClientId)
-      }
-    }
   }
   let clientId = new identClient;
   clientId.ip = this.connection.clientAddress;
-  clientId.genClientId()
+  //clientId.genClientId()
 
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
