@@ -121,17 +121,18 @@ Meteor.publish('apicDevices', function() {
   const self = this
 
 
-  const identClient = (ip)=>{
+  const clientIdent = (ip)=>{
     this.clientId = false;
     this.clientIp = ip;
     if (this.clientId === false){
-      const newClientId = this.clientIp+":"+Random.id();
-      console.log(newClientId)
+      this.clientId = this.clientIp+" : "+Random.id();
+      console.log(this.clientId);
+      return this.clientId;
     } else {
       console.log(this.clientId)
+      return this.clientId;
     }
   }
-  identClient(this.connection.clientAddress)
 
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
@@ -223,12 +224,12 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    //console.log("Apic Data Publish Counter: ","clientId" +": "+counter);
+    console.log("Apic Data Publish Counter: ",clientIdent(this.connection.clientAddress) +": "+counter);
     apicTicket()
     return poll();
   },90000)
   self.onStop(()=>{
-    //console.log("Terminating Apic Publish Counter After: ","clientId" +": "+counter);
+    console.log("Terminating Apic Publish Counter After: ",clientIdent(this.connection.clientAddress) +": "+counter);
     Meteor.clearInterval(intervalId)
   })
   apicTicket()
