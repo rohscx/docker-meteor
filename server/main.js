@@ -180,20 +180,27 @@ Meteor.publish('apicDevices', function() {
     return await Promise.all(apicDevices.map((data)=>{
       const managementIpAddress = data.managementIpAddress;
       const lastUpdateTime = data.lastUpdateTime;
-      // debug
-      //console.log("deviceIp",deviceIp)
-      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-      // debug
-      //console.log(data)
+      const dataCheck =  ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch()
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
-      ItemsApicDevices.insert({
-        siteData: {
-          dataObj: data,
-          requestTime: timeNow,
-          dateTime: dateTime
-        }
-      });
+      if (dataCheck.length <= 0){
+        ItemsApicDevices.insert({
+          siteData: {
+            dataObj: data,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+      } else {
+        ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+        ItemsApicDevices.insert({
+          siteData: {
+            dataObj: data,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+      }
     }))
   }
   const poll = () => {
