@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Random } from 'meteor/random';
 import Items from '../imports/api/Items';
 import ItemsPrtg from '../imports/api/prtg';
 import ItemsApicDevices from '../imports/api/apic';
@@ -208,12 +209,12 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish Counter: ",Meteor.connection._lastSessionId+": "+counter);
+    console.log("Apic Data Publish Counter: ",Random.id() +": "+counter);
     apicTicket()
     return poll();
   },90000)
   self.onStop(()=>{
-    console.log("Terminating Apic Publish Counter After: ",Meteor.connection._lastSessionId+": "+counter);
+    console.log("Terminating Apic Publish Counter After: ",Random.id() +": "+counter);
     Meteor.clearInterval(intervalId)
   })
   apicTicket()
