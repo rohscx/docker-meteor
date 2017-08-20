@@ -76,6 +76,13 @@ Meteor.publish('primeHosts', function() {
   }
 });
 
+
+
+
+
+
+
+
 Meteor.publish('apicDevices', function() {
   let clientId = false;
   let counter = 0;
@@ -85,26 +92,17 @@ Meteor.publish('apicDevices', function() {
   const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
   const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  const clientIdent = (ip)=>{
-    this.clientIp = ip;
-    if (clientId === false){
-      clientId = this.clientIp+" : "+Random.id();
-      return clientId;
-    } else {
-      return clientId;
-    }
-  }
 
-  const temp = {
+  const clientIdent = {
     clientIp: "",
     clientId:false,
-    setSomethig: function(ip){
+    setIp: function(ip){
       if (this.clientId === false){
         this.clientId = ip+" : "+Random.id();
-        console.log("data",this.clientId);
+        //console.log("data",this.clientId);
         return this.clientId;
       } else {
-        console.log("data",this.clientId);
+        //console.log("data",this.clientId);
         return this.clientId;
       }
     }
@@ -228,15 +226,22 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish on client %s Counter: %s",temp.setSomethig(this.connection.clientAddress),counter);
+    console.log("Apic Data Publish on client %s Counter: %s",clientIdent.setIp(this.connection.clientAddress),counter);
     return poll();
   },90000)
   self.onStop(()=>{
-    console.log("Terminating Apic Publish on client %s Counter After: %s",temp.setSomethig(this.connection.clientAddress),counter);
+    console.log("Terminating Apic Publish on client %s Counter After: %s",clientIdent.setIp(this.connection.clientAddress),counter);
     Meteor.clearInterval(intervalId)
   })
   return poll()
 });
+
+
+
+
+
+
+
 
 
 Meteor.publish('siteCircuitInfo', function() {
