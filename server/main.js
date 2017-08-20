@@ -94,6 +94,19 @@ Meteor.publish('apicDevices', function() {
       return clientId;
     }
   }
+
+  const temp = {
+    clientIp: "",
+    clientId:false,
+    setSomethig: (ip) =>{
+      if (this.clientId === false){
+        this.clientId = ip+" : "+Random.id();
+        return this.clientId;
+      } else {
+        return this.clientId;
+      }
+    }
+  }
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
@@ -213,11 +226,11 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish on client %s Counter: %s",clientIdent(this.connection.clientAddress),counter);
+    console.log("Apic Data Publish on client %s Counter: %s",temp.setSomethig(this.connection.clientAddress),counter);
     return poll();
   },90000)
   self.onStop(()=>{
-    console.log("Terminating Apic Publish on client %s Counter After: %s",clientIdent(this.connection.clientAddress),counter);
+    console.log("Terminating Apic Publish on client %s Counter After: %s",temp.setSomethig(this.connection.clientAddress),counter);
     Meteor.clearInterval(intervalId)
   })
   return poll()
