@@ -120,17 +120,16 @@ Meteor.publish('apicDevices', function() {
   let oldApicTicket = "";
   const self = this
 
-
+  let clientId = false;
   const clientIdent = (ip)=>{
-    this.clientId = false;
     this.clientIp = ip;
-    if (this.clientId === false){
-      this.clientId = this.clientIp+" : "+Random.id();
-      console.log(this.clientId);
-      return this.clientId;
+    if (clientId === false){
+      clientId = this.clientIp+" : "+Random.id();
+      console.log(clientId);
+      return clientId;
     } else {
-      console.log(this.clientId)
-      return this.clientId;
+      console.log(clientId)
+      return clientId;
     }
   }
 
