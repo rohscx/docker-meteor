@@ -130,7 +130,7 @@ Meteor.publish('apicDevices', function() {
     const setTimeouts = (idleTimeout,sessionTimeout) =>{
       ticketIdleTimeout = timeNow + idleTimeout;
       ticketSessionTimeout = timeNow + sessionTimeout;
-      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
+      console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
       console.log("Requesting New ticket: ", oldApicTicket)
     }
     if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
