@@ -182,7 +182,7 @@ Meteor.publish('apicDevices', function() {
       const lastUpdateTime = data.lastUpdateTime;
       // debug
       //console.log("deviceIp",deviceIp)
-      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress": managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       // debug
       //console.log(data)
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
