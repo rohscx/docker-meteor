@@ -114,6 +114,9 @@ Meteor.publish('apicDevices', function() {
   const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
   const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
   let counter = 0;
+  let ticketIdleTimeout = 0;
+  let ticketSessionTimeout = 0;
+  let oldApicTicket = "";
   const self = this
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
@@ -124,10 +127,30 @@ Meteor.publish('apicDevices', function() {
     data: {username: uName, password: uPass}
   };
   const apicTicket = ()=>{
-    let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-    console.log(httpRequest.data.response.serviceTicket)
-    console.log(httpRequest.data)
-    return httpRequest.data.response.serviceTicket;
+    if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
+      ticketIdleTimeout = timeNow + 1800;
+      ticketSessionTimeout = timeNow + 21600;
+      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+      console.log(httpRequest.data.response.serviceTicket);
+      console.log(httpRequest.data);
+      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
+      oldApicTicket = httpRequest.data.response.serviceTicket;
+      console.log("No Ticket Found. Requesting New Ticket: ",oldApicTicket)
+      return httpRequest.data.response.serviceTicket;
+    } if (timeNow <= ticketIdleTimeout || timeNow <= ticketSessionTimeout){
+      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
+      console.log("Ticket timeout. Requesting New ticket")
+      ticketIdleTimeout = timeNow + 1800;
+      ticketSessionTimeout = timeNow + 21600;
+      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+      oldApicTicket = httpRequest.data.response.serviceTicket;
+      return httpRequest.data.response.serviceTicket;
+    } else {
+      console.log(httpRequest.data.response.serviceTicket);
+      console.log(httpRequest.data);
+      console.log("Using Existing Ticket: ",oldApicTicket)
+      return oldApicTicket;
+    }
   }
   const apicDevicesOptions = {
     headers: {
