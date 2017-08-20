@@ -123,7 +123,7 @@ Meteor.publish('apicDevices', function() {
 
   const identClient = (ip)=>{
     clientId: false,
-    clientIp: ip,
+    clientIp: "cats",
     genClientId:()=>{
       if (this.clientId === false){
         const newClientId = this.clientIp+":"+Random.id();
