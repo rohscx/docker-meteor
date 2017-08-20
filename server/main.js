@@ -118,13 +118,16 @@ Meteor.publish('apicDevices', function() {
   let ticketSessionTimeout = 0;
   let oldApicTicket = "";
   const self = this
+  
+  // generate client ID
   let clientId = false;
-  clientId ? clientId : genClientId();
   const genClientId = () =>{
     const clientIp = this.connection.clientAddress;
     const clientId = clientIp+":"+Random();
     return clientId;
   }
+  clientId ? clientId : genClientId();
+
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
