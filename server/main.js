@@ -141,11 +141,13 @@ Meteor.publish('apicDevices', function() {
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
       oldApicTicket = httpRequest.data.response.serviceTicket;
       setTimeouts(1800,21600);
+      console.log("New Ticket: ",oldApicTicket)
       return httpRequest.data.response.serviceTicket;
     } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
       oldApicTicket = httpRequest.data.response.serviceTicket;
       setTimeouts(1800,21600);
+      console.log("Ticket expired requesting new Ticket: ",oldApicTicket)
       return httpRequest.data.response.serviceTicket;
     } else {
       console.log("Using Existing Ticket: ",oldApicTicket)
