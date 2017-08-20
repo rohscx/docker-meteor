@@ -178,10 +178,11 @@ Meteor.publish('apicDevices', function() {
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
-      const deviceIp = data.managementIpAddress;
+      const managementIpAddress = data.managementIpAddress;
+      const lastUpdateTime = data.lastUpdateTime;
       // debug
       //console.log("deviceIp",deviceIp)
-      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress": deviceIp});
+      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress": managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       // debug
       //console.log(data)
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
