@@ -77,6 +77,23 @@ Meteor.publish('primeHosts', function() {
 });
 
 Meteor.publish('apicDevices', function() {
+  let clientId = false;
+  let counter = 0;
+  const self = this;
+  const timeNow = Math.round(new Date().getTime() / 1000);
+  const dateTime = new Date();
+  const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+  const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
+  const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+  const clientIdent = (ip)=>{
+    this.clientIp = ip;
+    if (clientId === false){
+      clientId = this.clientIp+" : "+Random.id();
+      return clientId;
+    } else {
+      return clientId;
+    }
+  }
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
@@ -98,49 +115,21 @@ Meteor.publish('apicDevices', function() {
       }
     });
   }
-  console.log("apicDevices Count: ",countCollections());
-  /*
-    data contains the entire return object
-    data.content contains the contents
-    headers contains the headers
-    data.data.sensors contains an array of objects
-    data.statusCode contains status code
-    prtg data returns the following:
-    statusCode: 200,
-    content: '{"prtg-version":"17.2.30.1767","treesize":719,"sensors":[]}
-  */
-  const timeNow = Math.round(new Date().getTime() / 1000);
-  const dateTime = new Date();
-  const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
-  const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
-  const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let counter = 0;
-  let ticketIdleTimeout = 0;
-  let ticketSessionTimeout = 0;
-  let oldApicTicket = "";
-  const self = this
 
-  let clientId = false;
-  const clientIdent = (ip)=>{
-    this.clientIp = ip;
-    if (clientId === false){
-      clientId = this.clientIp+" : "+Random.id();
-      console.log(clientId);
-      return clientId;
-    } else {
-      console.log(clientId)
-      return clientId;
-    }
-  }
+  console.log("apicDevices Count: ",countCollections());
 
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
-  let apicDevicesUrn = "/api/v1/network-device";
-  let devicesUrl = baseUrl + apicDevicesUrn;
   const apicTicketOptions = {
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   };
+  let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
+  let ticketIdleTimeout = 0;
+  let ticketSessionTimeout = 0;
+  let oldApicTicket = "";
+
   const apicTicket = ()=>{
     const setTimeouts = (idleTimeout,sessionTimeout) =>{
       ticketIdleTimeout = timeNow + idleTimeout;
@@ -169,7 +158,6 @@ Meteor.publish('apicDevices', function() {
       'x-auth-token': apicTicket()
     }
   };
-
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
