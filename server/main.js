@@ -193,10 +193,8 @@ Meteor.publish('apicDevices', function() {
         });
       }
       if (dataCheck.length <= 0){
-        console.log("looking for 0",dataCheck.length)
         dbInsert()
       } else {
-        console.log("NOT looking for 0",dataCheck.length)
         ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
         dbInsert()
       }
