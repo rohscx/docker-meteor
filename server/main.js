@@ -138,7 +138,7 @@ Meteor.publish('apicDevices', function() {
       oldApicTicket = httpRequest.data.response.serviceTicket;
       setTimeouts(1800,21600);
       return httpRequest.data.response.serviceTicket;
-    } if (timeNow <= ticketIdleTimeout || timeNow <= ticketSessionTimeout){
+    } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
       oldApicTicket = httpRequest.data.response.serviceTicket;
       setTimeouts(1800,21600);
