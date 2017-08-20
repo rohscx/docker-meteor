@@ -98,7 +98,7 @@ Meteor.publish('apicDevices', function() {
   const temp = {
     clientIp: "",
     clientId:false,
-    setSomethig: (ip) =>{
+    setSomethig: function(ip){
       if (this.clientId === false){
         this.clientId = ip+" : "+Random.id();
         console.log("data",this.clientId);
