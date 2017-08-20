@@ -138,6 +138,10 @@ Meteor.publish('apicDevices', function() {
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
+      let deviceIp = data.siteData.dataObj.managementIpAddress;
+      // debug
+      console.log(deviceIp)
+      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress": deviceIp});
       // debug
       //console.log(data)
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
@@ -167,7 +171,7 @@ Meteor.publish('apicDevices', function() {
       const oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
       const oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
       if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-        ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+        //ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
         console.log("Apic Devices DB STALE Requesting NEW data")
         httpRequest("GET",devicesUrl,apicDevicesOptions)
         if (countCollections() == 500){
