@@ -101,8 +101,10 @@ Meteor.publish('apicDevices', function() {
     setSomethig: (ip) =>{
       if (this.clientId === false){
         this.clientId = ip+" : "+Random.id();
+        console.log("data",this.clientId);
         return this.clientId;
       } else {
+        console.log("data",this.clientId);
         return this.clientId;
       }
     }
