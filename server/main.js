@@ -118,6 +118,13 @@ Meteor.publish('apicDevices', function() {
   let ticketSessionTimeout = 0;
   let oldApicTicket = "";
   const self = this
+  let clientId = false;
+  clientId ? clientId : genClientId();
+  const genClientId = () =>{
+    const clientIp = this.connection.clientAddress;
+    const clientId = clientIp+":"+Random();
+    return clientId;
+  }
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   let apicDevicesUrn = "/api/v1/network-device";
@@ -208,12 +215,12 @@ Meteor.publish('apicDevices', function() {
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish Counter: ",this.connection.clientAddress +": "+counter);
+    console.log("Apic Data Publish Counter: ",clientId +": "+counter);
     apicTicket()
     return poll();
   },90000)
   self.onStop(()=>{
-    console.log("Terminating Apic Publish Counter After: ",this.connection.clientAddress +": "+counter);
+    console.log("Terminating Apic Publish Counter After: ",clientId +": "+counter);
     Meteor.clearInterval(intervalId)
   })
   apicTicket()
