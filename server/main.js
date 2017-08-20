@@ -130,20 +130,18 @@ Meteor.publish('apicDevices', function() {
     const setTimeouts = (idleTimeout,sessionTimeout) =>{
       ticketIdleTimeout = timeNow + idleTimeout;
       ticketSessionTimeout = timeNow + sessionTimeout;
+      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
+      console.log("Requesting New ticket: ", oldApicTicket)
     }
     if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
-      setTimeouts(1800,21600);
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
       oldApicTicket = httpRequest.data.response.serviceTicket;
-      console.log("No Ticket Found. Requesting New Ticket: ",oldApicTicket)
+      setTimeouts(1800,21600);
       return httpRequest.data.response.serviceTicket;
     } if (timeNow <= ticketIdleTimeout || timeNow <= ticketSessionTimeout){
-      console.log("Ticket Idle/Session timeout",ticketIdleTimeout+"/"+ticketSessionTimeout);
-      console.log("Ticket timeout. Requesting New ticket")
-      setTimeouts(1800,21600);
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
       oldApicTicket = httpRequest.data.response.serviceTicket;
+      setTimeouts(1800,21600);
       return httpRequest.data.response.serviceTicket;
     } else {
       console.log("Using Existing Ticket: ",oldApicTicket)
