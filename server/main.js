@@ -97,7 +97,7 @@ Meteor.publish('apicDevices', function() {
       }
     });
   }
-  console.log("apicDevices Count = ",countCollections());
+  console.log("apicDevices Count: ",countCollections());
   /*
     data contains the entire return object
     data.content contains the contents
@@ -140,7 +140,7 @@ Meteor.publish('apicDevices', function() {
     return await Promise.all(apicDevices.map((data)=>{
       const deviceIp = data.managementIpAddress;
       // debug
-      console.log("ip",deviceIp)
+      //console.log("deviceIp",deviceIp)
       ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress": deviceIp});
       // debug
       //console.log(data)
