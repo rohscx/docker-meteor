@@ -182,6 +182,7 @@ Meteor.publish('apicDevices', function() {
       const lastUpdateTime = data.lastUpdateTime;
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+      console.log("len check",dataCheck.length)
       data.normalizeHostName = normalize;
       const dbInsert = ()=>{
         ItemsApicDevices.insert({
@@ -193,7 +194,6 @@ Meteor.publish('apicDevices', function() {
         });
       }
       if (dataCheck.length <= 0){
-        console.log("len check",dataCheck.length)
         // checks for empty db
         dbInsert();
       } else {
