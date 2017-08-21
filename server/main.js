@@ -183,6 +183,9 @@ Meteor.publish('apicDevices', function() {
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
+      const dbDelete = () =>{
+        return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+      }
       const dbInsert = ()=>{
         ItemsApicDevices.insert({
           siteData: {
@@ -192,14 +195,9 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-      if (dataCheck.length <= 0){
-        // checks for empty db
-        dbInsert();
-      } else {
-        // if db not empty clean it up.
-        ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-        dbInsert();
-      }
+      
+      dbDelete();
+      dbInsert();
     }))
   }
   const poll = () => {
