@@ -193,6 +193,7 @@ Meteor.publish('apicDevices', function() {
         });
       }
       if (dataCheck.length <= 0){
+        console.log("len check",dataCheck.length)
         // checks for empty db
         dbInsert();
       } else {
