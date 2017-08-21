@@ -4,7 +4,7 @@ const apicReducer = (state = {
     order: -1
   },
   apicDevicesFind:{
-    deviceName: "(mpls|inet|dmvpn)",
+    deviceName: "(mpls|inet|dmvpn|centralized|dmz|wan|7k|5k)",
     validationStatus: null,
     btnStyle: false,
     byteType: "ALL"
