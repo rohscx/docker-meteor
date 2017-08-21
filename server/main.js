@@ -184,10 +184,10 @@ Meteor.publish('apicDevices', function() {
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       console.log("len check",dataCheck.length)
       data.normalizeHostName = normalize;
-      const dbInsert = ()=>{
+      const dbInsert = (dbItems)=>{
         ItemsApicDevices.insert({
           siteData: {
-            dataObj: data,
+            dataObj: dbItems,
             requestTime: timeNow,
             dateTime: dateTime
           }
@@ -195,11 +195,11 @@ Meteor.publish('apicDevices', function() {
       }
       if (dataCheck.length <= 0){
         // checks for empty db
-        dbInsert();
+        dbInsert(data);
       } else {
         // if db not empty clean it up.
         ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-        dbInsert();
+        dbInsert(data);
       }
     }))
   }
