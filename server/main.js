@@ -184,12 +184,12 @@ Meteor.publish('apicDevices', function() {
       const lastUpdateTime = data.lastUpdateTime;
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-      const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
-      const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
       data.normalizeHostName = normalize;
-      console.log(vlanDetail.statusCode)
-      const vlanDetailCheck = (status)=>{
-        if (status == 200) {
+      const vlanDetail = ()=>{
+        const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+        const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+        console.log(vlanDetail.statusCode)
+        if (vlanDetail.status == 200) {
           return data.vlanDetail = vlanDetail.data.response;
         } else {
           return "";
@@ -207,7 +207,7 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-      vlanDetailCheck(vlanDetail.statusCode);
+      vlanDetailCheck();
       dbDelete();
       dbInsert();
     }))
