@@ -192,7 +192,7 @@ Meteor.publish('apicDevices', function() {
         if (vlanDetail.status == 200) {
           return data.vlanDetail = vlanDetail.data.response;
         } else {
-          return "";
+          return data.vlanDetail = "";
         }
       }
       const dbDelete = () =>{
