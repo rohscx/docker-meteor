@@ -50,10 +50,10 @@ export default class Table extends Component {
         for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
-          temp.push( <div key={Math.random()}>{key}" "{value}</div>)
+          temp.push(<div key={Math.random()}>{key}" "{value}</div>)
         }
       })
-      temp.map((data)=>{
+      return temp.map((data)=>{
         return data;
       })
       }
