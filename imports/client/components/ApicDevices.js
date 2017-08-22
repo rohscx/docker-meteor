@@ -89,6 +89,9 @@ class TransferRate extends Component {
       },
       formControl:{
         zIndex:"0"
+      },
+      inputGroupBtn:{
+        zIndex:"0"
       }
     }
     let sortField = this.props.apic.sortBy.field;
