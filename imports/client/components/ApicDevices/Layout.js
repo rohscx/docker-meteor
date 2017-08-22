@@ -39,6 +39,24 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
+    let renderMe = (renderData1,renderData2)=>{
+      return (
+        <div key={Math.random()}>
+          <table className = "table table-striped table-hover table-responsive">
+            <thead className="thead-default">
+              <tr>
+                {renderData1}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              {renderData2}
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      )
+    }
     if (vlanObj === null){
       return (
         <div> No Data</div>
@@ -66,22 +84,7 @@ export default class Table extends Component {
           return data;
         })
         */
-        return (
-          <div key={Math.random()}>
-            <table className = "table table-striped table-hover table-responsive">
-              <thead className="thead-default">
-                <tr>
-                  {thArray[dataKey]}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                {tdArray[dataKey]}
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        )
+        renderMe(thArray[dataKey],tdArray[dataKey])
       })
       }
     }
