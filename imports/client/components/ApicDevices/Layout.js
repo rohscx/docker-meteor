@@ -19,7 +19,6 @@ export default class Table extends Component {
 
 
   openModal(vlanData) {
-    console.log("MODAL",vlanData)
     if (vlanData === null){
       this.setState({modalData: null});
     } else {
@@ -40,12 +39,12 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
-    console.log("VLAN",vlanObj)
     if (vlanObj === null){
       return (
         <div> No Data</div>
       )
     } else {
+      console.log("VLAN",vlanObj)
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
