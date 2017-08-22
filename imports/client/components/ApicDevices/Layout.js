@@ -49,7 +49,7 @@ export default class Table extends Component {
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           thArray.push(<th>{key}</th>)
-          tdArry.push(<td>{value}</td>)
+          tdArray.push(<td>{value}</td>)
         }
       })
       thArray.map((data)=>{
