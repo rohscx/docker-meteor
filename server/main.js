@@ -206,8 +206,8 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-      vlanDetail();
       dbDelete();
+      vlanDetail();
       dbInsert();
     }))
   }
