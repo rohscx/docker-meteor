@@ -81,7 +81,8 @@ class TransferRate extends Component {
 
     const divStyles = {
       margin: "auto",
-      width: "40%"
+      width: "40%",
+      zIndex: "inherit"
     };
     let sortField = this.props.apic.sortBy.field;
     let buttonLabel = (textValue)=>{
@@ -129,14 +130,11 @@ class TransferRate extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
-    const divStyles2 = {
-      zIndex:"5"
-    };
     //console.log(this);
     return(
       <div style={divStyles}>
         {this.form()}
-        <Layout style = {divStyles2} {... this.props}/>
+        <Layout {... this.props}/>
       </div>
     )
   }
