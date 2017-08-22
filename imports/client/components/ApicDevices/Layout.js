@@ -8,7 +8,7 @@ export default class Table extends Component {
 
     this.state = {
       modalIsOpen: false,
-      modalLink: {newData:{graph:false}}
+      modalData: ""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -18,9 +18,9 @@ export default class Table extends Component {
 
 
 
-  openModal(link) {
+  openModal(vlanData) {
     this.setState({modalIsOpen: true});
-    this.setState({modalLink: link});
+    this.setState({modalData: vlanData});
     // debug
     //console.log(this.state.modalLink);
   }
