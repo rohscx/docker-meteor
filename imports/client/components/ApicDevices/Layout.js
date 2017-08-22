@@ -50,7 +50,7 @@ export default class Table extends Component {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
           return (
-            <div>{key}" "{value}</div>
+            <div key={vlanObj[key]}>{key}" "{value}</div>
           )
         }
       })
