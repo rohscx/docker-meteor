@@ -95,7 +95,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
-            <Row className="show-grid">
+            <Row className="show-grid" onClick={()=>{this.openModal(vlanInfo(vlanDetail))}}>
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
@@ -147,8 +147,11 @@ export default class Table extends Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStyles}
-            contentLabel="PRTG Modal"
+            contentLabel="APIC Modal"
           >
+            <div>
+              {}
+            </div>
           </Modal>
         </div>
       </div>
