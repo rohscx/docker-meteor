@@ -39,6 +39,9 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
+    const divFlexBox = {
+      display:'flex'
+    }
     if (vlanObj === null){
       return (
         <div> No Data</div>
@@ -58,7 +61,7 @@ export default class Table extends Component {
       tempArray.map((data)=>{
         return data;
       })
-      return (<div key={Math.random()}>{tempArray}</div>)
+      return (<div key={Math.random()} sytle={divFlexBox}>{tempArray}</div>)
       }
     }
 
