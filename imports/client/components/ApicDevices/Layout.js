@@ -39,6 +39,7 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
+    console.log("VLAN",vlanObj)
     if (vlanObj === null){
       return (
         <div> No Data</div>
