@@ -47,7 +47,12 @@ export default class Table extends Component {
       let tempArray = [];
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
-          tempArray.push(<div key={Math.random()}>{key} {value}</div>)
+          if (key == "vlanType" || key == "vlanNumber") {
+            tempArray.push(<div key={Math.random()}>{key} {value}<br/></div>)
+          } else {
+            tempArray.push(<div key={Math.random()}>{key} {value}</div>)
+          }
+
         }
       })
       return tempArray.map((data)=>{
