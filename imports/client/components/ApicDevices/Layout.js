@@ -78,6 +78,7 @@ export default class Table extends Component {
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let vlanInfo = (vlanArray) =>{
+          console.log("HITS")
           vlanArray.map((data,key)=>{
             for (var [key, value] of Object.entries(data)) {
               let vlanInfo = key+"  "+value;
@@ -100,7 +101,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
-              {vlanDetail ? "" : <Col xs={6} sm={6} md={4}>{vlanInfo(vlanDetail)}</Col>}
+              {vlanDetail ? <Col xs={6} sm={6} md={4}>{vlanInfo(vlanDetail)}</Col> : ""}
             </Row>
           </div>
         )
