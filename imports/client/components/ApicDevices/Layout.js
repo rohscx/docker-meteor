@@ -92,7 +92,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
-            <Row className="show-grid" onClick={()=>{this.openModal(vlanInfo(vlanDetail))}}>
+            <Row className="show-grid" onClick={()=>{this.openModal(}}>
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
@@ -100,6 +100,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
+              <Col xs={6} sm={6} md={4}>{vlanInfo(vlanDetail)}</Col>
             </Row>
           </div>
         )
@@ -137,16 +138,6 @@ export default class Table extends Component {
     return(
       <div>
         {this.returnLayout()}
-        <div className="modal modal-content modal-responsive">
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="PRTG Modal"
-          >
-          </Modal>
-        </div>
       </div>
     )
   }
