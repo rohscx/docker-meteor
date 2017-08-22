@@ -148,8 +148,9 @@ export default class Table extends Component {
             onRequestClose={this.closeModal}
             style={customStyles}
             contentLabel="PRTG Modal"
-          > 
+          > asdfasdfasdf
           </Modal>
+        </div>
       </div>
     )
   }
