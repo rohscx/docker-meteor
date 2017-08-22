@@ -55,9 +55,10 @@ export default class Table extends Component {
 
         }
       })
-      return tempArray.map((data)=>{
+      tempArray.map((data)=>{
         return data;
       })
+      return (return (<div key={Math.random()>{tempArray}</div>);)
       }
     }
 
