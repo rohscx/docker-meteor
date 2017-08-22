@@ -34,6 +34,18 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
+  vlanData(vlanObj){
+    return vlanObj.map((data,key)=>{
+      for (var [key, value] of Object.entries(data)) {
+        let vlanInfo = key+" "+value;
+        console.log(vlanInfo)
+        return (
+          <div>{key}+" "+{value}</div>
+        )
+      }
+    })
+  }
+
   returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
@@ -95,7 +107,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
-            <Row className="show-grid" onClick={()=>{this.openModal(vlanInfo(vlanDetail))}}>
+            <Row className="show-grid" onClick={()=>{this.openModal(vlanDetail)}}>
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
@@ -150,7 +162,7 @@ export default class Table extends Component {
             contentLabel="APIC Modal"
           >
             <div>
-              {this.state.modalData}
+              {vlanData(this.state.modalData)}
             </div>
           </Modal>
         </div>
