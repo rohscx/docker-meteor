@@ -78,10 +78,10 @@ export default class Table extends Component {
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let vlanInfo = (vlanArray) =>{
-          console.log("HITS")
           vlanArray.map((data,key)=>{
             for (var [key, value] of Object.entries(data)) {
               let vlanInfo = key+"  "+value;
+              console.log(vlanInfo)
               return vlanInfo;
             }
           })
