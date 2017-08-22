@@ -183,7 +183,8 @@ export default class Table extends Component {
 
     const divFlexBox = {
       display:'flex',
-      maxWidth:'100%'
+      maxWidth:'100%',
+      overflowX:'hidden'
     }
 
 
