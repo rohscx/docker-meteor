@@ -184,11 +184,17 @@ Meteor.publish('apicDevices', function() {
       const lastUpdateTime = data.lastUpdateTime;
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-      let devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
-      let vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+      const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+      const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
       data.normalizeHostName = normalize;
       console.log(vlanDetail.statusCode)
-
+      const vlanDetailCheck = (status)=>{
+        if (status == 200) {
+          return data.vlanDetail = vlanDetail.data.response;
+        } else {
+          return "";
+        }
+      }
       const dbDelete = () =>{
         return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
@@ -201,16 +207,9 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-      if (vlanDetail.statusCode == 200){
-        console.log("hit")
-        data.vlanDetail = vlanDetail.data.response;
-        dbDelete();
-        dbInsert();
-      } else {
-        data.vlanDetail = null;
-        dbDelete();
-        dbInsert();
-      }
+      vlanDetailCheck(vlanDetail.statusCode);
+      dbDelete();
+      dbInsert();
     }))
   }
   const poll = () => {
