@@ -39,29 +39,39 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
-    const divFlexBox = {
-      display:'flex'
-    }
     if (vlanObj === null){
       return (
         <div> No Data</div>
       )
     } else {
-      let tempArray = [];
+      let thArray = [];
+      let tempArray2 = [];
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
-          if (key == "vlanType" || key == "vlanNumber") {
-            tempArray.push(<div key={Math.random()}><br/><b>{key} {value}</b></div>)
-          } else {
-            tempArray.push(<div key={Math.random()}>{key} {value}</div>)
-          }
-
+          thArray.push(<th>{key}</th>)
+          tdArry.push(<td>{value}</td>)
         }
       })
-      tempArray.map((data)=>{
+      thArray.map((data)=>{
         return data;
       })
-      return (<div key={Math.random()} style={divFlexBox}><div key={Math.random()}>{tempArray}</div></div>)
+      tdArray.map((data)=>{
+        return data;
+      })
+      return (
+        <div key={Math.random()}>
+          <table className = "table table-striped table-hover table-responsive">
+            <thead className="thead-default">
+              <tr>
+                {thArray}
+              </tr>
+            </thead>
+            <tbody>
+              {tdArray}
+            </tbody>
+          </table>
+        </div>
+      )
       }
     }
 
