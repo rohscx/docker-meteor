@@ -81,7 +81,7 @@ export default class Table extends Component {
           let dataToReturn = ""
           vlanArray.map((data,key)=>{
             for (var [key, value] of Object.entries(data)) {
-              let vlanInfo = key+" "+value+'\n';
+              let vlanInfo = key+" "+value+'\r\n';
               console.log(vlanInfo)
               dataToReturn += vlanInfo;
             }
