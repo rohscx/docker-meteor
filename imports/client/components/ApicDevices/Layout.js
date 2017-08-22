@@ -8,7 +8,7 @@ export default class Table extends Component {
 
     this.state = {
       modalIsOpen: false,
-      modalData: ""
+      modalData: null
     };
 
     this.openModal = this.openModal.bind(this);
