@@ -162,7 +162,7 @@ export default class Table extends Component {
             contentLabel="APIC Modal"
           >
             <div>
-              {vlanData(this.state.modalData)}
+              {this.vlanData(this.state.modalData)}
             </div>
           </Modal>
         </div>
