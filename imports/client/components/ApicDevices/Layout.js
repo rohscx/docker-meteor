@@ -45,14 +45,16 @@ export default class Table extends Component {
       )
     } else {
       console.log(vlanObj)
-      return vlanObj.map((data,key)=>{
+      return vlanObj.map((data,dataKey)=>{
         let thArray = [];
         let tdArray = [];
         for (var [key, value] of Object.entries(data)) {
-          thArray.push(<th key={Math.random()}>{key}</th>)
-          tdArray.push(<td key={Math.random()}>{value}</td>)
+          let temp1[dataKey] = <th key={Math.random()}>{key}</th>
+          let temp2[dataKey] = <td key={Math.random()}>{value}</td>
+          thArray.push(temp1[dataKey])
+          tdArray.push(temp2[dataKey])
         }
-        console.log(key)
+        console.log(dataKey)
         console.log(thArray)
         console.log(tdArray)
         thArray.map((data)=>{
