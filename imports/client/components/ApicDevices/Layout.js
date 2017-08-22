@@ -153,6 +153,10 @@ export default class Table extends Component {
       }
     };
 
+    const divFlexBox = {
+      display:'flex'
+    }
+
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
@@ -168,7 +172,7 @@ export default class Table extends Component {
             style={customStyles}
             contentLabel="APIC Modal"
           >
-            <div>
+            <div style={divFlexBox}>
               {this.vlanData(this.state.modalData)}
             </div>
           </Modal>
