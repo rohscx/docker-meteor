@@ -19,6 +19,7 @@ export default class Table extends Component {
 
 
   openModal(vlanData) {
+    console.log("MODAL",vlanData)
     if (vlanData === null){
       this.setState({modalData: null});
     } else {
@@ -101,15 +102,7 @@ export default class Table extends Component {
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let vlanInfo = (vlanArray) =>{
-          let dataToReturn = ""
-          vlanArray.map((data,key)=>{
-            for (var [key, value] of Object.entries(data)) {
-              let vlanInfo = key+" "+value;
-              console.log(vlanInfo)
-              dataToReturn += vlanInfo;
-            }
-          })
-          return dataToReturn
+
         }
         return (
           <div key={data["_id"]} style= {divStyles}>
@@ -118,7 +111,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
-            <Row className="show-grid" onClick={()=>{this.openModal({vlanDetail})}}>
+            <Row className="show-grid" onClick={()=>{this.openModal(vlanDetail)}}>
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
