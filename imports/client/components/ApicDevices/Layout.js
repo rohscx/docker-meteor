@@ -174,7 +174,7 @@ export default class Table extends Component {
     return(
       <div>
         {this.returnLayout()}
-        <div className="modal modal-content modal-responsive">
+        <div className="modal modal-content modal-responsive" style={{overlay:{zIndex:5}}}>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
