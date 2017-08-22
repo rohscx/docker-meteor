@@ -185,9 +185,9 @@ Meteor.publish('apicDevices', function() {
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
       const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
-      console.log(vlanDetail.data.response)
+      console.log(vlanDetail)
       data.normalizeHostName = normalize;
-      data.vlanDetail = vlanDetail;
+
       const dbDelete = () =>{
         return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
