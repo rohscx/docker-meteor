@@ -184,7 +184,8 @@ export default class Table extends Component {
     const divFlexBox = {
       display:'flex',
       maxWidth:'100%',
-      overflowX:'hidden'
+      overflowX:'hidden',
+
     }
 
 
@@ -202,7 +203,7 @@ export default class Table extends Component {
             style={customStyles}
             contentLabel="APIC Modal"
           >
-            <div style={divFlexBox}>
+            <div>
               {this.state.modalIsOpen ? this.vlanData(this.state.modalData) : ""}
             </div>
           </Modal>
