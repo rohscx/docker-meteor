@@ -181,14 +181,6 @@ export default class Table extends Component {
       }
     };
 
-    const divFlexBox = {
-      display:'flex',
-      maxWidth:'100%',
-      overflowX:'hidden',
-
-    }
-
-
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
     //console.log(this)
