@@ -188,12 +188,6 @@ Meteor.publish('apicDevices', function() {
       let vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
       data.normalizeHostName = normalize;
       console.log(vlanDetail.statusCode)
-      if (vlanDetail.statusCode == 200){
-        console.log("hit")
-        data.vlanDetail = vlanDetail.data.response;
-      } else {
-        data.vlanDetail = null;
-      }
 
       const dbDelete = () =>{
         return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
@@ -207,9 +201,16 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-
-      dbDelete();
-      dbInsert();
+      if (vlanDetail.statusCode == 200){
+        console.log("hit")
+        data.vlanDetail = vlanDetail.data.response;
+        dbDelete();
+        dbInsert();
+      } else {
+        data.vlanDetail = null;
+        dbDelete();
+        dbInsert();
+      }
     }))
   }
   const poll = () => {
