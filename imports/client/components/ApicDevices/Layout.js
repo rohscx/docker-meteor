@@ -52,6 +52,7 @@ export default class Table extends Component {
           thArray.push(<th key={Math.random()}>{key}</th>)
           tdArray.push(<td key={Math.random()}>{value}</td>)
         }
+        console.log(key)
         console.log(thArray)
         console.log(tdArray)
         thArray.map((data)=>{
