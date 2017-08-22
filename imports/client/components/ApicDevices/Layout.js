@@ -82,6 +82,7 @@ export default class Table extends Component {
             for (var [key, value] of Object.entries(data)) {
               let vlanInfo = key+"  "+value;
               return vlanInfo;
+            }
           })
         }
         return (
