@@ -77,13 +77,16 @@ export default class Table extends Component {
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
-        return vlanInfo = (vlanArray) =>{
-          return vlanArray.map((data,key)=>{
+        let vlanInfo = (vlanArray) =>{
+          let dataToReturn = ""
+          vlanArray.map((data,key)=>{
             for (var [key, value] of Object.entries(data)) {
-              let vlanInfo = key+"  "+value;
+              let vlanInfo = key+"  "+value+" ";
               console.log(vlanInfo)
+              dataToReturn += vlanInfo;
             }
           })
+          return dataToReturn
         }
         return (
           <div key={data["_id"]} style= {divStyles}>
