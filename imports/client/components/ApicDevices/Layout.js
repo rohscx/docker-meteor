@@ -46,11 +46,13 @@ export default class Table extends Component {
     } else {
       console.log("VLAN",vlanObj)
       return vlanObj.map((data,key)=>{
-        return for (var [key, value] of Object.entries(data)) {
+        let temp = ""
+        for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
-          return ( <div key={Math.random()}>{key}" "{value}</div>)
+          temp =  ( <div key={Math.random()}>{key}" "{value}</div>)
         }
+        return temp
       })
     }
   }
