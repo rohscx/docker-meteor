@@ -84,7 +84,7 @@ export default class Table extends Component {
           return data;
         })
         */
-        renderMe(thArray[dataKey],tdArray[dataKey])
+        return renderMe(thArray[dataKey],tdArray[dataKey])
       })
       }
     }
