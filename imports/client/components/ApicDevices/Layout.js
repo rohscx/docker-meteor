@@ -45,7 +45,7 @@ export default class Table extends Component {
       )
     } else {
       console.log("VLAN",vlanObj)
-      vlanObj.map((data,key)=>{
+      return vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
@@ -165,7 +165,7 @@ export default class Table extends Component {
             contentLabel="APIC Modal"
           >
             <div>
-              {this.vlanData(vlanData(this.state.modalData))}
+              {this.vlanData(vlanDatathis.state.modalData)}
             </div>
           </Modal>
         </div>
