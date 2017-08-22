@@ -50,29 +50,31 @@ export default class Table extends Component {
         let tdArray = [];
         console.log(dataKey)
         for (var [key, value] of Object.entries(data)) {
-          thArray.push(<th key={Math.random()}>{key}</th>)
-          tdArray.push(<td key={Math.random()}>{value}</td>)
+          thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+          tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
         }
         console.log(dataKey)
         console.log(thArray)
         console.log(tdArray)
+        /*
         thArray.map((data)=>{
           return data;
         })
         tdArray.map((data)=>{
           return data;
         })
+        */
         return (
           <div key={Math.random()}>
             <table className = "table table-striped table-hover table-responsive">
               <thead className="thead-default">
                 <tr>
-                  {thArray}
+                  {thArray[dataKey]}
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                {tdArray}
+                {tdArray[dataKey]}
               </tr>
               </tbody>
             </table>
