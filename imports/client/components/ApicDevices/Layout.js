@@ -182,7 +182,8 @@ export default class Table extends Component {
     };
 
     const divFlexBox = {
-      display:'flex'
+      display:'flex',
+      maxWidth:'100%'
     }
 
 
