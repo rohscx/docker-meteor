@@ -82,7 +82,7 @@ class TransferRate extends Component {
     const divStyles = {
       margin: "auto",
       width: "40%",
-      zIndex: "inherit"
+      zIndex: "-1"
     };
     let sortField = this.props.apic.sortBy.field;
     let buttonLabel = (textValue)=>{
