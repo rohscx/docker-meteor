@@ -111,8 +111,8 @@ class TransferRate extends Component {
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
-          <FormGroup bsClass={cssOverride} validationState={validationStatus()}>
-             <InputGroup>
+          <FormGroup  validationState={validationStatus()}>
+             <InputGroup bsClass={cssOverride}>
                <FormControl placeholder="Enter Device Name..." type="text" onChange={formInput()}/>
                <DropdownButton
                  componentClass={InputGroup.Button}
