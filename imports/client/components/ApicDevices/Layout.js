@@ -149,7 +149,6 @@ export default class Table extends Component {
             style={customStyles}
             contentLabel="PRTG Modal"
           >
-            daaatastafsd
           </Modal>
       </div>
     )
