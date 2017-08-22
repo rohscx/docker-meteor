@@ -187,7 +187,7 @@ Meteor.publish('apicDevices', function() {
       data.normalizeHostName = normalize;
       const vlanDetail = ()=>{
         if (data.family == "Unified AP"){
-          return data.vlanDetail = "";
+          return data.vlanDetail = null;
         } else {
           const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
           const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
