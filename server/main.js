@@ -187,6 +187,11 @@ Meteor.publish('apicDevices', function() {
       const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
       console.log(vlanDetail)
       data.normalizeHostName = normalize;
+      if (vlanDetail.statusCode == 200){
+        data.vlanDetail = vlanDetail.data.response;
+      } else {
+
+      }
 
       const dbDelete = () =>{
         return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
