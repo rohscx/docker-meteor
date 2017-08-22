@@ -48,13 +48,13 @@ export default class Table extends Component {
       let tdArray = [];
       return vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
-          thArray.push(<th key={Math.random()}>{key}</th>)
-          tdArray.push(<td key={Math.random()}>{value}</td>)
+          thArray[key].push(<th key={Math.random()}>{key}</th>)
+          tdArray[key].push(<td key={Math.random()}>{value}</td>)
         }
-        thArray.map((data)=>{
+        thArray[key].map((data)=>{
           return data;
         })
-        tdArray.map((data)=>{
+        tdArray[key].map((data)=>{
           return data;
         })
         return (
@@ -62,12 +62,12 @@ export default class Table extends Component {
             <table className = "table table-striped table-hover table-responsive">
               <thead className="thead-default">
                 <tr>
-                  {thArray}
+                  {thArray[key]}
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                {tdArray}
+                {tdArray[key]}
               </tr>
               </tbody>
             </table>
