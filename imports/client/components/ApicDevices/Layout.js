@@ -45,7 +45,7 @@ export default class Table extends Component {
       )
     } else {
       let thArray = [];
-      let tempArray2 = [];
+      let tdArray = [];
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           thArray.push(<th>{key}</th>)
