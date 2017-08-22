@@ -166,7 +166,7 @@ export default class Table extends Component {
         backgroundSize        : 'contain',
         opacity               : '100'
       },
-      overlay:{zIndex:5}
+      overlay:{zIndex:'5'}
     };
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
@@ -175,7 +175,7 @@ export default class Table extends Component {
     return(
       <div>
         {this.returnLayout()}
-        <div className="modal modal-content modal-responsive" style={{overlay:{zIndex:5}}}>
+        <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
