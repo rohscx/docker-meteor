@@ -76,6 +76,13 @@ export default class Table extends Component {
       let colData = dbData.map((data)=>{
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
+        let vlanDetail = data.siteData.dataObj.vlanDetail;
+        let vlanInfo = (vlanArray) =>{
+          vlanArray.map((data,key)=>{
+            for (var [key, value] of Object.entries(data)) {
+              return key+"  "+value;
+          })
+        }
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
@@ -83,7 +90,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
-            <Row className="show-grid" onClick={()=>{this.openModal()}}>
+            <Row className="show-grid" {vlanDetail ? onClick={()=>{this.openModal({vlanInfo(vlanDetail)})} : ""}>
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
