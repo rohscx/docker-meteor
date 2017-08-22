@@ -35,7 +35,7 @@ export default class Table extends Component {
   }
 
   vlanData(vlanObj){
-    return vlanObj.map((data,key)=>{
+    vlanObj.map((data,key)=>{
       for (var [key, value] of Object.entries(data)) {
         let vlanInfo = key+" "+value;
         console.log(vlanInfo)
