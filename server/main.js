@@ -186,13 +186,13 @@ Meteor.publish('apicDevices', function() {
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
       data.normalizeHostName = normalize;
       const vlanDetail = ()=>{
-        const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
-        const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
-        console.log(vlanDetail.statusCode)
-        if (vlanDetail.status == 200) {
-          return data.vlanDetail = vlanDetail.data.response;
-        } else {
+        if (data.family == "Unified AP"){
           return data.vlanDetail = "";
+        } else {
+          const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+          const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+          console.log(vlanDetail.statusCode)
+          return data.vlanDetail = vlanDetail.data.response;
         }
       }
       const dbDelete = () =>{
