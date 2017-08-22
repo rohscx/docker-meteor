@@ -81,9 +81,11 @@ class TransferRate extends Component {
 
     const divStyles = {
       margin: "auto",
-      width: "40%",
-      zIndex:"0"
+      width: "40%"
     };
+    const cssOverride = {
+      zIndex:"0"
+    }
     let sortField = this.props.apic.sortBy.field;
     let buttonLabel = (textValue)=>{
       switch(textValue){
@@ -104,7 +106,7 @@ class TransferRate extends Component {
     return (
       <div style={divStyles}>
         <form onSubmit= {e =>{this.preventDefault(e)}}>
-          <FormGroup validationState={validationStatus()}>
+          <FormGroup validationState={validationStatus()} bsClass={cssOverride}>
              <InputGroup>
                <FormControl placeholder="Enter Device Name..." type="text" onChange={formInput()}/>
                <DropdownButton
