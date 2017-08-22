@@ -164,8 +164,7 @@ export default class Table extends Component {
         width                 : '920px',
         transform             : 'translate(-50%, -50%)',
         backgroundSize        : 'contain',
-        opacity               : '100',
-        zIndex                : '4'
+        opacity               : '100'
       }
     };
 

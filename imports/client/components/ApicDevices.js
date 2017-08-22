@@ -129,11 +129,14 @@ class TransferRate extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
+    const divStyles2 = {
+      zIndex:"5"
+    };
     //console.log(this);
     return(
       <div style={divStyles}>
         {this.form()}
-        <Layout {... this.props}/>
+        <Layout style = {divStyles2} {... this.props}/>
       </div>
     )
   }
