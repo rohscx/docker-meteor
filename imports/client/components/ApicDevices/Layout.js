@@ -44,16 +44,15 @@ export default class Table extends Component {
         <div> No Data</div>
       )
     } else {
-      console.log("VLAN",vlanObj)
-      let temp = [];
+      let tempArray = [];
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
-          temp.push(<div key={Math.random()}>{key}" "{value}</div>)
+          tempArray.push(<div key={Math.random()}>{key} {value}</div>)
         }
       })
-      return temp.map((data)=>{
+      return tempArray.map((data)=>{
         return data;
       })
       }
