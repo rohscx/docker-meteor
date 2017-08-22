@@ -183,6 +183,9 @@ Meteor.publish('apicDevices', function() {
       const lastUpdateTime = data.lastUpdateTime;
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+      const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+      const vlanInfo = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+      console.log(vlanInfo)
       data.normalizeHostName = normalize;
       const dbDelete = () =>{
         return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
@@ -196,7 +199,7 @@ Meteor.publish('apicDevices', function() {
           }
         });
       }
-      
+
       dbDelete();
       dbInsert();
     }))
