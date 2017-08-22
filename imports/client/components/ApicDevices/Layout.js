@@ -67,7 +67,9 @@ export default class Table extends Component {
               </tr>
             </thead>
             <tbody>
+              <tr>
               {tdArray}
+            </tr>
             </tbody>
           </table>
         </div>
