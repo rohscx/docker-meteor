@@ -192,7 +192,7 @@ export default class Table extends Component {
             contentLabel="APIC Modal"
           >
             <div style={divFlexBox}>
-              {()=>{this.vlanData(this.state.modalData)}}
+              {this.vlanData(this.state.modalData)}
             </div>
           </Modal>
         </div>
