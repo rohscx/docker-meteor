@@ -45,17 +45,19 @@ export default class Table extends Component {
       )
     } else {
       console.log("VLAN",vlanObj)
-      return vlanObj.map((data,key)=>{
-        let temp = ""
+      let temp = [];
+      vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
           let vlanInfo = key+" "+value;
           console.log(vlanInfo)
-          temp += ( <div key={Math.random()}>{key}" "{value}</div>)
+          temp.push( <div key={Math.random()}>{key}" "{value}</div>)
         }
-        return temp
+        })
+      }
+      temp.map((data)=>{
+        return data;
       })
     }
-  }
 
   returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
