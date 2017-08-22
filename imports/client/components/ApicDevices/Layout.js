@@ -44,7 +44,7 @@ export default class Table extends Component {
         <div> No Data</div>
       )
     } else {
-
+      console.log(vlanObj)
       return vlanObj.map((data,key)=>{
         let thArray = [];
         let tdArray = [];
