@@ -47,8 +47,6 @@ export default class Table extends Component {
       let tempArray = [];
       vlanObj.map((data,key)=>{
         for (var [key, value] of Object.entries(data)) {
-          let vlanInfo = key+" "+value;
-          console.log(vlanInfo)
           tempArray.push(<div key={Math.random()}>{key} {value}</div>)
         }
       })
