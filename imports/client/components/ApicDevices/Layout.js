@@ -52,11 +52,11 @@ export default class Table extends Component {
           console.log(vlanInfo)
           temp.push( <div key={Math.random()}>{key}" "{value}</div>)
         }
-        })
-      }
+      })
       temp.map((data)=>{
         return data;
       })
+      }
     }
 
   returnLayout() {
