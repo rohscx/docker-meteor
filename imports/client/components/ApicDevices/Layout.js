@@ -165,7 +165,8 @@ export default class Table extends Component {
         transform             : 'translate(-50%, -50%)',
         backgroundSize        : 'contain',
         opacity               : '100'
-      }
+      },
+      overlay:{zIndex:5}
     };
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
