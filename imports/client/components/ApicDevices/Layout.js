@@ -83,7 +83,6 @@ export default class Table extends Component {
             for (var [key, value] of Object.entries(data)) {
               let vlanInfo = key+" "+value;
               console.log(vlanInfo)
-              dataToReturn += '/br';
               dataToReturn += vlanInfo;
             }
           })
@@ -142,6 +141,16 @@ export default class Table extends Component {
     return(
       <div>
         {this.returnLayout()}
+        <div className="modal modal-content modal-responsive">
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+            contentLabel="PRTG Modal"
+          >
+            daaatastafsd
+          </Modal>
       </div>
     )
   }
