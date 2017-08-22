@@ -191,7 +191,11 @@ Meteor.publish('apicDevices', function() {
         } else {
           const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
           const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
-          return data.vlanDetail = vlanDetail.data.response;
+          if (vlanDetail.statusCode == 200){
+            return data.vlanDetail = vlanDetail.data.response;
+          } else {
+            return data.vlanDetail = null;
+          }        
         }
       }
       const dbDelete = () =>{
