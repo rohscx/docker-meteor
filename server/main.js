@@ -161,7 +161,7 @@ import '../imports/api/prime';
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
-    console.log("Apic Data Publish on client %s Counter: %s",clientIdent.setIp(this.connection.clientAddress),counter);
+    console.log("Apic Data Publish on client Counter: %s",counter);
     return poll();
   },300000)
   poll()
