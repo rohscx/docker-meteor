@@ -249,29 +249,7 @@ Meteor.publish('apicDevices', function() {
   let clientId = false;
   let counter = 0;
   const self = this;
-  const timeNow = Math.round(new Date().getTime() / 1000);
-  const dateTime = new Date();
-  const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
-  const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
-  const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
 
-  const clientIdent = {
-    clientIp: "",
-    clientId:false,
-    setIp: function(ip){
-      if (this.clientId === false){
-        this.clientId = ip+" : "+Random.id();
-        //console.log("data",this.clientId);
-        return this.clientId;
-      } else {
-        //console.log("data",this.clientId);
-        return this.clientId;
-      }
-    }
-  }
-  const countCollections = ()=>{
-    return ItemsApicDevices.find().count();
-  }
   const miniMongo = ()=>{
     return ItemsApicDevices.find(
       {},
@@ -295,92 +273,6 @@ Meteor.publish('apicDevices', function() {
 
   console.log("apicDevices Count: ",countCollections());
 
-  const apicTicketUrn = '/api/v1/ticket';
-  const ticketUrl = baseUrl + apicTicketUrn;
-  const apicTicketOptions = {
-    headers: { 'content-type': 'application/json' },
-    data: {username: uName, password: uPass}
-  };
-  let apicDevicesUrn = "/api/v1/network-device";
-  let devicesUrl = baseUrl + apicDevicesUrn;
-  let ticketIdleTimeout = 0;
-  let ticketSessionTimeout = 0;
-  let oldApicTicket = "";
-
-  const apicTicket = ()=>{
-    const setTimeouts = (idleTimeout,sessionTimeout) =>{
-      ticketIdleTimeout = timeNow + idleTimeout;
-      ticketSessionTimeout = timeNow + sessionTimeout;
-      console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
-      //console.log("Requesting New ticket: ", oldApicTicket)
-    }
-    if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
-      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-      oldApicTicket = httpRequest.data.response.serviceTicket;
-      setTimeouts(1800,21600);
-      console.log("New Ticket: ",oldApicTicket)
-      return httpRequest.data.response.serviceTicket;
-    } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
-      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-      oldApicTicket = httpRequest.data.response.serviceTicket;
-      setTimeouts(1800,21600);
-      console.log("Ticket expired requesting new Ticket: ",oldApicTicket)
-      return httpRequest.data.response.serviceTicket;
-    } else {
-      console.log("Using Existing Ticket: ",oldApicTicket)
-      return oldApicTicket;
-    }
-  }
-  const apicDevicesOptions = {
-    headers: {
-      'content-type': 'application/json',
-      'x-auth-token': apicTicket()
-    }
-  };
-
-  async function httpRequest(method,url,options){
-    const httpDevices = await Meteor.call('httpRequest', method,url,options);
-    const apicDevices = await httpDevices.data.response;
-    return await Promise.all(apicDevices.map((data)=>{
-      const managementIpAddress = data.managementIpAddress;
-      const lastUpdateTime = data.lastUpdateTime;
-      const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
-      const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-      data.normalizeHostName = normalize;
-      const vlanDetail = ()=>{
-        if (data.family == "Unified AP"){
-          return data.vlanDetail = null;
-        } else {
-          const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
-          const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
-          if (vlanDetail.statusCode == 200){
-            if (vlanDetail.data.response.length <= 0){
-              return data.vlanDetail = null;
-            } else {
-              return data.vlanDetail = vlanDetail.data.response;
-            }
-          } else {
-            return data.vlanDetail = null;
-          }
-        }
-      }
-      const dbDelete = () =>{
-        return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-      }
-      const dbInsert = ()=>{
-        ItemsApicDevices.insert({
-          siteData: {
-            dataObj: data,
-            requestTime: timeNow,
-            dateTime: dateTime
-          }
-        });
-      }
-      dbDelete();
-      vlanDetail();
-      dbInsert();
-    }))
-  }
   const poll = () => {
     return miniMongo();
   }
