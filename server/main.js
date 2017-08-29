@@ -249,6 +249,20 @@ Meteor.publish('apicDevices', function() {
   let clientId = false;
   let counter = 0;
   const self = this;
+  const clientIdent = {
+    clientIp: "",
+    clientId:false,
+    setIp: function(ip){
+      if (this.clientId === false){
+        this.clientId = ip+" : "+Random.id();
+        //console.log("data",this.clientId);
+        return this.clientId;
+      } else {
+        //console.log("data",this.clientId);
+        return this.clientId;
+      }
+    }
+  }
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
