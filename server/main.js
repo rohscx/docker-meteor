@@ -165,7 +165,7 @@ import '../imports/api/prime';
     return poll();
   },300000)
   poll()
-})
+})()
 
 
 
