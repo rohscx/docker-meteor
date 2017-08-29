@@ -16,7 +16,7 @@ import '../imports/api/prime';
 
 
 
-()=>{
+(()=>{
   let clientId = false;
   let counter = 0;
   const self = this;
@@ -165,7 +165,7 @@ import '../imports/api/prime';
     return poll();
   },300000)
   poll()
-}
+})
 
 
 
