@@ -14,6 +14,168 @@ import '../imports/api/transferRate';
 import '../imports/api/apic';
 import '../imports/api/prime';
 
+
+
+()=>{
+  let clientId = false;
+  let counter = 0;
+  const self = this;
+  const timeNow = Math.round(new Date().getTime() / 1000);
+  const dateTime = new Date();
+  const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+  const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
+  const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+
+  const clientIdent = {
+    clientIp: "",
+    clientId:false,
+    setIp: function(ip){
+      if (this.clientId === false){
+        this.clientId = ip+" : "+Random.id();
+        //console.log("data",this.clientId);
+        return this.clientId;
+      } else {
+        //console.log("data",this.clientId);
+        return this.clientId;
+      }
+    }
+  }
+  const countCollections = ()=>{
+    return ItemsApicDevices.find().count();
+  }
+
+  console.log("apicDevices Count: ",countCollections());
+
+  const apicTicketUrn = '/api/v1/ticket';
+  const ticketUrl = baseUrl + apicTicketUrn;
+  const apicTicketOptions = {
+    headers: { 'content-type': 'application/json' },
+    data: {username: uName, password: uPass}
+  };
+  let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
+  let ticketIdleTimeout = 0;
+  let ticketSessionTimeout = 0;
+  let oldApicTicket = "";
+
+  const apicTicket = ()=>{
+    const setTimeouts = (idleTimeout,sessionTimeout) =>{
+      ticketIdleTimeout = timeNow + idleTimeout;
+      ticketSessionTimeout = timeNow + sessionTimeout;
+      console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+      //console.log("Requesting New ticket: ", oldApicTicket)
+    }
+    if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
+      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+      oldApicTicket = httpRequest.data.response.serviceTicket;
+      setTimeouts(1800,21600);
+      console.log("New Ticket: ",oldApicTicket)
+      return httpRequest.data.response.serviceTicket;
+    } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
+      let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+      oldApicTicket = httpRequest.data.response.serviceTicket;
+      setTimeouts(1800,21600);
+      console.log("Ticket expired requesting new Ticket: ",oldApicTicket)
+      return httpRequest.data.response.serviceTicket;
+    } else {
+      console.log("Using Existing Ticket: ",oldApicTicket)
+      return oldApicTicket;
+    }
+  }
+  const apicDevicesOptions = {
+    headers: {
+      'content-type': 'application/json',
+      'x-auth-token': apicTicket()
+    }
+  };
+
+  async function httpRequest(method,url,options){
+    const httpDevices = await Meteor.call('httpRequest', method,url,options);
+    const apicDevices = await httpDevices.data.response;
+    return await Promise.all(apicDevices.map((data)=>{
+      const managementIpAddress = data.managementIpAddress;
+      const lastUpdateTime = data.lastUpdateTime;
+      const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
+      const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+      data.normalizeHostName = normalize;
+      const vlanDetail = ()=>{
+        if (data.family == "Unified AP"){
+          return data.vlanDetail = null;
+        } else {
+          const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+          const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+          if (vlanDetail.statusCode == 200){
+            if (vlanDetail.data.response.length <= 0){
+              return data.vlanDetail = null;
+            } else {
+              return data.vlanDetail = vlanDetail.data.response;
+            }
+          } else {
+            return data.vlanDetail = null;
+          }
+        }
+      }
+      const dbDelete = () =>{
+        return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+      }
+      const dbInsert = ()=>{
+        ItemsApicDevices.insert({
+          siteData: {
+            dataObj: data,
+            requestTime: timeNow,
+            dateTime: dateTime
+          }
+        });
+      }
+      dbDelete();
+      vlanDetail();
+      dbInsert();
+    }))
+  }
+  const poll = () => {
+    if (countCollections() <= 0){
+      console.log("Apic Devices DB Empty Requesting data")
+      httpRequest("GET",devicesUrl,apicDevicesOptions)
+      if (countCollections() >= 500){
+        console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+        apicDevicesUrn = "/api/v1/network-device/501/500";
+        httpRequest("GET",devicesUrl,apicDevicesOptions)
+      }
+    } else {
+      const currentTimeEpoch = Math.round(new Date().getTime()/1000);
+      // returns the oldest DB items epoch timestamp
+      const oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
+      const oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
+      if (currentTimeEpoch - oldestDocumentEpoch > 120) {
+        //ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
+        console.log("Apic Devices DB STALE Requesting NEW data")
+        httpRequest("GET",devicesUrl,apicDevicesOptions)
+        if (countCollections() >= 500){
+          console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+          apicDevicesUrn = "/api/v1/network-device/501/500";
+          devicesUrl = baseUrl + apicDevicesUrn;
+          httpRequest("GET",devicesUrl,apicDevicesOptions)
+        }
+      }
+    }
+  }
+  const intervalId = Meteor.setInterval(()=>{
+    counter++;
+    console.log("Apic Data Publish on client %s Counter: %s",clientIdent.setIp(this.connection.clientAddress),counter);
+    return poll();
+  },300000)
+  poll()
+}
+
+
+
+
+
+
+
+
+
+
 //publish user data in mini mongo
 Meteor.publish('currentUser', function() {
   return Meteor.users.find({_id: this.userID}, {
@@ -220,33 +382,7 @@ Meteor.publish('apicDevices', function() {
     }))
   }
   const poll = () => {
-    if (countCollections() <= 0){
-      console.log("Apic Devices DB Empty Requesting data")
-      httpRequest("GET",devicesUrl,apicDevicesOptions)
-      if (countCollections() >= 500){
-        console.log("over 9000!!! actually it's only only over 500 Devices!!!")
-        apicDevicesUrn = "/api/v1/network-device/501/500";
-        httpRequest("GET",devicesUrl,apicDevicesOptions)
-      }
-      return miniMongo();
-    } else {
-      const currentTimeEpoch = Math.round(new Date().getTime()/1000);
-      // returns the oldest DB items epoch timestamp
-      const oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
-      const oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
-      if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-        //ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
-        console.log("Apic Devices DB STALE Requesting NEW data")
-        httpRequest("GET",devicesUrl,apicDevicesOptions)
-        if (countCollections() >= 500){
-          console.log("over 9000!!! actually it's only only over 500 Devices!!!")
-          apicDevicesUrn = "/api/v1/network-device/501/500";
-          devicesUrl = baseUrl + apicDevicesUrn;
-          httpRequest("GET",devicesUrl,apicDevicesOptions)
-        }
-      }
-      return miniMongo()
-    }
+    return miniMongo();
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
