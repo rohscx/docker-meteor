@@ -249,7 +249,9 @@ Meteor.publish('apicDevices', function() {
   let clientId = false;
   let counter = 0;
   const self = this;
-
+  const countCollections = ()=>{
+    return ItemsApicDevices.find().count();
+  }
   const miniMongo = ()=>{
     return ItemsApicDevices.find(
       {},
