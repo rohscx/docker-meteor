@@ -126,10 +126,10 @@ import '../imports/api/prime';
       }
       const dbDelete = () =>{
       ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-      vlanDetail();
-      dbInsert();
       }
       dbDelete();
+      vlanDetail();
+      dbInsert();
     }))
   }
   const poll = () => {
