@@ -137,6 +137,7 @@ import '../imports/api/prime';
       httpRequest("GET",devicesUrl,apicDevicesOptions)
       if (countCollections() >= 500){
         console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+        console.log(devicesUrl)
         apicDevicesUrn = "/api/v1/network-device/501/500";
         httpRequest("GET",devicesUrl,apicDevicesOptions)
       }
