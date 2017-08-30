@@ -117,7 +117,7 @@ import '../imports/api/prime';
       }
       const dbDelete = () =>{
         //return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-        return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress});
+        return ItemsApicDevices.remove({});
       }
       const dbInsert = ()=>{
         ItemsApicDevices.insert({
