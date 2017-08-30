@@ -133,7 +133,6 @@ import '../imports/api/prime';
     }))
   }
   const poll = () => {
-    if (countCollections() <= 0){
       console.log("Apic Devices DB Empty Requesting data")
       httpRequest("GET",devicesUrl,apicDevicesOptions)
       if (countCollections() >= 500){
@@ -141,23 +140,6 @@ import '../imports/api/prime';
         apicDevicesUrn = "/api/v1/network-device/501/500";
         httpRequest("GET",devicesUrl,apicDevicesOptions)
       }
-    } else {
-      const currentTimeEpoch = Math.round(new Date().getTime()/1000);
-      // returns the oldest DB items epoch timestamp
-      const oldestDocument = ItemsApicDevices.find({},{sort:{"siteData.requestTime": -1},fields:{"siteData.requestTime": 1,_id:0},limit:1}).fetch();
-      const oldestDocumentEpoch = oldestDocument[0].siteData.requestTime;
-      if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-        //ItemsApicDevices.remove({"siteData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
-        console.log("Apic Devices DB STALE Requesting NEW data")
-        httpRequest("GET",devicesUrl,apicDevicesOptions)
-        if (countCollections() >= 500){
-          console.log("over 9000!!! actually it's only only over 500 Devices!!!")
-          apicDevicesUrn = "/api/v1/network-device/501/500";
-          devicesUrl = baseUrl + apicDevicesUrn;
-          httpRequest("GET",devicesUrl,apicDevicesOptions)
-        }
-      }
-    }
   }
   const intervalId = Meteor.setInterval(()=>{
     counter++;
