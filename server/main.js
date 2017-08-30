@@ -115,10 +115,6 @@ import '../imports/api/prime';
           }
         }
       }
-      const dbDelete = () =>{
-        //return ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-        return ItemsApicDevices.remove({});
-      }
       const dbInsert = ()=>{
         ItemsApicDevices.insert({
           siteData: {
@@ -128,9 +124,12 @@ import '../imports/api/prime';
           }
         });
       }
-      dbDelete();
+      const dbDelete = () =>{
+      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       vlanDetail();
       dbInsert();
+      }
+      dbDelete();
     }))
   }
   const poll = () => {
