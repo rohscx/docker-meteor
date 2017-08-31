@@ -128,7 +128,8 @@ import '../imports/api/prime';
         });
       }
       const dbDelete = () =>{
-      console.log("SHABA",findItem(managementIpAddress));
+      let test = findItem(managementIpAddress);
+      console.log("SHABA",test.siteData.dataObj.managementIpAddress;
       ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
       dbDelete();
