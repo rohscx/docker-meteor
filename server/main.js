@@ -40,8 +40,8 @@ import '../imports/api/prime';
       }
     }
   }
-  const findItem = (key)=>{
-    return ItemsApicDevices.findOne({"siteData.dataObj.id":key});
+  const findItem = (value)=>{
+    return ItemsApicDevices.findOne({"siteData.dataObj.id":value});
   }
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
@@ -96,7 +96,8 @@ import '../imports/api/prime';
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices.data.response;
     return await Promise.all(apicDevices.map((data)=>{
-      const apicDeviceId = data.id;
+      const managementIpAddress = data.managementIpAddress;
+      const deviceId = data.id;
       const lastUpdateTime = data.lastUpdateTime;
       const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
       const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
@@ -128,13 +129,13 @@ import '../imports/api/prime';
         });
       }
       const dbDelete = () =>{
-      let test = findItem(apicDeviceId);
+      let test = findItem(deviceId);
       console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
       if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
         console.log("INDIA")
       } else {
         console.log("FourGold Chains")
-        ItemsApicDevices.remove({"siteData.dataObj.id":apicDeviceId});
+        ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
       }
       //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
