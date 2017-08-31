@@ -130,11 +130,8 @@ import '../imports/api/prime';
       }
       const dbDelete = () =>{
       let test = findItem(deviceId);
-
-      if (test.lenth <= 0) {
-        console.log("skipping", deviceId)
-      } else if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
-        console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
+      console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
+      if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
         console.log("INDIA")
       } else {
         console.log("FourGold Chains")
@@ -142,7 +139,9 @@ import '../imports/api/prime';
       }
       //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
-      dbDelete();
+      if (countCollections() >= 1 ) {
+        dbDelete();
+      }
       vlanDetail();
       dbInsert();
     }))
