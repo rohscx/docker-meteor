@@ -129,16 +129,16 @@ import '../imports/api/prime';
         });
       }
       const dbDelete = () =>{
-      let test = findItem(deviceId);
-
-
-
-
-      if (test === undefined) {
-        console.log("undefined")
-      } else if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
-        console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
+      let dbMatch = findItem(deviceId);
+      // check for undefined, these do not exist in the db
+      if (dbMatch === undefined) {
+        // debug
+        //console.log("undefined")
+        // if there is a match compare the lastUpdateTimes, if they match it skips
+      } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
+        console.log("SHABA",dbMatch.siteData.dataObj.lastUpdateTime);
         console.log("INDIA")
+        // remove matches that fail the lastUpdateTime comparison
       } else {
         console.log("FourGold Chains")
         ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
