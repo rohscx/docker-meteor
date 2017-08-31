@@ -40,6 +40,9 @@ import '../imports/api/prime';
       }
     }
   }
+  const findItem = (item)=>{
+    return ItemsApicDevices.findOne({"siteData.dataObj.managementIpAddress":item});
+  }
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
@@ -125,6 +128,7 @@ import '../imports/api/prime';
         });
       }
       const dbDelete = () =>{
+      console.log("SHABA",findItem(managementIpAddress));
       ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
       dbDelete();
