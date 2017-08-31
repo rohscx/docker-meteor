@@ -125,11 +125,7 @@ import '../imports/api/prime';
         });
       }
       const dbDelete = () =>{
-        console.log("Datablob",ItemsApicDevices.findOne({"siteData.dataObj.managementIpAddress":managementIpAddress}))
-        ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-        if (lastUpdateTime == dataBlob.siteData.dataObj.lastUpdateTime){
-          console.log("Blob data ",lastUpdateTime +" "+dataBlob.siteData.dataObj.lastUpdateTime)
-        }
+      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
       dbDelete();
       vlanDetail();
