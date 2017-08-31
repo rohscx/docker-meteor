@@ -130,6 +130,7 @@ import '../imports/api/prime';
       }
       const dbDelete = () =>{
       let test = findItem(deviceId);
+      console.log("TEST", test)
       console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
       if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
         console.log("INDIA")
