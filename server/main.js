@@ -128,28 +128,30 @@ import '../imports/api/prime';
           }
         });
       }
-      const dbDelete = () =>{
+      const dbTasks = () =>{
       let dbMatch = findItem(deviceId);
       // check for undefined, these do not exist in the db
       if (dbMatch === undefined) {
         // debug
-        //console.log("undefined")
+        console.log("undefined")
         // if there is a match compare the lastUpdateTimes, if they match it skips
+        vlanDetail();
+        dbInsert();
       } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
         // debug
-        //console.log("SHABA",dbMatch.siteData.dataObj.lastUpdateTime);
-        //console.log("INDIA")
+        //console.log("Match Found",dbMatch.siteData.dataObj.lastUpdateTime);
+        console.log("equality")
         // remove matches that fail the lastUpdateTime comparison
       } else {
         // debug
-        //console.log("FourGold Chains")
+        console.log("unequal")
         ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
+        vlanDetail();
+        dbInsert();
       }
       //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
-      dbDelete();
-      vlanDetail();
-      dbInsert();
+      dbTasks();
     }))
   }
   const poll = () => {
