@@ -126,7 +126,8 @@ import '../imports/api/prime';
       }
       const dbDelete = () =>{
         let dataBlob = ItemsApicDevices.findOne({"siteData.dataObj.managementIpAddress":managementIpAddress});
-
+        console.log("Datablob",dataBlob)
+        console.log("Blob data ",lastUpdateTime +" "+dataBlob.siteData.dataObj.lastUpdateTime)
         ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
         if (lastUpdateTime == dataBlob.siteData.dataObj.lastUpdateTime){
           console.log("Blob data ",lastUpdateTime +" "+dataBlob.siteData.dataObj.lastUpdateTime)
