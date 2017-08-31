@@ -132,8 +132,11 @@ import '../imports/api/prime';
       console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
       if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
         console.log("INDIA")
+      } else {
+        console.log("FourGold Chains")
+        ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress});
       }
-      ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+      //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
       dbDelete();
       vlanDetail();
