@@ -136,11 +136,13 @@ import '../imports/api/prime';
         //console.log("undefined")
         // if there is a match compare the lastUpdateTimes, if they match it skips
       } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
-        console.log("SHABA",dbMatch.siteData.dataObj.lastUpdateTime);
-        console.log("INDIA")
+        // debug
+        //console.log("SHABA",dbMatch.siteData.dataObj.lastUpdateTime);
+        //console.log("INDIA")
         // remove matches that fail the lastUpdateTime comparison
       } else {
-        console.log("FourGold Chains")
+        // debug
+        //console.log("FourGold Chains")
         ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
       }
       //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
