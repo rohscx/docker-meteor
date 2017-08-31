@@ -130,6 +130,9 @@ import '../imports/api/prime';
       const dbDelete = () =>{
       let test = findItem(managementIpAddress);
       console.log("SHABA",test.siteData.dataObj.lastUpdateTime);
+      if (test.siteData.dataObj.lastUpdateTime == lastUpdateTime){
+        console.log("INDIA")
+      }
       ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
       }
       dbDelete();
