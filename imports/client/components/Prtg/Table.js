@@ -45,7 +45,7 @@ export default class Table extends Component {
         }
       }
       return (
-        <tr key={data._id} onClick={()=>{this.openModal({newData})}}>
+        <tr key={data._id} onClick={()=>{this.openModal({newData})}} style={{cursor:"pointer"}}>
         <td>{newData.group}</td>
         <td>{newData.device}</td>
         <td className={statusDanger()}> {newData.status}</td>
