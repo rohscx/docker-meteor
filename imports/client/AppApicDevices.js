@@ -58,7 +58,7 @@ ItemsApicDevices.deny({
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    //console.log(this);
+    console.log(this);
     if (!this.props.ready) {
       return <div>Loading Application...</div>
     }
@@ -100,6 +100,8 @@ export default createContainer(({params}) => {
     sortObj["sort"] = keyObj;
     // debug
     //console.log(sortObj)
+    let test = ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
+    console.log("Count Test", test)
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},sortObj).fetch();
   }
   return {
