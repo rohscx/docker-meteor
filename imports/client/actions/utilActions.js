@@ -40,6 +40,23 @@ export function setDnsSuffix(value) {
   };
 }
 
+export function setFiaTrace(blob) {
+  return {
+    type: "SET_FIATRACE",
+    payload: blob
+  };
+}
+
+
+export function fiaTrace(srcIp, dstIp, srcInt ) {
+  return dispatch => {
+	return dispatch(setFiaTrace({
+		sourceIp: srcIp,
+		destinationIP: dstIp,
+		sourceInt: srcInt
+	}));
+  }
+ }
 
 export function dnsSuffix(suffix) {
   return dispatch => {
