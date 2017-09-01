@@ -38,6 +38,47 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
+  fiaTrace(deviceBlob){
+    let renderMe = (srcIP,dstIP,dstInt)=>{
+      const textIdent = {
+        textIndent: "50px"
+      }
+      return (
+        <div>
+          <p>
+            no ip access-list acl-fia <br/>
+            ip access-list acl-fia <br/>
+            <div style={textIdent}>
+              permit ip {srcIP} {dstIP} <br/>
+              permit ip {dstIP} {srcIP} <br/>
+            </div>
+          </p>
+          <p>
+            debug platform condition ipv4 access-list acl-fia both <br/>
+            debug platform condition start <br/>
+            debug platform packet-trace packet 1024 fiaTrace <br/>
+            debug platform packet-trace enable <br/>
+          </p>
+          <p>
+            no ip access-list acl-fia <br/>
+            no debug platform condition ipv4 access-list acl-fia both <br/>
+            no debug platform condition start <br/>
+            no debug platform packet-trace packet 1024 fiaTrace <br/>
+            no debug platform packet-trace enable <br/>
+            undebug all <br/>
+          </p>
+        </div>
+      )
+    }
+    <form>
+      <FormGroup>
+        <FormControl type="text" placeholder="Source IP" />
+        <FormControl type="text" placeholder="Destination IP" />
+        <FormControl type="text" placeholder="Source Interface" />
+      </FormGroup>
+    </form>
+    }
+
   vlanData(vlanObj){
     let renderMe = (renderData1,renderData2)=>{
       return (
