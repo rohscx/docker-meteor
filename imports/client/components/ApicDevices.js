@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
-import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions'
+import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
+import { fiaTrace } from '../actions/utilctions'
 
 class TransferRate extends Component {
   constructor() {
@@ -155,6 +156,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     apicDbReady: (status) => {
       dispatch(apicDbReady(status));
+    },
+    fiaTrace: (srcIp, dstIp, srcInt) => {
+      dispatch(fiaTrace(srcIp, dstIp, srcInt));
     },
   };
 };

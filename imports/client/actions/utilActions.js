@@ -48,7 +48,7 @@ export function setFiaTrace(blob) {
 }
 
 
-export function fiaTrace(srcIp, dstIp, srcInt ) {
+export function fiaTrace(srcIp, dstIp, srcInt) {
   return dispatch => {
 	return dispatch(setFiaTrace({
 		sourceIp: srcIp,
