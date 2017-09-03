@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
-import { sortBy } from '../actions/apicActions';
-import { apicDevicesFind, apicDbReady } from '../actions/apicActions'
+import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions'
 
 class TransferRate extends Component {
   constructor() {
