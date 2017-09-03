@@ -20,7 +20,12 @@ const utilReducer = (state = {
     field:"aca",
     order: 1
   },
-  dnsSuffix: ".fpi.fpir.pvt"
+  dnsSuffix: ".fpi.fpir.pvt",
+  fiaTrace:{
+    sourceIp:null,
+    destinationIP:null,
+    sourceInt: null
+  },
 }, action) => {
   switch (action.type) {
     case "MAC_VALIDATION":
@@ -51,6 +56,12 @@ const utilReducer = (state = {
     state = {
       ...state,
       dnsSuffix: action.payload
+    };
+    break;
+    case "SET_FIATRACE":
+    state = {
+      ...state,
+      fiaTrace: action.payload
     };
     break;
   }
