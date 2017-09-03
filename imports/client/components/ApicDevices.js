@@ -5,7 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 're
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
-import { fiaTrace } from '../actions/utilctions'
+import { fiaTrace } from '../actions/utilActions'
 
 class TransferRate extends Component {
   constructor() {
