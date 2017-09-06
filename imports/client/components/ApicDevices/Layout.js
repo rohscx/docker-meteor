@@ -40,10 +40,8 @@ export default class Table extends Component {
   }
 
   fiaTrace(){
-    let renderMe = ()=>{
-      const textIdent = {
-        textIndent: "50px"
-      }
+    const textIdent = {
+      textIndent: "50px"
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
