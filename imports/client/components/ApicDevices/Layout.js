@@ -53,22 +53,22 @@ export default class Table extends Component {
               <b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/>
             </p>
           <p>
-            !PRIVLEGED EXEC
+            !PRIVLEGED EXEC <br/>
             debug platform condition ipv4 access-list acl-fia both <br/>
             debug platform condition start <br/>
             debug platform packet-trace packet 1024 fiaTrace <br/>
             debug platform packet-trace enable <br/>
           </p>
           <p>
-            !PRIVLEGED EXEC
+            !PRIVLEGED EXEC <br/>
             show platform all <br/>
             show platform packet-trace summary <br/>
             show platform packet-trace packet1 <br/>
           </p>
           <p>
-            !GLOBAL CONFIGURATION MODE
+            !GLOBAL CONFIGURATION MODE <br/>
             no ip access-list extended acl-fia <br/>
-            !PRIVLEGED EXEC
+            !PRIVLEGED EXEC <br/>
             no debug platform condition ipv4 access-list acl-fia both <br/>
             no debug platform condition start <br/>
             no debug platform packet-trace packet 1024 fiaTrace <br/>
