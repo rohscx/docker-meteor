@@ -48,7 +48,7 @@ export default class Table extends Component {
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
             <p style={textIdent}>
-              permit ip <b contentEditable="true">srcIP</b> <b contentEditable="true">dstIP</b><br/>
+              permit ip <b contentEditable="true">clickToEdit</b> <b contentEditable="true">clickToEdit</b><br/>
             </p>
           <p>
             debug platform condition ipv4 access-list acl-fia both <br/>
@@ -179,7 +179,7 @@ export default class Table extends Component {
               {fiaDetail(role) ?
                 <ButtonToolbar>
                   <OverlayTrigger trigger="click" placement="bottom" overlay={this.fiaTrace()}>
-                    <Button>TestMe</Button>
+                    <Button>fiaTrace</Button>
                   </OverlayTrigger>
                 </ButtonToolbar> : ""}
             </Row>
