@@ -51,7 +51,7 @@ export default class Table extends Component {
               no ip access-list acl-fia <br/>
               ip access-list acl-fia <br/>
               <div style={textIdent}>
-                permit ip \<srcIP\> \<dstIP\><br/>
+                permit ip srcIP dstIP<br/>
               </div>
             </p>
             <p>
