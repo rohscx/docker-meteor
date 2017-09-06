@@ -5,7 +5,9 @@ import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'reac
 export default class Table extends Component {
   constructor() {
     super();
-
+    this.props = {
+      suppresscontentEditableWarning: true
+    }
     this.state = {
       modalIsOpen: false,
       modalData: null,
@@ -48,7 +50,7 @@ export default class Table extends Component {
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
             <p style={textIdent}>
-              permit ip <b contentEditable="true" suppresscontentEditableWarning="true">clickToEdit</b> <b contentEditable="true" suppresscontentEditableWarning="true">clickToEdit</b><br/>
+              permit ip <b contentEditable="true">clickToEdit</b> <b contentEditable="true">clickToEdit</b><br/>
             </p>
           <p>
             debug platform condition ipv4 access-list acl-fia both <br/>
