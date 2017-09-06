@@ -56,7 +56,7 @@ export default class Table extends Component {
             debug platform packet-trace enable <br/>
           </p>
           <p>
-            no ip access-list acl-fia <br/>
+            no ip access-list extended acl-fia <br/>
             no debug platform condition ipv4 access-list acl-fia both <br/>
             no debug platform condition start <br/>
             no debug platform packet-trace packet 1024 fiaTrace <br/>
