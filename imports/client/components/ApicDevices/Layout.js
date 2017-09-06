@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
-import {Row,Col,Clearfix} from 'react-bootstrap';
+import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
 export default class Table extends Component {
   constructor() {
     super();
 
     this.state = {
       modalIsOpen: false,
-      modalData: null
+      modalData: null,
+      modalReturnData: null
     };
 
     this.openModal = this.openModal.bind(this);
@@ -38,46 +39,40 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  fiaTrace(deviceBlob){
-    let renderMe = (srcIP,dstIP,dstInt)=>{
+  fiaTrace(){
+    let renderMe = ()=>{
       const textIdent = {
         textIndent: "50px"
       }
       return (
-        <div>
-          <form>
-            <FormGroup>
-              <FormControl type="text" placeholder="Source IP" />
-              <FormControl type="text" placeholder="Destination IP" />
-              <FormControl type="text" placeholder="Source Interface" />
-            </FormGroup>
-          </form>
-          <p>
-            no ip access-list acl-fia <br/>
-            ip access-list acl-fia <br/>
-            <div style={textIdent}>
-              permit ip {srcIP} {dstIP} <br/>
-              permit ip {dstIP} {srcIP} <br/>
-            </div>
-          </p>
-          <p>
-            debug platform condition ipv4 access-list acl-fia both <br/>
-            debug platform condition start <br/>
-            debug platform packet-trace packet 1024 fiaTrace <br/>
-            debug platform packet-trace enable <br/>
-          </p>
-          <p>
-            no ip access-list acl-fia <br/>
-            no debug platform condition ipv4 access-list acl-fia both <br/>
-            no debug platform condition start <br/>
-            no debug platform packet-trace packet 1024 fiaTrace <br/>
-            no debug platform packet-trace enable <br/>
-            undebug all <br/>
-          </p>
-        </div>
+        <Popover id="popoverBottom" title="fiaTrace">
+          <div>
+            <p>
+              no ip access-list acl-fia <br/>
+              ip access-list acl-fia <br/>
+              <div style={textIdent}>
+                permit ip \<srcIP\> \<dstIP\><br/>
+              </div>
+            </p>
+            <p>
+              debug platform condition ipv4 access-list acl-fia both <br/>
+              debug platform condition start <br/>
+              debug platform packet-trace packet 1024 fiaTrace <br/>
+              debug platform packet-trace enable <br/>
+            </p>
+            <p>
+              no ip access-list acl-fia <br/>
+              no debug platform condition ipv4 access-list acl-fia both <br/>
+              no debug platform condition start <br/>
+              no debug platform packet-trace packet 1024 fiaTrace <br/>
+              no debug platform packet-trace enable <br/>
+              undebug all <br/>
+            </p>
+          </div>
+        </Popover>
       )
     }
-    }
+  }
 
   vlanData(vlanObj){
     let renderMe = (renderData1,renderData2)=>{
@@ -187,7 +182,12 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
-              {fiaDetail(role) ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(this.fiaTrace("BLOB"))}} style={{cursor:"pointer"}}><b>fiaTrace</b></Col> : ""}
+              {fiaDetail(role) ?
+                <ButtonToolbar>
+                  <OverlayTrigger trigger="click" placement="bottom" overlay={this.fiaTrace()}>
+                    <Button>TestMe</Button>
+                  </OverlayTrigger>
+                </ButtonToolbar> : ""}
             </Row>
           </div>
         )
