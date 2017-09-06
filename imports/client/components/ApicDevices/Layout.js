@@ -49,7 +49,7 @@ export default class Table extends Component {
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
             <div style={textIdent}>
-              permit ip <div contenteditable="true">srcIP</div> <div contenteditable="true">dstIP</div><br/>
+              permit ip <b contenteditable="true">srcIP</b> <b contenteditable="true">dstIP</b><br/>
             </div>
           </p>
           <p>
