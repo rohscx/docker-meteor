@@ -41,7 +41,7 @@ export default class Table extends Component {
 
   fiaTrace(){
     const textIdent = {
-      textIndent: "50px"
+      textIndent: "25px"
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
@@ -49,7 +49,7 @@ export default class Table extends Component {
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
             <div style={textIdent}>
-              permit ip srcIP dstIP<br/>
+              permit ip <div contenteditable="true">srcIP</div> <div contenteditable="true">dstIP</div><br/>
             </div>
           </p>
           <p>
