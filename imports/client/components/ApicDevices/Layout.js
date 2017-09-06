@@ -45,7 +45,6 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
-        <div>
           <p>
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
@@ -67,7 +66,6 @@ export default class Table extends Component {
             no debug platform packet-trace enable <br/>
             undebug all <br/>
           </p>
-        </div>
       </Popover>
     )
   }
