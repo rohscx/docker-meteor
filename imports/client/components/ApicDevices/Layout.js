@@ -45,13 +45,11 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
-          <p>
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
-            <div style={textIdent}>
+            <p style={textIdent}>
               permit ip <b contentEditable="true">srcIP</b> <b contentEditable="true">dstIP</b><br/>
-            </div>
-          </p>
+            </p>
           <p>
             debug platform condition ipv4 access-list acl-fia both <br/>
             debug platform condition start <br/>
