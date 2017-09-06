@@ -152,6 +152,13 @@ export default class Table extends Component {
         return ipAddress;
       }
     }
+    let fiaDetail = (deviceType) =>{
+      if (deviceType == "BORDER ROUTER") {
+        return true
+      } else {
+        return false
+      }
+    }
     if (findField.length >= 3 || findField == "."){
       //console.log(findField.length)
       //console.log(findField)
@@ -160,6 +167,7 @@ export default class Table extends Component {
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
+        let role = data.siteData.dataObj.role;
         let vlanInfo = (vlanArray) =>{
 
         }
@@ -179,6 +187,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
+              {fiaDetail(role) ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>fiaTrace</b></Col> : ""}}
             </Row>
           </div>
         )
