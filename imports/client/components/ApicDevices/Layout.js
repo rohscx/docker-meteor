@@ -45,6 +45,13 @@ export default class Table extends Component {
       }
       return (
         <div>
+          <form>
+            <FormGroup>
+              <FormControl type="text" placeholder="Source IP" />
+              <FormControl type="text" placeholder="Destination IP" />
+              <FormControl type="text" placeholder="Source Interface" />
+            </FormGroup>
+          </form>
           <p>
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
@@ -70,13 +77,6 @@ export default class Table extends Component {
         </div>
       )
     }
-    <form>
-      <FormGroup>
-        <FormControl type="text" placeholder="Source IP" />
-        <FormControl type="text" placeholder="Destination IP" />
-        <FormControl type="text" placeholder="Source Interface" />
-      </FormGroup>
-    </form>
     }
 
   vlanData(vlanObj){
