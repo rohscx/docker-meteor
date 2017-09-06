@@ -5,9 +5,6 @@ import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'reac
 export default class Table extends Component {
   constructor() {
     super();
-    this.props = {
-      suppresscontentEditableWarning: true
-    }
     this.state = {
       modalIsOpen: false,
       modalData: null,
@@ -49,7 +46,7 @@ export default class Table extends Component {
       <Popover id="popoverBottom" title="fiaTrace">
             no ip access-list acl-fia <br/>
             ip access-list acl-fia <br/>
-            <p style={textIdent}>
+            <p style={textIdent} suppresscontentEditableWarning={true}>
               permit ip <b contentEditable="true">clickToEdit</b> <b contentEditable="true">clickToEdit</b><br/>
             </p>
           <p>
