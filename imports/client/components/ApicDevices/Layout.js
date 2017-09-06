@@ -48,8 +48,8 @@ export default class Table extends Component {
             ip access-list extended acl-fia <br/>
             <p style={textIdent} >
               permit ip
-              <b contentEditable="true" suppressContentEditableWarning={true}>clickToEdit</b>
-              <b contentEditable="true" suppressContentEditableWarning={true}>clickToEdit</b><br/>
+              <b contentEditable="true" suppressContentEditableWarning={true}> 10.0.0.0 </b>
+              <b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/>
             </p>
           <p>
             debug platform condition ipv4 access-list acl-fia both <br/>
