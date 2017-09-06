@@ -187,7 +187,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
-              {fiaDetail(role) ? <Col xs={6} sm={6} md={4} onClick={()=>{}} style={{cursor:"pointer"}}><b>fiaTrace</b></Col> : ""}}
+              {fiaDetail(role) ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(fiaTrace("BLOB"))}} style={{cursor:"pointer"}}><b>fiaTrace</b></Col> : ""}
             </Row>
           </div>
         )
