@@ -44,9 +44,9 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
-            no ip access-list acl-fia <br/>
-            ip access-list acl-fia <br/>
-            <p style={textIdent} suppresscontentEditableWarning={true}>
+            no ip access-list extended acl-fia <br/>
+            ip access-list extended acl-fia <br/>
+            <p style={textIdent} suppressContentEditableWarning={true}>
               permit ip <b contentEditable="true">clickToEdit</b> <b contentEditable="true">clickToEdit</b><br/>
             </p>
           <p>
