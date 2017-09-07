@@ -95,66 +95,70 @@ import '../imports/api/prime';
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices;
-    return await Promise.all(apicDevices.data.response.map((data)=>{
-      console.log(apicDevices)
-      const managementIpAddress = data.managementIpAddress;
-      const deviceId = data.id;
-      const lastUpdateTime = data.lastUpdateTime;
-      const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
-      const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-      data.normalizeHostName = normalize;
-      const vlanDetail = ()=>{
-        if (data.family == "Unified AP"){
-          return data.vlanDetail = null;
-        } else {
-          const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
-          const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
-          if (vlanDetail.statusCode == 200){
-            if (vlanDetail.data.response.length <= 0){
-              return data.vlanDetail = null;
-            } else {
-              return data.vlanDetail = vlanDetail.data.response;
-            }
-          } else {
+    return await if (apicDevices.statusCode === 200) {
+      Promise.all(apicDevices.data.response.map((data)=>{
+        console.log(apicDevices)
+        const managementIpAddress = data.managementIpAddress;
+        const deviceId = data.id;
+        const lastUpdateTime = data.lastUpdateTime;
+        const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
+        const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+        data.normalizeHostName = normalize;
+        const vlanDetail = ()=>{
+          if (data.family == "Unified AP"){
             return data.vlanDetail = null;
+          } else {
+            const devicesVlanUrl = baseUrl + "/api/v1/network-device" +"/"+ data.id+"/vlan";
+            const vlanDetail = Meteor.call('apicHttpRequest',"GET",devicesVlanUrl,options);
+            if (vlanDetail.statusCode == 200){
+              if (vlanDetail.data.response.length <= 0){
+                return data.vlanDetail = null;
+              } else {
+                return data.vlanDetail = vlanDetail.data.response;
+              }
+            } else {
+              return data.vlanDetail = null;
+            }
           }
         }
-      }
-      const dbInsert = ()=>{
-        ItemsApicDevices.insert({
-          siteData: {
-            dataObj: data,
-            requestTime: timeNow,
-            dateTime: dateTime
-          }
-        });
-      }
-      const dbTasks = () =>{
-      let dbMatch = findItem(deviceId);
-      // check for undefined, these do not exist in the db
-      if (dbMatch === undefined) {
-        // debug
-        //console.log("undefined")
-        ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
-        vlanDetail();
-        dbInsert();
-        // if there is a match compare the lastUpdateTimes, if they match it skips
-      } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
-        // debug
-        //console.log("Match Found",dbMatch.siteData.dataObj.lastUpdateTime);
-        //console.log("equality")
-        // remove matches that fail the lastUpdateTime comparison
-      } else {
-        // debug
-        //console.log("unequal")
-        ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
-        vlanDetail();
-        dbInsert();
-      }
-      //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
-      }
-      dbTasks();
-    }))
+        const dbInsert = ()=>{
+          ItemsApicDevices.insert({
+            siteData: {
+              dataObj: data,
+              requestTime: timeNow,
+              dateTime: dateTime
+            }
+          });
+        }
+        const dbTasks = () =>{
+        let dbMatch = findItem(deviceId);
+        // check for undefined, these do not exist in the db
+        if (dbMatch === undefined) {
+          // debug
+          //console.log("undefined")
+          ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
+          vlanDetail();
+          dbInsert();
+          // if there is a match compare the lastUpdateTimes, if they match it skips
+        } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
+          // debug
+          //console.log("Match Found",dbMatch.siteData.dataObj.lastUpdateTime);
+          //console.log("equality")
+          // remove matches that fail the lastUpdateTime comparison
+        } else {
+          // debug
+          //console.log("unequal")
+          ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
+          vlanDetail();
+          dbInsert();
+        }
+        //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+        }
+        dbTasks();
+      }))
+    } else {
+      console.log("REST FAILURE: ", apicDevices);
+    }
   }
   const poll = () => {
       console.log("Apic Devices DB Empty Requesting data")
