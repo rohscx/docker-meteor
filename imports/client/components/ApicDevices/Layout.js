@@ -44,6 +44,7 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popoverBottom" title="fiaTrace">
+            *         *         *
             !GLOBAL CONFIGURATION MODE
             conf t <br/>
             no ip access-list extended acl-fia <br/>
@@ -53,7 +54,6 @@ export default class Table extends Component {
               <b contentEditable="true" suppressContentEditableWarning={true}> 10.0.0.0 </b>
               <b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/>
             </p>
-            end <br/>
           <p>
             !PRIVLEGED EXEC <br/>
             end <br/>
@@ -63,6 +63,7 @@ export default class Table extends Component {
             debug platform packet-trace enable <br/>
           </p>
           <p>
+            *         *         *
             !PRIVLEGED EXEC <br/>
             end <br/>
             show platform all <br/>
@@ -70,11 +71,12 @@ export default class Table extends Component {
             show platform packet-trace packet1 <br/>
           </p>
           <p>
+            *         *         *
             !GLOBAL CONFIGURATION MODE <br/>
             conf t <br/>
             no ip access-list extended acl-fia <br/>
-            end <br/>
             !PRIVLEGED EXEC <br/>
+            end <br/>
             no debug platform condition ipv4 access-list acl-fia both <br/>
             debug platform condition stop <br/>
             no debug platform packet-trace packet 1024 fia-trace <br/>
