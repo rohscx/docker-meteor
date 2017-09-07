@@ -95,8 +95,8 @@ import '../imports/api/prime';
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices;
-    return await if (apicDevices.statusCode === 200) {
-      Promise.all(apicDevices.data.response.map((data)=>{
+    if (await apicDevices.statusCode === 200) {
+      return await Promise.all(apicDevices.data.response.map((data)=>{
         console.log(apicDevices)
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
