@@ -318,7 +318,7 @@ export default class Table extends Component {
                   <Button bsSize="xsmall">rPCAP</Button>
                 </OverlayTrigger> : ""}
                 {switchPcapDetail(series) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.switchPcap()}>
-                  <Button bsSize="xsmall">swPCAP</Button>
+                  <Button bsSize="xsmall">sPCAP</Button>
                 </OverlayTrigger> : ""}
               </ButtonToolbar>
             </Row>
