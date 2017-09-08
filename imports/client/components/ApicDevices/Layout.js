@@ -50,18 +50,18 @@ export default class Table extends Component {
       )
     };
     return (
-      <Popover id="popover-trigger-click-root-close" title="Router Packet Capture" onChange={console.log(event.target.value)}>
+      <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div onChange={console.log(event.target.value)}>
+          <div>
             {clipboardButton()}
-            <Row className="show-grid" onChange={console.log(event.target.value)}>
+            <Row className="show-grid">
               <Col xs={12}>
                 <p>*         *         *<br/>
                 ##Sets Capture parameters <br/>
                 ip access-list extended HOSTCAP <br/>
                 deny ip any host 224.0.0.2 <br/>
                 permit ip any any <br/></p>
-                <p>*         *         *<br/>
+                <p onChange={console.log(event.target.value)}>*         *         *<br/>
                 ##Starts Capture## <br/>
                 monitor capture CAP1 int
                  <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
