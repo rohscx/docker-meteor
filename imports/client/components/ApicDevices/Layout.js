@@ -314,11 +314,8 @@ export default class Table extends Component {
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
-                {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.routerPcap()}>
-                  <Button bsSize="xsmall">rPCAP</Button>
-                </OverlayTrigger> : ""}
                 {switchPcapDetail(series) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.switchPcap()}>
-                  <Button bsSize="xsmall">sPCAP</Button>
+                  <Button bsSize="xsmall">swPCAP</Button>
                 </OverlayTrigger> : ""}
               </ButtonToolbar>
             </Row>
