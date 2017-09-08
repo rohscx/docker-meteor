@@ -134,7 +134,6 @@ export default class Table extends Component {
         <div>
           <div>
             <Row className="show-grid">
-              <Col xs={12} >
                 adfaf
               </Col>
             </Row>
