@@ -90,6 +90,7 @@ export default class Table extends Component {
       </Popover>
     )
   }
+
   fiaTrace(){
     const textIdent = {
       textIndent: "25px"
