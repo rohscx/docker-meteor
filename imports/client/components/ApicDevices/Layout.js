@@ -38,6 +38,33 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
+  routerPcap() {
+    ##Sets Capture parameters
+ip access-list extended HOSTCAP
+deny ip any host 224.0.0.2
+permit ip any any
+
+##Starts Capture##
+monitor capture CAP1 int gi0/0/0.200 both access-list HOSTCAP
+monitor capture CAP1 start
+
+
+##View Caputure##
+show monitor capture CAP1 buffer detailed | in TCP|#
+
+show monitor capture  CAP1 buffer
+
+##Exports PCAP
+monitor capture CAP1 export tftp://10.16.15.16/fce-enfield-r1.pcap
+
+##Stops Capture##
+monitor capture CAP1 stop
+
+##removes configuration##
+No ip access-list extended HOSTCAP
+No monitor capture CAP1
+  }
+  
   switchPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
