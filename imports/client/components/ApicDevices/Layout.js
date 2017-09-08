@@ -221,7 +221,7 @@ export default class Table extends Component {
       }
     }
     const switchPcapDetail = (deviceType) =>{
-      if (deviceType == "BORDER ROUTER") {
+      if (deviceType == "Cisco Catalyst 2960 Series Switches") {
         return true
       } else {
         return false
