@@ -314,6 +314,9 @@ export default class Table extends Component {
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
+                {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.routerPcap()}>
+                  <Button bsSize="xsmall">rPCAP</Button>
+                </OverlayTrigger> : ""}
                 {switchPcapDetail(series) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.switchPcap()}>
                   <Button bsSize="xsmall">swPCAP</Button>
                 </OverlayTrigger> : ""}
@@ -321,7 +324,7 @@ export default class Table extends Component {
             </Row>
           </div>
         )
-      })routerPcap
+      })
       //this.props.apicDbReady(true)
       return colData;
     } else {
