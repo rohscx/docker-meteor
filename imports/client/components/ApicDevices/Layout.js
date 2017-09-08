@@ -37,52 +37,59 @@ export default class Table extends Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
-  (
-  PCAP EXPORT SWITCH LEVEL
 
-##Sets Capture parameters
-ip access-list extended HOSTCAP
-permit ip any any
+  switchPcap() {
+    return (
+      <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
+        <p>*         *         *<br/>
+          ##Sets Capture parameters <br/>
+          !GLOBAL CONFIGURATION MODE <br/>
+          conf t <br/>
+          ip access-list extended HOSTCAP <br/>
+          permit ip
+          <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.0.0.0 </mark></b>
+          <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.30.0.0 </mark></b></p><br/>
+        <p>## Attaches filter## <br/>
+          !PRIVLEGED EXEC <br/>
+          end <br/>
+          monitor capture buffer CAP1 <br/>
+          monitor capture buffer CAP1 filter access-list HOSTCAP </p><br/>
+
+        <p>##Creates named capture point## <br/>
+          monitor capture point ip cef cef1 all both <br/>
+          monitor capture point ip process-switched process-switched1 both <br/>
+          monitor capture point ip process-switched process-switched2 from-us </p><br/>
+
+        <p>## Associates interface to capture point name## <br/>
+          monitor capture point associate cef1 CAP1 <br/>
+          monitor capture point associate process-switched1 CAP1 <br/>
+          monitor capture point associate process-switched2 CAP1 </p><br/>
 
 
-## Attaches filter##
-monitor capture buffer CAP1 
-monitor capture buffer CAP1 filter access-list HOSTCAP
+        <p>##Starts Capture## <br/>
+          monitor capture point start cef1 <br/>
+          monitor capture point start process-switched1 <br/>
+          monitor capture point start process-switched2 </p><br/>
 
-##Creates named capture point##
-monitor capture point ip cef cef1 all both
-monitor capture point ip process-switched process-switched1 both
-monitor capture point ip process-switched process-switched2 from-us
+        <p>##Shows capture## <br/>
+          show monitor capture buffer all parameters <br/>
+          show monitor capture buffer CAP1 dump | i Vl </p><br/>
 
-## Associates interface to capture point name##
-monitor capture point associate cef1 CAP1
-monitor capture point associate process-switched1 CAP1
-monitor capture point associate process-switched2 CAP1
+        <p>##Stops Capture## <br/>
+          monitor capture point stop cef1 <br/>
+          monitor capture point stop process-switched1 <br/>
+          monitor capture point stop process-switched2 <br/>
+          no monitor capture buffer CAP1 <br/>
+          no monitor capture point ip cef cef1 all both <br/>
+          no monitor capture point ip process-switched process-switched1 all both
+          no monitor capture point ip process-switched process-switched2 from-us </p><br/>
 
-
-##Starts Capture##
-monitor capture point start cef1
-monitor capture point start process-switched1
-monitor capture point start process-switched2
-
-
-##Shows capture##
-show monitor capture buffer all parameters
-show monitor capture buffer CAP1 dump | i Vl
-
-##Stops Capture##
-monitor capture point stop cef1
-monitor capture point stop process-switched1
-monitor capture point stop process-switched2
-no monitor capture buffer CAP1 
-no monitor capture point ip cef cef1 all both
-no monitor capture point ip process-switched process-switched1 all both
-no monitor capture point ip process-switched process-switched2 from-us
-
-##Exports PCAP##
-monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
-  
-  )
+        <p>##Exports PCAP## <br/>
+          monitor capture buffer CAP1 export tftp://
+          <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16/mega-yards2-s1</mark></b>.pcap </p><br/>
+      </Popover>
+    )
+  }
   fiaTrace(){
     const textIdent = {
       textIndent: "25px"
@@ -205,7 +212,14 @@ monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
         return ipAddress;
       }
     }
-    let fiaDetail = (deviceType) =>{
+    const fiaDetail = (deviceType) =>{
+      if (deviceType == "BORDER ROUTER") {
+        return true
+      } else {
+        return false
+      }
+    }
+    const switchPcapDetail = (deviceType) =>{
       if (deviceType == "BORDER ROUTER") {
         return true
       } else {
@@ -221,6 +235,7 @@ monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
+        let series = data.siteData.dataObj.series;
         let vlanInfo = (vlanArray) =>{
 
         }
@@ -240,12 +255,11 @@ monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
-              {fiaDetail(role) ?
-                <ButtonToolbar>
-                  <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
-                    <Button bsSize="xsmall">fiaTrace</Button>
-                  </OverlayTrigger>
-                </ButtonToolbar> : ""}
+              <ButtonToolbar>
+                {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
+                  <Button bsSize="xsmall">fiaTrace</Button>
+                </OverlayTrigger> : ""}
+              </ButtonToolbar>
             </Row>
           </div>
         )
