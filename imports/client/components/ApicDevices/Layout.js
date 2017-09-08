@@ -96,7 +96,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div >
-          <div style={this.cssGrid12BoxSize()}>
+          <div style={this.cssGrid12BoxSize() this.cssGrid12Class()}>
             <div>
               <p>*         *         *<br/>
               ##Sets Capture parameters <br/>
