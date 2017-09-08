@@ -104,8 +104,8 @@ export default class Table extends Component {
             ip access-list extended acl-fia <br/>
             <p style={textIdent} >
               permit ip
-              <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.0.0.0 </mark></b>
-              <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.30.0.0 </mark></b><br/>
+              <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
+              <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b><br/>
             </p>
           <p>
             !PRIVLEGED EXEC <br/>
