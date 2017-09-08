@@ -147,6 +147,9 @@ export default class Table extends Component {
                  both access-list HOSTCAP <br/>
                 monitor capture CAP1 start <br/></p>
               </div>
+              <div className="col1">
+                adsfa
+              </div>
             </div>
           </div>
           <div>
