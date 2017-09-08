@@ -24,8 +24,8 @@ export default class Table extends Component {
   }
   cssGrid12Class() {
     cssGrid12Class = {
-      float: "left"
-      padding: "15px"
+      float: "left",
+      padding: "15px",
       border: "1px solid red"
     }
     return cssGrid12Class;
