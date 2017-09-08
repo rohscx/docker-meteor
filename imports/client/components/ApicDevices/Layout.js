@@ -43,7 +43,7 @@ export default class Table extends Component {
       textIndent: "25px"
     }
     return (
-      <Popover id="popoverBottom" title="fiaTrace">
+      <Popover id="popover-trigger-click-root-close" title="fiaTrace">
             *         *         *<br/>
             !GLOBAL CONFIGURATION MODE
             conf t <br/>
@@ -197,7 +197,7 @@ export default class Table extends Component {
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
               {fiaDetail(role) ?
                 <ButtonToolbar>
-                  <OverlayTrigger trigger="popoverClickRootClose" placement="bottom" overlay={this.fiaTrace()}>
+                  <OverlayTrigger trigger="click" placement="bottom" overlay={this.fiaTrace()}>
                     <Button bsSize="xsmall">fiaTrace</Button>
                   </OverlayTrigger>
                 </ButtonToolbar> : ""}
