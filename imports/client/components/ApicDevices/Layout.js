@@ -47,8 +47,8 @@ export default class Table extends Component {
           conf t <br/>
           ip access-list extended HOSTCAP <br/>
           permit ip
-          <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.0.0.0 </mark></b>
-          <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.30.0.0 </mark></b></p><br/>
+          <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
+          <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b></p><br/>
         <p>## Attaches filter## <br/>
           !PRIVLEGED EXEC <br/>
           end <br/>
