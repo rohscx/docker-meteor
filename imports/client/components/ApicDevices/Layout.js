@@ -34,40 +34,76 @@ export default class Table extends Component {
   cssGrid12Col() {
     cssGrid12Col = {
       col1: {
-        width: "8.33%"
+        width: "8.33%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col2: {
-        width: "16.66%"
+        width: "16.66%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col3: {
-        width: "25%"
+        width: "25%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col4: {
-        width: "33.33%"
+        width: "33.33%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col5: {
-        width: "41.66%"
+        width: "41.66%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col6: {
-        width: "50%"
+        width: "50%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col7: {
-        width: "58.33%"
+        width: "58.33%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col8: {
-        width: "66.66%"
+        width: "66.66%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col9: {
-        width: "75%"
+        width: "75%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col10: {
-        width: "83.33%"
+        width: "83.33%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col11: {
-        width: "91.66%"
+        width: "91.66%",
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       },
       col12: {
-        width: "100%"}
+        width: "100%"},
+        float: "left",
+        padding: "15px",
+        border: "1px solid red"
       }
       return cssGrid12Col
   }
@@ -95,34 +131,23 @@ export default class Table extends Component {
   routerPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
-        <div >
-          <div style={this.cssGrid12BoxSize()}>
-            <div style={this.cssGrid12Class()}>
-              <div style={this.cssGrid12Col()} >
-                <div className="col11">
-                  <p>*         *         *<br/>
-                  ##Sets Capture parameters <br/>
-                  ip access-list extended HOSTCAP <br/>
-                  deny ip any host 224.0.0.2 <br/>
-                  permit ip any any <br/></p>
-                  <p>*         *         *<br/>
-                  ##Starts Capture## <br/>
-                  monitor capture CAP1 int
-                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
-                   both access-list HOSTCAP <br/>
-                  monitor capture CAP1 start <br/></p>
-                </div>
-                <div className="col1">test</div>
-              </div>
-            </div>
-            <div style={this.cssGrid12Class()}>
-              <div style={this.cssGrid12Col()} >
-                <div className="col1">
-                  bladf
-                </div>
-              </div>
+        <div style={this.cssGrid12BoxSize()}>
+          <div style={this.cssGrid12Col()} >
+            <div className="col11">
+              <p>*         *         *<br/>
+              ##Sets Capture parameters <br/>
+              ip access-list extended HOSTCAP <br/>
+              deny ip any host 224.0.0.2 <br/>
+              permit ip any any <br/></p>
+              <p>*         *         *<br/>
+              ##Starts Capture## <br/>
+              monitor capture CAP1 int
+               <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+               both access-list HOSTCAP <br/>
+              monitor capture CAP1 start <br/></p>
             </div>
           </div>
+        </div>
           <div>
             <p>*         *         *<br/>
             ##View Caputure## <br/>
