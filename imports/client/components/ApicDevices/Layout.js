@@ -41,39 +41,48 @@ export default class Table extends Component {
   routerPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
-        <p>*         *         *<br/>
-        ##Sets Capture parameters <br/>
-        ip access-list extended HOSTCAP <br/>
-        deny ip any host 224.0.0.2 <br/>
-        permit ip any any <br/></p>
-        <p>*         *         *<br/>
-        ##Starts Capture## <br/>
-        monitor capture CAP1 int
-         <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
-         both access-list HOSTCAP <br/>
-        monitor capture CAP1 start <br/></p>
+        <div>
+          <p>*         *         *<br/>
+          ##Sets Capture parameters <br/>
+          ip access-list extended HOSTCAP <br/>
+          deny ip any host 224.0.0.2 <br/>
+          permit ip any any <br/></p>
+          <p>*         *         *<br/>
+          ##Starts Capture## <br/>
+          monitor capture CAP1 int
+           <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+           both access-list HOSTCAP <br/>
+          monitor capture CAP1 start <br/></p>
 
-        <p>*         *         *<br/>
-        ##View Caputure## <br/>
-        show monitor capture CAP1 buffer detailed | in TCP|# <br/>
-        show monitor capture  CAP1 buffer <br/></p>
+        </div>
+        <div>
+          <p>*         *         *<br/>
+          ##View Caputure## <br/>
+          show monitor capture CAP1 buffer detailed | in TCP|# <br/>
+          show monitor capture  CAP1 buffer <br/></p>
+        </div>
+        <div>
+          <p>*         *         *<br/>
+          ##Exports PCAP <br/>
+          monitor capture CAP1 export tftp://
+          <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
+          <b>/</b>
+          <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
+          .pcap </p><br/>
+        </div>
+        <div>
+          <p>*         *         *<br/>
+          ##Stops Capture## <br/>
+          monitor capture CAP1 stop <br/></p>
+        </div>
+        <div>
+          <p>*         *         *<br/>
+          ##removes configuration## <br/>
+          No ip access-list extended HOSTCAP <br/>
+          No monitor capture CAP1 <br/></p>
+        </div>
 
-        <p>*         *         *<br/>
-        ##Exports PCAP <br/>
-        monitor capture CAP1 export tftp://
-        <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
-        <b>/</b>
-        <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
-        .pcap </p><br/>
 
-        <p>*         *         *<br/>
-        ##Stops Capture## <br/>
-        monitor capture CAP1 stop <br/></p>
-
-        <p>*         *         *<br/>
-        ##removes configuration## <br/>
-        No ip access-list extended HOSTCAP <br/>
-        No monitor capture CAP1 <br/></p>
       </Popover>
     )
   }
