@@ -129,19 +129,24 @@ export default class Table extends Component {
   }
 
   routerPcap() {
+    const clipboardButton = ()=>{
+      return (
+        <Row className="show-grid">
+          <Col xs={6} xsOffset={6}>
+            <div style={{textAlign:"right"}}>
+              copyPlaceHolder
+            </div>
+          </Col>
+        </Row>
+      )
+    };
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
+            {clipboardButton()}
             <Row className="show-grid">
-              <Col xs={6} xsOffset={6}>
-                <div style={{textAlign:"right"}}>
-                  adfaf                
-                </div>
-              </Col>
-            </Row>
-            <Row className="show-grid">
-              <Col xs={12} sm={12} md={12}>
+              <Col xs={12}>
                 <p>*         *         *<br/>
                 ##Sets Capture parameters <br/>
                 ip access-list extended HOSTCAP <br/>
@@ -156,32 +161,51 @@ export default class Table extends Component {
               </Col>
             </Row>
           </div>
-
           <div>
-            <p>*         *         *<br/>
-            ##View Caputure## <br/>
-            show monitor capture CAP1 buffer detailed | in TCP|# <br/>
-            show monitor capture  CAP1 buffer <br/></p>
+            {clipboardButton()}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <p>*         *         *<br/>
+                ##View Caputure## <br/>
+                show monitor capture CAP1 buffer detailed | in TCP|# <br/>
+                show monitor capture  CAP1 buffer <br/></p>
+              </Col>
+            </Row>
           </div>
           <div>
-            <p>*         *         *<br/>
-            ##Exports PCAP <br/>
-            monitor capture CAP1 export tftp://
-            <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
-            <b>/</b>
-            <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
-            .pcap </p><br/>
+            {clipboardButton()}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <p>*         *         *<br/>
+                ##Exports PCAP <br/>
+                monitor capture CAP1 export tftp://
+                <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
+                <b>/</b>
+                <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
+                .pcap </p><br/>
+              </Col>
+            </Row>
           </div>
           <div>
-            <p>*         *         *<br/>
-            ##Stops Capture## <br/>
-            monitor capture CAP1 stop <br/></p>
+            {clipboardButton()}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <p>*         *         *<br/>
+                ##Stops Capture## <br/>
+                monitor capture CAP1 stop <br/></p>
+              </Col>
+            </Row>
           </div>
           <div>
-            <p>*         *         *<br/>
-            ##removes configuration## <br/>
-            No ip access-list extended HOSTCAP <br/>
-            No monitor capture CAP1 <br/></p>
+            {clipboardButton()}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <p>*         *         *<br/>
+                ##removes configuration## <br/>
+                No ip access-list extended HOSTCAP <br/>
+                No monitor capture CAP1 <br/></p>
+              </Col>
+            </Row>
           </div>
         </div>
       </Popover>
