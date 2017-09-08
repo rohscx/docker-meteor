@@ -37,7 +37,52 @@ export default class Table extends Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
+  (
+  PCAP EXPORT SWITCH LEVEL
 
+##Sets Capture parameters
+ip access-list extended HOSTCAP
+permit ip any any
+
+
+## Attaches filter##
+monitor capture buffer CAP1 
+monitor capture buffer CAP1 filter access-list HOSTCAP
+
+##Creates named capture point##
+monitor capture point ip cef cef1 all both
+monitor capture point ip process-switched process-switched1 both
+monitor capture point ip process-switched process-switched2 from-us
+
+## Associates interface to capture point name##
+monitor capture point associate cef1 CAP1
+monitor capture point associate process-switched1 CAP1
+monitor capture point associate process-switched2 CAP1
+
+
+##Starts Capture##
+monitor capture point start cef1
+monitor capture point start process-switched1
+monitor capture point start process-switched2
+
+
+##Shows capture##
+show monitor capture buffer all parameters
+show monitor capture buffer CAP1 dump | i Vl
+
+##Stops Capture##
+monitor capture point stop cef1
+monitor capture point stop process-switched1
+monitor capture point stop process-switched2
+no monitor capture buffer CAP1 
+no monitor capture point ip cef cef1 all both
+no monitor capture point ip process-switched process-switched1 all both
+no monitor capture point ip process-switched process-switched2 from-us
+
+##Exports PCAP##
+monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
+  
+  )
   fiaTrace(){
     const textIdent = {
       textIndent: "25px"
