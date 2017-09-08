@@ -197,8 +197,8 @@ export default class Table extends Component {
               {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
               {fiaDetail(role) ?
                 <ButtonToolbar>
-                  <OverlayTrigger trigger="click" placement="bottom" overlay={this.fiaTrace()}>
-                    <Button>fiaTrace</Button>
+                  <OverlayTrigger trigger="popoverClickRootClose" placement="bottom" overlay={this.fiaTrace()}>
+                    <Button bsSize="xsmall">fiaTrace</Button>
                   </OverlayTrigger>
                 </ButtonToolbar> : ""}
             </Row>
