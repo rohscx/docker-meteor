@@ -131,23 +131,24 @@ export default class Table extends Component {
   routerPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
-        <div style={this.cssGrid12BoxSize()}>
-          <div style={this.cssGrid12Col()} >
-            <div className="col11">
-              <p>*         *         *<br/>
-              ##Sets Capture parameters <br/>
-              ip access-list extended HOSTCAP <br/>
-              deny ip any host 224.0.0.2 <br/>
-              permit ip any any <br/></p>
-              <p>*         *         *<br/>
-              ##Starts Capture## <br/>
-              monitor capture CAP1 int
-               <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
-               both access-list HOSTCAP <br/>
-              monitor capture CAP1 start <br/></p>
+        <div>
+          <div style={this.cssGrid12BoxSize()}>
+            <div style={this.cssGrid12Col()} >
+              <div className="col11">
+                <p>*         *         *<br/>
+                ##Sets Capture parameters <br/>
+                ip access-list extended HOSTCAP <br/>
+                deny ip any host 224.0.0.2 <br/>
+                permit ip any any <br/></p>
+                <p>*         *         *<br/>
+                ##Starts Capture## <br/>
+                monitor capture CAP1 int
+                 <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+                 both access-list HOSTCAP <br/>
+                monitor capture CAP1 start <br/></p>
+              </div>
             </div>
           </div>
-        </div>
           <div>
             <p>*         *         *<br/>
             ##View Caputure## <br/>
