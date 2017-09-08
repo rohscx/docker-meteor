@@ -49,8 +49,8 @@ export default class Table extends Component {
         <p>*         *         *<br/>
         ##Starts Capture## <br/>
         monitor capture CAP1 int
-        <b contentEditable="true" suppressContentEditableWarning={true}> <mark> gi0/0/0.200 </mark> </b>
-        both access-list HOSTCAP <br/>
+         <b contentEditable="true" suppressContentEditableWarning={true}> <mark>gi0/0/0.200</mark> </b>
+         both access-list HOSTCAP <br/>
         monitor capture CAP1 start <br/></p>
 
         <p>*         *         *<br/>
