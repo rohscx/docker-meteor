@@ -43,7 +43,7 @@ export default class Table extends Component {
       textIndent: "25px"
     }
     return (
-      <Popover id="popoverBottom" title="fiaTrace">
+      <Popover id="popover-trigger-click-root-close" title="fiaTrace">
             *         *         *<br/>
             !GLOBAL CONFIGURATION MODE
             conf t <br/>
