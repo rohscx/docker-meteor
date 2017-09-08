@@ -40,7 +40,7 @@ export default class Table extends Component {
 
   routerPcap() {
     return (
-      <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
+      <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <p>*         *         *<br/>
         ##Sets Capture parameters <br/>
         ip access-list extended HOSTCAP <br/>
