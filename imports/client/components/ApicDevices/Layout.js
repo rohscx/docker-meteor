@@ -39,32 +39,45 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    ##Sets Capture parameters
-ip access-list extended HOSTCAP
-deny ip any host 224.0.0.2
-permit ip any any
+    return (
+      <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
+        <p>*         *         *<br/>
+        ##Sets Capture parameters <br/>
+        ip access-list extended HOSTCAP <br/>
+        deny ip any host 224.0.0.2 <br/>
+        permit ip any any <br/></p>
+        <p>*         *         *<br/>
+        ##Starts Capture## <br/>
+        monitor capture CAP1 int
+        <b contentEditable="true" suppressContentEditableWarning={true}> <mark> gi0/0/0.200 </mark> </b>
+        both access-list HOSTCAP <br/>
+        monitor capture CAP1 start <br/></p>
 
-##Starts Capture##
-monitor capture CAP1 int gi0/0/0.200 both access-list HOSTCAP
-monitor capture CAP1 start
+        <p>*         *         *<br/>
+        ##View Caputure## <br/>
+        show monitor capture CAP1 buffer detailed | in TCP|# <br/>
+        show monitor capture  CAP1 buffer <br/></p>
 
+        <p>*         *         *<br/>
+        ##Exports PCAP <br/>
+        monitor capture CAP1 export tftp://
+        <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
+        <b>/</b>
+        <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
+        .pcap </p><br/>
 
-##View Caputure##
-show monitor capture CAP1 buffer detailed | in TCP|#
+        <p>*         *         *<br/>
+        ##Stops Capture## <br/>
+        monitor capture CAP1 stop <br/></p>
 
-show monitor capture  CAP1 buffer
-
-##Exports PCAP
-monitor capture CAP1 export tftp://10.16.15.16/fce-enfield-r1.pcap
-
-##Stops Capture##
-monitor capture CAP1 stop
-
-##removes configuration##
-No ip access-list extended HOSTCAP
-No monitor capture CAP1
+        <p>*         *         *<br/>
+        ##removes configuration## <br/>
+        No ip access-list extended HOSTCAP <br/>
+        No monitor capture CAP1 <br/></p>
+      </Popover>
+    )
   }
-  
+
   switchPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
@@ -301,14 +314,17 @@ No monitor capture CAP1
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
+                {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.routerPcap()}>
+                  <Button bsSize="xsmall">rPCAP</Button>
+                </OverlayTrigger> : ""}
                 {switchPcapDetail(series) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.switchPcap()}>
-                  <Button bsSize="xsmall">swPCAP</Button>
+                  <Button bsSize="xsmall">sPCAP</Button>
                 </OverlayTrigger> : ""}
               </ButtonToolbar>
             </Row>
           </div>
         )
-      })
+      })routerPcap
       //this.props.apicDbReady(true)
       return colData;
     } else {
