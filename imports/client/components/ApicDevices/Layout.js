@@ -132,11 +132,16 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
+          <div>
+
+          </div>
           <Row className="show-grid">
-            <Col xs={12} xsPush={12}>
-              asdfas
+            <Col xs={12} >
+              adfaf
             </Col>
-            <Col xs={8} sm={6} md={12}>
+          </Row>
+          <Row className="show-grid">
+            <Col xs={12} sm={12} md={12}>
               <p>*         *         *<br/>
               ##Sets Capture parameters <br/>
               ip access-list extended HOSTCAP <br/>
