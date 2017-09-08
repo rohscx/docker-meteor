@@ -98,7 +98,7 @@ export default class Table extends Component {
         <div >
           <div style={this.cssGrid12BoxSize()}>
             <div style={this.cssGrid12Class()}>
-              <div style={this.cssGrid12Col()} className="col1">
+              <div className="col1" style={this.cssGrid12Col()} >
                 <p>*         *         *<br/>
                 ##Sets Capture parameters <br/>
                 ip access-list extended HOSTCAP <br/>
