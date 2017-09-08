@@ -109,6 +109,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="fiaTrace">
             *         *         *<br/>
+            ##Identifies traffic and starts fiaTrace## <br/>
             !GLOBAL CONFIGURATION MODE
             conf t <br/>
             no ip access-list extended acl-fia <br/>
@@ -128,6 +129,7 @@ export default class Table extends Component {
           </p>
           <p>
             *         *         *<br/>
+            ##Display fiaTrace results## <br/>
             !PRIVLEGED EXEC <br/>
             end <br/>
             show platform all <br/>
@@ -136,6 +138,7 @@ export default class Table extends Component {
           </p>
           <p>
             *         *         *<br/>
+            ##Remove fiaTrace configuration## <br/>
             !GLOBAL CONFIGURATION MODE <br/>
             conf t <br/>
             no ip access-list extended acl-fia <br/>
