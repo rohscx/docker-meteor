@@ -112,6 +112,7 @@ export default class Table extends Component {
                    both access-list HOSTCAP <br/>
                   monitor capture CAP1 start <br/></p>
                 </div>
+                <div className="col11">test</div>
               </div>
             </div>
             <div style={this.cssGrid12Class()}>
