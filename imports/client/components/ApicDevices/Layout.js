@@ -96,8 +96,8 @@ monitor capture buffer CAP1 export tftp://10.16.15.16/nfcs-twinfalls2-s1.pcap
             ip access-list extended acl-fia <br/>
             <p style={textIdent} >
               permit ip
-              <mark><b contentEditable="true" suppressContentEditableWarning={true}> 10.0.0.0 </b></mark>
-              <mark><b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/></mark>
+              <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.0.0.0 </mark></b>
+              <b contentEditable="true" suppressContentEditableWarning={true}><mark> 10.30.0.0 </mark></b><br/>
             </p>
           <p>
             !PRIVLEGED EXEC <br/>
