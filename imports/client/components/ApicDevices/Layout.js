@@ -133,7 +133,7 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <Row className="show-grid">
-            <Col xs={4} xsOffset={4}>
+            <Col xs={12} xsPush={12}>
               asdfas
             </Col>
             <Col xs={8} sm={6} md={12}>
