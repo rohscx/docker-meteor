@@ -134,7 +134,10 @@ export default class Table extends Component {
         <div>
           <div>
             <Row className="show-grid">
-                adfaf
+              <Col xs={6} xsOffset={6}>
+                <div style={{textAlign:"right"}}>
+                  adfaf                
+                </div>
               </Col>
             </Row>
             <Row className="show-grid">
