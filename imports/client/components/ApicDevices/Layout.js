@@ -98,21 +98,23 @@ export default class Table extends Component {
         <div >
           <div style={this.cssGrid12BoxSize()}>
             <div style={this.cssGrid12Class()}>
-              <div className="col1" style={this.cssGrid12Col()} >
-                <p>*         *         *<br/>
-                ##Sets Capture parameters <br/>
-                ip access-list extended HOSTCAP <br/>
-                deny ip any host 224.0.0.2 <br/>
-                permit ip any any <br/></p>
-                <p>*         *         *<br/>
-                ##Starts Capture## <br/>
-                monitor capture CAP1 int
-                 <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
-                 both access-list HOSTCAP <br/>
-                monitor capture CAP1 start <br/></p>
-              </div>
-              <div style={this.cssGrid12Col()} className="col10">
-                bladf
+              <div style={this.cssGrid12Col()} >
+                <div className="col10">
+                  <p>*         *         *<br/>
+                  ##Sets Capture parameters <br/>
+                  ip access-list extended HOSTCAP <br/>
+                  deny ip any host 224.0.0.2 <br/>
+                  permit ip any any <br/></p>
+                  <p>*         *         *<br/>
+                  ##Starts Capture## <br/>
+                  monitor capture CAP1 int
+                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+                   both access-list HOSTCAP <br/>
+                  monitor capture CAP1 start <br/></p>
+                </div>
+                <div className="col10">
+                  bladf
+                </div>
               </div>
             </div>
           </div>
