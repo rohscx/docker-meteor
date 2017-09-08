@@ -133,28 +133,28 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-
+            <Row className="show-grid">
+              <Col xs={12} >
+                adfaf
+              </Col>
+            </Row>
+            <Row className="show-grid">
+              <Col xs={12} sm={12} md={12}>
+                <p>*         *         *<br/>
+                ##Sets Capture parameters <br/>
+                ip access-list extended HOSTCAP <br/>
+                deny ip any host 224.0.0.2 <br/>
+                permit ip any any <br/></p>
+                <p>*         *         *<br/>
+                ##Starts Capture## <br/>
+                monitor capture CAP1 int
+                 <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+                 both access-list HOSTCAP <br/>
+                monitor capture CAP1 start <br/></p>
+              </Col>
+            </Row>
           </div>
-          <Row className="show-grid">
-            <Col xs={12} >
-              adfaf
-            </Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={12} sm={12} md={12}>
-              <p>*         *         *<br/>
-              ##Sets Capture parameters <br/>
-              ip access-list extended HOSTCAP <br/>
-              deny ip any host 224.0.0.2 <br/>
-              permit ip any any <br/></p>
-              <p>*         *         *<br/>
-              ##Starts Capture## <br/>
-              monitor capture CAP1 int
-               <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
-               both access-list HOSTCAP <br/>
-              monitor capture CAP1 start <br/></p>
-            </Col>
-          </Row>
+
           <div>
             <p>*         *         *<br/>
             ##View Caputure## <br/>
