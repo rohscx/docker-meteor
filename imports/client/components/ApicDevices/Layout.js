@@ -39,23 +39,6 @@ export default class Table extends Component {
   }
 
   fiaTrace(){
-    .pulse {
-  background-color: #ff0;
-  -webkit-animation-name: pulse;
-  -webkit-animation-duration: 0.67s;
-  -webkit-animation-iteration-count: 2;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-timing-function: ease-in;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-delay: 0.67s;
-  animation: pulse 2s infinite;
-}
-
-@-webkit-keyframes pulse {
-  0% { background-color: #fff; }
-  50% { background-color: #ff0; }
-  100% { background-color: #fff; }
-}
     const textIdent = {
       textIndent: "25px"
     }
@@ -68,8 +51,8 @@ export default class Table extends Component {
             ip access-list extended acl-fia <br/>
             <p style={textIdent} >
               permit ip
-              <b contentEditable="true" suppressContentEditableWarning={true}> 10.0.0.0 </b>
-              <b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/>
+              <mark><b contentEditable="true" suppressContentEditableWarning={true}> 10.0.0.0 </b></mark>
+              <mark><b contentEditable="true" suppressContentEditableWarning={true}> 10.30.0.0 </b><br/></mark>
             </p>
           <p>
             !PRIVLEGED EXEC <br/>
