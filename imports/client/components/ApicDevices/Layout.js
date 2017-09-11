@@ -42,7 +42,7 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = ()=>{
+    const clipboardButton = (e)=>{
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
@@ -56,8 +56,8 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="test1" onClick={(e) => {this.handleCopyClick(e)}}>
-            {clipboardButton()}
+          <div id="test1">
+            {clipboardButton(e)}
             <Row className="show-grid">
               <Col xs={12}>
                 <p>*         *         *<br/>
