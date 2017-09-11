@@ -59,20 +59,22 @@ export default class Table extends Component {
           <div id="test1">
             {clipboardButton()}
             <Row className="show-grid">
-              <Col xs={12} onChange={(e) => {this.handleCopyClick(e)}}>
-                <p>*         *         *<br/>
-                ##Sets Capture parameters <br/>
-                ip access-list extended HOSTCAP <br/>
-                deny ip any host 224.0.0.2 <br/>
-                permit ip any any <br/></p>
-                <p>*         *         *<br/>
-                ##Starts Capture## <br/>
-                monitor capture CAP1 int
-                 <b contentEditable="true" suppressContentEditableWarning={true}>
-                   <mark>gi0/0/0.200</mark>
-                 </b>
-                 both access-list HOSTCAP <br/>
-                monitor capture CAP1 start <br/></p>
+              <Col xs={12}>
+                <div onChange={(e) => {this.handleCopyClick(e)}} onClick={(e) => {this.handleCopyClick(e)}}>
+                  <p>*         *         *<br/>
+                  ##Sets Capture parameters <br/>
+                  ip access-list extended HOSTCAP <br/>
+                  deny ip any host 224.0.0.2 <br/>
+                  permit ip any any <br/></p>
+                  <p>*         *         *<br/>
+                  ##Starts Capture## <br/>
+                  monitor capture CAP1 int
+                   <b contentEditable="true" suppressContentEditableWarning={true}>
+                     <mark>gi0/0/0.200</mark>
+                   </b>
+                   both access-list HOSTCAP <br/>
+                  monitor capture CAP1 start <br/></p>
+                </div>
               </Col>
             </Row>
           </div>
