@@ -108,10 +108,10 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton("rPCAP",0)}
+            {clipboardButton("rPCAP","one")}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP1)=>{this.rPCAP["aaa"] = rPCAP1}}>
+                <div ref={(rPCAP)=>{this.rPCAP.one = rPCAP}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
