@@ -19,7 +19,7 @@ export default class Table extends Component {
 
 
   handleCopyClick = async () => {
-    this.setCap.innerText.focusTextInput()
+    //this.setCap.innerText.focusTextInput()
     //document.getElementById("aaa").focus();
     // used with refs
     console.log(this.setCap.innerText)
@@ -62,7 +62,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="aaa" ref={(setCap)=>{this.setCap = setCap}}>
+          <div id="aaa" ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
