@@ -107,11 +107,11 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="aaa" ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
+          <div>
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div id="ttt">
+                <div ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
                   <p>*         *         *<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
