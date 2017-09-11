@@ -66,9 +66,9 @@ export default class Table extends Component {
     //document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
-    console.log(refName.innerText)
+    console.log(this[refName].innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
-    await worker(refName.innerText)
+    await worker(this[refName].innerText)
     //await Clipboard.setString(this.setCap.innerText)
   }
 
@@ -109,7 +109,7 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton("this.setCap")}
+            {clipboardButton("setCap")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(setCap)=>{this.setCap = setCap}}>
