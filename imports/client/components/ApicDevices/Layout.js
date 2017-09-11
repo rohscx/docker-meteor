@@ -94,7 +94,6 @@ export default class Table extends Component {
 
   routerPcap() {
     const clipboardButton = (clipName,clipNum)=>{
-      const refName = clipData;
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
