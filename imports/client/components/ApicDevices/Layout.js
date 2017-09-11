@@ -21,7 +21,7 @@ export default class Table extends Component {
   handleCopyClick = async () => {
 
     let test1 = this.setCap.innerText
-    test1.select();
+    document.getElementById("aaa").focus();
     // used with refs
     console.log(this.setCap.innerText)
     await document.execCommand('copy')
@@ -63,7 +63,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div ref={(setCap)=>{this.setCap = setCap}}>
+          <div id="aaa" ref={(setCap)=>{this.setCap = setCap}}>
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
