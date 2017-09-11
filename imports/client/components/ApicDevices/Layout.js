@@ -24,8 +24,7 @@ export default class Table extends Component {
     //this.setCap.innerHTML.focus()
     // used with refs
     console.log(document.getElementById("ttt"))
-    let test22 = document.getElementById("ttt");
-    test22.focus()
+    ReactDOM.findDOMNode(this.setCap).focus
     console.log(this.setCap.innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
     await document.execCommand('copy')
