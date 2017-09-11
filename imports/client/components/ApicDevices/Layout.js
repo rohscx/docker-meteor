@@ -18,7 +18,7 @@ export default class Table extends Component {
   }
 
 
-  handleCopyClick = async (clipName,clipNum) => {
+  handleCopyClick = async (clipName) => {
 
     const worker = (text) => {
       var textArea = document.createElement("textarea");
@@ -66,9 +66,9 @@ export default class Table extends Component {
     //document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
-    console.log(this[clipName][clipNum].innerText)
+    console.log(this[clipName].nnerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
-    await worker(this[clipName][clipNum].innerText)
+    await worker(this[clipName].innerText)
     //await Clipboard.setString(this.setCap.innerText)
   }
 
@@ -93,11 +93,11 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = (clipName,clipNum)=>{
+    const clipboardButton = (clipName)=>{
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(clipName,clipNum)}}>
+            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -108,10 +108,10 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton("rPCAP","one")}
+            {clipboardButton("rPCAPone")}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP.one = rPCAP}}>
+                <div ref={(rPCAPone)=>{this.rPCAPone = rPCAPone}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
