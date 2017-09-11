@@ -18,7 +18,7 @@ export default class Table extends Component {
   }
 
 
-  handleCopyClick = async () => {
+  handleCopyClick = async (refName) => {
 
     const worker = (text) => {
       var textArea = document.createElement("textarea");
@@ -66,9 +66,9 @@ export default class Table extends Component {
     //document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
-    console.log(this.setCap.innerText)
+    console.log(refName.innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
-    await worker(this.setCap.innerText)
+    await worker(refName.innerText)
     //await Clipboard.setString(this.setCap.innerText)
   }
 
@@ -94,11 +94,11 @@ export default class Table extends Component {
 
   routerPcap() {
     const clipboardButton = (clipData)=>{
-      console.log(clipData)
+      const refName = clipData;
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick()}}>
+            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(refName)}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -109,7 +109,7 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton(this.setCap)}
+            {clipboardButton("this.setCap")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(setCap)=>{this.setCap = setCap}}>
