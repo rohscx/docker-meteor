@@ -19,7 +19,7 @@ export default class Table extends Component {
 
 
   handleCopyClick = async () => {
-    this.textArea.select();
+    //this.textArea.select();
     // used with refs
     console.log(this.setCap.innerText)
     await document.execCommand('copy')
