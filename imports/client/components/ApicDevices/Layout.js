@@ -93,7 +93,8 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = ()=>{
+    const clipboardButton = (clipData)=>{
+      console.log(clipData)
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
@@ -108,10 +109,10 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton()}
+            {clipboardButton(this.setCap)}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
+                <div ref={(setCap)=>{this.setCap = setCap}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
