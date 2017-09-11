@@ -65,7 +65,7 @@ export default class Table extends Component {
                 ip access-list extended HOSTCAP <br/>
                 deny ip any host 224.0.0.2 <br/>
                 permit ip any any <br/></p>
-                <p onChange={console.log(this)}>*         *         *<br/>
+                <p>*         *         *<br/>
                 ##Starts Capture## <br/>
                 monitor capture CAP1 int
                  <b contentEditable="true" suppressContentEditableWarning={true} ref="test1">
