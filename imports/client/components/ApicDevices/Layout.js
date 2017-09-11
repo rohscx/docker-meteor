@@ -68,7 +68,8 @@ export default class Table extends Component {
     // used with refs
     console.log(this[clipName].innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
-    await worker(this[clipName].innerText)
+    worker(this[clipName].innerText)
+    //await worker(this[clipName].innerText)
     //await Clipboard.setString(this.setCap.innerText)
   }
 
