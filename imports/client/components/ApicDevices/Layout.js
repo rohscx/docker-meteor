@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
-import {Clipboard} from 'react-native';
+
 export default class Table extends Component {
   constructor() {
     super();
@@ -19,9 +19,11 @@ export default class Table extends Component {
 
 
   handleCopyClick = async () => {
+    this.setCap.select();
     // used with refs
     console.log(this.setCap.innerText)
-    await Clipboard.setString(this.setCap.innerText)
+    await document.execCommand('copy')
+    //await Clipboard.setString(this.setCap.innerText)
   }
 
   openModal(vlanData) {
