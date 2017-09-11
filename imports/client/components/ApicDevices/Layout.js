@@ -18,7 +18,7 @@ export default class Table extends Component {
 
   handleCopyClick(event) {
     let value = event.target.value;
-    alert(event)
+    console.log(event)
   }
 
   openModal(vlanData) {
