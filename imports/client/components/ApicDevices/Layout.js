@@ -18,7 +18,7 @@ export default class Table extends Component {
   }
 
 
-  handleCopyClick = async (clipName) => {
+  handleCopyClick = (clipName) => {
 
     const worker = (text) => {
       var textArea = document.createElement("textarea");
