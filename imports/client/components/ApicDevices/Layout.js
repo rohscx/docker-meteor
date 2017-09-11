@@ -60,7 +60,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="Progress1" ref={(blash)=>{this.blash = blash}}>
+          <div id="Progress1" ref={(blash)=>{this.blash = blash, console.log(this)}}>
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
