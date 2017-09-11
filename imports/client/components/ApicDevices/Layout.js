@@ -130,7 +130,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton()}
+            {clipboardButton("rPCAPtwo")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPtwo)=>{this.rPCAPtwo = rPCAPtwo}}>
@@ -143,7 +143,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton()}
+            {clipboardButton("rPCAPtree")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPtree)=>{this.rPCAPtree = rPCAPtree}}>
@@ -159,7 +159,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton()}
+            {clipboardButton("rPCAPfour")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPfour)=>{this.rPCAPfour = rPCAPfour}}>
@@ -171,7 +171,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton()}
+            {clipboardButton("rPCAPfive")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPfive)=>{this.rPCAPfive = rPCAPfive}}>
