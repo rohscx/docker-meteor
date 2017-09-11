@@ -111,7 +111,7 @@ export default class Table extends Component {
             {clipboardButton("rPCap",0)}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP[0] = rPCAP}}>
+                <div ref={(rPCAP1)=>{this.rPCAP[0] = rPCAP1}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
@@ -133,7 +133,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP[1] = rPCAP}}>
+                <div ref={(rPCAP2)=>{this.rPCAP[1] = rPCAP2}}>
                   <p>#         #         #<br/>
                   ##View Caputure## <br/>
                   show monitor capture CAP1 buffer detailed | in TCP|# <br/>
