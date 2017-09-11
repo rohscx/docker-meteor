@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
+import {Clipboard} from 'react-native';
 export default class Table extends Component {
   constructor() {
     super();
@@ -16,13 +17,13 @@ export default class Table extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  handleCopyClick(event) {
-    //console.log(this.refs.1234.currentTarget.textContent)
-    console.log(this.blash.innerText)
-    console.log(typeof(this.blash))
-    //console.log(this.blash.value)
+
+  handleCopyClick = async () => {
+    // used with refs
+    console.log(this.setCap.innerText)
+    // used with onClick
     //console.log(event.currentTarget.textContent)
-    //let value = event.target.value;
+    await clipboard.setString(this.setCap.innerText)
   }
 
   openModal(vlanData) {
@@ -50,7 +51,7 @@ export default class Table extends Component {
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick("ddd")}}>
+            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick()}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -60,7 +61,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="Progress1" ref={(blash)=>{this.blash = blash, console.log(this)}}>
+          <div ref={(setCap)=>{this.setCap = setCap}}>
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
