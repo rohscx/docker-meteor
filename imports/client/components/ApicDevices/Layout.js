@@ -18,7 +18,7 @@ export default class Table extends Component {
 
   handleCopyClick(event) {
     //console.log(this.refs.1234.currentTarget.textContent)
-    console.log(this.refs.blash.)
+    console.log(this.refs.blash)
     console.log(this.refs.blash.TextContent)
     //console.log(event.currentTarget.textContent)
     //let value = event.target.value;
