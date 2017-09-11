@@ -133,7 +133,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP2)=>{this.rPCAP[1] = rPCAP2}}>
+                <div ref={(rPCAPtwo)=>{this.rPCAPtwo = rPCAPtwo}}>
                   <p>#         #         #<br/>
                   ##View Caputure## <br/>
                   show monitor capture CAP1 buffer detailed | in TCP|# <br/>
@@ -146,7 +146,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP[2] = rPCAP}}>
+                <div ref={(rPCAPtree)=>{this.rPCAPtree = rPCAPtree}}>
                   <p>#         #         #<br/>
                   ##Exports PCAP <br/>
                   monitor capture CAP1 export tftp://
@@ -162,7 +162,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP[3] = rPCAP}}>
+                <div ref={(rPCAPfour)=>{this.rPCAPfour = rPCAPfour}}>
                   <p>#         #         #<br/>
                   ##Stops Capture## <br/>
                   monitor capture CAP1 stop <br/></p>
@@ -174,7 +174,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP[4] = rPCAP}}>
+                <div ref={(rPCAPfive)=>{this.rPCAPfive = rPCAPfive}}>
                   <p>#         #         #<br/>
                   ##removes configuration## <br/>
                   No ip access-list extended HOSTCAP <br/>
