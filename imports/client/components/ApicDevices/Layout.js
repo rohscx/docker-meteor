@@ -18,7 +18,7 @@ export default class Table extends Component {
   }
 
 
-  handleCopyClick = async (refName) => {
+  handleCopyClick = async (clipName,clipNum) => {
 
     const worker = (text) => {
       var textArea = document.createElement("textarea");
@@ -66,9 +66,9 @@ export default class Table extends Component {
     //document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
-    console.log(this[refName].innerText)
+    console.log(this[clipName][clipNum].innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
-    await worker(this[refName].innerText)
+    await worker(this[clipName][clipNum].innerText)
     //await Clipboard.setString(this.setCap.innerText)
   }
 
@@ -93,12 +93,12 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = (clipData)=>{
+    const clipboardButton = (clipName,clipNum)=>{
       const refName = clipData;
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(refName)}}>
+            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(clipName,clipNum)}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -109,10 +109,10 @@ export default class Table extends Component {
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton("setCap")}
+            {clipboardButton("rPCap",0)}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(setCap)=>{this.setCap = setCap}}>
+                <div ref={(rPCAP)=>{this.rPCAP[0] = rPCAP}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
@@ -134,10 +134,12 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>#         #         #<br/>
-                ##View Caputure## <br/>
-                show monitor capture CAP1 buffer detailed | in TCP|# <br/>
-                show monitor capture  CAP1 buffer <br/></p>
+                <div ref={(rPCAP)=>{this.rPCAP[1] = rPCAP}}>
+                  <p>#         #         #<br/>
+                  ##View Caputure## <br/>
+                  show monitor capture CAP1 buffer detailed | in TCP|# <br/>
+                  show monitor capture  CAP1 buffer <br/></p>
+                </div>
               </Col>
             </Row>
           </div>
@@ -145,13 +147,15 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>#         #         #<br/>
-                ##Exports PCAP <br/>
-                monitor capture CAP1 export tftp://
-                <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
-                <b>/</b>
-                <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
-                .pcap </p><br/>
+                <div ref={(rPCAP)=>{this.rPCAP[2] = rPCAP}}>
+                  <p>#         #         #<br/>
+                  ##Exports PCAP <br/>
+                  monitor capture CAP1 export tftp://
+                  <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
+                  <b>/</b>
+                  <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
+                  .pcap </p><br/>
+                </div>
               </Col>
             </Row>
           </div>
@@ -159,9 +163,11 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>#         #         #<br/>
-                ##Stops Capture## <br/>
-                monitor capture CAP1 stop <br/></p>
+                <div ref={(rPCAP)=>{this.rPCAP[3] = rPCAP}}>
+                  <p>#         #         #<br/>
+                  ##Stops Capture## <br/>
+                  monitor capture CAP1 stop <br/></p>
+                </div>
               </Col>
             </Row>
           </div>
@@ -169,10 +175,12 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>#         #         #<br/>
-                ##removes configuration## <br/>
-                No ip access-list extended HOSTCAP <br/>
-                No monitor capture CAP1 <br/></p>
+                <div ref={(rPCAP)=>{this.rPCAP[4] = rPCAP}}>
+                  <p>#         #         #<br/>
+                  ##removes configuration## <br/>
+                  No ip access-list extended HOSTCAP <br/>
+                  No monitor capture CAP1 <br/></p>
+                </div>
               </Col>
             </Row>
           </div>
