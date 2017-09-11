@@ -112,12 +112,12 @@ export default class Table extends Component {
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
-                  <p>*         *         *<br/>
+                  <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
                   deny ip any host 224.0.0.2 <br/>
                   permit ip any any <br/></p>
-                  <p>*         *         *<br/>
+                  <p>#         #         #<br/>
                   ##Starts Capture## <br/>
                   monitor capture CAP1 int
                    <b contentEditable="true" suppressContentEditableWarning={true}>
@@ -133,7 +133,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>*         *         *<br/>
+                <p>#         #         #<br/>
                 ##View Caputure## <br/>
                 show monitor capture CAP1 buffer detailed | in TCP|# <br/>
                 show monitor capture  CAP1 buffer <br/></p>
@@ -144,7 +144,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>*         *         *<br/>
+                <p>#         #         #<br/>
                 ##Exports PCAP <br/>
                 monitor capture CAP1 export tftp://
                 <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
@@ -158,7 +158,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>*         *         *<br/>
+                <p>#         #         #<br/>
                 ##Stops Capture## <br/>
                 monitor capture CAP1 stop <br/></p>
               </Col>
@@ -168,7 +168,7 @@ export default class Table extends Component {
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
-                <p>*         *         *<br/>
+                <p>#         #         #<br/>
                 ##removes configuration## <br/>
                 No ip access-list extended HOSTCAP <br/>
                 No monitor capture CAP1 <br/></p>
@@ -183,7 +183,7 @@ export default class Table extends Component {
   switchPcap() {
     return (
       <Popover id="popover-trigger-click-root-close" title="Switch Packet Capture">
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ##Sets Capture parameters <br/>
           !GLOBAL CONFIGURATION MODE <br/>
           conf t <br/>
@@ -191,38 +191,38 @@ export default class Table extends Component {
           permit ip
           <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
           <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b></p><br/>
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ## Attaches filter## <br/>
           !PRIVLEGED EXEC <br/>
           end <br/>
           monitor capture buffer CAP1 <br/>
           monitor capture buffer CAP1 filter access-list HOSTCAP </p><br/>
 
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ##Creates named capture point## <br/>
           monitor capture point ip cef cef1 all both <br/>
           monitor capture point ip process-switched process-switched1 both <br/>
           monitor capture point ip process-switched process-switched2 from-us </p><br/>
 
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ## Associates interface to capture point name## <br/>
           monitor capture point associate cef1 CAP1 <br/>
           monitor capture point associate process-switched1 CAP1 <br/>
           monitor capture point associate process-switched2 CAP1 </p><br/>
 
 
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ##Starts Capture## <br/>
           monitor capture point start cef1 <br/>
           monitor capture point start process-switched1 <br/>
           monitor capture point start process-switched2 </p><br/>
 
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ##Shows capture## <br/>
           show monitor capture buffer all parameters <br/>
           show monitor capture buffer CAP1 dump | i Vl </p><br/>
 
-        <p>*         *         *<br/>
+        <p>#         #         #<br/>
           ##Stops Capture## <br/>
           monitor capture point stop cef1 <br/>
           monitor capture point stop process-switched1 <br/>
@@ -233,7 +233,7 @@ export default class Table extends Component {
           no monitor capture point ip process-switched process-switched2 from-us </p><br/>
 
         <p>
-          *         *         *<br/>
+          #         #         #<br/>
           ##Exports PCAP## <br/>
           monitor capture buffer CAP1 export tftp://
           <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
@@ -250,7 +250,7 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popover-trigger-click-root-close" title="fiaTrace">
-            *         *         *<br/>
+            #         #         #<br/>
             ##Identifies traffic and starts fiaTrace## <br/>
             !GLOBAL CONFIGURATION MODE
             conf t <br/>
@@ -270,7 +270,7 @@ export default class Table extends Component {
             debug platform packet-trace enable <br/>
           </p>
           <p>
-            *         *         *<br/>
+            #         #         #<br/>
             ##Display fiaTrace results## <br/>
             !PRIVLEGED EXEC <br/>
             end <br/>
@@ -279,7 +279,7 @@ export default class Table extends Component {
             show platform packet-trace packet1 <br/>
           </p>
           <p>
-            *         *         *<br/>
+            #         #         #<br/>
             ##Remove fiaTrace configuration## <br/>
             !GLOBAL CONFIGURATION MODE <br/>
             conf t <br/>
