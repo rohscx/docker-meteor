@@ -65,7 +65,7 @@ export default class Table extends Component {
         <div>
           <div id="aaa" ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
             {clipboardButton()}
-            <Row className="show-grid">
+            <Row className="show-grid" id="test">
               <Col xs={12}>
                 <p>*         *         *<br/>
                 ##Sets Capture parameters <br/>
