@@ -42,11 +42,11 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = (eventsss)=>{
+    const clipboardButton = (e)=>{
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(eventsss)}}>
+            <div style={{textAlign:"right"}} onClick={}>
               copyPlaceHolder
             </div>
           </Col>
