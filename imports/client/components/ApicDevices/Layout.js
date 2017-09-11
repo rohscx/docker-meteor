@@ -20,7 +20,7 @@ export default class Table extends Component {
 
   handleCopyClick = async () => {
     //this.setCap.innerText.focusTextInput()
-    //document.getElementById("aaa").focus();
+    document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
     console.log(this.setCap.innerText)
@@ -66,21 +66,23 @@ export default class Table extends Component {
         <div>
           <div id="aaa" ref={(setCap)=>{this.setCap = setCap , console.log(this)}}>
             {clipboardButton()}
-            <Row className="show-grid" id="test">
+            <Row className="show-grid">
               <Col xs={12}>
-                <p>*         *         *<br/>
-                ##Sets Capture parameters <br/>
-                ip access-list extended HOSTCAP <br/>
-                deny ip any host 224.0.0.2 <br/>
-                permit ip any any <br/></p>
-                <p>*         *         *<br/>
-                ##Starts Capture## <br/>
-                monitor capture CAP1 int
-                 <b contentEditable="true" suppressContentEditableWarning={true}>
-                   <mark>gi0/0/0.200</mark>
-                 </b>
-                 both access-list HOSTCAP <br/>
-                monitor capture CAP1 start <br/></p>
+                <div id="ttt">
+                  <p>*         *         *<br/>
+                  ##Sets Capture parameters <br/>
+                  ip access-list extended HOSTCAP <br/>
+                  deny ip any host 224.0.0.2 <br/>
+                  permit ip any any <br/></p>
+                  <p>*         *         *<br/>
+                  ##Starts Capture## <br/>
+                  monitor capture CAP1 int
+                   <b contentEditable="true" suppressContentEditableWarning={true}>
+                     <mark>gi0/0/0.200</mark>
+                   </b>
+                   both access-list HOSTCAP <br/>
+                  monitor capture CAP1 start <br/></p>
+                </div>
               </Col>
             </Row>
           </div>
