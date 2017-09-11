@@ -17,7 +17,8 @@ export default class Table extends Component {
   }
 
   handleCopyClick(event) {
-    console.log(event)
+    console.log(this.refs.1234.currentTarget.textContent)
+    console.log(this.refs.1234)
     //console.log(event.currentTarget.textContent)
     //let value = event.target.value;
   }
@@ -43,12 +44,12 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = (test1)=>{
+    const clipboardButton = ()=>{
       console.log(test1)
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick(test1)}}>
+            <div style={{textAlign:"right"}} onClick={() => {this.handleCopyClick("ddd")}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -58,8 +59,8 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="Progress1" ref={(input) => {this.Progress[0] = input }} >
-            {clipboardButton(this.refs.Progress1)}
+          <div id="Progress1" ref="1234">
+            {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
                 <p>*         *         *<br/>
