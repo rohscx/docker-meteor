@@ -18,7 +18,7 @@ export default class Table extends Component {
 
   handleCopyClick(event) {
     //console.log(this.refs.1234.currentTarget.textContent)
-    console.log(this.refs.1234)
+    console.log(this.refs.blash)
     //console.log(event.currentTarget.textContent)
     //let value = event.target.value;
   }
@@ -59,7 +59,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="Progress1" ref="1234">
+          <div id="Progress1" ref="blash">
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
