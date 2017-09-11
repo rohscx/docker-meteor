@@ -59,7 +59,7 @@ export default class Table extends Component {
           <div id="test1">
             {clipboardButton()}
             <Row className="show-grid">
-              <Col xs={12} onchange={(e) => {this.handleCopyClick(e)}}>
+              <Col xs={12} onChange={(e) => {this.handleCopyClick(e)}}>
                 <p>*         *         *<br/>
                 ##Sets Capture parameters <br/>
                 ip access-list extended HOSTCAP <br/>
