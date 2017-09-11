@@ -17,8 +17,8 @@ export default class Table extends Component {
   }
 
   handleCopyClick(event) {
-    let value = event.target.value;
     console.log(event.currentTarget.textContent)
+    let value = event.target.value;
   }
 
   openModal(vlanData) {
@@ -42,11 +42,11 @@ export default class Table extends Component {
   }
 
   routerPcap() {
-    const clipboardButton = (e)=>{
+    const clipboardButton = (test1)=>{
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={(e)=>{e}}>
+            <div style={{textAlign:"right"}} onClick={(test1) => {this.handleCopyClick(test1)}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -56,8 +56,8 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div id="test1">
-            {clipboardButton((e) => {this.handleCopyClick(e)})}
+          <div ref="test1">s
+            {clipboardButton(this.refs.test1)}
             <Row className="show-grid">
               <Col xs={12}>
                 <p>*         *         *<br/>
