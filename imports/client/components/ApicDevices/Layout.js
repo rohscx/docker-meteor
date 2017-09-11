@@ -16,6 +16,10 @@ export default class Table extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  handleCopyClick(event) {
+    let value = event.target.value;
+    alert(event)
+  }
 
   openModal(vlanData) {
     if (vlanData === null){
@@ -42,7 +46,7 @@ export default class Table extends Component {
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}}>
+            <div style={{textAlign:"right"}} onClick={(e) => {this.handleCopyClick(e)}}>
               copyPlaceHolder
             </div>
           </Col>
@@ -52,7 +56,7 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div>
+          <div id="test1">
             {clipboardButton()}
             <Row className="show-grid">
               <Col xs={12}>
@@ -64,7 +68,9 @@ export default class Table extends Component {
                 <p onChange={console.log(event.target.value)}>*         *         *<br/>
                 ##Starts Capture## <br/>
                 monitor capture CAP1 int
-                 <b contentEditable="true" suppressContentEditableWarning={true}><mark>gi0/0/0.200</mark> </b>
+                 <b contentEditable="true" suppressContentEditableWarning={true} ref="test1">
+                   <mark>gi0/0/0.200</mark>
+                 </b>
                  both access-list HOSTCAP <br/>
                 monitor capture CAP1 start <br/></p>
               </Col>
