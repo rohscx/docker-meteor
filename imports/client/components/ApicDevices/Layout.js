@@ -24,7 +24,7 @@ export default class Table extends Component {
     //this.setCap.innerHTML.focus()
     // used with refs
     console.log(document.getElementById("ttt"))
-    this.refs.setCap.getDOMNODE().focus()
+    this.setCap.select()
     console.log(this.setCap.innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
     await document.execCommand('copy')
