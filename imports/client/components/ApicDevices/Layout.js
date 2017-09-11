@@ -111,7 +111,7 @@ export default class Table extends Component {
             {clipboardButton("rPCAP",0)}
             <Row className="show-grid">
               <Col xs={12}>
-                <div ref={(rPCAP)=>{this.rPCAP["0"] = rPCAP}}>
+                <div ref={(rPCAP)=>{this.rPCAP["aaa"] = rPCAP}}>
                   <p>#         #         #<br/>
                   ##Sets Capture parameters <br/>
                   ip access-list extended HOSTCAP <br/>
