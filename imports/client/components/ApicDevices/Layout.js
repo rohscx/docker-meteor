@@ -21,7 +21,7 @@ export default class Table extends Component {
   handleCopyClick = async () => {
 
     let test1 = this.setCap.innerText
-    this.test1.select();
+    test1.select();
     // used with refs
     console.log(this.setCap.innerText)
     await document.execCommand('copy')
