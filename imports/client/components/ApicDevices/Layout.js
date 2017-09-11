@@ -83,6 +83,9 @@ export default class Table extends Component {
     //this.setCap.innerHTML.focus()
     // used with refs
     console.log(document.getElementById("ttt"))
+    let test222 = document.getElementById("ttt")
+    test22.focus()
+    test22.select()
     this.refs.setCap.select()
     console.log(this.setCap.innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
