@@ -58,8 +58,8 @@ export default class Table extends Component {
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
-          <div ref="test1">s
-            {clipboardButton(this.refs.test1)}
+          <div id="Progress1" ref={(input) => {this.Progress[0] = input }} >
+            {clipboardButton(this.refs.Progress1)}
             <Row className="show-grid">
               <Col xs={12}>
                 <p>*         *         *<br/>
