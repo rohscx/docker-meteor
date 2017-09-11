@@ -66,7 +66,7 @@ export default class Table extends Component {
     //document.getElementById("ttt").focus();
     //this.setCap.innerHTML.focus()
     // used with refs
-    console.log(this[clipName].nnerText)
+    console.log(this[clipName].innerText)
     //console.log(this.setCap.childNodes[1].children["0"].id)
     await worker(this[clipName].innerText)
     //await Clipboard.setString(this.setCap.innerText)
