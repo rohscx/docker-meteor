@@ -19,7 +19,7 @@ export default class Table extends Component {
 
 
   handleCopyClick = async () => {
-    this.setCap.innerText.focus()
+    this.setCap.innerText.focusTextInput()
     //document.getElementById("aaa").focus();
     // used with refs
     console.log(this.setCap.innerText)
