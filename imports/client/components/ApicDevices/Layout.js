@@ -21,9 +21,7 @@ export default class Table extends Component {
   handleCopyClick = async () => {
     // used with refs
     console.log(this.setCap.innerText)
-    // used with onClick
-    //console.log(event.currentTarget.textContent)
-    await clipboard.setString(this.setCap.innerText)
+    await Clipboard.setString(this.setCap.innerText)
   }
 
   openModal(vlanData) {
