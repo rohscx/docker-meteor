@@ -46,7 +46,7 @@ export default class Table extends Component {
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div style={{textAlign:"right"}} onClick={e}>
+            <div style={{textAlign:"right"}} onClick={(e)=>{e}}>
               copyPlaceHolder
             </div>
           </Col>
