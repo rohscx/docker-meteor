@@ -108,8 +108,8 @@ export default class Table extends Component {
       cursor: "pointer",
       WebkitTransitionDuration: "0.4s ",
       transitionDuration: "0.4s",
-      boxShadow: "0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)",
-      textAlign:"right",
+      border: "#e7e7e7",
+      hover: {backgroundColor: "#e7e7e7"},
       }
       return (
         <Row className="show-grid">
