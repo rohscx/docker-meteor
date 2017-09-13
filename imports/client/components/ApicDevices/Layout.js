@@ -10,7 +10,7 @@ export default class Table extends Component {
       modalIsOpen: false,
       modalData: null,
       modalReturnData: null,
-      backgroundColor:"white",
+      hoverd:"white",
     };
 
     this.openModal = this.openModal.bind(this);
@@ -96,9 +96,9 @@ export default class Table extends Component {
 
   onMouseOver(state) {
     if (state) {
-      this.setState({"#e7e7e7"})
+      this.setState({hoverd:"#e7e7e7"})
     } else {
-      this.setState({"white"})
+      this.setState({hoverd:"white"})
     }
   }
 
@@ -106,7 +106,7 @@ export default class Table extends Component {
     const clipboardButton = (clipName)=>{
 
       buttonStyle = {
-      backgroundColor: {this.state.backgroundColor},
+      backgroundColor: {this.state.hoverd},
       border: "none",
       color: "black",
       padding: "2px 4px",
@@ -125,7 +125,7 @@ export default class Table extends Component {
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
             <div  sytle={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
-              <button style={buttonStyle} onMouseOver={() => {this.onMouseOver()}} onMouseOut={() => {this.onMouseOut()}}>Copy</button>
+              <button style={buttonStyle} onMouseOver={() => {this.onMouseOver(true)}} onMouseOut={() => {this.onMouseOver(false)}}>Copy</button>
             </div>
           </Col>
         </Row>
