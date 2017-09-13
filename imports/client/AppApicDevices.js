@@ -16,6 +16,7 @@ import { autobind } from 'core-decorators';
 
 
 const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
+const userInfo = new Mongo.Collection('users');
 ItemsApicDevices.allow({
   insert() { return false; },
   update() { return false; },
@@ -66,7 +67,7 @@ ItemsApicDevices.deny({
 
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
-    console.log(this.props.test.find().fetch())
+    console.log(userInfo.find().fetch())
     return (
       <Provider store={store}>
         <main>
