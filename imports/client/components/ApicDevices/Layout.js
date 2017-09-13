@@ -106,7 +106,7 @@ export default class Table extends Component {
     const clipboardButton = (clipName)=>{
 
       buttonStyle = {
-      backgroundColor: {this.state.hoverd},
+      backgroundColor: {"white"},
       border: "none",
       color: "black",
       padding: "2px 4px",
