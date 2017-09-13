@@ -26,7 +26,7 @@
       "uPass": "Cisco123!",
       "baseUrl": "https://devnetapi.cisco.com/sandbox/apic_em"
     },
-    "siteBranding":{
+    "siteBranding": {
       "navBarBrand": "FROST",
     }
 },
