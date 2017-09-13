@@ -10,7 +10,7 @@ export default class Table extends Component {
       modalIsOpen: false,
       modalData: null,
       modalReturnData: null,
-      hoverd:false
+      backgroundColor:"white",
     };
 
     this.openModal = this.openModal.bind(this);
@@ -94,19 +94,19 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  onMouseOver() {
-    this.setState({hovered:true})
-  }
-
-  onMouseOut() {
-    this.setState({hovered:false})
+  onMouseOver(state) {
+    if (state) {
+      this.setState({backgroundColor:"#e7e7e7"})
+    } else {
+      this.setState({backgroundColor:"white"})
+    }
   }
 
   routerPcap() {
     const clipboardButton = (clipName)=>{
 
       buttonStyle = {
-      backgroundColor: {function() {if (this.state.hovered){return {backgroundColor:"#e7e7e7"}},else {return {backgroundColor:"white"}}}},
+      backgroundColor: ,
       border: "none",
       color: "black",
       padding: "2px 4px",
