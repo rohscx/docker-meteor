@@ -38,7 +38,7 @@ ItemsApicDevices.deny({
        status: "",
        dbReturnRdy: true,
        fileTransferStatus: false,
-       userInfo: Meteor.users.find().fetch()
+       userInfo: Meteor.user
      }
    }
 
