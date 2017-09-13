@@ -425,17 +425,6 @@ export default class Table extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    const adminCheck = () =>{
-      const userM = this.props.userInfo;
-      if (userM ) {
-        if (userM["0"].roles["0"] == "admin") {
-          return true
-        } else {
-          return false
-        }
-      }
-      console.log(userM)
-    }
     let reachCheck = (status)=>{
       if(status == 'Reachable'){
         return (
@@ -487,7 +476,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={5} sm={6} md={2}>{adminCheck() ? <a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a> : <a>{mgmtIpAddress}</a>} </Col>
+              <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
