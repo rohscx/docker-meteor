@@ -16,7 +16,6 @@ import { autobind } from 'core-decorators';
 
 
 const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
-const userInfo = new Mongo.Collection('users');
 ItemsApicDevices.allow({
   insert() { return false; },
   update() { return false; },
@@ -67,7 +66,7 @@ ItemsApicDevices.deny({
 
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
-    console.log(userInfo.find().fetch())
+    console.log(Meteor.users.find().fetch())
     return (
       <Provider store={store}>
         <main>
