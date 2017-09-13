@@ -128,7 +128,7 @@ export default class Table extends Component {
                      <mark>gi0/0/0.200</mark>
                    </b>
                    both access-list HOSTCAP <br/>
-                  monitor capture CAP1 start <br/></p>
+                  monitor capture CAP1 start </p><br/><br/>
                 </div>
               </Col>
             </Row>
@@ -141,7 +141,7 @@ export default class Table extends Component {
                   <p>#         #         #<br/>
                   ##View Caputure## <br/>
                   show monitor capture CAP1 buffer detailed | in TCP|# <br/>
-                  show monitor capture  CAP1 buffer <br/></p>
+                  show monitor capture  CAP1 buffer </p><br/><br/>
                 </div>
               </Col>
             </Row>
@@ -157,7 +157,7 @@ export default class Table extends Component {
                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
                   <b>/</b>
                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards1000-r2</mark></b>
-                  .pcap </p><br/>
+                  .pcap </p><br/><br/>
                 </div>
               </Col>
             </Row>
@@ -169,7 +169,7 @@ export default class Table extends Component {
                 <div ref={(rPCAPfour)=>{this.rPCAPfour = rPCAPfour}}>
                   <p>#         #         #<br/>
                   ##Stops Capture## <br/>
-                  monitor capture CAP1 stop <br/></p>
+                  monitor capture CAP1 stop </p><br/><br/>
                 </div>
               </Col>
             </Row>
@@ -182,7 +182,7 @@ export default class Table extends Component {
                   <p>#         #         #<br/>
                   ##removes configuration## <br/>
                   No ip access-list extended HOSTCAP <br/>
-                  No monitor capture CAP1 <br/></p>
+                  No monitor capture CAP1 </p><br/><br/>
                 </div>
               </Col>
             </Row>
@@ -215,25 +215,21 @@ export default class Table extends Component {
                   end <br/>
                   monitor capture buffer CAP1 <br/>
                   monitor capture buffer CAP1 filter access-list HOSTCAP </p><br/>
-
                 <p>#         #         #<br/>
                   ##Creates named capture point## <br/>
                   monitor capture point ip cef cef1 all both <br/>
                   monitor capture point ip process-switched process-switched1 both <br/>
                   monitor capture point ip process-switched process-switched2 from-us </p><br/>
-
                 <p>#         #         #<br/>
                   ## Associates interface to capture point name## <br/>
                   monitor capture point associate cef1 CAP1 <br/>
                   monitor capture point associate process-switched1 CAP1 <br/>
                   monitor capture point associate process-switched2 CAP1 </p><br/>
-
-
                 <p>#         #         #<br/>
                   ##Starts Capture## <br/>
                   monitor capture point start cef1 <br/>
                   monitor capture point start process-switched1 <br/>
-                  monitor capture point start process-switched2 </p><br/>
+                  monitor capture point start process-switched2 </p><br/><br/>
               </div>
             </Col>
           </Row>
@@ -246,7 +242,7 @@ export default class Table extends Component {
                 <p>#         #         #<br/>
                   ##Shows capture## <br/>
                   show monitor capture buffer all parameters <br/>
-                  show monitor capture buffer CAP1 dump | i Vl </p><br/>
+                  show monitor capture buffer CAP1 dump | i Vl </p><br/><br/>
               </div>
             </Col>
           </Row>
@@ -264,7 +260,7 @@ export default class Table extends Component {
                   no monitor capture buffer CAP1 <br/>
                   no monitor capture point ip cef cef1 all both <br/>
                   no monitor capture point ip process-switched process-switched1 all both
-                  no monitor capture point ip process-switched process-switched2 from-us </p><br/>
+                  no monitor capture point ip process-switched process-switched2 from-us </p><br/><br/>
               </div>
             </Col>
           </Row>
@@ -281,7 +277,7 @@ export default class Table extends Component {
                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>11.16.15.16</mark></b>
                   <b>/</b>
                   <b contentEditable="true" suppressContentEditableWarning={true}><mark>mega-yards2-s1</mark></b>
-                  .pcap </p><br/>
+                  .pcap </p><br/><br/>
               </div>
             </Col>
           </Row>
@@ -320,7 +316,7 @@ export default class Table extends Component {
                     debug platform condition ipv4 access-list acl-fia both <br/>
                     debug platform condition start <br/>
                     debug platform packet-trace packet 1024 fia-trace <br/>
-                    debug platform packet-trace enable <br/>
+                    debug platform packet-trace enable <br/><br/>
                   </p>
                 </div>
               </Col>
@@ -338,7 +334,7 @@ export default class Table extends Component {
                     end <br/>
                     show platform all <br/>
                     show platform packet-trace summary <br/>
-                    show platform packet-trace packet1 <br/>
+                    show platform packet-trace packet1 <br/><br/>
                   </p>
                 </div>
               </Col>
