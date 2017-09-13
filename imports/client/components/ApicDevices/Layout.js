@@ -467,9 +467,7 @@ export default class Table extends Component {
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
-        let vlanInfo = (vlanArray) =>{
-
-        }
+        let sshLink = sshLinkGen(mgmtIpAddress);
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
@@ -478,7 +476,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={5} sm={6} md={2}><MgmtIp role={['admin']} {... this.props}> <a href={sshLinkGen(mgmtIpAddress).bind(this)}>{mgmtIpAddress.bind(this)}</a></MgmtIp></Col>
+              <Col xs={5} sm={6} md={2}><MgmtIp role={['admin']} {... this.props}> <a href={sshLink}>{mgmtIpAddress}</a></MgmtIp></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
