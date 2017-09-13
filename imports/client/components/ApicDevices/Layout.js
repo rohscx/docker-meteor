@@ -96,7 +96,7 @@ export default class Table extends Component {
   routerPcap() {
     const clipboardButton = (clipName)=>{
       buttonStyle = {
-      backgroundColor: "#e7e7e7",
+      backgroundColor: "white",
       border: "none",
       color: "black",
       padding: "2px 4px",
