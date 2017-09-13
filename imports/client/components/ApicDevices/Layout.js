@@ -471,11 +471,11 @@ export default class Table extends Component {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
-            ) else {
-              reutrn (
-                <Col xs={5} sm={6} md={2}><a> {mgmtIpAddress}</a></Col>
-              }
-            }
+            )
+          } else {
+            return (
+              <Col xs={5} sm={6} md={2}><a> {mgmtIpAddress}</a></Col>
+            )
           }
         }
         return (
