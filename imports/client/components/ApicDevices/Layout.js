@@ -484,7 +484,6 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
               <Col xs={6} sm={6} md={1}>{data.siteData.dataObj.serialNumber}</Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
-              {vlanDetail ? <Col xs={6} sm={6} md={4} onClick={()=>{this.openModal(vlanDetail)}} style={{cursor:"pointer"}}><b>VlanData</b></Col> : ""}
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
