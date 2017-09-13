@@ -101,7 +101,7 @@ export default class Table extends Component {
           <Col xs={6} xsOffset={6}>
             <div  sytle={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
               <ButtonToolbar>
-                <Button bsStyle="primary" bsSize="xssmall">Copy</Button>
+                <Button bsSize="xsmall">Copy</Button>
               </ButtonToolbar>
             </div>
           </Col>
