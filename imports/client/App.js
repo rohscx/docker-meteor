@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
@@ -23,7 +24,7 @@ import Header from './components/Header';
    componentWillMount() {
 
       this.setState({
-        title: "FROST"
+        title: {Meteor.settings.public.siteBranding.navBarBrand}
       });
       this.setState({
         greeting: "Welcome, here are a couple of tools which we think will be useful."
