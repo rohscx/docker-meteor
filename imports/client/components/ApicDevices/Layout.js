@@ -426,7 +426,7 @@ export default class Table extends Component {
     }
     const adminCheck = () =>{
       const userM = this.props.userInfo;
-      if (userM.length >=1 ) {
+      if (userM ) {
         if (userM["0"].roles["0"] == "admin") {
           return true
         } else {
