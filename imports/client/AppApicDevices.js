@@ -86,7 +86,7 @@ ItemsApicDevices.deny({
 
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
-  let test22 =  Meteor.user.find().fetch()
+  let test22 =  Meteor.users.find().fetch()
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
