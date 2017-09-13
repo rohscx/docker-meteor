@@ -106,7 +106,7 @@ export default class Table extends Component {
     const clipboardButton = (clipName)=>{
 
       buttonStyle = {
-      backgroundColor: function(){if(this.state.hovered){return {backgroundColor:"#e7e7e7"}},else{return {backgroundColor:"white"}}},
+      backgroundColor: {function(){if(this.state.hovered){return {backgroundColor:"#e7e7e7"}},else{return {backgroundColor:"white"}}}},
       border: "none",
       color: "black",
       padding: "2px 4px",
