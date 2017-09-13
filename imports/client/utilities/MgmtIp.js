@@ -15,4 +15,4 @@ MgmtIp.propTypes = {
   ]).isRequired
 };
 
-export default IsRole;
+export default MgmtIp;
