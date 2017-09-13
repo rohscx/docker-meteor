@@ -4,7 +4,7 @@ const MgmtIp = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
-  return null;
+  return ("sdfad");
 }
 
 // checks type, throws and error
