@@ -18,4 +18,4 @@ MgmtIp.propTypes = {
   ])
 };
 
-export default IsRole;
+export default MgmtIp;
