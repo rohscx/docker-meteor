@@ -43,7 +43,7 @@ const MainLayout = ({children}) =>
       <Navbar inverse collapseOnSelect style={navBarStyles}>
         <Navbar.Header>
           <Navbar.Brand>
-            FROST
+            {Meteor.settings.public.siteBranding.navBarBrand}
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

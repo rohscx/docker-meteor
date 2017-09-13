@@ -46,7 +46,14 @@ initConfig() {
 }
 
 
-start() {
+start_prod() {
+  #sleep ${START_DELAY}
+  cd ~/meteor-app
+  ${METEOR_APP_URL}
+  meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
+}
+
+start_dev() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
   ${METEOR_PROFILE}
@@ -64,7 +71,7 @@ fi
 while getopts fhis flag; do
   case ${flag} in
     f)
-      start
+      start_prod
       exit
       ;;
     h)
@@ -73,7 +80,12 @@ while getopts fhis flag; do
       ;;
     s)
       initConfig
-      start
+      start_prod
+      exit
+      ;;
+    d)
+      initConfig
+      start_dev
       exit
       ;;
     *)

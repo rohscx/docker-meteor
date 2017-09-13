@@ -25,6 +25,9 @@
       "uName": "devnetuser",
       "uPass": "Cisco123!",
       "baseUrl": "https://devnetapi.cisco.com/sandbox/apic_em"
+    },
+    "siteBranding":{
+      "navBarBrand": "FROST",
     }
 },
   "admins" : [
