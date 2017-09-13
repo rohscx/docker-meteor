@@ -64,7 +64,7 @@ ItemsApicDevices.deny({
       return <div>Loading Application...</div>
     }
 
-    console.log("dddd",this.props.test)
+    console.log("dddd",this.props.test.find().fetch())
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
     return (
