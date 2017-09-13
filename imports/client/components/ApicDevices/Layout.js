@@ -297,48 +297,78 @@ export default class Table extends Component {
     }
     return (
       <Popover id="popover-trigger-click-root-close" title="fiaTrace">
-            #         #         #<br/>
-            ##Identifies traffic and starts fiaTrace## <br/>
-            !GLOBAL CONFIGURATION MODE
-            conf t <br/>
-            no ip access-list extended acl-fia <br/>
-            ip access-list extended acl-fia <br/>
-            <p style={textIdent} >
-              permit ip
-              <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
-              <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b><br/>
-            </p>
-          <p>
-            !PRIVLEGED EXEC <br/>
-            end <br/>
-            debug platform condition ipv4 access-list acl-fia both <br/>
-            debug platform condition start <br/>
-            debug platform packet-trace packet 1024 fia-trace <br/>
-            debug platform packet-trace enable <br/>
-          </p>
-          <p>
-            #         #         #<br/>
-            ##Display fiaTrace results## <br/>
-            !PRIVLEGED EXEC <br/>
-            end <br/>
-            show platform all <br/>
-            show platform packet-trace summary <br/>
-            show platform packet-trace packet1 <br/>
-          </p>
-          <p>
-            #         #         #<br/>
-            ##Remove fiaTrace configuration## <br/>
-            !GLOBAL CONFIGURATION MODE <br/>
-            conf t <br/>
-            no ip access-list extended acl-fia <br/>
-            !PRIVLEGED EXEC <br/>
-            end <br/>
-            no debug platform condition ipv4 access-list acl-fia both <br/>
-            debug platform condition stop <br/>
-            no debug platform packet-trace packet 1024 fia-trace <br/>
-            no debug platform packet-trace enable <br/>
-            undebug all <br/>
-          </p>
+        <div>
+          <div>
+            {this.clipboardButton("fiaTraceOne")}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <div ref={(fiaTraceOne)=>{this.fiaTraceOne = fiaTraceOne}}>
+                  #         #         #<br/>
+                  ##Identifies traffic and starts fiaTrace## <br/>
+                  !GLOBAL CONFIGURATION MODE
+                  conf t <br/>
+                  no ip access-list extended acl-fia <br/>
+                  ip access-list extended acl-fia <br/>
+                  <p style={textIdent} >
+                    permit ip
+                    <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
+                    <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b><br/>
+                  </p>
+                  <p>
+                    !PRIVLEGED EXEC <br/>
+                    end <br/>
+                    debug platform condition ipv4 access-list acl-fia both <br/>
+                    debug platform condition start <br/>
+                    debug platform packet-trace packet 1024 fia-trace <br/>
+                    debug platform packet-trace enable <br/>
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div>
+            {this.clipboardButton("fiaTraceTwo")}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <div ref={(fiaTraceTwo)=>{this.fiaTraceTwo = fiaTraceTwo}}>
+                  <p>
+                    #         #         #<br/>
+                    ##Display fiaTrace results## <br/>
+                    !PRIVLEGED EXEC <br/>
+                    end <br/>
+                    show platform all <br/>
+                    show platform packet-trace summary <br/>
+                    show platform packet-trace packet1 <br/>
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div>
+            {this.clipboardButton("fiaTraceThree")}
+            <Row className="show-grid">
+              <Col xs={12}>
+                <div ref={(fiaTraceThree)=>{this.fiaTraceThree = fiaTraceThree}}>
+                  <p>
+                    #         #         #<br/>
+                    ##Remove fiaTrace configuration## <br/>
+                    !GLOBAL CONFIGURATION MODE <br/>
+                    conf t <br/>
+                    no ip access-list extended acl-fia <br/>
+                    !PRIVLEGED EXEC <br/>
+                    end <br/>
+                    no debug platform condition ipv4 access-list acl-fia both <br/>
+                    debug platform condition stop <br/>
+                    no debug platform packet-trace packet 1024 fia-trace <br/>
+                    no debug platform packet-trace enable <br/>
+                    undebug all <br/>
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
+
       </Popover>
     )
   }
