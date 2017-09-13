@@ -64,7 +64,7 @@ ItemsApicDevices.deny({
       return <div>Loading Application...</div>
     }
 
-
+    console.log("dddd",this.props.test)
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
     return (
@@ -87,9 +87,6 @@ export default createContainer(({params}) => {
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
-  userInfo = ()=>{
-    console.log("tester",userSub.find().fetch())
-  }
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
@@ -109,7 +106,7 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
-    },test: userInfo()
+    },test: userSub
 
 
   };
