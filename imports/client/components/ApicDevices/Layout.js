@@ -110,12 +110,11 @@ export default class Table extends Component {
       transitionDuration: "0.4s",
       boxShadow: "0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)",
       textAlign:"right",
-      float:"right",
       }
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div  onClick={() => {this.handleCopyClick(clipName)}}>
+            <div  sytle={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
               <button style={buttonStyle}>Copy</button>
             </div>
           </Col>
