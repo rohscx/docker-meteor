@@ -99,7 +99,7 @@ export default class Table extends Component {
       backgroundColor: "#4CAF50",
       border: "none",
       color: "white",
-      padding: "15px 32px",
+      padding: "1px 1px",
       textAlign: "center",
       textDecoration: "none",
       display: "inline-block",
