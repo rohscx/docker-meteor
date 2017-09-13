@@ -66,7 +66,7 @@ ItemsApicDevices.deny({
 
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
-    console.log(this.props.test)
+    console.log(this.props.test.find().fetch())
     return (
       <Provider store={store}>
         <main>
