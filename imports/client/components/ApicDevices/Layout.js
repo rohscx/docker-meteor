@@ -425,7 +425,7 @@ export default class Table extends Component {
       fontWeight: "bold"
     }
     const adminCheck = () =>{
-      const userM = Meteor.users.find().fetch()
+      const userM = this.props.userInfo;
       if (userM.length >=1 ) {
         if (userM["0"].roles["0"] == "admin") {
           return true
