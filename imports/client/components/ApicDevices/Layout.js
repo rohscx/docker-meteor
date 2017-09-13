@@ -93,26 +93,26 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
+  clipboardButton (clipName) {
+    return (
+      <Row className="show-grid">
+        <Col xs={6} xsOffset={6}>
+          <div  style={{float:"right"}}>
+            <ButtonToolbar>
+              <Button bsSize="xsmall" onClick={() => {this.handleCopyClick(clipName)}}>Copy</Button>
+            </ButtonToolbar>
+          </div>
+        </Col>
+      </Row>
+    )
+  }
 
   routerPcap() {
-    const clipboardButton = (clipName)=>{
-      return (
-        <Row className="show-grid">
-          <Col xs={6} xsOffset={6}>
-            <div  style={{float:"right"}}>
-              <ButtonToolbar>
-                <Button bsSize="xsmall" onClick={() => {this.handleCopyClick(clipName)}}>Copy</Button>
-              </ButtonToolbar>
-            </div>
-          </Col>
-        </Row>
-      )
-    };
     return (
       <Popover id="popover-trigger-click-root-close" title="Router Packet Capture">
         <div>
           <div>
-            {clipboardButton("rPCAPone")}
+            {this.clipboardButton("rPCAPone")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPone)=>{this.rPCAPone = rPCAPone}}>
@@ -134,7 +134,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton("rPCAPtwo")}
+            {this.clipboardButton("rPCAPtwo")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPtwo)=>{this.rPCAPtwo = rPCAPtwo}}>
@@ -147,7 +147,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton("rPCAPtree")}
+            {this.clipboardButton("rPCAPtree")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPtree)=>{this.rPCAPtree = rPCAPtree}}>
@@ -163,7 +163,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton("rPCAPfour")}
+            {this.clipboardButton("rPCAPfour")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPfour)=>{this.rPCAPfour = rPCAPfour}}>
@@ -175,7 +175,7 @@ export default class Table extends Component {
             </Row>
           </div>
           <div>
-            {clipboardButton("rPCAPfive")}
+            {this.clipboardButton("rPCAPfive")}
             <Row className="show-grid">
               <Col xs={12}>
                 <div ref={(rPCAPfive)=>{this.rPCAPfive = rPCAPfive}}>
