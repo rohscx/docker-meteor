@@ -114,7 +114,7 @@ export default class Table extends Component {
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div  sytle={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
+            <div  sytle={{float:"right" }} onClick={() => {this.handleCopyClick(clipName)}}>
               <button style={buttonStyle}>Copy</button>
             </div>
           </Col>
