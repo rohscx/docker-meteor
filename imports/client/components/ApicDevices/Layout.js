@@ -473,7 +473,7 @@ export default class Table extends Component {
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
             ) else {
               reutrn (
-                <Col xs={5} sm={6} md={2}><a>{mgmtIpAddress}</a></Col>
+                <Col xs={5} sm={6} md={2}><a> {mgmtIpAddress}</a></Col>
               }
             }
           }
