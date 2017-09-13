@@ -426,7 +426,7 @@ export default class Table extends Component {
     }
     const adminCheck = () =>{
       const userM = Meteor.users.find().fetch()
-      if (userM["0"].lengh >= 1) {
+      if (userM) {
         if (userM["0"].roles["0"] == "admin") {
           return true
         } else {
