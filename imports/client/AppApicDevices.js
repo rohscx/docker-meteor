@@ -10,6 +10,7 @@ import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
+
 //import ItemsApicDevices from '../api/prtg';
 
 
@@ -71,6 +72,11 @@ ItemsApicDevices.deny({
         <main>
           <IsRole role={['admin']} {... this.props}>
             <button onClick={this.showAll}>
+              Show {this.props.showAll ? 'One': 'All'}
+            </button>
+          </IsRole>
+          <IsRole role={['admin']} {... this.props}>
+            <button onClick={this.showAll}>
               Show {this.props.showAll ? 'None': 'All'}
             </button>
           </IsRole>
@@ -90,6 +96,9 @@ export default createContainer(({params}) => {
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
+  userInfo = ()=>{
+    console.log(userSub)
+  }
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
@@ -109,7 +118,8 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
-    }
+    },test:userInfo()
+
 
   };
 }, AppApicDevices);
