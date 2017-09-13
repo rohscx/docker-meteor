@@ -96,9 +96,9 @@ export default class Table extends Component {
 
   onMouseOver(state) {
     if (state) {
-      this.setState({backgroundColor:"#e7e7e7"})
+      this.setState({"#e7e7e7"})
     } else {
-      this.setState({backgroundColor:"white"})
+      this.setState({"white"})
     }
   }
 
