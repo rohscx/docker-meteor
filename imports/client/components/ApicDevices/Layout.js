@@ -481,6 +481,7 @@ export default class Table extends Component {
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
+              {roleCheck("admin")}
               <Col xs={8} sm={6} md={3}>{data.siteData.dataObj.hostname}</Col>
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
