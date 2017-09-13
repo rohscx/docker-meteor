@@ -1,6 +1,6 @@
 import React, { PropTypes} from 'react';
 
-const MgmtIp = ({role}) => {
+const MgmtIp = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
@@ -8,11 +8,14 @@ const MgmtIp = ({role}) => {
 }
 
 // checks type, throws and error
-MgmtIp.propTypes = {
+IsRole.propTypes = {
   role: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
-  ]).isRequired
+  ]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.object
+  ])
 };
 
-export default MgmtIp;
+export default IsRole;
