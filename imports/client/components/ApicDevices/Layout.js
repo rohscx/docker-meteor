@@ -426,14 +426,14 @@ export default class Table extends Component {
     }
     const adminCheck = () =>{
       const userM = Meteor.users.find().fetch()
-      if (userM.length >= 1) {
+      if (userM.length >=1 ) {
         if (userM["0"].roles["0"] == "admin") {
           return true
         } else {
           return false
         }
       }
-      console.log(Meteor.users.find().fetch())
+      console.log(userM)
     }
     let reachCheck = (status)=>{
       if(status == 'Reachable'){
