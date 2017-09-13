@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
-import IsRole from '../../utilities/IsRole';
+import MgmtIp from '../../utilities/MgmtIp';
 
 export default class Table extends Component {
   constructor() {
@@ -478,7 +478,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <IsRole role={['admin']} {... this.props}> <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col></IsRole>
+              <Col xs={5} sm={6} md={2}><MgmtIp role={['admin']}> <a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></MgmtIp></Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
