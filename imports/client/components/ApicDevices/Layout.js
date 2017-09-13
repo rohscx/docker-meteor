@@ -99,9 +99,9 @@ export default class Table extends Component {
       return (
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
-            <div  style={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
+            <div  style={{float:"right"}}>
               <ButtonToolbar>
-                <Button bsSize="xsmall">Copy</Button>
+                <Button bsSize="xsmall" onClick={() => {this.handleCopyClick(clipName)}}>Copy</Button>
               </ButtonToolbar>
             </div>
           </Col>
