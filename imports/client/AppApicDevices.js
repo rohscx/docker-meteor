@@ -10,7 +10,6 @@ import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
-
 //import ItemsApicDevices from '../api/prtg';
 
 
@@ -64,13 +63,17 @@ ItemsApicDevices.deny({
       return <div>Loading Application...</div>
     }
 
-    console.log("dddd",this.props.test.find().fetch())
+
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
     return (
       <Provider store={store}>
         <main>
-          {this.props.test}
+          <IsRole role={['admin']} {... this.props}>
+            <button onClick={this.showAll}>
+              Show {this.props.showAll ? 'None': 'All'}
+            </button>
+          </IsRole>
           <Header  {... this.state} />
           <ApicDevices {... this.props} dbReturnRdy={true}/>
         </main>
@@ -107,7 +110,6 @@ export default createContainer(({params}) => {
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
     },test: userSub
-
 
   };
 }, AppApicDevices);
