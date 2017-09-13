@@ -37,7 +37,8 @@ ItemsApicDevices.deny({
        greeting:"",
        status: "",
        dbReturnRdy: true,
-       fileTransferStatus: false
+       fileTransferStatus: false,
+       userInfo: Meteor.users.find().fetch()
      }
    }
 
@@ -66,7 +67,6 @@ ItemsApicDevices.deny({
 
 //<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
     console.log(this)
-    console.log(Meteor.users.find().fetch())
     return (
       <Provider store={store}>
         <main>
