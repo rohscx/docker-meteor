@@ -474,7 +474,7 @@ export default class Table extends Component {
             )
           } else {
             return (
-              <Col xs={5} sm={6} md={2}><a> {mgmtIpAddress}</a></Col>
+              <Col xs={5} sm={6} md={2}>{mgmtIpAddress}</Col>
             )
           }
         }
