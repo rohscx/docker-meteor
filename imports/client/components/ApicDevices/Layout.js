@@ -98,7 +98,7 @@ export default class Table extends Component {
       buttonStyle = {
       backgroundColor: "#e7e7e7",
       border: "none",
-      color: "white",
+      color: "black",
       padding: "2px 4px",
       textAlign: "center",
       textDecoration: "none",
