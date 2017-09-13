@@ -115,7 +115,7 @@ export default class Table extends Component {
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
             <div style={buttonStyle} onClick={() => {this.handleCopyClick(clipName)}}>
-              copyPlaceHolder
+              Copy
             </div>
           </Col>
         </Row>
