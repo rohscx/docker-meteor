@@ -24,7 +24,7 @@ import Header from './components/Header';
    componentWillMount() {
 
       this.setState({
-        title: {Meteor.settings.public.siteBranding.navBarBrand}
+        title: '{Meteor.settings.public.siteBranding.navBarBrand}'
       });
       this.setState({
         greeting: "Welcome, here are a couple of tools which we think will be useful."
