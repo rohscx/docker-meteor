@@ -88,7 +88,7 @@ export default createContainer(({params}) => {
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   userInfo = ()=>{
-    console.log(userSub)
+    console.log("tester",userSub.fetch)
   }
   sortBy = (findValue,sortValue, sortOrder) =>{
     // debug
