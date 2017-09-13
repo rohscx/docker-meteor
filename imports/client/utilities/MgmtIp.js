@@ -8,7 +8,7 @@ const MgmtIp = ({role, children}) => {
 }
 
 // checks type, throws and error
-IsRole.propTypes = {
+MgmtIp.propTypes = {
   role: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
