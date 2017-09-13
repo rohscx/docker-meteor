@@ -467,7 +467,7 @@ export default class Table extends Component {
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
-        const roleCheck (role) =>{
+        const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
               <Col xs={5} sm={6} md={2}><a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a></Col>
