@@ -37,7 +37,7 @@ ItemsApicDevices.deny({
        greeting:"",
        status: "",
        dbReturnRdy: true,
-       fileTransferStatus: false,
+       fileTransferStatus: false
      }
    }
 
@@ -86,7 +86,6 @@ ItemsApicDevices.deny({
 
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
-  let test22 =  Meteor.users.find().fetch()
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
@@ -110,7 +109,7 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue, sortOrder)
-    },userInfo: test22
+    }
 
   };
 }, AppApicDevices);
