@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
-import MgmtIp from '../../utilities/MgmtIp';
+import IsRole from '../../utilities/IsRole';
 
 export default class Table extends Component {
   constructor() {
@@ -425,6 +425,17 @@ export default class Table extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
+    const adminCheck = () =>{
+      const userM = this.props.userInfo;
+      if (userM ) {
+        if (userM["0"].roles["0"] == "admin") {
+          return true
+        } else {
+          return false
+        }
+      }
+      console.log(userM)
+    }
     let reachCheck = (status)=>{
       if(status == 'Reachable'){
         return (
@@ -467,7 +478,7 @@ export default class Table extends Component {
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
-        let sshLink = sshLinkGen(mgmtIpAddress);
+
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
@@ -476,9 +487,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={5} sm={6} md={2}><MgmtIp role={['admin']} {... this.props}>             <button onClick={this.showAll}>
-                            Show {this.props.showAll ? 'None': 'All'}
-                          </button></MgmtIp></Col>
+              <Col xs={5} sm={6} md={2}>{adminCheck() ? <a href={sshLinkGen(mgmtIpAddress)}>{mgmtIpAddress}</a> : <a>{mgmtIpAddress}</a>} </Col>
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
