@@ -9,7 +9,8 @@ export default class Table extends Component {
     this.state = {
       modalIsOpen: false,
       modalData: null,
-      modalReturnData: null
+      modalReturnData: null,
+      hoverd:false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -93,8 +94,17 @@ export default class Table extends Component {
     this.setState({modalIsOpen: false});
   }
 
+  onMouseOver() {
+    this.setState({hovered:true})
+  }
+
+  onMouseOut() {
+    this.setState({hovered:false})
+  }
+
   routerPcap() {
     const clipboardButton = (clipName)=>{
+
       buttonStyle = {
       backgroundColor: "white",
       border: "none",
@@ -115,7 +125,7 @@ export default class Table extends Component {
         <Row className="show-grid">
           <Col xs={6} xsOffset={6}>
             <div  sytle={{float:"right"}} onClick={() => {this.handleCopyClick(clipName)}}>
-              <button style={buttonStyle}>Copy</button>
+              <button style={buttonStyle} onMouseOver={this.onMouseOver()} onMouseOut={this.onMouseOut()}>Copy</button>
             </div>
           </Col>
         </Row>
