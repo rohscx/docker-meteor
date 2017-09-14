@@ -3,7 +3,7 @@ import React, { PropTypes} from 'react';
 const IsRole = ({role, children}) => {
   const cssBlur = {
     color: "transparent",
-    textShadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px",
+    textShadow: "rgba(0, 0, 0, 0.5) 0px 0px 10px",
     userSelect: "none"
 
   }
