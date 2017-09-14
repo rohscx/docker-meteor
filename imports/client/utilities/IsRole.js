@@ -13,10 +13,7 @@ IsRole.propTypes = {
     PropTypes.string,
     PropTypes.array
   ]).isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array
-  ])
+
 };
 
 export default IsRole;
