@@ -14,7 +14,8 @@ IsRole.propTypes = {
     PropTypes.array
   ]).isRequired,
   children: PropTypes.oneOfType([
-    PropTypes.object
+    PropTypes.object,
+    PropTypes.array
   ])
 };
 
