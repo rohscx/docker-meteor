@@ -461,7 +461,7 @@ export default class Table extends Component {
       //console.log(findField.length)
       //console.log(findField)
       let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
-      let await colData = dbData.map((data)=>{
+      let colData = await dbData.map((data)=>{
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
         let vlanDetail = data.siteData.dataObj.vlanDetail;
