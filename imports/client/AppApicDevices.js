@@ -44,7 +44,7 @@ ItemsApicDevices.deny({
            if (this.state.pageRefresh){
              this.setState(pageRefresh.refreshState = true)
            } else {
-             this.setState(pageRefresh.refreshState = false) 
+             this.setState(pageRefresh.refreshState = false)
            }
          }
        }
@@ -85,7 +85,7 @@ ItemsApicDevices.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true}/>
+          <ApicDevices {... this.props} dbReturnRdy={true} pageRefresh={this.state.pageRefresh.bind(this)}/>
         </main>
       </Provider>
     );
