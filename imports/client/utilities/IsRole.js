@@ -1,11 +1,10 @@
 import React, { PropTypes} from 'react';
 
 const IsRole = ({role, children}) => {
-
   const cssBlur = {
     color: "transparent",
     textShadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px",
-    selection: "transparent"
+
   }
   // debug
   //console.log(children,)
@@ -13,22 +12,7 @@ const IsRole = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
-  return (
-    <div>
-      <style dangerouslySetInnerHTML={{
-        __html: [
-         '.my-special-div: {',
-         '  text-shadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px;"',
-         '  color: "transparent"',
-         '  position: absolute',
-         '  ::selection',
-         '}'
-      ].join('\n')
-    }}>
-    </style>
-    <div className='my-special-div'>{children}</div>
-    </div>
-  )
+  return <div style={cssBlur}>{children}</div>;
 }
 
 // checks type, throws and error. children should be simple object in a div
