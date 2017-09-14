@@ -42,6 +42,7 @@ ItemsApicDevices.deny({
          refreshState: true,
          refreshCheck: function () {
            const mega = ()=>{
+             console.log(Meteor.user())
              if (this.state.pageRefresh){
                this.setState(pageRefresh.refreshState = true)
              } else {
