@@ -541,7 +541,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {this.returnLayout()}
+        {this.props.pageRefresh.refreshState ? this.returnLayout() : this.returnLayout()}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
