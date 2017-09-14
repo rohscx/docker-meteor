@@ -400,7 +400,7 @@ export default class Table extends Component {
         thArray[dataKey] =[]
         tdArray[dataKey] =[]
         for (var [key, value] of Object.entries(data)) {
-          if (key === "ipAddress"){
+          if (key == "ipAddress"){
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
             tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
           } else {
