@@ -7,6 +7,7 @@ const IsRole = ({role, children}) => {
     userSelect: "none",
     pointerEvents: "none",
     cursor: "default",
+    opacity: "100%"
 
   }
   // debug
