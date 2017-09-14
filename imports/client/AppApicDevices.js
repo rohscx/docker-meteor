@@ -69,11 +69,6 @@ ItemsApicDevices.deny({
     return (
       <Provider store={store}>
         <main>
-          <IsRole role={['admin']} {... this.props}>
-            <button onClick={this.showAll}>
-              Show {this.props.showAll ? 'None': 'All'}
-            </button>
-          </IsRole>
           <Header  {... this.state} />
           <ApicDevices {... this.props} dbReturnRdy={true}/>
         </main>
