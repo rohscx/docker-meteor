@@ -12,8 +12,8 @@ const IsRole = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
-  return <div style={cssBlur} onSelect={cssBlur}>{children}</div>;
-}
+  return <div style={cssBlur}> <textarea onSelect={cssBlur}>{children}</textarea></div>
+ <textarea></textarea>}
 
 // checks type, throws and error. children should be simple object in a div
 IsRole.propTypes = {
