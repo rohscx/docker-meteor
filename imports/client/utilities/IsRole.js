@@ -4,10 +4,7 @@ const IsRole = ({role, children}) => {
   const cssBlur = {
     color: "transparent",
     textShadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px",
-    selection: {
-      color: "transparent",
-      textShadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px",
-    }
+    selectionColor: "transparent"
   }
   // debug
   //console.log(children,)
