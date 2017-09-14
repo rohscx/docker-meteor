@@ -541,7 +541,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {Meteor.user() ? this.returnLayout() : this.returnLayout()}
+        {this.returnLayout()}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}

@@ -75,7 +75,7 @@ ItemsApicDevices.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true}/>
+          {Meteor.user() ? <ApicDevices {... this.props} dbReturnRdy={true}/> : ""}
         </main>
       </Provider>
     );
