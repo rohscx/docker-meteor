@@ -17,7 +17,7 @@ const IsRole = ({role, children}) => {
     <div>
       <style dangerouslySetInnerHTML={{
         __html: [
-         '.my-special-div:after {',
+         '.my-special-div: {',
          '  text-shadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px;"',
          '  color: "transparent"',
          '  position: absolute',
