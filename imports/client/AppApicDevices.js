@@ -37,7 +37,17 @@ ItemsApicDevices.deny({
        greeting:"",
        status: "",
        dbReturnRdy: true,
-       fileTransferStatus: false
+       fileTransferStatus: false,
+       pageRefresh: {
+         refreshState: true,
+         refreshCheck: function () {
+           if (this.state.pageRefresh){
+             this.setState(pageRefresh.refreshState = true)
+           } else {
+             this.setState(pageRefresh.refreshState = false) 
+           }
+         }
+       }
      }
    }
 
@@ -75,7 +85,7 @@ ItemsApicDevices.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={Meteor.user() ? true : true}/>
+          <ApicDevices {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );
