@@ -400,8 +400,13 @@ export default class Table extends Component {
         thArray[dataKey] =[]
         tdArray[dataKey] =[]
         for (var [key, value] of Object.entries(data)) {
-          thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-          tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+          if (key === "ipAddress"){
+            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+            tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
+          } else {
+            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+            tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+          }
         }
         return renderMe(thArray[dataKey],tdArray[dataKey])
       })
