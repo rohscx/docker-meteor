@@ -38,21 +38,6 @@ ItemsApicDevices.deny({
        status: "",
        dbReturnRdy: true,
        fileTransferStatus: false,
-       pageRefresh: {
-         refreshState: true,
-         refreshCheck: function () {
-           const mega = ()=>{
-             console.log(Meteor.user())
-             if (this.state.pageRefresh){
-               this.setState(pageRefresh.refreshState = true)
-             } else {
-               this.setState(pageRefresh.refreshState = false)
-             }
-             Meteor.user() ? mega() : mega()
-           }
-
-         }
-       }
      }
    }
 
@@ -90,7 +75,7 @@ ItemsApicDevices.deny({
             </button>
           </IsRole>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true} pageRefresh={this.state.pageRefresh}/>
+          <ApicDevices {... this.props} dbReturnRdy={true}/>
         </main>
       </Provider>
     );

@@ -539,10 +539,10 @@ export default class Table extends Component {
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
     //console.log(this)
-    Meteor.user() ? this.props.pageRefresh.refreshCheck : this.props.pageRefresh.refreshCheck
+
     return(
       <div>
-        {this.props.pageRefresh.refreshState ? this.returnLayout() : this.returnLayout()}
+        {this.returnLayout()}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
