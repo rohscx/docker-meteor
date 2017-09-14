@@ -14,7 +14,7 @@ IsRole.propTypes = {
     PropTypes.string,
     PropTypes.array
   ]).isRequired,
-  children: PropTypes.any.isRequired
+  children: PropTypes.object.isRequired
 };
 
 export default IsRole;
