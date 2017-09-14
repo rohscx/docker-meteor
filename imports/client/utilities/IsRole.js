@@ -1,6 +1,7 @@
 import React, { PropTypes} from 'react';
 
 const IsRole = ({role, children}) => {
+  cosole.log(children)
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
