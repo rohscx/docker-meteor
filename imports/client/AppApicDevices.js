@@ -58,14 +58,10 @@ ItemsApicDevices.deny({
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
-    console.log(this);
+    //console.log(this);
     if (!this.props.ready) {
       return <div>Loading Application...</div>
     }
-
-
-//<RestApic  changeTicket={this.changeTicket.bind(this)} makeReady={this.makeReady.bind(this)}/>
-    console.log(this)
     return (
       <Provider store={store}>
         <main>
