@@ -13,19 +13,19 @@ const IsRole = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
-  return (
-    <style dangerouslySetInnerHTML={{
-  __html: [
-     '.my-special-div:after {',
-     '  text-shadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px;"',
-     '  color: "transparent"',
-     '  position: absolute',
-     '  ::selection',
-     '}'
-    ].join('\n')
-  }}>
+  <style dangerouslySetInnerHTML={{
+__html: [
+   '.my-special-div:after {',
+   '  text-shadow: "rgba(0, 0, 0, 0.5) 0px 0px 5px;"',
+   '  color: "transparent"',
+   '  position: absolute',
+   '  ::selection',
+   '}'
+  ].join('\n')
+}}>
 </style>
-<div className='my-special-div'>{children}</div>
+  return (
+    <div className='my-special-div'>{children}</div>
   )
 }
 
