@@ -1,7 +1,7 @@
 import React, { PropTypes} from 'react';
 
 const IsRole = ({role, children}) => {
-  console.log("typeof",typeOf(children))
+  console.log("typeof",typeof(children))
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
