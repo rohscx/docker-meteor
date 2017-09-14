@@ -41,11 +41,15 @@ ItemsApicDevices.deny({
        pageRefresh: {
          refreshState: true,
          refreshCheck: function () {
-           if (this.state.pageRefresh){
-             this.setState(pageRefresh.refreshState = true)
-           } else {
-             this.setState(pageRefresh.refreshState = false)
+           const mega = ()=>{
+             if (this.state.pageRefresh){
+               this.setState(pageRefresh.refreshState = true)
+             } else {
+               this.setState(pageRefresh.refreshState = false)
+             }
+             Meteor.user() ? mega() : mega()
            }
+
          }
        }
      }
