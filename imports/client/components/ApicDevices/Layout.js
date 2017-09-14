@@ -486,7 +486,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
             <Row className="show-grid">
-              {Meteor.user() ? roleCheck("admin") : roleCheck("admin")}
+              {roleCheck("admin")}
               <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
@@ -541,7 +541,7 @@ export default class Table extends Component {
     //console.log(this)
     return(
       <div>
-        {this.returnLayout()}
+        {Meteor.user() ? this.returnLayout() : this.returnLayout()}
         <div className="modal modal-content modal-responsive">
           <Modal
             isOpen={this.state.modalIsOpen}
