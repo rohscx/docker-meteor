@@ -14,7 +14,7 @@ const IsRole = ({role, children}) => {
   //console.log(children,)
   //typeof(children)
   if (Roles.userIsInRole(Meteor.userId(), role)) {
-    return (<div>children</div>);
+    return (<div>{children}</div>);
   }
   return (<div style={cssBlur}>{children}</div>)
 }
