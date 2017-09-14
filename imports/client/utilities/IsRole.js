@@ -16,7 +16,7 @@ const IsRole = ({role, children}) => {
   if (Roles.userIsInRole(Meteor.userId(), role)) {
     return children;
   }
-  return <div style={cssBlur}>{children}</div>
+  return <div style={cssBlur} disabled='disabled'>{children}</div>
 }
 
 // checks type, throws and error. children should be simple object in a div
