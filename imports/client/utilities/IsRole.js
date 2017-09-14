@@ -13,6 +13,7 @@ const IsRole = ({role, children}) => {
     return children;
   }
   return <div style={cssBlur}> <textarea onSelect={cssBlur}>{children}</textarea></div>
+}
 
 // checks type, throws and error. children should be simple object in a div
 IsRole.propTypes = {
