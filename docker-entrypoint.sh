@@ -28,6 +28,7 @@ usage() {
   echo "Docker entry script for Meteor service container"
   echo ""
   echo "-f: Start Meteor in foreground with existing configuration."
+  echo "-d: Start Meteor in foreground with debug configuration."
   echo "-h: Show this help."
   echo "-s: Initialize environment like -i and start Meteor in foreground." !!!!!
   echo ""
