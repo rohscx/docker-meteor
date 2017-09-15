@@ -68,6 +68,11 @@ fi
 # Evaluate arguments for build script.
 while getopts fhis flag; do
   case ${flag} in
+    d)
+      initConfig
+      start_dev
+      exit
+      ;;
     f)
       start_prod
       exit
@@ -79,11 +84,6 @@ while getopts fhis flag; do
     s)
       initConfig
       start_prod
-      exit
-      ;;
-    d)
-      initConfig
-      start_dev
       exit
       ;;
     *)
