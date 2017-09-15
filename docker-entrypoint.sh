@@ -16,7 +16,6 @@ METEOR_PROJECT_APP=/home/meteor/meteor-app
 METEOR_PROJECT_CD="cd ~/meteor-app"
 METEOR_PROJECT_GIT_PULL="git pull"
 METEOR_PROFILE="export METEOR_PROFILE=100"
-METEOR_APP_URL="ROOT_URL=\"https://www.frost.com\""
 
 
 
@@ -49,7 +48,6 @@ initConfig() {
 start_prod() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
-  ${METEOR_APP_URL}
   meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
 }
 
@@ -57,7 +55,6 @@ start_dev() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
   ${METEOR_PROFILE}
-  ${METEOR_APP_URL}
   meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
 }
 
