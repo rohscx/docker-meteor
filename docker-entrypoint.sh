@@ -66,7 +66,7 @@ if [[ "${#}" == 0 ]]; then
 fi
 
 # Evaluate arguments for build script.
-while getopts fhis flag; do
+while getopts fhisd flag; do
   case ${flag} in
     d)
       initConfig
