@@ -105,7 +105,7 @@ import '../imports/api/prime';
       // itterate over object
       return await Promise.all(apicDevices.data.response.map((data)=>{
         // debug
-        console.log(apicDevices)
+        //console.log(apicDevices)
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
         const lastUpdateTime = data.lastUpdateTime;

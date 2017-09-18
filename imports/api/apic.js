@@ -7,9 +7,11 @@ import request from 'request';
 import https from 'https';
 import tempData from '../../server/tempData';
 
-// prtg
-const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
+// apic
 
+const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
+// simple schema debug
+SimpleSchema.debug = true;
 const ItemTransferRateSchema = new SimpleSchema ({
   dataObj: {
     type: Object,
