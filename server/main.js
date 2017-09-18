@@ -104,6 +104,8 @@ import '../imports/api/prime';
     if (await apicDevices.statusCode === 200) {
       // itterate over object
       return await Promise.all(apicDevices.data.response.map((data)=>{
+        // debug
+        console.log(apicDevices)
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
         const lastUpdateTime = data.lastUpdateTime;
