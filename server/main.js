@@ -134,8 +134,7 @@ import '../imports/api/prime';
             siteData: {
               dataObj: data,
               requestTime: timeNow,
-              dateTime: dateTime,
-              expireAfterSeconds: dbExpirteAfter(60)
+              dateTime: dateTime
             }
           });
         }
