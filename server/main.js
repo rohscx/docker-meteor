@@ -41,10 +41,6 @@ import '../imports/api/prime';
     }
   }
 
-  const dbExpirteAfter = (num) => {
-    return number;
-  }
-
   const findItem = (value)=>{
     return ItemsApicDevices.findOne({"siteData.dataObj.id":value});
   }

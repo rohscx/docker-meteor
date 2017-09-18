@@ -11,7 +11,7 @@ import tempData from '../../server/tempData';
 
 const ItemsApicDevices = new Mongo.Collection('itemapicdevices');
 // simple schema debug
-SimpleSchema.debug = true;
+SimpleSchema.debug = true
 const ItemTransferRateSchema = new SimpleSchema ({
   dataObj: {
     type: Object,
