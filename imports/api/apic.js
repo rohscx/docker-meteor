@@ -18,7 +18,8 @@ const ItemTransferRateSchema = new SimpleSchema ({
   requestTime: SimpleSchema.Integer,
   dateTime : {
     type: Date
-  }
+  },
+  expireAfterSeconds: SimpleSchema.Integer
 });
 
 

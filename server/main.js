@@ -40,6 +40,11 @@ import '../imports/api/prime';
       }
     }
   }
+
+  const dbExpirteAfter = (num) => {
+    return number;
+  }
+
   const findItem = (value)=>{
     return ItemsApicDevices.findOne({"siteData.dataObj.id":value});
   }
@@ -127,7 +132,8 @@ import '../imports/api/prime';
             siteData: {
               dataObj: data,
               requestTime: timeNow,
-              dateTime: dateTime
+              dateTime: dateTime,
+              expireAfterSeconds: dbExpirteAfter(60)
             }
           });
         }
