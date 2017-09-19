@@ -75,7 +75,7 @@ import '../imports/api/prime';
       setTimeouts(1800,21600);
       console.log("New Ticket: ",oldApicTicket)
       return httpRequest.data.response.serviceTicket;
-    } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
+    } else if (timeNow <= ticketIdleTimeout || timeNow <= ticketSessionTimeout){
       let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
       oldApicTicket = httpRequest.data.response.serviceTicket;
       setTimeouts(1800,21600);
