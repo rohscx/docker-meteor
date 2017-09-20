@@ -309,7 +309,7 @@ export default class Table extends Component {
                   <p style={textIdent} >
                     permit ip host
                     <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.0.0.0</mark> </b>
-                    <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b><br/>
+                    <b contentEditable="true" suppressContentEditableWarning={true}> <mark>10.30.0.0</mark> </b>
                     <b contentEditable="true" suppressContentEditableWarning={true}> <mark>255.255.0.0</mark> </b><br/>
                   </p>
                   <p>
