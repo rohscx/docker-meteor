@@ -90,13 +90,13 @@ import '../imports/api/prime';
         return oldApicTicket;
       }
     }
-
-    return ({
-      headers: {
-        'content-type': 'application/json',
-        'x-auth-token': apicTicket()
-      }
-    })
+    let requestObj = {
+                      headers: {
+                        'content-type': 'application/json',
+                        'x-auth-token': apicTicket()
+                      }
+                    }
+    return requestObj
   };
 
   async function httpRequest(method,url,options){
