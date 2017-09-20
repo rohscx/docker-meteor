@@ -91,10 +91,10 @@ import '../imports/api/prime';
       }
     }
 
-    return headers: {
+    return (headers: {
       'content-type': 'application/json',
       'x-auth-token': apicTicket()
-    }
+    })
   };
 
   async function httpRequest(method,url,options){
