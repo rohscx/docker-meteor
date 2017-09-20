@@ -170,11 +170,11 @@ import '../imports/api/prime';
   }
   const poll = () => {
       console.log("Apic Devices DB Empty Requesting data")
-      httpRequest("GET",devicesUrl,apicDevicesOptions)
+      httpRequest("GET",devicesUrl,apicDevicesOptions())
       if (countCollections() >= 500){
         console.log("over 9000!!! actually it's only only over 500 Devices!!!")
         apicDevicesUrn500 = baseUrl+"/api/v1/network-device/501/500";
-        httpRequest("GET",apicDevicesUrn500,apicDevicesOptions)
+        httpRequest("GET",apicDevicesUrn500,apicDevicesOptions())
       }
   }
   const intervalId = Meteor.setInterval(()=>{
