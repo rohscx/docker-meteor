@@ -69,7 +69,7 @@ import '../imports/api/prime';
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
         ticketIdleTimeout = timeNow() + idleTimeout;
         ticketSessionTimeout = timeNow() + sessionTimeout;
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         //console.log("Requesting New ticket: ", oldApicTicket)
       }
       if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
@@ -88,16 +88,16 @@ import '../imports/api/prime';
         return httpRequest.data.response.serviceTicket;
       } else {
         console.log("Using Existing Ticket: ",oldApicTicket)
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return oldApicTicket;
       }
     }
     const requestObj = {
-                      headers: {
-                        'content-type': 'application/json',
-                        'x-auth-token': apicTicket()
-                      }
-                    }
+      headers: {
+        'content-type': 'application/json',
+        'x-auth-token': apicTicket()
+      }
+    }
     return requestObj;
   };
 
