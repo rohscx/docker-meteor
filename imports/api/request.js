@@ -33,6 +33,7 @@ ItemsApic.attachSchema(ItemsApicSchema);
 
 if (Meteor.isServer) {
 
+/*
   Meteor.publish('allApicItems', function() {
     return ItemsApic.find({}, {
       // limits the number of return json items from DB
@@ -41,7 +42,7 @@ if (Meteor.isServer) {
       sort: {"apicData.dateTime" : -1}
     });
   });
-
+*/
 
 
   Meteor.methods({
