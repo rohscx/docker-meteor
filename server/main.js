@@ -91,9 +91,11 @@ import '../imports/api/prime';
       }
     }
 
-    return (headers: {
-      'content-type': 'application/json',
-      'x-auth-token': apicTicket()
+    return ({
+      headers: {
+        'content-type': 'application/json',
+        'x-auth-token': apicTicket()
+      }
     })
   };
 
