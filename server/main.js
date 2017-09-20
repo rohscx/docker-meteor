@@ -20,7 +20,9 @@ import '../imports/api/prime';
   let clientId = false;
   let counter = 0;
   const self = this;
-  const timeNow = Math.round(new Date().getTime() / 1000);
+  const timeNow = () =>{
+    return Math.round(new Date().getTime() / 1000);
+  }
   const dateTime = new Date();
   const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
   const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
@@ -65,9 +67,9 @@ import '../imports/api/prime';
   const apicDevicesOptions = () => {
     const apicTicket = ()=>{
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
-        ticketIdleTimeout = timeNow + idleTimeout;
-        ticketSessionTimeout = timeNow + sessionTimeout;
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        ticketIdleTimeout = timeNow() + idleTimeout;
+        ticketSessionTimeout = timeNow() + sessionTimeout;
+        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         //console.log("Requesting New ticket: ", oldApicTicket)
       }
       if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
@@ -75,28 +77,28 @@ import '../imports/api/prime';
         oldApicTicket = httpRequest.data.response.serviceTicket;
         setTimeouts(1800,21600);
         console.log("New Ticket: ",oldApicTicket)
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return httpRequest.data.response.serviceTicket;
-      } else if (timeNow >= ticketIdleTimeout || timeNow >= ticketSessionTimeout){
+      } else if (timeNow() >= ticketIdleTimeout || timeNow() >= ticketSessionTimeout){
         let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
         oldApicTicket = httpRequest.data.response.serviceTicket;
         setTimeouts(1800,21600);
         console.log("Ticket expired requesting new Ticket: ",oldApicTicket)
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return httpRequest.data.response.serviceTicket;
       } else {
         console.log("Using Existing Ticket: ",oldApicTicket)
-        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return oldApicTicket;
       }
     }
-    let requestObj = {
+    const requestObj = {
                       headers: {
                         'content-type': 'application/json',
                         'x-auth-token': apicTicket()
                       }
                     }
-    return requestObj
+    return requestObj;
   };
 
   async function httpRequest(method,url,options){
@@ -135,7 +137,7 @@ import '../imports/api/prime';
           ItemsApicDevices.insert({
             siteData: {
               dataObj: data,
-              requestTime: timeNow,
+              requestTime: timeNow(),
               dateTime: dateTime
             }
           });
