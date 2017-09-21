@@ -321,8 +321,7 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
         "siteData.dataObj.vlanDetail":1,
-        "siteData.dataObj.reachabilityInfo":1,
-        "siteData.dataObj.errorDescription":1
+        "siteData.dataObj.reachablityFailureReson":1
       }
     });
   }
