@@ -451,6 +451,7 @@ export default class Table extends Component {
           <mark style={passStyle}>{status}</mark>
         )
       } else {
+        console.log("failure info", failureInfo)
         return (
           <FailureToolTip tooltip={failureInfo} id="tooltip-1">
             <mark style={failStyle}>{status}</mark>
@@ -510,7 +511,7 @@ export default class Table extends Component {
             </Row>
             <Row className="show-grid">
               <Col xs={5} sm={6} md={2}><IsRole role={['admin']}>{roleCheck("admin")}</IsRole></Col>
-              <Col xs={6} sm={6} md={2}>{reachCheck(status)} </Col>
+              <Col xs={6} sm={6} md={2}>{reachCheck(status, failureInfo)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
               <Col xs={6} sm={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
