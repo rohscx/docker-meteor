@@ -451,7 +451,6 @@ export default class Table extends Component {
           <mark style={passStyle}>{status}</mark>
         )
       } else {
-        console.log("failure info", failureInfo)
         return (
           <FailureToolTip tooltip={failureInfo} id="tooltip-1">
             <mark style={failStyle}>{status}</mark>
