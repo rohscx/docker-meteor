@@ -133,6 +133,8 @@ import '../imports/api/prime';
             }
           }
         }
+
+        // this function is not used, but will be used for something else
         const reachabilityInfo = ()=>{
           if (data.reachabilityStatus == "Unreachable"){
             const devicesReachabilityInfoUrl = baseUrl + "/api/v1/reachability-info" +"/"+ data.id;
@@ -159,6 +161,7 @@ import '../imports/api/prime';
           //console.log("undefined")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
+          // will be used later
           //reachabilityInfo();
           dbInsert();
           // if there is a match compare the lastUpdateTimes, if they match it skips
@@ -172,6 +175,7 @@ import '../imports/api/prime';
           //console.log("unequal")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
+          // will be used later
           //reachabilityInfo();
           dbInsert();
         }
