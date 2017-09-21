@@ -431,13 +431,18 @@ export default class Table extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    let reachCheck = (status)=>{
+    let reachCheck = (status,failureInfo)=>{
+      const reachCheckTooltip = React.createClass
       if(status == 'Reachable'){
         return (
           <mark style={passStyle}>{status}</mark>
         )
       } else {
         return (
+          reachabilityFailureReason
+          <Tooltip id="failureToolTip">
+            <strong> </strong>
+          </Tooltip>
           <mark style={failStyle}>{status}</mark>
         )
       }
