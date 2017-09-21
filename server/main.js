@@ -159,7 +159,7 @@ import '../imports/api/prime';
           //console.log("undefined")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
-          reachabilityInfo();
+          //reachabilityInfo();
           dbInsert();
           // if there is a match compare the lastUpdateTimes, if they match it skips
         } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
@@ -172,7 +172,7 @@ import '../imports/api/prime';
           //console.log("unequal")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
-          reachabilityInfo();
+          //reachabilityInfo();
           dbInsert();
         }
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
@@ -317,7 +317,8 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
         "siteData.dataObj.vlanDetail":1,
-        "siteData.dataObj.reachabilityInfo":1
+        "siteData.dataObj.reachabilityInfo":1,
+        "siteData.dataObj.errorDescription":1
       }
     });
   }
