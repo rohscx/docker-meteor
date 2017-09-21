@@ -489,7 +489,7 @@ export default class Table extends Component {
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
-        let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason : null;
+        let failureInfo = data.siteData.dataObj.reachabilityInfo ? data.siteData.dataObjreachabilityInfo.reachabilityFailureReason  : null;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
