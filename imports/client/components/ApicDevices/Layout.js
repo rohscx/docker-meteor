@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
-import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button} from 'react-bootstrap';
+import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 import IsRole from '../../utilities/IsRole';
 
 export default class Table extends Component {
@@ -432,31 +432,29 @@ export default class Table extends Component {
       fontWeight: "bold"
     }
     let reachCheck = (status,failureInfo)=>{
-      const LinkWithTooltip = React.createClass({
-  render() {
-    let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip}</Tooltip>;
+      const FailureToolTip = React.createClass({
+        render() {
+          let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip}</Tooltip>;
 
-    return (
-      <OverlayTrigger
-        overlay={tooltip} placement="top"
-        delayShow={300} delayHide={150}
-      >
-        <a href={this.props.href}>{this.props.children}</a>
-      </OverlayTrigger>
-    );
-  }
-});
+          return (
+            <OverlayTrigger
+              overlay={tooltip} placement="top"
+              delayShow={300} delayHide={150}
+            >
+              <p>{this.props.children}</p>
+            </OverlayTrigger>
+          );
+        }
+      });
       if(status == 'Reachable'){
         return (
           <mark style={passStyle}>{status}</mark>
         )
       } else {
         return (
-          reachabilityFailureReason
-          <Tooltip id="failureToolTip">
-            <strong> </strong>
-          </Tooltip>
-          <mark style={failStyle}>{status}</mark>
+          <FailureToolTip tooltip={failureInfo} id="tooltip-1">
+            <mark style={failStyle}>{status}</mark>
+          </FailureToolTip>
         )
       }
     }
@@ -491,6 +489,7 @@ export default class Table extends Component {
         let vlanDetail = data.siteData.dataObj.vlanDetail;
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
+        let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason : null;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
