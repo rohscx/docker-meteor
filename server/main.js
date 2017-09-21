@@ -133,6 +133,15 @@ import '../imports/api/prime';
             }
           }
         }
+        const reachabilityInfo = ()=>{
+          if (data.reachabilityStatus == "Unreachable"){
+            const devicesReachabilityInfoUrl = baseUrl + "/api/v1/reachability-info" +"/"+ data.id;
+            const reachabilityInfoDetail = Meteor.call('apicHttpRequest',"GET",devicesReachabilityInfoUrl,options);
+            if (reachabilityInfoDetail.statusCode == 200){
+              return data.reachabilityInfo = reachabilityInfoDetail.data.response;
+            }
+          }
+        }
         const dbInsert = ()=>{
           ItemsApicDevices.insert({
             siteData: {
@@ -150,6 +159,7 @@ import '../imports/api/prime';
           //console.log("undefined")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
+          reachabilityInfo();
           dbInsert();
           // if there is a match compare the lastUpdateTimes, if they match it skips
         } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
@@ -162,6 +172,7 @@ import '../imports/api/prime';
           //console.log("unequal")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
+          reachabilityInfo();
           dbInsert();
         }
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
@@ -305,7 +316,8 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.reachabilityStatus":1,
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
-        "siteData.dataObj.vlanDetail":1
+        "siteData.dataObj.vlanDetail":1,
+        "siteData.dataObj.reachabilityInfo":1
       }
     });
   }
