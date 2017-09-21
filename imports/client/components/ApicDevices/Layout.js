@@ -432,7 +432,20 @@ export default class Table extends Component {
       fontWeight: "bold"
     }
     let reachCheck = (status,failureInfo)=>{
-      const reachCheckTooltip = React.createClass
+      const LinkWithTooltip = React.createClass({
+  render() {
+    let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip}</Tooltip>;
+
+    return (
+      <OverlayTrigger
+        overlay={tooltip} placement="top"
+        delayShow={300} delayHide={150}
+      >
+        <a href={this.props.href}>{this.props.children}</a>
+      </OverlayTrigger>
+    );
+  }
+});
       if(status == 'Reachable'){
         return (
           <mark style={passStyle}>{status}</mark>
