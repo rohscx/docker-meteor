@@ -135,13 +135,13 @@ import '../imports/api/prime';
         }
 
         // this function is not used, but will be used for something else
-        const reachabilityInfo = ()=>{
+        const interfaceInfo = ()=>{
+          const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
+          const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
+          if (interfaceInfoCall.statusCode == 200){
+            return data.interfaceInfo = interfaceInfoCall.data.response;
+          }
           if (data.reachabilityStatus == "Unreachable"){
-            const devicesReachabilityInfoUrl = baseUrl + "/api/v1/reachability-info" +"/"+ data.id;
-            const reachabilityInfoDetail = Meteor.call('apicHttpRequest',"GET",devicesReachabilityInfoUrl,options);
-            if (reachabilityInfoDetail.statusCode == 200){
-              return data.reachabilityInfo = reachabilityInfoDetail.data.response;
-            }
           }
         }
         const dbInsert = ()=>{
@@ -321,7 +321,8 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
         "siteData.dataObj.vlanDetail":1,
-        "siteData.dataObj.reachabilityFailureReason":1
+        "siteData.dataObj.reachabilityFailureReason":1,
+        "siteData.dataObj.interfaceInfo":1
       }
     });
   }
