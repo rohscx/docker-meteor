@@ -404,6 +404,8 @@ export default class Table extends Component {
           if (key == "ipAddress"){
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
             tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
+          } else if (key == "pid" || key == "deviceId" || key == "series" || key == "isisSupport" || key == "serialNo" || key == "instanceUuid" || key == "id") {
+
           } else {
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
             tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
