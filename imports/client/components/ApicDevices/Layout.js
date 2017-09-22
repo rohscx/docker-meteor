@@ -75,7 +75,7 @@ export default class Table extends Component {
   }
 
   openModal(data) {
-    if (vlanData === null){
+    if (data === null){
       this.setState({modalData: null});
     } else {
       this.setState({modalIsOpen: true});
