@@ -290,7 +290,7 @@ Meteor.publish('primeHosts', function() {
 
 
 
-Meteor.publish('apicDevices', function() {
+Meteor.publish('apicDevices',test1d , function(test1d) {
   let clientId = false;
   let counter = 0;
   const self = this;
@@ -311,6 +311,7 @@ Meteor.publish('apicDevices', function() {
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
+  console.log("test1d"test1d)
   const miniMongo = ()=>{
     return ItemsApicDevices.find(
       {},
