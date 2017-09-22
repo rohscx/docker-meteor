@@ -103,7 +103,7 @@ export default createContainer(({params}) => {
   }
   return {
     showAll,
-    ready: apicDevicesItemsSub.ready(),
+    ready: true,
     dbReturn: function data(findValue,sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
