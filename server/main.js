@@ -147,7 +147,7 @@ import '../imports/api/prime';
             const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
             const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
             if (licenseInfoCall.statusCode == 200){
-              return data.licenseInfoDetail = licenseInfoCall.data.response;
+              return data.licenseDetail = licenseInfoCall.data.response;
             }
           }
         }
@@ -330,7 +330,7 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.vlanDetail":1,
         "siteData.dataObj.reachabilityFailureReason":1,
         "siteData.dataObj.interfaceDetail":1,
-        "siteData.dataObj.licenseInfoDetail":1
+        "siteData.dataObj.licenseDetail":1
       }
     });
   }
