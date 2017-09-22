@@ -407,9 +407,11 @@ export default class Table extends Component {
           } else if (
             key == "pid" || key == "deviceId" || key == "series" || key == "isisSupport" ||
             key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
-            key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName"
-          ) 
+            key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
+            key == "ifIndex" || key == "ospfSupport"
+          )
             {
+              // do nothing with these matches
 
           } else {
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
