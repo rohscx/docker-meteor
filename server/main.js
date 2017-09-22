@@ -136,7 +136,7 @@ import '../imports/api/prime';
 
         // this function is not used, but will be used for something else
         const interfaceInfo = ()=>{
-          if (data.family == "Switches and Hubs"){
+          if (data.family == "Switches and Hubs" || data.family == "Routers"){
             const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
