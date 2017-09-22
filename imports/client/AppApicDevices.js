@@ -78,18 +78,10 @@ ItemsApicDevices.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  //let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
-  //Session.set('findValue', ".");
-  let apicDevicesItemsSub
-  apicDevicesItemsSub = Meteor.subscribe('apicDevices', Session.get('findValue'));
-  Tracker.autorun(() => {
-    console.log("client",Session.get('findValue'))
-
-  });
+  let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
-    Session.set('findValue', findValue);
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
     let keyString = "siteData.dataObj."+sortValue;
@@ -104,7 +96,7 @@ export default createContainer(({params}) => {
   }
   return {
     showAll,
-    ready: true,
+    ready: apicDevicesItemsSub.ready(),
     dbReturn: function data(findValue,sortValue, sortOrder){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
