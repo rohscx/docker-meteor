@@ -312,6 +312,7 @@ Meteor.publish('apicDevices', function(findValue) {
     return ItemsApicDevices.find().count();
   }
   const miniMongo = ()=>{
+    console.log("server",findValue)
     return ItemsApicDevices.find(
       {findValue},
       {fields:{
