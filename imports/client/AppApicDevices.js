@@ -78,11 +78,7 @@ ItemsApicDevices.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  //let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
-  apicDevicesItemsSub = (findValue) =>{
-    let tempData1 = {"siteData.dataObj.normalizeHostName":{$regex: findValue}}
-    return Meteor.subscribe('apicDevices', tempData1);
-  }
+  let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{

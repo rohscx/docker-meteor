@@ -290,7 +290,7 @@ Meteor.publish('primeHosts', function() {
 
 
 
-Meteor.publish('apicDevices',test1d , function(test1d) {
+Meteor.publish('apicDevices', function() {
   let clientId = false;
   let counter = 0;
   const self = this;
@@ -311,7 +311,6 @@ Meteor.publish('apicDevices',test1d , function(test1d) {
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
-  console.log("test1d",test1d)
   const miniMongo = ()=>{
     return ItemsApicDevices.find(
       {},
@@ -332,7 +331,8 @@ Meteor.publish('apicDevices',test1d , function(test1d) {
         "siteData.dataObj.reachabilityFailureReason":1,
         "siteData.dataObj.interfaceDetail":1,
         "siteData.dataObj.licenseDetail":1
-      }
+      },
+      {limit:30}
     });
   }
 
