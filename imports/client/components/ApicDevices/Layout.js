@@ -533,7 +533,8 @@ export default class Table extends Component {
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
         let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason  : "noData";
-        let interfaceDetail = data.siteData.dataObj.interfaceInfo;
+        let interfaceDetail = data.siteData.dataObj.interfaceDetail;
+        let licenseDetail = data.siteData.dataObj.licenseDetail;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -563,6 +564,7 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
+                {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
