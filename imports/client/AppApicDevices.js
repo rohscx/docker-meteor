@@ -80,8 +80,9 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   Session.set('findValue', ".");
+  let apicDevicesItemsSub
   Tracker.autorun(() => {
-    let apicDevicesItemsSub = Meteor.subscribe('apicDevices', {"siteData.dataObj.normalizeHostName":{$regex: Session.get('findValue')});
+    apicDevicesItemsSub = Meteor.subscribe('apicDevices', {"siteData.dataObj.normalizeHostName":{$regex: Session.get('findValue')});
   });
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
