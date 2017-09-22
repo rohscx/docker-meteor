@@ -136,12 +136,12 @@ import '../imports/api/prime';
 
         // this function is not used, but will be used for something else
         const interfaceInfo = ()=>{
-          const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
-          const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
-          if (interfaceInfoCall.statusCode == 200){
-            return data.interfaceInfo = interfaceInfoCall.data.response;
-          }
-          if (data.reachabilityStatus == "Unreachable"){
+          if (data.role == "ACCESS"){
+            const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
+            const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
+            if (interfaceInfoCall.statusCode == 200){
+              return data.interfaceInfo = interfaceInfoCall.data.response;
+            }
           }
         }
         const dbInsert = ()=>{
