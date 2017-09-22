@@ -30,7 +30,7 @@ ItemsApicDevices.deny({
 ItemsApicDevices.find(
   {},
   {
-    limit:30
+    limit:3
 });
 
 
