@@ -74,12 +74,12 @@ export default class Table extends Component {
     //await Clipboard.setString(this.setCap.innerText)
   }
 
-  openModal(vlanData) {
+  openModal(data) {
     if (vlanData === null){
       this.setState({modalData: null});
     } else {
       this.setState({modalIsOpen: true});
-      this.setState({modalData: vlanData});
+      this.setState({modalData: data});
       // debug
       //console.log(this.state.modalLink);
     }
@@ -371,7 +371,7 @@ export default class Table extends Component {
     )
   }
 
-  vlanData(vlanObj){
+  modalRenderer(modalObj){
     let renderMe = (renderData1,renderData2)=>{
       return (
         <div key={Math.random()}>
@@ -390,12 +390,12 @@ export default class Table extends Component {
         </div>
       )
     }
-    if (vlanObj === null){
+    if (modalObj === null){
       return (
         <div> No Data</div>
       )
     } else {
-      return vlanObj.map((data,dataKey)=>{
+      return modalObj.map((data,dataKey)=>{
         let thArray = [];
         let tdArray = [];
         thArray[dataKey] =[]
@@ -414,48 +414,6 @@ export default class Table extends Component {
       }
     }
 
-    interfaceData(interfaceObj){
-      let renderMe = (renderData1,renderData2)=>{
-        return (
-          <div key={Math.random()}>
-            <table className = "table table-striped table-hover table-responsive">
-              <thead className="thead-default">
-                <tr>
-                  {renderData1}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                {renderData2}
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        )
-      }
-      if (interfaceObj === null){
-        return (
-          <div> No Data</div>
-        )
-      } else {
-        return interfaceObj.map((data,dataKey)=>{
-          let thArray = [];
-          let tdArray = [];
-          thArray[dataKey] =[]
-          tdArray[dataKey] =[]
-          for (var [key, value] of Object.entries(data)) {
-            if (key == "ipAddress"){
-              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-              tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
-            } else {
-              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-              tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
-            }
-          }
-          return renderMe(thArray[dataKey],tdArray[dataKey])
-        })
-        }
-      }
 
   returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
@@ -622,7 +580,7 @@ export default class Table extends Component {
             contentLabel="APIC Modal"
           >
             <div>
-              {this.state.modalIsOpen ? this.vlanData(this.state.modalData) : ""}
+              {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
             </div>
           </Modal>
         </div>
