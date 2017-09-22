@@ -134,7 +134,7 @@ import '../imports/api/prime';
           }
         }
         const interfaceInfo = ()=>{
-          if (data.family == "Switches and Hubs" || data.family == "Routers" && data.errCode === null){
+          if (data.family == "Switches and Hubs" || data.family == "Routers" && data.errorCode === null){
             const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
@@ -143,7 +143,7 @@ import '../imports/api/prime';
           }
         }
         const licenseInfo = ()=>{
-          if (data.family == "Switches and Hubs" || data.family == "Routers" && data.errCode === null){
+          if (data.family == "Switches and Hubs" || data.family == "Routers" && data.errorCode === null){
             const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
             const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
             if (licenseInfoCall.statusCode == 200){
