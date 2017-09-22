@@ -27,6 +27,11 @@ ItemsApicDevices.deny({
   update() { return true; },
   remove() { return true; }
 });
+ItemsApicDevices.find(
+  {},
+  {
+    limit:30
+});
 
 
  class AppApicDevices extends Component {
