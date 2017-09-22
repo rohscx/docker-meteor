@@ -414,6 +414,49 @@ export default class Table extends Component {
       }
     }
 
+    interfaceData(interfaceObj){
+      let renderMe = (renderData1,renderData2)=>{
+        return (
+          <div key={Math.random()}>
+            <table className = "table table-striped table-hover table-responsive">
+              <thead className="thead-default">
+                <tr>
+                  {renderData1}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                {renderData2}
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+      if (interfaceObj === null){
+        return (
+          <div> No Data</div>
+        )
+      } else {
+        return interfaceObj.map((data,dataKey)=>{
+          let thArray = [];
+          let tdArray = [];
+          thArray[dataKey] =[]
+          tdArray[dataKey] =[]
+          for (var [key, value] of Object.entries(data)) {
+            if (key == "ipAddress"){
+              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+              tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
+            } else {
+              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+              tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+            }
+          }
+          return renderMe(thArray[dataKey],tdArray[dataKey])
+        })
+        }
+      }
+
   returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
@@ -490,6 +533,7 @@ export default class Table extends Component {
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
         let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason  : "noData";
+        let interfaceDetail = data.siteData.dataObj.interfaceDetail;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -518,6 +562,7 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
+                {interfaceData ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceData)}}>interfaceData</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
