@@ -333,7 +333,7 @@ Meteor.publish('apicDevices', function(findValue) {
         "siteData.dataObj.interfaceDetail":1,
         "siteData.dataObj.licenseDetail":1
       },
-      limit:30
+      limit:200
     });
   }
 
