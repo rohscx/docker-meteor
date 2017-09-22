@@ -314,7 +314,7 @@ Meteor.publish('apicDevices', function(findValue) {
   const miniMongo = ()=>{
     console.log("server",findValue)
     return ItemsApicDevices.find(
-      {"siteData.dataObj.normalizeHostName":{$regex: findValue ? findValue : "."}},
+      {"siteData.dataObj.normalizeHostName":{$regex: findValue ? findValue : ".*"}},
       {fields:{
         "siteData.dataObj.hostname": 1,
         "siteData.dataObj.role": 1,
