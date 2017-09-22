@@ -27,11 +27,6 @@ ItemsApicDevices.deny({
   update() { return true; },
   remove() { return true; }
 });
-ItemsApicDevices.find(
-  {},
-  {
-    limit:3
-});
 
 
  class AppApicDevices extends Component {
@@ -84,9 +79,14 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
+  Session.set('findValue', ".");
+  Tracker.autorun(() => {
+    let apicDevicesItemsSub = Meteor.subscribe('apicDevices', {"siteData.dataObj.normalizeHostName":{$regex: Session.get('findValue')});
+  });
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue, sortOrder) =>{
+    Session.set('findValue', findValue);
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
     let keyString = "siteData.dataObj."+sortValue;
