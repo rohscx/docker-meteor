@@ -311,7 +311,7 @@ Meteor.publish('apicDevices',test1d , function(test1d) {
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
-  console.log("test1d"test1d)
+  console.log("test1d",test1d)
   const miniMongo = ()=>{
     return ItemsApicDevices.find(
       {},
