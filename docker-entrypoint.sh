@@ -49,7 +49,7 @@ initConfig() {
 start_prod() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
-  meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
+  meteor --settings settings.json --production debug > logs/stdout.log 2> logs/stderr.log
 }
 
 start_dev() {
