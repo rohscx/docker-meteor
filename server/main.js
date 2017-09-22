@@ -162,7 +162,7 @@ import '../imports/api/prime';
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
           // will be used later
-          //reachabilityInfo();
+          interfaceInfo();
           dbInsert();
           // if there is a match compare the lastUpdateTimes, if they match it skips
         } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
@@ -176,7 +176,7 @@ import '../imports/api/prime';
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
           // will be used later
-          //reachabilityInfo();
+          interfaceInfo();
           dbInsert();
         }
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
