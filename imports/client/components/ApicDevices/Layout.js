@@ -579,21 +579,22 @@ export default class Table extends Component {
 
     return(
       <div>
-        {this.returnLayout()}
-        <div className="modal modal-content modal-responsive">
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="APIC Modal"
-          >
-            <div>
-              {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
-            </div>
-          </Modal>
-        </div>
-        <ScrollHandler></ScrollHandler>
+        <ScrollHandler>
+          {this.returnLayout()}
+          <div className="modal modal-content modal-responsive">
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              contentLabel="APIC Modal"
+            >
+              <div>
+                {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
+              </div>
+            </Modal>
+          </div>
+        </ScrollHandler>
       </div>
     )
   }
