@@ -429,7 +429,7 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let findLimit =  this.props.dbFindLimit;
-    console.log(dbFindLimit)
+    console.log(findLimit)
     let passStyle = {
       backgroundColor:"#5cb85c"
     }
