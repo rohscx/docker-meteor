@@ -581,7 +581,7 @@ export default class Table extends Component {
 
     return(
       <div>
-        <ScrollHandler incFunction={this.props.setDbFindLimit} incTotal={20} incCurrent={this.props.dbFindLimit} incBy={1}>
+        <ScrollHandler ScrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={1}>
           {this.returnLayout()}
           <div className="modal modal-content modal-responsive">
             <Modal

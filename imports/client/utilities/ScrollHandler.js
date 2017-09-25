@@ -16,7 +16,7 @@ class ScrollHandler extends React.Component {
     const html = document.documentElement;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
     const windowBottom = windowHeight + window.pageYOffset;
-    let scrollNext = this.props.incCurrent + this.props.incBy;
+    let scrollNext = this.props.scrollCurrent + this.props.scrollBy;
     //console.log("windowHeight", windowHeight)
     //console.log("docHeight",docHeight)
     console.log("windowBottom",windowBottom)
@@ -24,7 +24,7 @@ class ScrollHandler extends React.Component {
       this.setState({
         message:'bottom reached'
       });
-      this.props.incFunction(scrollNext)
+      this.props.scrollFunction(scrollNext)
     } else {
       this.setState({
         message:'not at bottom'
@@ -41,8 +41,6 @@ class ScrollHandler extends React.Component {
   }
 
   render() {
-    console.log(this.state.message)
-    console.log(this)
     return (
       <div>
         <div > {this.props.children}</div>
