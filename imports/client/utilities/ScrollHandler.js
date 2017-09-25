@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 class ScrollHandler extends React.Component {
 
@@ -36,6 +36,7 @@ class ScrollHandler extends React.Component {
   }
 
   render() {
+    console.log(this)
     return (
       <div>
         <div >{this.state.message}</div>
