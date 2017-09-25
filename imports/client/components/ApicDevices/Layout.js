@@ -391,9 +391,8 @@ export default ScrollDetector;
                     ##Display fiaTrace results## <br/>
                     !PRIVLEGED EXEC <br/>
                     end <br/>
-                    show platform all <br/>
                     show platform packet-trace summary <br/>
-                    show platform packet-trace packet1 <br/><br/>
+                    show platform packet-trace packet 1 <br/><br/>
                   </p>
                 </div>
               </Col>
