@@ -408,7 +408,8 @@ export default class Table extends Component {
             key == "pid" || key == "deviceId" || key == "series" || key == "isisSupport" ||
             key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
             key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
-            key == "ifIndex" || key == "ospfSupport"
+            key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
+            key == "ipv4Mask"
           )
             {
               // do nothing with these matches
