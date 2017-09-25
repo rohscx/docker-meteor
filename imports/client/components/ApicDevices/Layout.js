@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 import IsRole from '../../utilities/IsRole';
+import ScrollHandler from '../../utilities/ScrollHandler';
 
 export default class Table extends Component {
   constructor() {
@@ -18,62 +19,6 @@ export default class Table extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-
-
-
-
-class ScrollDetector extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      message:'not at bottom'
-    };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-
-  handleScroll() {
-    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    const body = document.body;
-    const html = document.documentElement;
-    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    const windowBottom = windowHeight + window.pageYOffset;
-    if (windowBottom >= docHeight) {
-      this.setState({
-        message:'bottom reached'
-      });
-    } else {
-      this.setState({
-        message:'not at bottom'
-      });
-    }
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
-
-  render() {
-    return (
-      <div>
-        <div >{this.state.message}</div>
-        <div ></div>
-      </div>
-    );
-  }
-}
-
-ScrollDetector.propTypes = {
-}
-
-ScrollDetector.defaultProps = {
-}
-
-export default ScrollDetector;
 
   handleCopyClick = (clipName) => {
 
