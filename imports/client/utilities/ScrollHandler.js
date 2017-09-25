@@ -43,10 +43,11 @@ class ScrollHandler extends React.Component {
   }
 
   render() {
+    // debug  add to return <div><div/>
+    //<div >{this.state.message}</div>
     return (
       <div>
         <div > {this.props.children}</div>
-        <div >{this.state.message}</div>
       </div>
     );
   }
