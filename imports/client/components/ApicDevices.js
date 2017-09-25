@@ -17,6 +17,7 @@ class TransferRate extends Component {
     let value = event.target.value;
     let deviceFilter = "ALL"
     this.props.apicDevicesFind(value,deviceFilter,"cats");
+    // resets auto loading div to default display amount
     this.props.setDbFindLimit(15)
   }
 
