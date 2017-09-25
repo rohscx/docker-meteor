@@ -593,7 +593,7 @@ export default class Table extends Component {
             </div>
           </Modal>
         </div>
-        <ScrollDetector></ScrollDetector>
+        <ScrollHandler></ScrollHandler>
       </div>
     )
   }

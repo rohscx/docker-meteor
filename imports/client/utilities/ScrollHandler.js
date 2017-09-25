@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class ScrollDetector extends React.Component {
+class ScrollHandler extends React.Component {
 
   constructor(props) {
     super(props);
@@ -45,10 +45,10 @@ class ScrollDetector extends React.Component {
   }
 }
 
-ScrollDetector.propTypes = {
+ScrollHandler.propTypes = {
 }
 
-ScrollDetector.defaultProps = {
+ScrollHandler.defaultProps = {
 }
 
-export default ScrollDetector;
+export default ScrollHandler;
