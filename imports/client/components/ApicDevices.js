@@ -62,7 +62,6 @@ class TransferRate extends Component {
       );
     };
     const formInput = () => {
-      this.props.setDbFindLimit(15)
       return (
         this.handleSearchFormInput.bind(this)
       );
