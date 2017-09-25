@@ -100,10 +100,10 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: apicDevicesItemsSub.ready(),
-    dbReturn: function data(findValue,sortValue, sortOrder){
+    dbReturn: function data(findValue,sortValue,sortOrder,findLimit){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
-      return sortBy(findValue,sortValue, sortOrder)
+      return sortBy(findValue,sortValue,sortOrder,findLimit)
     }
 
   };
