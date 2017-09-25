@@ -18,10 +18,9 @@ export default class Table extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  
-  
-  import React from 'react';
-import classNames from 'classnames';
+
+
+
 
 class ScrollDetector extends React.Component {
 
@@ -61,8 +60,8 @@ class ScrollDetector extends React.Component {
   render() {
     return (
       <div>
-        <div className="fixedDiv">{this.state.message}</div>
-        <div className="scrollDiv"></div>
+        <div >{this.state.message}</div>
+        <div ></div>
       </div>
     );
   }
@@ -649,6 +648,7 @@ export default ScrollDetector;
             </div>
           </Modal>
         </div>
+        <ScrollDetector></ScrollDetector>
       </div>
     )
   }
