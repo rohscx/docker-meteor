@@ -55,7 +55,9 @@ ItemsApicDevices.deny({
       });
     }
 
-
+    setDbFindLimit (data) {
+      this.setState({dbFindLimit:data})
+    }
 
   render() {
     //console.log(Session.get("apicResponse")[0]);
@@ -67,7 +69,7 @@ ItemsApicDevices.deny({
       <Provider store={store}>
         <main>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true}/>
+          <ApicDevices {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setFindLimit.bind(this)}/>
         </main>
       </Provider>
     );
