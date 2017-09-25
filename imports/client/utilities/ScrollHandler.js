@@ -5,7 +5,7 @@ class ScrollHandler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message:'not at bottom'
+      message:'not at bottom',
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -37,10 +37,11 @@ class ScrollHandler extends React.Component {
 
   render() {
     console.log(this)
+    console.log(this.props.children)
     return (
       <div>
         <div >{this.state.message}</div>
-        <div ></div>
+        <div > {this.props.children}</div>
       </div>
     );
   }
