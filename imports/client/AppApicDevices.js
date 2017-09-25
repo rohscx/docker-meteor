@@ -37,6 +37,7 @@ ItemsApicDevices.deny({
        greeting:"",
        status: "",
        dbReturnRdy: true,
+       dbFindLimit: 1,
        fileTransferStatus: false,
      }
    }
@@ -81,7 +82,7 @@ export default createContainer(({params}) => {
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
-  sortBy = (findValue,sortValue, sortOrder) =>{
+  sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
     let keyString = "siteData.dataObj."+sortValue;
@@ -89,9 +90,9 @@ export default createContainer(({params}) => {
     let keyObj ={};
     keyObj[keyString] = sortOrder
     optObj["sort"] = keyObj;
-    optObj["limit"] = 15;
+    optObj["limit"] = findLimit;
     // debug
-    //console.log(sortObj)
+    console.log(findLimit)
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
   }
   return {

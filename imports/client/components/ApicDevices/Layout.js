@@ -428,6 +428,7 @@ export default class Table extends Component {
     let findField = this.props.apic.apicDevicesFind.deviceName;
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
+    let findLimit =  this.props.dbFindLimit;
     let passStyle = {
       backgroundColor:"#5cb85c"
     }
@@ -492,7 +493,7 @@ export default class Table extends Component {
     if (findField.length >= 1 || findField == "."){
       //console.log(findField.length)
       //console.log(findField)
-      let dbData = this.props.dbReturn(findField,sortField,sortOrderField);
+      let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
       let colData = dbData.map((data)=>{
         let status = data.siteData.dataObj.reachabilityStatus;
         let mgmtIpAddress = data.siteData.dataObj.managementIpAddress;
