@@ -11,7 +11,7 @@ class ScrollHandler extends React.Component {
   }
 
   handleScroll() {
-    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const windowHeight = "innerHeight" in window ? window.innerHeight - 20 : document.documentElement.offsetHeight - 20;
     const body = document.body;
     const html = document.documentElement;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
