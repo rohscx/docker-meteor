@@ -429,7 +429,7 @@ export default class Table extends Component {
     let sortField = this.props.apic.sortBy.field;
     let sortOrderField = this.props.apic.sortBy.order;
     let findLimit =  this.props.dbFindLimit;
-    console.log(findLimit)
+    //console.log(findLimit)
     let passStyle = {
       backgroundColor:"#5cb85c"
     }
@@ -581,7 +581,7 @@ export default class Table extends Component {
 
     return(
       <div>
-        <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={1}>
+        <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>
           {this.returnLayout()}
           <div className="modal modal-content modal-responsive">
             <Modal

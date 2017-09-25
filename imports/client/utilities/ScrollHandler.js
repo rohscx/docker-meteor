@@ -17,9 +17,11 @@ class ScrollHandler extends React.Component {
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
     const windowBottom = windowHeight + window.pageYOffset;
     let scrollNext = this.props.scrollCurrent + this.props.scrollBy;
+    // debugs
     //console.log("windowHeight", windowHeight)
     //console.log("docHeight",docHeight)
-    console.log("windowBottom",windowBottom)
+    //console.log("windowBottom",windowBottom)
+    //console.log("scrollNext",scrollNext)
     if ((windowBottom + 21) >= docHeight) {
       this.setState({
         message:'bottom reached'

@@ -37,7 +37,7 @@ ItemsApicDevices.deny({
        greeting:"",
        status: "",
        dbReturnRdy: true,
-       dbFindLimit: 1,
+       dbFindLimit: 5,
        fileTransferStatus: false,
      }
    }
