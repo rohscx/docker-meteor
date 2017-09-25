@@ -69,7 +69,7 @@ ItemsApicDevices.deny({
       <Provider store={store}>
         <main>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setFindLimit.bind(this)}/>
+          <ApicDevices {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
         </main>
       </Provider>
     );
