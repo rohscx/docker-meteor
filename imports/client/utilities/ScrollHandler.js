@@ -23,6 +23,7 @@ class ScrollHandler extends React.Component {
       this.setState({
         message:'bottom reached'
       });
+      this.props.incFunction(2)
     } else {
       this.setState({
         message:'not at bottom'
