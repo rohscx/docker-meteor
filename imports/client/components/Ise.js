@@ -15,9 +15,8 @@ class Ise extends Component {
   iseIframe(){
     return (
       <div>
-        <iframe src="https://www.youtube.com/watch?v=OvgZqGxF3eo">
-          <p> Your browser does not support iframes </p>
-        </iframe>
+        <object data="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp">
+        </object>
       </div>
     )
 
