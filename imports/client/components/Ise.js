@@ -12,6 +12,17 @@ class Ise extends Component {
     this.props.validateMac(event.target.value);
   }
 
+  iseIframe(){
+    return (
+      <div>
+        <iframe src="https://wwww.google.com">
+          <p> Your browser does not support iframes </p>
+        </iframe>
+      </div>
+    )
+
+  }
+
   iseSearchForm(){
     const btnEnabled = () => {
       return (
@@ -74,7 +85,7 @@ class Ise extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
-        {this.iseSearchForm()}
+        {this.iseIframe()}
       </div>
     )
   }
