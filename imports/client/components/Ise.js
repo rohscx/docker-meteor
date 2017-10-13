@@ -15,7 +15,7 @@ class Ise extends Component {
   iseRenderer(){
     return (
       <div>
-      <a href="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp" target="_blank">WHAT THE HECK</a>
+      <a href="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp" target="_blank">ISE IS ACTIVE</a>
       </div>
     )
 
