@@ -15,7 +15,7 @@ class Ise extends Component {
   iseIframe(){
     return (
       <div>
-        <iframe src="https://wwww.google.com">
+        <iframe src="https://www.google.com">
           <p> Your browser does not support iframes </p>
         </iframe>
       </div>
