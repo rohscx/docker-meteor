@@ -14,9 +14,8 @@ class Ise extends Component {
 
   iseRenderer(){
     return (
-      <link target="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp">
-        test
-        </link>
+      <div>
+      <a href="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp" target="_blank">WHAT THE HECK</a>
       </div>
     )
 
