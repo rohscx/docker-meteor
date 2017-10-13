@@ -12,11 +12,11 @@ class Ise extends Component {
     this.props.validateMac(event.target.value);
   }
 
-  iseIframe(){
+  iseRenderer(){
     return (
-      <div>
-        <object data="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp">
-        </object>
+      <link target="https://agaisepr01.fpicore.fpir.pvt/admin/login.jsp">
+        test
+        </link>
       </div>
     )
 
@@ -84,7 +84,7 @@ class Ise extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
-        {this.iseIframe()}
+        {this.iseRenderer()}
       </div>
     )
   }
