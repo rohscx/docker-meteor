@@ -25,9 +25,8 @@ let webServerStatus = (webServerObj)=>{
     async function httpRequest(method,url,options){
       const httpDevices = await Meteor.call('httpRequest', method,url,options);
       const httpReturn = await httpDevices;
-      console.log("testtesttes");
       if (await httpReturn) {
-        console.log("httpResonse ", httpReturn)
+        //console.log("httpResonse ", httpReturn)
         const httpReturnTime = convertDateTime(httpReturn.date);
         // error checking REST request. If not 200 do nothing and log
         // http status code
