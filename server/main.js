@@ -18,7 +18,7 @@ import '../imports/api/prime';
 
 
 console.log(Meteor.settings.webServerList)
-webServerStatus(Meteor.settings.webServerList)
+webServerStatus()
 
 
 (()=>{
