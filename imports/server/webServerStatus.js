@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-function webServerStatus (webServerObj){
+const webServerStatus = (webServerObj)=>{
   const statusCodeParser = (statusCode) =>{
     if (statusCode === 200) {
       return 0;
