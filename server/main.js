@@ -17,9 +17,12 @@ import '../imports/api/apic';
 import '../imports/api/prime';
 
 
-
+console.log("running");
+console.log(Meteor.settings.webServerList);
+console.log(blah(" 12345 "));
+console.log(webServerStatus(Meteor.settings.webServerList));
 (()=>{
-  console.log("running")
+  console.log("running");
   console.log(Meteor.settings.webServerList);
   console.log(blah(" 12345 "));
   console.log(webServerStatus(Meteor.settings.webServerList));
