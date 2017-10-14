@@ -73,7 +73,7 @@ let webServerStatus = (webServerObj)=>{
 
         // 0 returned on status code 200, 1 returned on all else
 
-        let databaseObj = (name,description,url) {
+        let databaseObj = (name,description,url) =>{
 
           let tango= {
             name: name,
