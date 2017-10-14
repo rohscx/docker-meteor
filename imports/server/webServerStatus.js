@@ -54,7 +54,8 @@ let webServerStatus = (webServerObj)=>{
             webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
           }
         }
-        console.log(JSON.stringify(dataBaseObj, null, 2))
+        console.log(JSON.stringify(dataBaseObj, null, 2));
+        console.log(dataBaseObj);
 
         const dbInsert = ()=>{
           ItemsWebServerStatus.insert({
