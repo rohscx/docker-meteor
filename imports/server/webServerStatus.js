@@ -20,12 +20,11 @@ let webServerStatus = (webServerObj)=>{
     let requestTime = (endTime - startTime);
     return requestTime;
   }
-  const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
-    console.log("hi!!");
-    let dbObj = {
-      name: 1,
-      description: 2,
-      url: 3,
+  let databaseObj = (name,description,url) =>{
+    let tango= {
+      name: name,
+      description: description,
+      url: url,
       statistics:{
         responseTimeTotal:"1",
         responseTimeLast:"2",
@@ -34,12 +33,12 @@ let webServerStatus = (webServerObj)=>{
         responseTimeLowest:"5"
       },
       httpRequest:{
-        responseStatusCode: 4,
-        webServerFailureStatus: 5
+        responseStatusCode:"6",
+        webServerFailureStatus:"7"
       }
-    };
-    return dbObj;
-  }
+    }
+    return tango
+  };
   webServerObj.map((data)=>{
     console.log(JSON.stringify(data, null, 2));
     const webServerMethod = "GET";
@@ -73,26 +72,9 @@ let webServerStatus = (webServerObj)=>{
 
         // 0 returned on status code 200, 1 returned on all else
 
-        let databaseObj = (name,description,url) =>{
 
-          let tango= {
-            name: name,
-            description: description,
-            url: url,
-            trash:"trash1231312",
-            statistics:{
-              responseTimeTotal:"1",
-              responseTimeLast:"2",
-              reaponseTimeCount:"3",
-              responseTimeHighest:"4",
-              responseTimeLowest:"5"
 
-            }
-          }
-          return tango
-        };
-
-        console.log(databaseObj(data.name,data.description,data.url))
+        console.log(databaseObj(data.name , data.description , data.url))
 
         const dbInsert = ()=>{
           ItemsWebServerStatus.insert({
