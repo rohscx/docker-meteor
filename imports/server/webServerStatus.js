@@ -19,9 +19,9 @@ let webServerStatus = (webServerObj)=>{
   const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
     console.log("hi!!");
     let dbObj = {
-      name: name,
-      description: description,
-      url: url,
+      name: 1,
+      description: 2,
+      url: 3,
       statistics:{
         responseTimeTotal:"1",
         responseTimeLast:"2",
@@ -30,8 +30,8 @@ let webServerStatus = (webServerObj)=>{
         responseTimeLowest:"5"
       },
       httpRequest:{
-        responseStatusCode: statusCode,
-        webServerFailureStatus: failureStatusCode
+        responseStatusCode: 4,
+        webServerFailureStatus: 5
       }
     };
     return dbObj;
