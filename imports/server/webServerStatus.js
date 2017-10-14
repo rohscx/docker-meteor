@@ -79,7 +79,15 @@ let webServerStatus = (webServerObj)=>{
             name: name,
             description: description,
             url: url,
-            trash:"trash1231312"
+            trash:"trash1231312",
+            statistics:{
+              responseTimeTotal:"1",
+              responseTimeLast:"2",
+              reaponseTimeCount:"3",
+              responseTimeHighest:"4",
+              responseTimeLowest:"5"
+
+            }
           }
           return tango
         };
