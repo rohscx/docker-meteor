@@ -25,7 +25,7 @@ console.log(webServerStatus(Meteor.settings.webServerList));
   console.log("running");
   console.log(Meteor.settings.webServerList);
   console.log(blah(" 12345 "));
-  console.log(await webServerStatus(Meteor.settings.webServerList));
+  console.log(webServerStatus(Meteor.settings.webServerList));
 });
 
 (()=>{
