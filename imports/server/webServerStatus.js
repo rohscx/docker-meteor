@@ -17,7 +17,7 @@ let webServerStatus = (webServerObj)=>{
     return someDate.getTime();
   }
   const delayCalculator = (startTime, endTime) =>{
-    let requestTime = ((startTime - endTime)/1000);
+    let requestTime = ((endTime - startTime)/1000);
     return requestTime;
   }
   const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
