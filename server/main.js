@@ -22,7 +22,7 @@ import '../imports/api/prime';
 
 (()=>{
   console.log(blah(" 12345 "));
-})
+});
 (()=>{
   let clientId = false;
   let counter = 0;
