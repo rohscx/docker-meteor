@@ -16,10 +16,11 @@ let webServerStatus = (webServerObj)=>{
     return someDate.getTime();
   }
   webServerObj.map((data)=>{
+    console.log(date);
     const webServerMethod = "GET";
     const webServerUrl = data.webServerUrl;
     const webServerOptions = {};
-    const currentTime = getTimeNow()
+    const currentTime = getTimeNow();
     const dateTime = new Date();
     async function httpRequest(method,url,options){
       const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -50,6 +51,7 @@ let webServerStatus = (webServerObj)=>{
           webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
         }
       }
+      console.log(JSON.stringify(dataBaseObj, null, 2))
 
       const dbInsert = ()=>{
         ItemsWebServerStatus.insert({
