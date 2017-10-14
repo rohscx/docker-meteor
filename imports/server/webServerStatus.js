@@ -30,6 +30,7 @@ let webServerStatus = (webServerObj)=>{
         //console.log("httpResonse " + data.name , httpReturn.headers);
         console.log(httpReturn.headers.date);
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
+        console.log(statusCodeParser(httpReturn.statusCode));
         // error checking REST request. If not 200 do nothing and log
         // http status code
 
