@@ -56,6 +56,7 @@ let webServerStatus = (webServerObj)=>{
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
         console.log(statusCodeParser(httpReturn.statusCode));
         const failureCode = statusCodeParser(httpReturn.statusCode);
+        console.log(httpReturnTime+" "+currentTime)
         console.log(data.name)
         console.log(data.url)
         console.log(data.description)
