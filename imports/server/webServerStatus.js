@@ -64,9 +64,6 @@ let webServerStatus = (webServerObj)=>{
         console.log(failureCode)
         console.log(delayCalculator(currentTime,httpReturnTime))
 
-        dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode)
-
-        console.log(dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode));
         // error checking REST request. If not 200 do nothing and log
         // http status code
 
