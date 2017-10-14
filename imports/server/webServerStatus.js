@@ -69,6 +69,8 @@ let webServerStatus = (webServerObj)=>{
     }
     httpRequest(webServerMethod,webServerUrl,webServerOptions)
   })
+  let debugHelper1 = "Debug helper"
+  return debugHelper1;
 };
 const blah = (text) =>{
   let text1 = "this is blah default"
