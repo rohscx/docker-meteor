@@ -89,7 +89,7 @@ let webServerStatus = (webServerObj)=>{
           },
           httpRequest:{
             responseStatusCode: httpReturn.statusCode,
-            webServerFailureStatus: statusCodeParser(httpReturn.statusCode)
+            webServerFailureStatus: failureCode
           }
         };
 
