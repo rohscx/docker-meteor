@@ -18,7 +18,7 @@ let webServerStatus = (webServerObj)=>{
   webServerObj.map((data)=>{
     console.log(JSON.stringify(data, null, 2));
     const webServerMethod = "GET";
-    const webServerUrl = data.webServerUrl;
+    const webServerUrl = data.url;
     const webServerOptions = {};
     const currentTime = getTimeNow();
     const dateTime = new Date();
