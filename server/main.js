@@ -7,7 +7,7 @@ import ItemsTransferRate from '../imports/api/transferRate';
 import ItemsPrimeHosts from '../imports/api/prime';
 import tempData from './tempData';
 
-import  {blah} from '../imports/server/webServerStatus';
+import { webServerStatus, blah } from '../imports/server/webServerStatus';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
@@ -17,12 +17,13 @@ import '../imports/api/apic';
 import '../imports/api/prime';
 
 
-//console.log(Meteor.settings.webServerList)
-//webServerStatus(Meteor.settings.webServerList)
 
 (()=>{
-  console.log(blah(" 12345 "))
+  console.log(Meteor.settings.webServerList);
+  console.log(blah(" 12345 "));
+  console.log(webServerStatus(Meteor.settings.webServerList));
 });
+
 (()=>{
   let clientId = false;
   let counter = 0;
