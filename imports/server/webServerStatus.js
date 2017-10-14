@@ -73,13 +73,18 @@ let webServerStatus = (webServerObj)=>{
 
         // 0 returned on status code 200, 1 returned on all else
 
-        let databaseObj = {
-          name: data.name,
-          description: data.description,
-          url: date.url
+        let databaseObj = (name,description,url) {
+
+          let tango= {
+            name: name,
+            description: description,
+            url: url,
+            trash:"trash1231312"
+          }
+          return tango
         };
 
-        console.log(databaseObj)
+        console.log(databaseObj(data.name,data.description,data.url))
 
         const dbInsert = ()=>{
           ItemsWebServerStatus.insert({
