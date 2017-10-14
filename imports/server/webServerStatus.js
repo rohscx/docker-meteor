@@ -67,5 +67,5 @@ const blah = (text) =>{
   let text1 = "this is blah default"
   let text2 = text
   return text1 += text2
-}
+};
 export {blah};
