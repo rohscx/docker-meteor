@@ -52,6 +52,9 @@ let webServerStatus = (webServerObj)=>{
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
         console.log(statusCodeParser(httpReturn.statusCode));
         const failureCode = statusCodeParser(httpReturn.statusCode);
+        dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode)
+        let dddd = {asdf:123}
+        console.log(dddd)
         console.log(dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode));
         // error checking REST request. If not 200 do nothing and log
         // http status code
