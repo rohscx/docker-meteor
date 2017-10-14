@@ -65,6 +65,6 @@ let webServerStatus = (webServerObj)=>{
   })
 };
 const blah = () =>{
-  console.log(this is blah default)
+  console.log("this is blah default")
 }
 export {webServerStatus, blah};
