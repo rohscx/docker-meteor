@@ -62,8 +62,5 @@ const webServerStatus = (webServerObj)=>{
       }
     }
   }
-
-
 };
-
 export default webServerStatus;
