@@ -64,8 +64,8 @@ let webServerStatus = (webServerObj)=>{
   })
 };
 const blah = (text) =>{
-  const text1 = "this is blah default"
-  const text2 = text
+  let text1 = "this is blah default"
+  let text2 = text
   return text1 += text2
 }
 export {blah};
