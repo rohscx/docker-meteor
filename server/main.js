@@ -7,7 +7,7 @@ import ItemsTransferRate from '../imports/api/transferRate';
 import ItemsPrimeHosts from '../imports/api/prime';
 import tempData from './tempData';
 
-import  {webServerStatus,blah} from '../imports/server/webServerStatus';
+import  {blah} from '../imports/server/webServerStatus';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
