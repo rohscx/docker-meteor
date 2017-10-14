@@ -39,11 +39,11 @@ const webServerStatus = (webServerObj)=>{
         description: data.description,
         url: date.url,
         statistics:{
-          responseTimeTotal:””,
-          responseTimeLast:””,
-          reaponseTimeCount:””,
-          responseTimeHighest:””,
-          responseTimeLowest:””
+          responseTimeTotal:”1”,
+          responseTimeLast:”2”,
+          reaponseTimeCount:”3”,
+          responseTimeHighest:”4”,
+          responseTimeLowest:”5”
         },
         httpRequest:{
           responseStatusCode: httpReturn.statusCode,
