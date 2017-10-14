@@ -79,18 +79,7 @@ let webServerStatus = (webServerObj)=>{
         let databaseObj = {
           name: data.name,
           description: data.description,
-          url: date.url,
-          statistics:{
-            responseTimeTotal:"1",
-            responseTimeLast:"2",
-            reaponseTimeCount:"3",
-            responseTimeHighest:"4",
-            responseTimeLowest:"5"
-          },
-          httpRequest:{
-            responseStatusCode: httpReturn.statusCode,
-            webServerFailureStatus: failureCode
-          }
+          url: date.url
         };
 
         console.log("hit")
