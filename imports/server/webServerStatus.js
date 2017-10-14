@@ -46,10 +46,12 @@ let webServerStatus = (webServerObj)=>{
     const webServerOptions = {};
     const currentTime = getTimeNow();
     const dateTime = new Date();
+    const startTime = getTimeNow();
     async function httpRequest(method,url,options){
       const httpDevices = await Meteor.call('httpRequest', method,url,options);
       const httpReturn = await httpDevices;
       if (await httpReturn) {
+        const endTime = getTimeNow();
         //console.log("httpResonse " + data.name , httpReturn.headers);
         console.log(httpReturn.headers.date);
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
@@ -62,6 +64,7 @@ let webServerStatus = (webServerObj)=>{
         console.log(httpReturn.statusCode)
         console.log(failureCode)
         console.log(delayCalculator(currentTime,httpReturnTime))
+        console.log("Start and Endtime ",delayCalculator(endTime,startTime))
 
         // error checking REST request. If not 200 do nothing and log
         // http status code
