@@ -38,7 +38,7 @@ let webServerStatus = (webServerObj)=>{
 
         // 0 returned on status code 200, 1 returned on all else
 
-        let dataBaseObj = {
+        let databaseObj = {
           name: data.name,
           description: data.description,
           url: date.url,
@@ -55,12 +55,14 @@ let webServerStatus = (webServerObj)=>{
           }
         }
         console.log(JSON.stringify(dataBaseObj, null, 2));
-        console.log(dataBaseObj);
+        console.log("databaseObj: ", databaseObj);
+        console.log("status code: ", statusCodeParser(httpReturn.statusCode))
+        console.log("currentTime", currentTime)
 
         const dbInsert = ()=>{
           ItemsWebServerStatus.insert({
             siteData: {
-              dataObj: dataBaseObj,
+              dataObj: databaseObj,
               requestTime: currentTime,
               dateTime: dateTime
             }
