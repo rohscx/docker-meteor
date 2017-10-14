@@ -64,4 +64,7 @@ let webServerStatus = (webServerObj)=>{
     }
   })
 };
-export {webServerStatus};
+const blah = () =>{
+  console.log(this is blah default)
+}
+export {webServerStatus, blah};

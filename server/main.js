@@ -7,7 +7,7 @@ import ItemsTransferRate from '../imports/api/transferRate';
 import ItemsPrimeHosts from '../imports/api/prime';
 import tempData from './tempData';
 
-import  {webServerStatus} from '../imports/server/webServerStatus';
+import  {webServerStatus,blah} from '../imports/server/webServerStatus';
 
 import '../imports/server/accounts';
 import '../imports/api/request';
@@ -18,8 +18,8 @@ import '../imports/api/prime';
 
 
 console.log(Meteor.settings.webServerList)
-webServerStatus(Meteor.settings.webServerList)
-
+//webServerStatus(Meteor.settings.webServerList)
+console.log(blah())
 
 (()=>{
   let clientId = false;
