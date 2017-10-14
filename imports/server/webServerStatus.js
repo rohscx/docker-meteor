@@ -16,6 +16,10 @@ let webServerStatus = (webServerObj)=>{
     console.log(someDate.getTime());
     return someDate.getTime();
   }
+  const delayCalculator = (startTime, endTime) =>{
+    let requestTime = ((startTime - endTime)/1000);
+    return requestTime;
+  }
   const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
     console.log("hi!!");
     let dbObj = {
@@ -57,6 +61,7 @@ let webServerStatus = (webServerObj)=>{
         console.log(data.description)
         console.log(httpReturn.statusCode)
         console.log(failureCode)
+        console.log(delayCalculator(currentTime,httpReturnTime))
 
         dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode)
 
