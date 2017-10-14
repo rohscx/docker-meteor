@@ -67,6 +67,7 @@ let webServerStatus = (webServerObj)=>{
         }
       }
     }
+    httpRequest(webServerMethod,webServerUrl,webServerOptions)
   })
 };
 const blah = (text) =>{
