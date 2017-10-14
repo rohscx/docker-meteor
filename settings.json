@@ -20,6 +20,25 @@
       "baseUrl": false
     }
 },
+"webServerList":[{
+    "name":"Google",
+    "url":"https://www.google.com",
+    "description":"The worlds most popular search engine"
+  },
+  {
+    "name":"CNET",
+    "url":"https://www.cnet.com",
+    "description":"Techo Product reviews"
+  },
+  {
+    "name":"docker",
+    "url":"https://www.docker.com",
+    "description":"A whale of a good time"},
+  {
+    "name":"Cartoon Network",
+    "url":"https://www.cartoonnetwork.com",
+  "description":"Home of Rick and Morty!"
+  }],
   "public" : {
     "ciscoApicEM": {
       "uName": "devnetuser",
