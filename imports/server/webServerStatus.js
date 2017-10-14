@@ -64,6 +64,7 @@ let webServerStatus = (webServerObj)=>{
         console.log(httpReturn.statusCode)
         console.log(failureCode)
         console.log(delayCalculator(currentTime,httpReturnTime))
+        console.log("StartRaw endRaw: "startTime+" "+endTime)
         console.log("Start and Endtime ",delayCalculator(startTime,endTime))
 
         // error checking REST request. If not 200 do nothing and log
