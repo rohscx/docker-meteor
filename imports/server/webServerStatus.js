@@ -17,6 +17,7 @@ let webServerStatus = (webServerObj)=>{
     return someDate.getTime();
   }
   const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
+    console.log("hi!!");
     let dbObj = {
       name: name,
       description: description,
