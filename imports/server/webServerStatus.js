@@ -68,4 +68,4 @@ const blah = (text) =>{
   let text2 = text
   return text1 += text2
 };
-export {blah};
+export {webServerStatus,blah};
