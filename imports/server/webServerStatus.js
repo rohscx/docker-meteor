@@ -13,6 +13,7 @@ let webServerStatus = (webServerObj)=>{
   }
   const convertDateTime = (dateString) =>{
     let someDate = new Date(dateString);
+    console.log(someDate.getTime());
     return someDate.getTime();
   }
   webServerObj.map((data)=>{
