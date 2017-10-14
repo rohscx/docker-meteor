@@ -60,6 +60,7 @@ const webServerStatus = (webServerObj)=>{
           }
         });
       }
+      console.log(dataBaseObj)
     }
   })
 };

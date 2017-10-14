@@ -20,6 +20,16 @@
       "baseUrl": false
     }
 },
+  "public" : {
+    "ciscoApicEM": {
+      "uName": "devnetuser",
+      "uPass": "Cisco123!",
+      "baseUrl": "https://devnetapi.cisco.com/sandbox/apic_em"
+    },
+    "siteBranding": {
+      "navBarBrand": "FROST"
+    }
+},
 "webServerList":[{
     "name":"Google",
     "url":"https://www.google.com",
@@ -39,16 +49,6 @@
     "url":"https://www.cartoonnetwork.com",
   "description":"Home of Rick and Morty!"
   }],
-  "public" : {
-    "ciscoApicEM": {
-      "uName": "devnetuser",
-      "uPass": "Cisco123!",
-      "baseUrl": "https://devnetapi.cisco.com/sandbox/apic_em"
-    },
-    "siteBranding": {
-      "navBarBrand": "FROST"
-    }
-},
   "admins" : [
     "rohscx@gmail.com",
     "test2@gmail.com",
