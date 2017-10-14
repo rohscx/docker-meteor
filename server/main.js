@@ -21,7 +21,7 @@ import '../imports/api/prime';
 //webServerStatus(Meteor.settings.webServerList)
 
 (()=>{
-  console.log(blah(" 12345 "))
+  console.log(blah(" 12345 "));
 })
 (()=>{
   let clientId = false;
