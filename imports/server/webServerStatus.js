@@ -15,52 +15,55 @@ const webServerStatus = (webServerObj)=>{
     let someDate = new Date(dateString);
     return someDate.getTime();
   }
-  httpReturn.data.response.map((data)=>{}
+  webServerObj.map((data)=>{
+    const webServerMethod = "GET";
+    const webServerUrl = data.webServerUrl;
+    const webServerOptions = {};
+    const currentTime = getTimeNow()
+    const dateTime = new Date();
+    async function httpRequest(method,url,options){
+      const httpDevices = await Meteor.call('httpRequest', method,url,options);
+      const httpReturn = await httpDevices;
+      const httpReturnTime = convertDateTime(httpReturn.date);
+      // error checking REST request. If not 200 do nothing and log
+      // http status code
 
-  const webServerMethod = "GET";
-  const webServerUrl = data.webServerUrl;
-  const webServerOptions = {};
-  const currentTime = getTimeNow()
-  async function httpRequest(method,url,options){
-    const httpDevices = await Meteor.call('httpRequest', method,url,options);
-    const httpReturn = await httpDevices;
-    const httpReturnTime = convertDateTime(httpReturn.date);
-    // error checking REST request. If not 200 do nothing and log
-    // http status code
+      // webServers name
 
-    // webServers name
+      // language discribing the server
 
-    // language discribing the server
+      // 0 returned on status code 200, 1 returned on all else
 
-    // 0 returned on status code 200, 1 returned on all else
+      let dataBaseObj = {
+        name: data.name,
+        description: data.description,
+        url: date.url,
+        statistics:{
+          responseTimeTotal:””,
+          responseTimeLast:””,
+          reaponseTimeCount:””,
+          responseTimeHighest:””,
+          responseTimeLowest:””
+        },
+        httpRequest:{
+          responseStatusCode: httpReturn.statusCode,
+          webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
+        }
+      }
 
-    let dataBaseObj = {
-      name: data.name,
-      description: data.description,
-      url: date.url,
-      statistics:{
-        responseTimeTotal:””,
-        responseTimeLast:””,
-        reaponseTimeCount:””,
-        responseTimeHighest:””,
-        responseTimeLowest:””
-      },
-      httpRequest:{
-        responseStatusCode: httpReturn.statusCode,
-        webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
+      const dbInsert = ()=>{
+        ItemsWebServerStatus.insert({
+          siteData: {
+            dataObj: dataBaseObj,
+            requestTime: currentTime,
+            dateTime: dateTime
+          }
+        });
       }
     }
-
-    const dbInsert = ()=>{
-      ItemsWebServerStatus.insert({
-        siteData: {
-          dataObj: data,
-          requestTime: timeNow(),
-          dateTime: dateTime
-        }
-      });
-    }
   }
+
+
 };
 
 export default webServerStatus;
