@@ -52,8 +52,7 @@ let webServerStatus = (webServerObj)=>{
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
         console.log(statusCodeParser(httpReturn.statusCode));
         const failureCode = statusCodeParser(httpReturn.statusCode);
-        let dddd = {asdf:data.name,dddd:{adsf:data.description,adsfad:date.url},asdfsdf:{asdfasdfasdfasdf:httpReturn.statusCode,adsfdff:statusCodeParser(httpReturn.statusCode)}}
-        console.log(dddd)
+        console.log(data)
         dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode)
 
         console.log(dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode));
