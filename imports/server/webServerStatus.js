@@ -79,11 +79,7 @@ let webServerStatus = (webServerObj)=>{
           url: date.url
         };
 
-        console.log("hit")
-        console.log(JSON.stringify(dataBaseObj, null, 2));
-        console.log("databaseObj: ", databaseObj);
-        console.log("status code: ", statusCodeParser(httpReturn.statusCode))
-        console.log("currentTime", currentTime)
+        console.log(databaseObj)
 
         const dbInsert = ()=>{
           ItemsWebServerStatus.insert({
