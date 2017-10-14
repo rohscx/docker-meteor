@@ -16,6 +16,25 @@ let webServerStatus = (webServerObj)=>{
     console.log(someDate.getTime());
     return someDate.getTime();
   }
+  const dbObjGenerator = (name,description,url,statusCode,failureStatusCode) =>{
+    let dbObj = {
+      name: name,
+      description: description,
+      url: url,
+      statistics:{
+        responseTimeTotal:"1",
+        responseTimeLast:"2",
+        reaponseTimeCount:"3",
+        responseTimeHighest:"4",
+        responseTimeLowest:"5"
+      },
+      httpRequest:{
+        responseStatusCode: statusCode,
+        webServerFailureStatus: failureStatusCode
+      }
+    };
+    return dbObj;
+  }
   webServerObj.map((data)=>{
     console.log(JSON.stringify(data, null, 2));
     const webServerMethod = "GET";
@@ -31,6 +50,8 @@ let webServerStatus = (webServerObj)=>{
         console.log(httpReturn.headers.date);
         const httpReturnTime = convertDateTime(httpReturn.headers.date);
         console.log(statusCodeParser(httpReturn.statusCode));
+        const failureCode = statusCodeParser(httpReturn.statusCode);
+        console.log(dbObjGenerator(data.name,data.description,date.url,httpReturn.statusCode,failureCode));
         // error checking REST request. If not 200 do nothing and log
         // http status code
 
@@ -53,9 +74,10 @@ let webServerStatus = (webServerObj)=>{
           },
           httpRequest:{
             responseStatusCode: httpReturn.statusCode,
-            webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
+            webServerFailureStatus: statusCodeParser(httpReturn.statusCode)
           }
         };
+
         console.log("hit")
         console.log(JSON.stringify(dataBaseObj, null, 2));
         console.log("databaseObj: ", databaseObj);
