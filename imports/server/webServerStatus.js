@@ -25,42 +25,44 @@ let webServerStatus = (webServerObj)=>{
     async function httpRequest(method,url,options){
       const httpDevices = await Meteor.call('httpRequest', method,url,options);
       const httpReturn = await httpDevices;
-      const httpReturnTime = convertDateTime(httpReturn.date);
-      // error checking REST request. If not 200 do nothing and log
-      // http status code
+      if (await httpReturn) {
+        const httpReturnTime = convertDateTime(httpReturn.date);
+        // error checking REST request. If not 200 do nothing and log
+        // http status code
 
-      // webServers name
+        // webServers name
 
-      // language discribing the server
+        // language discribing the server
 
-      // 0 returned on status code 200, 1 returned on all else
+        // 0 returned on status code 200, 1 returned on all else
 
-      let dataBaseObj = {
-        name: data.name,
-        description: data.description,
-        url: date.url,
-        statistics:{
-          responseTimeTotal:"1",
-          responseTimeLast:"2",
-          reaponseTimeCount:"3",
-          responseTimeHighest:"4",
-          responseTimeLowest:"5"
-        },
-        httpRequest:{
-          responseStatusCode: httpReturn.statusCode,
-          webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
-        }
-      }
-      console.log(JSON.stringify(dataBaseObj, null, 2))
-
-      const dbInsert = ()=>{
-        ItemsWebServerStatus.insert({
-          siteData: {
-            dataObj: dataBaseObj,
-            requestTime: currentTime,
-            dateTime: dateTime
+        let dataBaseObj = {
+          name: data.name,
+          description: data.description,
+          url: date.url,
+          statistics:{
+            responseTimeTotal:"1",
+            responseTimeLast:"2",
+            reaponseTimeCount:"3",
+            responseTimeHighest:"4",
+            responseTimeLowest:"5"
+          },
+          httpRequest:{
+            responseStatusCode: httpReturn.statusCode,
+            webServerFailueStatus: statusCodeParser(httpReturn.statusCode)
           }
-        });
+        }
+        console.log(JSON.stringify(dataBaseObj, null, 2))
+
+        const dbInsert = ()=>{
+          ItemsWebServerStatus.insert({
+            siteData: {
+              dataObj: dataBaseObj,
+              requestTime: currentTime,
+              dateTime: dateTime
+            }
+          });
+        }
       }
     }
   })
