@@ -55,19 +55,19 @@ let webServerStatus = (webServerObj)=>{
         if (await httpReturn) {
           const endTime = getTimeNow();
           //console.log("httpResonse " + data.name , httpReturn.headers);
-          console.log(httpReturn.headers.date);
+          //console.log(httpReturn.headers.date);
           const httpReturnTime = convertDateTime(httpReturn.headers.date);
-          console.log(statusCodeParser(httpReturn.statusCode));
+          //console.log(statusCodeParser(httpReturn.statusCode));
           const failureCode = statusCodeParser(httpReturn.statusCode);
-          console.log(httpReturnTime+" "+currentTime)
-          console.log(data.name)
-          console.log(data.url)
-          console.log(data.description)
-          console.log(httpReturn.statusCode)
-          console.log(failureCode)
-          console.log(delayCalculator(currentTime,httpReturnTime))
-          console.log("StartRaw endRaw: ", startTime+" "+endTime)
-          console.log("Start and Endtime ",delayCalculator(startTime,endTime))
+          //console.log(httpReturnTime+" "+currentTime)
+          //console.log(data.name)
+          //console.log(data.url)
+          //console.log(data.description)
+          //console.log(httpReturn.statusCode)
+          //console.log(failureCode)
+          //console.log(delayCalculator(currentTime,httpReturnTime))
+          //console.log("StartRaw endRaw: ", startTime+" "+endTime)
+          //console.log("Start and Endtime ",delayCalculator(startTime,endTime))
 
           // error checking REST request. If not 200 do nothing and log
           // http status code
