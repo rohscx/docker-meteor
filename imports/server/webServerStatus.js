@@ -87,7 +87,7 @@ let webServerStatus = (webServerObj)=>{
 
 
           const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-          console.log("dataCheck : ",dbDataCheck);
+          //console.log("dataCheck : ",dbDataCheck);
 
           const dbInsert = (dData,cTime,dTime)=>{
             console.log("insert Attempt")
@@ -102,6 +102,9 @@ let webServerStatus = (webServerObj)=>{
           const dbUpdate = (ddCheck,cTime,dTime,rTime)=>{
             console.log("insert Attempt")
             console.log("_id: ",ddCheck["0"]._id)
+            console.log("ctime: ",cTime);
+            console.log("dtime: ",dTime);
+            console.log("rtime: ",rTime);
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
@@ -126,7 +129,6 @@ let webServerStatus = (webServerObj)=>{
             const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
             dbInsert(dBdata,currentTime,currentDateTime);
           }
-
         }
       }
       httpRequest(webServerMethod,webServerUrl,webServerOptions)
@@ -137,7 +139,6 @@ let webServerStatus = (webServerObj)=>{
     return poll();
   },15000)
   poll()
-
   let debugHelper1 = "Debug helper"
   return debugHelper1;
 };
