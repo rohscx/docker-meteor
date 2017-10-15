@@ -26,22 +26,24 @@ let webServerStatus = (webServerObj)=>{
     return totalTime;
   }
   let databaseObj = (name,description,url,rTime,rCode,fCode) =>{
+    console.log("tangoHit")
     let tango= {
       name: name,
       description: description,
       url: url,
       statistics:{
-        responseTimeTotal:rTime,
-        responseTimeLast:rTime,
-        reaponseTimeCount:1,
-        responseTimeHighest:rTime,
-        responseTimeLowest:rTime
+        responseTimeTotal: rTime,
+        responseTimeLast: rTime,
+        reaponseTimeCount: 1,
+        responseTimeHighest: rTime,
+        responseTimeLowest: rTime
       },
       httpRequest:{
         responseStatusCode:rCode,
         webServerFailureStatus:fCode
       }
-    }
+    };
+    console.log(tango)
     return tango
   };
   const poll = () => {
