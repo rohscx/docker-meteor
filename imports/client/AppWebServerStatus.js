@@ -79,18 +79,9 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');
-  let dbData = ItemsWebServerStatus.find().fetch()
-  sortBy = () =>{
-    return ItemsWebServerStatus.find({}).fetch();
-  }
   return {
     showAll,
-    ready: meteorDbSub.ready(),
-    dbReturn: function data(){
-      //debug
-      //console.log(sortBy(sortValue, sortOrder))
-      return sortBy()
-    }
+    ready: meteorDbSub.ready()
 
   };
 }, AppWebServerStatus);
