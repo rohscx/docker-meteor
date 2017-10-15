@@ -30,6 +30,25 @@ const ItemsApicSchema = new SimpleSchema ({
 ItemsApic.attachSchema(ItemsApicSchema);
 
 
+const ItemsWebServerStatus = new Mongo.Collection('ItemsWebServerStatus');
+
+const ItemWebServerStatusSchema = new SimpleSchema ({
+  text: String,
+  dataObj: {
+    type: Object,
+    blackbox: true
+  },
+  requestTime: SimpleSchema.Integer,
+  dateTime : {
+    type: Date
+  }
+});
+
+const ItemsWebServerStatus = new SimpleSchema ({
+  apicData: ItemWebServerStatusSchema
+});
+
+ItemsWebServerStatus.attachSchema(ItemWebServerStatusSchema);
 
 if (Meteor.isServer) {
 
@@ -147,4 +166,4 @@ if (Meteor.isServer) {
 }
 
 
-export default ItemsApic;
+export {ItemsApic, ItemsWebServerStatus};
