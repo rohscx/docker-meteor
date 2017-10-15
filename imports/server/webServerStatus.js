@@ -91,6 +91,7 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
+          dbInsert()
         }
       }
       httpRequest(webServerMethod,webServerUrl,webServerOptions)
