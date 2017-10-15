@@ -80,7 +80,7 @@ let webServerStatus = (webServerObj)=>{
 
 
 
-          console.log(databaseObj(data.name , data.description , data.url));
+
           const dBdata = databaseObj(data.name , data.description , data.url);
 
           const dbInsert = (dData,cTime,dTime)=>{
@@ -93,6 +93,9 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
+          console.log(dBdata);
+          console.log(currentTime);
+          console.log(dateTime)
           dbInsert(dBdata,currentTime,dateTime);
         }
       }
