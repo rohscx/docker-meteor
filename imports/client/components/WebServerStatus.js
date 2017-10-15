@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
-import Layout from './ApicDevices/Layout';
+import ViewGenerator from './WebServerStatus/ViewGenerator';
 
 class WebServerStatus extends Component {
   constructor() {
@@ -18,6 +18,7 @@ class WebServerStatus extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
+        <ViewGenerator {... this.props} />
       </div>
     )
   }
