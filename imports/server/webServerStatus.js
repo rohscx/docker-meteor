@@ -108,9 +108,6 @@ let webServerStatus = (webServerObj)=>{
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
-              },
-              $set:{
-                'dataObj.statistics.responseTimeLast': rTime
               }
             });
           }
