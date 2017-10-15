@@ -80,18 +80,20 @@ let webServerStatus = (webServerObj)=>{
 
 
 
-          console.log(databaseObj(data.name , data.description , data.url))
+          console.log(databaseObj(data.name , data.description , data.url));
+          const dBdata = databaseObj(data.name , data.description , data.url);
 
-          const dbInsert = ()=>{
+          const dbInsert = (dData,cTime,dTime)=>{
+            console.log("insert Attempt")
             ItemsWebServerStatus.insert({
               siteData: {
-                dataObj: databaseObj,
-                requestTime: currentTime,
-                dateTime: dateTime
+                dataObj: dData,
+                requestTime: cTime,
+                dateTime: dTime
               }
             });
           }
-          dbInsert()
+          dbInsert(dBdata,currentTime,dateTime);
         }
       }
       httpRequest(webServerMethod,webServerUrl,webServerOptions)
