@@ -114,9 +114,9 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
-          console.log(dBdata);
-          console.log(currentTime);
-          console.log(currentDateTime)
+          //console.log(dBdata);
+          console.log("currentTime: ",currentTime);
+          console.log("currentDateTime: ",currentDateTime);
           if (dbDataCheck.length >= 1) {
             console.log("Check Passed")
             const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
