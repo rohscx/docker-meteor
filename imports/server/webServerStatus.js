@@ -26,7 +26,6 @@ let webServerStatus = (webServerObj)=>{
     return totalTime;
   }
   let databaseObj = (name,description,url,rTime,rCode,fCode) =>{
-    console.log("tangoHit")
     let tango= {
       name: name,
       description: description,
@@ -43,8 +42,7 @@ let webServerStatus = (webServerObj)=>{
         webServerFailureStatus:fCode
       }
     };
-    console.log(tango)
-    return tango
+    return tango;
   };
   const poll = () => {
     webServerObj.map((data)=>{
@@ -103,7 +101,8 @@ let webServerStatus = (webServerObj)=>{
           }
           const dbUpdate = (dData,cTime,dTime,rTime)=>{
             console.log("insert Attempt")
-            ItemsWebServerStatus.update(dbDataCheck["0"]._id, {
+            console.log("_id: ",dData["0"]._id)
+            ItemsWebServerStatus.update(dData["0"]._id, {
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
               },
@@ -121,7 +120,7 @@ let webServerStatus = (webServerObj)=>{
             console.log("Check Passed")
             const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
             const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
-            dbUpdate(dBdata,currentTime,currentDateTime,currentResponseTime);
+            dbUpdate(dbDataCheck,currentTime,currentDateTime,currentResponseTime);
           } else {
             console.log("Check Failed")
             const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
