@@ -39,60 +39,68 @@ let webServerStatus = (webServerObj)=>{
     }
     return tango
   };
-  webServerObj.map((data)=>{
-    console.log(JSON.stringify(data, null, 2));
-    const webServerMethod = "GET";
-    const webServerUrl = data.url;
-    const webServerOptions = {};
-    const currentTime = getTimeNow();
-    const dateTime = new Date();
-    const startTime = getTimeNow();
-    async function httpRequest(method,url,options){
-      const httpDevices = await Meteor.call('httpRequest', method,url,options);
-      const httpReturn = await httpDevices;
-      if (await httpReturn) {
-        const endTime = getTimeNow();
-        //console.log("httpResonse " + data.name , httpReturn.headers);
-        console.log(httpReturn.headers.date);
-        const httpReturnTime = convertDateTime(httpReturn.headers.date);
-        console.log(statusCodeParser(httpReturn.statusCode));
-        const failureCode = statusCodeParser(httpReturn.statusCode);
-        console.log(httpReturnTime+" "+currentTime)
-        console.log(data.name)
-        console.log(data.url)
-        console.log(data.description)
-        console.log(httpReturn.statusCode)
-        console.log(failureCode)
-        console.log(delayCalculator(currentTime,httpReturnTime))
-        console.log("StartRaw endRaw: ", startTime+" "+endTime)
-        console.log("Start and Endtime ",delayCalculator(startTime,endTime))
+  const poll = () => {
+    webServerObj.map((data)=>{
+      console.log(JSON.stringify(data, null, 2));
+      const webServerMethod = "GET";
+      const webServerUrl = data.url;
+      const webServerOptions = {};
+      const currentTime = getTimeNow();
+      const dateTime = new Date();
+      const startTime = getTimeNow();
+      async function httpRequest(method,url,options){
+        const httpDevices = await Meteor.call('httpRequest', method,url,options);
+        const httpReturn = await httpDevices;
+        if (await httpReturn) {
+          const endTime = getTimeNow();
+          //console.log("httpResonse " + data.name , httpReturn.headers);
+          console.log(httpReturn.headers.date);
+          const httpReturnTime = convertDateTime(httpReturn.headers.date);
+          console.log(statusCodeParser(httpReturn.statusCode));
+          const failureCode = statusCodeParser(httpReturn.statusCode);
+          console.log(httpReturnTime+" "+currentTime)
+          console.log(data.name)
+          console.log(data.url)
+          console.log(data.description)
+          console.log(httpReturn.statusCode)
+          console.log(failureCode)
+          console.log(delayCalculator(currentTime,httpReturnTime))
+          console.log("StartRaw endRaw: ", startTime+" "+endTime)
+          console.log("Start and Endtime ",delayCalculator(startTime,endTime))
 
-        // error checking REST request. If not 200 do nothing and log
-        // http status code
+          // error checking REST request. If not 200 do nothing and log
+          // http status code
 
-        // webServers name
+          // webServers name
 
-        // language discribing the server
+          // language discribing the server
 
-        // 0 returned on status code 200, 1 returned on all else
+          // 0 returned on status code 200, 1 returned on all else
 
 
 
-        console.log(databaseObj(data.name , data.description , data.url))
+          console.log(databaseObj(data.name , data.description , data.url))
 
-        const dbInsert = ()=>{
-          ItemsWebServerStatus.insert({
-            siteData: {
-              dataObj: databaseObj,
-              requestTime: currentTime,
-              dateTime: dateTime
-            }
-          });
+          const dbInsert = ()=>{
+            ItemsWebServerStatus.insert({
+              siteData: {
+                dataObj: databaseObj,
+                requestTime: currentTime,
+                dateTime: dateTime
+              }
+            });
+          }
         }
       }
-    }
-    httpRequest(webServerMethod,webServerUrl,webServerOptions)
-  })
+      httpRequest(webServerMethod,webServerUrl,webServerOptions)
+    })
+  }
+  const intervalId = Meteor.setInterval(()=>{
+    console.log("poll hit");
+    return poll();
+  },15)
+  poll()
+
   let debugHelper1 = "Debug helper"
   return debugHelper1;
 };

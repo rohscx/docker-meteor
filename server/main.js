@@ -18,18 +18,7 @@ import '../imports/api/prime';
 
 
 
-(()=>{
-  const poll = () => {
-      console.log("running");
-      //console.log(Meteor.settings.webServerList);
-      console.log(blah(" 12345 "));
-      console.log(webServerStatus(Meteor.settings.webServerList));
-  }
-  const intervalId = Meteor.setInterval(()=>{
-    return poll();
-  },15)
-  poll()
-});
+console.log(webServerStatus(Meteor.settings.webServerList));
 
 (()=>{
   let clientId = false;
