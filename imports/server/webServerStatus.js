@@ -85,7 +85,7 @@ let webServerStatus = (webServerObj)=>{
 
           // 0 returned on status code 200, 1 returned on all else
 
-          const dBdata = databaseObj(data.name , data.description , data.url);
+          const dBdata = databaseObj(data.name , data.description , data.url, responseTime ,httpResponseCode ,failureCode);
           const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
           console.log("dataCheck : ",dbDataCheck);
 
@@ -122,7 +122,7 @@ let webServerStatus = (webServerObj)=>{
             dbUpdate(dBdata,currentTime,currentDateTime,currentResponseTime);
           } else {
             console.log("Check Failed")
-            dbInsert(dBdata,currentTime,currentDateTime,responseTime,httpResponseCode,failureCode);
+            dbInsert(dBdata,currentTime,currentDateTime);
           }
 
         }
