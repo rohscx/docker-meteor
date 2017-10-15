@@ -24,7 +24,6 @@ const ItemApicSchema = new SimpleSchema ({
   }
 });
 const ItemWebServerStatusSchema = new SimpleSchema ({
-  text: String,
   dataObj: {
     type: Object,
     blackbox: true
