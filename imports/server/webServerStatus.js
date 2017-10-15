@@ -33,7 +33,7 @@ let webServerStatus = (webServerObj)=>{
       statistics:{
         responseTimeTotal: rTime,
         responseTimeLast: rTime,
-        reaponseTimeCount: 1,
+        responseTimeCount: 1,
         responseTimeHighest: rTime,
         responseTimeLowest: rTime
       },
@@ -107,7 +107,7 @@ let webServerStatus = (webServerObj)=>{
             console.log("rtime: ",rTime);
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
-                'webServerData.dataObj.statistics.reaponseTimeCount':1
+                'webServerData.dataObj.statistics.responseTimeCount':1
               }
             });
           }
