@@ -12,9 +12,6 @@ export default class ViewGenerator extends Component {
   }
 
   returnLayout() {
-    let findField = this.props.apic.apicDevicesFind.deviceName;
-    let sortField = this.props.apic.sortBy.field;
-    let sortOrderField = this.props.apic.sortBy.order;
     let findLimit =  this.props.dbFindLimit;
     //console.log(findLimit)
     let passStyle = {
