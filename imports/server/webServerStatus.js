@@ -73,7 +73,7 @@ let webServerStatus = (webServerObj)=>{
         const httpReturn = await httpDevices;
         if (await httpReturn) {
           const endTime = getTimeNow();
-          //console.log("httpResonse " + data.name , httpReturn.headers);
+          console.log("httpResonse " + data.name , httpReturn.headers);
           //console.log(httpReturn.headers.date);
           const httpReturnTime = convertDateTime(httpReturn.headers.date);
           //console.log(statusCodeParser(httpReturn.statusCode));
