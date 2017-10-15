@@ -110,9 +110,7 @@ let webServerStatus = (webServerObj)=>{
                 'dataObj.statistics.reaponseTimeCount':1
               },
               $set:{
-                'dataObj.statistics.responseTimeLast': rTime,
-                'requestTime': cTime,
-                'dateTime': dTime
+                'dataObj.statistics.responseTimeLast': rTime
               }
             });
           }
