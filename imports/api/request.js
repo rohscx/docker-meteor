@@ -44,11 +44,11 @@ const ItemWebServerStatusSchema = new SimpleSchema ({
   }
 });
 
-const ItemsWebServerStatus = new SimpleSchema ({
-  apicData: ItemWebServerStatusSchema
+const ItemsWebServerStatusSchema = new SimpleSchema ({
+  webServerData: ItemWebServerStatusSchema
 });
 
-ItemsWebServerStatus.attachSchema(ItemWebServerStatusSchema);
+ItemsWebServerStatus.attachSchema(ItemsWebServerStatusSchema);
 
 if (Meteor.isServer) {
 
