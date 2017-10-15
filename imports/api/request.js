@@ -10,8 +10,20 @@ import dns from 'dns';
 
 // apic
 const ItemsApic = new Mongo.Collection('itemsapic');
+const ItemsWebServerStatus = new Mongo.Collection('ItemsWebServerStatus');
 
 const ItemApicSchema = new SimpleSchema ({
+  text: String,
+  dataObj: {
+    type: Object,
+    blackbox: true
+  },
+  requestTime: SimpleSchema.Integer,
+  dateTime : {
+    type: Date
+  }
+});
+const ItemWebServerStatusSchema = new SimpleSchema ({
   text: String,
   dataObj: {
     type: Object,
@@ -26,29 +38,19 @@ const ItemApicSchema = new SimpleSchema ({
 const ItemsApicSchema = new SimpleSchema ({
   apicData: ItemApicSchema
 });
-
-ItemsApic.attachSchema(ItemsApicSchema);
-
-
-const ItemsWebServerStatus = new Mongo.Collection('ItemsWebServerStatus');
-
-const ItemWebServerStatusSchema = new SimpleSchema ({
-  text: String,
-  dataObj: {
-    type: Object,
-    blackbox: true
-  },
-  requestTime: SimpleSchema.Integer,
-  dateTime : {
-    type: Date
-  }
-});
-
 const ItemsWebServerStatusSchema = new SimpleSchema ({
   webServerData: ItemWebServerStatusSchema
 });
 
+ItemsApic.attachSchema(ItemsApicSchema);
 ItemsWebServerStatus.attachSchema(ItemsWebServerStatusSchema);
+
+
+
+
+
+
+
 
 if (Meteor.isServer) {
 
