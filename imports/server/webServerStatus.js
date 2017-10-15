@@ -96,7 +96,7 @@ let webServerStatus = (webServerObj)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.update(dbDataCheck["0"]._id, {
               $inc:{
-                'webServerData.dataObj.statistics.reaponseTimeCount':1
+                'dataObj.statistics.reaponseTimeCount':1
               }
             });
           }
