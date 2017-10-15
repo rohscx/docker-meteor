@@ -18,7 +18,49 @@ import '../imports/api/prime';
 
 
 
-console.log(webServerStatus(Meteor.settings.webServerList));
+
+Meteor.publish('webServerStatus', function() {
+  webServerStatus(Meteor.settings.webServerList);
+  let clientId = false;
+  let counter = 0;
+  const self = this;
+  const clientIdent = {
+    clientIp: "",
+    clientId:false,
+    setIp: function(ip){
+      if (this.clientId === false){
+        this.clientId = ip+" : "+Random.id();
+        //console.log("data",this.clientId);
+        return this.clientId;
+      } else {
+        //console.log("data",this.clientId);
+        return this.clientId;
+      }
+    }
+  }
+  const countCollections = ()=>{
+    return ItemsWebServerStatus.find().count();
+  }
+  const miniMongo = ()=>{
+    return ItemsWebServerStatus.find();
+  }
+
+  console.log("ItemsWebServerStatus Count: ",countCollections());
+
+  const poll = () => {
+    return miniMongo();
+  }
+  const intervalId = Meteor.setInterval(()=>{
+    counter++;
+    console.log("ItemsWebServerStatus Data Publish on client %s Counter: %s",clientIdent.setIp(this.connection.clientAddress),counter);
+    return poll();
+  },300000)
+  self.onStop(()=>{
+    console.log("Terminating ItemsWebServerStatus Publish on client %s Counter After: %s",clientIdent.setIp(this.connection.clientAddress),counter);
+    Meteor.clearInterval(intervalId)
+  })
+  return poll()
+});
 
 (()=>{
   let clientId = false;
