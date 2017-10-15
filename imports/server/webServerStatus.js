@@ -98,7 +98,7 @@ let webServerStatus = (webServerObj)=>{
   const intervalId = Meteor.setInterval(()=>{
     console.log("poll hit");
     return poll();
-  },15)
+  },15000)
   poll()
 
   let debugHelper1 = "Debug helper"
