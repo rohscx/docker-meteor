@@ -114,7 +114,7 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
-          const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,httpCode,fCode,cwfCount,cTime,cdTime,)=>{
+          const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,httpCode,fCode,cwfCount,cTime,cdTime)=>{
             console.log("insert Attempt");
             console.log("_id: ",ddCheck["0"]._id);
             console.log("ctime: ",cTime);
@@ -132,7 +132,9 @@ let webServerStatus = (webServerObj)=>{
                 'webServerData.dataObj.statistics.responseTimeLowest':lrTime,
                 'webServerData.dataObj.httpRequest.responseStatusCode':httpCode,
                 'webServerData.dataObj.httpRequest.webServerFailureStatus':fCode,
-                'webServerData.dataObj.httpRequest.webServerFailurecount':cwfCount
+                'webServerData.dataObj.httpRequest.webServerFailurecount':cwfCount,
+                'webServerData.dataObj.requestTime':cTime,
+                'webServerData.dataObj.dateTime':cdTime
               }
             });
           }
