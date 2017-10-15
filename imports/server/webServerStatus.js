@@ -107,7 +107,7 @@ let webServerStatus = (webServerObj)=>{
             console.log("rtime: ",rTime);
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
-                'dataObj.statistics.reaponseTimeCount':1
+                'webServerData.dataObj.statistics.reaponseTimeCount':1
               }
             });
           }
