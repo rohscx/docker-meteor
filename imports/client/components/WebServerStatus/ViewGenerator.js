@@ -53,7 +53,7 @@ export default class ViewGenerator extends Component {
     //console.log(this)
     return(
       <div>
-        {tableDiv}
+        {this.returnLayout()}
       </div>
     )
   }
