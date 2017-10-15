@@ -86,7 +86,7 @@ let webServerStatus = (webServerObj)=>{
           const dbInsert = (dData,cTime,dTime)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.insert({
-              siteData: {
+              webServerData: {
                 dataObj: dData,
                 requestTime: cTime,
                 dateTime: dTime
