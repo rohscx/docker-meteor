@@ -78,16 +78,6 @@ let webServerStatus = (webServerObj)=>{
 
           // 0 returned on status code 200, 1 returned on all else
 
-
-          Items.update(item._id, {
-            $inc: {
-              'itemOne.value': 1
-            },
-            $set: {
-              lastUpdated
-            }
-          })
-
           const dBdata = databaseObj(data.name , data.description , data.url);
           const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
           console.log("dataCheck : ",dbDataCheck);
