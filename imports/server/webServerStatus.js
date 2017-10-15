@@ -14,7 +14,7 @@ let webServerStatus = (webServerObj)=>{
   }
   const convertDateTime = (dateString) =>{
     let someDate = new Date(dateString);
-    console.log(someDate.getTime());
+    //console.log(someDate.getTime());
     return someDate.getTime();
   }
   const delayCalculator = (startTime, endTime) =>{
@@ -61,7 +61,7 @@ let webServerStatus = (webServerObj)=>{
   };
   const poll = () => {
     webServerObj.map((data)=>{
-      console.log(JSON.stringify(data, null, 2));
+      //console.log(JSON.stringify(data, null, 2));
       const webServerMethod = "GET";
       const webServerUrl = data.url;
       const webServerOptions = {};
@@ -73,7 +73,7 @@ let webServerStatus = (webServerObj)=>{
         const httpReturn = await httpDevices;
         if (await httpReturn) {
           const endTime = getTimeNow();
-          console.log("httpResonse " + data.name , httpReturn.headers);
+          //console.log("httpResonse " + data.name , httpReturn.headers);
           //console.log(httpReturn.headers.date);
           const httpReturnTime = convertDateTime(httpReturn.headers.date);
           //console.log(statusCodeParser(httpReturn.statusCode));
@@ -105,7 +105,7 @@ let webServerStatus = (webServerObj)=>{
           //console.log("dataCheck : ",dbDataCheck);
 
           const dbInsert = (dData,cTime,dTime)=>{
-            console.log("insert Attempt")
+            //console.log("insert Attempt")
             ItemsWebServerStatus.insert({
               webServerData: {
                 dataObj: dData,
@@ -115,12 +115,6 @@ let webServerStatus = (webServerObj)=>{
             });
           }
           const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,httpCode,fCode,cwfCount,cTime,cdTime)=>{
-            console.log("insert Attempt");
-            console.log("_id: ",ddCheck["0"]._id);
-            console.log("ctime: ",cTime);
-            console.log("dtime: ",cdTime);
-            console.log("rtime: ",crTime);
-            console.log("trTime",trTime);
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
                 'webServerData.dataObj.statistics.responseTimeCount':1
@@ -138,11 +132,8 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
-          //console.log(dBdata);
-          console.log("currentTime: ",currentTime);
-          console.log("currentDateTime: ",currentDateTime);
           if (dbDataCheck.length >= 1) {
-            console.log("Check Passed")
+            //console.log("Check Passed")
             const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
             const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
             const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
@@ -154,7 +145,7 @@ let webServerStatus = (webServerObj)=>{
               lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
               currentTime,currentDateTime);
           } else {
-            console.log("Check Failed")
+            //console.log("Check Failed")
             const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
             dbInsert(dBdata,currentTime,currentDateTime);
           }
@@ -164,7 +155,7 @@ let webServerStatus = (webServerObj)=>{
     })
   }
   const intervalId = Meteor.setInterval(()=>{
-    console.log("poll hit");
+    //console.log("poll hit");
     return poll();
   },15000)
   poll()
