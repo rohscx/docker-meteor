@@ -21,6 +21,10 @@ let webServerStatus = (webServerObj)=>{
     let requestTime = (endTime - startTime);
     return requestTime;
   }
+  const totalTimeCalculator = (oldTime, newTime) =>{
+    let totalTime = oldTime + newTime;
+    return totalTime;
+  }
   let databaseObj = (name,description,url,rTime,rCode,fCode) =>{
     let tango= {
       name: name,
@@ -47,7 +51,7 @@ let webServerStatus = (webServerObj)=>{
       const webServerUrl = data.url;
       const webServerOptions = {};
       const currentTime = getTimeNow();
-      const dateTime = new Date();
+      const currentDateTime = new Date();
       const startTime = getTimeNow();
       async function httpRequest(method,url,options){
         const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -60,6 +64,8 @@ let webServerStatus = (webServerObj)=>{
           //console.log(statusCodeParser(httpReturn.statusCode));
           const failureCode = statusCodeParser(httpReturn.statusCode);
           const httpResponseCode = httpReturn.statusCode;
+          const currentResponseTime = delayCalculator(currentTime,httpReturnTime)
+
           //console.log(httpReturnTime+" "+currentTime)
           //console.log(data.name)
           //console.log(data.url)
@@ -100,21 +106,23 @@ let webServerStatus = (webServerObj)=>{
                 'dataObj.statistics.reaponseTimeCount':1
               },
               $set:{
+                'dataObj.statistics.responseTimeLast': rTime,
                 'requestTime': cTime,
-                'dateTime': dTime,
-                'dataObj.statistics.responseTimeLast': rTime
+                'dateTime': dTime
               }
             });
           }
           console.log(dBdata);
           console.log(currentTime);
-          console.log(dateTime)
+          console.log(currentDateTime)
           if (dbDataCheck.length >= 1) {
             console.log("Check Passed")
-            dbUpdate(dBdata,currentTime,dateTime,httpReturnTime);
+            const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
+            const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
+            dbUpdate(dBdata,currentTime,currentDateTime,currentResponseTime);
           } else {
             console.log("Check Failed")
-            dbInsert(dBdata,currentTime,dateTime,httpReturnTime,httpResponseCode,failureCode);
+            dbInsert(dBdata,currentTime,currentDateTime,responseTime,httpResponseCode,failureCode);
           }
 
         }
