@@ -96,7 +96,11 @@ export default createContainer(({params}) => {
   return {
     showAll,
     ready: meteorDbSub.ready(),
-    dbReturn: ItemsApicDevices.find().fetch();
+    dbReturn: function data(findValue,sortValue,sortOrder,findLimit){
+      //debug
+      //console.log(sortBy(sortValue, sortOrder))
+      return sortBy(findValue,sortValue,sortOrder,findLimit)
+    }
 
   };
 }, AppWebServerStatus);
