@@ -96,11 +96,6 @@ let webServerStatus = (webServerObj)=>{
             ItemsWebServerStatus.update(dbDataCheck._id, {
               $inc:{
                 'webServerData.dataObj.statistics.reaponseTimeCount.value':1
-              },
-              $set:{
-                'webServerData.requestTime': cTime,
-                'webServerData.dateTime': dTime,
-                'webServerData.dataObj.statistics.responseTimeLast': rTime
               }
             });
           }
