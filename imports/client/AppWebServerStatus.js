@@ -14,7 +14,7 @@ import { autobind } from 'core-decorators';
 
 
 
-const ItemsWebServerStatus = new Mongo.Collection('itemapicdevices');
+const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
 ItemsWebServerStatus.allow({
   insert() { return false; },
   update() { return false; },
@@ -68,7 +68,7 @@ ItemsWebServerStatus.deny({
       <Provider store={store}>
         <main>
           <Header  {... this.state} />
-          <ApicDevices {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
+          <WebServerStatus {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
         </main>
       </Provider>
     );
@@ -80,29 +80,18 @@ ItemsWebServerStatus.deny({
 export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
-  let prtgArray = Session.get('myMethodResult');
+  let meteorDbSub = Meteor.subscribe('webServerStatus');
   let dbData = ItemsWebServerStatus.find().fetch()
-  sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
-    // debug
-    //console.log(findValue," ",sortValue," ",sortOrder)
-    let keyString = "siteData.dataObj."+sortValue;
-    let optObj = {};
-    let keyObj ={};
-    keyObj[keyString] = sortOrder
-    optObj["sort"] = keyObj;
-    optObj["limit"] = findLimit;
-    // debug
-    //console.log(optObj)
-    return ItemsWebServerStatus.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
+  sortBy = () =>{
+    return ItemsWebServerStatus.find({}).fetch();
   }
   return {
     showAll,
-    ready: apicDevicesItemsSub.ready(),
-    dbReturn: function data(findValue,sortValue,sortOrder,findLimit){
+    ready: meteorDbSub.ready(),
+    dbReturn: function data(){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
-      return sortBy(findValue,sortValue,sortOrder,findLimit)
+      return sortBy()
     }
 
   };
