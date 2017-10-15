@@ -66,7 +66,7 @@ let webServerStatus = (webServerObj)=>{
           //console.log(statusCodeParser(httpReturn.statusCode));
           const failureCode = statusCodeParser(httpReturn.statusCode);
           const httpResponseCode = httpReturn.statusCode;
-          const currentResponseTime = delayCalculator(currentTime,httpReturnTime)
+          const currentResponseTime = delayCalculator(startTime,endTime))
 
           //console.log(httpReturnTime+" "+currentTime)
           //console.log(data.name)
