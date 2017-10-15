@@ -9,8 +9,8 @@ import dns from 'dns';
 
 
 // apic
-export const ItemsApic = new Mongo.Collection('itemsapic');
-export const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
+const ItemsApic = new Mongo.Collection('itemsapic');
+const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
 
 const ItemApicSchema = new SimpleSchema ({
   text: String,
@@ -165,3 +165,5 @@ if (Meteor.isServer) {
     },
   });
 }
+
+export default ItemsWebServerStatus;
