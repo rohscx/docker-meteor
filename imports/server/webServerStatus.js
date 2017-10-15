@@ -99,10 +99,10 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
-          const dbUpdate = (dData,cTime,dTime,rTime)=>{
+          const dbUpdate = (ddCheck,cTime,dTime,rTime)=>{
             console.log("insert Attempt")
-            console.log("_id: ",dData["0"]._id)
-            ItemsWebServerStatus.update(dData["0"]._id, {
+            console.log("_id: ",ddCheck["0"]._id)
+            ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
               },
