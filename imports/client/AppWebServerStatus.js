@@ -9,12 +9,10 @@ import { Provider } from 'react-redux';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
-//import ItemsWebServerStatus from '../api/prtg';
 
 
-
-
-const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
+/*
+const ItemsWebServerStatus = new Mongo.Collection('itemswebServerStatus');
 ItemsWebServerStatus.allow({
   insert() { return false; },
   update() { return false; },
@@ -26,7 +24,7 @@ ItemsWebServerStatus.deny({
   update() { return true; },
   remove() { return true; }
 });
-
+*/
 
  class AppWebServerStatus extends Component {
    constructor() {
