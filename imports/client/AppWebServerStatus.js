@@ -79,9 +79,28 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');
+  let dbData = ItemsWebServerStatus.find().fetch();
+  sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
+    // debug
+    //console.log(findValue," ",sortValue," ",sortOrder)
+    let keyString = "webServerData.dataObj."+sortValue;
+    let optObj = {};
+    let keyObj ={};
+    keyObj[keyString] = sortOrder
+    optObj["sort"] = keyObj;
+    optObj["limit"] = findLimit;
+    // debug
+    //console.log(optObj)
+    return ItemsApicDevices.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
+  }
   return {
     showAll,
-    ready: meteorDbSub.ready()
+    ready: meteorDbSub.ready(),
+    dbReturn: function data(findValue,sortValue,sortOrder,findLimit){
+      //debug
+      //console.log(sortBy(sortValue, sortOrder))
+      return sortBy(findValue,sortValue,sortOrder,findLimit)
+    }
 
   };
 }, AppWebServerStatus);
