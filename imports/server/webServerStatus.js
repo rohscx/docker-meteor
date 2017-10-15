@@ -29,7 +29,7 @@ let webServerStatus = (webServerObj)=>{
       statistics:{
         responseTimeTotal:"1",
         responseTimeLast:"2",
-        reaponseTimeCount:"3",
+        reaponseTimeCount:3,
         responseTimeHighest:"4",
         responseTimeLowest:"5"
       },
@@ -95,12 +95,12 @@ let webServerStatus = (webServerObj)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.update(dbDataCheck._id, {
               $inc:{
-                'reaponseTimeCount.value':1
+                'webServerData.dataObj.statistics.reaponseTimeCount.value':1
               },
               $set:{
-                'requestTime': cTime,
-                'dateTime': dTime,
-                'responseTimeLast': rTime
+                'webServerData.requestTime': cTime,
+                'webServerData.dateTime': dTime,
+                'webServerData.dataObj.statistics.responseTimeLast': rTime
               }
             });
           }
