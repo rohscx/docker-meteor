@@ -133,8 +133,8 @@ let webServerStatus = (webServerObj)=>{
                 'webServerData.dataObj.httpRequest.responseStatusCode':httpCode,
                 'webServerData.dataObj.httpRequest.webServerFailureStatus':fCode,
                 'webServerData.dataObj.httpRequest.webServerFailurecount':cwfCount,
-                'webServerData.dataObj.requestTime':cTime,
-                'webServerData.dataObj.dateTime':cdTime
+                'webServerData.requestTime':cTime,
+                'webServerData.dateTime':cdTime
               }
             });
           }
