@@ -10,7 +10,7 @@ import dns from 'dns';
 
 // apic
 const ItemsApic = new Mongo.Collection('itemsapic');
-const ItemsWebServerStatus = new Mongo.Collection('ItemsWebServerStatus');
+const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
 
 const ItemApicSchema = new SimpleSchema ({
   text: String,
