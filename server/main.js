@@ -18,9 +18,9 @@ import '../imports/api/prime';
 
 
 
-
+webServerStatus(Meteor.settings.webServerList);
 Meteor.publish('webServerStatus', function() {
-  webServerStatus(Meteor.settings.webServerList);
+
   let clientId = false;
   let counter = 0;
   const self = this;
