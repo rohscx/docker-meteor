@@ -82,7 +82,8 @@ let webServerStatus = (webServerObj)=>{
 
 
           const dBdata = databaseObj(data.name , data.description , data.url);
-
+          const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
+          console.log("dataCheck: ",dbDataCheck);
           const dbInsert = (dData,cTime,dTime)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.insert({
