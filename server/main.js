@@ -27,7 +27,7 @@ import '../imports/api/prime';
   }
   const intervalId = Meteor.setInterval(()=>{
     return poll();
-  },150)
+  },15)
   poll()
 });
 
