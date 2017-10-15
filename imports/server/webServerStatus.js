@@ -25,6 +25,20 @@ let webServerStatus = (webServerObj)=>{
     let totalTime = oldTime + newTime;
     return totalTime;
   }
+  const highestTimeCalculator = (oldTime, newTime) =>{
+    if (newTime > oldTime) {
+      return newTime;
+    } else {
+      return oldTime;
+    }
+  }
+  const lowestTimeCalculator = (oldTime, newTime) =>{
+    if (newTime < oldTime) {
+      return newTime;
+    } else {
+      return oldTime;
+    }
+  }
   let databaseObj = (name,description,url,rTime,rCode,fCode) =>{
     let tango= {
       name: name,
@@ -99,15 +113,22 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
-          const dbUpdate = (ddCheck,cTime,dTime,rTime)=>{
-            console.log("insert Attempt")
-            console.log("_id: ",ddCheck["0"]._id)
+          const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,cTime,cdTime,)=>{
+            console.log("insert Attempt");
+            console.log("_id: ",ddCheck["0"]._id);
             console.log("ctime: ",cTime);
-            console.log("dtime: ",dTime);
-            console.log("rtime: ",rTime);
+            console.log("dtime: ",cdTime);
+            console.log("rtime: ",crTime);
+            console.log("trTime",trTime);
             ItemsWebServerStatus.update(ddCheck["0"]._id, {
               $inc:{
                 'webServerData.dataObj.statistics.responseTimeCount':1
+              },
+              $set:{
+                'webServerData.dataObj.statistics.responseTimeTotal':trTime,
+                'webServerData.dataObj.statistics.responseTimeLast':crTime,
+                'webServerData.dataObj.statistics.responseTimeHighest':hrTime,
+                'webServerData.dataObj.statistics.responseTimeLowest':lrTime
               }
             });
           }
@@ -117,8 +138,12 @@ let webServerStatus = (webServerObj)=>{
           if (dbDataCheck.length >= 1) {
             console.log("Check Passed")
             const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
+            const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
+            const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
             const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
-            dbUpdate(dbDataCheck,currentTime,currentDateTime,currentResponseTime);
+            const highestReponseTime = highestTimeCalculator(dbHighestTime,currentResponseTime);
+            const lowestResponseTime = lowestTimeCalculator(dbLowestTime,currentResponseTime);
+            dbUpdate(dbDataCheck,totalResponseTime,currentResponseTime,highestReponseTime,lowestResponseTime,currentTime,currentDateTime);
           } else {
             console.log("Check Failed")
             const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
