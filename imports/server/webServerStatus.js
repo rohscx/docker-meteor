@@ -79,7 +79,14 @@ let webServerStatus = (webServerObj)=>{
           // 0 returned on status code 200, 1 returned on all else
 
 
-
+          Items.update(item._id, {
+            $inc: {
+              'itemOne.value': 1
+            },
+            $set: {
+              lastUpdated
+            }
+          })
 
           const dBdata = databaseObj(data.name , data.description , data.url);
           const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
@@ -94,10 +101,30 @@ let webServerStatus = (webServerObj)=>{
               }
             });
           }
+          const dbUpdate = (dData,cTime,dTime,rTime)=>{
+            console.log("insert Attempt")
+            ItemsWebServerStatus.update(dbDataCheck._id, {
+              $inc:{
+                'reaponseTimeCount.value':1
+              },
+              $set:{
+                'requestTime': cTime,
+                'dateTime': dTime,
+                'responseTimeLast':
+              }
+            });
+          }
           console.log(dBdata);
           console.log(currentTime);
           console.log(dateTime)
-          dbInsert(dBdata,currentTime,dateTime);
+          if (dbDataCheck) {
+            console.log("Check Passed")
+            dbUpdate(dBdata,currentTime,dateTime,httpReturnTime);
+          } else {
+            console.log("Check Failed")
+            dbInsert(dBdata,currentTime,dateTime);
+          }
+
         }
       }
       httpRequest(webServerMethod,webServerUrl,webServerOptions)
