@@ -107,7 +107,7 @@ let webServerStatus = (webServerObj)=>{
           console.log(dBdata);
           console.log(currentTime);
           console.log(dateTime)
-          if (dbDataCheck) {
+          if (dbDataCheck.length <= 0) {
             console.log("Check Passed")
             dbUpdate(dBdata,currentTime,dateTime,httpReturnTime);
           } else {
