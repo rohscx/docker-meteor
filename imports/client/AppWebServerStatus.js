@@ -11,7 +11,7 @@ import Header from './components/Header';
 import { autobind } from 'core-decorators';
 
 
-/*
+
 const ItemsWebServerStatus = new Mongo.Collection('itemswebServerStatus');
 ItemsWebServerStatus.allow({
   insert() { return false; },
@@ -24,7 +24,7 @@ ItemsWebServerStatus.deny({
   update() { return true; },
   remove() { return true; }
 });
-*/
+
 
  class AppWebServerStatus extends Component {
    constructor() {
