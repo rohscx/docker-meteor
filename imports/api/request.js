@@ -166,5 +166,5 @@ if (Meteor.isServer) {
   });
 }
 
-export const ItemsWebServerStatus;
+export ItemsWebServerStatus;
 export default ItemsApic;
