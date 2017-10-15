@@ -97,7 +97,10 @@ let webServerStatus = (webServerObj)=>{
             ItemsWebServerStatus.update(dbDataCheck["0"]._id, {
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
-              }
+              },
+              'requestTime': cTime,
+              'dateTime': dTime,
+              'dataObj.statistics.responseTimeLast': rTime
             });
           }
           console.log(dBdata);
