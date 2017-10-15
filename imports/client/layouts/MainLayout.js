@@ -65,8 +65,13 @@ const MainLayout = ({children}) =>
               Circuits
             </NavItem>
             </LinkContainer>
-            <LinkContainer to='/ise'>
+            <LinkContainer to='/wss'>
             <NavItem eventKey={4}>
+              WebServerStatus
+            </NavItem>
+            </LinkContainer>
+            <LinkContainer to='/ise'>
+            <NavItem eventKey={5}>
               ISE
             </NavItem>
             </LinkContainer>
