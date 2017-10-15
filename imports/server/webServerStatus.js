@@ -83,7 +83,7 @@ let webServerStatus = (webServerObj)=>{
           console.log("dataCheck : ",dbDataCheck);
           console.log("dataCheck id : ",dbDataCheck._id);
           console.log("dataCheck 0  : ",dbDataCheck["0"]._id);
-          
+
           const dbInsert = (dData,cTime,dTime)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.insert({
@@ -98,7 +98,7 @@ let webServerStatus = (webServerObj)=>{
             console.log("insert Attempt")
             ItemsWebServerStatus.update(dbDataCheck["0"]._id, {
               $inc:{
-                'webServerData.dataObj.statistics.reaponseTimeCount.value':1
+                'reaponseTimeCount':1
               }
             });
           }
