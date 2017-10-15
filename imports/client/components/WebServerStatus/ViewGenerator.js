@@ -49,7 +49,7 @@ export default class ViewGenerator extends Component {
     return colData;
 
   }
-
+render() {
     //console.log(this)
     return(
       <div>
