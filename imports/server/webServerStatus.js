@@ -99,9 +99,11 @@ let webServerStatus = (webServerObj)=>{
               $inc:{
                 'dataObj.statistics.reaponseTimeCount':1
               },
-              'requestTime': cTime,
-              'dateTime': dTime,
-              'dataObj.statistics.responseTimeLast': rTime
+              $set:{
+                'requestTime': cTime,
+                'dateTime': dTime,
+                'dataObj.statistics.responseTimeLast': rTime
+              }
             });
           }
           console.log(dBdata);
