@@ -21,21 +21,21 @@ let webServerStatus = (webServerObj)=>{
     let requestTime = (endTime - startTime);
     return requestTime;
   }
-  let databaseObj = (name,description,url) =>{
+  let databaseObj = (name,description,url,rTime,rCode,fCode) =>{
     let tango= {
       name: name,
       description: description,
       url: url,
       statistics:{
-        responseTimeTotal:"1",
-        responseTimeLast:"2",
-        reaponseTimeCount:3,
-        responseTimeHighest:"4",
-        responseTimeLowest:"5"
+        responseTimeTotal:rTime,
+        responseTimeLast:rTime,
+        reaponseTimeCount:1,
+        responseTimeHighest:rTime,
+        responseTimeLowest:rTime
       },
       httpRequest:{
-        responseStatusCode:"6",
-        webServerFailureStatus:"7"
+        responseStatusCode:rCode,
+        webServerFailureStatus:fCode
       }
     }
     return tango
@@ -59,6 +59,7 @@ let webServerStatus = (webServerObj)=>{
           const httpReturnTime = convertDateTime(httpReturn.headers.date);
           //console.log(statusCodeParser(httpReturn.statusCode));
           const failureCode = statusCodeParser(httpReturn.statusCode);
+          const httpResponseCode = httpReturn.statusCode;
           //console.log(httpReturnTime+" "+currentTime)
           //console.log(data.name)
           //console.log(data.url)
@@ -111,7 +112,7 @@ let webServerStatus = (webServerObj)=>{
             dbUpdate(dBdata,currentTime,dateTime,httpReturnTime);
           } else {
             console.log("Check Failed")
-            dbInsert(dBdata,currentTime,dateTime);
+            dbInsert(dBdata,currentTime,dateTime,httpReturnTime,httpResponseCode,failureCode);
           }
 
         }
