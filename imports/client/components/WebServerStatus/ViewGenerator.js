@@ -64,8 +64,8 @@ render() {
   const flexContainer = {
     display: "-webkit-flex",
     display: "flex",
-    width: "400px",
-    height: "150px",
+    width: "flex",
+    height: "flex",
     backgroundColor: "lightgrey",
   }
     console.log(this)
