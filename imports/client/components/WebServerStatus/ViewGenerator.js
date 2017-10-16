@@ -54,6 +54,7 @@ export default class ViewGenerator extends Component {
             </Row>
             <Row className="show-grid">
               <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.name}</Col>
+              <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.statistics.responseTimeCount}</Col>
             </Row>
           </div>
         </div>
