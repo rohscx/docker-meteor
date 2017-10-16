@@ -33,7 +33,7 @@ export default class ViewGenerator extends Component {
     }
     const flexItem = {
       backgroundColor: "cornflowerblue",
-      width: "100px",
+      width: "flex",
       height: "flex",
       margin: "10px",
     }
