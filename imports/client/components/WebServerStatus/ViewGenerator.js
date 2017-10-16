@@ -30,8 +30,9 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    /*
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
+    /*
+
     let colData = dbData.map((data)=>{
       return (
         <div key={data["_id"]} style= {divStyles}>
@@ -48,7 +49,7 @@ export default class ViewGenerator extends Component {
     //this.props.apicDbReady(true)
     return colData;
     */
-    return "cats on everything"
+    return dbData
   }
 render() {
     //console.log(this)
