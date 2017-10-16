@@ -36,6 +36,8 @@ export default class ViewGenerator extends Component {
       width: "flex",
       height: "flex",
       margin: "10px",
+      paddingLeft: "5%",
+      paddingRight:"5%"
     }
 
 
