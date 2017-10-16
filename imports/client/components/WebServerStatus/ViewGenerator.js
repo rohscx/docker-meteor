@@ -49,6 +49,7 @@ export default class ViewGenerator extends Component {
     //this.props.apicDbReady(true)
     return colData;
     */
+    console.log("handleDataMan!",this.props.handleData)
     return dbData["0"]._id
   }
 render() {

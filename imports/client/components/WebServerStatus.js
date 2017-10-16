@@ -30,7 +30,7 @@ class WebServerStatus extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
-        <ViewGenerator {... this.props} />
+        <ViewGenerator {... this.props} handleData={this.handleData()}/>
       </div>
     )
   }
