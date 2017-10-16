@@ -89,7 +89,6 @@ export default createContainer(({params}) => {
     keyObj[keyString] = sortOrder
     optObj["sort"] = keyObj;
     optObj["limit"] = findLimit;
-    "webServerData.dataObj.name": "sort"
     // debug
     //console.log(optObj);
     console.log(ItemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: "."}},{"limit":20,"sort":{"webServerData.dataObj.reachabilityStatus": -1}}).fetch();)
