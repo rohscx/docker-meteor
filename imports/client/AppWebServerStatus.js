@@ -82,8 +82,8 @@ export default createContainer(({params}) => {
   let meteorDbSub = Meteor.subscribe('webServerStatus');
   //let dbData = ItemsWebServerStatus.find().fetch();
   //console.log("dbData",dbData)
-  console.log(meteorDbSub.find().fetch())
-  console.log(meteorDbSub.find({"webServerData.dataObj.name":{$regex: "."}},{"limit":20,"sort":{"webServerData.dataObj.name": -1}}).fetch())
+  //console.log(meteorDbSub.find().fetch())
+  //console.log(meteorDbSub.find({"webServerData.dataObj.name":{$regex: "."}},{"limit":20,"sort":{"webServerData.dataObj.name": -1}}).fetch())
   sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
