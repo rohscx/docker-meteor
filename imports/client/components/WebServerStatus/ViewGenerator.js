@@ -12,8 +12,10 @@ export default class ViewGenerator extends Component {
   }
 
   returnLayout() {
-
-    let handleData = this.props.handleData();
+    let findField = ".";
+    let sortField = "name";
+    let sortOrderField = -1;
+    let findLimit =  this.props.dbFindLimit;
     //console.log(findLimit)
     let passStyle = {
       backgroundColor:"#5cb85c"
@@ -29,19 +31,22 @@ export default class ViewGenerator extends Component {
       fontWeight: "bold"
     }
 
-    console.log("handleDataMan!",this.props.handleData())
-    /*return (
-      <div key={handleData["_id"]} style= {divStyles}>
-        <div>TEST DTA</div>
-        <Row className="show-grid" style={rowStylesMain}>
-          <Col xs={8} sm={6} md={3}>{handleData._id}</Col>
-        </Row>
-        <Row className="show-grid">
-          <Col xs={6} sm={6} md={2}>{data.webServerData.dataObj.name}</Col>
-        </Row>
-      </div>
-    )*/
-    return "TEST"
+    let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
+    dbData.map((data,key)=>{
+      console.log(key+" : "+data)
+      return (
+        <div key={data["_id"]} style= {divStyles}>
+          <div>TEST DTA</div>
+          <Row className="show-grid" style={rowStylesMain}>
+            <Col xs={8} sm={6} md={3}>{data._id}</Col>
+          </Row>
+          <Row className="show-grid">
+            <Col xs={6} sm={6} md={2}>{data.webServerData.dataObj.name}</Col>
+          </Row>
+        </div>
+      )
+    })
+
   }
 
 render() {
