@@ -5,12 +5,12 @@ import ItemsPrtg from '../imports/api/prtg';
 import ItemsApicDevices from '../imports/api/apic';
 import ItemsTransferRate from '../imports/api/transferRate';
 import ItemsPrimeHosts from '../imports/api/prime';
-import ItemsWebServerStatus from '../imports/api/webservserStatus';
+import ItemsWebServerStatus from '../imports/api/webserverStatus';
 import tempData from './tempData';
 
 import { webServerStatus, blah } from '../imports/server/webServerStatus';
 
-import '../imports/api/webservserStatus';
+import '../imports/api/webserverStatus';
 import '../imports/server/accounts';
 import '../imports/api/request';
 import '../imports/api/prtg';
