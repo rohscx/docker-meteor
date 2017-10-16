@@ -66,7 +66,8 @@ render() {
     display: "flex",
     width: "flex",
     height: "flex",
-    verticalAlign:"middle",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "lightgrey",
   }
     console.log(this)
