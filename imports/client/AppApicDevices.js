@@ -94,8 +94,8 @@ export default createContainer(({params}) => {
     optObj["sort"] = keyObj;
     optObj["limit"] = findLimit;
     // debug
-    console.log(findValue)
-    console.log(optObj)
+    //console.log(findValue)
+    //console.log(optObj)
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
   }
   return {
