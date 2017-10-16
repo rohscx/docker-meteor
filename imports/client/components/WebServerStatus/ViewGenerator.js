@@ -27,7 +27,8 @@ export default class ViewGenerator extends Component {
     const divStyles = {
       paddingTop: '5%',
       paddingButtom: '5%',
-      margin: "10px"
+      paddingLeft: '5%',
+      padingRight: '5%'
     }
     const rowStylesMain = {
       fontWeight: "bold"
