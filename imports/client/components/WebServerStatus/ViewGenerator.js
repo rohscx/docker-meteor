@@ -44,10 +44,11 @@ export default class ViewGenerator extends Component {
         </div>
       )
     })
-    */
+
     //this.props.apicDbReady(true)
     return colData;
-
+    */
+    return "cats on everything"
   }
 render() {
     //console.log(this)
