@@ -91,7 +91,7 @@ export default createContainer(({params}) => {
     optObj["limit"] = findLimit;
     // debug
     //console.log(optObj)
-    return ItemsApicDevices.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
+    return ItemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
   }
   return {
     showAll,
