@@ -45,9 +45,6 @@ export default class ViewGenerator extends Component {
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       return (
-        <div>
-
-        </div>
         <div key={data._id} style= {divStyles}>
           <div style= {flexItem}>
             <Row className="show-grid" style={rowStylesMain}>
