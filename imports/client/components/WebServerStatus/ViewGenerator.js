@@ -30,8 +30,7 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    //console.log(findField.length)
-    //console.log(findField)
+    /*
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     let colData = dbData.map((data)=>{
       return (
@@ -45,6 +44,7 @@ export default class ViewGenerator extends Component {
         </div>
       )
     })
+    */
     //this.props.apicDbReady(true)
     return colData;
 
