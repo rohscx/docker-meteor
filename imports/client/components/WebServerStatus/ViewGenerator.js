@@ -50,6 +50,7 @@ export default class ViewGenerator extends Component {
     console.log("handleDataMan!",this.props.handleData)
     return (
       <div key={handleData["_id"]} style= {divStyles}>
+        <div>TEST DTA</div>
         <Row className="show-grid" style={rowStylesMain}>
           <Col xs={8} sm={6} md={3}>{handleData._id}</Col>
         </Row>
