@@ -31,7 +31,7 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    const flexItemGenerator = (wsfStatus,rsC) => {
+    const flexItemGenerator = (wsfS,rsC,rT) => {
       let flexObj1 = (color)=> {
         return {
           backgroundColor: color,
@@ -40,7 +40,10 @@ export default class ViewGenerator extends Component {
           margin: "10px",
         };
       }
-      if (wsfStatus === 0 && rsC === 200) {
+      let timeNow = new Date().getTime();
+      let timeDiff = timeNow - rT;
+      console.log(timeDiff);
+      if (wsfS === 0 && rsC === 200 && timeDiff <= 30) {
         return flexObj1("#5cb85c");
       } else {
         return flexObj1("#d9534f");
@@ -57,7 +60,7 @@ export default class ViewGenerator extends Component {
       console.log(data.webServerData.dataObj.name)
       return (
         <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
-          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode)}>
+          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={12} sm={12} md={12}> {data.webServerData.dataObj.name}</Col>
             </Row>
