@@ -19,7 +19,9 @@ class WebServerStatus extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     dbData.map((data)=>{
       console.log(data)
-      <ViewGenerator {... this.props} handleData={data}/>
+      return (
+        <ViewGenerator {... this.props} handleData={data}/>
+      )      
     })
   }
 
