@@ -20,8 +20,8 @@ class WebServerStatus extends Component {
     dbData.map((data)=>{
       console.log(data)
       return (
-        <ViewGenerator {... this.props} handleData={data}/>
-      )      
+
+      )
     })
   }
 
@@ -32,7 +32,7 @@ class WebServerStatus extends Component {
     console.log(this);
     return(
       <div style={divStyles}>
-        {this.handleData()}
+        <ViewGenerator {... this.props} handleData={this.handleData.bind(this)} />
       </div>
     )
   }
