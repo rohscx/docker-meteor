@@ -59,6 +59,7 @@ ItemsWebServerStatus.deny({
   render() {
     //console.log(Session.get("apicResponse")[0]);
     //console.log(this);
+    //<WebServerStatus {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
     if (!this.props.ready) {
       return <div>Loading Application...</div>
     }
@@ -66,7 +67,7 @@ ItemsWebServerStatus.deny({
       <Provider store={store}>
         <main>
           <Header  {... this.state} />
-          <WebServerStatus {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
+
         </main>
       </Provider>
     );
