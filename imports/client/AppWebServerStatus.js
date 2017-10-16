@@ -12,7 +12,7 @@ import { autobind } from 'core-decorators';
 
 
 
-const ItemsWebServerStatus = new Mongo.Collection('itemswebServerStatus');
+const ItemsWebServerStatus = new Mongo.Collection('itemsWebServerStatus');
 ItemsWebServerStatus.allow({
   insert() { return false; },
   update() { return false; },
