@@ -25,8 +25,8 @@ export default class ViewGenerator extends Component {
       backgroundColor:"#d9534f"
     }
     const divStyles = {
-      paddingTop: '5%',
-      paddingButtom: '5%'
+      paddingTop: '0%',
+      paddingButtom: '0%'
     }
     const rowStylesMain = {
       fontWeight: "bold"
@@ -70,6 +70,7 @@ render() {
     width: "flex",
     height: "flex",
     alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "lightgrey",
   }
     console.log(this)
