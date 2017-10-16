@@ -35,7 +35,7 @@ export default class ViewGenerator extends Component {
       let flexObj1 = (color)=> {
         return {
           backgroundColor: color,
-          width: "20%",
+          width: "100%",
           height: "flex",
           margin: "10px",
           paddingLeft: "5%",
