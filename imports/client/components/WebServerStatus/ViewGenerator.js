@@ -58,7 +58,7 @@ export default class ViewGenerator extends Component {
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       return (
-        <div key={data._id} style= {divStyles} href={data.webServerData.dataObj.url} target="_blank">
+        <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url}} >
           <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode)}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={12} sm={12} md={12}>{data.webServerData.dataObj.name}</Col>
