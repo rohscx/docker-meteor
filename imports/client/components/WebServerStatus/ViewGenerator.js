@@ -12,6 +12,9 @@ export default class ViewGenerator extends Component {
   }
 
   returnLayout() {
+    let findField = ".";
+    let sortField = "name";
+    let sortOrderField = -1;
     let findLimit =  this.props.dbFindLimit;
     //console.log(findLimit)
     let passStyle = {
@@ -29,7 +32,7 @@ export default class ViewGenerator extends Component {
     }
     //console.log(findField.length)
     //console.log(findField)
-    let dbData = this.props.dbReturn(".","name",-1,findLimit);
+    let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     let colData = dbData.map((data)=>{
       return (
         <div key={data["_id"]} style= {divStyles}>

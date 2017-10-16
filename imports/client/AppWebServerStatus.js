@@ -12,14 +12,14 @@ import { autobind } from 'core-decorators';
 
 
 
-const IitemsWebServerStatus = new Mongo.Collection('itemswebserverstatus');
-IitemsWebServerStatus.allow({
+const ItemsWebServerStatus = new Mongo.Collection('itemswebserverstatus');
+ItemsWebServerStatus.allow({
   insert() { return false; },
   update() { return false; },
   remove() { return false; }
 });
 
-IitemsWebServerStatus.deny({
+ItemsWebServerStatus.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; }
@@ -79,7 +79,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');
-  let dbData = IitemsWebServerStatus.find().fetch();
+  let dbData = ItemsWebServerStatus.find().fetch();
   console.log("dbData",dbData)
   sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
     // debug
@@ -92,7 +92,7 @@ export default createContainer(({params}) => {
     optObj["limit"] = findLimit;
     // debug
     //console.log(optObj);
-    return IitemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
+    return ItemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
   }
   return {
     showAll,
