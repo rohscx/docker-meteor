@@ -31,7 +31,6 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-
     const flexItemGenerator = (wsfStatus) => {
       let flexObj1 = (color)=> {
         return {
@@ -49,7 +48,9 @@ export default class ViewGenerator extends Component {
         return flexObj1("#d9534f");
       }
     }
-
+    const rTTCalculator = (rtT,rtC) =>{
+      return Math.round(rtT/rtC);
+    }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
       console.log(data)
@@ -64,6 +65,7 @@ export default class ViewGenerator extends Component {
             <Row className="show-grid">
               <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.name}</Col>
               <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.statistics.responseTimeCount}</Col>
+              <Col xs={6} sm={6} md={6}>{rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}</Col>
             </Row>
           </div>
         </div>
