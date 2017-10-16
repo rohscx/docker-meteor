@@ -91,6 +91,7 @@ export default createContainer(({params}) => {
     optObj["limit"] = findLimit;
     // debug
     //console.log(optObj);
+    console.log(ItemsWebServerStatus.find().fetch())
     console.log(ItemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: "."}},{"limit":20,"sort":{"webServerData.dataObj.name": -1}}).fetch())
     return ItemsWebServerStatus.find({"webServerData.dataObj.name":{$regex: findValue}},optObj).fetch();
   }
