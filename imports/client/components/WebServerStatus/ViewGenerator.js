@@ -30,7 +30,6 @@ export default class ViewGenerator extends Component {
     //console.log(findField.length)
     //console.log(findField)
     let dbData = this.props.dbReturn(".","name",-1,findLimit);
-    findValue,sortValue,sortOrder,findLimit
     console.log("asdfasdfasfa",dbData)
     let colData = dbData.map((data)=>{
       return (

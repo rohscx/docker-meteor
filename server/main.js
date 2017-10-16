@@ -122,11 +122,16 @@ Meteor.publish('webServerStatus', function() {
       }
       if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
         let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-        oldApicTicket = httpRequest.data.response.serviceTicket;
-        setTimeouts(1800,21600);
-        console.log("###-New Ticket: ",oldApicTicket)
-        console.log("###-Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
-        return httpRequest.data.response.serviceTicket;
+        if (httpRequest.data.response.serviceTicket) {
+          oldApicTicket = httpRequest.data.response.serviceTicket;
+          setTimeouts(1800,21600);
+          console.log("###-New Ticket: ",oldApicTicket)
+          console.log("###-Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+          return httpRequest.data.response.serviceTicket;
+        } else {
+          return null;
+        }
+
       } else if (timeNow() >= ticketIdleTimeout || timeNow() >= ticketSessionTimeout){
         let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
         oldApicTicket = httpRequest.data.response.serviceTicket;
