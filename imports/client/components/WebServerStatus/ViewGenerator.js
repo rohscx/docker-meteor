@@ -35,9 +35,10 @@ export default class ViewGenerator extends Component {
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     dbData.map((data,key)=>{
       console.log(data)
+      console.log(data._id)
+      console.log(data.webServerData.dataObj.name)
       return (
-        <div key={data["_id"]} style= {divStyles}>
-          <div>TEST DTA</div>
+        <div key={data._id} style= {divStyles}>
           <Row className="show-grid" style={rowStylesMain}>
             <Col xs={8} sm={6} md={3}>{data._id}</Col>
           </Row>
