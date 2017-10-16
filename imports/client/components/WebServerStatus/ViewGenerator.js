@@ -61,7 +61,7 @@ export default class ViewGenerator extends Component {
   }
 
 render() {
-    //console.log(this)
+    console.log(this)
     return(
       <div>
         {this.returnLayout()}
