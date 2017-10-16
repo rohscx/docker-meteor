@@ -29,26 +29,8 @@ export default class ViewGenerator extends Component {
       fontWeight: "bold"
     }
 
-    /*
-    let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
-    let colData = dbData.map((data)=>{
-      return (
-        <div key={data["_id"]} style= {divStyles}>
-          <Row className="show-grid" style={rowStylesMain}>
-            <Col xs={8} sm={6} md={3}>{data}</Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={6} sm={6} md={2}>{data}</Col>
-          </Row>
-        </div>
-      )
-    })
-
-    //this.props.apicDbReady(true)
-    return colData;
-    */
-    console.log("handleDataMan!",this.props.handleData)
-    return (
+    console.log("handleDataMan!",handleData)
+    /*return (
       <div key={handleData["_id"]} style= {divStyles}>
         <div>TEST DTA</div>
         <Row className="show-grid" style={rowStylesMain}>
@@ -58,7 +40,8 @@ export default class ViewGenerator extends Component {
           <Col xs={6} sm={6} md={2}>{data.webServerData.dataObj.name}</Col>
         </Row>
       </div>
-    )
+    )*/
+    return "TEST"
   }
 
 render() {
