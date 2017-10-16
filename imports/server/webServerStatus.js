@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import ItemsWebServerStatus from '../api/request';
+import ItemsWebServerStatus from '../imports/api/webserverStatus';
 
 let webServerStatus = (webServerObj)=>{
   const statusCodeParser = (statusCode) =>{
