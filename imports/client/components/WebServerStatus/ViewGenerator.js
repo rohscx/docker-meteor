@@ -42,7 +42,7 @@ export default class ViewGenerator extends Component {
       }
       let timeNow = new Date().getTime();
       let timeDiff = timeNow - rT;
-      console.log(timeDiff);
+      console.log("timeDiff",timeDiff);
       if (wsfS === 0 && rsC === 200 && timeDiff <= 30) {
         return flexObj1("#5cb85c");
       } else {
