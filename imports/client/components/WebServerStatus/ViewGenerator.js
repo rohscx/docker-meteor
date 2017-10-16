@@ -49,7 +49,7 @@ export default class ViewGenerator extends Component {
     //this.props.apicDbReady(true)
     return colData;
     */
-    return dbData
+    return dbData["0"]._id
   }
 render() {
     //console.log(this)
