@@ -29,7 +29,7 @@ export default class ViewGenerator extends Component {
       fontWeight: "bold"
     }
 
-    console.log("handleDataMan!",handleData)
+    console.log("handleDataMan!",this.props.handleData())
     /*return (
       <div key={handleData["_id"]} style= {divStyles}>
         <div>TEST DTA</div>
