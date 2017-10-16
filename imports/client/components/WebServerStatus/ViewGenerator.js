@@ -31,7 +31,7 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    const flexItemGenerator = (wsfStatus) => {
+    const flexItemGenerator = (wsfStatus,rsC) => {
       let flexObj1 = (color)=> {
         return {
           backgroundColor: color,
@@ -42,7 +42,7 @@ export default class ViewGenerator extends Component {
           paddingRight:"5%"
         };
       }
-      if (wsfStatus === 0 ) {
+      if (wsfStatus === 0 && rsC === 200) {
         return flexObj1("#5cb85c");
       } else {
         return flexObj1("#d9534f");
@@ -58,7 +58,7 @@ export default class ViewGenerator extends Component {
       console.log(data.webServerData.dataObj.name)
       return (
         <div key={data._id} style= {divStyles}>
-          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus)}>
+          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode)}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={6} sm={6} md={12}>{data._id}</Col>
             </Row>
