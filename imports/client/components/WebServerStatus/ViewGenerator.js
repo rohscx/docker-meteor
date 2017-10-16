@@ -44,9 +44,9 @@ export default class ViewGenerator extends Component {
         };
       }
       if (wsfStatus === 0 ) {
-        return flexObj1("cornflowerblue");
+        return flexObj1("#4CAF50");
       } else {
-        return flexObj1("red");
+        return flexObj1("#f44336");
       }
     }
 
