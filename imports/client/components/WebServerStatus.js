@@ -11,6 +11,18 @@ class WebServerStatus extends Component {
     }
   }
 
+  handleData () {
+    let findField = ".";
+    let sortField = "name";
+    let sortOrderField = -1;
+    let findLimit =  this.props.dbFindLimit;
+    let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
+    dbData.map((data)=>{
+      console.log(data)
+      return data;
+    })
+  }
+
   render() {
     const divStyles = {
       paddingBottom:"5%"
