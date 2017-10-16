@@ -34,7 +34,7 @@ export default class ViewGenerator extends Component {
 
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     dbData.map((data,key)=>{
-      console.log(key+" : "+data)
+      console.log(data)
       return (
         <div key={data["_id"]} style= {divStyles}>
           <div>TEST DTA</div>
