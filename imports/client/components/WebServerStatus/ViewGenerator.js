@@ -66,6 +66,7 @@ render() {
     display: "flex",
     width: "flex",
     height: "flex",
+    verticalAlign:"middle",
     backgroundColor: "lightgrey",
   }
     console.log(this)
