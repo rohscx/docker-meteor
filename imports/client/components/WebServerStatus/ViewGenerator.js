@@ -31,6 +31,13 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
+    const flexItem = {
+      backgroundColor: "cornflowerblue";
+      width: "100px";
+      height: "flex";
+      margin: "10px";
+    }
+
 
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
@@ -38,13 +45,18 @@ export default class ViewGenerator extends Component {
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       return (
+        <div>
+
+        </div>
         <div key={data._id} style= {divStyles}>
-          <Row className="show-grid" style={rowStylesMain}>
-            <Col xs={8} sm={6} md={3}>{data._id}</Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={6} sm={6} md={2}>{data.webServerData.dataObj.name}</Col>
-          </Row>
+          <div style= {flexItem}>
+            <Row className="show-grid" style={rowStylesMain}>
+              <Col xs={8} sm={6} md={3}>{data._id}</Col>
+            </Row>
+            <Row className="show-grid">
+              <Col xs={6} sm={6} md={2}>{data.webServerData.dataObj.name}</Col>
+            </Row>
+          </div>
         </div>
       )
     })
@@ -52,9 +64,16 @@ export default class ViewGenerator extends Component {
   }
 
 render() {
+  const flexContainer = {
+    display: "-webkit-flex";
+    display: "flex";
+    width: "400px";
+    height: "150px";
+    backgroundColor: "lightgrey";
+  }
     console.log(this)
     return(
-      <div>
+      <div style= {flexContainer}>
         {this.returnLayout()}
       </div>
     )
