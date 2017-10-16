@@ -59,10 +59,10 @@ export default class ViewGenerator extends Component {
         <div key={data._id} style= {divStyles}>
           <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus)}>
             <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={8} sm={6} md={12}>{data._id}</Col>
+              <Col xs={6} sm={6} md={12}>{data._id}</Col>
             </Row>
             <Row className="show-grid">
-              <Col xs={6} sm={6} md={12}>{data.webServerData.dataObj.name}</Col>
+              <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.name}</Col>
               <Col xs={6} sm={6} md={6}>{data.webServerData.dataObj.statistics.responseTimeCount}</Col>
             </Row>
           </div>
