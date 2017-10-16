@@ -32,10 +32,10 @@ export default class ViewGenerator extends Component {
       fontWeight: "bold"
     }
     const flexItem = {
-      backgroundColor: "cornflowerblue";
-      width: "100px";
-      height: "flex";
-      margin: "10px";
+      backgroundColor: "cornflowerblue",
+      width: "100px",
+      height: "flex",
+      margin: "10px",
     }
 
 
@@ -65,11 +65,11 @@ export default class ViewGenerator extends Component {
 
 render() {
   const flexContainer = {
-    display: "-webkit-flex";
-    display: "flex";
-    width: "400px";
-    height: "150px";
-    backgroundColor: "lightgrey";
+    display: "-webkit-flex",
+    display: "flex",
+    width: "400px",
+    height: "150px",
+    backgroundColor: "lightgrey",
   }
     console.log(this)
     return(
