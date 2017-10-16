@@ -80,6 +80,7 @@ export default createContainer(({params}) => {
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');
   let dbData = ItemsWebServerStatus.find().fetch();
+  console.log("dbData",dbData)
   sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
     // debug
     //console.log(findValue," ",sortValue," ",sortOrder)
