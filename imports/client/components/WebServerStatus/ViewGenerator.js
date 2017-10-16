@@ -33,7 +33,7 @@ export default class ViewGenerator extends Component {
     }
 
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
-    dbData.map((data,key)=>{
+    return dbData.map((data,key)=>{
       console.log(data)
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
