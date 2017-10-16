@@ -31,15 +31,24 @@ export default class ViewGenerator extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    const flexItem = {
-      backgroundColor: "cornflowerblue",
-      width: "flex",
-      height: "flex",
-      margin: "10px",
-      paddingLeft: "5%",
-      paddingRight:"5%"
-    }
 
+    const flexItemGenerator = (wsfStatus) => {
+      let flexObj1 = (color)=> {
+        return {
+          backgroundColor: color,
+          width: "flex",
+          height: "flex",
+          margin: "10px",
+          paddingLeft: "5%",
+          paddingRight:"5%"
+        };
+      }
+      if (wsfStatus === 0 ) {
+        return flexObj1("cornflowerblue");
+      } else {
+        return flexObj1("red");
+      }
+    }
 
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
@@ -48,7 +57,7 @@ export default class ViewGenerator extends Component {
       console.log(data.webServerData.dataObj.name)
       return (
         <div key={data._id} style= {divStyles}>
-          <div style= {flexItem}>
+          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus)}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={8} sm={6} md={12}>{data._id}</Col>
             </Row>
