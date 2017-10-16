@@ -122,7 +122,7 @@ Meteor.publish('webServerStatus', function() {
       }
       if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
         let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
-        console.log(httpRequest)
+        console.log("error",httpRequest)
         if (httpRequest) {
           oldApicTicket = httpRequest.data.response.serviceTicket;
           setTimeouts(1800,21600);
