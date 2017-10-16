@@ -17,11 +17,9 @@ class WebServerStatus extends Component {
     let sortOrderField = -1;
     let findLimit =  this.props.dbFindLimit;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
-    dbData.map((data)=>{
-      console.log(data)
-      return (
-
-      )
+    dbData.map((data,key)=>{
+      console.log(key+" : "+data)
+      return data
     })
   }
 
