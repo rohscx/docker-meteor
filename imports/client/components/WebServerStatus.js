@@ -29,7 +29,7 @@ class WebServerStatus extends Component {
     };
     console.log(this);
     return(
-      <div style={divStyles}>
+      <div style={divStyles} className="container-fluid">
         <ViewGenerator {... this.props} />
       </div>
     )
