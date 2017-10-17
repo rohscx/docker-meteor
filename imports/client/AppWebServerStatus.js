@@ -66,7 +66,7 @@ ItemsWebServerStatus.deny({
       <Provider store={store}>
         <main>
           <Header  {... this.state} />
-          <WebServerStatus {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)}/>
+          <WebServerStatus {... this.props} dbReturnRdy={true} dbFindLimit={this.state.dbFindLimit} setDbFindLimit={this.setDbFindLimit.bind(this)} className="container-fluid" />
         </main>
       </Provider>
     );
