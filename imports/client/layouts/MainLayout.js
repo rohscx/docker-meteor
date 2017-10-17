@@ -44,7 +44,7 @@ const divStylesGenerator = ()=>{
   if (Meteor.isCordova === true) {
     return divStyles("100%");
   } else {
-    return divStyles("60%%");
+    return divStyles("60%");
   }
 }
 
