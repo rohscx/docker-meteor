@@ -41,7 +41,7 @@ const divStylesGenerator = ()=>{
       width: widthPercent
     };
   };
-  if (Meteor.isCordova) {
+  if (Meteor.isCordova === true) {
     return divStyles("100%");
   } else {
     return divStyles("60%%");
