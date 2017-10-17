@@ -34,14 +34,14 @@ const divStyles = {
 };
 */
 const divStylesGenerator = ()=>{
-  console.log("cordova",Meteor.isCordova)
+  console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
   let divStyles = (widthPercent)=>{
     return {
       margin: "auto",
       width: widthPercent
     };
   };
-  if (Meteor.isCordova === true) {
+  if (/Mobi/.test(navigator.userAgent) === true) {
     return divStyles("100%");
   } else {
     return divStyles("60%");
