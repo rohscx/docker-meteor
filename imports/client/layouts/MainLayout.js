@@ -99,7 +99,7 @@ const MainLayout = ({children}) =>
       </Navbar>
       </LinkContainer>
     </header>
-    <div style={divStyles} className="container-fluid">
+    <div style={divStyles}>
       {children}
     </div>
   </div>

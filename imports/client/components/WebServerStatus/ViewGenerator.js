@@ -85,7 +85,7 @@ render() {
   }
     console.log(this)
     return(
-      <div style= {flexContainer}>
+      <div style= {flexContainer} className="container-fluid">
         {this.returnLayout()}
       </div>
     )
