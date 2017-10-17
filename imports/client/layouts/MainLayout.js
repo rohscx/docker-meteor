@@ -33,7 +33,10 @@ const divStyles = {
   width: "60%"
 };
 */
+
+// mobile device tester
 const divStylesGenerator = ()=>{
+  // debug
   console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
   let divStyles = (widthPercent)=>{
     return {
@@ -41,6 +44,7 @@ const divStylesGenerator = ()=>{
       width: widthPercent
     };
   };
+  // dynamically set the the width of the primary div. Mobile devices are 100%
   if (/Mobi/.test(navigator.userAgent) === true) {
     return divStyles("100%");
   } else {
