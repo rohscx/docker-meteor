@@ -27,11 +27,24 @@ const MainLayout = ({children}) =>
   </div>
 */
 
-
+/*
 const divStyles = {
   margin: "auto",
   width: "60%"
 };
+*/
+const divStylesGenerator = ()=>{
+  console.log("cordova",Meteor.isCordova)
+  let divStyles = (widthPercent)=>{
+    margin: "auto",
+    width: widthPercent
+  };
+  if (Meteor.isCordova) {
+    return divStyles("100%");
+  } else {
+    return divStyles("60%%");
+  }
+}
 
 const navBarStyles = {
   borderRadius:'0px'
@@ -99,7 +112,7 @@ const MainLayout = ({children}) =>
       </Navbar>
       </LinkContainer>
     </header>
-    <div style={divStyles}>
+    <div style={divStylesGenerator()}>
       {children}
     </div>
   </div>
