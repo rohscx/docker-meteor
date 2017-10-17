@@ -78,6 +78,7 @@ render() {
   const flexContainer = {
     display: "-webkit-flex",
     display: "flex",
+    flexWrap: "wrap",
     width: "flex",
     height: "flex",
     alignItems: "center",
