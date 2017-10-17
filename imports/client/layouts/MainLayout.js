@@ -36,8 +36,10 @@ const divStyles = {
 const divStylesGenerator = ()=>{
   console.log("cordova",Meteor.isCordova)
   let divStyles = (widthPercent)=>{
-    margin: "auto",
-    width: widthPercent
+    return {
+      margin: "auto",
+      width: widthPercent
+    };
   };
   if (Meteor.isCordova) {
     return divStyles("100%");
