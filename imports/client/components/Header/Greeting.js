@@ -8,16 +8,16 @@ export default class Greeting extends Component {
     const divStylesGenerator = ()=>{
       // debug
       console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
-      let divStyles = (widthPercent)=>{
+      let divStyles = (marginPercent)=>{
         return {
-          width: widthPercent
+          margin: marginPercent
         };
       };
       // dynamically set the the width of the primary div. Mobile devices are 100%
       if (/Mobi/.test(navigator.userAgent) === true) {
-        return divStyles("90%");
+        return divStyles("4%");
       } else {
-        return divStyles("100%");
+        return divStyles("0%");
       }
     };
 
