@@ -20,9 +20,9 @@ export default class Greeting extends Component {
         return divStyles("100%");
       }
     };
-    
+
     return(
-      <div {divStylesGenerator()}>
+      <div style={divStylesGenerator()}>
         <PageHeader><p><small>{this.props.greeting}</small></p></PageHeader>
       </div>
     )
