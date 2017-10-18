@@ -35,9 +35,9 @@ export default class ViewGenerator extends Component {
       let flexObj1 = (color)=> {
         return {
           backgroundColor: color,
-          width: "80px",
+          width: "70px",
           height: "flex",
-          margin: "10px",
+          margin: "5px",
         };
       }
       let timeNow = new Date().getTime();
