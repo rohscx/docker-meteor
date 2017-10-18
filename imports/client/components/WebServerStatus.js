@@ -35,7 +35,7 @@ class WebServerStatus extends Component {
       };
       // dynamically set the the width of the primary div. Mobile devices are 100%
       if (/Mobi/.test(navigator.userAgent) === true) {
-        return divStyles("90%");
+        return divStyles("100%");
       } else {
         return divStyles("100%");
       }
