@@ -46,7 +46,7 @@ const divStylesGenerator = ()=>{
   };
   // dynamically set the the width of the primary div. Mobile devices are 100%
   if (/Mobi/.test(navigator.userAgent) === true) {
-    return divStyles("98%");
+    return divStyles("100%");
   } else {
     return divStyles("60%");
   }

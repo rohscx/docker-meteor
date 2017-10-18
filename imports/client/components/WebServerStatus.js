@@ -24,12 +24,25 @@ class WebServerStatus extends Component {
   }
 
   render() {
-    const divStyles = {
-      paddingBottom:"5%"
+    const divStylesGenerator = ()=>{
+      // debug
+      console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
+      let divStyles = (widthPercent)=>{
+        return {
+          paddingBottom:"5%",
+          width: widthPercent
+        };
+      };
+      // dynamically set the the width of the primary div. Mobile devices are 100%
+      if (/Mobi/.test(navigator.userAgent) === true) {
+        return divStyles("90%");
+      } else {
+        return divStyles("60%");
+      }
     };
     console.log(this);
     return(
-      <div style={divStyles} className="container-fluid">
+      <div style={divStylesGenerator()} className="container-fluid">
         <ViewGenerator {... this.props} />
       </div>
     )
