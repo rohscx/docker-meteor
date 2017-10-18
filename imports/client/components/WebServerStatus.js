@@ -37,7 +37,7 @@ class WebServerStatus extends Component {
       if (/Mobi/.test(navigator.userAgent) === true) {
         return divStyles("90%");
       } else {
-        return divStyles("60%");
+        return divStyles("100%");
       }
     };
     console.log(this);
