@@ -205,7 +205,8 @@ Meteor.publish('webServerStatus', function() {
           }
         }
         const dbInsert = ()=>{
-          console.log("index Hit: ",index)
+          // debug
+          //console.log("dbInsert index Hit: ",index)
           ItemsApicDevices.insert({
             siteData: {
               dataObj: data,
