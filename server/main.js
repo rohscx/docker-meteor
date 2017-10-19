@@ -160,10 +160,10 @@ Meteor.publish('webServerStatus', function() {
     // error checking REST request. If not 200 do nothing and log
     if (await apicDevices.statusCode === 200) {
       // itterate over object
+      console.log("apicDevices REST response count: ",apicDevices.data.response.length);
       return await Promise.all(apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
-        console.log("apicDevices REST response count: ",apicDevices.data.response.length)
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
         const lastUpdateTime = data.lastUpdateTime;
