@@ -215,33 +215,34 @@ Meteor.publish('webServerStatus', function() {
           });
         }
         const dbTasks = () =>{
-          dbInsert();
-        let dbMatch = findItem(deviceId);
-        // check for undefined, these do not exist in the db
-        if (dbMatch === undefined) {
-          // debug
-          //console.log("undefined")
-          ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
-          vlanDetail();
-          interfaceInfo();
-          licenseInfo();
-          dbInsert();
-          // if there is a match compare the lastUpdateTimes, if they match it skips
-        } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
-          // debug
-          //console.log("Match Found",dbMatch.siteData.dataObj.lastUpdateTime);
-          //console.log("equality")
-          // remove matches that fail the lastUpdateTime comparison
-        } else {
-          // debug
-          //console.log("unequal")
-          ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
-          vlanDetail();
-          interfaceInfo();
-          licenseInfo();
-          dbInsert();
-        }
+        async function restDataHandler(){
+          const dbMatch = await findItem(deviceId);
+          if (await dbMatch === undefined) {
+            // debug
+            //console.log("undefined")
+            ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
+            vlanDetail();
+            interfaceInfo();
+            licenseInfo();
+            dbInsert();
+            // if there is a match compare the lastUpdateTimes, if they match it skips
+          } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
+            // debug
+            //console.log("Match Found",dbMatch.siteData.dataObj.lastUpdateTime);
+            //console.log("equality")
+            // remove matches that fail the lastUpdateTime comparison
+          } else {
+            // debug
+            //console.log("unequal")
+            ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
+            vlanDetail();
+            interfaceInfo();
+            licenseInfo();
+            dbInsert();
+          }
+        };
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
+        restDataHandler()
         }
         dbTasks();
       }))
