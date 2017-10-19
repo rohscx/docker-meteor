@@ -160,15 +160,9 @@ Meteor.publish('webServerStatus', function() {
     // error checking REST request. If not 200 do nothing and log
     if (await apicDevices.statusCode === 200) {
       // itterate over object
-      console.log("apicDevices REST response count: ",apicDevices.data.response.length);
-      apicDevices.data.response.map((data123,index123)=>{
-        console.log("index123 Count", index123)
-      })
-      //return await Promise.all(apicDevices.data.response.map((data,index)=>{
-        apicDevices.data.response.map((data,index)=>{
+      return await Promise.all(apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
-        console.log("index on MAP: ",index);
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
         const lastUpdateTime = data.lastUpdateTime;
@@ -211,7 +205,7 @@ Meteor.publish('webServerStatus', function() {
           }
         }
         const dbInsert = ()=>{
-          console.log("insert Index from insert: ",index)
+          console.log("index Hit: ",index)
           ItemsApicDevices.insert({
             siteData: {
               dataObj: data,
@@ -221,11 +215,12 @@ Meteor.publish('webServerStatus', function() {
           });
         }
         const dbTasks = () =>{
+          dbInsert();
         let dbMatch = findItem(deviceId);
         // check for undefined, these do not exist in the db
         if (dbMatch === undefined) {
           // debug
-          console.log("undefined removed: ", index)
+          //console.log("undefined")
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
           interfaceInfo();
@@ -249,7 +244,7 @@ Meteor.publish('webServerStatus', function() {
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
         }
         dbTasks();
-      })
+      }))
     } else {
       console.log("REST FAILURE: ", apicDevices);
     }
@@ -513,7 +508,7 @@ Meteor.publish('prtgDeviceList', function() {
     let oldestDocumentEpoch = oldestDocument[0].prtgData.requestTime;
     console.log("Document Epoch",oldestDocumentEpoch," == ","Elapsed Time",currentTimeEpoch - oldestDocumentEpoch);
     if(currentTimeEpoch - oldestDocumentEpoch > 3600){
-      console.log("HIT COLLECTION EXISTS!!! BUT IS OLD!!!!");
+      console.log("HIT COLLECTION EXISTS!!! BUT IS OLD!!!!")
       // removes old DB collection documents
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       const poll = () => {
