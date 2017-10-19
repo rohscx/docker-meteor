@@ -163,7 +163,7 @@ Meteor.publish('webServerStatus', function() {
       return await Promise.all(apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
-        console.log("apicDevices REST response count: ",apicDevices.data.response.count)
+        console.log("apicDevices REST response count: ",apicDevices.data.response.length)
         const managementIpAddress = data.managementIpAddress;
         const deviceId = data.id;
         const lastUpdateTime = data.lastUpdateTime;
