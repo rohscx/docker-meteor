@@ -164,7 +164,8 @@ Meteor.publish('webServerStatus', function() {
       apicDevices.data.response.map((data123,index123)=>{
         console.log("index123 Count", index123)
       })
-      return await Promise.all(apicDevices.data.response.map((data,index)=>{
+      //return await Promise.all(apicDevices.data.response.map((data,index)=>{
+        apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
         console.log("index on MAP: ",index);
@@ -248,7 +249,7 @@ Meteor.publish('webServerStatus', function() {
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
         }
         dbTasks();
-      }))
+      })
     } else {
       console.log("REST FAILURE: ", apicDevices);
     }
