@@ -160,7 +160,7 @@ Meteor.publish('webServerStatus', function() {
     // error checking REST request. If not 200 do nothing and log
     if (await apicDevices.statusCode === 200) {
       // itterate over object
-      return await Promise.all(apicDevices.data.response.map((data)=>{
+      return await Promise.all(apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
         const managementIpAddress = data.managementIpAddress;
@@ -205,6 +205,7 @@ Meteor.publish('webServerStatus', function() {
           }
         }
         const dbInsert = ()=>{
+          console.log("insert Index: ",index)
           ItemsApicDevices.insert({
             siteData: {
               dataObj: data,
@@ -218,7 +219,7 @@ Meteor.publish('webServerStatus', function() {
         // check for undefined, these do not exist in the db
         if (dbMatch === undefined) {
           // debug
-          //console.log("undefined")
+          console.log("undefined removed: ", index)
           ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
           vlanDetail();
           interfaceInfo();
