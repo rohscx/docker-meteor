@@ -161,6 +161,9 @@ Meteor.publish('webServerStatus', function() {
     if (await apicDevices.statusCode === 200) {
       // itterate over object
       console.log("apicDevices REST response count: ",apicDevices.data.response.length);
+      apicDevices.data.response.map((data123,index123)=>{
+        console.log("index123 Count", index123)
+      })
       return await Promise.all(apicDevices.data.response.map((data,index)=>{
         // debug
         //console.log(apicDevices)
