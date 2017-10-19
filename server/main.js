@@ -254,8 +254,8 @@ Meteor.publish('webServerStatus', function() {
   const poll = () => {
       console.log("requesting upto 500 objects from APIC-EM")
       httpRequest("GET",devicesUrl,apicDevicesOptions())
-      if (countCollections() >= 500){
-        console.log("over 9000!!! actually it's only only over 500 Devices!!!")
+      if (countCollections() >= 300){
+        console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
         console.log("requesting upto ANOTHER 500 objects from APIC-EM")
         apicDevicesUrn500 = baseUrl+"/api/v1/network-device/501/500";
         httpRequest("GET",apicDevicesUrn500,apicDevicesOptions())
