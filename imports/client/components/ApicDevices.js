@@ -48,6 +48,11 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
+  downloadData(){
+    let test123 = FileDownload("aaaaa","csv");
+    console.log(test123);
+  }
+
   form(){
     const btnEnabled = () => {
       return (
