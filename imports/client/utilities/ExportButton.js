@@ -30,7 +30,7 @@ const ExportButton = React.createClass({
     setTimeout(() => {
       //db.itemapicdevices.find({"siteData.dataObj.interfaceDetail.status":"down","siteData.dataObj.interfaceDetail.className":"SwitchPort"},{"siteData.dataObj.interfaceDetail.portName":1,"siteData.dataObj.hostname":1,"siteData.dataObj.interfaceDetail.description":1,"siteData.dataObj.interfaceDetail.className":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}).pretty()
       //{"siteData.dataObj.normalizeHostName":{$regex: findValue}}
-      let test123 = this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"},{'siteData.dataObj.interfaceDetail.portName':1})
+      let test123 = this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"},{'siteData.dataObj.interfaceCount':1})
       console.log("dbData ",test123)
       console.log(this)
       //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
