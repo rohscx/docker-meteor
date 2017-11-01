@@ -101,7 +101,7 @@ export default createContainer(({params}) => {
   searchFor = (searchObj) =>{
     // debug
     //console.log("searchObj",searchObj)
-    return ItemsApicDevices.find(searchObj);
+    return ItemsApicDevices.find(searchObj).fetch();
   }
   return {
     showAll,
