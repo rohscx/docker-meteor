@@ -185,7 +185,7 @@ class TransferRate extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
-    //console.log(this);
+    console.log(this);
     return(
       <div style={divStyles}>
         {this.form()}
