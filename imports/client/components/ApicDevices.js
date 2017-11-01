@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
-import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
+import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToolbar, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
@@ -49,7 +49,14 @@ class TransferRate extends Component {
   }
 
   downloadData(){
-    return <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
+    return (
+      <div>
+        <ButtonToolbar>
+          <Button bsStyle="primary" bsSize="xsmall">DownloadDataTest1234</Button>
+        </ButtonToolbar>
+      </div>
+    )
+    //return <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
   }
 
   form(){
