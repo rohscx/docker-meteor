@@ -6,6 +6,7 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions'
+import FileDownload from '../utilities/FileDownload'
 
 class TransferRate extends Component {
   constructor() {
