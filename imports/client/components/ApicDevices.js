@@ -50,11 +50,11 @@ class TransferRate extends Component {
   }
 
 
-  downloadData(dbSearch){
+  downloadData(){
 
 
     return (
-      <ExportButton dbSearch={dbSearch}/>
+      <ExportButton dbSearch={this.props.dbSearch.bind(this)}/>
     )
     /*
     return (
@@ -156,7 +156,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        {this.downloadData(this.props.dbSearch.bind(this))}
+        {this.downloadData()}
         <Layout {... this.props}/>
       </div>
     )
