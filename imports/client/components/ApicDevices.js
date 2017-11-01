@@ -49,9 +49,9 @@ class TransferRate extends Component {
   }
 
 
-  downloadData(test){
+  downloadData(dbSearch){
     const LoadingButton = React.createClass({
-      test,
+      dbSearch,
       getInitialState() {
         return {
           isLoading: false,
@@ -79,8 +79,8 @@ class TransferRate extends Component {
         setTimeout(() => {
           //db.itemapicdevices.find({"siteData.dataObj.interfaceDetail.status":"down","siteData.dataObj.interfaceDetail.className":"SwitchPort"},{"siteData.dataObj.interfaceDetail.portName":1,"siteData.dataObj.hostname":1,"siteData.dataObj.interfaceDetail.description":1,"siteData.dataObj.interfaceDetail.className":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}).pretty()
           //{"siteData.dataObj.normalizeHostName":{$regex: findValue}}
-
-          console.log("dbData ",test)
+          let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
+          console.log("dbData ",test123)
           FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
           // Completed of async action, set loading state back
           this.setState({ isLoading: false });
@@ -191,7 +191,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        {this.downloadData("Thisis a test")}
+        {this.downloadData(this.props.dbSearch.bind(this))}
         <Layout {... this.props}/>
       </div>
     )
