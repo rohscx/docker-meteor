@@ -2,13 +2,16 @@ import React, { PropTypes} from 'react';
 
 const FileDownload = ({fileName, fileText}) => {
   let element = document.createElement('a');
-  element.setAttribute('href','data.text/plain;charset=utf-8,' + encodeURIComponent("fileText"));
-  element.setAttribute('download',"fileName.txt");
+  let file = new Blob(["TESTTESTTESTTEST"],{type:'text/plain'});
+  element.href = URL.createObjectURL(file);
+  element.download = "myFile.txt"
+  //element.setAttribute('href','data.text/plain;charset=utf-8,' + encodeURIComponent("fileText"));
+  //element.setAttribute('download',"fileName.txt");
 
-  element.style.display = 'none';
-  document.body.appendChild(element);
+  //element.style.display = 'none';
+  //document.body.appendChild(element);
   element.click();
-  document.body.removeChild(element);
+  //document.body.removeChild(element);
 }
 /*
 // checks type, throws and error
