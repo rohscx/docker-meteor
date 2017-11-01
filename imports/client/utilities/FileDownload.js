@@ -1,6 +1,8 @@
 import React, { PropTypes} from 'react';
 
 const FileDownload = ({fileName, fileText}) => {
+  console.log("fileName ",fileName)
+  console.log("fileText ", fileText)
   let element = document.createElement('a');
   let file = new Blob([fileText],{type:'text/plain'});
   element.href = URL.createObjectURL(file);
