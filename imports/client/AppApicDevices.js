@@ -111,7 +111,7 @@ export default createContainer(({params}) => {
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue,sortOrder,findLimit)
     },
-    dbSearch: function data(searchObj){
+    dbSearch: function data1(searchObj){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return searchFor(searchObj)
