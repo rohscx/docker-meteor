@@ -49,9 +49,8 @@ class TransferRate extends Component {
   }
 
   downloadData(){
-    let test123 = FileDownload("aaaaa","csv");
     console.log("test123",test123);
-    return FileDownload("dataDownload.csv","RandomeDatadadsfasdf asdnd Stuff")
+    return <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
   }
 
   form(){
