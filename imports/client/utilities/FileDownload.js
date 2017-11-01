@@ -14,6 +14,7 @@ const FileDownload = ({fileName, fileText}) => {
   //document.body.appendChild(element);
   element.click();
   //document.body.removeChild(element);
+  return null;
 }
 /*
 // checks type, throws and error
