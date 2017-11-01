@@ -49,7 +49,7 @@ class TransferRate extends Component {
   }
 
 
-  downloadData(){
+  downloadData(test){
     const LoadingButton = React.createClass({
       test,
       getInitialState() {
@@ -89,7 +89,7 @@ class TransferRate extends Component {
     });
 
     return (
-      <LoadingButton test="datadata"/>
+      <LoadingButton test={test}/>
     )
     /*
     return (
@@ -191,7 +191,7 @@ class TransferRate extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-        {this.downloadData()}
+        {this.downloadData("Thisis a test")}
         <Layout {... this.props}/>
       </div>
     )
