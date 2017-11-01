@@ -101,7 +101,7 @@ export default createContainer(({params}) => {
   searchFor = (searchObj) =>{
     // debug
     //console.log("searchObj",searchObj)
-    return ItemsApicDevices.find(searchObj).fetch();
+    return ItemsApicDevices.find(searchObj);
   }
   return {
     showAll,
@@ -111,7 +111,7 @@ export default createContainer(({params}) => {
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue,sortOrder,findLimit)
     },
-    dbSearch: function data1(searchObj){
+    dbSearch: function data(searchObj){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return searchFor(searchObj)
