@@ -98,6 +98,11 @@ export default createContainer(({params}) => {
     //console.log(optObj)
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
   }
+  searchFor = (searchObj) =>{
+    // debug
+    //console.log("searchObj",searchObj)
+    return ItemsApicDevices.find(searchObj).fetch();
+  }
   return {
     showAll,
     ready: apicDevicesItemsSub.ready(),
@@ -105,7 +110,11 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return sortBy(findValue,sortValue,sortOrder,findLimit)
+    },
+    dbSearch: function data(searchObj){
+      //debug
+      //console.log(sortBy(sortValue, sortOrder))
+      return searchFor(searchObj)
     }
-
   };
 }, AppApicDevices);
