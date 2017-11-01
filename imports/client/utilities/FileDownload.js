@@ -8,6 +8,7 @@ const FileDownload = ({fileName, fileText}) => {
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
+  document.body.removeChild(element);
 }
 /*
 // checks type, throws and error
