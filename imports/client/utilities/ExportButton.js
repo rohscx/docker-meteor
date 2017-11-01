@@ -33,7 +33,7 @@ const ExportButton = React.createClass({
       //let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
       //console.log("dbData ",test123)
       console.log(this)
-      FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+      //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       // Completed of async action, set loading state back
       this.setState({ isLoading: false });
     }, 2000);
