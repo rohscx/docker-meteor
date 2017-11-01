@@ -3,7 +3,6 @@ import {  Button } from 'react-bootstrap';
 // note: THis does not provide true secuirty, it simply obfuscates
 
 const ExportButton = React.createClass({
-  dbSearch,
   getInitialState() {
     return {
       isLoading: false,
@@ -33,6 +32,7 @@ const ExportButton = React.createClass({
       //{"siteData.dataObj.normalizeHostName":{$regex: findValue}}
       //let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
       //console.log("dbData ",test123)
+      console.log(this)
       FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       // Completed of async action, set loading state back
       this.setState({ isLoading: false });

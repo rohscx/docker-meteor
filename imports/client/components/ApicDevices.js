@@ -54,7 +54,7 @@ class TransferRate extends Component {
 
 
     return (
-      <ExportButton dbSearch={this.props.dbSearch.bind(this)}/>
+      <ExportButton {...this.props}/>
     )
     /*
     return (
