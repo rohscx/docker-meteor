@@ -35,6 +35,7 @@ const ExportButton = React.createClass({
       console.log(this)
       //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       // Completed of async action, set loading state back
+      this.props.fileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       this.setState({ isLoading: false });
     }, 2000);
   },

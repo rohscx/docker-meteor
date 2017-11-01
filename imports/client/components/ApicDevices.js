@@ -51,9 +51,9 @@ class TransferRate extends Component {
 
 
   downloadData(){
-    FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+    //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     return (
-      <ExportButton {...this.props}/>
+      <ExportButton {...this.props} fileDownLoad={FileDownload.bind(this)}/>
     )
     /*
     return (
