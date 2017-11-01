@@ -77,8 +77,8 @@ class TransferRate extends Component {
         // This probably where you would have an `ajax` call
         setTimeout(() => {
           //db.itemapicdevices.find({"siteData.dataObj.interfaceDetail.status":"down","siteData.dataObj.interfaceDetail.className":"SwitchPort"},{"siteData.dataObj.interfaceDetail.portName":1,"siteData.dataObj.hostname":1,"siteData.dataObj.interfaceDetail.description":1,"siteData.dataObj.interfaceDetail.className":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}).pretty()
-          let dbData = this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"},{"siteData.dataObj.hostname":1,"siteData.dataObj.vlanDetail.ipAddress":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}));
-          console.log(dbData)
+          let dbData = this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"},{"siteData.dataObj.hostname":1,"siteData.dataObj.vlanDetail.ipAddress":1,"_id":0});
+          console.log("dbData ",dbData)
           FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
           // Completed of async action, set loading state back
           this.setState({ isLoading: false });
