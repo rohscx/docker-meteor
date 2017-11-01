@@ -2,8 +2,8 @@ import React, { PropTypes} from 'react';
 
 const FileDownload = ({fileName, fileText}) => {
   let element = document.createElement('a');
-  element.setAttribute('href','data.text/plain;charset=utf-8,' + encodeURIComponent(fileText));
-  element.setAttribute('download',fileName);
+  element.setAttribute('href','data.text/plain;charset=utf-8,' + encodeURIComponent("fileText"));
+  element.setAttribute('download',"fileName");
 
   element.style.display = 'none';
   document.body.appendChild(element);
