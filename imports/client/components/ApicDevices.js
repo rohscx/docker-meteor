@@ -89,7 +89,7 @@ class TransferRate extends Component {
     });
 
     return (
-      <LoadingButton test={test}/>
+      <LoadingButton dbSearch={dbSearch}/>
     )
     /*
     return (
