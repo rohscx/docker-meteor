@@ -61,12 +61,12 @@ class TransferRate extends Component {
         let isLoading = this.state.isLoading;
         return (
           <Button
-            bsStyle="primary"
+            bsStyle={!isLoading ? "primary" : "danger"}
             bsSize="xsmall"
             disabled={isLoading}
             onClick={!isLoading ? this.handleClick : null}
           >
-            {isLoading ? 'Loading...' : 'Loading state'}
+            {isLoading ? 'Loading...' : 'downInterfaces.csv'}
           </Button>
         );
       },
@@ -76,7 +76,9 @@ class TransferRate extends Component {
 
         // This probably where you would have an `ajax` call
         setTimeout(() => {
-          FileDownload("dataDownload.csv","RandomeDatadadsfasdf asdnd Stuff")
+          let dbData = this.props.dbSearch(findField,sortField,sortOrderField,findLimit);
+          console.log(dbData)
+          FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
           // Completed of async action, set loading state back
           this.setState({ isLoading: false });
         }, 2000);
