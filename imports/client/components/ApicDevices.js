@@ -49,7 +49,6 @@ class TransferRate extends Component {
   }
 
   downloadData(){
-    console.log("test123",test123);
     return <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
   }
 
