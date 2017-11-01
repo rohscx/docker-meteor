@@ -76,7 +76,7 @@ class TransferRate extends Component {
 
         // This probably where you would have an `ajax` call
         setTimeout(() => {
-          <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
+          FileDownload("dataDownload.csv","RandomeDatadadsfasdf asdnd Stuff")
           // Completed of async action, set loading state back
           this.setState({ isLoading: false });
         }, 2000);

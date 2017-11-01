@@ -1,6 +1,6 @@
 import React, { PropTypes} from 'react';
 
-const FileDownload = ({fileName, fileText}) => {
+const FileDownload = (fileName, fileText) => {
   console.log("fileName ",fileName)
   console.log("fileText ", fileText)
   let element = document.createElement('a');
