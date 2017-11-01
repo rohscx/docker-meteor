@@ -7,6 +7,7 @@ import Layout from './ApicDevices/Layout';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions'
 import FileDownload from '../utilities/FileDownload'
+import ExportButton from '../utilities/ExportButton'
 
 class TransferRate extends Component {
   constructor() {
@@ -50,46 +51,10 @@ class TransferRate extends Component {
 
 
   downloadData(dbSearch){
-    const LoadingButton = React.createClass({
-      dbSearch,
-      getInitialState() {
-        return {
-          isLoading: false,
-        };
-      },
 
-      render() {
-        let isLoading = this.state.isLoading;
-        return (
-          <Button
-            bsStyle={!isLoading ? "primary" : "danger"}
-            bsSize="xsmall"
-            disabled={isLoading}
-            onClick={!isLoading ? this.handleClick : null}
-          >
-            {isLoading ? 'Loading...' : 'downInterfaces.csv'}
-          </Button>
-        );
-      },
-
-      handleClick() {
-        this.setState({ isLoading: true });
-        //      let dbData = this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"});
-        // This probably where you would have an `ajax` call
-        setTimeout(() => {
-          //db.itemapicdevices.find({"siteData.dataObj.interfaceDetail.status":"down","siteData.dataObj.interfaceDetail.className":"SwitchPort"},{"siteData.dataObj.interfaceDetail.portName":1,"siteData.dataObj.hostname":1,"siteData.dataObj.interfaceDetail.description":1,"siteData.dataObj.interfaceDetail.className":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}).pretty()
-          //{"siteData.dataObj.normalizeHostName":{$regex: findValue}}
-          let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
-          console.log("dbData ",test123)
-          FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
-          // Completed of async action, set loading state back
-          this.setState({ isLoading: false });
-        }, 2000);
-      },
-    });
 
     return (
-      <LoadingButton dbSearch={dbSearch}/>
+      <ExportButton dbSearch={dbSearch}/>
     )
     /*
     return (
