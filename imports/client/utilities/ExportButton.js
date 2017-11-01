@@ -1,5 +1,5 @@
 import React, { PropTypes} from 'react';
-import { Button } from 'react-bootstrap';
+import {  Button } from 'react-bootstrap';
 // note: THis does not provide true secuirty, it simply obfuscates
 
 const ExportButton = React.createClass({
@@ -31,8 +31,8 @@ const ExportButton = React.createClass({
     setTimeout(() => {
       //db.itemapicdevices.find({"siteData.dataObj.interfaceDetail.status":"down","siteData.dataObj.interfaceDetail.className":"SwitchPort"},{"siteData.dataObj.interfaceDetail.portName":1,"siteData.dataObj.hostname":1,"siteData.dataObj.interfaceDetail.description":1,"siteData.dataObj.interfaceDetail.className":1,"_id":0}).sort({"siteData.dataObj.hostname":-1}).pretty()
       //{"siteData.dataObj.normalizeHostName":{$regex: findValue}}
-      let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
-      console.log("dbData ",test123)
+      //let test123 = dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.64.116.253"})
+      //console.log("dbData ",test123)
       FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       // Completed of async action, set loading state back
       this.setState({ isLoading: false });
