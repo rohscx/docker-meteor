@@ -1,5 +1,6 @@
 import React, { PropTypes} from 'react';
 import {  Button } from 'react-bootstrap';
+import FileDownload from './FileDownload'
 // note: THis does not provide true secuirty, it simply obfuscates
 
 const ExportButton = React.createClass({
@@ -35,7 +36,7 @@ const ExportButton = React.createClass({
       console.log(this)
       //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       // Completed of async action, set loading state back
-      this.props.fileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+      FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
       this.setState({ isLoading: false });
     }, 2000);
   },
