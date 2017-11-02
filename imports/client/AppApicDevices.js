@@ -99,7 +99,7 @@ export default createContainer(({params}) => {
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
   }
   searchFor = (searchObj) =>{
-    let dbtest = Meteor.subscribe('dbApic', searchObj);
+    let dbtest = Meteor.subscribe('dbApic', {"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"});
     // debug
     console.log("searchObj",searchObj)
     //return ItemsApicDevices.find(searchObj).fetch();
