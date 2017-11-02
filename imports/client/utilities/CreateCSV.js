@@ -3,7 +3,7 @@ import React, { PropTypes} from 'react';
 const CreateCSV = (csvData) => {
   console.log("fileText ", csvData)
   console.log("RUNNING REPORT csvDownInterfaces");
-  let csvData = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
+  //let csvData = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
   //console.log(csvData)
 
   let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
