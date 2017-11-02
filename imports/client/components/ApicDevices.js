@@ -49,6 +49,26 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
+  process(){
+    let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
+    let colummRowArray = [];
+    dataPro.map((item) => {
+      item.siteData.dataObj.interfaceDetail.map((item2) => {
+        if (item2.status == "down") {
+          let tempArray = [];
+          tempArray.push(dataPro.siteData.dataObj.hostName);
+          tempArray.push(item2.className);
+          tempArray.push(item2.adminStatus);
+          tempArray.push(item2.status);
+          tempArray.push(item2.duplex);
+          tempArray.push(item2.portName);
+          colummRowArray.push(tempArray);
+        }
+      })
+    })
+    console.log(columnHeaderArray)
+    console.log(colummRowArray)
+  }
 
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
