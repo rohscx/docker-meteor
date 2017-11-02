@@ -8,6 +8,7 @@ import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions'
 import FileDownload from '../utilities/FileDownload'
 import ExportButton from '../utilities/ExportButton'
+import CreateCSV from '../utilities/CreateCSV'
 
 class ApicDevices extends Component {
   constructor() {
@@ -50,36 +51,8 @@ class ApicDevices extends Component {
   }
 
   csvDownInterfaces (){
-    console.log("RUNNING REPORT csvDownInterfaces");
-    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    //console.log(blah)
-
-    let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
-    let colummRowArray = [];
-    let fileString = "";
-    blah.map((item) => {
-      item.siteData.dataObj.interfaceDetail.map((item2) => {
-        if (item2.status == "down") {
-          let tempArray = [];
-          tempArray.push(item.siteData.dataObj.hostname);
-          tempArray.push(item2.className);
-          tempArray.push(item2.adminStatus);
-          tempArray.push(item2.status);
-          tempArray.push(item2.duplex);
-          tempArray.push(item2.portName);
-          colummRowArray.push(tempArray);
-        }
-      })
-    })
-    //console.log(columnHeaderArray)
-    //console.log(colummRowArray)
-    fileString += columnHeaderArray.toString();
-    fileString += "\r";
-    colummRowArray.map((item) => {
-      fileString += item.toString();
-      fileString += "\r";
-    })
-    return fileString;
+    let rawObj = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
+    return CreateCSV(rawObj)
   }
 
   downloadData(){
