@@ -57,6 +57,7 @@ class TransferRate extends Component {
 
     let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
     let colummRowArray = [];
+    let fileSting = "";
     blah.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         if (item2.status == "down") {
@@ -73,7 +74,13 @@ class TransferRate extends Component {
     })
     console.log(columnHeaderArray)
     console.log(colummRowArray)
-
+    fileSting += columnHeaderArray.toString();
+    fileSting += "\r";
+    colummRowArray.map((item) => {
+      fileSting += item.toString();
+      fileSting += "\r";
+    })
+    console.log(fileSting)
     return (
       <ExportButton {...this.props}/>
     )
