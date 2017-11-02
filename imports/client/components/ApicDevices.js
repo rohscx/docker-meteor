@@ -52,35 +52,6 @@ class TransferRate extends Component {
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
-    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    console.log(blah)
-
-    let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
-    let colummRowArray = [];
-    let fileSting = "";
-    blah.map((item) => {
-      item.siteData.dataObj.interfaceDetail.map((item2) => {
-        if (item2.status == "down") {
-          let tempArray = [];
-          tempArray.push(item.siteData.dataObj.hostname);
-          tempArray.push(item2.className);
-          tempArray.push(item2.adminStatus);
-          tempArray.push(item2.status);
-          tempArray.push(item2.duplex);
-          tempArray.push(item2.portName);
-          colummRowArray.push(tempArray);
-        }
-      })
-    })
-    console.log(columnHeaderArray)
-    console.log(colummRowArray)
-    fileSting += columnHeaderArray.toString();
-    fileSting += "\r";
-    colummRowArray.map((item) => {
-      fileSting += item.toString();
-      fileSting += "\r";
-    })
-    console.log(fileSting)
     return (
       <ExportButton {...this.props}/>
     )
