@@ -36,7 +36,7 @@ if (Meteor.isServer) {
   Meteor.publish('dbApic', function(searchObj) {
     console.log("searchObj ",searchObj);
     console.log()
-    return ItemsApicDevices.find(searchObj);
+    return ItemsApicDevices.find(searchObj).fetch();
   })
 
 
