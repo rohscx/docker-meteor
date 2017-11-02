@@ -52,6 +52,7 @@ class TransferRate extends Component {
 
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+    console.log(this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}}))
     return (
       <ExportButton {...this.props}/>
     )

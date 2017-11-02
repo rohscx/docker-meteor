@@ -33,7 +33,8 @@ ItemsApicDevices.attachSchema(ItemsApicDevicesSchema);
 
 if (Meteor.isServer) {
 
-
+  Meteor.publish('dbApic', function(searchObj) {
+    return ItemsApicDevices.find(searchObj);
 
 
   Meteor.methods({
