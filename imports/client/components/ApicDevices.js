@@ -52,7 +52,9 @@ class ApicDevices extends Component {
 
   csvDownInterfaces (){
     let rawObj = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    return CreateCSV(rawObj)
+    if (rawObj.length >= 1) {
+      return CreateCSV(rawObj)
+    }
   }
 
   downloadData(){

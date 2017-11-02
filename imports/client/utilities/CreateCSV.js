@@ -31,8 +31,8 @@ const CreateCSV = (csvData) => {
     fileString += item.toString();
     fileString += "\r";
   })
+  console.log(fileString)
   return fileString;
-
 }
 /*
 // checks type, throws and error
