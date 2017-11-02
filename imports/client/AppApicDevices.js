@@ -103,8 +103,8 @@ export default createContainer(({params}) => {
     //let dbtest = Meteor.subscribe('dbApic', searchObj);
     // debug
     console.log("searchObj",searchObj)
-    return ItemsApicDevices.find(searchObj).fetch();
-    return dbtest;
+    //return ItemsApicDevices.find(searchObj).fetch();
+    return dbtest.find(searchObj).fetch();
   }
   return {
     showAll,
