@@ -49,10 +49,19 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
-  process(){
+  process(dataPro){
+
+  }
+
+  downloadData(){
+    //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+    //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
+    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}})
+    console.log(blah)
+
     let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
     let colummRowArray = [];
-    dataPro.map((item) => {
+    blah.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         if (item2.status == "down") {
           let tempArray = [];
@@ -68,13 +77,7 @@ class TransferRate extends Component {
     })
     console.log(columnHeaderArray)
     console.log(colummRowArray)
-  }
 
-  downloadData(){
-    //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
-    //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
-    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}})
-    console.log(blah)
     return (
       <ExportButton {...this.props}/>
     )
