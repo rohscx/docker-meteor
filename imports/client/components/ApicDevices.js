@@ -52,7 +52,7 @@ class TransferRate extends Component {
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
-    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true},sort:{"siteData.dataObj.hostname":-1}})
+    let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1,"siteData.dataObj.interfaceDetail.portName":-1}})
     console.log(blah)
 
     let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
