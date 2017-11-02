@@ -49,8 +49,8 @@ class TransferRate extends Component {
     this.props.getDevices();
   }
 
-  csvDownInterfaces () =>{
-    console.log("RUNNING REPORT csvDownInterfaces")
+  csvDownInterfaces (){
+    console.log("RUNNING REPORT csvDownInterfaces");
     let blah = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
     //console.log(blah)
 
