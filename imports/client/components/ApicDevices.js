@@ -164,6 +164,7 @@ class ApicDevices extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
+      <div style={{float:"right"}}></div>
         {this.downloadData()}
         <Layout {... this.props}/>
       </div>
