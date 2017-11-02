@@ -82,7 +82,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
-  let dbtest = Meteor.subscribe('dbApic', searchObj);
+  let dbtest = Meteor.subscribe('dbApic');
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
