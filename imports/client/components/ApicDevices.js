@@ -9,7 +9,7 @@ import { fiaTrace } from '../actions/utilActions'
 import FileDownload from '../utilities/FileDownload'
 import ExportButton from '../utilities/ExportButton'
 
-class TransferRate extends Component {
+class ApicDevices extends Component {
   constructor() {
     super();
     this.state = {
@@ -56,7 +56,7 @@ class TransferRate extends Component {
 
     let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
     let colummRowArray = [];
-    let fileSting = "";
+    let fileString = "";
     blah.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         if (item2.status == "down") {
@@ -73,13 +73,13 @@ class TransferRate extends Component {
     })
     //console.log(columnHeaderArray)
     //console.log(colummRowArray)
-    fileSting += columnHeaderArray.toString();
-    fileSting += "\r";
+    fileString += columnHeaderArray.toString();
+    fileString += "\r";
     colummRowArray.map((item) => {
-      fileSting += item.toString();
-      fileSting += "\r";
+      fileString += item.toString();
+      fileString += "\r";
     })
-    return fileSting;
+    return fileString;
   }
 
   downloadData(){
@@ -218,4 +218,4 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(mapSateToProps, mapDispatchToProps) (TransferRate);
+export default connect(mapSateToProps, mapDispatchToProps) (ApicDevices);
