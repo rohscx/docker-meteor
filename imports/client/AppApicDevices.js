@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
+import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
@@ -103,7 +104,7 @@ export default createContainer(({params}) => {
     // debug
     console.log("searchObj",searchObj)
     //return ItemsApicDevices.find(searchObj).fetch();
-    return dbtest.find({}).fetch();
+    return dbtest.find();
   }
   return {
     showAll,
