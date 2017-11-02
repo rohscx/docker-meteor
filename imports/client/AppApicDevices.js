@@ -7,7 +7,6 @@ import React, {Component} from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
-import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
