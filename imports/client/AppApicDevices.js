@@ -82,6 +82,7 @@ export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');
+  let dbtest = Meteor.subscribe('dbApic', searchObj);
   let prtgArray = Session.get('myMethodResult');
   let dbData = ItemsApicDevices.find().fetch()
   sortBy = (findValue,sortValue,sortOrder,findLimit) =>{
@@ -99,15 +100,15 @@ export default createContainer(({params}) => {
     return ItemsApicDevices.find({"siteData.dataObj.normalizeHostName":{$regex: findValue}},optObj).fetch();
   }
   searchFor = (searchObj) =>{
-    let dbtest = Meteor.subscribe('dbApic', searchObj);
+    //let dbtest = Meteor.subscribe('dbApic', searchObj);
     // debug
     console.log("searchObj",searchObj)
-    //return ItemsApicDevices.find(searchObj).fetch();
+    return ItemsApicDevices.find(searchObj).fetch();
     return dbtest;
   }
   return {
     showAll,
-    ready: apicDevicesItemsSub.ready(),
+    ready: apicDevicesItemsSub.ready() && dbtest.ready(),
     dbReturn: function data(findValue,sortValue,sortOrder,findLimit){
       //debug
       //console.log(sortBy(sortValue, sortOrder))
