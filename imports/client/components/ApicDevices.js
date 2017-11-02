@@ -61,7 +61,7 @@ class TransferRate extends Component {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         if (item2.status == "down") {
           let tempArray = [];
-          tempArray.push(item.siteData.dataObj.hostName);
+          tempArray.push(item.siteData.dataObj.hostname);
           tempArray.push(item2.className);
           tempArray.push(item2.adminStatus);
           tempArray.push(item2.status);
