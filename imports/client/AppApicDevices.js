@@ -103,7 +103,7 @@ export default createContainer(({params}) => {
     // debug
     console.log("searchObj",searchObj)
     //return ItemsApicDevices.find(searchObj).fetch();
-    return dbtest;
+    return dbtest.fetch();
   }
   return {
     showAll,
