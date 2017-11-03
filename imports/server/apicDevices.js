@@ -190,7 +190,7 @@ let apicDevices = ()=>{
             //console.log(networkDevicePoller)
             //console.log(commandRunnerDTO)
             //console.log(networkDevicePoller)
-            console.log(apicOptions(commandRunnerDTO))
+            //console.log(apicOptions(commandRunnerDTO))
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
             console.log(networkDevicePollerCall)
             if (networkDevicePollerCall.statusCode == 200){
