@@ -171,9 +171,8 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = ()=>{
-          console.log(roleStatus[0])
-          if (roleStatus[0][0].role =="ROLE_ADMIN" ){
-            console.log(roleStatus[0][0].role)
+          if (roleStatus[0]role =="ROLE_ADMIN" ){
+            console.log(roleStatus[0].role)
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
             const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
             if (licenseInfoCall.statusCode == 200){
