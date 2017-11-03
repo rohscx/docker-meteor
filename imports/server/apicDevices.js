@@ -162,15 +162,19 @@ let apicDevices = ()=>{
             const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
+              // creates a record of when the interface has gone down, and how long it has been down
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
-                  if (data.consecutiveDownTime){
-                    data.consecutiveDownTime = consecutiveDownTime + timeNow(1);
+                  if (!data.downAsOf){
+                    data.downAsOf = timeNow(1);
+                  } else if (data.downAsOf == null) {
+                    data.downAsOf = timeNow(1);
                   } else {
-                    data.consecutiveDownTime = timeNow(1);
+                    // do nothing
                   }
                 } else {
-                  data.consecutiveDownTime = 0;
+                  // takes care of any other state
+                  data.consecutiveDownTime = null;
                 }
               })
               return data.interfaceDetail = interfaceInfoCall.data.response;
