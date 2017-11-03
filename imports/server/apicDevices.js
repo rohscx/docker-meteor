@@ -178,7 +178,11 @@ let apicDevices = ()=>{
         const showCommands = (commandArray,uUids)=>{
           const taskStatus = (taskUrl) =>{
             const taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-            console.log(taskStausCall)
+            if (taskStausCall.data.response.progress == "CLI Runner request creation"){
+              taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+            } else {
+              console.log(taskStausCall)
+            }
           }
           if (roleStatus[0].role =="ROLE_ADMIN" ){
             //console.log(roleStatus[0].role)
@@ -204,6 +208,7 @@ let apicDevices = ()=>{
               const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
               //console.log(networkDevicePollerStatus)
               taskStatus(networkDevicePollerStatus)
+
               //return data.licenseDetail = licenseInfoCall.data.response;
             }
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
