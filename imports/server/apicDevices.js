@@ -130,6 +130,8 @@ let apicDevices = ()=>{
         const lastUpdateTime = data.lastUpdateTime;
         const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
         const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+        // gets user roles as Array
+        const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
         // adds normalized name for easier searching
         data.normalizeHostName = normalize;
 
@@ -166,6 +168,16 @@ let apicDevices = ()=>{
             if (licenseInfoCall.statusCode == 200){
               return data.licenseDetail = licenseInfoCall.data.response;
             }
+          }
+        }
+        const showCommands = ()=>{
+          if (roleStatus[0][0].role =="ROLE_ADMIN" ){
+            console.log(roleStatus[0][0].role)
+            /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
+            const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
+            if (licenseInfoCall.statusCode == 200){
+              return data.licenseDetail = licenseInfoCall.data.response;
+            }*/
           }
         }
         const dbInsert = (dbData)=>{
@@ -213,6 +225,7 @@ let apicDevices = ()=>{
             vlanDetail();
             interfaceInfo();
             licenseInfo();
+            showCommands();
             dbUpdate(dbDataID,data,timeNow(),dateTime);
           }
         };
@@ -227,7 +240,8 @@ let apicDevices = ()=>{
   }
   const poll = () => {
       console.log("requesting upto 500 objects from APIC-EM")
-      console.log(checkUserRole("GET",roleUrl,apicOptions()))
+      console.log()
+
       httpRequest("GET",devicesUrl,apicOptions())
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
