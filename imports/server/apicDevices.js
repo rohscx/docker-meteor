@@ -186,15 +186,17 @@ let apicDevices = ()=>{
               "commands": commandArray,
               "deviceUuids": uUids
             };
-            const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request" +"/"+ data.id;
-            console.log(networkDevicePoller)
-            console.log(commandRunnerDTO)
-            //const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
+            const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
+            //console.log(networkDevicePoller)
+            //console.log(commandRunnerDTO)
+            const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
+            if (networkDevicePollerCall.statusCode == 200){
+              console.log(networkDevicePollerCall)
+              //return data.licenseDetail = licenseInfoCall.data.response;
+            }
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
             const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
-            if (licenseInfoCall.statusCode == 200){
-              return data.licenseDetail = licenseInfoCall.data.response;
-            }*/
+            */
           }
         }
         const dbInsert = (dbData)=>{
