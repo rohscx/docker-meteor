@@ -172,7 +172,7 @@ let oldApicTicket = "";
         }
         const dbUpdate = (ddCheck,dbData,cTime,cdTime)=>{
           console.log(ddCheck)
-          ItemsApicDevices.update(ddCheck["0"]._id, {
+          ItemsApicDevices.update(ddCheck, {
             $set:{
               'siteData.dataObj':dbData,
               'siteData.requestTime':cTime,
