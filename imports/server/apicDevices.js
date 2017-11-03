@@ -176,6 +176,10 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = (commandArray,uUids)=>{
+          const taskStatus = (taskUrl) =>{
+            const taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+            console.log(taskStausCall)
+          }
           if (roleStatus[0].role =="ROLE_ADMIN" ){
             //console.log(roleStatus[0].role)
             //console.log(commandArray,uUids)
@@ -187,6 +191,7 @@ let apicDevices = ()=>{
               "deviceUuids": [uUids]
             };
             const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
+            c
             //console.log(networkDevicePoller)
             //console.log(commandRunnerDTO)
             //console.log(networkDevicePoller)
@@ -194,7 +199,9 @@ let apicDevices = ()=>{
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
             //console.log(networkDevicePollerCall)
             if (networkDevicePollerCall.statusCode == 202){
-              console.log(networkDevicePollerCall.data.response)
+              //console.log(networkDevicePollerCall.data.response)
+              const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
+              console.log(networkDevicePollerStatus)
               //return data.licenseDetail = licenseInfoCall.data.response;
             }
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
