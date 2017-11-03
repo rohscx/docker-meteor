@@ -191,7 +191,6 @@ let apicDevices = ()=>{
               "deviceUuids": [uUids]
             };
             const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
-            c
             //console.log(networkDevicePoller)
             //console.log(commandRunnerDTO)
             //console.log(networkDevicePoller)
