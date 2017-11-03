@@ -163,7 +163,7 @@ let apicDevices = ()=>{
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
               interfaceInfoCall.data.response.map((data,index)=>{
-                if (data.satus == "down") {
+                if (data.status == "down") {
                   if (data.consecutiveDownTime){
                     data.consecutiveDownTime = consecutiveDownTime + timeNow(0);
                   } else {
