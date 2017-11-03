@@ -41,6 +41,10 @@ let apicDevices = ()=>{
     headers: { 'content-type': 'application/json' },
     data: {username: uName, password: uPass}
   }
+  // commands to be run against apic device. No more than 5  per arrays e.g. [0,1,2,3,4]
+  const downPortCommandArray = [
+      "show int | i proto.*notconnect|proto.*administratively down|Last in.* [6-9]w|Last in.*[0-9][0-9]w|[0-9]y|disabled|Last input never, output never, output hang never"
+  ];
   let apicDevicesUrn = "/api/v1/network-device";
   let devicesUrl = baseUrl + apicDevicesUrn;
   let ticketIdleTimeout = 0;
@@ -62,7 +66,7 @@ let apicDevices = ()=>{
     //console.log(someDate.getTime());
     return someDate.getTime();
   }
-  const apicOptions = () => {
+  const apicOptions = (bodyObj) => {
     const apicTicket = ()=>{
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
         ticketIdleTimeout = timeNow() + idleTimeout;
@@ -99,6 +103,8 @@ let apicDevices = ()=>{
       headers: {
         'content-type': 'application/json',
         'x-auth-token': apicTicket()
+      },
+      body:bodyObj
       }
     }
     return requestObj;
@@ -116,7 +122,7 @@ let apicDevices = ()=>{
     }
   }
   // gets user roles as Array
-  const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
+  const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -170,9 +176,21 @@ let apicDevices = ()=>{
             }
           }
         }
-        const showCommands = ()=>{
+        const showCommands = (commandArray,uUids)=>{
           if (roleStatus[0].role =="ROLE_ADMIN" ){
             console.log(roleStatus[0].role)
+            console.log(commandArray,uUids)
+            const commandRunnerDTO {
+              "name": "",
+              "description": "",
+              "timeout": 0,
+              "commands": commandArray,
+              "deviceUuids":
+            };
+            const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request" +"/"+ data.id;
+            console.log(networkDevicePoller)
+            console.log(commandRunnerDTO)
+            //const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
             const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
             if (licenseInfoCall.statusCode == 200){
@@ -225,7 +243,7 @@ let apicDevices = ()=>{
             vlanDetail();
             interfaceInfo();
             licenseInfo();
-            showCommands();
+            showCommands(downPortCommandArray,deviceId);
             dbUpdate(dbDataID,data,timeNow(),dateTime);
           }
         };
@@ -242,12 +260,12 @@ let apicDevices = ()=>{
       console.log("requesting upto 500 objects from APIC-EM")
       console.log()
 
-      httpRequest("GET",devicesUrl,apicOptions())
+      httpRequest("GET",devicesUrl,apicOptions(""))
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
         console.log("requesting upto ANOTHER 500 objects from APIC-EM")
         apicDevicesUrn500 = baseUrl+"/api/v1/network-device/501/500";
-        httpRequest("GET",apicDevicesUrn500,apicOptions())
+        httpRequest("GET",apicDevicesUrn500,apicOptions(""))
       }
   }
   const intervalId = Meteor.setInterval(()=>{
