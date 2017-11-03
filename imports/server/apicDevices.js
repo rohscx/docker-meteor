@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import ItemsApicDevices from '../api/apic';
 
-let webServerStatus = ()=>{
+let apicDevices = ()=>{
   let clientId = false;
   let counter = 0;
   const self = this;
@@ -226,4 +226,4 @@ const blah = (text) =>{
   let text2 = text
   return text1 += text2
 };
-export {webServerStatus,blah};
+export {apicDevices,blah};
