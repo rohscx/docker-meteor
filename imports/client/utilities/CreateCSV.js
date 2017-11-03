@@ -12,7 +12,8 @@ const CreateCSV = (csvData,switchExpression) => {
     let fileString = "";
     const timeNow = (divisor) =>{
       return Math.round(new Date().getTime() / divisor);
-    }
+    };
+    const noDataError = "Nothing found in time range";
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
@@ -26,7 +27,8 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.portName);
           colummRowArray.push(tempArray);
         } else {
-          return console.log("Looking Like no matches in time frame, ", )
+          console.log("Looking Like no matches in time frame, ", (((item2.downAsOf + (86400000 * 2))  <  timeNow()))
+          return fileString = noDataError;
         }
       })
     })
