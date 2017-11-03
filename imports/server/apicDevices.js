@@ -174,7 +174,7 @@ let apicDevices = ()=>{
                   }
                 } else {
                   // takes care of any other state
-                  data.consecutiveDownTime = null;
+                  data.downAsOf = null;
                 }
               })
               return data.interfaceDetail = interfaceInfoCall.data.response;
