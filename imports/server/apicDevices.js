@@ -196,10 +196,10 @@ let apicDevices = ()=>{
             //console.log(networkDevicePoller)
             //console.log(apicOptions(commandRunnerDTO))
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
-            console.log(networkDevicePollerCall)
-            console.log(networkDevicePollerCall.statusCode)
+            //console.log(networkDevicePollerCall)
+            //console.log(networkDevicePollerCall.statusCode)
             if (networkDevicePollerCall.statusCode == 202){
-              console.log(networkDevicePollerCall.data.response)
+              //console.log(networkDevicePollerCall.data.response)
               console.log(networkDevicePollerCall.data.response.url)
               //const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
               //console.log(networkDevicePollerStatus)
