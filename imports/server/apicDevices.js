@@ -104,10 +104,10 @@ let apicDevices = ()=>{
     return requestObj;
   };
 
-  async function checkUserRole(method,url,options){
-    const httpUserRole = await Meteor.call('httpRequest', method,url,options);
-    const userRole = await httpUserRole;
-    if (await userRole.statusCode === 200) {
+  const checkUserRole = (method,url,options) =>{
+    const httpUserRole = Meteor.call('httpRequest', method,url,options);
+    const userRole = httpUserRole;
+    if (userRole.statusCode === 200) {
       //console.log("hit")
       //console.log(userRole.data.response)
       return userRole.data.response;
@@ -115,8 +115,6 @@ let apicDevices = ()=>{
       return userRole;
     }
   }
-  // gets user roles as Array
-  const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -171,6 +169,8 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = ()=>{
+          // gets user roles as Array
+          const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
           console.log(roleStatus[0])
           if (roleStatus[0][0].role =="ROLE_ADMIN" ){
             console.log(roleStatus[0][0].role)
