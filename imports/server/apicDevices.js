@@ -33,6 +33,8 @@ let apicDevices = ()=>{
     return ItemsApicDevices.find().count();
   }
   console.log("apicDevices Count: ",countCollections());
+  const apicRoleUrn = '/api/vi/rile';
+  const roleUrl = baseUrl + apicRoleUrn;
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   const apicTicketOptions = {
@@ -60,7 +62,7 @@ let apicDevices = ()=>{
     //console.log(someDate.getTime());
     return someDate.getTime();
   }
-  const apicDevicesOptions = () => {
+  const apicOptions = () => {
     const apicTicket = ()=>{
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
         ticketIdleTimeout = timeNow() + idleTimeout;
@@ -102,6 +104,10 @@ let apicDevices = ()=>{
     return requestObj;
   };
 
+  const checkUserRole = (method,url,options) =>{
+    const httpUserRole = Meteor.call('httpRequest', method,url,options);
+    return httpUserRole
+  }
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -214,12 +220,13 @@ let apicDevices = ()=>{
   }
   const poll = () => {
       console.log("requesting upto 500 objects from APIC-EM")
-      httpRequest("GET",devicesUrl,apicDevicesOptions())
+      console.log("User ROle: ", checkUserRole("GET",roleUrl,apicOptions()));
+      httpRequest("GET",devicesUrl,apicOptions())
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
         console.log("requesting upto ANOTHER 500 objects from APIC-EM")
         apicDevicesUrn500 = baseUrl+"/api/v1/network-device/501/500";
-        httpRequest("GET",apicDevicesUrn500,apicDevicesOptions())
+        httpRequest("GET",apicDevicesUrn500,apicOptions())
       }
   }
   const intervalId = Meteor.setInterval(()=>{
