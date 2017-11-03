@@ -202,7 +202,8 @@ let apicDevices = ()=>{
               //console.log(networkDevicePollerCall.data.response)
               //console.log(networkDevicePollerCall.data.response.url)
               const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
-              console.log(networkDevicePollerStatus)
+              //console.log(networkDevicePollerStatus)
+              taskStatus(networkDevicePollerStatus)
               //return data.licenseDetail = licenseInfoCall.data.response;
             }
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
