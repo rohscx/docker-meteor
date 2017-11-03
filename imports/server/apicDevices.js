@@ -177,8 +177,8 @@ let apicDevices = ()=>{
         }
         const showCommands = (commandArray,uUids)=>{
           if (roleStatus[0].role =="ROLE_ADMIN" ){
-            console.log(roleStatus[0].role)
-            console.log(commandArray,uUids)
+            //console.log(roleStatus[0].role)
+            //console.log(commandArray,uUids)
             const commandRunnerDTO = {
               "name": "",
               "description": "",
@@ -190,6 +190,7 @@ let apicDevices = ()=>{
             //console.log(networkDevicePoller)
             //console.log(commandRunnerDTO)
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
+            console.log(networkDevicePollerCall)
             if (networkDevicePollerCall.statusCode == 200){
               console.log(networkDevicePollerCall)
               //return data.licenseDetail = licenseInfoCall.data.response;
