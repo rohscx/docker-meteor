@@ -207,6 +207,7 @@ let apicDevices = ()=>{
                 do {
                   let test124 = taskStatus(networkDevicePollerStatus);
                   //console.log(taskStausCall.data.response.progress)
+                  console.log(testCounter)
                   testCounter ++
                 }
                 while (test124 == taskStausCall.data.response.progress == "CLI Runner request creation" );
