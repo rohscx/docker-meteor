@@ -121,7 +121,9 @@ let oldApicTicket = "";
         const lastUpdateTime = data.lastUpdateTime;
         const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
         const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
+        // adds normalized name for easier searching
         data.normalizeHostName = normalize;
+
         const vlanDetail = ()=>{
           if (data.family == "Unified AP"){
             return data.vlanDetail = null;
@@ -157,14 +159,23 @@ let oldApicTicket = "";
             }
           }
         }
-        const dbInsert = ()=>{
+        const dbInsert = (dbData)=>{
           // debug
           //console.log("dbInsert index Hit: ",index)
           ItemsApicDevices.insert({
             siteData: {
-              dataObj: data,
+              dataObj: dbData,
               requestTime: timeNow(),
               dateTime: dateTime
+            }
+          });
+        }
+        const dbUpdate = (ddCheck,dbData,cTime,cdTime)=>{
+          ItemsApicDevices.update(ddCheck["0"]._id, {
+            $set:{
+              'siteData':dbData
+              'siteData.requestTime':cTime,
+              'siteData.dateTime':cdTime
             }
           });
         }
@@ -178,7 +189,7 @@ let oldApicTicket = "";
             vlanDetail();
             interfaceInfo();
             licenseInfo();
-            dbInsert();
+            dbInsert(data);
             // if there is a match compare the lastUpdateTimes, if they match it skips
           } else if (dbMatch.siteData.dataObj.lastUpdateTime == lastUpdateTime){
             // debug
@@ -186,13 +197,14 @@ let oldApicTicket = "";
             //console.log("equality")
             // remove matches that fail the lastUpdateTime comparison
           } else {
+            // database Item ID
+            const bdDataID = dbMatch.siteData.dataObj.id;
             // debug
             //console.log("unequal")
-            ItemsApicDevices.remove({"siteData.dataObj.id":deviceId});
             vlanDetail();
             interfaceInfo();
             licenseInfo();
-            dbInsert();
+            dbUpdate(bdDataID,data,timeNow(),dateTime);
           }
         };
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
