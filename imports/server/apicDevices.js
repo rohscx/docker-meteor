@@ -179,10 +179,11 @@ let apicDevices = ()=>{
           if ((data.family == "Switches and Hubs") && data.errorCode === null){
             const taskStatus = (taskUrl) =>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-              while (taskStausCall.data.response.endTime == 'undefined' ) {
+              do {
                 taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
                 console.log(taskStausCall.data.response.endTime)
               }
+              while (taskStausCall.data.response.endTime == 'undefined' );
               console.log(taskStausCall)
             }
             if (roleStatus[0].role =="ROLE_ADMIN" ){
