@@ -199,7 +199,7 @@ let oldApicTicket = "";
             // remove matches that fail the lastUpdateTime comparison
           } else {
             // database Item ID
-            const dbDataID = dbMatch.siteData.dataObj.id;
+            const dbDataID = dbMatch._id;
             console.log("updateHIt")
             // debug
             //console.log("unequal")
