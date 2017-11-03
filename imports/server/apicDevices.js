@@ -176,17 +176,11 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = (commandArray,uUids)=>{
+          let testCounter = 0;
           if ((data.family == "Switches and Hubs") && data.errorCode === null){
             const taskStatus = (taskUrl) =>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-              do {
-                setTimeout(()=>{
-                  taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-                  console.log(taskStausCall.data.response.progress);
-                },3000);
-              }
-              while (taskStausCall.data.response.progress == "CLI Runner request creation" );
-              console.log(askStausCall.data.response);
+              return taskStatusCall
             }
             if (roleStatus[0].role =="ROLE_ADMIN" ){
               //console.log(roleStatus[0].role)
@@ -209,10 +203,19 @@ let apicDevices = ()=>{
                 //console.log(networkDevicePollerCall.data.response.url)
                 const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
                 //console.log(networkDevicePollerStatus)
-                taskStatus(networkDevicePollerStatus)
 
+                do {
+                  let test124 = taskStatus(networkDevicePollerStatus);
+                  //console.log(taskStausCall.data.response.progress)
+                  testCounter ++
+                }
+                while (test124 == taskStausCall.data.response.progress == "CLI Runner request creation" );
+
+                console.log(askStausCall.data.response)
+                console.log(testCounter)
                 //return data.licenseDetail = licenseInfoCall.data.response;
               }
+
               /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
               const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
               */
