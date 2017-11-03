@@ -108,6 +108,8 @@ let apicDevices = ()=>{
     const httpUserRole = await Meteor.call('httpRequest', method,url,options);
     const userRole = await httpUserRole;
     if (await userRole.statusCode === 200) {
+      console.log("hit")
+      console.log(userRole.data.response)
       return userRole.data.response;
     } else {
       return userRole;
