@@ -171,6 +171,7 @@ let oldApicTicket = "";
           });
         }
         const dbUpdate = (ddCheck,dbData,cTime,cdTime)=>{
+          console.log(ddCheck)
           ItemsApicDevices.update(ddCheck["0"]._id, {
             $set:{
               'siteData.dataObj':dbData,
