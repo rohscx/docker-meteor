@@ -165,9 +165,9 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
                   if (data.consecutiveDownTime){
-                    data.consecutiveDownTime = consecutiveDownTime + timeNow(0);
+                    data.consecutiveDownTime = consecutiveDownTime + timeNow(1);
                   } else {
-                    data.consecutiveDownTime = timeNow(0);
+                    data.consecutiveDownTime = timeNow(1);
                   }
                 } else {
                   data.consecutiveDownTime = 0;
