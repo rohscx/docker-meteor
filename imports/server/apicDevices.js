@@ -171,6 +171,7 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = ()=>{
+          console.log(roleStatus)
           if (roleStatus[0][0].role =="ROLE_ADMIN" ){
             console.log(roleStatus[0][0].role)
             /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
