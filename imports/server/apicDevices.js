@@ -5,8 +5,8 @@ let apicDevices = ()=>{
   let clientId = false;
   let counter = 0;
   const self = this;
-  const timeNow = () =>{
-    return Math.round(new Date().getTime() / 1000);
+  const timeNow = (divisor) =>{
+    return Math.round(new Date().getTime() / divisor);
   }
   const dateTime = new Date();
   const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
@@ -69,9 +69,9 @@ let apicDevices = ()=>{
   const apicOptions = (bodyObj) => {
     const apicTicket = ()=>{
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
-        ticketIdleTimeout = timeNow() + idleTimeout;
-        ticketSessionTimeout = timeNow() + sessionTimeout;
-        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        ticketIdleTimeout = timeNow(1000) + idleTimeout;
+        ticketSessionTimeout = timeNow(1000) + sessionTimeout;
+        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         //console.log("Requesting New ticket: ", oldApicTicket)
       }
       if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
@@ -80,22 +80,22 @@ let apicDevices = ()=>{
           oldApicTicket = httpRequest.data.response.serviceTicket;
           setTimeouts(1800,21600);
           console.log("###-New Ticket: ",oldApicTicket)
-          console.log("###-Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+          console.log("###-Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
           return httpRequest.data.response.serviceTicket;
         } else {
           return null;
         }
 
-      } else if (timeNow() >= ticketIdleTimeout || timeNow() >= ticketSessionTimeout){
+      } else if (timeNow(1000) >= ticketIdleTimeout || timeNow(1000) >= ticketSessionTimeout){
         let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
         oldApicTicket = httpRequest.data.response.serviceTicket;
         setTimeouts(1800,21600);
         console.log("***-Ticket expired requesting new Ticket: ",oldApicTicket)
-        console.log("***-Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        console.log("***-Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return httpRequest.data.response.serviceTicket;
       } else {
         //console.log("Using Existing Ticket: ",oldApicTicket)
-        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+        //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return oldApicTicket;
       }
     }
@@ -162,6 +162,17 @@ let apicDevices = ()=>{
             const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
+              interfaceInfoCall.data.response.map((data,index)=>{
+                if (data.satus == "down") {
+                  if (data.consecutiveDownTime){
+                    data.consecutiveDownTime = consecutiveDownTime + timeNow(0);
+                  } else {
+                    data.consecutiveDownTime = timeNow(0);
+                  }
+                } else {
+                  data.consecutiveDownTime = 0;
+                }
+              })
               return data.interfaceDetail = interfaceInfoCall.data.response;
             }
           }
@@ -221,7 +232,7 @@ let apicDevices = ()=>{
           ItemsApicDevices.insert({
             siteData: {
               dataObj: dbData,
-              requestTime: timeNow(),
+              requestTime: timeNow(1000),
               dateTime: dateTime
             }
           });
@@ -261,7 +272,7 @@ let apicDevices = ()=>{
             interfaceInfo();
             licenseInfo();
             //showCommands(downPortCommandArray,deviceId);
-            dbUpdate(dbDataID,data,timeNow(),dateTime);
+            dbUpdate(dbDataID,data,timeNow(1000),dateTime);
           }
         };
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
