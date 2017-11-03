@@ -191,6 +191,7 @@ let apicDevices = ()=>{
             //console.log(commandRunnerDTO)
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
             console.log(networkDevicePollerCall)
+            console.log(commandRunnerDTO)
             if (networkDevicePollerCall.statusCode == 200){
               console.log(networkDevicePollerCall)
               //return data.licenseDetail = licenseInfoCall.data.response;
