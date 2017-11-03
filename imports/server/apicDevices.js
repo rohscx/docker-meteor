@@ -108,7 +108,6 @@ let apicDevices = ()=>{
     console.log("hitUserRole Check")
     let httpUserRole = Meteor.call('httpRequest', method,url,options);
     console.log(httpUserRole)
-    return httpUserRole;
   }
 
   async function httpRequest(method,url,options){
