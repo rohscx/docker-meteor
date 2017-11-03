@@ -180,7 +180,7 @@ let apicDevices = ()=>{
           if (roleStatus[0].role =="ROLE_ADMIN" ){
             console.log(roleStatus[0].role)
             console.log(commandArray,uUids)
-            const commandRunnerDTO {
+            const commandRunnerDTO = {
               "name": "",
               "description": "",
               "timeout": 0,
