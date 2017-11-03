@@ -181,7 +181,7 @@ let apicDevices = ()=>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
               do {
                 taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-                console.log(taskStausCall.data.response.endTime)
+                console.log(taskStausCall.data.response.progress)
               }
               while (taskStausCall.data.response.progress == "CLI Runner request creation" );
               console.log(askStausCall.data.response);
