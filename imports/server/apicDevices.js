@@ -179,8 +179,9 @@ let apicDevices = ()=>{
           if ((data.family == "Switches and Hubs") && data.errorCode === null){
             const taskStatus = (taskUrl) =>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-              while (taskStausCall.data.response.entTime == 'undefined' ) {
+              while (taskStausCall.data.response.endTime == 'undefined' ) {
                 taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+                console.log(taskStausCall.data.response.endTime)
               }
               console.log(taskStausCall)
             }
