@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import ItemsWebServerStatus from '../api/webserverStatus';
+import ItemsApicDevices from '../api/apic';
 
 let webServerStatus = ()=>{
   let clientId = false;
