@@ -180,8 +180,8 @@ let apicDevices = ()=>{
           if ((data.family == "Switches and Hubs") && data.errorCode === null){
             const taskStatus = (taskUrl) =>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-              console.log(taskStausCall);
-              return taskStatusCall;
+              console.log(taskStatusCall.data.response);
+              return taskStatusCall.data.response;
             }
             if (roleStatus[0].role =="ROLE_ADMIN" ){
               //console.log(roleStatus[0].role)
@@ -204,7 +204,8 @@ let apicDevices = ()=>{
                 //console.log(networkDevicePollerCall.data.response.url)
                 const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
                 //console.log(networkDevicePollerStatus)
-                taskStatus(networkDevicePollerStatus);
+
+                return data.networkDevicePoller = taskStatus(networkDevicePollerStatus);
               }
 
               /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
