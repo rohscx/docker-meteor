@@ -260,7 +260,7 @@ let apicDevices = ()=>{
             vlanDetail();
             interfaceInfo();
             licenseInfo();
-            showCommands(downPortCommandArray,deviceId);
+            //showCommands(downPortCommandArray,deviceId);
             dbUpdate(dbDataID,data,timeNow(),dateTime);
           }
         };
