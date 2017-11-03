@@ -104,8 +104,7 @@ let apicDevices = ()=>{
         'content-type': 'application/json',
         'x-auth-token': apicTicket()
       },
-      body:bodyObj
-      }
+      body: bodyObj
     }
     return requestObj;
   };
