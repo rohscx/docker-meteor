@@ -104,10 +104,14 @@ let apicDevices = ()=>{
     return requestObj;
   };
 
-  const checkUserRole = (method,url,options) =>{
-    console.log("hitUserRole Check")
-    let httpUserRole = Meteor.call('httpRequest', method,url,options);
-    console.log(httpUserRole)
+  async function checkUserRole(method,url,options){
+    const httpUserRole = await Meteor.call('httpRequest', method,url,options);
+    const userRole = await httpUserRole;
+    if (await userRole.statusCode === 200) {
+      console.log(userRole);
+    } else {
+      console.log(userRole);
+    }
   }
 
   async function httpRequest(method,url,options){
