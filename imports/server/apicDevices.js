@@ -190,9 +190,7 @@ let apicDevices = ()=>{
               //console.log(roleStatus[0].role)
               //console.log(commandArray,uUids)
               const commandRunnerDTO = {
-                "name": "",
-                "description": "",
-                "timeout": 0,
+                "name": "test",
                 "commands": commandArray,
                 "deviceUuids": [uUids]
               };
