@@ -177,7 +177,7 @@ let apicDevices = ()=>{
         }
         const showCommands = (commandArray,uUids)=>{
           const taskStatus = (taskUrl) =>{
-            const taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+            let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
             if (taskStausCall.data.response.endTime){
               console.log(taskStausCall)
             } else {
