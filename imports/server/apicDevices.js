@@ -199,13 +199,14 @@ let oldApicTicket = "";
             // remove matches that fail the lastUpdateTime comparison
           } else {
             // database Item ID
-            const bdDataID = dbMatch.siteData.dataObj.id;
+            const dbDataID = dbMatch.siteData.dataObj.id;
+            console.log("updateHIt")
             // debug
             //console.log("unequal")
             vlanDetail();
             interfaceInfo();
             licenseInfo();
-            dbUpdate(bdDataID,data,timeNow(),dateTime);
+            dbUpdate(dbDataID,data,timeNow(),dateTime);
           }
         };
         //ItemsApicDevices.remove({"siteData.dataObj.managementIpAddress":managementIpAddress,"siteData.dataObj.lastUpdateTime":{"$lte":lastUpdateTime}});
