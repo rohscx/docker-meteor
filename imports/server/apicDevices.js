@@ -115,6 +115,8 @@ let apicDevices = ()=>{
       return userRole;
     }
   }
+  // gets user roles as Array
+  const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -130,8 +132,6 @@ let apicDevices = ()=>{
         const lastUpdateTime = data.lastUpdateTime;
         const dataCheck = ItemsApicDevices.find({"siteData.dataObj.managementIpAddress":managementIpAddress}).fetch();
         const normalize = data.hostname ? data.hostname.toLowerCase() : "Null";
-        // gets user roles as Array
-        const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
         // adds normalized name for easier searching
         data.normalizeHostName = normalize;
 
