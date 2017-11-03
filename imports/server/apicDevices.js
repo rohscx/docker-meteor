@@ -180,8 +180,10 @@ let apicDevices = ()=>{
             const taskStatus = (taskUrl) =>{
               let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
               do {
-                taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-                console.log(taskStausCall.data.response.progress)
+                setTimeout(()=>{
+                  taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+                  console.log(taskStausCall.data.response.progress);
+                },3000);
               }
               while (taskStausCall.data.response.progress == "CLI Runner request creation" );
               console.log(askStausCall.data.response);
