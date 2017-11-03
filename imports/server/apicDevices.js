@@ -183,7 +183,7 @@ let apicDevices = ()=>{
                 taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
                 console.log(taskStausCall.data.response.endTime)
               }
-              while (taskStausCall.data.response.endTime == 'undefined' );
+              while (taskStausCall.data.response.progress == "CLI Runner request creation" );
               console.log(askStausCall.data.response);
             }
             if (roleStatus[0].role =="ROLE_ADMIN" ){
