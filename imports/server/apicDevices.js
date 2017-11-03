@@ -121,7 +121,7 @@ let apicDevices = ()=>{
     }
   }
   // gets user roles as Array
-  const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
+  //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
