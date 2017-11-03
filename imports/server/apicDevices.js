@@ -171,7 +171,6 @@ let oldApicTicket = "";
           });
         }
         const dbUpdate = (ddCheck,dbData,cTime,cdTime)=>{
-          console.log(ddCheck)
           ItemsApicDevices.update(ddCheck, {
             $set:{
               'siteData.dataObj':dbData,
@@ -200,7 +199,6 @@ let oldApicTicket = "";
           } else {
             // database Item ID
             const dbDataID = dbMatch._id;
-            console.log("updateHIt")
             // debug
             //console.log("unequal")
             vlanDetail();
