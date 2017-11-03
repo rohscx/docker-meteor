@@ -184,12 +184,12 @@ let apicDevices = ()=>{
               "description": "",
               "timeout": 0,
               "commands": commandArray,
-              "deviceUuids": uUids
+              "deviceUuids": [uUids]
             };
             const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
             //console.log(networkDevicePoller)
             //console.log(commandRunnerDTO)
-            console.log(commandRunnerDTO)
+            //console.log(commandRunnerDTO)
             const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
             console.log(networkDevicePollerCall)
             if (networkDevicePollerCall.statusCode == 200){
