@@ -275,6 +275,7 @@ let apicDevices = ()=>{
             vlanDetail();
             interfaceInfo();
             licenseInfo();
+            // disabled, but it works
             //showCommands(downPortCommandArray,deviceId);
             dbUpdate(dbDataID,data,timeNow(1000),dateTime);
           }
