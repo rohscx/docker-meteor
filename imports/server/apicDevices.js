@@ -115,6 +115,8 @@ let apicDevices = ()=>{
       return userRole;
     }
   }
+  // gets user roles as Array
+  const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
@@ -169,8 +171,6 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = ()=>{
-          // gets user roles as Array
-          const roleStatus = checkUserRole("GET",roleUrl,apicOptions());
           console.log(roleStatus[0])
           if (roleStatus[0][0].role =="ROLE_ADMIN" ){
             console.log(roleStatus[0][0].role)
