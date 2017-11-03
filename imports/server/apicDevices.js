@@ -225,7 +225,7 @@ let apicDevices = ()=>{
   }
   const poll = () => {
       console.log("requesting upto 500 objects from APIC-EM")
-      checkUserRole("GET",roleUrl,apicOptions())
+      console.log(checkUserRole("GET",roleUrl,apicOptions()))
       httpRequest("GET",devicesUrl,apicOptions())
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
