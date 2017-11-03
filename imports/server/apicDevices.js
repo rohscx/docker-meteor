@@ -176,45 +176,51 @@ let apicDevices = ()=>{
           }
         }
         const showCommands = (commandArray,uUids)=>{
-          const taskStatus = (taskUrl) =>{
-            let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-            if (taskStausCall.data.response.endTime){
-              console.log(taskStausCall)
-            } else {
-              taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-            }
-          }
-          if (roleStatus[0].role =="ROLE_ADMIN" ){
-            //console.log(roleStatus[0].role)
-            //console.log(commandArray,uUids)
-            const commandRunnerDTO = {
-              "name": "",
-              "description": "",
-              "timeout": 0,
-              "commands": commandArray,
-              "deviceUuids": [uUids]
-            };
-            const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
-            //console.log(networkDevicePoller)
-            //console.log(commandRunnerDTO)
-            //console.log(networkDevicePoller)
-            //console.log(apicOptions(commandRunnerDTO))
-            const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
-            //console.log(networkDevicePollerCall)
-            //console.log(networkDevicePollerCall.statusCode)
-            if (networkDevicePollerCall.statusCode == 202){
-              //console.log(networkDevicePollerCall.data.response)
-              //console.log(networkDevicePollerCall.data.response.url)
-              const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
-              //console.log(networkDevicePollerStatus)
-              taskStatus(networkDevicePollerStatus)
+          if ((data.family == "Switches and Hubs") && data.errorCode === null){
+            const taskStatus = (taskUrl) =>{
+              let taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+              while (taskStausCall.data.response != ) {
 
-              //return data.licenseDetail = licenseInfoCall.data.response;
+              }
+              if (taskStausCall.data.response.endTime){
+                console.log(taskStausCall)
+              } else {
+                taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
+              }
             }
-            /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
-            const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
-            */
+            if (roleStatus[0].role =="ROLE_ADMIN" ){
+              //console.log(roleStatus[0].role)
+              //console.log(commandArray,uUids)
+              const commandRunnerDTO = {
+                "name": "",
+                "description": "",
+                "timeout": 0,
+                "commands": commandArray,
+                "deviceUuids": [uUids]
+              };
+              const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
+              //console.log(networkDevicePoller)
+              //console.log(commandRunnerDTO)
+              //console.log(networkDevicePoller)
+              //console.log(apicOptions(commandRunnerDTO))
+              const networkDevicePollerCall = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(commandRunnerDTO));
+              //console.log(networkDevicePollerCall)
+              //console.log(networkDevicePollerCall.statusCode)
+              if (networkDevicePollerCall.statusCode == 202){
+                //console.log(networkDevicePollerCall.data.response)
+                //console.log(networkDevicePollerCall.data.response.url)
+                const networkDevicePollerStatus = baseUrl + networkDevicePollerCall.data.response.url;
+                //console.log(networkDevicePollerStatus)
+                taskStatus(networkDevicePollerStatus)
+
+                //return data.licenseDetail = licenseInfoCall.data.response;
+              }
+              /*const licenseInfoUrl = baseUrl + "/api/v1/license-info/network-device" +"/"+ data.id;
+              const licenseInfoCall = Meteor.call('apicHttpRequest',"GET",licenseInfoUrl,options);
+              */
+            }
           }
+
         }
         const dbInsert = (dbData)=>{
           // debug
