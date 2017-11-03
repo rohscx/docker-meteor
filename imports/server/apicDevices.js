@@ -33,7 +33,7 @@ let apicDevices = ()=>{
     return ItemsApicDevices.find().count();
   }
   console.log("apicDevices Count: ",countCollections());
-  const apicRoleUrn = '/api/vi/rile';
+  const apicRoleUrn = '/api/v1/user/role';
   const roleUrl = baseUrl + apicRoleUrn;
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
