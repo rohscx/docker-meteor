@@ -106,7 +106,7 @@ let apicDevices = ()=>{
 
   const checkUserRole = (method,url,options) =>{
     const httpUserRole = Meteor.call('httpRequest', method,url,options);
-    return httpUserRole
+    return httpUserRole;
   }
 
   async function httpRequest(method,url,options){
@@ -220,7 +220,7 @@ let apicDevices = ()=>{
   }
   const poll = () => {
       console.log("requesting upto 500 objects from APIC-EM")
-      console.log("User ROle: ", checkUserRole("GET",roleUrl,apicOptions()));
+      //console.log("User ROle: ", checkUserRole("GET",roleUrl,apicOptions()));
       httpRequest("GET",devicesUrl,apicOptions())
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
