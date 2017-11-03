@@ -94,7 +94,7 @@ let apicDevices = ()=>{
         console.log("***-Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return httpRequest.data.response.serviceTicket;
       } else {
-        console.log("Using Existing Ticket: ",oldApicTicket)
+        //console.log("Using Existing Ticket: ",oldApicTicket)
         //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow()+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
         return oldApicTicket;
       }
