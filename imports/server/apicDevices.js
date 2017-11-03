@@ -26,27 +26,24 @@ let apicDevices = ()=>{
       }
     }
   }
-
-const findItem = (value)=>{
-  return ItemsApicDevices.findOne({"siteData.dataObj.id":value});
-}
-const countCollections = ()=>{
-  return ItemsApicDevices.find().count();
-}
-
-console.log("apicDevices Count: ",countCollections());
-
-const apicTicketUrn = '/api/v1/ticket';
-const ticketUrl = baseUrl + apicTicketUrn;
-const apicTicketOptions = {
-  headers: { 'content-type': 'application/json' },
-  data: {username: uName, password: uPass}
-};
-let apicDevicesUrn = "/api/v1/network-device";
-let devicesUrl = baseUrl + apicDevicesUrn;
-let ticketIdleTimeout = 0;
-let ticketSessionTimeout = 0;
-let oldApicTicket = "";
+  const findItem = (value)=>{
+    return ItemsApicDevices.findOne({"siteData.dataObj.id":value});
+  }
+  const countCollections = ()=>{
+    return ItemsApicDevices.find().count();
+  }
+  console.log("apicDevices Count: ",countCollections());
+  const apicTicketUrn = '/api/v1/ticket';
+  const ticketUrl = baseUrl + apicTicketUrn;
+  const apicTicketOptions = {
+    headers: { 'content-type': 'application/json' },
+    data: {username: uName, password: uPass}
+  }
+  let apicDevicesUrn = "/api/v1/network-device";
+  let devicesUrl = baseUrl + apicDevicesUrn;
+  let ticketIdleTimeout = 0;
+  let ticketSessionTimeout = 0;
+  let oldApicTicket = "";
 
   const statusCodeParser = (statusCode) =>{
     if (statusCode === 200) {
@@ -63,7 +60,6 @@ let oldApicTicket = "";
     //console.log(someDate.getTime());
     return someDate.getTime();
   }
-
   const apicDevicesOptions = () => {
     const apicTicket = ()=>{
       const setTimeouts = (idleTimeout,sessionTimeout) =>{
