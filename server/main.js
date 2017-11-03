@@ -9,7 +9,7 @@ import ItemsWebServerStatus from '../imports/api/webserverStatus';
 import tempData from './tempData';
 
 import { webServerStatus, blah } from '../imports/server/webServerStatus';
-import { apicDevices, blah } from '../imports/server/apicDevices';
+import { apicDevices} from '../imports/server/apicDevices';
 
 import '../imports/api/webserverStatus';
 import '../imports/server/accounts';

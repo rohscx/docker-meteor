@@ -221,9 +221,4 @@ let oldApicTicket = "";
   },300000)
   poll()
 };
-const blah = (text) =>{
-  let text1 = "this is blah default"
-  let text2 = text
-  return text1 += text2
-};
-export {apicDevices,blah};
+export {apicDevices};
