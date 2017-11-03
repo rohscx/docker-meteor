@@ -184,7 +184,7 @@ let apicDevices = ()=>{
                 console.log(taskStausCall.data.response.endTime)
               }
               while (taskStausCall.data.response.endTime == 'undefined' );
-              //console.log(taskStausCall)
+              console.log(askStausCall.data.response.endTime);
             }
             if (roleStatus[0].role =="ROLE_ADMIN" ){
               //console.log(roleStatus[0].role)
