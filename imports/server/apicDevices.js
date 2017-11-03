@@ -178,10 +178,10 @@ let apicDevices = ()=>{
         const showCommands = (commandArray,uUids)=>{
           const taskStatus = (taskUrl) =>{
             const taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
-            if (taskStausCall.data.response.lastUpdate){
+            if (taskStausCall.data.response.endTime){
               console.log(taskStausCall)
             } else {
-              taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));        
+              taskStausCall = Meteor.call('apicHttpRequest',"GET",taskUrl,apicOptions(""));
             }
           }
           if (roleStatus[0].role =="ROLE_ADMIN" ){
