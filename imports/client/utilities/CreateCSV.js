@@ -10,9 +10,13 @@ const CreateCSV = (csvData,switchExpression) => {
     let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
     let colummRowArray = [];
     let fileString = "";
+    const timeNow = (divisor) =>{
+      return Math.round(new Date().getTime() / divisor);
+    }
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
-        if (item2.status == "down") {
+        // 86400000 ms in one day
+        if (item2.status == "down" && (((item2.downAsOf + (86400000 * 2))  <  timeNow())){
           let tempArray = [];
           tempArray.push(item.siteData.dataObj.hostname);
           tempArray.push(item2.className);
@@ -21,6 +25,8 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.duplex);
           tempArray.push(item2.portName);
           colummRowArray.push(tempArray);
+        } else {
+          return console.log("Looking Like no matches in time frame, ", )
         }
       })
     })
