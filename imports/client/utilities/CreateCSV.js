@@ -1,19 +1,20 @@
 import React, { PropTypes} from 'react';
 
 const CreateCSV = (csvData,switchExpression) => {
+  const noDataError = "Nothing found in time range";
+  let fileString = "";
+  let columnHeaderArray = [];
+  let colummRowArray = [];
+  const timeNow = (divisor) =>{
+    return Math.round(new Date().getTime() / divisor);
+  };
   // Debug
   //console.log("fileText ", csvData)
   // Debug
   //console.log("RUNNING REPORT csvDownInterfaces");
   switch(switchExpression){
     case "apicDownInterfaces":
-    let columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
-    let colummRowArray = [];
-    let fileString = "";
-    const timeNow = (divisor) =>{
-      return Math.round(new Date().getTime() / divisor);
-    };
-    const noDataError = "Nothing found in time range";
+    columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
@@ -31,21 +32,21 @@ const CreateCSV = (csvData,switchExpression) => {
         }
       })
     })
-    // Debug
-    //console.log(columnHeaderArray)
-    // Debug
-    //console.log(colummRowArray)
-    fileString += columnHeaderArray.toString();
-    fileString += "\r";
-    colummRowArray.map((item) => {
-      fileString += item.toString();
-      fileString += "\r";
-    })
-    // Debug
-    //console.log(fileString)
-    return fileString;
     break;
   }
+  // Debug
+  //console.log(columnHeaderArray)
+  // Debug
+  //console.log(colummRowArray)
+  fileString += columnHeaderArray.toString();
+  fileString += "\r";
+  colummRowArray.map((item) => {
+    fileString += item.toString();
+    fileString += "\r";
+  })
+  // Debug
+  //console.log(fileString)
+  return fileString;
 }
 /*
 // checks type, throws and error
