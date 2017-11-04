@@ -77,7 +77,7 @@ const CreateCSV = (csvData,switchExpression) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
         if (item.siteData.dataObj.family == "Switches and Hubs" && ((item2.status == "up" && item2.interfaceType == "Physical") &&
-        (item2.duplex != "FullDuplex" || item2.item2.duplex != "AutoNegotiate"))){
+        (item2.duplex != "FullDuplex" && item2.item2.duplex != "AutoNegotiate"))){
           let tempArray = [];
           tempArray.push(item.siteData.dataObj.hostname);
           tempArray.push(item2.className);
