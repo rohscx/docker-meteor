@@ -13,7 +13,7 @@ const CreateCSV = (csvData,switchExpression) => {
   // Debug
   //console.log("RUNNING REPORT csvDownInterfaces");
   switch(switchExpression){
-    case "apicDownInterfaces":
+    case "downInterfaces.csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
@@ -32,7 +32,7 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
-    case "apicDownInterfacesProlonged":
+    case "downInterfacesProlonged.csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
@@ -51,7 +51,7 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
-    case "apicHalfDuplexInterfaces":
+    case "halfDuplexInterfaces.csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","duplex","description","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {

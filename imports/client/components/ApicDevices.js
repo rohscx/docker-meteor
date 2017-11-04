@@ -50,9 +50,9 @@ class ApicDevices extends Component {
     this.props.getDevices();
   }
 
-  csvDownInterfaces (){
+  csvDownInterfaces (switchExpression){
     const rawObj = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    const switchExpression = "apicDownInterfaces";
+    //const switchExpression = "downInterfaces.csv";
     if (rawObj.length >= 1) {
       return CreateCSV(rawObj,switchExpression)
     }
@@ -65,6 +65,8 @@ class ApicDevices extends Component {
       <div>
         <ButtonToolbar>
           <ExportButton {...this.props} fileName = "downInterfaces.csv" fileData = {this.csvDownInterfaces.bind(this)}/>
+          <ExportButton {...this.props} fileName = "downInterfacesProlonged.csv" fileData = {this.csvDownInterfaces.bind(this)}/>
+          <ExportButton {...this.props} fileName = "halfDuplexInterfaces.csv" fileData = {this.csvDownInterfaces.bind(this)}/>
         </ButtonToolbar>
       </div>
     )
