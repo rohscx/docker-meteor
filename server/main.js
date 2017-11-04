@@ -179,14 +179,14 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.interfaceCount":1,
         "siteData.dataObj.series":1,
         "siteData.dataObj.serialNumber":1,
-        "siteData.dataObj.family":1 ,
         "siteData.dataObj.reachabilityStatus":1,
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
         "siteData.dataObj.vlanDetail":1,
         "siteData.dataObj.reachabilityFailureReason":1,
         "siteData.dataObj.interfaceDetail":1,
-        "siteData.dataObj.licenseDetail":1
+        "siteData.dataObj.licenseDetail":1,
+        "siteData.dataObj.family":1
       }
     });
   }
