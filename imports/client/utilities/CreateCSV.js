@@ -14,7 +14,26 @@ const CreateCSV = (csvData,switchExpression) => {
   //console.log("RUNNING REPORT csvDownInterfaces");
   switch(switchExpression){
     case "apicDownInterfaces":
-    columnHeaderArray = ["hostName","className","adminStatus","status","duplex","portName"];
+    columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
+    csvData.map((item) => {
+      item.siteData.dataObj.interfaceDetail.map((item2) => {
+        // 86400000 ms in one day
+        if (item2.status == "down"){
+          let tempArray = [];
+          tempArray.push(item.siteData.dataObj.hostname);
+          tempArray.push(item2.className);
+          tempArray.push(item2.adminStatus);
+          tempArray.push(item2.status);
+          tempArray.push(item2.portName);
+          colummRowArray.push(tempArray);
+        } else {
+          // do nothing
+        }
+      })
+    })
+    break;
+    case "apicDownInterfacesProlonged":
+    columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
@@ -24,7 +43,6 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.className);
           tempArray.push(item2.adminStatus);
           tempArray.push(item2.status);
-          tempArray.push(item2.duplex);
           tempArray.push(item2.portName);
           colummRowArray.push(tempArray);
         } else {
@@ -33,6 +51,29 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
+    case "apicHalfDuplexInterfaces":
+    columnHeaderArray = ["hostName","className","adminStatus","status","duplex","description","portName"];
+    csvData.map((item) => {
+      item.siteData.dataObj.interfaceDetail.map((item2) => {
+        // 86400000 ms in one day
+        if (item.family == "Switches and Hubs" && (item2.className != "VLANInterfaceExtended" || item2.status != "down") &&
+        (item2.duplex != "FullDuplex" || item2.item2.duplex != "AutoNegotiate")){
+          let tempArray = [];
+          tempArray.push(item.siteData.dataObj.hostname);
+          tempArray.push(item2.className);
+          tempArray.push(item2.adminStatus);
+          tempArray.push(item2.status);
+          tempArray.push(item2.duplex);
+          tempArray.push(item2.description);
+          tempArray.push(item2.portName);
+          colummRowArray.push(tempArray);
+        } else {
+          // do nothing
+        }
+      })
+    })
+    break;
+
   }
   // Debug
   //console.log(columnHeaderArray)

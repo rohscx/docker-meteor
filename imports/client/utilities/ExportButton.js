@@ -19,7 +19,7 @@ const ExportButton = React.createClass({
         disabled={isLoading}
         onClick={!isLoading ? this.handleClick : null}
       >
-        {isLoading ? 'Loading...' : 'downInterfaces.csv'}
+        {isLoading ? 'Generating...' : this.props.fileName}
       </Button>
     );
   },

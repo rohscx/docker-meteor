@@ -62,7 +62,11 @@ class ApicDevices extends Component {
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
     return (
-      <ExportButton {...this.props} fileName = "downInterfaces.csv" fileData = {this.csvDownInterfaces.bind(this)}/>
+      <div>
+        <ButtonToolbar>
+          <ExportButton {...this.props} fileName = "downInterfaces.csv" fileData = {this.csvDownInterfaces.bind(this)}/>
+        </ButtonToolbar>
+      </div>
     )
     /*
     return (
