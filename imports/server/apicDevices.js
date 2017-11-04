@@ -158,7 +158,7 @@ let apicDevices = ()=>{
           }
         }
         const interfaceInfo = ()=>{
-          if ((data.family == "Switches and Hubs" || data.family == "Routers") && data.errorCode === null){
+          if ((data.family == "Switches and Hubs" || data.family == "Routers") && data.errorCode === null || data.errorCode == "DEV-UNREACHED"){
             const interfaceInfoUrl = baseUrl + "/api/v1/interface/network-device" +"/"+ data.id;
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
