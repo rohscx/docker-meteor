@@ -162,7 +162,7 @@ Meteor.publish('apicDevices', function() {
         return this.clientId;
       }
     }
-  }
+  ,
   const countCollections = ()=>{
     return ItemsApicDevices.find().count();
   }
@@ -179,7 +179,7 @@ Meteor.publish('apicDevices', function() {
         "siteData.dataObj.interfaceCount":1,
         "siteData.dataObj.series":1,
         "siteData.dataObj.serialNumber":1,
-        "siteData.dataObj.family":1
+        "siteData.dataObj.family":1,
         "siteData.dataObj.reachabilityStatus":1,
         "siteData.dataObj.normalizeHostName":1,
         "siteData.dataObj.id":1,
