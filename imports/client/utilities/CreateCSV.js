@@ -27,8 +27,7 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.portName);
           colummRowArray.push(tempArray);
         } else {
-          console.log("Looking Like no matches in time frame, ", (item2.downAsOf + (86400000 * 2)  <  timeNow(1)))
-          return fileString = noDataError;
+          // do nothing
         }
       })
     })
