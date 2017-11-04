@@ -70,7 +70,7 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
-    case "halfDuplexInterfaces.csv":
+    case "halfDuplexInterfaces(switches).csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","duplex","description","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
