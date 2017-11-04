@@ -64,7 +64,7 @@ class ApicDevices extends Component {
     return (
       <div>
         <ButtonToolbar>
-          <ExportButton {...this.props} fileName = "downInterfaces.csv" fileData = {this.csvInterfaces.bind(this)}/>
+          <ExportButton {...this.props} fileName = "downInterfaces(raw).csv" fileData = {this.csvInterfaces.bind(this)}/>
           <ExportButton {...this.props} fileName = "downInterfaces(protracted).csv" fileData = {this.csvInterfaces.bind(this)}/>
           <ExportButton {...this.props} fileName = "downInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>
           <ExportButton {...this.props} fileName = "halfDuplexInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>

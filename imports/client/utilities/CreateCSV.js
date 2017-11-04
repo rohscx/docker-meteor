@@ -13,7 +13,7 @@ const CreateCSV = (csvData,switchExpression) => {
   // Debug
   //console.log("RUNNING REPORT csvDownInterfaces");
   switch(switchExpression){
-    case "downInterfaces.csv":
+    case "downInterfaces(raw).csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
@@ -56,7 +56,7 @@ const CreateCSV = (csvData,switchExpression) => {
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
-        if (item.siteData.dataObj.family == "Switches and Hubs" && (item2.status == "down")){
+        if (item.siteData.dataObj.family == "Switches and Hubs" && (item2.status == "down" && item2.className != "EthrntPrtclEndpntExtndd")){
           let tempArray = [];
           tempArray.push(item.siteData.dataObj.hostname);
           tempArray.push(item2.className);
