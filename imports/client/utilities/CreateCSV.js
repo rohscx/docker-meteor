@@ -32,7 +32,7 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
-    case "downInterfacesProlonged.csv":
+    case "downInterfaces(protracted).csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
