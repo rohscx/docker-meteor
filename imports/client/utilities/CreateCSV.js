@@ -56,7 +56,7 @@ const CreateCSV = (csvData,switchExpression) => {
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
-        console.log(item.siteData.dataObj.family)
+        console.log(item.siteData.dataObj)
         console.log(item2.status == "down")
         if (item.siteData.dataObj.family == "Switches and Hubs" && item2.status == "down"){
           let tempArray = [];
