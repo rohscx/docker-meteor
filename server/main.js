@@ -170,6 +170,7 @@ Meteor.publish('apicDevices', function() {
     return ItemsApicDevices.find(
       {},
       {fields:{
+        "siteData.dataObj.family":1,
         "siteData.dataObj.hostname": 1,
         "siteData.dataObj.role": 1,
         "siteData.dataObj.lastUpdated":1,
