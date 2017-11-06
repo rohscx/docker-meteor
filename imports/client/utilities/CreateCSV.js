@@ -45,8 +45,8 @@ const CreateCSV = (csvData,switchExpression) => {
         // 86400000 ms in one day
 
         if (item2.status == "down"){
-          console.log("date ",convertDateToReadable(item2.downAsof))
-          console.log("date **** ",item2.downAsof)
+          console.log("date ",convertDateToReadable(item2.downAsOf))
+          console.log("date **** ",item2.downAsOf)
           console.log(item2.status == "down")
         }
 
