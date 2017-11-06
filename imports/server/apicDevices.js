@@ -169,20 +169,15 @@ let apicDevices = ()=>{
                   console.log("HTTPRe ",data.status)
                   console.log("dbCheck",dataCheck)
 
-                  if (dataCheck[0].siteData.dataObj.interfaceDetail){
-                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
-                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].portName)
-                    //console.log(data.status)
-                    //console.log(data.portName)
-                  }
                   console.log("local DB",dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
-                  if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
-                    console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
-                    data.downAsOf = timeNow(1);
-                  } else {
-                    console.log("Default Action leaving it alone")
+                  if (dataCheck[0]){
+                    if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
+                      console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
+                      data.downAsOf = timeNow(1);
+                    } else {
+                      console.log("Default Action leaving it alone")
+                    }
                   }
-
                 } else {
                   // takes care of any other state
                   console.log("Interface is up, markind downAsOf to NULL")
