@@ -177,10 +177,10 @@ let apicDevices = ()=>{
                       if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
                         console.log(data.id)
                         console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
-                        console.log("The field does not exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
+                        console.log("The field does NOT exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
                         data.downAsOf = timeNow(1);
                       } else {
-                        console.log("The field is NOT NULL. NO CHANGE ***")
+                        console.log("The field is DOES exist. NO CHANGE ***")
                       }
                     }
                   }
