@@ -41,6 +41,7 @@ const CreateCSV = (csvData,switchExpression) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
         console.log("date ",convertDateToText(item2.downAsof))
+        console.log(item2.status == "down")
         if (item2.status == "down"){
           console.log("date ",convertDateToText(item2.downAsof))
         }
