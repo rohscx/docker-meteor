@@ -164,15 +164,19 @@ let apicDevices = ()=>{
             if (interfaceInfoCall.statusCode == 200){
               // creates a record of when the interface has gone down, and how long it has been down
               interfaceInfoCall.data.response.map((data,index)=>{
-                console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
+                //console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
                 if (data.status == "down") {
+                  dataCheck[0].siteData.dataObj.interfaceDetail.map((data1,index1)=>{
+                    console.log(typeof data1.downAsOf)
+                    if (typeof data1.downAsOf == 'number') {
+                      // do nothing
+                    } else {
+                      data1.downAsOf = timeNow(1);
+                    }
+                  })
                   console.log("typeOf ",typeof dataCheck.siteData.dataObj.interfaceDetail.downAsOf == 'number')
                   console.log("data ",dataCheck.siteData.dataObj.interfaceDetail.downAsOf)
-                  if (typeof dataCheck.siteData.dataObj.interfaceDetail.downAsOf == 'number') {
-                    // do nothing
-                  } else {
-                    data.downAsOf = timeNow(1);
-                  }
+
                 } else {
                   // takes care of any other state
                   data.downAsOf = null;
