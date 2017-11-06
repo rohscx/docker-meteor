@@ -183,12 +183,10 @@ let apicDevices = ()=>{
                         console.log("timenow")
                       }
                     })
+                  } else {
+                    data.interfaceDetail.downAsOf = null;
                   }
-                } else {
-                  // takes care of any other state
-                  data.interfaceDetail.downAsOf = null;
-                }
-
+                } 
               })
               return data.interfaceDetail = interfaceInfoCall.data.response;
             } else {
