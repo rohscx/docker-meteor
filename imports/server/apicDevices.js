@@ -168,15 +168,14 @@ let apicDevices = ()=>{
                 if (data.status == "down") {
                   dataCheck[0].siteData.dataObj.interfaceDetail.map((data1,index1)=>{
                     console.log(typeof data1.downAsOf)
+                    console.log("typeOf ",typeof data1.downAsOf == 'number')
+                    console.log("data ",data1.downAsOf)
                     if (typeof data1.downAsOf == 'number') {
                       // do nothing
                     } else {
                       data1.downAsOf = timeNow(1);
                     }
                   })
-                  console.log("typeOf ",typeof dataCheck.siteData.dataObj.interfaceDetail.downAsOf == 'number')
-                  console.log("data ",dataCheck.siteData.dataObj.interfaceDetail.downAsOf)
-
                 } else {
                   // takes care of any other state
                   data.downAsOf = null;
