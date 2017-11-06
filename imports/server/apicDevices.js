@@ -173,8 +173,11 @@ let apicDevices = ()=>{
                     if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
                       console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
                       data.downAsOf = timeNow(1);
-                    } else {
-                      console.log("Default Action leaving it alone")
+                    } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
+                      if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
+                        console.log("Found to be down Marking with Time stamp")
+                        data.downAsOf = timeNow(1);
+                      }              
                     }
                   }
                 } else {
