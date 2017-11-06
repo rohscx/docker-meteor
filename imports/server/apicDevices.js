@@ -170,7 +170,7 @@ let apicDevices = ()=>{
                   } else if (data.downAsOf == null) {
                     data.downAsOf = timeNow(1);
                   } else {
-                    // do nothing
+                    data.downAsOf = data.downAsOf;
                   }
                 } else {
                   // takes care of any other state
