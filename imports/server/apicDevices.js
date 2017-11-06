@@ -166,21 +166,28 @@ let apicDevices = ()=>{
 
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
-                  console.log("Apic Says it's ",data.status)
+                  // debug
+                  //console.log("Apic Says it's ",data.status);
                   if (dataCheck[0]){
-                    console.log("Mongo Says it's ", dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
+                    // debug
+                    //console.log("Mongo Says it's ", dataCheck[0].siteData.dataObj.interfaceDetail[index].status);
                     if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
-                      console.log("Mongo says UP, and APIC says it's DOWN. Setting downAsOf to current time")
+                      // debug
+                      //console.log("Mongo says UP, and APIC says it's DOWN. Setting downAsOf to current time");
                       data.downAsOf = timeNow(1);
                     } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
-                      console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists")
+                      // debug
+                      //console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists");
                       if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
-                        console.log(data.id)
-                        console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
-                        console.log("The field does NOT exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
+                        // debug
+                        /*console.log(data.id)
+                        //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id);
+                        console.log("The field does NOT exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf);
+                        */
                         data.downAsOf = timeNow(1);
                       } else {
-                        console.log("The field is DOES exist. NO CHANGE ***")
+                        // debug
+                        //console.log("The field is DOES exist. NO CHANGE ***")
                       }
                     }
                   }
