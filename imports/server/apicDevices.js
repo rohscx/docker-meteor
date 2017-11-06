@@ -193,7 +193,8 @@ let apicDevices = ()=>{
                   }
                 } else {
                   // takes care of any other state
-                  console.log("Interface is up, markind downAsOf to NULL")
+                  // debug
+                  //console.log("Interface is up, markind downAsOf to NULL")
                   data.downAsOf = null;
                 }
               })
