@@ -167,7 +167,7 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
                   console.log("HTTPRe ",data.status)
-                  console.log("dbCheck",(dataCheck[0].siteData.dataObj))
+                  console.log("dbCheck",dataCheck[0])
 
                   if (dataCheck[0].siteData.dataObj.interfaceDetail){
                     console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
