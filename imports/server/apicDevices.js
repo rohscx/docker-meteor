@@ -163,12 +163,10 @@ let apicDevices = ()=>{
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
               // creates a record of when the interface has gone down, and how long it has been down
+              console.log(dataCheck)
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
-                  console.log(dataCheck.siteData.dataObj.interfaceDetail[index])
-                  console.log(dataCheck)
-                  if (!dataCheck.siteData.dataObj.interfaceDetail[index].downAsOf){
-                    console.log(dataCheck.siteData.dataObj.interfaceDetail[index])
+                  if (!data.downAsOf){
                     data.downAsOf = timeNow(1);
                   } else if (data.downAsOf == null) {
                     data.downAsOf = timeNow(1);
