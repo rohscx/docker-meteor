@@ -56,7 +56,7 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.adminStatus);
           tempArray.push(item2.status);
           tempArray.push(item2.status);
-          tempArray.push(convertDateToText(item2.downAsof));
+          tempArray.push(downAsof);
           colummRowArray.push(tempArray);
         } else {
           // do nothing
