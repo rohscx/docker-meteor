@@ -167,13 +167,13 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
                   console.log(data.status)
-                  /*
+
                   if (dataCheck[0].siteData.dataObj.interfaceDetail){
-                    //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
-                    //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].portName)
+                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
+                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].portName)
                     //console.log(data.status)
                     //console.log(data.portName)
-                  }*/
+                  }
                   console.log("local DB",dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
                   if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
                     console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
