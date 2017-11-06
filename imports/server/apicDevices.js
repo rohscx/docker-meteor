@@ -175,7 +175,9 @@ let apicDevices = ()=>{
                     } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
                       console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists")
                       if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
-                        console.log("The field does not exist setting downAsOf to current time")
+                        console.log(data.id)
+                        console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
+                        console.log("The field does not exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
                         data.downAsOf = timeNow(1);
                       } else {
                         console.log("The field is NOT NULL. NO CHANGE ***")
