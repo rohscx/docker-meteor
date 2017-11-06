@@ -167,7 +167,7 @@ let apicDevices = ()=>{
                 //console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
                 console.log(data.status)
                 if (data.status == "down") {
-
+                  console.log("data returned from int call: ",(dataCheck.length >= 1))
                   if (dataCheck.length >= 1) {
                     console.log("has content: ",(dataCheck.length >= 1) )
                     dataCheck.siteData.dataObj.interfaceDetail.map((data1,index1)=>{
