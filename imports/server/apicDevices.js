@@ -167,16 +167,19 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
                   if (dataCheck[0].siteData.dataObj.interfaceDetail){
-                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
-                    console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].portName)
-                    console.log(data.status)
-                    console.log(data.portName)
+                    //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id)
+                    //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].portName)
+                    //console.log(data.status)
+                    //console.log(data.portName)
                   }
-                  if (!data.downAsOf){
+                  if (!dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf){
+                    console.log("NO dataCheck found adding time stamp")
                     data.downAsOf = timeNow(1);
-                  } else if (data.downAsOf == null) {
+                  } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null) {
+                    console.log("NULL dataCheck found adding time stamp")
                     data.downAsOf = timeNow(1);
                   } else {
+                    console.log("Default Action leaving it alone")
                     // do nothing
                   }
                 } else {
