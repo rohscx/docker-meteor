@@ -165,6 +165,7 @@ let apicDevices = ()=>{
               // creates a record of when the interface has gone down, and how long it has been down
               interfaceInfoCall.data.response.map((data,index)=>{
                 //console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
+                console.log(data.status)
                 if (data.status == "down") {
 
                   if (dataCheck.length >= 1) {
