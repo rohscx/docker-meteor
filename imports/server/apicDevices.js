@@ -165,12 +165,11 @@ let apicDevices = ()=>{
               // creates a record of when the interface has gone down, and how long it has been down
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
-                  if (!data.downAsOf){
-                    data.downAsOf = timeNow(1);
-                  } else if (data.downAsOf == null) {
-                    data.downAsOf = timeNow(1);
+                  if (typeof data.downAsOf == 'number'){
+                    console.log(typeof data.downAsOf)
+                    console.log(data.downAsOf)
                   } else {
-                    data.downAsOf = data.downAsOf;
+                    data.downAsOf = timeNow(1);
                   }
                 } else {
                   // takes care of any other state
