@@ -166,6 +166,7 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
                   console.log(dataCheck.siteData.dataObj.interfaceDetail[index])
+                  console.log(dataCheck)
                   if (!dataCheck.siteData.dataObj.interfaceDetail[index].downAsOf){
                     console.log(dataCheck.siteData.dataObj.interfaceDetail[index])
                     data.downAsOf = timeNow(1);
