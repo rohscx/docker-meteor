@@ -38,7 +38,7 @@ const CreateCSV = (csvData,switchExpression) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
         if (item2.status == "down"){
-          console.log(Date(item2.downAsof))
+          console.log(new Date(item2.downAsof))
         }
 
         if (item2.status == "down" && (item2.downAsOf + (86400000 * 2)  <  timeNow(1))){
@@ -48,7 +48,7 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.adminStatus);
           tempArray.push(item2.status);
           tempArray.push(item2.status);
-          tempArray.push(Date(item2.downAsof));
+          tempArray.push(new Date(item2.downAsof));
           colummRowArray.push(tempArray);
         } else {
           // do nothing
