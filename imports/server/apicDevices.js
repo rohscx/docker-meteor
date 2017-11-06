@@ -173,7 +173,7 @@ let apicDevices = ()=>{
                     //console.log(data.status)
                     //console.log(data.portName)
                   }*/
-
+                  console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
                   if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
                     console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
                     data.downAsOf = timeNow(1);
