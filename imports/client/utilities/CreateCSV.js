@@ -37,7 +37,10 @@ const CreateCSV = (csvData,switchExpression) => {
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
-        console.log(Date(item2.downAsof))
+        if (item2.status == "down"){
+          console.log(Date(item2.downAsof))
+        }
+
         if (item2.status == "down" && (item2.downAsOf + (86400000 * 2)  <  timeNow(1))){
           let tempArray = [];
           tempArray.push(item.siteData.dataObj.hostname);
