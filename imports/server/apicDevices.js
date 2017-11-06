@@ -173,7 +173,7 @@ let apicDevices = ()=>{
                     //console.log(data.status)
                     //console.log(data.portName)
                   }*/
-
+                  console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
                   if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf){
                     console.log((dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf))
                     console.log("Default Action leaving it alone")
