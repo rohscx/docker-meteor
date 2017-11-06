@@ -175,13 +175,13 @@ let apicDevices = ()=>{
                       if (typeof data1.downAsOf == 'number') {
                         // do nothing
                       } else {
-                        data.downAsOf = timeNow(1);
+                        data.interfaceDetail.downAsOf = timeNow(1);
                       }
                     })
                   }
                 } else {
                   // takes care of any other state
-                  data.downAsOf = null;
+                  data.interfaceDetail.downAsOf = null;
                 }
 
               })
