@@ -163,30 +163,31 @@ let apicDevices = ()=>{
             const interfaceInfoCall = Meteor.call('apicHttpRequest',"GET",interfaceInfoUrl,options);
             if (interfaceInfoCall.statusCode == 200){
               // creates a record of when the interface has gone down, and how long it has been down
-              interfaceInfoCall.data.response.map((data,index)=>{
+              interfaceInfoCall.data.response.map((intData,intIndex)=>{
                 //console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
-                console.log(data.status)
-                if (data.status == "down") {
+                console.log(intData.status)
+                if (intData.status == "down") {
                   console.log("data returned from int call: ",(dataCheck.length >= 1))
                   if (dataCheck.length >= 1) {
                     console.log("has content: ",(dataCheck.length >= 1) )
-                    dataCheck.siteData.dataObj.interfaceDetail.map((data1,index1)=>{
+                    dataCheck.siteData.dataObj.interfaceDetail.map((intData1,intIndex1)=>{
                       // debug
                       //console.log(typeof data1.downAsOf)
-                      console.log("typeOf ",typeof data1.downAsOf == 'number')
+                      console.log("typeOf ",typeof intData1.downAsOf == 'number')
 
-                      if (typeof data1.downAsOf == 'number') {
+                      if (typeof intData1.downAsOf == 'number') {
                         // do nothing
-                        console.log("data ",data1.downAsOf)
+                        console.log("data ",intData1.downAsOf)
                       } else {
                         data.interfaceDetail.downAsOf = timeNow(1);
                         console.log("timenow")
                       }
                     })
                   } else {
-                    data.interfaceDetail.downAsOf = null;
+                    console.log("has NO content: ",(dataCheck.length >= 1) )
+                    intData.interfaceDetail.downAsOf = null;
                   }
-                } 
+                }
               })
               return data.interfaceDetail = interfaceInfoCall.data.response;
             } else {
