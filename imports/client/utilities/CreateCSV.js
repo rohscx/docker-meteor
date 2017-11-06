@@ -5,8 +5,11 @@ const CreateCSV = (csvData,switchExpression) => {
   let fileString = "";
   let columnHeaderArray = [];
   let colummRowArray = [];
-  const convertDateToText = (dateInMiliseconds) =>{
-    return new Date(dateInMiliseconds)
+  const convertDateToReadable = (dateInMiliseconds) =>{
+    const dateReadable = new Date(dateInMiliseconds)
+    console.log(dateInMiliseconds);
+    console.log(dateReadable);
+    return dateReadable;
   }
   const timeNow = (divisor) =>{
     return Math.round(new Date().getTime() / divisor);
@@ -40,11 +43,10 @@ const CreateCSV = (csvData,switchExpression) => {
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
-        console.log("cats")
-        console.log("date ",convertDateToText(item2.downAsof))
+        console.log("date ",convertDateToReadable(item2.downAsof))
         console.log(item2.status == "down")
         if (item2.status == "down"){
-          console.log("date ",convertDateToText(item2.downAsof))
+          console.log("date ",convertDateToReadable(item2.downAsof))
         }
 
         if (item2.status == "down" && (item2.downAsOf + (86400000 * 2)  <  timeNow(1))){
