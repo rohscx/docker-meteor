@@ -166,18 +166,20 @@ let apicDevices = ()=>{
 
               interfaceInfoCall.data.response.map((data,index)=>{
                 if (data.status == "down") {
-                  console.log("HTTPRe ",data.status)
-                  console.log(dataCheck)
+                  console.log("Apic Says it's ",data.status)
                   if (dataCheck[0]){
-                    console.log("dbcheck", dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
+                    console.log("Mongo Says it's ", dataCheck[0].siteData.dataObj.interfaceDetail[index].status)
                     if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
-                      console.log("Local DB up, APIC says it's down. Setting downAsOf to current time")
+                      console.log("Mongo says UP, and APIC says it's DOWN. Setting downAsOf to current time")
                       data.downAsOf = timeNow(1);
                     } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
+                      console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists")
                       if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
-                        console.log("Found to be down Marking with Time stamp")
+                        console.log("The field does not exist setting downAsOf to current time")
                         data.downAsOf = timeNow(1);
-                      }              
+                      } else {
+                        console.log("The field is NOT NULL. NO CHANGE ***")
+                      }
                     }
                   }
                 } else {
