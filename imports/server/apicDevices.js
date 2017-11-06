@@ -170,10 +170,11 @@ let apicDevices = ()=>{
                     dataCheck[0].siteData.dataObj.interfaceDetail.map((data1,index1)=>{
                       // debug
                       //console.log(typeof data1.downAsOf)
-                      //console.log("typeOf ",typeof data1.downAsOf == 'number')
-                      //console.log("data ",data1.downAsOf)
+                      console.log("typeOf ",typeof data1.downAsOf == 'number')
+
                       if (typeof data1.downAsOf == 'number') {
                         // do nothing
+                        console.log("data ",data1.downAsOf)
                       } else {
                         data.interfaceDetail.downAsOf = timeNow(1);
                       }
