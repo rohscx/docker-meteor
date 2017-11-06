@@ -173,14 +173,17 @@ let apicDevices = ()=>{
                     //console.log(data.status)
                     //console.log(data.portName)
                   }*/
-                  console.log((dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf))
+
                   if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf){
+                    console.log((dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf))
                     console.log("Default Action leaving it alone")
                     // do nothing
                   } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null) {
+                    console.log((dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf))
                     console.log("NULL dataCheck found adding time stamp")
                     data.downAsOf = timeNow(1);
                   } else {
+                    console.log((dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf))
                     console.log("NO dataCheck found adding time stamp")
                     data.downAsOf = timeNow(1);
                   }
