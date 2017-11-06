@@ -177,6 +177,7 @@ let apicDevices = ()=>{
                         console.log("data ",data1.downAsOf)
                       } else {
                         data.interfaceDetail.downAsOf = timeNow(1);
+                        console.log("timenow")
                       }
                     })
                   }
