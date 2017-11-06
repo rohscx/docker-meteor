@@ -181,8 +181,8 @@ let apicDevices = ()=>{
                   // takes care of any other state
                   data.downAsOf = null;
                 }
+                return data.interfaceDetail = interfaceInfoCall.data.response;
               })
-              return data.interfaceDetail = interfaceInfoCall.data.response;
             }
           }
         }
