@@ -166,18 +166,19 @@ let apicDevices = ()=>{
               interfaceInfoCall.data.response.map((data,index)=>{
                 //console.log(dataCheck[0].siteData.dataObj.interfaceDetail)
                 if (data.status == "down") {
-                  console.log("down")
-                  dataCheck[0].siteData.dataObj.interfaceDetail.map((data1,index1)=>{
-                    // debug
-                    //console.log(typeof data1.downAsOf)
-                    //console.log("typeOf ",typeof data1.downAsOf == 'number')
-                    //console.log("data ",data1.downAsOf)
-                    if (typeof data1.downAsOf == 'number') {
-                      // do nothing
-                    } else {
-                      data.downAsOf = timeNow(1);
-                    }
-                  })
+                  if (dataCheck[0]) {
+                    dataCheck[0].siteData.dataObj.interfaceDetail.map((data1,index1)=>{
+                      // debug
+                      //console.log(typeof data1.downAsOf)
+                      //console.log("typeOf ",typeof data1.downAsOf == 'number')
+                      //console.log("data ",data1.downAsOf)
+                      if (typeof data1.downAsOf == 'number') {
+                        // do nothing
+                      } else {
+                        data.downAsOf = timeNow(1);
+                      }
+                    })
+                  }
                 } else {
                   // takes care of any other state
                   data.downAsOf = null;
