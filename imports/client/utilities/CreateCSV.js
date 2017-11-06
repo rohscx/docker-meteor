@@ -43,10 +43,11 @@ const CreateCSV = (csvData,switchExpression) => {
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
-        console.log("date ",convertDateToReadable(item2.downAsof))
-        console.log(item2.status == "down")
+
         if (item2.status == "down"){
           console.log("date ",convertDateToReadable(item2.downAsof))
+          console.log("date **** ",item2.downAsof)
+          console.log(item2.status == "down")
         }
 
         if (item2.status == "down" && (item2.downAsOf + (86400000 * 2)  <  timeNow(1))){
