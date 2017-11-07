@@ -183,6 +183,7 @@ let apicDevices = ()=>{
                         // debug
                         //console.log("Number Detected, Doing nothing", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
                         // DO NOTHING
+                        data.downAsOf = dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf;
                       } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
                         // debug
                         /*console.log(data.id)
