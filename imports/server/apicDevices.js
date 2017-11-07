@@ -178,7 +178,10 @@ let apicDevices = ()=>{
                     } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
                       // debug
                       //console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists");
-                      if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
+                      if (typeof dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == "number") {
+                        // debug
+                        console.log("Number Detected, Doing nothing", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
+                      } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
                         // debug
                         /*console.log(data.id)
                         //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id);
