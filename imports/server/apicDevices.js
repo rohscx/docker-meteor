@@ -174,19 +174,22 @@ let apicDevices = ()=>{
                     if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "up") {
                       // debug
                       //console.log("Mongo says UP, and APIC says it's DOWN. Setting downAsOf to current time");
+                      //set downAsOf to Date Time in miliseconds
                       data.downAsOf = timeNow(1);
                     } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].status == "down") {
                       // debug
                       //console.log("Mongo says DOWN, and APIC says it's DOWN. Checking if field exists");
                       if (typeof dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == "number") {
                         // debug
-                        console.log("Number Detected, Doing nothing", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
+                        //console.log("Number Detected, Doing nothing", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
+                        // DO NOTHING
                       } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
                         // debug
                         /*console.log(data.id)
                         //console.log(dataCheck[0].siteData.dataObj.interfaceDetail[index].id);
                         console.log("The field does NOT exist setting downAsOf to current time", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf);
                         */
+                        //set downAsOf to Date Time in miliseconds
                         data.downAsOf = timeNow(1);
                       } else {
                         // debug
@@ -198,6 +201,7 @@ let apicDevices = ()=>{
                   // takes care of any other state
                   // debug
                   //console.log("Interface is up, markind downAsOf to NULL")
+                  //set downAsOf to NULL
                   data.downAsOf = null;
                 }
               })
