@@ -182,7 +182,7 @@ let apicDevices = ()=>{
                       if (typeof dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == "number") {
                         // debug
                         //console.log("Number Detected, Doing nothing", dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf)
-                        // DO NOTHING
+                        // DO NOTHING, leave the existing time stamp
                         data.downAsOf = dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf;
                       } else if (dataCheck[0].siteData.dataObj.interfaceDetail[index].downAsOf == null){
                         // debug
@@ -195,6 +195,8 @@ let apicDevices = ()=>{
                       } else {
                         // debug
                         //console.log("The field is DOES exist. NO CHANGE ***")
+                        //set downAsOf to Date Time in miliseconds
+                        data.downAsOf = timeNow(1);
                       }
                     }
                   }
