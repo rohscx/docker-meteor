@@ -40,7 +40,7 @@ const CreateCSV = (csvData,switchExpression) => {
     })
     break;
     case "downInterfaces(protracted).csv":
-    columnHeaderArray = ["hostName","className","adminStatus","status","downAsof","portName"];
+    columnHeaderArray = ["hostName","className","adminStatus","status","portName","downAsof"];
     csvData.map((item) => {
       item.siteData.dataObj.interfaceDetail.map((item2) => {
         // 86400000 ms in one day
@@ -58,7 +58,7 @@ const CreateCSV = (csvData,switchExpression) => {
           tempArray.push(item2.className);
           tempArray.push(item2.adminStatus);
           tempArray.push(item2.status);
-          tempArray.push(item2.status);
+          tempArray.push(item2.portName);
           tempArray.push(convertDateToReadable(item2.downAsOf));
           colummRowArray.push(tempArray);
         } else {
