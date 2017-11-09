@@ -110,14 +110,15 @@ const CreateCSV = (csvData,switchExpression) => {
     })
     break;
     case "accessPoints(raw).csv":
-    columnHeaderArray = ["hostName","series","reachablityStatus","softwareVersion","serialNumber",];
+    columnHeaderArray = ["hostName","series","reachabilityStatus","softwareVersion","managmentIpAddress","serialNumber",];
     csvData.map((item) => {
       if (item.siteData.dataObj.family == "Unified AP"){
         let tempArray = [];
         tempArray.push(item.siteData.dataObj.hostname);
         tempArray.push(item.siteData.dataObj.series);
-        tempArray.push(item.siteData.dataObj.reachablityStatus);
+        tempArray.push(item.siteData.dataObj.reachabilityStatus);
         tempArray.push(item.siteData.dataObj.softwareVersion);
+        tempArray.push(item.siteData.dataObj.managmentIpAddress);
         tempArray.push(item.siteData.dataObj.serialNumber);
         colummRowArray.push(tempArray);
       } else {
