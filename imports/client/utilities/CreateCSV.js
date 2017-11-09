@@ -108,7 +108,25 @@ const CreateCSV = (csvData,switchExpression) => {
       })
     })
     break;
-
+    case "accessPoints(raw).csv":
+    columnHeaderArray = ["hostName","series","reachablityStatus","softwareVersion","serialNumber",];
+    csvData.map((item) => {
+      item.siteData.dataObj.interfaceDetail.map((item2) => {
+        // 86400000 ms in one day
+        if (item.siteData.dataObj.family == "Unified AP"){
+          let tempArray = [];
+          tempArray.push(item.siteData.dataObj.hostname);
+          tempArray.push(item2.series);
+          tempArray.push(item2.reachablityStatus);
+          tempArray.push(item2.softwareVersion);
+          tempArray.push(item2.serialNumber);
+          colummRowArray.push(tempArray);
+        } else {
+          // do nothing
+        }
+      })
+    })
+    break;
   }
   // Debug
   //console.log(columnHeaderArray)
