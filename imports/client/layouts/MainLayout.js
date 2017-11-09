@@ -37,7 +37,7 @@ const divStyles = {
 // mobile device tester
 const divStylesGenerator = ()=>{
   // debug
-  console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
+  //console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
   let divStyles = (widthPercent)=>{
     return {
       margin: "auto",
