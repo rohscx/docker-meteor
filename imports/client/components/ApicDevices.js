@@ -58,6 +58,14 @@ class ApicDevices extends Component {
     }
   }
 
+  csvAccessPoints (switchExpression){
+    const rawObj = this.props.dbSearch({"siteData.dataObj.family":"Unified AP",{sort:{"siteData.dataObj.hostname":-1}})
+    //const switchExpression = "downInterfaces.csv";
+    if (rawObj.length >= 1) {
+      return CreateCSV(rawObj,switchExpression)
+    }
+  }
+
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
