@@ -7,8 +7,9 @@ const CreateCSV = (csvData,switchExpression) => {
   let colummRowArray = [];
   const convertDateToReadable = (dateInMiliseconds) =>{
     const dateReadable = new Date(dateInMiliseconds)
-    console.log(dateInMiliseconds);
-    console.log(dateReadable);
+    // debug
+    //console.log(dateInMiliseconds);
+    //console.log(dateReadable);
     return dateReadable;
   }
   const timeNow = (divisor) =>{
