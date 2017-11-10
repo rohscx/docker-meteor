@@ -58,7 +58,7 @@ export default class DeviceTypeCountBar extends Component {
     return findfieldArray.map((data,key)=>{
       const dbData = this.props.dbCount(data);
       console.log(dbData);
-      console.log(data.siteData)
+      console.log(data[0].siteData)
       return (
         <div key={key} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
           <div style= {{backgroundColor:"#5cb85c",width: "299px",height: "flex",margin: "5px"}}>
