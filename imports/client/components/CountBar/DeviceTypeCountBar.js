@@ -59,14 +59,12 @@ export default class DeviceTypeCountBar extends Component {
       const dbData = this.props.dbCount(data);
       console.log(dbData);
       console.log(data)
+      let name = data.siteData.dataObj.family;
       return (
         <div key={key} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
           <div style= {{backgroundColor:"#5cb85c",width: "299px",height: "flex",margin: "5px"}}>
-            <Row className="show-grid" style={rowStylesMain} className="container-fluid">
-              <Col xs={6} sm={6} md={6}></Col>
-            </Row>
             <Row className="show-grid" className="container-fluid">
-              <Col xs={6} sm={6} md={12}>{dbData}</Col>
+              <Col xs={6} sm={6} md={12}>{dbData}: {name}</Col>
             </Row>
           </div>
         </div>
