@@ -52,25 +52,20 @@ export default class DeviceTypeCountBar extends Component {
 
     let dbData = this.props.dbCount(findField1);
     console.log(dbData);
-    /*
-    return dbData.map((data,key)=>{
-      console.log(data)
-      console.log(data._id)
-      console.log(data.webServerData.dataObj.name)
-      return (
-        <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
-          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
-            <Row className="show-grid" style={rowStylesMain} className="container-fluid">
-              <Col xs={6} sm={6} md={12}> {data.webServerData.dataObj.name}</Col>
-            </Row>
-            <Row className="show-grid" className="container-fluid">
-              <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
-            </Row>
-          </div>
+
+    return (
+      <div key={1} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
+        <div style= {{backgroundColor:"#d9534f",width: "299px",height: "flex",margin: "5px"}}>
+          <Row className="show-grid" style={rowStylesMain} className="container-fluid">
+            <Col xs={6} sm={6} md={12}> {dbData}</Col>
+          </Row>
+          <Row className="show-grid" className="container-fluid">
+            <Col xs={6} sm={6} md={6}> Yo!!!!</Col>
+          </Row>
         </div>
-      )
-    })
-    */
+      </div>
+    )
+
   }
 
 render() {
