@@ -54,16 +54,13 @@ export default class DeviceTypeCountBar extends Component {
     const rTTCalculator = (rtT,rtC) =>{
       return Math.round(rtT/rtC);
     }
-
     return findfieldArray.map((data,key)=>{
       const dbData = this.props.dbCount(data);
-      console.log(dbData);
-      console.log(data)
       return (
         <div key={key} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
           <div style= {{backgroundColor:"#5cb85c",width: "188px",height: "flex",margin: "5px"}}>
             <Row className="show-grid" className="container-fluid">
-              <Col xs={6} sm={6} md={12}>{dbData}: {data["siteData.dataObj.family"]}</Col>
+              <Col xs={6} sm={6} md={12}>{data["siteData.dataObj.family"]}: {dbData}:</Col>
             </Row>
           </div>
         </div>
@@ -81,7 +78,7 @@ render() {
     alignItems: "center",
     justifyContent: "center"
   }
-    console.log(this)
+    //console.log(this)
     return(
       <div style= {flexContainer} className="container-fluid">
         {this.returnLayout()}
