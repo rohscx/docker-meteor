@@ -60,7 +60,7 @@ export default class DeviceTypeCountBar extends Component {
         <div key={key} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
           <div style= {{backgroundColor:"#5cb85c",width: "188px",height: "flex",margin: "5px"}}>
             <Row className="show-grid" className="container-fluid">
-              <Col xs={6} sm={6} md={12}>{data["siteData.dataObj.family"]}: {dbData}:</Col>
+              <Col xs={6} sm={6} md={12}>{data["siteData.dataObj.family"]}: {dbData}</Col>
             </Row>
           </div>
         </div>
