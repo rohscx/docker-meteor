@@ -15,9 +15,9 @@ export default class DeviceTypeCountBar extends Component {
   returnLayout() {
     let findfieldArray = [
       {"siteData.dataObj.family":"Unified AP"},
-      {"siteData.dataObj.family":"Wireless Controller"},
       {"siteData.dataObj.family":"Routers"},
-      {"siteData.dataObj.family":"Switches and Hubs"}
+      {"siteData.dataObj.family":"Switches and Hubs"},
+      {"siteData.dataObj.family":"Wireless Controller"}
     ];
     //console.log(findLimit)
     let passStyle = {
