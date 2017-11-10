@@ -55,7 +55,7 @@ export default class DeviceTypeCountBar extends Component {
       return Math.round(rtT/rtC);
     }
 
-    findfieldArray.map((data,key)=>{
+    return findfieldArray.map((data,key)=>{
       const dbData = this.props.dbCount(data);
       console.log(dbData);
       console.log(data)
@@ -63,18 +63,15 @@ export default class DeviceTypeCountBar extends Component {
         <div key={1} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open("www.google.com")}} >
           <div style= {{backgroundColor:"#5cb85c",width: "299px",height: "flex",margin: "5px"}}>
             <Row className="show-grid" style={rowStylesMain} className="container-fluid">
-              <Col xs={6} sm={6} md={6}> Yo!!!!</Col>
+              <Col xs={6} sm={6} md={6}>{data.siteData.dataObj.family}</Col>
             </Row>
             <Row className="show-grid" className="container-fluid">
-              <Col xs={6} sm={6} md={12}> {dbData}</Col>
+              <Col xs={6} sm={6} md={12}>{dbData}</Col>
             </Row>
           </div>
         </div>
       )
     })
-
-
-
   }
 
 render() {
