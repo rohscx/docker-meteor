@@ -103,6 +103,11 @@ export default createContainer(({params}) => {
     //console.log("searchObj",searchObj)
     return ItemsApicDevices.find(searchObj).fetch();
   }
+  countBy = (searchObj) =>{
+    // debug
+    //console.log("searchObj",searchObj)
+    return ItemsApicDevices.find(searchObj).count();
+  }
   return {
     showAll,
     ready: apicDevicesItemsSub.ready(),
@@ -115,6 +120,11 @@ export default createContainer(({params}) => {
       //debug
       //console.log(sortBy(sortValue, sortOrder))
       return searchFor(searchObj)
+    },
+    dbCount: function data(searchObj){
+      //debug
+      //console.log(sortBy(sortValue, sortOrder))
+      return countBy(searchObj)
     }
   };
 }, AppApicDevices);

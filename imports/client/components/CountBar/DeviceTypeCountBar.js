@@ -1,0 +1,93 @@
+import React, {Component} from 'react';
+import Modal from 'react-modal';
+import { Session } from 'meteor/session';
+import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
+
+export default class DeviceTypeCountBar extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+    };
+
+  }
+
+  returnLayout() {
+    let findField1 = {"siteData.dataObj.family":"Unified AP"};
+    //console.log(findLimit)
+    let passStyle = {
+      backgroundColor:"#5cb85c"
+    }
+    let failStyle = {
+      backgroundColor:"#d9534f"
+    }
+    const divStyles = {
+      paddingTop: '0%',
+      paddingButtom: '0%'
+    }
+    const rowStylesMain = {
+      fontWeight: "bold"
+    }
+    const flexItemGenerator = (wsfS,rsC,rT) => {
+      let flexObj1 = (color)=> {
+        return {
+          backgroundColor: color,
+          width: "299px",
+          height: "flex",
+          margin: "5px",
+        };
+      }
+      let timeNow = new Date().getTime();
+      let timeDiff = timeNow - rT;
+      console.log("timeDiff",timeDiff);
+      if (wsfS === 0 && rsC === 200 && timeDiff <= 30000) {
+        return flexObj1("#5cb85c");
+      } else {
+        return flexObj1("#d9534f");
+      }
+    }
+    const rTTCalculator = (rtT,rtC) =>{
+      return Math.round(rtT/rtC);
+    }
+
+    let dbData = this.props.dbCount(findField1);
+    console.log(dbData);
+    /*
+    return dbData.map((data,key)=>{
+      console.log(data)
+      console.log(data._id)
+      console.log(data.webServerData.dataObj.name)
+      return (
+        <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
+          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
+            <Row className="show-grid" style={rowStylesMain} className="container-fluid">
+              <Col xs={6} sm={6} md={12}> {data.webServerData.dataObj.name}</Col>
+            </Row>
+            <Row className="show-grid" className="container-fluid">
+              <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
+            </Row>
+          </div>
+        </div>
+      )
+    })
+    */
+  }
+
+render() {
+  const flexContainer = {
+    display: "-webkit-flex",
+    display: "flex",
+    flexWrap: "wrap",
+    width: "flex",
+    height: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+    console.log(this)
+    return(
+      <div style= {flexContainer} className="container-fluid">
+        {this.returnLayout()}
+      </div>
+    )
+  }
+}

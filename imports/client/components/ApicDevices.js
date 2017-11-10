@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToolbar, Button } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
+import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions'
 import FileDownload from '../utilities/FileDownload'
@@ -180,9 +181,10 @@ class ApicDevices extends Component {
     return(
       <div style={divStyles}>
         {this.form()}
-      <div style={{float:"right"}}>
-        {this.downloadData()}
-      </div>
+        <DeviceTypeCountBar {... this.props}/>
+        <div style={{float:"right"}}>
+          {this.downloadData()}
+        </div>
         <Layout {... this.props}/>
       </div>
     )
