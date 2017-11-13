@@ -7,7 +7,7 @@ export default class Greeting extends Component {
   render() {
     const divStylesGenerator = ()=>{
       // debug
-      console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
+      //console.log("Mobile Device Connected",/Mobi/.test(navigator.userAgent))
       let divStyles = (marginPercent)=>{
         return {
           margin: marginPercent
