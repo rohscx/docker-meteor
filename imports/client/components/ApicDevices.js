@@ -67,6 +67,14 @@ class ApicDevices extends Component {
     }
   }
 
+  csvVlans (switchExpression){
+    const rawObj = this.props.dbSearch({"siteData.dataObj.vlanDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
+    //const switchExpression = "downInterfaces.csv";
+    if (rawObj.length >= 1) {
+      return CreateCSV(rawObj,switchExpression)
+    }
+  }
+
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
@@ -78,6 +86,7 @@ class ApicDevices extends Component {
           <ExportButton {...this.props} fileName = "downInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>
           <ExportButton {...this.props} fileName = "halfDuplexInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>
           <ExportButton {...this.props} fileName = "accessPoints(raw).csv" fileData = {this.csvAccessPoints.bind(this)}/>
+          <ExportButton {...this.props} fileName = "vlans(routers).csv" fileData = {this.csvVlans.bind(this)}/>
         </ButtonToolbar>
       </div>
     )

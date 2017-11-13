@@ -110,7 +110,7 @@ const CreateCSV = (csvData,switchExpression) => {
     })
     break;
     case "accessPoints(raw).csv":
-    columnHeaderArray = ["hostName","series","reachabilityStatus","softwareVersion","managementIpAddress","serialNumber",];
+    columnHeaderArray = ["hostName","series","reachabilityStatus","softwareVersion","managementIpAddress","serialNumber"];
     csvData.map((item) => {
       if (item.siteData.dataObj.family == "Unified AP"){
         let tempArray = [];
@@ -121,6 +121,25 @@ const CreateCSV = (csvData,switchExpression) => {
         tempArray.push(item.siteData.dataObj.managementIpAddress);
         tempArray.push(item.siteData.dataObj.serialNumber);
         colummRowArray.push(tempArray);
+      } else {
+        // do nothing
+      }
+    })
+    break;
+    case "vlans(routers).csv":
+    columnHeaderArray = ["hostName","managementIpAddress","vlanNumber","ipAddress","prefix","networkAddress"];
+    csvData.map((item) => {
+      if (item.siteData.dataObj.family == "Routers" && item.siteData.dataObj.vlanDetail){
+        item.siteData.dataObj.vlanDetail.map((item2) => {
+          let tempArray = [];
+          tempArray.push(item.siteData.dataObj.hostname);
+          tempArray.push(item.siteData.dataObj.managementIpAddress);
+          tempArray.push(item2.vlanNumber);
+          tempArray.push(item2.ipAddress);
+          tempArray.push(item2.prefix);
+          tempArray.push(item2.networkAddress);
+          colummRowArray.push(tempArray);
+        })
       } else {
         // do nothing
       }
