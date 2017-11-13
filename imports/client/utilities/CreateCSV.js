@@ -52,7 +52,7 @@ const CreateCSV = (csvData,switchExpression) => {
           console.log(item2.status == "down")
         }
         */
-        if (item2.status == "down" && (item2.downAsOf + (86400000 * 2)  <  timeNow(1))){
+        if (item2.status == "down" && (item2.downAsOf + (86400000 * 7)  <  timeNow(1))){
           let tempArray = [];
           tempArray.push(item.siteData.dataObj.hostname);
           tempArray.push(item2.className);
