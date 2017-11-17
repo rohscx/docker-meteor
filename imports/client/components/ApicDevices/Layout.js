@@ -520,10 +520,13 @@ export default class Table extends Component {
         }
         const roleCheckHostName = (role,roleHostName,roleHostIpAddress,roleSwitchExpression) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
-            console.log(roleHostName)
-
             switch(roleSwitchExpression) {
               case "Wireless Controller":
+              return (
+                <a href={"https://"+roleHostIpAddress}>{roleHostName}</a>
+              )
+              break;
+              case "Security and VPN":
               return (
                 <a href={"https://"+roleHostIpAddress}>{roleHostName}</a>
               )
