@@ -521,7 +521,7 @@ export default class Table extends Component {
         const roleCheckHostName = (role,roleHostName,roleHostIpAddress,roleSwitchExpression) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             console.log(roleHostName)
-            
+
             switch(roleSwitchExpression) {
               case "Wireless Controller":
               return (
@@ -530,13 +530,13 @@ export default class Table extends Component {
               break;
               default:
               return (
-                {roleHostName}
+                <div>{roleHostName}</div>
               )
             }
 
           } else {
             return (
-              {roleHostName}
+              <div>{roleHostName}</div>
             )
           }
         }
