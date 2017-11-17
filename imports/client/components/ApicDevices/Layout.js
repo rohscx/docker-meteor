@@ -447,7 +447,21 @@ export default class Table extends Component {
     let reachCheck = (status,failureInfo,dbID)=>{
       const FailureToolTip = React.createClass({
         render() {
-          let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip} {dbID}</Tooltip>;
+          let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip} {"MongoDB_ID: "+dbID}</Tooltip>;
+
+          return (
+            <OverlayTrigger
+              overlay={tooltip} placement="top"
+              delayShow={300} delayHide={150}
+            >
+              <p>{this.props.children}</p>
+            </OverlayTrigger>
+          );
+        }
+      });
+      const SuccessToolTip = React.createClass({
+        render() {
+          let tooltip = <Tooltip id={"MongoDB_ID: "+dbID}</Tooltip>;
 
           return (
             <OverlayTrigger
@@ -461,7 +475,9 @@ export default class Table extends Component {
       });
       if(status == 'Reachable'){
         return (
-          <mark style={passStyle}>{status}</mark>
+          <SuccessToolTip tooltip={failureInfo} id="tooltip-1">
+            <mark style={passStyle}>{status}</mark>
+          </SuccessToolTip>
         )
       } else {
         return (
