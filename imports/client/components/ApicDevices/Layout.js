@@ -444,10 +444,10 @@ export default class Table extends Component {
     const rowStylesMain = {
       fontWeight: "bold"
     }
-    let reachCheck = (status,failureInfo)=>{
+    let reachCheck = (status,failureInfo,dbID)=>{
       const FailureToolTip = React.createClass({
         render() {
-          let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip}</Tooltip>;
+          let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip} {dbID}</Tooltip>;
 
           return (
             <OverlayTrigger
@@ -507,6 +507,7 @@ export default class Table extends Component {
         let licenseDetail = data.siteData.dataObj.licenseDetail;
         let hostName = data.siteData.dataObj.hostname;
         let family = data.siteData.dataObj.family;
+        let dbMongoID = data["_id"];
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -544,7 +545,7 @@ export default class Table extends Component {
           }
         }
         return (
-          <div key={data["_id"]} style= {divStyles}>
+          <div key={dbMongoID} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
               <Col xs={8} sm={6} md={3}>{roleCheckHostName("admin",hostName,mgmtIpAddress,family)}</Col>
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
@@ -552,7 +553,7 @@ export default class Table extends Component {
             </Row>
             <Row className="show-grid">
               <Col xs={5} sm={6} md={2}><IsRole role={['admin']}>{roleCheck("admin")}</IsRole></Col>
-              <Col xs={6} sm={6} md={2}>{reachCheck(status, failureInfo)} </Col>
+              <Col xs={6} sm={6} md={2}>{reachCheck(status, failureInfo, dbMongoID)} </Col>
               <Col xs={6} sm={6} md={2}>Ver: {data.siteData.dataObj.softwareVersion}</Col>
               <Col xs={6} sm={6} md={3}>Up Time: {data.siteData.dataObj.upTime}</Col>
               <Col xs={6} sm={6} md={1}>Int#: {data.siteData.dataObj.interfaceCount}</Col>
