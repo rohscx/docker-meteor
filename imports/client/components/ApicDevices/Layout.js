@@ -505,6 +505,8 @@ export default class Table extends Component {
         let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason  : "noData";
         let interfaceDetail = data.siteData.dataObj.interfaceDetail;
         let licenseDetail = data.siteData.dataObj.licenseDetail;
+        let hostName = data.siteData.dataObj.hostname;
+        let family = data.siteData.dataObj.family;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -516,10 +518,30 @@ export default class Table extends Component {
             )
           }
         }
+        const roleCheckHostName = (role,roleHostName,roleHostIpAddress,roleSwitchExpression) => {
+          if (Roles.userIsInRole(Meteor.userId(), role)){
+            switch(roleSwitchExpression) {
+              case "Wireless Controller":
+              return (
+                <a href={"https://"+roleHostIpAddress}>{roleHostName}</a>
+              )
+              break;
+              default:
+              return (
+                {roleHostName}
+              )
+            }
+
+          } else {
+            return (
+              {roleHostName}
+            )
+          }
+        }
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={8} sm={6} md={3}>{data.siteData.dataObj.hostname}</Col>
+              <Col xs={8} sm={6} md={3}><IsRole role={['admin']}>{roleCheckHostName("admin",hostName,mgmtIpAddress,family)}</IsRole></Col>
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
