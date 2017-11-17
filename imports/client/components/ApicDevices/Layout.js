@@ -543,7 +543,7 @@ export default class Table extends Component {
         return (
           <div key={data["_id"]} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
-              <Col xs={8} sm={6} md={3}><IsRole role={['admin']}>{roleCheckHostName("admin",hostName,mgmtIpAddress,family)}</IsRole></Col>
+              <Col xs={8} sm={6} md={3}>{roleCheckHostName("admin",hostName,mgmtIpAddress,family)}</Col>
               <Col xs={6} sm={6} md={2}>{data.siteData.dataObj.role}</Col>
               <Col xs={6} sm={6} md={6}>Updated @ UTC {data.siteData.dataObj.lastUpdated}</Col>
             </Row>
