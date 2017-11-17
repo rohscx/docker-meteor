@@ -461,7 +461,7 @@ export default class Table extends Component {
       });
       const SuccessToolTip = React.createClass({
         render() {
-          let tooltip = <Tooltip id={"MongoDB_ID: "+dbID}</Tooltip>;
+          let tooltip = <Tooltip id={this.props.id}>{"MongoDB_ID: "+dbID}</Tooltip>;
 
           return (
             <OverlayTrigger
