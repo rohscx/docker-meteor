@@ -523,12 +523,12 @@ export default class Table extends Component {
             switch(roleSwitchExpression) {
               case "Wireless Controller":
               return (
-                <a href={"https://"+roleHostIpAddress}>{roleHostName}</a>
+                <a href={"https://"+roleHostIpAddress} target="_blank">{roleHostName}</a>
               )
               break;
               case "Security and VPN":
               return (
-                <a href={"https://"+roleHostIpAddress}>{roleHostName}</a>
+                <a href={"https://"+roleHostIpAddress} target="_blank">{roleHostName}</a>
               )
               break;
               default:
