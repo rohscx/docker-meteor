@@ -11,6 +11,7 @@ import IsRole from './utilities/IsRole';
 import Header from './components/Header';
 import { autobind } from 'core-decorators';
 //import ItemsApicDevices from '../api/prtg';
+import ApicModal from 'ApicDevices/ApicModal'
 
 
 
