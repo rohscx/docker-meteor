@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 
-export default const ApicModal = React.createClass({
+export default const ApicModal = createReactClass({
   getInitialState() {
     return { showModal: false };
   },
