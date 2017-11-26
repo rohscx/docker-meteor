@@ -35,12 +35,12 @@ const ApicModal = createReactClass({
           bsSize="xsmall"
           onClick={this.open}
         >
-          {this.props.hostName}
+          {this.props.buttonName}
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={this.state.showModal} onHide={this.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title id="contained-modal-title-lg">{this.props.hostName}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <h4>Text in a modal</h4>
