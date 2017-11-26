@@ -6,10 +6,11 @@ import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
 import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
-import { fiaTrace } from '../actions/utilActions'
-import FileDownload from '../utilities/FileDownload'
-import ExportButton from '../utilities/ExportButton'
-import CreateCSV from '../utilities/CreateCSV'
+import { fiaTrace } from '../actions/utilActions';
+import FileDownload from '../utilities/FileDownload';
+import ExportButton from '../utilities/ExportButton';
+import CreateCSV from '../utilities/CreateCSV';
+import ApicModal from 'ApicDevices/ApicModal';
 
 class ApicDevices extends Component {
   constructor() {
@@ -189,6 +190,7 @@ class ApicDevices extends Component {
     //console.log(this);
     return(
       <div style={divStyles}>
+        <ApicModal></ApicModal>
         {this.form()}
         <DeviceTypeCountBar {... this.props}/>
         <div style={{float:"right"}}>
