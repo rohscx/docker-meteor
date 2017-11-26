@@ -75,4 +75,4 @@ export default ApicModal = createReactClass({
   },
 });
 
-ReactDOM.render(<Example />, mountNode);
+ReactDOM.render(<ApicModal />, mountNode);
