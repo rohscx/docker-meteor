@@ -10,7 +10,7 @@ import { fiaTrace } from '../actions/utilActions';
 import FileDownload from '../utilities/FileDownload';
 import ExportButton from '../utilities/ExportButton';
 import CreateCSV from '../utilities/CreateCSV';
-import ApicModal from 'ApicDevices/ApicModal';
+import ApicModal from './ApicDevices/ApicModal';
 
 class ApicDevices extends Component {
   constructor() {
