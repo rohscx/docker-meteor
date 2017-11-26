@@ -78,7 +78,7 @@ class ApicModal extends React.Component {
         </Modal>
       </div>
     );
-  },
+  }
 };
 
 export default ApicModal;
