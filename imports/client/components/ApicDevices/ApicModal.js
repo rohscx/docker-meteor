@@ -32,6 +32,7 @@ class ApicModal extends React.Component {
     const tooltip = (
       <Tooltip id="modal-tooltip">
         wow.
+        {that.props.modalName}
       </Tooltip>
     );
     console.log(that)
