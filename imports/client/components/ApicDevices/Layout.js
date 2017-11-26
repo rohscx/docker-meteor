@@ -582,7 +582,7 @@ export default class Table extends Component {
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
                 {interfaceDetail ? <ApicModal modalName={"interfaceData1"} hostName={hostName} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
-                {interfaceDetail ? ()=>{this.openModal(interfaceDetail); console.log(this.openModal(interfaceDetail)) return(<ApicModal modalName={"interfaceData1"} hostName={hostName} modalData={this.modalRenderer(this.state.modalData)}/>)  } : ""}
+                {interfaceDetail ? ()=>{this.openModal(interfaceDetail); return(<ApicModal modalName={"interfaceData1"} hostName={hostName} modalData={this.modalRenderer(this.state.modalData)}/>)  } : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
@@ -627,7 +627,7 @@ export default class Table extends Component {
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    //console.log(this)
+    console.log(this)
 
     return(
       <div>
