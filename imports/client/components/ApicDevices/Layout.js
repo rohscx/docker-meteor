@@ -633,7 +633,7 @@ export default class Table extends Component {
           {this.returnLayout()}
         </ScrollHandler>
         <div>
-          {this.modalIsOpen ? <ApicModal modalName={"interfaceData1"} hostName={"hostName"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+          {this.state.modalIsOpen ? <ApicModal modalName={"interfaceData1"} hostName={"hostName"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
 
         </div>
       </div>

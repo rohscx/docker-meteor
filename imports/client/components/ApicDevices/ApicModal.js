@@ -37,7 +37,6 @@ class ApicModal extends React.Component {
     console.log(that)
     return (
       <div>
-        {that.open}
         <Modal show={that.state.lgShow} onHide={that.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">{that.hostName}</Modal.Title>
