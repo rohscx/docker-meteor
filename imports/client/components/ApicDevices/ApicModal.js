@@ -35,6 +35,7 @@ class ApicModal extends React.Component {
       </Tooltip>
     );
     console.log(that)
+    console.log(that.props.interfaceDetail)
     return (
       <div>
 
