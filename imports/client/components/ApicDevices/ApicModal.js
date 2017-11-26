@@ -33,8 +33,7 @@ const ApicModal = createReactClass({
         <p>Click to get the full Modal experience!</p>
 
         <Button
-          bsStyle="primary"
-          bsSize="large"
+          bsSize="xsmall"
           onClick={this.open}
         >
           Launch demo modal
