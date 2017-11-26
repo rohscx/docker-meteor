@@ -413,7 +413,7 @@ export default class Table extends Component {
             key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
             key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
             key == "mediaType" || key == "featureVersion" || key == "hostId" || key == "maxUsage" ||
-            key == "validityPeriodRemaining"
+            key == "validityPeriodRemaining" || || key == "usageCountRemaining"
           )
             {
               // do nothing with these matches
