@@ -27,7 +27,7 @@ const ApicModal = createReactClass({
         wow.
       </Tooltip>
     );
-
+    console.log(this)
     return (
       <div>
         <p>Click to get the full Modal experience!</p>
