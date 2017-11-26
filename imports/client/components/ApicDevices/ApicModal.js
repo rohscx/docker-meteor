@@ -9,7 +9,7 @@ class ApicModal extends React.Component {
     this.state = {
       showModal: false,
     };
-
+    this.setState = this.setState.bind(this);
   };
   getInitialState() {
     return { showModal: false };
