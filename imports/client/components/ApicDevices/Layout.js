@@ -414,7 +414,7 @@ export default class Table extends Component {
             key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
             key == "mediaType" || key == "featureVersion" || key == "hostId" || key == "maxUsage" ||
             key == "validityPeriodRemaining" || key == "usageCountRemaining" || key == "isEulaAccepted" ||
-            || key == "nativeVlanId"
+            key == "nativeVlanId"
           )
             {
               // do nothing with these matches
