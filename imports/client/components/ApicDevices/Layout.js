@@ -633,18 +633,9 @@ export default class Table extends Component {
         <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>
           {this.returnLayout()}
           <div className="modal modal-content modal-responsive">
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              onAfterOpen={this.afterOpenModal}
-              onRequestClose={this.closeModal}
-              style={customStyles}
-              contentLabel="APIC Modal"
-            >
-              <div>
-                
-                {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
-              </div>
-            </Modal>
+            <div>
+              {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+            </div>
           </div>
         </ScrollHandler>
       </div>
