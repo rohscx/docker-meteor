@@ -40,7 +40,7 @@ class ApicModal extends React.Component {
 
         <Button
           bsSize="xsmall"
-          onClick={that.open}
+          onClick=()=>{{that.open}}
         >
           {that.props.modalName}
         </Button>
