@@ -632,7 +632,7 @@ export default class Table extends Component {
         <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>
           {this.returnLayout()}
         </ScrollHandler>
-        <div><ApicModal modalName={"interfaceData1"} hostName={"hostName"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}</div>
+        <div><ApicModal modalName={"interfaceData1"} hostName={"hostName"} modalData={this.modalRenderer(this.state.modalData)}/></div>
       </div>
     )
   }
