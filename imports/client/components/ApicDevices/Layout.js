@@ -84,7 +84,7 @@ export default class Table extends Component {
       this.setState({modalIsOpen: true});
       this.setState({modalData: data});
       // debug
-      console.log(this.state.modalData);
+      //console.log(this.state.modalLink);
     }
   }
 
@@ -581,6 +581,8 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
+                {interfaceDetail ? <ApicModal modalName={"interfaceData1"} hostName={hostName} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+                {interfaceDetail ? ()=>{this.openModal(interfaceDetail); return(<ApicModal modalName={"interfaceData1"} hostName={hostName} modalData={this.modalRenderer(this.state.modalData)}/>)  } : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
@@ -632,10 +634,6 @@ export default class Table extends Component {
         <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>
           {this.returnLayout()}
         </ScrollHandler>
-        <div>
-          {this.state.modalIsOpen ? <ApicModal modalName={"interfaceData1"} hostName={"hostName"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
-
-        </div>
       </div>
     )
   }

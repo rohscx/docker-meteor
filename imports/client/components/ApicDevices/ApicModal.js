@@ -35,9 +35,16 @@ class ApicModal extends React.Component {
       </Tooltip>
     );
     console.log(that)
-    that.props.modalData ? that.open() : "";
     return (
       <div>
+
+        <Button
+          bsSize="xsmall"
+          onClick={that.open}
+        >
+          {that.props.modalName}
+        </Button>
+
         <Modal show={that.state.lgShow} onHide={that.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">{that.hostName}</Modal.Title>
