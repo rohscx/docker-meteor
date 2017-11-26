@@ -27,7 +27,7 @@ const ApicModal = createReactClass({
         wow.
       </Tooltip>
     );
-    console.log(this)
+    //console.log(this)
     return (
       <div>
 
