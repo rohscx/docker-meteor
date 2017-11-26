@@ -63,7 +63,7 @@ class ApicModal extends React.Component {
             <hr />
 
             <h4>Overflowing text to show scroll behavior</h4>
-            <div style={{fontSize:"78%"}}>{that.props.modalData}</div>
+            <div style={{fontSize:"78%"}}>{that.props.modalRender()}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={that.close}>Close</Button>
