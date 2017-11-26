@@ -54,7 +54,7 @@ const ApicModal = createReactClass({
 
             <hr />
 
-            <div style={{fontSize:"78%"}}>{this.props.interfaceDetail}</div>
+            <div style={{fontSize:"78%"}}>{this.props.modalData}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
