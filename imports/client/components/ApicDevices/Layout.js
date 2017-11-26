@@ -641,7 +641,7 @@ export default class Table extends Component {
               contentLabel="APIC Modal"
             >
               <div>
-                {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
+                
                 {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
               </div>
             </Modal>
