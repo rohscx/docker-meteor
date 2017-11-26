@@ -580,8 +580,8 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
+                {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{<ApicModal openModal={this.state.modalIsOpen} modalData={this.modalRenderer(this.state.modalData)}/>}}>interfaceData</Button> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
-
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
@@ -631,9 +631,6 @@ export default class Table extends Component {
       <div>
         <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>
           {this.returnLayout()}
-          <div>
-            {this.state.modalIsOpen ? <ApicModal openModal={this.state.modalIsOpen} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
-          </div>
         </ScrollHandler>
       </div>
     )

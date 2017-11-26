@@ -34,8 +34,7 @@ class ApicModal extends React.Component {
         wow.
       </Tooltip>
     );
-    console.log(that)
-    that.props.openModal ? that.open() : "";
+    that.open()
     return (
       <div>
 
