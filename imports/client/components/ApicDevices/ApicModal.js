@@ -7,20 +7,20 @@ class ApicModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      lgShow: false,
     };
     that = this;
   };
   getInitialState() {
-    return { showModal: false };
+    return { lgShow: false };
   };
 
   close() {
-    that.setState({ showModal: false });
+    that.setState({ lgShow: false });
   };
 
   open() {
-    that.setState({ showModal: true });
+    that.setState({ lgShow: true });
   };
 
   render() {
@@ -45,7 +45,7 @@ class ApicModal extends React.Component {
           {that.props.modalName}
         </Button>
 
-        <Modal show={that.state.showModal} onHide={that.close} dialogClassName="custom-modal">
+        <Modal show={that.state.lgShow} onHide={that.close} dialogClassName="custom-modal">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
           </Modal.Header>
