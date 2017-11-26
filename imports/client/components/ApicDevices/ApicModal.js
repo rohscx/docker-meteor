@@ -9,18 +9,18 @@ class ApicModal extends React.Component {
     this.state = {
       showModal: false,
     };
-    this.setState = this.setState.bind(this);
+    that = this;
   };
   getInitialState() {
     return { showModal: false };
   };
 
   close() {
-    this.setState({ showModal: false });
+    that.setState({ showModal: false });
   };
 
   open() {
-    this.setState({ showModal: true });
+    that.setState({ showModal: true });
   };
 
   render() {
@@ -34,18 +34,18 @@ class ApicModal extends React.Component {
         wow.
       </Tooltip>
     );
-    console.log(this)
+    console.log(that)
     return (
       <div>
 
         <Button
           bsSize="xsmall"
-          onClick={this.open}
+          onClick={that.open}
         >
           Launch demo modal
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={that.state.showModal} onHide={that.close}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
@@ -73,7 +73,7 @@ class ApicModal extends React.Component {
             <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+            <Button onClick={that.close}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
