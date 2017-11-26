@@ -527,6 +527,8 @@ export default class Table extends Component {
         let hostName = data.siteData.dataObj.hostname;
         let family = data.siteData.dataObj.family;
         let dbMongoID = data["_id"];
+        let interfaceDetailObj = new Object();
+        interfaceDetailObj.detail = interfaceDetail;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -581,7 +583,7 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
-                {interfaceDetail ? <ApicModal interfaceDetail={this.interfaceDetail} modalName={"interfaceData1"} hostName={hostName}/> : ""}
+                {interfaceDetail ? <ApicModal interfaceDetail={interfaceDetailObj.detail} modalName={"interfaceData1"} hostName={hostName}/> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
