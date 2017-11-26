@@ -522,7 +522,7 @@ export default class Table extends Component {
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
         let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason  : "noData";
-        let interfaceDetail = new data.siteData.dataObj.interfaceDetail;
+        let interfaceDetail = data.siteData.dataObj.interfaceDetail;
         let licenseDetail = data.siteData.dataObj.licenseDetail;
         let hostName = data.siteData.dataObj.hostname;
         let family = data.siteData.dataObj.family;
@@ -581,7 +581,7 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
-                {interfaceDetail ? <ApicModal interfaceDetail={interfaceDetail} modalName={"interfaceData1"} hostName={hostName}/> : ""}
+                {interfaceDetail ? <ApicModal interfaceDetail={interfaceDetail.bind(this)} modalName={"interfaceData1"} hostName={hostName}/> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
