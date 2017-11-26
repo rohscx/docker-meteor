@@ -2,7 +2,7 @@ import React, {Component, ReactDOM} from 'react';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 
-class ApicModal extends React.Component {
+const ApicModal = React.createClass({
   getInitialState() {
     return { showModal: false };
   },
@@ -73,6 +73,6 @@ class ApicModal extends React.Component {
       </div>
     );
   },
-};
+});
 
-export default ApicModal;
+ReactDOM.render(<ApicModal />, mountNode);
