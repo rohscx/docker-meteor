@@ -81,7 +81,7 @@ export default class Table extends Component {
     if (data === null){
       this.setState({modalData: null});
     } else {
-      //this.setState({modalIsOpen: true});
+      this.setState({modalIsOpen: true});
       this.setState({modalData: data});
       // debug
       //console.log(this.state.modalLink);
@@ -580,7 +580,7 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
-                {interfaceDetail ? <ApicModal onClick={()=>{this.openModal(interfaceDetail)}} modalName={"interfaceData"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+                {interfaceDetail ? <ApicModal modalName={"interfaceData"} modalData={this.modalRenderer(interfaceDetail)}/> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
 
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
