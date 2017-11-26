@@ -47,7 +47,7 @@ class ApicModal extends React.Component {
 
         <Modal show={that.state.showModal} onHide={that.close} aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <h4>Text in a modal</h4>
