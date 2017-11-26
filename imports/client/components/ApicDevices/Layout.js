@@ -5,6 +5,7 @@ import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 import IsRole from '../../utilities/IsRole';
 import ScrollHandler from '../../utilities/ScrollHandler';
+import ApicModal from './ApicModal';
 
 export default class Table extends Component {
   constructor() {
@@ -580,6 +581,7 @@ export default class Table extends Component {
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
+                <ApicModal></ApicModal>
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}

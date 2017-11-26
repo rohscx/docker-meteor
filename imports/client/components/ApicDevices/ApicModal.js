@@ -30,7 +30,6 @@ const ApicModal = createReactClass({
     console.log(this)
     return (
       <div>
-        <p>Click to get the full Modal experience!</p>
 
         <Button
           bsSize="xsmall"
