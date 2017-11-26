@@ -3,80 +3,18 @@ import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip,Modal} from 'react-bootstrap';
 
-class ApicModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lgShow: false,
-    };
-    that = this;
-  };
+const ApicModal = createReactClass({
   getInitialState() {
-    return { lgShow: false };
-  };
+    return { showModal: false };
+  },
 
   close() {
-    that.setState({ lgShow: false });
-  };
+    this.setState({ showModal: false });
+  },
 
   open() {
-    that.setState({ lgShow: true });
-  };
-
-  modalRenderer(modalObj){
-    let renderMe = (renderData1,renderData2)=>{
-      return (
-        <div key={Math.random()}>
-          <table className = "table table-striped table-hover table-responsive">
-            <thead className="thead-default">
-              <tr>
-                {renderData1}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-              {renderData2}
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      )
-    }
-    if (modalObj === null){
-      return (
-        <div> No Data</div>
-      )
-    } else {
-      return modalObj.map((data,dataKey)=>{
-        let thArray = [];
-        let tdArray = [];
-        thArray[dataKey] =[]
-        tdArray[dataKey] =[]
-        for (var [key, value] of Object.entries(data)) {
-          if (key == "ipAddress"){
-            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-            tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
-          } else if (
-            key == "pid" || key == "deviceId" || key == "series" || key == "isisSupport" ||
-            key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
-            key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
-            key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
-            key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
-            key == "mediaType"
-          )
-            {
-              // do nothing with these matches
-
-          } else {
-            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-            tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
-          }
-        }
-        return renderMe(thArray[dataKey],tdArray[dataKey])
-      })
-      }
-    }
-
+    this.setState({ showModal: true });
+  },
 
   render() {
     const popover = (
@@ -89,23 +27,20 @@ class ApicModal extends React.Component {
         wow.
       </Tooltip>
     );
-
-
-    console.log(that)
-    console.log(that.props.interfaceDetail)
+    console.log(this)
     return (
       <div>
 
         <Button
           bsSize="xsmall"
-          onClick={that.open}
+          onClick={this.open}
         >
-          {that.props.modalName}
+          Launch demo modal
         </Button>
 
-        <Modal show={that.state.lgShow} onHide={that.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-lg">{that.hostName}</Modal.Title>
+            <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <h4>Text in a modal</h4>
@@ -120,15 +55,23 @@ class ApicModal extends React.Component {
             <hr />
 
             <h4>Overflowing text to show scroll behavior</h4>
-            <div style={{fontSize:"78%"}}>{that.props.interfaceDetail ? that.modalRenderer(that.props.interfaceDetail) : ""}</div>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={that.close}>Close</Button>
+            <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
-  }
-};
+  },
+});
 
 export default ApicModal;
