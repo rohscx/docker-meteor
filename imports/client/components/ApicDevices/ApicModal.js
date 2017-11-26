@@ -23,6 +23,8 @@ class ApicModal extends React.Component {
     that.setState({ lgShow: true });
   };
 
+
+
   render() {
     const popover = (
       <Popover id="modal-popover" title="popover">
@@ -34,6 +36,60 @@ class ApicModal extends React.Component {
         wow.
       </Tooltip>
     );
+
+    modalRenderer(modalObj){
+      let renderMe = (renderData1,renderData2)=>{
+        return (
+          <div key={Math.random()}>
+            <table className = "table table-striped table-hover table-responsive">
+              <thead className="thead-default">
+                <tr>
+                  {renderData1}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                {renderData2}
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+      if (modalObj === null){
+        return (
+          <div> No Data</div>
+        )
+      } else {
+        return modalObj.map((data,dataKey)=>{
+          let thArray = [];
+          let tdArray = [];
+          thArray[dataKey] =[]
+          tdArray[dataKey] =[]
+          for (var [key, value] of Object.entries(data)) {
+            if (key == "ipAddress"){
+              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+              tdArray[dataKey].push(<td key={Math.random()}><IsRole role={['admin']}>{value}</IsRole></td>)
+            } else if (
+              key == "pid" || key == "deviceId" || key == "series" || key == "isisSupport" ||
+              key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
+              key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
+              key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
+              key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
+              key == "mediaType"
+            )
+              {
+                // do nothing with these matches
+
+            } else {
+              thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
+              tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+            }
+          }
+          return renderMe(thArray[dataKey],tdArray[dataKey])
+        })
+        }
+      };
     console.log(that)
     console.log(that.props.interfaceDetail)
     return (
@@ -63,7 +119,7 @@ class ApicModal extends React.Component {
             <hr />
 
             <h4>Overflowing text to show scroll behavior</h4>
-            <div style={{fontSize:"78%"}}>{that.props.modalRender()}</div>
+            <div style={{fontSize:"78%"}}>{that.modalRender(that.props.interfaceDetail)}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={that.close}>Close</Button>
