@@ -7,12 +7,12 @@ class ApicModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lgShow: true,
+      lgShow: false,
     };
     that = this;
   };
   getInitialState() {
-    return { lgShow: true };
+    return { lgShow: false };
   };
 
   close() {
@@ -37,7 +37,7 @@ class ApicModal extends React.Component {
     console.log(that)
     return (
       <div>
-
+        {that.open}
         <Modal show={that.state.lgShow} onHide={that.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">{that.hostName}</Modal.Title>
