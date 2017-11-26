@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import createReactClass from 'create-react-class';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
@@ -445,7 +446,7 @@ export default class Table extends Component {
       fontWeight: "bold"
     }
     let reachCheck = (status,failureInfo,dbID)=>{
-      const FailureToolTip = React.createClass({
+      const FailureToolTip = createReactClass({
         render() {
           let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip} {"MongoDB_ID: "+dbID}</Tooltip>;
 
@@ -459,7 +460,7 @@ export default class Table extends Component {
           );
         }
       });
-      const SuccessToolTip = React.createClass({
+      const SuccessToolTip = createReactClass({
         render() {
           let tooltip = <Tooltip id={this.props.id}>{"MongoDB_ID: "+dbID}</Tooltip>;
 

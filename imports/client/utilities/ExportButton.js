@@ -1,9 +1,10 @@
 import React, { PropTypes} from 'react';
+import createReactClass from 'create-react-class';
 import {  Button } from 'react-bootstrap';
 import FileDownload from './FileDownload'
 // note: THis does not provide true secuirty, it simply obfuscates
 
-const ExportButton = React.createClass({
+const ExportButton = createReactClass({
   getInitialState() {
     return {
       isLoading: false,
