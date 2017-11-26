@@ -45,7 +45,7 @@ class ApicModal extends React.Component {
           {that.props.modalName}
         </Button>
 
-        <Modal show={that.state.lgShow} onHide={that.close} dialogClassName={{width:"90%"}} aria-labelledby="contained-modal-title-lg">
+        <Modal show={that.state.lgShow} onHide={that.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
           </Modal.Header>
@@ -62,7 +62,7 @@ class ApicModal extends React.Component {
             <hr />
 
             <h4>Overflowing text to show scroll behavior</h4>
-            <div style={{fontSize:"75%"}}>{that.props.modalData}</div>
+            <div style={{fontSize:"50%"}}>{that.props.modalData}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={that.close}>Close</Button>
