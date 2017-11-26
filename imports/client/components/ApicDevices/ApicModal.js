@@ -3,18 +3,25 @@ import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip,Modal} from 'react-bootstrap';
 
-const ApicModal = createReactClass({
+class ApicModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message:'not at bottom',
+    };
+
+  };
   getInitialState() {
     return { showModal: false };
-  },
+  };
 
   close() {
     this.setState({ showModal: false });
-  },
+  };
 
   open() {
     this.setState({ showModal: true });
-  },
+  };
 
   render() {
     const popover = (
