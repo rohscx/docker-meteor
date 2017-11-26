@@ -412,7 +412,7 @@ export default class Table extends Component {
             key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
             key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
             key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
-            key == "mediaType" || key == "featureVersion" || key == "hostId"
+            key == "mediaType" || key == "featureVersion" || key == "hostId" || key == "maxUsageCount"
           )
             {
               // do nothing with these matches
