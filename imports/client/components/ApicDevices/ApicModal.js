@@ -34,9 +34,16 @@ class ApicModal extends React.Component {
         wow.
       </Tooltip>
     );
-    that.open()
+    console.log(that)
     return (
       <div>
+
+        <Button
+          bsSize="xsmall"
+          onClick={that.open}
+        >
+          {that.props.modalName}
+        </Button>
 
         <Modal show={that.state.showModal} onHide={that.close} aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
@@ -55,7 +62,7 @@ class ApicModal extends React.Component {
             <hr />
 
             <h4>Overflowing text to show scroll behavior</h4>
-            s
+            {that.props.modalData}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={that.close}>Close</Button>
