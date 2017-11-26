@@ -76,4 +76,4 @@ const ApicModal = React.createClass({
   },
 });
 
-ReactDOM.render(<ApicModal />, document.getElementById('example'));
+export default ApicModal;
