@@ -633,7 +633,7 @@ export default class Table extends Component {
           {this.returnLayout()}
           <div className="modal modal-content modal-responsive">
             <div>
-              {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+              {this.state.modalIsOpen ? <ApicModal openModal={this.state.modalIsOpen} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
             </div>
           </div>
         </ScrollHandler>
