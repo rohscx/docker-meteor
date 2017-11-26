@@ -45,7 +45,7 @@ class ApicModal extends React.Component {
           {that.props.modalName}
         </Button>
 
-        <Modal show={that.state.lgShow} onHide={that.close} dialogClassName="custom-modal">
+        <Modal {...that.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
           </Modal.Header>
