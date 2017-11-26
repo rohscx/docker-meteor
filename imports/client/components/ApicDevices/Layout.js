@@ -84,7 +84,7 @@ export default class Table extends Component {
       this.setState({modalIsOpen: true});
       this.setState({modalData: data});
       // debug
-      //console.log(this.state.modalLink);
+      console.log(this.state.modalData);
     }
   }
 
