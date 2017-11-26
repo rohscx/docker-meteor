@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip,Modal} from 'react-bootstrap';
 
-const ApicModal = createReactClass({
+class ApicModal extends React.Component ({
+
   getInitialState() {
     return { showModal: false };
   },
