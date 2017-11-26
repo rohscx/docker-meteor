@@ -190,7 +190,8 @@ class ApicDevices extends Component {
     //console.log(this);
     return(
       <div style={divStyles}>
-        <ApicModal></ApicModal>
+        <div id="example"><ApicModal></ApicModal></div>
+
         {this.form()}
         <DeviceTypeCountBar {... this.props}/>
         <div style={{float:"right"}}>

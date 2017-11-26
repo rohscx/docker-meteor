@@ -76,4 +76,4 @@ const ApicModal = React.createClass({
   },
 });
 
-ReactDOM.render(<ApicModal />, mountNode);
+ReactDOM.render(<ApicModal />, document.getElementById('example'));
