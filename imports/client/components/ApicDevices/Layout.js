@@ -586,9 +586,9 @@ export default class Table extends Component {
               <Col xs={6} sm={6} md={1}><IsRole role={['admin']}><div>{data.siteData.dataObj.serialNumber}</div></IsRole></Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               <ButtonToolbar>
-                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail)} buttonName={"VlanData"} hostName={hostName}/> : ""}
+                {vlanDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail)} buttonName={"VlanData"} hostName={hostName}/> : ""}
                 {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.interfaceDetail)} buttonName={"interfaceData"} hostName={hostName}/> : ""}
-                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail)} buttonName={"licenseDetail"} hostName={hostName}/> : ""}
+                {licenseDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail)} buttonName={"licenseDetail"} hostName={hostName}/> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
