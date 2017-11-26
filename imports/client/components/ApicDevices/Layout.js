@@ -81,7 +81,7 @@ export default class Table extends Component {
     if (data === null){
       this.setState({modalData: null});
     } else {
-      //this.setState({modalIsOpen: true});
+      this.setState({modalIsOpen: true});
       this.setState({modalData: data});
       // debug
       //console.log(this.state.modalLink);
@@ -642,7 +642,7 @@ export default class Table extends Component {
             >
               <div>
                 {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
-                {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""} 
+                {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
               </div>
             </Modal>
           </div>
