@@ -7,7 +7,7 @@ class ApicModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message:'not at bottom',
+      showModal: false,
     };
 
   };
