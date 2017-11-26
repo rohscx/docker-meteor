@@ -581,7 +581,6 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
-                {interfaceDetail ?  : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
