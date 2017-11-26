@@ -580,7 +580,7 @@ export default class Table extends Component {
               <ButtonToolbar>
                 {vlanDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(vlanDetail)}}>VlanData</Button> : ""}
                 {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
-                {interfaceDetail ? <ApicModal modalName={"interfaceData"} modalData={this.modalRenderer(this.state.modalData)}/> : ""}
+                {interfaceDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(interfaceDetail)}}>interfaceData</Button> : ""}
                 {licenseDetail ? <Button bsSize="xsmall" onClick={()=>{this.openModal(licenseDetail)}}>licenseDetail</Button> : ""}
 
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
@@ -642,6 +642,7 @@ export default class Table extends Component {
             >
               <div>
                 {this.state.modalIsOpen ? this.modalRenderer(this.state.modalData) : ""}
+                {this.state.modalIsOpen ? <ApicModal openModal={true} modalData={this.modalRenderer(this.state.modalData)}/> : ""} 
               </div>
             </Modal>
           </div>

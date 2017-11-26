@@ -35,15 +35,9 @@ class ApicModal extends React.Component {
       </Tooltip>
     );
     console.log(that)
+    that.props.openModal ? that.open : that.close;
     return (
       <div>
-
-        <Button
-          bsSize="xsmall"
-          onClick={()=>{that.open}}
-        >
-          {that.props.modalName}
-        </Button>
 
         <Modal show={that.state.showModal} onHide={that.close} aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
