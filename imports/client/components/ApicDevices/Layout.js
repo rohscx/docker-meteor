@@ -522,7 +522,7 @@ export default class Table extends Component {
         let role = data.siteData.dataObj.role;
         let series = data.siteData.dataObj.series;
         let failureInfo = data.siteData.dataObj.reachabilityFailureReason ? data.siteData.dataObj.reachabilityFailureReason  : "noData";
-        let interfaceDetail = data.siteData.dataObj.interfaceDetail;
+        let interfaceDetail = new data.siteData.dataObj.interfaceDetail;
         let licenseDetail = data.siteData.dataObj.licenseDetail;
         let hostName = data.siteData.dataObj.hostname;
         let family = data.siteData.dataObj.family;
