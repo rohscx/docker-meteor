@@ -411,7 +411,8 @@ export default class Table extends Component {
             key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
             key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
             key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
-            key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf"
+            key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
+            key == "mediaType"
           )
             {
               // do nothing with these matches
