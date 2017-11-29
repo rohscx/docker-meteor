@@ -158,10 +158,8 @@ if (Meteor.isServer) {
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
-              setTimeout(()=>{
-                let test = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
-                resolve(test)
-              },9000)
+              let test = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
+              resolve(test)
             })
             return promise;
           }
