@@ -162,16 +162,14 @@ if (Meteor.isServer) {
             return promise;
           }
           x().then((data)=>{
+            console.log(data.data.response.progress);
             if (data.data.response.progress != undefined){
               //console.log("***** ",data.data.response)
-            } else  if (data.data.response.progress.fileId){
+              if (data.data.response.progress.fileId){
                 console.log("hit!!!")
                 let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
                 console.log("***** ",data.data.response)
-                return apicOptions(showObj)
-            } else {
-              console.log(apicShowCommands)
-              return "error"
+              }
             }
           });
         }
