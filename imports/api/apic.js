@@ -78,6 +78,9 @@ if (Meteor.isServer) {
           "description":"",
           "commands":[
             "show clock"
+          ],
+          "deviceUuids":[
+            "29676a90-2623-4496-a48d-2a302344d7f9"
           ]
         }
         const timeNow = (divisor) =>{
