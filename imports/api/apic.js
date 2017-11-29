@@ -70,7 +70,7 @@ if (Meteor.isServer) {
         return e;
       };
     },
-    apicShowCommands(showCommand) {
+    apicShowCommands(showCommand,uuid) {
       try {
         showObj = {
           "name":"testTest123",
