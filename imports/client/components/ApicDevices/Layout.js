@@ -434,7 +434,7 @@ export default class Table extends Component {
         <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons">
           <ButtonToolbar>
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRemove</Button>
-            <Button bsStyle="primary" onClick={()=>{Meteor.call('apicDbRemove',dbID, function(error, result){console.log(error)})}}>mongoRemove</Button>
+            <Button bsStyle="primary" onClick={()=>{Meteor.call('apicDbRemove',dbID, function(error, result){ if (error){console.log(error)}})}}>mongoRemove</Button>
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRescan</Button>
           </ButtonToolbar>
         </Popover>
