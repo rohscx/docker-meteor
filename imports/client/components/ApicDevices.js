@@ -181,6 +181,16 @@ class ApicDevices extends Component {
     );
   }
 
+  showCommandButton() {
+    return (
+      <ButtonGroup vertical>
+        <DropdownButton title="Dropdown" id="bg-vertical-dropdown-1">
+          <MenuItem eventKey="1">Dropdown link</MenuItem>
+          <MenuItem eventKey="2">Dropdown link</MenuItem>
+        </DropdownButton>
+      </ButtonGroup>
+    )
+  }
 
 
   render() {
@@ -197,7 +207,7 @@ class ApicDevices extends Component {
         <div style={{float:"right"}}>
           {this.downloadData()}
         </div>
-        <Layout {... this.props}/>
+        <Layout {... this.props} showCommandButton= {this.showCommandButton.bind(this)}/>
       </div>
     )
   }
