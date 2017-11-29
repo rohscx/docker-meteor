@@ -60,7 +60,7 @@ if (Meteor.isServer) {
       }
     },
     apicDbRemove(dbID) {
-      ItemsApicDevices.remove(dbID,{})
+      return ItemsApicDevices.remove(dbID,{})
     },
   });
 }
