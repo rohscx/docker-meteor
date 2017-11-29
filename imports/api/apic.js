@@ -153,7 +153,7 @@ if (Meteor.isServer) {
         let responseFileID = undefined;
         let undefinedCounter = 0;
         console.log("*****"+responseFileID.data.response.progress.fileId)
-        while (responseFileID.data.response.progress.fileId == undefined && undefinedCounter <= 30){
+        while (responseFileID == undefined && undefinedCounter <= 30){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           console.log(responseFileID.data.response.progress)
