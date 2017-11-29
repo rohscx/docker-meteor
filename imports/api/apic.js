@@ -186,7 +186,7 @@ if (Meteor.isServer) {
           console.log("*****",JSON.parse(test.content))
           let man2 = JSON.parse(test.content)
           console.log(man2[0].commandResponses)
-          return man2[0].commandResponses;
+          return man2[0].commandResponses['SUCCESS'];
 
          //console.log(test)
 
