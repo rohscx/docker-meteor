@@ -171,7 +171,7 @@ if (Meteor.isServer) {
 
               //console.log("***** ",data.data.response);
 
-              responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
+              responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.["fileId"];
               console.log(responseFileURL)
               return data.data.response;
             }
