@@ -186,7 +186,7 @@ class ApicDevices extends Component {
   }
 
   showCommandButton(uuid) {
-    const commandRunner = (scmd) =>{
+    const commandRunner = (scmd,uuid) =>{
       const commandData = Meteor.call('apicShowCommands',scmd,uuid, function(error, result){
         if (error){
           console.log(error)
