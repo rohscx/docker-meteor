@@ -153,7 +153,7 @@ if (Meteor.isServer) {
         let responseFileURL = "";
         let undefinedCounter = 0;
 
-        while (undefinedCounter <= 40){
+        while (undefinedCounter < 40){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
