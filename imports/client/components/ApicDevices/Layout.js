@@ -434,7 +434,7 @@ export default class Table extends Component {
         <div>
           <ButtonToolbar>
             <Button bsStyle="primary">apicRemove</Button>
-            <Button bsStyle="primary">mongoRemove</Button>
+            <Button bsStyle="primary">mongoRemove </Button>
             <Button bsStyle="primary">apicRescan</Button>
           </ButtonToolbar>
         </div>
