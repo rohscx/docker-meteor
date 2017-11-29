@@ -201,7 +201,7 @@ class ApicDevices extends Component {
 
       <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(this.props.apic.apicShowCommands.showCommand)}}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",1)}}>showClock</MenuItem>
-          <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
+          <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",2)}}>showHSRP</MenuItem>
       </SplitButton>
 
     )
