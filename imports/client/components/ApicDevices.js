@@ -5,7 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToo
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
-import { sortBy, apicDevicesFind, apicDbReady } from '../actions/apicActions';
+import { sortBy, apicDevicesFind, apicDbReady, apicShowCommands} from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions';
 import FileDownload from '../utilities/FileDownload';
 import ExportButton from '../utilities/ExportButton';
