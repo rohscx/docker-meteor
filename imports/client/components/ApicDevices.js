@@ -189,8 +189,8 @@ class ApicDevices extends Component {
     return (
 
       <SplitButton bsSize="xsmall" title="showCommandButton" onClick={()=>{Meteor.call('apicShowCommands', function(error, result){ if (error){console.log(error)}})}}>
-          <MenuItem key="1" onSelect={()=>{this.setApicShowCommands("showClock",1)}}>showClock</MenuItem>
-          <MenuItem key="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
+          <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("showClock",1)}}>showClock</MenuItem>
+          <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
       </SplitButton>
 
     )
