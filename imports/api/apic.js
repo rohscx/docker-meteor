@@ -179,6 +179,7 @@ if (Meteor.isServer) {
             }
           });
         }
+        console.log("responseFileURL",responseFileURL)
          let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
          console.log(ha);
          console.log(test)
