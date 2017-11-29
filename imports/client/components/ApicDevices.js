@@ -44,8 +44,8 @@ class ApicDevices extends Component {
     this.props.sortBy(sortName, sortOrder)
   }
 
-  setApicShowCommands(showCommand, validationStatus){
-    this.props.apicShowCommands(showCommand, validationStatus);
+  setApicShowCommands(showCommand, deviceId, validationStatus){
+    this.props.apicShowCommands(showCommand, deviceId, validationStatus);
   }
 
   preventDefault(e){
@@ -257,7 +257,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fiaTrace(srcIp, dstIp, srcInt));
     },
     apicShowCommands: (showCommand, deviceId, validationStatus) => {
-      dispatch(apicShowCommands(showCommand, validationStatus));
+      dispatch(apicShowCommands(showCommand, deviceId, validationStatus));
     },
   };
 };
