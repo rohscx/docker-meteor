@@ -46,6 +46,7 @@ class ApicDevices extends Component {
 
   setApicShowCommands(showCommand, validationStatus){
     this.props.apicShowCommands(showCommand, validationStatus)
+    console.log(this.props.apic.apicShowCommands);
   }
 
   preventDefault(e){
