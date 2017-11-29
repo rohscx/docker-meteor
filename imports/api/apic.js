@@ -180,10 +180,9 @@ if (Meteor.isServer) {
           });
         }
         console.log("responseFileURL",responseFileURL)
-        Meteor.setTimeout(()=>{
+
           let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
           console.log(JSON.stringify(test.response.data.response))
-        },10000)
 
          //console.log(test)
 
