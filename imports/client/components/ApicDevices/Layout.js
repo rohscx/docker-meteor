@@ -620,7 +620,7 @@ export default class Table extends Component {
                     <Button bsSize="xsmall">admin</Button>
                   </OverlayTrigger>
               </IsRole>
-              <IsRole role={['admin']}>{this.props.showCommandButton}</IsRole>
+              <IsRole role={['admin']}>{this.props.showCommandButton()}</IsRole>
               </ButtonToolbar>
             </Row>
           </div>
