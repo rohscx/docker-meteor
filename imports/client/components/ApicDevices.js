@@ -240,7 +240,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fiaTrace(srcIp, dstIp, srcInt));
     },
     apicShowCommands: (showCommand, validationStatus) => {
-      dispatch(fiaTrace(showCommand, validationStatus));
+      dispatch(apicShowCommands(showCommand, validationStatus));
     },
   };
 };
