@@ -620,7 +620,7 @@ export default class Table extends Component {
                     <Button bsSize="xsmall">admin</Button>
                   </OverlayTrigger>
               </IsRole>
-              <IsRole role={['admin']}>{this.props.showCommandButton()}</IsRole>
+              <IsRole role={['admin']}>cats</IsRole>
               </ButtonToolbar>
             </Row>
           </div>
@@ -655,7 +655,7 @@ export default class Table extends Component {
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    //console.log(this)
+    console.log(this)
 
     return(
       <div>
