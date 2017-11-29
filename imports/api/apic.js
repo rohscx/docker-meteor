@@ -157,7 +157,7 @@ if (Meteor.isServer) {
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
-            let promise = new Promise((resolve, reject)=>{
+            let promise = new Promise(resolve, reject,()=>{
               setTimeout(()=>{
                 resolve(responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj)))
               },9000)
