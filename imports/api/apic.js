@@ -187,7 +187,7 @@ if (Meteor.isServer) {
         //return apicOptions(showObj)
       } catch (e) {
         // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-        console.log(e) // debug
+        console.log(JSON.stringify(e)) // debug
         return e;
       }
     }
