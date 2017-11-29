@@ -185,7 +185,7 @@ class ApicDevices extends Component {
     );
   }
 
-  showCommandButton(uuid) {
+  showCommandButton(deviceID) {
     const commandRunner = (scmd,uuid) =>{
       const commandData = Meteor.call('apicShowCommands',scmd,uuid, function(error, result){
         if (error){
@@ -199,7 +199,7 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(this.props.apic.apicShowCommands.showCommand)}}>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(this.props.apic.apicShowCommands.showCommand,deviceID)}}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",2)}}>showHSRP</MenuItem>
       </SplitButton>
