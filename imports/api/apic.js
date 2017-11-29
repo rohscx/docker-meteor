@@ -175,14 +175,18 @@ if (Meteor.isServer) {
               responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
               //console.log(responseFileURL)
 
-              return Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
+              //return Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
             }
           });
         }
         console.log("responseFileURL",responseFileURL)
-         let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
+        setTimeout(()=>{
+          let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
+          console.log(JSON.stringify(test.response.data.response))
+        },10000)
+
          //console.log(test)
-         console.log(JSON.stringify(test.response.data.response))
+
         //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
         //return apicOptions(showObj)
       } catch (e) {
