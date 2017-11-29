@@ -150,10 +150,10 @@ if (Meteor.isServer) {
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL)
-        let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj));
+        let responseFileID = undefined;
         let undefinedCounter = 0;
         console.log("*****"+responseFileID.data.response.progress.fileId)
-        while (responseFileID.data.response.progress.fileId == undefined && undefinedCounter <= 100){
+        while (responseFileID.data.response.progress.fileId == undefined && undefinedCounter <= 30){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           console.log(responseFileID.data.response.progress)
@@ -166,9 +166,12 @@ if (Meteor.isServer) {
           }
           x().then((data)=>{
             console.log(data.data.response.progress);
+            if (data.data.response.progress != undefined){
+              console.log("hit!!!")
+              let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
+              console.log("***** ",responseFileURL)
+            }
           });
-          let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
-          console.log("***** ",responseFileURL)
         }
         //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
         //return apicOptions(showObj)
