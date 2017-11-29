@@ -149,11 +149,10 @@ if (Meteor.isServer) {
 
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
-        console.log("*****"+responseTaskURL)
-        let responseFileID = undefined;
+        console.log("*****"+responseTaskURL);
         let undefinedCounter = 0;
         console.log("*****"+responseFileID.data.response.progress.fileId)
-        while (responseFileID == undefined && undefinedCounter <= 30){
+        while (undefinedCounter <= 30){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           console.log(responseFileID.data.response.progress)
