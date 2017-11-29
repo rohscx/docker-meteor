@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Session } from 'meteor/session';
 import { connect } from 'react-redux';
-import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToolbar, Button, ButtonGroup } from 'react-bootstrap';
+import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToolbar, Button, ButtonGroup,SplitButton } from 'react-bootstrap';
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
