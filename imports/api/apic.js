@@ -60,8 +60,91 @@ if (Meteor.isServer) {
       }
     },
     apicDbRemove(dbID) {
-      return ItemsApicDevices.remove(dbID)
+      try {
+        const result = ItemsApicDevices.remove(dbID);
+        // console.log(result); // debug
+        return result;
+      } catch (e) {
+        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+        console.log(e) // debug
+        return e;
+      };
     },
+    apicShowCommands() {
+      try {
+        showObj = {
+          "name":"testTest123",
+          "tieout":0,
+          "description":"",
+          "commands":[
+            "show clock"
+          ]
+        }
+        const timeNow = (divisor) =>{
+          return Math.round(new Date().getTime() / divisor);
+        }
+        const dateTime = new Date();
+        const baseUrl = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
+        const uName = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uName : Meteor.settings.public.ciscoApicEM.uName;
+        const uPass = Meteor.settings.private.apicEM.uName ? Meteor.settings.private.apicEM.uPass : Meteor.settings.public.ciscoApicEM.uPass;
+        const apicRoleUrn = '/api/v1/user/role';
+        const roleUrl = baseUrl + apicRoleUrn;
+        const apicTicketUrn = '/api/v1/ticket';
+        const ticketUrl = baseUrl + apicTicketUrn;
+        const apicTicketOptions = {
+          headers: { 'content-type': 'application/json' },
+          data: {username: uName, password: uPass}
+        };
+        const apicOptions = (bodyObj) => {
+          const apicTicket = ()=>{
+            const setTimeouts = (idleTimeout,sessionTimeout) =>{
+              ticketIdleTimeout = timeNow(1000) + idleTimeout;
+              ticketSessionTimeout = timeNow(1000) + sessionTimeout;
+              //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+              //console.log("Requesting New ticket: ", oldApicTicket)
+            }
+            if (ticketIdleTimeout === 0 && ticketSessionTimeout === 0 ){
+              let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+              if (httpRequest.data.response.serviceTicket !== undefined) {
+                oldApicTicket = httpRequest.data.response.serviceTicket;
+                setTimeouts(1800,21600);
+                console.log("###-New Ticket: ",oldApicTicket)
+                console.log("###-Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+                return httpRequest.data.response.serviceTicket;
+              } else {
+                return null;
+              }
+
+            } else if (timeNow(1000) >= ticketIdleTimeout || timeNow(1000) >= ticketSessionTimeout){
+              let httpRequest = Meteor.call('apicTicket', "POST",ticketUrl,apicTicketOptions);
+              oldApicTicket = httpRequest.data.response.serviceTicket;
+              setTimeouts(1800,21600);
+              console.log("***-Ticket expired requesting new Ticket: ",oldApicTicket)
+              console.log("***-Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+              return httpRequest.data.response.serviceTicket;
+            } else {
+              //console.log("Using Existing Ticket: ",oldApicTicket)
+              //console.log("Ticket timeout <Time Now: Idle/Session> ",timeNow(1000)+": "+ticketIdleTimeout+"/"+ticketSessionTimeout);
+              return oldApicTicket;
+            }
+          }
+          const requestObj = {
+            headers: {
+              'content-type': 'application/json',
+              'x-auth-token': apicTicket()
+            },
+            data: bodyObj
+          }
+          return requestObj;
+        };
+        return apicOptions(showObj)
+      } catch (e) {
+        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+        console.log(e) // debug
+        return e;
+      }
+    }
+
   });
 }
 
