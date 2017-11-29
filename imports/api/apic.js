@@ -167,8 +167,7 @@ if (Meteor.isServer) {
             console.log(data);
           });
           let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
-          console.log(responseFileID)
-          console.log(responseFileURL)
+          console.log("***** ",responseFileURL)
         }
         //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
         //return apicOptions(showObj)
