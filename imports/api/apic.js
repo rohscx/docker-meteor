@@ -164,6 +164,7 @@ if (Meteor.isServer) {
           x().then((data)=>{
             console.log(data.data.response.progress);
             if (data.data.response.progress != undefined){
+              undefinedCounter = 50
               console.log("hit!!!")
               let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
               console.log("***** ",responseFileURL)
