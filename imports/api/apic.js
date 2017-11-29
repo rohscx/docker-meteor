@@ -62,11 +62,12 @@ if (Meteor.isServer) {
         console.log(e) // debugs
       }
     },
-    apicDbRemove(dbID) {
-      ItemsApicDevices.remove(dbID,{})
-    },
   });
 }
-
+if (Meteor.isClient) {
+  apicDbRemove(dbID) {
+    ItemsApicDevices.remove(dbID,{})
+  },
+}
 
 export default ItemsApicDevices;
