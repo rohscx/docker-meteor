@@ -32,9 +32,6 @@ ItemsApicDevices.attachSchema(ItemsApicDevicesSchema);
 
 
 if (Meteor.isServer) {
-
-
-
   Meteor.methods({
     apicTicket(type, url, options) {
       this.unblock();
@@ -64,6 +61,9 @@ if (Meteor.isServer) {
     },
     apicDbRemove(dbID) {
       ItemsApicDevices.remove(dbID,{})
+    },
+    apicTest(dbID) {
+      return console.log("ServerReceived " + dbID)
     },
   });
 }
