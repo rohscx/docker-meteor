@@ -166,13 +166,11 @@ if (Meteor.isServer) {
           x().then((data)=>{
             console.log(data.data.response.progress);
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
+              undefinedCounter = 50;
               console.log("***AAA** ",data.data.response.progress)
-              if (data.data.response.progress.fileId){
-                console.log("hit!!!")
-                let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
-                console.log("***** ",data.data.response)
-                return data.data.response;
-              }
+              let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
+              console.log("***** ",data.data.response)
+              return data.data.response;
             }
           });
         }
