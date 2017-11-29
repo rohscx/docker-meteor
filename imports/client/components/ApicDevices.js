@@ -44,6 +44,10 @@ class ApicDevices extends Component {
     this.props.sortBy(sortName, sortOrder)
   }
 
+  setApicShowCommands(showCommand, validationStatus){
+    this.props.apicShowCommands(showCommand, validationStatus)
+  }
+
   preventDefault(e){
     e.preventDefault();
   }
@@ -169,10 +173,10 @@ class ApicDevices extends Component {
                  id="input-dropdown-addon"
                  title={buttonLabel(sortField)}
                >
-                 <MenuItem key="1" onSelect= {()=>{this.setSortBy("hostname",1)}}>HostName</MenuItem>
-                 <MenuItem key="2" onSelect= {()=>{this.setSortBy("reachabilityStatus",-1)}}>Reachability</MenuItem>
-                 <MenuItem key="3" onSelect= {()=>{this.setSortBy("upTime",1)}}>UpTime</MenuItem>
-                 <MenuItem key="4" onSelect= {()=>{this.setSortBy("softwareVersion",1)}}>IOS Version</MenuItem>
+                 <MenuItem key="1" onSelect={()=>{this.setSortBy("hostname",1)}}>HostName</MenuItem>
+                 <MenuItem key="2" onSelect={()=>{this.setSortBy("reachabilityStatus",-1)}}>Reachability</MenuItem>
+                 <MenuItem key="3" onSelect={()=>{this.setSortBy("upTime",1)}}>UpTime</MenuItem>
+                 <MenuItem key="4" onSelect={()=>{this.setSortBy("softwareVersion",1)}}>IOS Version</MenuItem>
                </DropdownButton>
              </InputGroup>
            </FormGroup>
@@ -185,8 +189,8 @@ class ApicDevices extends Component {
     return (
       <ButtonGroup vertical>
         <DropdownButton bsSize="xsmall" title="Dropdown" id="bg-vertical-dropdown-1">
-          <MenuItem eventKey="1">Dropdown link</MenuItem>
-          <MenuItem eventKey="2">Dropdown link</MenuItem>
+          <MenuItem key="1" onSelect={()=>{this.setApicShowCommands("showClock",1)}}>showClock</MenuItem>
+          <MenuItem key="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
         </DropdownButton>
       </ButtonGroup>
     )
