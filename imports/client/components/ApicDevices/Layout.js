@@ -429,6 +429,14 @@ export default class Table extends Component {
       }
     }
 
+    adminMenu() {
+      return (
+        <div><Button>apicRemove</Button></div>
+        <div><Button>mongoRemove</Button></div>
+        <div><Button>apicRescan</Button></div>
+      )
+    }
+
 
   returnLayout() {
     let findField = this.props.apic.apicDevicesFind.deviceName;
@@ -598,6 +606,11 @@ export default class Table extends Component {
                 {switchPcapDetail(series) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.switchPcap()}>
                   <Button bsSize="xsmall">sPCAP</Button>
                 </OverlayTrigger> : ""}
+                <IsRole role={['admin']}>
+                  <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.adminMenu()}>
+                    <Button bsSize="xsmall">admin</Button>
+                  </OverlayTrigger>
+              </IsRole>
               </ButtonToolbar>
             </Row>
           </div>
