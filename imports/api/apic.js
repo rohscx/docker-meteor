@@ -145,8 +145,9 @@ if (Meteor.isServer) {
           return requestObj;
         };
         console.log(apicOptions(showObj))
-        console.log(Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj)));
-        let responseTaskID = Meteor.call('apicHttpRequest',"GET",networkDevicePoller,apicOptions(showObj))
+        console.log();
+
+        let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL)
         let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,"");
