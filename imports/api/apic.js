@@ -95,6 +95,7 @@ if (Meteor.isServer) {
           headers: { 'content-type': 'application/json' },
           data: {username: uName, password: uPass}
         };
+        const networkDevicePoller = baseUrl + "/api/v1/network-device-poller/cli/read-request";
         let ticketIdleTimeout = 0;
         let ticketSessionTimeout = 0;
         let oldApicTicket = "";
@@ -141,6 +142,7 @@ if (Meteor.isServer) {
           return requestObj;
         };
         console.log(apicOptions(showObj))
+        console.log(Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj));)
         return apicOptions(showObj)
       } catch (e) {
         // Got a network error, timeout, or HTTP error in the 400 or 500 range.
