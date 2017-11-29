@@ -183,7 +183,8 @@ if (Meteor.isServer) {
 
           let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
           console.log(test)
-          
+          console.log("*****",test.content[0].commandResponses)
+          return test.content[0].commandResponses;
 
          //console.log(test)
 
