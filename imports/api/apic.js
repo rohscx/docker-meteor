@@ -179,7 +179,7 @@ if (Meteor.isServer) {
               console.log(responseFile)
               resolve(responseFile)
             }
-            promise1.then((data1)=>{
+            .then((data1)=>{
               console.log("Omg",data1)
             })
           });
