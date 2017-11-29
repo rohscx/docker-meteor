@@ -62,6 +62,9 @@ if (Meteor.isServer) {
         console.log(e) // debugs
       }
     },
+    apicDbRemove(dbID) {
+      ItemsApicDevices.remove(dbID,{})
+    },
   });
 }
 
