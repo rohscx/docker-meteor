@@ -153,9 +153,10 @@ if (Meteor.isServer) {
         let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj));
         let undefinedCounter = 0;
         console.log("*****"+responseFileID.data.response.progress.fileId)
-        while (responseFileID.data.response.progress.fileId == undefined && undefinedCounter <= 5){
+        while (responseFileID.data.response.progress.fileId == undefined && undefinedCounter <= 100){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
+          console.log(responseFileID.data.response.progress)
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
               let test = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
@@ -164,7 +165,7 @@ if (Meteor.isServer) {
             return promise;
           }
           x().then((data)=>{
-            console.log(data);
+            console.log(data.data.response.progress);
           });
           let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
           console.log("***** ",responseFileURL)
