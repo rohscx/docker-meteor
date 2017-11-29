@@ -184,7 +184,7 @@ class ApicDevices extends Component {
   showCommandButton() {
     return (
       <ButtonGroup vertical>
-        <DropdownButton title="Dropdown" id="bg-vertical-dropdown-1">
+        <DropdownButton bsSize="xsmall" title="Dropdown" id="bg-vertical-dropdown-1">
           <MenuItem eventKey="1">Dropdown link</MenuItem>
           <MenuItem eventKey="2">Dropdown link</MenuItem>
         </DropdownButton>
