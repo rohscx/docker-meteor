@@ -45,8 +45,7 @@ class ApicDevices extends Component {
   }
 
   setApicShowCommands(showCommand, validationStatus){
-    this.props.apicShowCommands(showCommand, validationStatus)
-    console.log(this.props.apic.apicShowCommands);
+    this.props.apicShowCommands(showCommand, validationStatus);
   }
 
   preventDefault(e){
@@ -189,7 +188,7 @@ class ApicDevices extends Component {
   showCommandButton() {
     return (
       <ButtonGroup vertical>
-        <DropdownButton bsSize="xsmall" title="Dropdown" id="bg-vertical-dropdown-1">
+        <DropdownButton bsSize="xsmall" title="Dropdown" id="bg-vertical-dropdown-1" onClick={()=>{Meteor.call('apicShowCommands', function(error, result){ if (error){console.log(error)}})}}>
           <MenuItem key="1" onSelect={()=>{this.setApicShowCommands("showClock",1)}}>showClock</MenuItem>
           <MenuItem key="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
         </DropdownButton>
