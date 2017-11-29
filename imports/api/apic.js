@@ -59,7 +59,7 @@ if (Meteor.isServer) {
         console.log(e) // debugs
       }
     },
-    apicDbRemove(dbID) {
+    apicDbRemove(dbID,uuid) {
       try {
         const result = ItemsApicDevices.remove(dbID);
         // console.log(result); // debug
@@ -80,7 +80,7 @@ if (Meteor.isServer) {
             showCommand
           ],
           "deviceUuids":[
-            "29676a90-2623-4496-a48d-2a302344d7f9"
+            uuid
           ]
         }
         const timeNow = (divisor) =>{

@@ -545,12 +545,14 @@ export default class Table extends Component {
         let hostName = data.siteData.dataObj.hostname;
         let family = data.siteData.dataObj.family;
         let dbMongoID = data["_id"];
+        let deviceUuid = data.siteData.dataObj.id;
         let deviceDataObj = new Object();
         deviceDataObj.interfaceDetail = interfaceDetail;
         deviceDataObj.hostName = hostName;
         deviceDataObj.vlanDetail = vlanDetail;
         deviceDataObj.licenseDetail = licenseDetail;
         deviceDataObj.dbMongoID = dbMongoID;
+        deviceDataObj.deviceUuid = deviceUuid;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -620,7 +622,7 @@ export default class Table extends Component {
                     <Button bsSize="xsmall">admin</Button>
                   </OverlayTrigger>
               </IsRole>
-              <IsRole role={['admin']}>{this.props.showCommandButton()}</IsRole>
+              <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid)}</IsRole>
               </ButtonToolbar>
             </Row>
           </div>
