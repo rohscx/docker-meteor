@@ -152,6 +152,7 @@ if (Meteor.isServer) {
         console.log("*****"+responseTaskURL)
         let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj));
         let undefinedCounter = 0;
+        console.log("*****"+responseFileID.data.response.progress.fileId)
         while (responseFileID.data.response.progress.fileId == undefined){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
