@@ -172,7 +172,7 @@ if (Meteor.isServer) {
               let stringToJSON=JSON.parse(data.data.response.progress);
               //console.log("***** ",data.data.response);
 
-              responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
+              responseFileURL = baseUrl +"/api/v1/file/"+stringToJSON.fileId;
               //console.log(responseFileURL)
 
               //return Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
