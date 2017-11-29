@@ -90,10 +90,11 @@ export function sortBy(sortName, sortOrder) {
   }
 }
 
-export function apicShowCommands(opt1, op2) {
+export function apicShowCommands(opt1, op2, op3) {
   return dispatch => {
     return dispatch(setApicShowCommands({
       showCommand: opt1,
+      deviceId: op3,
       validationStatus: op2
     }));
   }

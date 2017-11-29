@@ -186,6 +186,9 @@ class ApicDevices extends Component {
   }
 
   showCommandButton(deviceID) {
+    const showC = this.props.apic.apicShowCommands.showCommand;
+    const deviceI = this.props.apic.apicShowCommands.deviceId;
+    const validS = this.props.apic.apicShowCommands.validationStatus;
     const commandRunner = (scmd,uuid) =>{
       console.log(scmd)
       console.log(uuid)
@@ -201,11 +204,11 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(this.props.apic.apicShowCommands.showCommand,deviceID)}}>
-          <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID)}}>showClock</MenuItem>
-          <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID)}}>showHSRP</MenuItem>
-          <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | i hostname",deviceID)}}>showHostname</MenuItem>
-          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver| i model number",deviceID)}}>showModelNumber</MenuItem>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI)}}>
+          <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
+          <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
+          <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | i hostname",deviceID,3)}}>showHostname</MenuItem>
+          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver| i model number",deviceID,4)}}>showModelNumber</MenuItem>
       </SplitButton>
 
     )
@@ -253,7 +256,7 @@ const mapDispatchToProps = (dispatch) => {
     fiaTrace: (srcIp, dstIp, srcInt) => {
       dispatch(fiaTrace(srcIp, dstIp, srcInt));
     },
-    apicShowCommands: (showCommand, validationStatus) => {
+    apicShowCommands: (showCommand, deviceId, validationStatus) => {
       dispatch(apicShowCommands(showCommand, validationStatus));
     },
   };

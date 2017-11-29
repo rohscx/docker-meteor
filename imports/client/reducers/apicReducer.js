@@ -12,6 +12,7 @@ const apicReducer = (state = {
   dbReady:false,
   apicShowCommands:{
     showCommand: null,
+    deviceId:null,
     validationStatus: null
   }
 }, action) => {
