@@ -431,11 +431,13 @@ export default class Table extends Component {
 
     adminMenu() {
       return (
-        <ButtonToolbar>
-          <Button>apicRemove</Button>
-          <Button>mongoRemove</Button>
-          <Button>apicRescan</Button>
-        </ButtonToolbar>
+        <div>
+          <ButtonToolbar>
+            <Button bsStyle="primary">apicRemove</Button>
+            <Button bsStyle="primary">mongoRemove</Button>
+            <Button bsStyle="primary">apicRescan</Button>
+          </ButtonToolbar>
+        </div>
       )
     }
 
