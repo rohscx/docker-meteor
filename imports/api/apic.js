@@ -146,6 +146,13 @@ if (Meteor.isServer) {
         };
         console.log(apicOptions(showObj))
         console.log(Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj)));
+        let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
+        let responseTaskURL = baseUrl + responseTaskID.data.response.url;
+        console.log(responseTaskURL)
+        let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,"");
+        let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
+        console.log(responseFileURL)
+        console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
         return apicOptions(showObj)
       } catch (e) {
         // Got a network error, timeout, or HTTP error in the 400 or 500 range.
