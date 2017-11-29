@@ -174,16 +174,9 @@ if (Meteor.isServer) {
 
               responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
               //console.log(responseFileURL)
-              let promise1 = new Promise((resolve, reject)=>{
-              let responseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj))
+              let responseFile = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
               console.log(responseFile)
-              resolve(responseFile)
-            )}
-            return promise1
-          }
-            promise1.then((data1)=>{
-              console.log("Omg",data1)
-            })
+            }
           });
         }
         //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
