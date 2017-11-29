@@ -9,7 +9,11 @@ const apicReducer = (state = {
     btnStyle: false,
     byteType: "ALL"
   },
-  dbReady:false
+  dbReady:false,
+  apicShowCommands:{
+    showCommand: null,
+    validationStatus: null
+  }
 }, action) => {
   switch (action.type) {
     case "SET_APICDEVICESFIND":
@@ -28,6 +32,12 @@ const apicReducer = (state = {
     state = {
       ...state,
       sortBy: action.payload
+    };
+    break;
+    case "SET_APICSHOWCOMMANDS":
+    state = {
+      ...state,
+      apicShowCommands: action.payload
     };
     break;
     }

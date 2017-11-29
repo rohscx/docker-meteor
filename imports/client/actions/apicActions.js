@@ -24,6 +24,13 @@ export function setDbReady(value) {
   };
 }
 
+export function setApicShowCommands(value) {
+  return {
+    type: "SET_APICSHOWCOMMANDS",
+    payload: value
+  };
+}
+
 
 
 export function apicDbReady(status) {
@@ -79,6 +86,15 @@ export function sortBy(sortName, sortOrder) {
     return dispatch(setSortBy({
       field:sortName,
       order: sortOrder
+    }));
+  }
+}
+
+export function apicShowCommands(opt1, op2) {
+  return dispatch => {
+    return dispatch(setApicShowCommands({
+      showCommand: opt1,
+      validationStatus: op2
     }));
   }
 }
