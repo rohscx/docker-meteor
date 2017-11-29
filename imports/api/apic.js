@@ -71,8 +71,6 @@ if (Meteor.isServer) {
       };
     },
     apicShowCommands(showCommand,uuid) {
-      console.log(showCommand)
-      console.log(uuid)
       try {
         showObj = {
           "name":"testTest123",
