@@ -209,7 +209,7 @@ const mapSateToProps = (state) => {
     apic: state.apicReducer,
   };
 };
-
+apicShowCommands
 const mapDispatchToProps = (dispatch) => {
   return {
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
@@ -223,6 +223,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fiaTrace: (srcIp, dstIp, srcInt) => {
       dispatch(fiaTrace(srcIp, dstIp, srcInt));
+    },
+    apicShowCommands: (showCommand, validationStatus) => {
+      dispatch(fiaTrace(showCommand, validationStatus));
     },
   };
 };
