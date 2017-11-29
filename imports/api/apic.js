@@ -150,7 +150,9 @@ if (Meteor.isServer) {
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL);
+        let responseFileURL = "";
         let undefinedCounter = 0;
+
         while (undefinedCounter <= 40){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
@@ -166,10 +168,11 @@ if (Meteor.isServer) {
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
               undefinedCounter = 50;
               console.log("***AAA** ",data.data.response.progress)
-              let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
-              //console.log("***** ",data.data.response);
-              console.log(responseFileURL)
 
+              //console.log("***** ",data.data.response);
+
+              responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
+              console.log(responseFileURL)
               return data.data.response;
             }
           });
