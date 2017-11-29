@@ -175,7 +175,7 @@ if (Meteor.isServer) {
               responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
               //console.log(responseFileURL)
 
-              return "cats"
+              return Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
             }
           });
         }
