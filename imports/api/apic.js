@@ -168,11 +168,11 @@ if (Meteor.isServer) {
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
               undefinedCounter = 50;
               console.log("***AAA** ",data.data.response.progress)
-              console.log("***BBB** ",data.data.response.progress['fileId'])
-
+              console.log("***BBB** ",JSON.parse(data.data.response.progress)
+              let test2=JSON.parse(data.data.response.progress);
               //console.log("***** ",data.data.response);
 
-              responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress["fileId"];
+              responseFileURL = baseUrl +"/api/v1/task/"+test2.fileId;
               console.log(responseFileURL)
               return data.data.response;
             }
