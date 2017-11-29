@@ -174,7 +174,7 @@ if (Meteor.isServer) {
 
               responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
               //console.log(responseFileURL)
-              let responseFile = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
+              let responseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj))
               console.log(responseFile)
 
             }
