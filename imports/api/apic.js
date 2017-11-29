@@ -165,7 +165,7 @@ if (Meteor.isServer) {
           }
           x().then((data)=>{
             console.log(data.data.response.progress);
-            if (data.data.response.progress != undefined){
+            if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
               console.log("***AAA** ",data.data.response.progress)
               if (data.data.response.progress.fileId){
                 console.log("hit!!!")
