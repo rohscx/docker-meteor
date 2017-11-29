@@ -186,10 +186,21 @@ class ApicDevices extends Component {
   }
 
   showCommandButton() {
+    const commandRunner = (scmd) =>{
+      const commandData = Meteor.call('apicShowCommands',scmd, function(error, result){
+        if (error){
+          console.log(error)
+        } else {
+          console.log(result)
+          return result
+        }
+
+      });
+    }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{Meteor.call('apicShowCommands', function(error, result){ if (error){console.log(error)}})}}>
-          <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("showClock",1)}}>showClock</MenuItem>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(this.props.apic.apicShowCommands.showCommand)}}>
+          <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("showHSRP",2)}}>showHSRP</MenuItem>
       </SplitButton>
 

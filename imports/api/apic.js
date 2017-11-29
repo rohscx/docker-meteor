@@ -70,14 +70,14 @@ if (Meteor.isServer) {
         return e;
       };
     },
-    apicShowCommands() {
+    apicShowCommands(showCommand) {
       try {
         showObj = {
           "name":"testTest123",
           "tieout":0,
           "description":"",
           "commands":[
-            "show clock"
+            showCommand
           ],
           "deviceUuids":[
             "29676a90-2623-4496-a48d-2a302344d7f9"
