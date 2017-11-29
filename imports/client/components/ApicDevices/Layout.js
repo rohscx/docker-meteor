@@ -6,6 +6,7 @@ import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} fr
 import IsRole from '../../utilities/IsRole';
 import ScrollHandler from '../../utilities/ScrollHandler';
 import ApicModal from './ApicModal';
+import { Meteor } from 'meteor/meteor';
 
 export default class Table extends Component {
   constructor() {
