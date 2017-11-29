@@ -431,13 +431,13 @@ export default class Table extends Component {
 
     adminMenu() {
       return (
-        <div>
+        <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons">
           <ButtonToolbar>
             <Button bsStyle="primary">apicRemove</Button>
-            <Button bsStyle="primary">mongoRemove </Button>
+            <Button bsStyle="primary">mongoRemove</Button>
             <Button bsStyle="primary">apicRescan</Button>
           </ButtonToolbar>
-        </div>
+        </Popover>
       )
     }
 
