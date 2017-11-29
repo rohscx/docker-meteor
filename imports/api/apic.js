@@ -167,7 +167,7 @@ if (Meteor.isServer) {
               undefinedCounter = 50
               console.log("hit!!!")
               let responseFileURL = baseUrl +"/api/v1/task/"+data.data.response.progress.fileId;
-              console.log("***** ",data.data.response.progress)
+              console.log("***** ",data.data.response)
             }
           });
         }
