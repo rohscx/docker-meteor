@@ -176,6 +176,7 @@ if (Meteor.isServer) {
               //console.log(responseFileURL)
               let responseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj))
               console.log(responseFile)
+              return "cats"
 
             }
           });
