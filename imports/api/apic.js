@@ -62,9 +62,6 @@ if (Meteor.isServer) {
     apicDbRemove(dbID) {
       ItemsApicDevices.remove(dbID,{})
     },
-    apicTest(dbID) {
-      return console.log("ServerReceived " + dbID)
-    },
   });
 }
 
