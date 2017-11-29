@@ -151,9 +151,9 @@ if (Meteor.isServer) {
         console.log(responseTaskURL)
         let responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,"");
         let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
-        console.log(responseFileURL)
-        console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
-        return apicOptions(showObj)
+        //console.log(responseFileURL)
+        //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
+        //return apicOptions(showObj)
       } catch (e) {
         // Got a network error, timeout, or HTTP error in the 400 or 500 range.
         console.log(e) // debug
