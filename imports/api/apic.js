@@ -155,11 +155,11 @@ if (Meteor.isServer) {
         while (responseFileID.data.response.progress.fileId == undefined){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
-          if (undefinedCounter != 5) {
+          /*if (undefinedCounter != 5) {
             setTimeout(()=>{
               responseFileID = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj));
             },2000)
-          }
+          }*/
         }
         let responseFileURL = baseUrl +"/api/v1/task/"+responseFileID.data.response.progress.fileId;
         console.log(responseFileID)
