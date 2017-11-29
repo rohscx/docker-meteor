@@ -95,6 +95,9 @@ if (Meteor.isServer) {
           headers: { 'content-type': 'application/json' },
           data: {username: uName, password: uPass}
         };
+        let ticketIdleTimeout = 0;
+        let ticketSessionTimeout = 0;
+        let oldApicTicket = "";
         const apicOptions = (bodyObj) => {
           const apicTicket = ()=>{
             const setTimeouts = (idleTimeout,sessionTimeout) =>{
