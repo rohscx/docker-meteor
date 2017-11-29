@@ -178,8 +178,8 @@ if (Meteor.isServer) {
               let responseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj))
               console.log(responseFile)
               resolve(responseFile)
-            }
-            .then((data1)=>{
+            )}
+            promise1.then((data1)=>{
               console.log("Omg",data1)
             })
           });
