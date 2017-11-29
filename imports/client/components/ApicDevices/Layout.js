@@ -429,13 +429,13 @@ export default class Table extends Component {
       }
     }
 
-    adminMenu() {
+    adminMenu(dbID) {
       return (
         <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons">
           <ButtonToolbar>
-            <Button bsStyle="primary">apicRemove</Button>
-            <Button bsStyle="primary">mongoRemove</Button>
-            <Button bsStyle="primary">apicRescan</Button>
+            <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRemove</Button>
+            <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>mongoRemove</Button>
+            <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRescan</Button>
           </ButtonToolbar>
         </Popover>
       )
@@ -546,6 +546,7 @@ export default class Table extends Component {
         deviceDataObj.hostName = hostName;
         deviceDataObj.vlanDetail = vlanDetail;
         deviceDataObj.licenseDetail = licenseDetail;
+        deviceDataObj.dbMongoID = dbMongoID;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -611,7 +612,7 @@ export default class Table extends Component {
                   <Button bsSize="xsmall">sPCAP</Button>
                 </OverlayTrigger> : ""}
                 <IsRole role={['admin']}>
-                  <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.adminMenu()}>
+                  <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.adminMenu(deviceDataObj.dbMongoID)}>
                     <Button bsSize="xsmall">admin</Button>
                   </OverlayTrigger>
               </IsRole>
