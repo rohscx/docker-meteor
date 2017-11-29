@@ -158,8 +158,8 @@ if (Meteor.isServer) {
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
-              let test = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
-              resolve(test)
+              let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
+              resolve(responseFileId)
             })
             return promise;
           }
@@ -169,12 +169,14 @@ if (Meteor.isServer) {
               undefinedCounter = 50;
               console.log("***AAA** ",data.data.response.progress)
               console.log("***BBB** ",JSON.parse(data.data.response.progress))
-              let test2=JSON.parse(data.data.response.progress);
+              let stringToJSON=JSON.parse(data.data.response.progress);
               //console.log("***** ",data.data.response);
 
-              responseFileURL = baseUrl +"/api/v1/task/"+test2.fileId;
-              console.log(responseFileURL)
-              return data.data.response;
+              responseFileURL = baseUrl +"/api/v1/task/"+stringToJSON.fileId;
+              //console.log(responseFileURL)
+              let responseFile = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
+              console.log(responseFile)
+
             }
           });
         }
