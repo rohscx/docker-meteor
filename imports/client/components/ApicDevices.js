@@ -201,6 +201,8 @@ class ApicDevices extends Component {
           console.log(error)
         } else {
           console.log(result)
+          this.setApicShowCommandsResponse(result)
+          console.log(this.props.apic.apicShowCommandsResponse)
           return result
         }
 
