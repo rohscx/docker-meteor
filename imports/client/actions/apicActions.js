@@ -107,7 +107,7 @@ export function apicShowCommands(opt1, op2, op3) {
 export function apicShowCommandsResponse(opt1) {
   return dispatch => {
     return dispatch(setSpicShowCommandsResponse({
-      apicShowCommandsResponse:op1
+      apicShowCommandsResponse:opt1
     }));
   }
 }
