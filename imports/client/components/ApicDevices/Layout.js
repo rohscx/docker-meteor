@@ -433,13 +433,11 @@ export default class Layout extends Component {
       return (
         <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons">
           <ButtonToolbar>
+            <ButtonGroup vertical>
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRemove</Button>
-          </ButtonToolbar>
-          <ButtonToolbar>
             <Button bsStyle="primary" onClick={()=>{Meteor.call('apicDbRemove',dbID, function(error, result){ if (error){console.log(error)}})}}>mongoRemove</Button>
-          </ButtonToolbar>
-          <ButtonToolbar>
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRescan</Button>
+            </ButtonGroup>
           </ButtonToolbar>
         </Popover>
       )
