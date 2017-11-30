@@ -627,7 +627,10 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            {JSON.stringify(deviceDataObj.commandRunnerData)}
+            <div style={{"whiteSpace":"pre-line"}}>
+              {JSON.stringify(deviceDataObj.commandRunnerData)}
+            </div>
+
           </div>
         )
       })
