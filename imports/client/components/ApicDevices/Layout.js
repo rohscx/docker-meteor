@@ -604,7 +604,7 @@ export default class Layout extends Component {
             let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/["{}]/g,"");
             console.log(strReplace1)
-            return (document.write(strReplace1));
+            return (document.getElementById("yards").innerHTML = strReplace1);
           } else {
             return "";
           }
@@ -645,7 +645,7 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            <div style={{"whiteSpace":"pre-line"} }>
+            <div style={{"whiteSpace":"pre-line"} id="yards"}>
               {commandRunnerCheck(deviceDataObj.commandRunnerData)}
             </div>
 
