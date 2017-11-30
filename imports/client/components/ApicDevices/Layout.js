@@ -591,6 +591,16 @@ export default class Layout extends Component {
             )
           }
         }
+        const commandRunnerCheck = (cmdRunner) =>{
+          console.log(cmdRunner.length);
+          if (cmdRunner.length >= 4) {
+            const tempCommand =  JSON.stringify(cmdRunner.["SUCCESS"]);
+            console.log(tempCommand.replace(/\n/g,"<br />"));
+            return tempCommand.replace(/\n/g,"<br />");
+          } else {
+            return "";
+          }
+        }
         return (
           <div key={dbMongoID} style= {divStyles}>
             <Row className="show-grid" style={rowStylesMain}>
@@ -628,7 +638,7 @@ export default class Layout extends Component {
               </ButtonToolbar>
             </Row>
             <div style={{"whiteSpace":"pre-line"}}>
-              {JSON.stringify(deviceDataObj.commandRunnerData).replace(/\\n/g,"<br>")}
+              {commandRunnerCheck(deviceDataObj.commandRunnerData)}
             </div>
 
           </div>
