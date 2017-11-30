@@ -546,7 +546,7 @@ export default class Layout extends Component {
         let family = data.siteData.dataObj.family;
         let dbMongoID = data["_id"];
         let deviceUuid = data.siteData.dataObj.id;
-        let commandRunnerData = data.siteData.dataObj.commandRunner["SUCCESS"];
+        let commandRunnerData = data.siteData.dataObj.commandRunner;
         let deviceDataObj = new Object();
         deviceDataObj.interfaceDetail = interfaceDetail;
         deviceDataObj.hostName = hostName;
@@ -628,7 +628,7 @@ export default class Layout extends Component {
               </ButtonToolbar>
             </Row>
             <div style={{"whiteSpace":"pre-line"}}>
-              {deviceDataObj.commandRunnerData ? JSON.stringify(deviceDataObj.commandRunnerData) : ""}
+              {JSON.stringify(deviceDataObj.commandRunnerData).replace(/\\n/g,"<br>")}
             </div>
 
           </div>
