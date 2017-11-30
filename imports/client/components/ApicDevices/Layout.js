@@ -597,7 +597,7 @@ export default class Layout extends Component {
           if (cmdRunner) {
             const tempCommand =  JSON.stringify(cmdRunner["SUCCESS"]);
             // simple error checking
-            if (cmdRunner["BLACKLISTED"].length != null || cmdRunner["FAILURE"] != null) {
+            if (cmdRunner["BLACKLISTED"].length > 5 || cmdRunner["FAILURE"] > 5) {
               console.log(cmdRunner)
             }
             // debug
