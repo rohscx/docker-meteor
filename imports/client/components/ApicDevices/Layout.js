@@ -631,9 +631,9 @@ export default class Layout extends Component {
             return (
               <div>
                 <div id ={dbId+dbId} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
-                  
+
                 </div>
-                {this.clipboardButton("fiaTraceThree")}
+                {this.clipboardButton(dbId+dbId)}
               </div>
 
             )
