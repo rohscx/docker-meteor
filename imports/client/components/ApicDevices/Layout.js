@@ -600,6 +600,9 @@ export default class Layout extends Component {
               switch (textString) {
                 case "red":
                 return (<mark style={{backgroundColor:"#d9534f"}}>{textString}</mark>)
+                break;
+                default:
+                return textString;
               }
               return textColor(string);
             }
