@@ -598,7 +598,7 @@ export default class Layout extends Component {
           const stringReplace = (string) => {
             const textColor = (textString)=>{
               switch (textString) {
-                case "red":
+                case "Active":
                 return (<mark style={{backgroundColor:"#d9534f"}}>{textString}</mark>)
                 break;
                 default:
