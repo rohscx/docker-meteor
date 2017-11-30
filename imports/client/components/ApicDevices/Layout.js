@@ -630,11 +630,12 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
 
             return (
-              <div ref={(commandRunnerOne)=>{this.commandRunnerOne = commandRunnerOne}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
-                <div>
-                  {this.clipboardButton("commandRunnerOne")}
+              <div style={{width:"60%"}}>
+                <div ref={(commandRunnerOne)=>{this.commandRunnerOne = commandRunnerOne}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
                 </div>
+                {this.clipboardButton("commandRunnerOne")}
               </div>
+
             )
           }else {
             return " ";
