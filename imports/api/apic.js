@@ -156,7 +156,7 @@ if (Meteor.isServer) {
         // initial state of the while loop
         let undefinedCounter = 0;
         // the while loop runs until this condition is met
-        while (undefinedCounter < 600){
+        while (undefinedCounter < 300){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
