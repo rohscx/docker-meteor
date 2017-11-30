@@ -200,6 +200,7 @@ class ApicDevices extends Component {
         if (error){
           console.log(error)
         } else {
+          console.log(this)
           console.log(result)
           return result
         }
