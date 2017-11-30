@@ -604,9 +604,10 @@ export default class Layout extends Component {
             let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/["{}]/g,"");
             const createMarkup = (dangerStr) =>{
-              return {_html:dangerStr}
+              return (
+                <div dangerouslySetInnerHTML={{_html: dangerStr}}><div>
+              )
             }
-            return (<p dangerouslySetInnerHTML={createMarkup(strReplace1)}/>);
           } else {
             return "";
           }
