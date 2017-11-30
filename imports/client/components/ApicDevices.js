@@ -202,7 +202,7 @@ class ApicDevices extends Component {
         } else {
           console.log(result)
           //this.setApicShowCommandsResponse(result)
-          console.log(this.props.apic.apicShowCommandsResponse)
+          console.log("a")
           return result
         }
 
@@ -225,7 +225,7 @@ class ApicDevices extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
-    //console.log(this);
+    console.log(this);
     return(
       <div style={divStyles}>
         <div id="example"><ApicModal></ApicModal></div>
