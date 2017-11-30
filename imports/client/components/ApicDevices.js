@@ -213,7 +213,7 @@ class ApicDevices extends Component {
           <MenuItem eventKey="5" onSelect={()=>{this.setApicShowCommands("show ip eigp neigbor",deviceID,5)}}>showEigpNeighbor</MenuItem>
           <MenuItem eventKey="6" onSelect={()=>{this.setApicShowCommands("show ip ospf neigbor",deviceID,6)}}>showOspfNeighbor</MenuItem>
           <MenuItem eventKey="7" onSelect={()=>{this.setApicShowCommands("show ip bgp neigbor",deviceID,7)}}>showBgpfNeighbor</MenuItem>
-          <MenuItem eventKey="8" onSelect={()=>{this.setApicShowCommands("shw ip nbar protocol-pack active",deviceID,8)}}>showActiveNbar</MenuItem>
+          <MenuItem eventKey="8" onSelect={()=>{this.setApicShowCommands("show ip nbar protocol-pack active",deviceID,8)}}>showActiveNbar</MenuItem>
       </SplitButton>
 
     )
