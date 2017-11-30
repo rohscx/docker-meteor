@@ -590,7 +590,7 @@ export default class Layout extends Component {
           }
         }
         // checkes for certain condition and formats commandRunner responses
-        const commandRunnerCheck = (cmdRunner) =>{
+        const commandRunnerCheck = (cmdRunner,dbId) =>{
           // debug
           //console.log(cmdRunner);
           // creates html inner text. Maybe find a way not to do this
@@ -629,7 +629,13 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
 
             return (
-              <div dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}></div>
+              <div>
+                <div id ={dbId+dbId} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
+                  
+                </div>
+                {this.clipboardButton("fiaTraceThree")}
+              </div>
+
             )
           }else {
             return " ";
@@ -671,7 +677,7 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            {commandRunnerCheck(deviceDataObj.commandRunnerData)}
+            {commandRunnerCheck(deviceDataObj.commandRunnerData, dbMongoID)}
           </div>
         )
       })
