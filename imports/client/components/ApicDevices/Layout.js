@@ -546,6 +546,7 @@ export default class Layout extends Component {
         let family = data.siteData.dataObj.family;
         let dbMongoID = data["_id"];
         let deviceUuid = data.siteData.dataObj.id;
+        let commandRunnerData = data.siteData.dataObj.commandRunner;
         let deviceDataObj = new Object();
         deviceDataObj.interfaceDetail = interfaceDetail;
         deviceDataObj.hostName = hostName;
@@ -553,6 +554,7 @@ export default class Layout extends Component {
         deviceDataObj.licenseDetail = licenseDetail;
         deviceDataObj.dbMongoID = dbMongoID;
         deviceDataObj.deviceUuid = deviceUuid;
+        deviceDataObj.commandRunnerData = commandRunnerData;
         const roleCheck = (role) => {
           if (Roles.userIsInRole(Meteor.userId(), role)){
             return (
@@ -625,6 +627,7 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
+            {deviceDataObj.commandRunnerData}
           </div>
         )
       })

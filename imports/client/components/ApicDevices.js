@@ -202,12 +202,10 @@ class ApicDevices extends Component {
           console.log(error)
         } else {
           console.log(result)
+          //does not really return anything
           return result;
         }
-
       });
-
-      console.log("commandData",commandData)
     }
     return (
 
