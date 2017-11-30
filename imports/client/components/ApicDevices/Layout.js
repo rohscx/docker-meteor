@@ -596,8 +596,17 @@ export default class Layout extends Component {
             return dangerouslySetInnerHTML={__html:dangerStr};
           }
           const stringReplace = (string) => {
-            let strReplace1 = string.replace(/\\n/g," <br/> ");
-            return strReplace1.replace(/["{}]/g,"");
+            const textColor = (textString)=>{
+              switch (textString) {
+                case "red":
+                return (<mark style={{backgroundColor:"#d9534f"}}>{textString}</mark>)
+              }
+              return textColor(string);
+            }
+            const strReplace1 = string.replace(/\\n/g," <br/> ");
+            const strReplace2 = strReplace1.replace(/["{}]/g,"");
+            const strReplace3 = strReplace2.replace("Active",textColor("Active"));
+            return strReplace3;
           }
           if (cmdRunner) {
             const commandRunnerString =  JSON.stringify(cmdRunner["SUCCESS"]);
