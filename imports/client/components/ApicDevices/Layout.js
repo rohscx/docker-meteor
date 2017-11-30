@@ -592,6 +592,12 @@ export default class Layout extends Component {
         const commandRunnerCheck = (cmdRunner) =>{
           // debug
           //console.log(cmdRunner);
+          const createMarkup = (dangerStr) =>{
+            return (_html: dangerStr}
+              <div dangerouslySetInnerHTML={_html: dangerStr}}>
+              </div>
+            );
+          }
           if (cmdRunner) {
 
             const tempCommand1 =  JSON.stringify(cmdRunner["SUCCESS"]);
@@ -603,13 +609,9 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/["{}]/g,"");
-            const createMarkup = (dangerStr) =>{
-              return (
-                <div dangerouslySetInnerHTML={{_html: dangerStr}}><div>
-              )
-            }
-          } else {
-            return "";
+            return createMarkup(strReplace1)
+          }else {
+            return " ";
           }
         }
         return (
