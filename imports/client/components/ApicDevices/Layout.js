@@ -636,8 +636,6 @@ export default class Layout extends Component {
 
   }
 
-
-
   render() {
     const customStyles = {
       content : {
