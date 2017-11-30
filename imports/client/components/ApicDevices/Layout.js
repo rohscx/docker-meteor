@@ -593,9 +593,7 @@ export default class Layout extends Component {
           // debug
           //console.log(cmdRunner);
           const createMarkup = (dangerStr) =>{
-            return (
-              <p dangerouslySetInnerHTML={_html: 'adsfas'}></p>
-            )
+            return dangerouslySetInnerHTML={_html: 'adsfas'};
           }
           if (cmdRunner) {
 
@@ -608,7 +606,9 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/["{}]/g,"");
-            return createMarkup(strReplace1)
+            return (
+              <div dangerouslySetInnerHTML={createMarkup(strReplace1)}></div>
+            )
           }else {
             return " ";
           }
