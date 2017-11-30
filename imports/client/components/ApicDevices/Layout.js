@@ -602,8 +602,7 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/[""{}]/g,"");
-            strReplace2 = '<p>'+strReplace1+'/p';
-            return (strReplace1.toString());
+            return (String(strReplace1));
           } else {
             return "";
           }
