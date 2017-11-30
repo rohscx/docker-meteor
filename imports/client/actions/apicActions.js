@@ -31,12 +31,6 @@ export function setApicShowCommands(value) {
   };
 }
 
-export function setApicShowCommandsResponse(value) {
-  return {
-    type: "SET_SHOWCOMMANDRESPONSE",
-    payload: value
-  };
-}
 
 export function apicDbReady(status) {
   return dispatch => {
@@ -101,13 +95,6 @@ export function apicShowCommands(opt1, op2, op3) {
       showCommand: opt1,
       deviceId: op2,
       validationStatus: op3
-    }));
-  }
-}
-export function apicShowCommandsResponse(opt1) {
-  return dispatch => {
-    return dispatch(setApicShowCommandsResponse({
-      apicShowCommandsResponse:opt1
     }));
   }
 }

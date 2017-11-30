@@ -5,7 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToo
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
-import { sortBy, apicDevicesFind, apicDbReady, apicShowCommands, apicShowCommandsResponse} from '../actions/apicActions';
+import { sortBy, apicDevicesFind, apicDbReady, apicShowCommands} from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions';
 import FileDownload from '../utilities/FileDownload';
 import ExportButton from '../utilities/ExportButton';
@@ -47,10 +47,6 @@ class ApicDevices extends Component {
 
   setApicShowCommands(showCommand, deviceId, validationStatus){
     this.props.apicShowCommands(showCommand, deviceId, validationStatus);
-  }
-
-  setApicShowCommandsResponse(commandResponse){
-    this.props.apicShowCommandsResponse(commandResponse);
   }
 
   preventDefault(e){
@@ -263,9 +259,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     apicShowCommands: (showCommand, deviceId, validationStatus) => {
       dispatch(apicShowCommands(showCommand, deviceId, validationStatus));
-    },
-    apicShowCommandsResponse: (commandResponse) => {
-      dispatch(apicShowCommandsResponse(commandResponse));
     },
   };
 };

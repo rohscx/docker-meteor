@@ -14,8 +14,7 @@ const apicReducer = (state = {
     showCommand: null,
     deviceId:null,
     validationStatus: null
-  },
-  apicShowCommandsResponse: null
+  }
 }, action) => {
   switch (action.type) {
     case "SET_APICDEVICESFIND":
@@ -40,12 +39,6 @@ const apicReducer = (state = {
     state = {
       ...state,
       apicShowCommands: action.payload
-    };
-    break;
-    case "SET_SHOWCOMMANDRESPONSE":
-    state = {
-      ...state,
-      apicShowCommandsResponse: action.payload
     };
     break;
     }
