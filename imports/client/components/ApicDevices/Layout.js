@@ -603,7 +603,7 @@ export default class Layout extends Component {
             let strReplace1 = tempCommand.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/[""{}]/g,"");
             strReplace2 = '<p>'+strReplace1+'/p';
-            return (strReplace2);
+            return (strReplace1.toString());
           } else {
             return "";
           }
