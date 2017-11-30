@@ -547,8 +547,6 @@ export default class Layout extends Component {
         let dbMongoID = data["_id"];
         let deviceUuid = data.siteData.dataObj.id;
         let commandRunnerData = data.siteData.dataObj.commandRunner;
-        console.log("Cmand runner",commandRunnerData)
-        console.log(dbData)
         let deviceDataObj = new Object();
         deviceDataObj.interfaceDetail = interfaceDetail;
         deviceDataObj.hostName = hostName;
