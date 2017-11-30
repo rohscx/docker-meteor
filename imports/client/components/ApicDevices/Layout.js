@@ -593,7 +593,7 @@ export default class Layout extends Component {
           // debug
           //console.log(cmdRunner);
           const createMarkup = (dangerStr) =>{
-            return dangerouslySetInnerHTML={__html: 'adsfas'};
+            return dangerouslySetInnerHTML={__html:dangerStr};
           }
           if (cmdRunner) {
 
