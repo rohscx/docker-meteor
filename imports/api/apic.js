@@ -70,7 +70,7 @@ if (Meteor.isServer) {
         return e;
       };
     },
-    apicShowCommands(showCommand,uuid) {
+    apicShowCommands(showCommand,uuid,dbId) {
       try {
         showObj = {
           "name":"testTest123",
@@ -190,6 +190,15 @@ if (Meteor.isServer) {
           console.log("*****",JSON.parse(test.content))
           let man2 = JSON.parse(test.content)
           console.log(man2[0].commandResponses)
+          console.log("DBid",dbId)
+          ItemsApicDevices.update(dbId, {
+            $set:{
+              'siteData.dataObj.commandRunner':man2[0].commandResponses,
+            }
+          });
+
+
+
           return JSON.stringify(man2[0].commandResponses['SUCCESS']);
 
          //console.log(test)

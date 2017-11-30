@@ -622,7 +622,7 @@ export default class Layout extends Component {
                     <Button bsSize="xsmall">admin</Button>
                   </OverlayTrigger>
               </IsRole>
-              <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid)}</IsRole>
+              <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
           </div>
