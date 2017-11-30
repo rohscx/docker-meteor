@@ -603,7 +603,8 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/["{}]/g,"");
-            return (<p dangerouslySetInnerHTML={strReplace1}/>);
+            let dangerouslySet = {_html:strReplace1}
+            return (<p dangerouslySetInnerHTML={dangerouslySet}/>);
           } else {
             return "";
           }
