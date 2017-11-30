@@ -208,8 +208,8 @@ class ApicDevices extends Component {
       <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
-          <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | s router.bgp",deviceID,3)}}>showBgp</MenuItem>
-          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver | s ip.sla",deviceID,4)}}>showIpSla</MenuItem>
+          <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | s bgp",deviceID,3)}}>showBgp</MenuItem>
+          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver | s sla",deviceID,4)}}>showIpSla</MenuItem>
           <MenuItem eventKey="5" onSelect={()=>{this.setApicShowCommands("show ip eigrp neighbors",deviceID,5)}}>showEigpNeighbor</MenuItem>
           <MenuItem eventKey="6" onSelect={()=>{this.setApicShowCommands("show ip ospf neighbor",deviceID,6)}}>showOspfNeighbor</MenuItem>
           <MenuItem eventKey="7" onSelect={()=>{this.setApicShowCommands("show ip bgp summary",deviceID,7)}}>showBgpfNeighbor</MenuItem>
