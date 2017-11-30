@@ -599,7 +599,7 @@ export default class Layout extends Component {
             const textColor = (textString)=>{
               switch (textString) {
                 case "Active":
-                return '<mark style={{backgroundColor:"#d9534f"}}>{'+textString+'}</mark>'
+                return "<mark style={{backgroundColor:\"#d9534f\"}}>"+textString+"</mark>"
                 break;
                 default:
                 return textString;
@@ -609,7 +609,7 @@ export default class Layout extends Component {
             }
             const strReplace1 = string.replace(/\\n/g," <br/> ");
             const strReplace2 = strReplace1.replace(/["{}]/g,"");
-            const strReplace3 = strReplace2.replace(/Active|Passive/gi,function myFunction(x){console.log(textColor(x))});
+            const strReplace3 = strReplace2.replace(/Active|Passive/gi,function myFunction(x){return textColor(x)});
             return strReplace3;
           }
           if (cmdRunner) {
