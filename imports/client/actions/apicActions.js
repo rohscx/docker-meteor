@@ -31,7 +31,7 @@ export function setApicShowCommands(value) {
   };
 }
 
-export function setSpicShowCommandsResponse(value) {
+export function setApicShowCommandsResponse(value) {
   return {
     type: "SET_SHOWCOMMANDRESPONSE",
     payload: value
@@ -106,7 +106,7 @@ export function apicShowCommands(opt1, op2, op3) {
 }
 export function apicShowCommandsResponse(opt1) {
   return dispatch => {
-    return dispatch(setSpicShowCommandsResponse({
+    return dispatch(setApicShowCommandsResponse({
       apicShowCommandsResponse:opt1
     }));
   }
