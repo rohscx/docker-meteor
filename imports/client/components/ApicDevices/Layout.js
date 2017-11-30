@@ -595,7 +595,7 @@ export default class Layout extends Component {
           console.log(cmdRunner);
           if (cmdRunner) {
             const tempCommand =  JSON.stringify(cmdRunner["SUCCESS"]);
-            console.log(tempCommand.replace(/\\n|"/g," ")));
+            console.log(tempCommand.replace(/\\n|"/g," "));
             return tempCommand.replace(/\\n|"/g," ");
           } else {
             return "";
