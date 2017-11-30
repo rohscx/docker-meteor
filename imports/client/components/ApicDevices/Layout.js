@@ -589,12 +589,15 @@ export default class Layout extends Component {
             )
           }
         }
+        // checkes for certain condition and formats commandRunner responses
         const commandRunnerCheck = (cmdRunner) =>{
           // debug
           //console.log(cmdRunner);
+          // creates html inner text. Maybe find a way not to do this
           const createMarkup = (dangerStr) =>{
             return dangerouslySetInnerHTML={__html:dangerStr};
           }
+          // replaces strings and changes text color
           const stringReplace = (string) => {
             const textColor = (textString)=>{
               switch (textString) {
@@ -607,7 +610,8 @@ export default class Layout extends Component {
                 default:
                 return textString;
               }
-              console.log(textColor(string))
+              // deub
+              //console.log(textColor(string))
               return textColor(string);
             }
             const strReplace1 = string.replace(/\\n/g," <br/> ");
