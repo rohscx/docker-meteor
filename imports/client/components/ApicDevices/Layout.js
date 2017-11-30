@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import createReactClass from 'create-react-class';
 import Modal from 'react-modal';
 import { Session } from 'meteor/session';
-import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
+import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip,ButtonGroup} from 'react-bootstrap';
 import IsRole from '../../utilities/IsRole';
 import ScrollHandler from '../../utilities/ScrollHandler';
 import ApicModal from './ApicModal';
