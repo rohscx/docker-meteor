@@ -281,6 +281,15 @@ let apicDevices = ()=>{
             }
           });
         }
+
+        const clearCommandRunner = (ddCheck)=>{
+          ItemsApicDevices.update(ddCheck, {
+            $set:{
+              'siteData.dataObj.commandRunner':"",
+
+            }
+          });
+        }
         const dbTasks = () =>{
         async function restDataHandler(){
           const dbMatch = await findItem(deviceId);
@@ -306,6 +315,7 @@ let apicDevices = ()=>{
             vlanDetail();
             interfaceInfo();
             licenseInfo();
+            clearCommandRunner()
             // disabled, but it works
             //showCommands(downPortCommandArray,deviceId);
             dbUpdate(dbDataID,data,timeNow(1000),dateTime);
