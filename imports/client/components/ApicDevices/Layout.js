@@ -601,7 +601,7 @@ export default class Layout extends Component {
                 case "Active":
                 return "<mark style={{backgroundColor:\"#5cb85c\"}}>"+textString+"</mark>"
                 break;
-                case "Passive":
+                case "Standby":
                 return "<mark style={{backgroundColor:\"#d9534f\"}}>"+textString+"</mark>"
                 break;
                 default:
