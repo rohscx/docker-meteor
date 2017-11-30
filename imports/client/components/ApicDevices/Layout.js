@@ -594,15 +594,14 @@ export default class Layout extends Component {
         const commandRunnerCheck = (cmdRunner) =>{
           // debug
           //console.log(cmdRunner);
-          if (cmdRunner) {
+          if (cmdRunner["BLACKLISTED"] || cmdRunner["FAILURE"]) {
+            console.log(cmdRunner)
+          } else if (cmdRunner) {
             const tempCommand =  JSON.stringify(cmdRunner["SUCCESS"]);
             // debug
             //console.log(tempCommand.replace(/\\n/g," "));
             return tempCommand.replace(/\\n/g," ");
             // simple error checking
-            if (cmdRunner["BLACKLISTED"] || cmdRunner["FAILURE"]) {
-              console.log(cmdRunner)
-            }
           } else {
             return "";
           }
