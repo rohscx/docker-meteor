@@ -593,14 +593,16 @@ export default class Layout extends Component {
           // debug
           //console.log(cmdRunner);
           if (cmdRunner) {
-            const tempCommand =  JSON.stringify(cmdRunner["SUCCESS"]);
+
+            const tempCommand1 =  cmdRunner["SUCCESS"];
+            const tempCommand2 = JSON.stringify(tempCommand1);
             // simple error checking
             if (cmdRunner["BLACKLISTED"].length > 5 || cmdRunner["FAILURE"] > 5) {
               console.log(cmdRunner)
             }
             // debug
             //console.log(tempCommand.replace(/\\n/g," "));
-            let strReplace1 = tempCommand.replace(/\\n/g," <br/> ");
+            let strReplace1 = tempCommand2.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/[""{}]/g,"");
             return (String(strReplace1));
           } else {
