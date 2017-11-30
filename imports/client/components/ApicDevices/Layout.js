@@ -599,10 +599,10 @@ export default class Layout extends Component {
             const textColor = (textString)=>{
               switch (textString) {
                 case "Active":
-                return "<mark style=background-color:blue;>"+textString+"</mark>"
+                return "<mark style=\"background-color:blue;\">"+textString+"</mark>"
                 break;
                 case "Standby":
-                return "<mark style=background-color:red;>"+textString+"</mark>"
+                return "<mark style=\"background-color:red;\">"+textString+"</mark>"
                 break;
                 default:
                 return textString;
