@@ -602,7 +602,12 @@ export default class Layout extends Component {
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand.replace(/\\n/g," <br/> ");
             strReplace1 = strReplace1.replace(/[""{}]/g,"");
-            return strReplace1;
+            return (
+              <p>
+                {strReplace1}
+              </p>
+
+            );
           } else {
             return "";
           }
@@ -643,9 +648,9 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            <p style={{"whiteSpace":"pre-line"}}>
+            <div style={{"whiteSpace":"pre-line"}}>
               {commandRunnerCheck(deviceDataObj.commandRunnerData)}
-            </p>
+            </div>
 
           </div>
         )
