@@ -629,7 +629,7 @@ export default class Layout extends Component {
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            {deviceDataObj.commandRunnerData}
+            {JSON.stringify(deviceDataObj.commandRunnerData)}
           </div>
         )
       })
