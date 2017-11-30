@@ -601,7 +601,7 @@ export default class Layout extends Component {
             // debug
             //console.log(tempCommand.replace(/\\n/g," "));
             tempCommand = tempCommand.replace(/\"/g,"");
-            tempCommand = tempCommand.replace(/[{}]/g,"");
+            tempCommand = tempCommand.replace(/\[{}]/g,"");
             return tempCommand.replace(/\\n/g," <br> ");
           } else {
             return "";
