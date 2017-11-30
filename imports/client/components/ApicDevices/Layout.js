@@ -594,7 +594,7 @@ export default class Layout extends Component {
           //console.log(cmdRunner);
           const createMarkup = (dangerStr) =>{
             return (
-              <p dangerouslySetInnerHTML={{_html: dangerStr}}></p>
+              <p dangerouslySetInnerHTML={{_html: 'adsfas'}}></p>
             )
           }
           if (cmdRunner) {
