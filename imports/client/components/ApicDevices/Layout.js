@@ -628,7 +628,7 @@ export default class Layout extends Component {
               </ButtonToolbar>
             </Row>
             <div style={{"whiteSpace":"pre-line"}}>
-              {JSON.stringify(deviceDataObj.commandRunnerData["SUCCESS"])}
+              {deviceDataObj.commandRunnerData["SUCCESS"] ? JSON.stringify(deviceDataObj.commandRunnerData["SUCCESS"]) : ""}
             </div>
 
           </div>
