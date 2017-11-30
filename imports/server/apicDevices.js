@@ -285,7 +285,7 @@ let apicDevices = ()=>{
         const clearCommandRunner = (ddCheck)=>{
           ItemsApicDevices.update(ddCheck, {
             $set:{
-              'siteData.dataObj.commandRunner':null,
+              'siteData.dataObj.commandRunner':undefined,
 
             }
           });
