@@ -594,7 +594,7 @@ export default class Layout extends Component {
         const commandRunnerCheck = (cmdRunner) =>{
           console.log(cmdRunner.length);
           if (cmdRunner.length >= 4) {
-            const tempCommand =  JSON.stringify(cmdRunner.["SUCCESS"]);
+            const tempCommand =  JSON.stringify(cmdRunner["SUCCESS"]);
             console.log(tempCommand.replace(/\n/g,"<br />"));
             return tempCommand.replace(/\n/g,"<br />");
           } else {
