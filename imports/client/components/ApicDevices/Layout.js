@@ -604,6 +604,7 @@ export default class Layout extends Component {
                 default:
                 return textString;
               }
+              console.log(textColor(string))
               return textColor(string);
             }
             const strReplace1 = string.replace(/\\n/g," <br/> ");
