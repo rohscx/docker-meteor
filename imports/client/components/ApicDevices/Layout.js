@@ -616,7 +616,7 @@ export default class Layout extends Component {
             }
             const strReplace1 = string.replace(/\\n/g," <br/> ");
             const strReplace2 = strReplace1.replace(/["{}]/g,"");
-            const strReplace3 = strReplace2.replace(:,: <br/>);
+            const strReplace3 = strReplace2.replace(":",": <br/>");
             const strReplace4 = strReplace2.replace(/Active|Standby/gi,(x)=>{return textColor(x)});
             return strReplace3;
           }
