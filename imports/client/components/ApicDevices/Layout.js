@@ -7,7 +7,7 @@ import IsRole from '../../utilities/IsRole';
 import ScrollHandler from '../../utilities/ScrollHandler';
 import ApicModal from './ApicModal';
 
-export default class Table extends Component {
+export default class Layout extends Component {
   constructor() {
     super();
     this.state = {
@@ -657,7 +657,7 @@ export default class Table extends Component {
 
     //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
     //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
-    console.log(this)
+    //console.log(this)
 
     return(
       <div>

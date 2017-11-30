@@ -102,6 +102,7 @@ if (Meteor.isServer) {
         let ticketIdleTimeout = 0;
         let ticketSessionTimeout = 0;
         let oldApicTicket = "";
+        // creates dataBlob for an HTTPs request. creates and reuses apicTickets, tickets for the same request are reused.
         const apicOptions = (bodyObj) => {
           const apicTicket = ()=>{
             const setTimeouts = (idleTimeout,sessionTimeout) =>{
@@ -135,6 +136,7 @@ if (Meteor.isServer) {
               return oldApicTicket;
             }
           }
+          // this is the request body
           const requestObj = {
             headers: {
               'content-type': 'application/json',
@@ -151,9 +153,10 @@ if (Meteor.isServer) {
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL);
         let responseFileURL = "";
+        // initial state of the while loop
         let undefinedCounter = 0;
-
-        while (undefinedCounter < 200){
+        // the while loop runs until this condition is met
+        while (undefinedCounter < 600){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
@@ -166,7 +169,8 @@ if (Meteor.isServer) {
           x().then((data)=>{
             //console.log(data.data.response.progress);
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
-              undefinedCounter = 300;
+              // this breaks the while loop
+              undefinedCounter = 800;
               console.log("***AAA** ",data.data.response.progress)
               console.log("***BBB** ",JSON.parse(data.data.response.progress))
               let stringToJSON=JSON.parse(data.data.response.progress);
