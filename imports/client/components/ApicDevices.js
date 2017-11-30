@@ -193,11 +193,18 @@ class ApicDevices extends Component {
     const commandRunner = (scmd,uuid,dbid) =>{
       console.log(scmd)
       console.log(uuid)
+      Meteor.setTimeout = function (f, duration) {
+        return setTimeout(bindAndCatch("setTimeout callback", f), duration);
+      };
+
+
       const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, function(error, result){
         if (error){
           console.log(error)
         } else {
           console.log(result)
+          // sets timeout to clear apicShowCommand after 5 minutes
+          Meteor.setTimeout( Meteor.call('apicClearShowCommands',dbId),300000);
           //does not really return anything
           return result;
         }

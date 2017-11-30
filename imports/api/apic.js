@@ -210,7 +210,22 @@ if (Meteor.isServer) {
         console.log(JSON.stringify(e)) // debug
         return e;
       }
-    }
+    },
+    apicClearShowCommands(dbID) {
+      try {
+        const result = ItemsApicDevices.update(dbID, {
+          $set:{
+            'siteData.dataObj.commandRunner':undefined
+          }
+        });
+        // console.log(result); // debug
+        return result;
+      } catch (e) {
+        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
+        console.log(e) // debug
+        return e;
+      };
+    },
 
   });
 }
