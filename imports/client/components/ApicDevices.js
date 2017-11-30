@@ -201,8 +201,6 @@ class ApicDevices extends Component {
           console.log(error)
         } else {
           console.log(result)
-          this.setApicShowCommandsResponse.bind(this,"result")
-          console.log("a")
           return result
         }
 
@@ -210,7 +208,7 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI)}}>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{this.setApicShowCommandsResponse(commandRunner(showC,deviceI))}}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
           <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | i hostname",deviceID,3)}}>showHostname</MenuItem>
