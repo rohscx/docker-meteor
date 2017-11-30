@@ -208,7 +208,7 @@ class ApicDevices extends Component {
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
           <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | i hostname",deviceID,3)}}>showHostname</MenuItem>
-          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver| i model number",deviceID,4)}}>showModelNumber</MenuItem>
+          <MenuItem eventKey="4" onSelect={()=>{this.setApicShowCommands("show ver | i model number",deviceID,4)}}>showModelNumber</MenuItem>
       </SplitButton>
 
     )

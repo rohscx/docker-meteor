@@ -153,7 +153,7 @@ if (Meteor.isServer) {
         let responseFileURL = "";
         let undefinedCounter = 0;
 
-        while (undefinedCounter < 40){
+        while (undefinedCounter < 100){
           undefinedCounter++
           console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
@@ -166,7 +166,7 @@ if (Meteor.isServer) {
           x().then((data)=>{
             //console.log(data.data.response.progress);
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
-              undefinedCounter = 50;
+              undefinedCounter = 200;
               console.log("***AAA** ",data.data.response.progress)
               console.log("***BBB** ",JSON.parse(data.data.response.progress))
               let stringToJSON=JSON.parse(data.data.response.progress);
