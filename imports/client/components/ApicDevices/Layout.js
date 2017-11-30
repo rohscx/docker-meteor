@@ -595,19 +595,21 @@ export default class Layout extends Component {
           const createMarkup = (dangerStr) =>{
             return dangerouslySetInnerHTML={__html:dangerStr};
           }
+          const stringReplace = (string) => {
+            let strReplace1 = string.replace(/\\n/g," <br/> ");
+            return strReplace1.replace(/["{}]/g,"");
+          }
           if (cmdRunner) {
-
-            const tempCommand1 =  JSON.stringify(cmdRunner["SUCCESS"]);
+            const commandRunnerString =  JSON.stringify(cmdRunner["SUCCESS"]);
             // simple error checking
             if (cmdRunner["BLACKLISTED"].length > 5 || cmdRunner["FAILURE"] > 5) {
               console.log(cmdRunner)
             }
             // debug
             //console.log(tempCommand.replace(/\\n/g," "));
-            let strReplace1 = tempCommand1.replace(/\\n/g," <br/> ");
-            strReplace1 = strReplace1.replace(/["{}]/g,"");
+
             return (
-              <div dangerouslySetInnerHTML={createMarkup(strReplace1)}></div>
+              <div dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}></div>
             )
           }else {
             return " ";
