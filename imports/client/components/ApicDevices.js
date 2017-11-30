@@ -207,7 +207,7 @@ class ApicDevices extends Component {
 
       });
 
-      console.log{"commandData",commandData}
+      console.log("commandData",commandData)
     }
     return (
 
