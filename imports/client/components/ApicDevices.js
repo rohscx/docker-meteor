@@ -16,6 +16,7 @@ class ApicDevices extends Component {
   constructor() {
     super();
     this.state = {
+      test:"dd"
     }
   }
   handleSearchFormInput(event) {
@@ -193,14 +194,15 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
-    const commandRunner = (scmd,uuid) =>{
+    const commandRunner = (scmd,uuid,test) =>{
       console.log(scmd)
       console.log(uuid)
       const commandData = Meteor.call('apicShowCommands',scmd,uuid, function(error, result){
         if (error){
           console.log(error)
         } else {
-          console.log(this)
+
+          this.setState({test:result})
           console.log(result)
           return result
         }
@@ -209,7 +211,7 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{this.setApicShowCommandsResponse(commandRunner(showC,deviceI))}}>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{(commandRunner(showC,deviceI)}}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
           <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | i hostname",deviceID,3)}}>showHostname</MenuItem>
