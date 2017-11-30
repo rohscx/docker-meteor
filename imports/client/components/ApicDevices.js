@@ -200,7 +200,7 @@ class ApicDevices extends Component {
       const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, function(error, result){
         if (error){
           console.log(error)
-        } else
+        } else {
           console.log(result)
         }
 
