@@ -601,7 +601,7 @@ export default class Layout extends Component {
             // debug
             //console.log(tempCommand.replace(/\\n/g," "));
             let strReplace1 = tempCommand.replace(/\\n/g," <br/> ");
-            strReplace1 = strReplace1.replace(/[""{}]/g,"");
+            strReplace1 = strReplace1.replace(/[""{}]/g,'');
             return (
               <p>
                 {strReplace1}
