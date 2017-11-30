@@ -201,7 +201,7 @@ class ApicDevices extends Component {
           console.log(error)
         } else {
           console.log(result)
-          //this.setApicShowCommandsResponse(result)
+          this.setApicShowCommandsResponse.bind(this,"result")
           console.log("a")
           return result
         }
