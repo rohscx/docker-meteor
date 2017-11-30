@@ -431,9 +431,9 @@ export default class Layout extends Component {
 
     adminMenu(dbID) {
       return (
-        <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons">
+        <Popover id="popover-trigger-click-root-close" title="Adminstrative Buttons" >
           <ButtonToolbar>
-            <ButtonGroup vertical>
+            <ButtonGroup vertical block="true">
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRemove</Button>
             <Button bsStyle="primary" onClick={()=>{Meteor.call('apicDbRemove',dbID, function(error, result){ if (error){console.log(error)}})}}>mongoRemove</Button>
             <Button bsStyle="primary" onClick={()=>{console.log(dbID)}}>apicRescan</Button>
