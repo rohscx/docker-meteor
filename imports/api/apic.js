@@ -199,7 +199,7 @@ if (Meteor.isServer) {
 
 
 
-          return JSON.stringify(man2[0].commandResponses['SUCCESS']);
+          return dbId;
 
          //console.log(test)
 
