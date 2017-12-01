@@ -212,15 +212,13 @@ if (Meteor.isServer) {
       }
     },
     apicClearShowCommands(dbID) {
-      console.log("hit Backend", dbID)
       try {
         Meteor.setTimeout(function() {
-          console.log("HIt timeout", dbID);
           const result = ItemsApicDevices.update(dbID, {
             $set:{
               'siteData.dataObj.commandRunner':null
             }
-        }, 10000);
+        }, 300000);
         });
         // console.log(result); // debug
         return result;
