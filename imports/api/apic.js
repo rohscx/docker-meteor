@@ -213,22 +213,14 @@ if (Meteor.isServer) {
     },
     apicClearShowCommands(dbID) {
       console.log("hit Backend", dbID)
-      try {
-        Meteor.setTimeout(function(dbID) {
-          console.log("HIt timeout", dbID);
-          const result = ItemsApicDevices.update(dbID, {
-            $set:{
-              'siteData.dataObj.commandRunner':null
-            }
-        }, 10000);
-        });
-        // console.log(result); // debug
-        return result;
-      } catch (e) {
-        // Got a network error, timeout, or HTTP error in the 400 or 500 range.
-        console.log(e) // debug
-        return e;
-      };
+      Meteor.setTimeout(function(dbID) {
+        console.log("HIt timeout", dbID);
+        const result = ItemsApicDevices.update(dbID, {
+          $set:{
+            'siteData.dataObj.commandRunner':null
+          }
+      }, 10000);
+      });
     },
 
   });
