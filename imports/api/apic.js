@@ -216,7 +216,7 @@ if (Meteor.isServer) {
       try {
         const result = ItemsApicDevices.update(dbID, {
           $set:{
-            'siteData.dataObj.commandRunner':undefined
+            'siteData.dataObj.commandRunner':null
           }
         });
         // console.log(result); // debug
