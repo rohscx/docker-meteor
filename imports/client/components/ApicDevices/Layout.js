@@ -618,7 +618,7 @@ export default class Layout extends Component {
             const strReplace2 = strReplace1.replace(/["{}]/g,"");
             const strReplace3 = strReplace2.replace(":",": <br/>");
             const strReplace4 = strReplace2.replace(/Active|Standby/gi,(x)=>{return textColor(x)});
-            return strReplace3;
+            return strReplace4;
           }
           if (cmdRunner) {
             const commandRunnerString =  JSON.stringify(cmdRunner["SUCCESS"]);
