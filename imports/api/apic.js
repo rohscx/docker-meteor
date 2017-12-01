@@ -212,6 +212,7 @@ if (Meteor.isServer) {
       }
     },
     apicClearShowCommands(dbID) {
+      console.log("hit Backend", dbID)
       try {
         const result = ItemsApicDevices.update(dbID, {
           $set:{
