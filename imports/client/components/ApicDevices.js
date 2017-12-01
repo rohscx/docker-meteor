@@ -199,14 +199,12 @@ class ApicDevices extends Component {
         } else {
           console.log(result)
           // sets timeout to clear apicShowCommand after 5 minutes
-          console.log("dbid  dddd   ",result)
           const newDbID = result;
           Meteor.call('apicClearShowCommands',newDbID, function(error, result){
             if (error){
               console.log(error)
             } else {
-              console.log("done!!!")
-              console.log("result!!! ",newDbID)
+              console.log("db Clear after 5 minutes on dbID!!! ",newDbID)
             }
           });
           //does not really return anything
