@@ -202,7 +202,7 @@ class ApicDevices extends Component {
           Meteor.setTimeout(function(dbId) {
             console.log("HIt timeout", dbid);
              Meteor.call('apicClearShowCommands',dbId);
-          }, 30000);
+          }, 10000);
           //does not really return anything
           return result;
         }
