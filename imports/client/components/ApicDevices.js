@@ -191,6 +191,10 @@ class ApicDevices extends Component {
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
     const commandRunner = (scmd,uuid,dbid) =>{
+      //default action if someone just submits the request
+      if (deviceID != deviceI) {
+        this.setApicShowCommands(showC,deviceID,99);
+      };
       console.log(scmd)
       console.log(uuid)
       const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, function(error, result){

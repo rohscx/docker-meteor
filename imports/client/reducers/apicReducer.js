@@ -11,7 +11,7 @@ const apicReducer = (state = {
   },
   dbReady:false,
   apicShowCommands:{
-    showCommand: null,
+    showCommand: "show Clock",
     deviceId:null,
     validationStatus: null
   }

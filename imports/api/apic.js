@@ -157,8 +157,9 @@ if (Meteor.isServer) {
         let undefinedCounter = 0;
         // the while loop runs until this condition is met
         while (undefinedCounter < 300){
-          undefinedCounter++
-          console.log("waiting... Try:", undefinedCounter)
+          undefinedCounter++;
+          // debug
+          //console.log("waiting... Try:", undefinedCounter)
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
               let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
@@ -171,8 +172,9 @@ if (Meteor.isServer) {
             if (data.data.response.progress != undefined && data.data.response.progress != "CLI Runner request creation"){
               // this breaks the while loop
               undefinedCounter = 800;
-              console.log("***AAA** ",data.data.response.progress)
-              console.log("***BBB** ",JSON.parse(data.data.response.progress))
+              console.log("This took this may requests: ", undefinedCounter);
+              console.log("***AAA** ",data.data.response.progress);
+              console.log("***BBB** ",JSON.parse(data.data.response.progress));
               let stringToJSON=JSON.parse(data.data.response.progress);
               //console.log("***** ",data.data.response);
 
@@ -211,7 +213,7 @@ if (Meteor.isServer) {
         return e;
       }
     },
-    apicClearShowCommands(dbID) {    
+    apicClearShowCommands(dbID) {
       try {
         Meteor.setTimeout(function() {
           const result = ItemsApicDevices.update(dbID, {
