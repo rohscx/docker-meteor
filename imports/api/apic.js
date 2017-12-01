@@ -211,15 +211,15 @@ if (Meteor.isServer) {
         return e;
       }
     },
-    apicClearShowCommands(dbID) {
+    apicClearShowCommands(dbID) {    
       try {
         Meteor.setTimeout(function() {
           const result = ItemsApicDevices.update(dbID, {
             $set:{
               'siteData.dataObj.commandRunner':null
             }
+          });
         }, 300000);
-        });
         // console.log(result); // debug
         return result;
       } catch (e) {
