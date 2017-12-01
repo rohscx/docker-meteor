@@ -200,7 +200,14 @@ class ApicDevices extends Component {
           console.log(result)
           // sets timeout to clear apicShowCommand after 5 minutes
           console.log("dbid  dddd   ",result)
-          Meteor.call('apicClearShowCommands',result);
+          Meteor.call('apicClearShowCommands',result, function(error, result){
+            if (error){
+              console.log(error)
+            } else {
+              console.log("done!!!")
+              console.log("result!!!")
+            }
+          });
           //does not really return anything
           return result;
         }
