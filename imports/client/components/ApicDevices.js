@@ -24,8 +24,7 @@ class ApicDevices extends Component {
   }
 
   handleShowCommandLoading(id1) {
-
-    if (this.state.showCommandLoading == false) {
+    if (this.state.showCommandLoading.state == false) {
       this.setState({ showCommandError:{
         state:true,
         id:id1
