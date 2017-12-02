@@ -66,6 +66,7 @@ class ApicDevices extends Component {
   }
 
   setApicShowCommands(showCommand, deviceId, validationStatus){
+    console.log("setApicShowCommands ", deviceId);
     this.props.apicShowCommands(showCommand, deviceId, validationStatus);
   }
 
@@ -257,6 +258,7 @@ class ApicDevices extends Component {
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isSelf(isError.showCommandState, isError.showCommandId, deviceID)}
+        onMouseEnter={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}
         >
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
