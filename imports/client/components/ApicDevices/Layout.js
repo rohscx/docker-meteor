@@ -676,9 +676,10 @@ export default class Layout extends Component {
                   </OverlayTrigger>
               </IsRole>
               <IsRole role={['admin']}>{this.props.showCommandButton(deviceDataObj.deviceUuid,deviceDataObj.dbMongoID)}</IsRole>
+              <IsRole role={['admin']}>{commandRunnerCheck(deviceDataObj.commandRunnerData, dbMongoID)}</IsRole>
               </ButtonToolbar>
             </Row>
-            {commandRunnerCheck(deviceDataObj.commandRunnerData, dbMongoID)}
+
           </div>
         )
       })
