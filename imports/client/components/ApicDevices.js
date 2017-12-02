@@ -190,7 +190,7 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
-    const disableButton = (dataID,deviceI)=> {
+    const disableButton = (dataID,deviceI || null)=> {
       if (dataID == deviceI){
         //do nothing
       } else {
