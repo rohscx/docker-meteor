@@ -16,15 +16,26 @@ class ApicDevices extends Component {
   constructor() {
     super();
     this.state = {
-      showCommandError:false
+      showCommandError:{
+        state:false,
+        id:null
+      }
     }
   }
 
-  handleShowCommandError() {
-    this.setState({ showCommandError: true });
+  handleShowCommandError(id1) {
+    this.setState({ showCommandError:{
+      state:true,
+      id:id1
+    }
+  });
     Meteor.setTimeout(() => {
       // Completed of async action, set loading state back
-      this.setState({ showCommandError: false });
+      this.setState({ showCommandError:{
+        state:false,
+        id:id1
+      }
+      });
     }, 2000);
   }
 
@@ -200,15 +211,22 @@ class ApicDevices extends Component {
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
     let isError = new Object;
-    isError.showCommandError = this.state.showCommandError;
+    isError.showCommandState = this.state.showCommandError.state;
+    isError.showCommandId = this.state.showCommandError.id;
+    const isSelf = (state, id1, id2)=>{
+      if (state == true && (id1 == id2)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
-        this.handleShowCommandError();
+        this.handleShowCommandError(uuid);
         return true;
       } else {
 
       }
-      
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
@@ -235,10 +253,10 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isError.showCommandError ? 'Select ..>>' : '"Commands"'}
+        title= {isSelf(isError.showCommandState, isError.showCommandId, deviceID) ? 'Select ..>>' : '"Commands"'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
-        disabled={isError.showCommandError}
+        disabled={isSelf(isError.showCommandState, isError.showCommandId, deviceID)}
         >
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
