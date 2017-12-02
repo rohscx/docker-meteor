@@ -215,8 +215,8 @@ if (Meteor.isServer) {
     },
     apicClearShowCommands(dbID) {
       try {
-        Meteor.setTimeout(function() {
-          const result = ItemsApicDevices.update(dbID, {
+        const result = Meteor.setTimeout(function() {
+          ItemsApicDevices.update(dbID, {
             $set:{
               'siteData.dataObj.commandRunner':null
             }
