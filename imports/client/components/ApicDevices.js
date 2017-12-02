@@ -222,7 +222,6 @@ class ApicDevices extends Component {
     }
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
-        this.setApicShowCommands("show Clock",deviceID,1)
         this.handleShowCommandError(uuid);
         return true;
       } else {
