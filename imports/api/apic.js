@@ -73,7 +73,7 @@ if (Meteor.isServer) {
     apicShowCommands(showCommand,uuid,dbId) {
       try {
         showObj = {
-          "name":"testTest123",
+          "name":"frostShowCommand",
           "tieout":0,
           "description":"",
           "commands":[
@@ -150,6 +150,11 @@ if (Meteor.isServer) {
         console.log();
 
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
+        // check for errors
+        if (responseTaskID.response.statusCode != 200) {
+          console.log("HTTP REQUEST ERROR",responseTaskID);
+          return responseTaskID;
+        }
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL);
         let responseFileURL = "";
@@ -163,6 +168,11 @@ if (Meteor.isServer) {
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
               let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
+              // check for errors
+              if (responseFileId.response.statusCode != 200) {
+                console.log("HTTP REQUEST ERROR",responseFileId);
+                return responseFileId;
+              }
               resolve(responseFileId)
             })
             return promise;
@@ -187,10 +197,15 @@ if (Meteor.isServer) {
         }
         console.log("responseFileURL",responseFileURL)
 
-          let test = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
-          console.log(test)
-          console.log("*****",JSON.parse(test.content))
-          let man2 = JSON.parse(test.content)
+          let httpResponseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
+          // check for errors
+          if (httpResponseFile.response.statusCode != 200) {
+            console.log("HTTP REQUEST ERROR",httpResponseFile);
+            return httpResponseFile;
+          }
+          console.log(httpResponseFile)
+          console.log("*****",JSON.parse(httpResponseFile.content))
+          let man2 = JSON.parse(httpResponseFile.content)
           console.log(man2[0].commandResponses)
           console.log("DBid",dbId)
           ItemsApicDevices.update(dbId, {
@@ -198,12 +213,9 @@ if (Meteor.isServer) {
               'siteData.dataObj.commandRunner':man2[0].commandResponses,
             }
           });
-
-
-
           return dbId;
 
-         //console.log(test)
+         //console.log(httpResponseFile)
 
         //console.log(Meteor.call('apicHttpRequest',"GET",responseFileURL,""))
         //return apicOptions(showObj)
