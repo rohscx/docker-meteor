@@ -252,7 +252,7 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID) ? '.  .  .' : 'runShow'}
+        title= {isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID) ? '   .  .  .   ' : 'runShow'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID)}
