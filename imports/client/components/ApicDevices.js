@@ -20,18 +20,12 @@ class ApicDevices extends Component {
     }
   }
 
-  handleShowCommandError(id) {
-    const deviceI = this.props.apic.apicShowCommands.deviceId;
-    if (id != deviceI){
-      this.setState({ showCommandError: true });
-      Meteor.setTimeout(() => {
-        // Completed of async action, set loading state back
-        this.setState({ showCommandError: false });
-      }, 2000);
-    } else {
-      //do nothing
-    }
-
+  handleShowCommandError() {
+    this.setState({ showCommandError: true });
+    Meteor.setTimeout(() => {
+      // Completed of async action, set loading state back
+      this.setState({ showCommandError: false });
+    }, 2000);
   }
 
   handleSearchFormInput(event) {
@@ -209,10 +203,17 @@ class ApicDevices extends Component {
     isError.showCommandError = this.state.showCommandError;
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
-        this.handleShowCommandError(deviceID);
+        this.handleShowCommandError();
         return true;
       } else {
 
+      }
+      const isItMe = (id1,id2,err1)=>{
+        if (id1 == id2 && err1 == true)=>{
+          return true;
+        } else {
+          return false;
+        }
       }
       //default action if someone just submits the request
       console.log(scmd)
@@ -240,7 +241,7 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isError.showCommandError ? 'Select ..>>' : '"Commands"'}
+        title= {isItMe(deviceI,dbId,isError.showCommandError) ? 'Select ..>>' : '"Commands"'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isError.showCommandError}
