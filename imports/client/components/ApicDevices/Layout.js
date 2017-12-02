@@ -591,6 +591,7 @@ export default class Layout extends Component {
         }
         // checkes for certain condition and formats commandRunner responses
         const commandRunnerCheck = (cmdRunner,dbId) =>{
+          const divRef = dbId+dbId;
           // debug
           //console.log(cmdRunner);
           // creates html inner text. Maybe find a way not to do this
@@ -631,8 +632,8 @@ export default class Layout extends Component {
 
             return (
               <div style={{width:"60%",align:"left"}}>
-                {this.clipboardButton("commandRunnerOne")}
-                <div ref={(commandRunnerOne)=>{this.commandRunnerOne = commandRunnerOne}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
+                {this.clipboardButton(divRef)}
+                <div ref={(divRef)=>{this.divRef = divRef}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
                 </div>
               </div>
 

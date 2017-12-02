@@ -190,11 +190,15 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
+    const disableButton = (dataID,deviceI)=> {
+      if (dataID == deviceI){
+        //do nothing
+      } else {
+        return disabled;
+      }
+    }
     const commandRunner = (scmd,uuid,dbid) =>{
       //default action if someone just submits the request
-      if (deviceID != deviceI) {
-        this.setApicShowCommands(showC,deviceID,99);
-      };
       console.log(scmd)
       console.log(uuid)
       const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, function(error, result){
@@ -218,7 +222,7 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}}>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}} {disableButton()}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
           <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | s bgp",deviceID,3)}}>showBgp</MenuItem>
