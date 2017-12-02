@@ -227,9 +227,6 @@ class ApicDevices extends Component {
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID == deviceI){
         this.handleShowCommandLoading(uuid);
-        return true;
-      } else {
-
       }
       //default action if someone just submits the request
       console.log(scmd)
@@ -281,7 +278,7 @@ class ApicDevices extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
-    //console.log(this);
+    console.log(this);
     return(
       <div style={divStyles}>
         <div id="example"><ApicModal></ApicModal></div>
