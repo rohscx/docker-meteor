@@ -222,7 +222,7 @@ class ApicDevices extends Component {
       }
     }
     const commandRunner = (scmd,uuid,dbid) =>{
-      if (deviceID != deviceI){
+      if (deviceID == deviceI){
         this.handleShowCommandError(uuid);
         return true;
       } else {
@@ -254,11 +254,11 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isSelf(isError.showCommandState, isError.showCommandId, deviceID) ? 'Select ..>>' : '"Commands"'}
+        title= {isSelf(isError.showCommandState, isError.showCommandId, deviceID) ? 'Loading...' : 'runShow'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isSelf(isError.showCommandState, isError.showCommandId, deviceID)}
-        onMouseEnter={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}
+        onMouseEnter={()=>{this.setApicShowCommands(showC,deviceID,99)}}
         >
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
