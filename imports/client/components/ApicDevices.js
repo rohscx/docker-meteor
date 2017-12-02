@@ -37,7 +37,7 @@ class ApicDevices extends Component {
         id:id1
       }
       });
-    } 
+    }
   }
 
   handleSearchFormInput(event) {
@@ -215,7 +215,7 @@ class ApicDevices extends Component {
     let isLoading = new Object;
     isLoading.showCommandState = this.state.showCommandLoading.state;
     isLoading.showCommandId = this.state.showCommandLoading.id;
-    isLoading.showCommand.set = this.setApicShowCommands.bind(this);
+    isLoading.showCommandSet = this.setApicShowCommands.bind(this);
 
     const isSelf = (state, id1, id2)=>{
       if (state == true && (id1 == id2)) {
@@ -234,7 +234,7 @@ class ApicDevices extends Component {
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
-      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, isLoading.showCommand.set(), function(error, result){
+      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, isLoading.showCommandSet(), function(error, result){
         if (error){
           console.log(error)
         } else {
