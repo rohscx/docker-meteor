@@ -24,19 +24,19 @@ class ApicDevices extends Component {
   }
 
   handleShowCommandLoading(id1) {
-    if (this.state.showCommandLoading.state == false) {
-      this.setState({ showCommandLoading:{
-        state:true,
-        id:id1
-      }
-      });
-    } else {
-      this.setState({ showCommandLoading:{
+    this.setState({ showCommandError:{
+      state:true,
+      id:id1
+    }
+  });
+    Meteor.setTimeout(() => {
+      // Completed of async action, set loading state back
+      this.setState({ showCommandError:{
         state:false,
         id:id1
       }
       });
-    }
+    }, 10000);
   }
 
   handleSearchFormInput(event) {
@@ -214,7 +214,6 @@ class ApicDevices extends Component {
     let isLoading = new Object;
     isLoading.showCommandState = this.state.showCommandLoading.state;
     isLoading.showCommandId = this.state.showCommandLoading.id;
-    isLoading.showCommandSet = this.setApicShowCommands.bind(this);
 
     const isSelf = (state, id1, id2)=>{
       if (state == true && (id1 == id2)) {
@@ -226,11 +225,14 @@ class ApicDevices extends Component {
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID == deviceI){
         this.handleShowCommandLoading(uuid);
+        return true;
+      } else {
+
       }
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
-      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, isLoading.showCommandSet(), function(error, result){
+      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid,, function(error, result){
         if (error){
           console.log(error)
         } else {
@@ -253,7 +255,7 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID) ? 'Loading...' : 'runShow'}
+        title= {isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID) ? ' ... ' : 'runShow'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID)}
@@ -277,7 +279,7 @@ class ApicDevices extends Component {
     const divStyles = {
       paddingBottom:"5%"
     };
-    console.log(this);
+    //console.log(this);
     return(
       <div style={divStyles}>
         <div id="example"><ApicModal></ApicModal></div>
