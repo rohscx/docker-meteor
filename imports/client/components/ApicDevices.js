@@ -199,7 +199,8 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
-    let isError = this.state.showCommandError;
+    let isError = new Object;
+    isError.showCommandError = this.state.showCommandError;
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
         this.handleShowCommandError();
