@@ -66,7 +66,8 @@ class ApicDevices extends Component {
   }
 
   setApicShowCommands(showCommand, deviceId, validationStatus){
-    console.log("setApicShowCommands ", deviceId);
+    // debug
+    //console.log("setApicShowCommands ", deviceId);
     this.props.apicShowCommands(showCommand, deviceId, validationStatus);
   }
 
