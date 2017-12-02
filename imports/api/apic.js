@@ -200,7 +200,7 @@ if (Meteor.isServer) {
           });
 
 
-          setStatus()
+          setStatus(uuid)
           return dbId;
 
          //console.log(test)
