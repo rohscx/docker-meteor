@@ -226,7 +226,7 @@ class ApicDevices extends Component {
     }
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID == deviceI){
-        this.handleShowCommandError(uuid);
+        this.handleShowCommandLoading(uuid);
         return true;
       } else {
 
