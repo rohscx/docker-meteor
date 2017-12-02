@@ -235,7 +235,8 @@ class ApicDevices extends Component {
       <SplitButton
         bsSize="xsmall"
         title= {this.isError.showCommandError ? 'Select ..>>' : '"Commands"'}
-        id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}}
+        id="split-button-dropdown"
+        onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={this.isError.showCommandError}
         >
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
