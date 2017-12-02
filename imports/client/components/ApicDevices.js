@@ -209,7 +209,7 @@ class ApicDevices extends Component {
 
       }
       const isItMe = (id1,id2,err1)=>{
-        if (id1 == id2 && err1 == true)=>{
+        if (id1 == id2 && err1 == true){
           return true;
         } else {
           return false;
