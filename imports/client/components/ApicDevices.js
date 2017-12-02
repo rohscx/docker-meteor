@@ -20,12 +20,18 @@ class ApicDevices extends Component {
     }
   }
 
-  handleShowCommandError() {
-    this.setState({ showCommandError: true });
-    Meteor.setTimeout(() => {
-      // Completed of async action, set loading state back
-      this.setState({ showCommandError: false });
-    }, 2000);
+  handleShowCommandError(id) {
+    const deviceI = this.props.apic.apicShowCommands.deviceId;
+    if (id == deviceI){
+      this.setState({ showCommandError: true });
+      Meteor.setTimeout(() => {
+        // Completed of async action, set loading state back
+        this.setState({ showCommandError: false });
+      }, 2000);
+    } else {
+      //do nothing
+    }
+
   }
 
   handleSearchFormInput(event) {
@@ -203,7 +209,7 @@ class ApicDevices extends Component {
     isError.showCommandError = this.state.showCommandError;
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
-        this.handleShowCommandError();
+        this.handleShowCommandError(deviceID);
         return true;
       } else {
 
