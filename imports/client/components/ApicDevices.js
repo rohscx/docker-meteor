@@ -24,14 +24,14 @@ class ApicDevices extends Component {
   }
 
   handleShowCommandLoading(id1) {
-    this.setState({ showCommandError:{
+    this.setState({ showCommandLoading:{
       state:true,
       id:id1
     }
   });
     Meteor.setTimeout(() => {
       // Completed of async action, set loading state back
-      this.setState({ showCommandError:{
+      this.setState({ showCommandLoading:{
         state:false,
         id:id1
       }
@@ -225,9 +225,6 @@ class ApicDevices extends Component {
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID == deviceI){
         this.handleShowCommandLoading(uuid);
-        return true;
-      } else {
-
       }
       //default action if someone just submits the request
       console.log(scmd)
