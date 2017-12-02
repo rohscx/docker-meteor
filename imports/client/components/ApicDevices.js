@@ -201,13 +201,6 @@ class ApicDevices extends Component {
     const validS = this.props.apic.apicShowCommands.validationStatus;
     let isError = new Object;
     isError.showCommandError = this.state.showCommandError;
-    const isItMe = (id1,id2,err1)=>{
-      if (id1 == id2 && err1 == true){
-        return true;
-      } else {
-        return false;
-      }
-    }
     const commandRunner = (scmd,uuid,dbid) =>{
       if (deviceID != deviceI){
         this.handleShowCommandError();
@@ -215,6 +208,7 @@ class ApicDevices extends Component {
       } else {
 
       }
+      
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
@@ -241,7 +235,7 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isItMe(deviceI,dbId,isError.showCommandError) ? 'Select ..>>' : '"Commands"'}
+        title= {isError.showCommandError ? 'Select ..>>' : '"Commands"'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
         disabled={isError.showCommandError}
