@@ -16,27 +16,28 @@ class ApicDevices extends Component {
   constructor() {
     super();
     this.state = {
-      showCommandError:{
+      showCommandLoading:{
         state:false,
         id:null
       }
     }
   }
 
-  handleShowCommandError(id1) {
-    this.setState({ showCommandError:{
-      state:true,
-      id:id1
-    }
-  });
-    Meteor.setTimeout(() => {
-      // Completed of async action, set loading state back
+  handleShowCommandLoading(id1) {
+
+    if (this.state.showCommandLoading == false) {
+      this.setState({ showCommandError:{
+        state:true,
+        id:id1
+      }
+      });
+    } else {
       this.setState({ showCommandError:{
         state:false,
         id:id1
       }
       });
-    }, 2000);
+    } 
   }
 
   handleSearchFormInput(event) {
@@ -211,9 +212,11 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
-    let isError = new Object;
-    isError.showCommandState = this.state.showCommandError.state;
-    isError.showCommandId = this.state.showCommandError.id;
+    let isLoading = new Object;
+    isLoading.showCommandState = this.state.showCommandLoading.state;
+    isLoading.showCommandId = this.state.showCommandLoading.id;
+    isLoading.showCommand.set = this.setApicShowCommands.bind(this);
+
     const isSelf = (state, id1, id2)=>{
       if (state == true && (id1 == id2)) {
         return true;
@@ -231,7 +234,7 @@ class ApicDevices extends Component {
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
-      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, function(error, result){
+      const commandData = Meteor.call('apicShowCommands',scmd,uuid,dbid, isLoading.showCommand.set(), function(error, result){
         if (error){
           console.log(error)
         } else {
@@ -254,10 +257,10 @@ class ApicDevices extends Component {
 
       <SplitButton
         bsSize="xsmall"
-        title= {isSelf(isError.showCommandState, isError.showCommandId, deviceID) ? 'Loading...' : 'runShow'}
+        title= {isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID) ? 'Loading...' : 'runShow'}
         id="split-button-dropdown"
         onClick={()=>{commandRunner(showC,deviceI,dbId)}}
-        disabled={isSelf(isError.showCommandState, isError.showCommandId, deviceID)}
+        disabled={isSelf(isLoading.showCommandState, isLoading.showCommandId, deviceID)}
         onMouseEnter={()=>{this.setApicShowCommands(showC,deviceID,99)}}
         >
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>

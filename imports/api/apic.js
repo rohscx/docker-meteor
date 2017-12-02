@@ -70,7 +70,7 @@ if (Meteor.isServer) {
         return e;
       };
     },
-    apicShowCommands(showCommand,uuid,dbId) {
+    apicShowCommands(showCommand,uuid,dbId,setStatus) {
       try {
         showObj = {
           "name":"testTest123",
@@ -200,7 +200,7 @@ if (Meteor.isServer) {
           });
 
 
-
+          setStatus()
           return dbId;
 
          //console.log(test)
