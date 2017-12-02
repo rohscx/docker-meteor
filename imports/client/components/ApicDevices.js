@@ -16,9 +16,18 @@ class ApicDevices extends Component {
   constructor() {
     super();
     this.state = {
-      test:"dd"
+      showCommandError:false
     }
   }
+
+  handleShowCommandError() {
+    this.setState({ showCommandError: true });
+    Meteor.setTimeout(() => {
+      // Completed of async action, set loading state back
+      this.setState({ showCommandError: false });
+    }, 2000);
+  }
+
   handleSearchFormInput(event) {
     let value = event.target.value;
     let deviceFilter = "ALL"
@@ -190,14 +199,14 @@ class ApicDevices extends Component {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
     const validS = this.props.apic.apicShowCommands.validationStatus;
-    const disableButton = (dataID,deviceI)=> {
-      if (dataID == deviceI){
+    let isError = this.state.showCommandError;
+    const commandRunner = (scmd,uuid,dbid) =>{
+      if (dataID != deviceI){
+        this.handleShowCommandError();
         return true;
       } else {
-        return false;
+
       }
-    }
-    const commandRunner = (scmd,uuid,dbid) =>{
       //default action if someone just submits the request
       console.log(scmd)
       console.log(uuid)
@@ -222,7 +231,7 @@ class ApicDevices extends Component {
     }
     return (
 
-      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}} disable>
+      <SplitButton bsSize="xsmall" title="Commands" id="split-button-dropdown" onClick={()=>{commandRunner(showC,deviceI,dbId)}} disabled={isError}>
           <MenuItem eventKey="1" onSelect={()=>{this.setApicShowCommands("show Clock",deviceID,1)}}>showClock</MenuItem>
           <MenuItem eventKey="2" onSelect={()=>{this.setApicShowCommands("show standby brief",deviceID,2)}}>showHSRP</MenuItem>
           <MenuItem eventKey="3" onSelect={()=>{this.setApicShowCommands("show run | s bgp",deviceID,3)}}>showBgp</MenuItem>
