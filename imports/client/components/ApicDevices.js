@@ -194,7 +194,7 @@ class ApicDevices extends Component {
       if (dataID == deviceI){
         //do nothing
       } else {
-        return disabled;
+        return "disabled";
       }
     }
     const commandRunner = (scmd,uuid,dbid) =>{
