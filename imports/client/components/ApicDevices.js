@@ -22,7 +22,7 @@ class ApicDevices extends Component {
 
   handleShowCommandError(id) {
     const deviceI = this.props.apic.apicShowCommands.deviceId;
-    if (id == deviceI){
+    if (id != deviceI){
       this.setState({ showCommandError: true });
       Meteor.setTimeout(() => {
         // Completed of async action, set loading state back
