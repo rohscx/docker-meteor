@@ -152,6 +152,11 @@ if (Meteor.isServer) {
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
         // check for errors
         if (responseTaskID.response.statusCode != 200) {
+          ItemsApicDevices.update(dbId, {
+            $set:{
+              'siteData.dataObj.commandRunner':httpResponseFile,
+            }
+          });
           console.log("HTTP REQUEST ERROR",responseTaskID);
           return responseTaskID;
         }
@@ -170,6 +175,11 @@ if (Meteor.isServer) {
               let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
               // check for errors
               if (responseFileId.response.statusCode != 200) {
+                ItemsApicDevices.update(dbId, {
+                  $set:{
+                    'siteData.dataObj.commandRunner':httpResponseFile,
+                  }
+                });
                 console.log("HTTP REQUEST ERROR",responseFileId);
                 return responseFileId;
               }
@@ -201,6 +211,11 @@ if (Meteor.isServer) {
           // check for errors
           if (httpResponseFile.response.statusCode != 200) {
             console.log("HTTP REQUEST ERROR",httpResponseFile);
+            ItemsApicDevices.update(dbId, {
+              $set:{
+                'siteData.dataObj.commandRunner':httpResponseFile,
+              }
+            });
             return httpResponseFile;
           }
           console.log(httpResponseFile)
