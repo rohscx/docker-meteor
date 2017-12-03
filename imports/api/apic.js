@@ -150,16 +150,6 @@ if (Meteor.isServer) {
         console.log();
 
         let responseTaskID = Meteor.call('apicHttpRequest',"POST",networkDevicePoller,apicOptions(showObj))
-        // check for errors
-        if (responseTaskID.response.statusCode != 200) {
-          ItemsApicDevices.update(dbId, {
-            $set:{
-              'siteData.dataObj.commandRunner':httpResponseFile,
-            }
-          });
-          console.log("HTTP REQUEST ERROR",responseTaskID);
-          return responseTaskID;
-        }
         let responseTaskURL = baseUrl + responseTaskID.data.response.url;
         console.log("*****"+responseTaskURL);
         let responseFileURL = "";
@@ -173,16 +163,6 @@ if (Meteor.isServer) {
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
               let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
-              // check for errors
-              if (responseFileId.response.statusCode != 200) {
-                ItemsApicDevices.update(dbId, {
-                  $set:{
-                    'siteData.dataObj.commandRunner':httpResponseFile,
-                  }
-                });
-                console.log("HTTP REQUEST ERROR",responseFileId);
-                return responseFileId;
-              }
               resolve(responseFileId)
             })
             return promise;
@@ -208,16 +188,6 @@ if (Meteor.isServer) {
         console.log("responseFileURL",responseFileURL)
 
           let httpResponseFile = Meteor.call('apicHttpRequest',"GET",responseFileURL,apicOptions(showObj));
-          // check for errors
-          if (httpResponseFile.response.statusCode != 200) {
-            console.log("HTTP REQUEST ERROR",httpResponseFile);
-            ItemsApicDevices.update(dbId, {
-              $set:{
-                'siteData.dataObj.commandRunner':httpResponseFile,
-              }
-            });
-            return httpResponseFile;
-          }
           console.log(httpResponseFile)
           console.log("*****",JSON.parse(httpResponseFile.content))
           let man2 = JSON.parse(httpResponseFile.content)
