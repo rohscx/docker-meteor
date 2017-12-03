@@ -633,7 +633,7 @@ export default class Layout extends Component {
             return (
               <div style={{width:"60%",align:"left"}}>
                 {this.clipboardButton(divRef)}
-                <div ref={(divRef)=>{this[divRef] = divRef}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
+                <div ref={(divRef)=>{ console.log("dddd",divRef)}} dangerouslySetInnerHTML={createMarkup(stringReplace(commandRunnerString))}>
                 </div>
               </div>
 
