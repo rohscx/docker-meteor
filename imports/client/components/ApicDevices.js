@@ -67,14 +67,9 @@ class ApicDevices extends Component {
 
   setApicShowCommands(showCommand, deviceId, validationStatus){
     const deviceI = this.props.apic.apicShowCommands.deviceId;
-    // check if device ID is already set
-    if (deviceI != deviceId) {
-      // debug
-      console.log("setApicShowCommands ", deviceId);
-      this.props.apicShowCommands(showCommand, deviceId, validationStatus);
-    } else {
-      //do nothing if already set
-    }
+    // debug
+    console.log("setApicShowCommands ", deviceId);
+    this.props.apicShowCommands(showCommand, deviceId, validationStatus);
   }
 
   preventDefault(e){
