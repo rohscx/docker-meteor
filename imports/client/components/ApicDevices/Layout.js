@@ -591,7 +591,7 @@ export default class Layout extends Component {
         }
         // checkes for certain condition and formats commandRunner responses
         const commandRunnerCheck = (cmdRunner,dbId) =>{
-          const divRef = dbId+dbId;
+          const divRef = dbId;
           // debug
           //console.log(cmdRunner);
           // creates html inner text. Maybe find a way not to do this
