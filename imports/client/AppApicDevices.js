@@ -128,4 +128,4 @@ export default createContainer(({params}) => {
       return countBy(searchObj)
     }
   };
-}, AppApicDevices);
+}, AppApicDevices); 

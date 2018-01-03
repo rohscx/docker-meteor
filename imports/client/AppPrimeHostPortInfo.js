@@ -109,4 +109,4 @@ export default createContainer(({params}) => {
       return sortBy(findValue,sortValue, sortOrder)
     }
   };
-}, AppAppPrimeHostInfo);
+}, AppAppPrimeHostInfo); 

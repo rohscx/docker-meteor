@@ -108,4 +108,4 @@ export default createContainer(({params}) => {
     }
 
   };
-}, AppTransferRate);
+}, AppTransferRate); 
