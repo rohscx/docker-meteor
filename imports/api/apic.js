@@ -163,7 +163,11 @@ if (Meteor.isServer) {
           const x = ()=>{
             let promise = new Promise((resolve, reject)=>{
               let responseFileId = Meteor.call('apicHttpRequest',"GET",responseTaskURL,apicOptions(showObj))
-              resolve(responseFileId)
+              if (resolve) {
+                resolve(responseFileId)
+              } else {
+                reject("responseFileId Error");
+              }
             })
             return promise;
           }

@@ -40,14 +40,22 @@ class Apic extends Component {
     this.props.getTicket(sourceIp,destIp);
 
     function resolveAfter2Seconds(x,status) {
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
           setTimeout(() => {
             if(status == "INPROGRESS"){
               console.log("INPROGRESS");
-              resolve(x);
+              if(resolve){
+                resolve(x);
+              } else {
+                reject("App.js resolveAfter2Seconds ERROR REJECT")
+              }
             }
             console.log("NOT INPROGRESS");
-            resolve(x);
+            if(resolve){
+              resolve(x);
+            } else {
+              reject("App.js resolveAfter2Seconds ERROR REJECT")
+            }
           }, 2000);
         });
       }

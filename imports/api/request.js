@@ -52,7 +52,11 @@ if (Meteor.isServer) {
         return new Promise((resolve, reject) =>{
           const result = HTTP.call(type, url, options);
           // console.log(result); // debug
-          resolve(result)
+          if (resolve){
+            resolve(result)
+          } else {
+            reject("Request.js httpRequest Error")
+          }
         })
       } catch (e) {
         reject(e)
