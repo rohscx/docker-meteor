@@ -29,7 +29,6 @@
     "react-router": "^3.2.0",
     "react-router-bootstrap": "^0.23.3",
     "react-router-dom": "^4.1.2",
-    "recompose": "^0.23.5",
     "redux": "^3.7.2",
     "redux-accordion": "^1.0.721",
     "redux-thunk": "^2.2.0",
