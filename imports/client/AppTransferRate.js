@@ -2,7 +2,7 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import TransferRate from './components/TransferRate';
 import { Mongo } from 'meteor/mongo';
-import { withTracker } from 'meteor/react-meteor-data';
+import {createContainer} from 'meteor/react-meteor-data';
 import React, {Component} from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
@@ -84,7 +84,11 @@ ItemsTransferRate.deny({
 
 
 
+<<<<<<< HEAD
 export default withTracker( props => {
+=======
+export default createContainer(({params}) => {
+>>>>>>> parent of e74cd4a... replaced createContainer with withTracker
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');

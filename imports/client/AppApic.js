@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
+import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 
 
@@ -190,7 +190,11 @@ store.dispatch({
 }
 
 
+<<<<<<< HEAD
 export default withTracker( props => {
+=======
+export default createContainer(({params}) => {
+>>>>>>> parent of e74cd4a... replaced createContainer with withTracker
   let itemsSub = Meteor.subscribe('allApicItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');

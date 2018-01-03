@@ -2,7 +2,7 @@ import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import WebServerStatus from './components/WebServerStatus';
 import { Mongo } from 'meteor/mongo';
-import { withTracker } from 'meteor/react-meteor-data';
+import {createContainer} from 'meteor/react-meteor-data';
 import React, {Component} from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
@@ -75,7 +75,7 @@ ItemsWebServerStatus.deny({
 
 
 
-export default withTracker( props => {
+export default createContainer(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
+import {createContainer} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -103,7 +103,11 @@ import Header from './components/Header';
 }
 
 
+<<<<<<< HEAD
 export default withTracker( props => {
+=======
+export default createContainer(({params}) => {
+>>>>>>> parent of e74cd4a... replaced createContainer with withTracker
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
