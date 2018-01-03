@@ -103,7 +103,7 @@ import Header from './components/Header';
 }
 
 
-export default withTracker(() => {
+export default withTracker(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
