@@ -190,7 +190,7 @@ store.dispatch({
 }
 
 
-export default withTracker(({params}) => {
+export default withTracker( props => {
   let itemsSub = Meteor.subscribe('allApicItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');

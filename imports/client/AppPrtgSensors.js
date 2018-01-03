@@ -109,7 +109,7 @@ store.subscribe(() => {
 
 
 
-export default withTracker(({params}) => {
+export default withTracker( props => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');

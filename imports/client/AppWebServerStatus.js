@@ -75,7 +75,7 @@ ItemsWebServerStatus.deny({
 
 
 
-export default withTracker(({params}) => {
+export default withTracker( props => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let meteorDbSub = Meteor.subscribe('webServerStatus');
