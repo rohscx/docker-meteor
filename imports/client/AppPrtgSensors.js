@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { autobind } from 'core-decorators';
-import {createContainer} from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
@@ -109,7 +109,7 @@ store.subscribe(() => {
 
 
 
-export default createContainer(({params}) => {
+export default withTracker(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let prtgItemsSub = Meteor.subscribe('prtgDeviceList');

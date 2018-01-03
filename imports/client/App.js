@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -103,7 +103,7 @@ import Header from './components/Header';
 }
 
 
-export default createContainer(({params}) => {
+export default withTracker(({params}) => {
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
