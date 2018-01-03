@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
+import {withTracker} from 'meteor/react-meteor-data';
 import { autobind } from 'core-decorators';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -123,4 +123,4 @@ export default withTracker(() => {
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
-})(App); 
+})(App);
