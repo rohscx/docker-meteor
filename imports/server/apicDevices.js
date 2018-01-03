@@ -273,9 +273,10 @@ let apicDevices = ()=>{
           });
         }
         const dbUpdate = (ddCheck,dbData,cTime,cdTime)=>{
-          console.log("updating", ddCheck);
-          console.log("current time", cTime);
-          console.log("current date time", cdTime);
+          // debug
+          //console.log("updating", ddCheck);
+          //console.log("current time", cTime);
+          //console.log("current date time", cdTime);
           ItemsApicDevices.update(ddCheck, {
             $set:{
               'siteData.dataObj':dbData,
