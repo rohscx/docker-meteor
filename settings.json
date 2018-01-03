@@ -1,33 +1,33 @@
 {
-  "private": {
-    "iseRest": {
-        "uName": "NotAName",
-        "uPass": "NotREallyIt"
+  "private":{
+    "iseRest":{
+        "uName":"NotAName",
+        "uPass":"NotREallyIt"
     },
-    "prtgRest": {
-      "uName": "NotAName",
-      "uPass": "NotREallyIt",
-      "baseUrl": "NotReallyGoodAtThis"
+    "prtgRest":{
+      "uName":"NotAName",
+      "uPass":"NotREallyIt",
+      "baseUrl":"NotReallyGoodAtThis"
     },
-    "apicEM": {
-      "uName": false,
-      "uPass": false,
-      "baseUrl": false
+    "apicEM":{
+      "uName":false,
+      "uPass":false,
+      "baseUrl":false
     },
     "prime":{
-      "uName": false,
-      "uPass": false,
-      "baseUrl": false
+      "uName":false,
+      "uPass":false,
+      "baseUrl":false
     }
 },
-  "public" : {
-    "ciscoApicEM": {
-      "uName": "devnetuser",
-      "uPass": "Cisco123!",
-      "baseUrl": "https://devnetapi.cisco.com/sandbox/apic_em"
+  "public":{
+    "ciscoApicEM":{
+      "uName":"devnetuser",
+      "uPass":"Cisco123!",
+      "baseUrl":"https://devnetapi.cisco.com/sandbox/apic_em"
     },
-    "siteBranding": {
-      "navBarBrand": "FROST"
+    "siteBranding":{
+      "navBarBrand":"FROST"
     }
 },
 "webServerList":[{
@@ -49,7 +49,7 @@
     "url":"https://www.cartoonnetwork.com",
   "description":"Home of Rick and Morty!"
   }],
-  "admins" : [
+  "admins":[
     "rohscx@gmail.com",
     "test2@gmail.com",
     "test5@gmail.com",
