@@ -190,7 +190,7 @@ store.dispatch({
 }
 
 
-export default createContainer(({params}) => {
+export default withTracker(({params}) => {
   let itemsSub = Meteor.subscribe('allApicItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
@@ -214,4 +214,4 @@ export default createContainer(({params}) => {
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
-}, AppApic); 
+})(AppApic); 

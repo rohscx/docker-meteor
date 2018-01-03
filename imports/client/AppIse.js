@@ -71,11 +71,11 @@ store.subscribe(() => {
 }
 
 
-export default createContainer(({params}) => {
+export default withTracker(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   return {
     showAll,
     ready: "k",
   }
-}, AppIse); 
+})(AppIse); 

@@ -84,7 +84,7 @@ ItemsTransferRate.deny({
 
 
 
-export default createContainer(({params}) => {
+export default withTracker(({params}) => {
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let transferRateItemsSub = Meteor.subscribe('siteCircuitInfo');
@@ -108,4 +108,4 @@ export default createContainer(({params}) => {
     }
 
   };
-}, AppTransferRate); 
+})(AppTransferRate); 
