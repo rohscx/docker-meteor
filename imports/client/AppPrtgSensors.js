@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { autobind } from 'core-decorators';
-import {createContainer} from 'meteor/react-meteor-data';
+import {withTracker} from 'meteor/react-meteor-data';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import IsRole from './utilities/IsRole';
 import { Session } from 'meteor/session';
