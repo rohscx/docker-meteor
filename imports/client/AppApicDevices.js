@@ -79,11 +79,7 @@ ItemsApicDevices.deny({
 
 
 
-<<<<<<< HEAD
-export default withTracker( props => {
-=======
 export default createContainer(({params}) => {
->>>>>>> parent of e74cd4a... replaced createContainer with withTracker
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
   let apicDevicesItemsSub = Meteor.subscribe('apicDevices');

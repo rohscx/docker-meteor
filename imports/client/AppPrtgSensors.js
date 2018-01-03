@@ -110,7 +110,11 @@ store.subscribe(() => {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default withTracker( props => {
+=======
+export default createContainer(({params}) => {
+>>>>>>> parent of e74cd4a... replaced createContainer with withTracker
 =======
 export default createContainer(({params}) => {
 >>>>>>> parent of e74cd4a... replaced createContainer with withTracker

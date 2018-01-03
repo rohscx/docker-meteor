@@ -103,11 +103,7 @@ import Header from './components/Header';
 }
 
 
-<<<<<<< HEAD
-export default withTracker( props => {
-=======
 export default createContainer(({params}) => {
->>>>>>> parent of e74cd4a... replaced createContainer with withTracker
   let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
