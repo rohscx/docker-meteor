@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {LoginButtons} from 'meteor/okgrow:accounts-ui-react'
 import { Link } from 'react-router';
 import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
