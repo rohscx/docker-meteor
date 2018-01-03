@@ -128,4 +128,4 @@ export default withTracker( props => {
       return countBy(searchObj)
     }
   };
-}, AppApicDevices);
+})(AppApicDevices);

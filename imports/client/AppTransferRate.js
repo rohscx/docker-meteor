@@ -108,4 +108,4 @@ export default withTracker( props => {
     }
 
   };
-}, AppTransferRate);
+})(AppTransferRate);

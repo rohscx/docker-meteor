@@ -78,4 +78,4 @@ export default withTracker( props => {
     showAll,
     ready: "k",
   }
-}, AppIse);
+})(AppIse);

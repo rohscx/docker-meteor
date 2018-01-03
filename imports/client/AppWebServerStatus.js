@@ -104,4 +104,4 @@ export default withTracker( props => {
     }
 
   };
-}, AppWebServerStatus);
+})(AppWebServerStatus);

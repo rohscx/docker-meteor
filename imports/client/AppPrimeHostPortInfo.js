@@ -109,4 +109,4 @@ export default withTracker( props => {
       return sortBy(findValue,sortValue, sortOrder)
     }
   };
-}, AppAppPrimeHostInfo);
+})(AppAppPrimeHostInfo);
