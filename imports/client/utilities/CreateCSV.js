@@ -1,4 +1,5 @@
-import React, { PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const CreateCSV = (csvData,switchExpression) => {
   const noDataError = "Nothing found in time range";

@@ -1,4 +1,5 @@
-import React, { PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // note: THis does not provide true secuirty, it simply obfuscates
 const IsRole = ({role, children}) => {
   const cssBlur = {
