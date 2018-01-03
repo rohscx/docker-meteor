@@ -104,4 +104,4 @@ export default createContainer(({params}) => {
     }
 
   };
-})(AppWebServerStatus);
+}, AppWebServerStatus);

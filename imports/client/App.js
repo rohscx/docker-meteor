@@ -123,4 +123,4 @@ export default createContainer(({params}) => {
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
-})(App);
+}, App);

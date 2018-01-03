@@ -78,4 +78,4 @@ export default createContainer(({params}) => {
     showAll,
     ready: "k",
   }
-})(AppIse);
+}, AppIse);
