@@ -35,8 +35,5 @@
     "request": "^2.83.0",
     "simpl-schema": "^0.3.2",
     "superagent": "^3.8.2"
-  },
-    "devDependencies": {
-    "uglify-js-brunch": "^2.10.0"
   }
 }
