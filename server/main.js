@@ -287,13 +287,19 @@ Meteor.publish('prtgDeviceList', function() {
           hostname: hName,
           port: hPort,
           path: hPath,
-          method: hMethod
+          method: hMethod,
+          headers: {
+            'content-type': 'application/json',
+            'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
+            'honorCipherOrder': true
+         }
         };
         const req = https.request(testHttpsOptions, (res) =>{
             console.log('statusCode:' ,res.statusCode);
             console.log('headers:' ,res.headers);
 
             res.on('data',(d) =>{
+              console.log("MAX HEAD######ROM",d)
               process.stdout.write(d);
             });
         });
@@ -304,6 +310,7 @@ Meteor.publish('prtgDeviceList', function() {
       };
       const testUrl = "/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
       testHttps(baseUrl,443,testUrl,"GET");
+      console.log("*************************************")
 
       let newData = JSON.parse(data.content);
       //console.log("DATAAAA  NEW",newData)
