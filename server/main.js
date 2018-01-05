@@ -282,6 +282,29 @@ Meteor.publish('prtgDeviceList', function() {
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       const data = HTTP.get(url, options);
+      const testHttps = (hName,hPort,hPath,hMethod) => {
+        const testHttpsOptions = {
+          hostname: hName,
+          port: hPort,
+          path: hPath,
+          method: hMethod
+        };
+        const req = https.request(testHttpsOptions, (res) =>{
+            console.log('statusCode:' ,res.statusCode);
+            console.log('headers:' ,res.headers);
+
+            res.on('data',(d) =>{
+              process.stdout.write(d);
+            });
+        });
+        req.on('error', (e) =>{
+          console.log(e);
+        });
+        req.end();
+      };
+      const testUrl = "/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
+      testHttps(baseUrl,443,testUrl,"GET");
+
       let newData = JSON.parse(data.content);
       //console.log("DATAAAA  NEW",newData)
       //console.log("SENSORS",newData.sensors)
