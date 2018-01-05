@@ -267,7 +267,13 @@ Meteor.publish('prtgDeviceList', function() {
   let uPass = Meteor.settings.private.prtgRest.uPass;
   let uCreds = "&username="+uName+"&passhash="+uPass;
   let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
-  let options;
+  let options = {
+    headers: {
+      'content-type': 'application/json',
+      'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
+      'honorCipherOrder': true
+   }
+  };
   let agent;
   const publishedKeys = {};
   if(countCollections <= 0){
