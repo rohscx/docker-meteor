@@ -268,6 +268,8 @@ class ApicDevices extends Component {
           <MenuItem eventKey="6" onSelect={()=>{this.setApicShowCommands("show ip ospf neighbor",deviceID,6)}}>showOspfNeighbor</MenuItem>
           <MenuItem eventKey="7" onSelect={()=>{this.setApicShowCommands("show ip bgp summary",deviceID,7)}}>showBgpfNeighbor</MenuItem>
           <MenuItem eventKey="8" onSelect={()=>{this.setApicShowCommands("show ip nbar protocol-pack active",deviceID,8)}}>showActiveNbar</MenuItem>
+          <MenuItem eventKey="9" onSelect={()=>{this.setApicShowCommands("show cdp neighbors",deviceID,9)}}>showCdpNeighbors</MenuItem>
+          <MenuItem eventKey="10" onSelect={()=>{this.setApicShowCommands("show inventory",deviceID,10)}}>showInventory</MenuItem>
       </SplitButton>
 
     )
