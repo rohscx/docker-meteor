@@ -38,7 +38,11 @@ let apicDevices = ()=>{
   const apicTicketUrn = '/api/v1/ticket';
   const ticketUrl = baseUrl + apicTicketUrn;
   const apicTicketOptions = {
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
+      'honorCipherOrder': true
+   },
     data: {username: uName, password: uPass}
   }
   // commands to be run against apic device. No more than 5  per arrays e.g. [0,1,2,3,4]
