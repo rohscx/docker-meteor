@@ -126,10 +126,23 @@ let apicDevices = ()=>{
   }
   // gets user roles as Array
   //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
+  function genericRequest (method,url,uri,options) {
+    this.method = method;
+    this.url = url;
+    this.uri = uri;
+    this.options = options;
+    this.httpRequest = () => {
+      this.response = HTTP.call(this.method, this.url + this.uri ,this.options);
+      return this.response
+    };
+  };
 
-
-  let responseCats = HTTP.call("GET", 'http://jsonplaceholder.typicode.com/posts/1',options);
-  console.log( responseCats );
+  let test1 = new genericRequest();
+  test1.method = "GET";
+  test1.url = "http://jsonplaceholder.typicode.com"
+  test1.uri = "/posts/1"
+  test1.options = {};
+  console.log(test1.httpRequest())
 
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
