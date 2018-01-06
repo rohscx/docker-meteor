@@ -128,7 +128,7 @@ let apicDevices = ()=>{
   //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
 
 
-  let responseCats = HTTP.call( method, 'http://jsonplaceholder.typicode.com/posts/1',options, {} );
+  let responseCats = HTTP.call("GET", 'http://jsonplaceholder.typicode.com/posts/1',options);
   console.log( responseCats );
 
   async function httpRequest(method,url,options){
