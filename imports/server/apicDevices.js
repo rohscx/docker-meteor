@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import ItemsApicDevices from '../api/apic';
+import GenericRequest from '../api/GenericRequest';
 
 let apicDevices = ()=>{
   let clientId = false;
@@ -126,18 +127,9 @@ let apicDevices = ()=>{
   }
   // gets user roles as Array
   //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
-  function genericRequest (method,url,uri,options) {
-    this.method = method;
-    this.url = url;
-    this.uri = uri;
-    this.options = options;
-    this.httpRequest = () => {
-      this.response = HTTP.call(this.method, this.url + this.uri ,this.options);
-      return this.response;
-    };
-  };
 
-  let test1 = new genericRequest();
+
+  let test1 = new GenericRequest();
   test1.method = "GET";
   test1.url = "http://jsonplaceholder.typicode.com"
   test1.uri = "/posts/1"
@@ -145,11 +137,12 @@ let apicDevices = ()=>{
   console.log(test1.httpRequest())
 
   async function httpRequest(method,url,uri,options){
-
-    test1.method = method;
-    test1.url = url;
-    test1.uri = uri;
-    test1.options = options;
+    //
+    let apicRequest = new GenericRequest();
+    apicRequest.method = method;
+    apicRequest.url = url;
+    apicRequest.uri = uri;
+    apicRequest.options = options;
     const httpDevices = await test1.httpRequest();
     //const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices;
