@@ -127,24 +127,14 @@ let apicDevices = ()=>{
   }
   // gets user roles as Array
   //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
-
-
-  let test1 = new GenericRequest();
-  test1.method = "GET";
-  test1.url = "http://jsonplaceholder.typicode.com"
-  test1.uri = "/posts/1"
-  test1.options = {};
-  console.log(test1.httpRequest())
-
   async function httpRequest(method,url,uri,options){
-    //
+    // generic http request
     let apicRequest = new GenericRequest();
     apicRequest.method = method;
     apicRequest.url = url;
     apicRequest.uri = uri;
     apicRequest.options = options;
-    const httpDevices = await test1.httpRequest();
-    //const httpDevices = await Meteor.call('httpRequest', method,url,options);
+    const httpDevices = await apicRequest.httpRequest();
     const apicDevices = await httpDevices;
     // error checking REST request. If not 200 do nothing and log
     if (await apicDevices.statusCode === 200) {

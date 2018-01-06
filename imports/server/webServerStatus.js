@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import ItemsWebServerStatus from '../api/webserverStatus';
+import GenericRequest from '../api/GenericRequest';
 
 let webServerStatus = (webServerObj)=>{
   const statusCodeParser = (statusCode) =>{
@@ -68,8 +69,14 @@ let webServerStatus = (webServerObj)=>{
       const currentTime = getTimeNow();
       const currentDateTime = new Date();
       const startTime = getTimeNow();
-      async function httpRequest(method,url,options){
-        const httpDevices = await Meteor.call('httpRequest', method,url,options);
+
+      async function httpRequest(method,url,uri,options){
+        let webServerRequest = new GenericRequest();
+        webServerRequest.method = method;
+        webServerRequest.url = url;
+        webServerRequest.uri = uri;
+        webServerRequest.options = options;
+        const httpDevices = await webServerRequest.httpRequest();
         const httpReturn = await httpDevices;
         if (await httpReturn) {
           const endTime = getTimeNow();
@@ -151,7 +158,7 @@ let webServerStatus = (webServerObj)=>{
           }
         }
       }
-      httpRequest(webServerMethod,webServerUrl,webServerOptions)
+      httpRequest(webServerMethod,webServerUrl,"/",webServerOptions)
     })
   }
   const intervalId = Meteor.setInterval(()=>{
