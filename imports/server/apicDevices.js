@@ -133,7 +133,7 @@ let apicDevices = ()=>{
     this.options = options;
     this.httpRequest = () => {
       this.response = HTTP.call(this.method, this.url + this.uri ,this.options);
-      return this.response
+      return this.response;
     };
   };
 
@@ -144,8 +144,14 @@ let apicDevices = ()=>{
   test1.options = {};
   console.log(test1.httpRequest())
 
-  async function httpRequest(method,url,options){
-    const httpDevices = await Meteor.call('httpRequest', method,url,options);
+  async function httpRequest(method,url,uri,options){
+
+    test1.method = method;
+    test1.url = url;
+    test1.uri = uri;
+    test1.options = options;
+    const httpDevices = await test1.httpRequest();
+    //const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices;
     // error checking REST request. If not 200 do nothing and log
     if (await apicDevices.statusCode === 200) {
@@ -350,12 +356,12 @@ let apicDevices = ()=>{
       console.log("requesting upto 500 objects from APIC-EM")
       console.log()
 
-      httpRequest("GET",devicesUrl,apicOptions(""))
+      httpRequest("GET",baseUrl,apicDevicesUrn,apicOptions(""))
       if (countCollections() >= 300){
         console.log("over 9000!!! actually it's only only over 300 Devices!!!",countCollections())
         console.log("requesting upto ANOTHER 500 objects from APIC-EM")
         apicDevicesUrn500 = baseUrl+"/api/v1/network-device/501/500";
-        httpRequest("GET",apicDevicesUrn500,apicOptions(""))
+        httpRequest("GET",baseUrl,"/api/v1/network-device/501/500",apicOptions(""))
       }
   }
   const intervalId = Meteor.setInterval(()=>{
