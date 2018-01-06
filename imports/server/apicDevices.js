@@ -127,6 +127,10 @@ let apicDevices = ()=>{
   // gets user roles as Array
   //const roleStatus = checkUserRole("GET",roleUrl,apicOptions(""));
 
+
+  let responseCats = HTTP.call( method, 'http://jsonplaceholder.typicode.com/posts/1',options, {} );
+  console.log( responseCats );
+
   async function httpRequest(method,url,options){
     const httpDevices = await Meteor.call('httpRequest', method,url,options);
     const apicDevices = await httpDevices;
