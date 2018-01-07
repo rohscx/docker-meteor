@@ -73,7 +73,15 @@ let webServerStatus = (webServerObj)=>{
       const currentDateTime = new Date();
       const startTime = getTimeNow();
       const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-      const webServerAdminSatus = dbDataCheck.webServerData.dataObj.adminStatus.enable;
+      const webServerAdminSatus => (adminStatusObj) {
+        if (adminStatusObj.webServerData.dataObj) {
+          if (adminStatusObj.webServerData.dataObj.adminStatus) {
+            return adminStatusObj.webServerData.dataObj.adminStatus;
+          }
+        } else {
+          return 1;
+        }
+      };
 
       async function httpRequest(method,url,uri,options){
         let webServerRequest = new GenericRequest();
@@ -81,7 +89,7 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
-        if (dbDataCheck.length <= 1 || webServerAdminSatus == 1) {
+        if (webServerAdminSatus(dbDataCheck) == 1) {
           console.log("admin Status: ", webServerAdminSatus)
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
