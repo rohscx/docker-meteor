@@ -50,7 +50,20 @@ if (Meteor.isServer) {
 
 
   Meteor.methods({
-  
+    updateItemsWebServerStatus(dbId,adminStatus) {
+      // Data Check. Should be num 1 or 0 
+      if ((adminStatus == 1 || adminStatus == 0)) {
+        ItemsWebServerStatus.update(dbId,adminStatus, {
+          $set:{
+            adminStatus:{
+              enable: adminStatus
+            }
+          }
+        });
+      } else {
+        console.log("No changes made: adminStatus should be 1 or 0: webserverStatus.js, Meteor Method...")
+      }
+    },
   });
 }
 

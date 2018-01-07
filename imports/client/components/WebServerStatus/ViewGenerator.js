@@ -58,6 +58,7 @@ export default class ViewGenerator extends Component {
       console.log(data)
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
+      console.log(data.webServerData.dataObj.adminStatus.enable)
       return (
         <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
           <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
@@ -67,6 +68,9 @@ export default class ViewGenerator extends Component {
             <Row className="show-grid" className="container-fluid">
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
+          </div>
+          <div>
+            {data.webServerData.dataObj.adminStatus.enable}
           </div>
         </div>
       )

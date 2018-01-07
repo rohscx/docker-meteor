@@ -56,6 +56,9 @@ let webServerStatus = (webServerObj)=>{
         responseStatusCode: rCode,
         webServerFailureStatus: fCode,
         webServerFailurecount: 0
+      },
+      adminStatus:{
+        enable:1
       }
     };
     return tango;
@@ -71,91 +74,96 @@ let webServerStatus = (webServerObj)=>{
       const startTime = getTimeNow();
 
       async function httpRequest(method,url,uri,options){
+        const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
         let webServerRequest = new GenericRequest();
         webServerRequest.method = method;
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
-        const httpDevices = await webServerRequest.httpRequest();
-        const httpReturn = await httpDevices;
-        if (await httpReturn) {
-          const endTime = getTimeNow();
-          //console.log("httpResonse " + data.name , httpReturn.headers);
-          //console.log(httpReturn.headers.date);
-          const httpReturnTime = convertDateTime(httpReturn.headers.date);
-          //console.log(statusCodeParser(httpReturn.statusCode));
-          const failureCode = statusCodeParser(httpReturn.statusCode);
-          const httpResponseCode = httpReturn.statusCode;
-          const currentResponseTime = delayCalculator(startTime,endTime);
+        if (! dbDataCheck.webServerData.dataObj.adminStatus || dbDataCheck.webServerData.dataObj.adminStatus == 1) {
+          const httpDevices = await webServerRequest.httpRequest();
+          const httpReturn = await httpDevices;
+          if (await httpReturn) {
+            const endTime = getTimeNow();
+            //console.log("httpResonse " + data.name , httpReturn.headers);
+            //console.log(httpReturn.headers.date);
+            const httpReturnTime = convertDateTime(httpReturn.headers.date);
+            //console.log(statusCodeParser(httpReturn.statusCode));
+            const failureCode = statusCodeParser(httpReturn.statusCode);
+            const httpResponseCode = httpReturn.statusCode;
+            const currentResponseTime = delayCalculator(startTime,endTime);
 
-          //console.log(httpReturnTime+" "+currentTime)
-          //console.log(data.name)
-          //console.log(data.url)
-          //console.log(data.description)
-          //console.log(httpReturn.statusCode)
-          //console.log(failureCode)
-          //console.log(delayCalculator(currentTime,httpReturnTime))
-          //console.log("StartRaw endRaw: ", startTime+" "+endTime)
-          //console.log("Start and Endtime ",delayCalculator(startTime,endTime))
+            //console.log(httpReturnTime+" "+currentTime)
+            //console.log(data.name)
+            //console.log(data.url)
+            //console.log(data.description)
+            //console.log(httpReturn.statusCode)
+            //console.log(failureCode)
+            //console.log(delayCalculator(currentTime,httpReturnTime))
+            //console.log("StartRaw endRaw: ", startTime+" "+endTime)
+            //console.log("Start and Endtime ",delayCalculator(startTime,endTime))
 
-          // error checking REST request. If not 200 do nothing and log
-          // http status code
+            // error checking REST request. If not 200 do nothing and log
+            // http status code
 
-          // webServers name
+            // webServers name
 
-          // language discribing the server
+            // language discribing the server
 
-          // 0 returned on status code 200, 1 returned on all else
+            // 0 returned on status code 200, 1 returned on all else
+            //console.log("dataCheck : ",dbDataCheck);
 
-
-          const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-          //console.log("dataCheck : ",dbDataCheck);
-
-          const dbInsert = (dData,cTime,dTime)=>{
-            //console.log("insert Attempt")
-            ItemsWebServerStatus.insert({
-              webServerData: {
-                dataObj: dData,
-                requestTime: cTime,
-                dateTime: dTime
-              }
-            });
+            const dbInsert = (dData,cTime,dTime)=>{
+              //console.log("insert Attempt")
+              ItemsWebServerStatus.insert({
+                webServerData: {
+                  dataObj: dData,
+                  requestTime: cTime,
+                  dateTime: dTime
+                }
+              });
+            }
+            const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,httpCode,fCode,cwfCount,cTime,cdTime)=>{
+              ItemsWebServerStatus.update(ddCheck["0"]._id, {
+                $inc:{
+                  'webServerData.dataObj.statistics.responseTimeCount':1
+                },
+                $set:{
+                  'webServerData.dataObj.statistics.responseTimeTotal':trTime,
+                  'webServerData.dataObj.statistics.responseTimeLast':crTime,
+                  'webServerData.dataObj.statistics.responseTimeHighest':hrTime,
+                  'webServerData.dataObj.statistics.responseTimeLowest':lrTime,
+                  'webServerData.dataObj.httpRequest.responseStatusCode':httpCode,
+                  'webServerData.dataObj.httpRequest.webServerFailureStatus':fCode,
+                  'webServerData.dataObj.httpRequest.webServerFailurecount':cwfCount,
+                  'webServerData.requestTime':cTime,
+                  'webServerData.dateTime':cdTime
+                }
+              });
+            }
+            if (dbDataCheck.length >= 1) {
+              //console.log("Check Passed")
+              const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
+              const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
+              const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
+              const currentWebServerFailurecount = dbDataCheck["0"].webServerData.dataObj.httpRequest.webServerFailurecount + failureCode;
+              const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
+              const highestReponseTime = highestTimeCalculator(dbHighestTime,currentResponseTime);
+              const lowestResponseTime = lowestTimeCalculator(dbLowestTime,currentResponseTime);
+              dbUpdate(dbDataCheck,totalResponseTime,currentResponseTime,highestReponseTime,
+                lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
+                currentTime,currentDateTime);
+            } else {
+              //console.log("Check Failed")
+              const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
+              dbInsert(dBdata,currentTime,currentDateTime);
+            }
           }
-          const dbUpdate = (ddCheck,trTime,crTime,hrTime,lrTime,httpCode,fCode,cwfCount,cTime,cdTime)=>{
-            ItemsWebServerStatus.update(ddCheck["0"]._id, {
-              $inc:{
-                'webServerData.dataObj.statistics.responseTimeCount':1
-              },
-              $set:{
-                'webServerData.dataObj.statistics.responseTimeTotal':trTime,
-                'webServerData.dataObj.statistics.responseTimeLast':crTime,
-                'webServerData.dataObj.statistics.responseTimeHighest':hrTime,
-                'webServerData.dataObj.statistics.responseTimeLowest':lrTime,
-                'webServerData.dataObj.httpRequest.responseStatusCode':httpCode,
-                'webServerData.dataObj.httpRequest.webServerFailureStatus':fCode,
-                'webServerData.dataObj.httpRequest.webServerFailurecount':cwfCount,
-                'webServerData.requestTime':cTime,
-                'webServerData.dateTime':cdTime
-              }
-            });
-          }
-          if (dbDataCheck.length >= 1) {
-            //console.log("Check Passed")
-            const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
-            const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
-            const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
-            const currentWebServerFailurecount = dbDataCheck["0"].webServerData.dataObj.httpRequest.webServerFailurecount + failureCode;
-            const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
-            const highestReponseTime = highestTimeCalculator(dbHighestTime,currentResponseTime);
-            const lowestResponseTime = lowestTimeCalculator(dbLowestTime,currentResponseTime);
-            dbUpdate(dbDataCheck,totalResponseTime,currentResponseTime,highestReponseTime,
-              lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
-              currentTime,currentDateTime);
-          } else {
-            //console.log("Check Failed")
-            const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
-            dbInsert(dBdata,currentTime,currentDateTime);
-          }
+        } else if (dbDataCheck.webServerData.dataObj.adminStatus == 0) {
+          // Do nothing if adminStatus is 0. 0 is considered disabled
+        } else {
+          // If something else should happen...
+          console.log("Unexpected Result: webServerStatus adminStatus check")
         }
       }
       httpRequest(webServerMethod,webServerUrl,"/",webServerOptions)
