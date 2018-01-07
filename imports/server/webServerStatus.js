@@ -72,15 +72,16 @@ let webServerStatus = (webServerObj)=>{
       const currentTime = getTimeNow();
       const currentDateTime = new Date();
       const startTime = getTimeNow();
+      const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
 
       async function httpRequest(method,url,uri,options){
-        const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
         let webServerRequest = new GenericRequest();
         webServerRequest.method = method;
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
         if (! dbDataCheck.webServerData.dataObj.adminStatus || dbDataCheck.webServerData.dataObj.adminStatus == 1) {
+          console.log("Empty DB hit")
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
           if (await httpReturn) {
