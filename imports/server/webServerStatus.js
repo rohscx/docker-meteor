@@ -80,7 +80,7 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
-        if (! dbDataCheck.webServerData.dataObj.adminStatus || dbDataCheck.webServerData.dataObj.adminStatus == 1) {
+        if (! dbDataCheck.webServerData.dataObj || dbDataCheck.webServerData.dataObj.adminStatus == 1) {
           console.log("Empty DB hit")
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
