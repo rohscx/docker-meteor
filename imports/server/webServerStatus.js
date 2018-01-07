@@ -73,12 +73,12 @@ let webServerStatus = (webServerObj)=>{
       const currentDateTime = new Date();
       const startTime = getTimeNow();
       const webServerAdminSatus = (adminStatusObj) => {
-        if (adminStatusObj.webServerData.dataObj === undefined) {
+        if (adminStatusObj.length >= 1) {
+          console.log("dataObj True")
+          return adminStatusObj.webServerData.dataObj.adminStatus.enable;
+        } else {
           console.log("dataObj False")
           return 1;
-        } else {
-          console.log("dataObj True")
-          return adminStatusObj.webServerData.dataObj.adminStatus;
         }
       };
 
