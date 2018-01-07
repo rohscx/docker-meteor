@@ -162,6 +162,7 @@ let webServerStatus = (webServerObj)=>{
           }
         } else if (dbDataCheck.webServerData.dataObj.adminStatus == 0) {
           // Do nothing if adminStatus is 0. 0 is considered disabled
+          console.log("do nothing hit")
         } else {
           // If something else should happen...
           console.log("Unexpected Result: webServerStatus adminStatus check")
