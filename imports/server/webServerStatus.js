@@ -75,10 +75,13 @@ let webServerStatus = (webServerObj)=>{
       const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
       const webServerAdminSatus = (adminStatusObj) => {
         if (adminStatusObj.webServerData.dataObj) {
+          console.log("dataObj True")
           if (adminStatusObj.webServerData.dataObj.adminStatus) {
+            console.log("adminStatus True")
             return adminStatusObj.webServerData.dataObj.adminStatus;
           }
         } else {
+          console.log("dataObj False")
           return 1;
         }
       };
