@@ -73,7 +73,7 @@ let webServerStatus = (webServerObj)=>{
       const currentDateTime = new Date();
       const startTime = getTimeNow();
       const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-      const webServerAdminSatus => (adminStatusObj) {
+      const webServerAdminSatus = (adminStatusObj) => {
         if (adminStatusObj.webServerData.dataObj) {
           if (adminStatusObj.webServerData.dataObj.adminStatus) {
             return adminStatusObj.webServerData.dataObj.adminStatus;
