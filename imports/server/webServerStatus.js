@@ -91,7 +91,6 @@ let webServerStatus = (webServerObj)=>{
         const dbDataCheck = await ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
         console.log(webServerAdminSatus(dbDataCheck))
         if (webServerAdminSatus(dbDataCheck) == 1) {
-          console.log("admin Status: ", webServerAdminSatus)
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
           if (await httpReturn) {
