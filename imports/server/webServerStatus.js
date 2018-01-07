@@ -81,7 +81,7 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
-        if (dbDataCheck.length <= 1 || webServerAdminSatus = 1) {
+        if (dbDataCheck.length <= 1 || webServerAdminSatus == 1) {
           console.log("admin Status: ", webServerAdminSatus)
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
