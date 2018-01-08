@@ -64,7 +64,7 @@ export default class ViewGenerator extends Component {
         }
       };
     }
-    const status = new adminStatus;
+    const status = new adminStatus();
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
       console.log(data)
