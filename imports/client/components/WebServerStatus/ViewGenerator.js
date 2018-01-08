@@ -56,16 +56,13 @@ export default class ViewGenerator extends Component {
       this.adminStatus = statusObj;
       this.responseText1 = "Enabled";
       this.responseText2 = "Disbaled";
-      this.aminStatusText = (this.adminStatus) =>{
+      this.aminStatusText = () => {
         if (this.adminStatus.data.webServerData.dataObj.adminStatus.enable == 1) {
           return this.responseText1;
         } else {
           return this.responseText2;
         }
       };
-      if (statusObj.data.webServerData.dataObj.adminStatus.enable == 1) {
-        const text
-      }
     }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
@@ -83,7 +80,7 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
             <div>
-              {adminStatus(data.webServerData.dataObj.adminStatus.enable)}
+              {adminStatus(data.webServerData.dataObj.adminStatus.enable); adminStatus.aminStatusText()}
             </div>
           </div>
         </div>
