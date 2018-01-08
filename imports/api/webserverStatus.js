@@ -55,7 +55,7 @@ if (Meteor.isServer) {
       if ((adminStatus == 1 || adminStatus == 0)) {
         ItemsWebServerStatus.update(dbId, {
           $set:{
-            adminStatus:{
+            'webServerData.dataObj.adminStatus':{
               enable: adminStatus
             }
           }
