@@ -69,6 +69,14 @@ export default class ViewGenerator extends Component {
         return adminStyle("#5cb85c")
       }
     }
+    const centerStyle = {
+      textAlign:"center",
+      margin:"auto",
+      width:"50%",
+      height:"50%",
+      top:"25%",
+      position:"relative"
+    }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
       // debug
@@ -95,7 +103,7 @@ export default class ViewGenerator extends Component {
             style= {adminStatusSytles(data.webServerData.dataObj.adminStatus.enable)}
             onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}
             >
-            <div style={{margin:"auto"}}>
+            <div style={centerStyle}>
               {data.webServerData.dataObj.adminStatus.enable == 1 ? "Disable":"Enable"}
             </div>
           </div>
