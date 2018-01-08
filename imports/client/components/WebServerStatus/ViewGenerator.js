@@ -81,9 +81,9 @@ export default class ViewGenerator extends Component {
             <Row className="show-grid" className="container-fluid">
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
-            <div>
-              {status.adminStatusText()}
-            </div>
+          </div>
+          <div>
+            {status.adminStatusText()}
           </div>
         </div>
       )
