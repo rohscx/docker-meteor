@@ -16,6 +16,8 @@ METEOR_PROJECT_APP=/home/meteor/meteor-app
 METEOR_PROJECT_CD="cd ~/meteor-app"
 METEOR_PROJECT_GIT_PULL="git pull"
 METEOR_PROFILE="export METEOR_PROFILE=100"
+NODE_OPTIONS="--trace-warnings"
+export NODE_OPTIONS
 
 
 
