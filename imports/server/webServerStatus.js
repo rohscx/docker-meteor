@@ -167,7 +167,7 @@ let webServerStatus = (webServerObj)=>{
                   currentTime,currentDateTime);
               } else {
                 console.log("dbDataCheck[\"0\"] Does not exist");
-                console.log(data);
+                console.log(dbDataCheck);
               }
             } else {
               //console.log("Check Failed")
@@ -176,11 +176,11 @@ let webServerStatus = (webServerObj)=>{
             }
           } else {
             console.log("Smells like teen spirit... or failure to get response 200");
-            console.log(data);
+            console.log(webServerRequest);
           }
         } else {
           console.log("admin Status set to 0: ", url);
-          console.log(data);
+          console.log(dbDataCheck["0"]);
         }
       }
       httpRequest(webServerMethod,webServerUrl,"/",webServerOptions)
