@@ -52,7 +52,21 @@ export default class ViewGenerator extends Component {
     const rTTCalculator = (rtT,rtC) =>{
       return Math.round(rtT/rtC);
     }
-
+    function adminStatus (statusObj) {
+      this.adminStatus = statusObj;
+      this.responseText1 = "Enabled";
+      this.responseText2 = "Disbaled";
+      this.aminStatusText = (this.adminStatus) =>{
+        if (this.adminStatus.data.webServerData.dataObj.adminStatus.enable == 1) {
+          return this.responseText1;
+        } else {
+          return this.responseText2;
+        }
+      };
+      if (statusObj.data.webServerData.dataObj.adminStatus.enable == 1) {
+        const text
+      }
+    }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
       console.log(data)
@@ -68,9 +82,9 @@ export default class ViewGenerator extends Component {
             <Row className="show-grid" className="container-fluid">
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
-          </div>
-          <div>
-            {data.webServerData.dataObj.adminStatus.enable}
+            <div>
+              {adminStatus(data.webServerData.dataObj.adminStatus.enable)}
+            </div>
           </div>
         </div>
       )

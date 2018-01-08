@@ -74,16 +74,12 @@ let webServerStatus = (webServerObj)=>{
       const startTime = getTimeNow();
       const webServerAdminSatus = (adminStatusObj) => {
         if (adminStatusObj.length >= 1) {
-          console.log("dataObj True1")
           if (adminStatusObj["0"].webServerData.dataObj) {
-            console.log("dataObj True2")
             return adminStatusObj["0"].webServerData.dataObj.adminStatus.enable;
           } else {
-            console.log("dataObj False2")
             return 1;
           }
         } else {
-          console.log("dataObj False1")
           return 1;
         }
       };
@@ -95,7 +91,6 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.uri = uri;
         webServerRequest.options = options;
         const dbDataCheck = await ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-        console.log(webServerAdminSatus(dbDataCheck))
         if (webServerAdminSatus(dbDataCheck) == 1) {
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
@@ -108,7 +103,6 @@ let webServerStatus = (webServerObj)=>{
             const failureCode = statusCodeParser(httpReturn.statusCode);
             const httpResponseCode = httpReturn.statusCode;
             const currentResponseTime = delayCalculator(startTime,endTime);
-
             //console.log(httpReturnTime+" "+currentTime)
             //console.log(data.name)
             //console.log(data.url)
@@ -128,7 +122,6 @@ let webServerStatus = (webServerObj)=>{
 
             // 0 returned on status code 200, 1 returned on all else
             //console.log("dataCheck : ",dbDataCheck);
-
             const dbInsert = (dData,cTime,dTime)=>{
               //console.log("insert Attempt")
               ItemsWebServerStatus.insert({
