@@ -23,7 +23,7 @@ class WebServerStatus extends Component {
     })
   }
 
-  handleAdminStatus (statusData,dbId) {
+  handleAdminStatus (dbId,statusData) {
     if (statusData == 1) {
       Meteor.call('updateItemsWebServerStatus', dbId, 0)
     } else {
