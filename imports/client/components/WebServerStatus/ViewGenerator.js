@@ -57,6 +57,9 @@ export default class ViewGenerator extends Component {
       let adminStyle = (adminStatusBackground) => {
         return {
           margin: "auto",
+          width:"30%",
+          height:"50px",
+          margin:"5px",
           backgroundColor:adminStatusBackground
         };
       }
@@ -92,7 +95,9 @@ export default class ViewGenerator extends Component {
             style= {adminStatusSytles(data.webServerData.dataObj.adminStatus.enable)}
             onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}
             >
-            {data.webServerData.dataObj.adminStatus.enable == 1 ? "Disable":"Enable"}
+            <div style={{margin:"auto"}}>
+              {data.webServerData.dataObj.adminStatus.enable == 1 ? "Disable":"Enable"}
+            </div>
           </div>
         </div>
       )
