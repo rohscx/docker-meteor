@@ -62,19 +62,26 @@ export default class ViewGenerator extends Component {
         } else {
           return this.responseText2;
         }
-      };
+      }
+      this.getAdminStatus = () => {
+        return this.adminStatus;
+      }
     }
     const status = new adminStatus();
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
+      status.adminStatus = data.webServerData.dataObj.adminStatus.enable;
       console.log(data)
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       console.log(data.webServerData.dataObj.adminStatus.enable)
-      status.adminStatus = data.webServerData.dataObj.adminStatus.enable;
+      console.log(this.getAdminStatus())
       return (
-        <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
-          <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
+        <div key={data._id} style= {divStyles} >
+          <div
+            style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}
+            target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}}
+            >
             <Row className="show-grid" style={rowStylesMain} className="container-fluid">
               <Col xs={6} sm={6} md={12}> {data.webServerData.dataObj.name}</Col>
             </Row>
@@ -83,7 +90,7 @@ export default class ViewGenerator extends Component {
             </Row>
           </div>
           <div onClick={()=> {this.props.setAdminStatus(data._id,status.adminStatus)}}>
-            {"status.adminStatusText()"}
+            {"status.getAdminStatus()"}
           </div>
         </div>
       )
