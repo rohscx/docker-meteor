@@ -74,10 +74,16 @@ let webServerStatus = (webServerObj)=>{
       const startTime = getTimeNow();
       const webServerAdminSatus = (adminStatusObj) => {
         if (adminStatusObj.length >= 1) {
-          console.log("dataObj True")
-          return adminStatusObj.webServerData.dataObj.adminStatus.enable;
+          console.log("dataObj True1")
+          if (adminStatusObj["0"].webServerData.dataObj) {
+            console.log("dataObj True1")
+            return adminStatusObj.webServerData.dataObj.adminStatus.enable;
+          } else {
+            console.log("dataObj False2")
+            return 1;
+          }
         } else {
-          console.log("dataObj False")
+          console.log("dataObj False1")
           return 1;
         }
       };
