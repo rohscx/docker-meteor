@@ -166,7 +166,7 @@ let webServerStatus = (webServerObj)=>{
                   lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
                   currentTime,currentDateTime);
               } else {
-                console.log("dbDataCheck["0"] Does not exist")
+                console.log("dbDataCheck[\"0\"] Does not exist");
                 console.log(data);
               }
             } else {
