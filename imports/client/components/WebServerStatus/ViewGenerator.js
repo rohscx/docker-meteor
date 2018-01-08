@@ -57,7 +57,7 @@ export default class ViewGenerator extends Component {
       this.responseText1 = "Enabled";
       this.responseText2 = "Disbaled";
       this.adminStatusText = () => {
-        if (this.adminStatus.data.webServerData.dataObj.adminStatus.enable == 1) {
+        if (this.adminStatus.webServerData.dataObj.adminStatus.enable == 1) {
           return this.responseText1;
         } else {
           return this.responseText2;

@@ -23,6 +23,14 @@ class WebServerStatus extends Component {
     })
   }
 
+  handleAdminStatus (statusData,dbId) {
+    if (statusData == 1) {
+      Meteor.call('updateItemsWebServerStatus', dbId, 0)
+    } else {
+      Meteor.call('updateItemsWebServerStatus', dbId, 1)
+    }
+  }
+
   render() {
     const divStylesGenerator = ()=>{
       // debug
@@ -43,7 +51,7 @@ class WebServerStatus extends Component {
     console.log(this);
     return(
       <div style={divStylesGenerator()} className="container-fluid">
-        <ViewGenerator {... this.props} />
+        <ViewGenerator {... this.props} setAdminStatus = {this.handleAdminStatus.bind(this)}/>
       </div>
     )
   }
