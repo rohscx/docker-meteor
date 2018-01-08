@@ -80,7 +80,7 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
             <div onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}>
-              {adminStatus(data._id)}
+              {adminStatus(data.webServerData.dataObj.adminStatus.enable)}
             </div>
           </div>
 
