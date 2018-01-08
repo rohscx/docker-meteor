@@ -76,7 +76,7 @@ let webServerStatus = (webServerObj)=>{
         if (adminStatusObj.length >= 1) {
           console.log("dataObj True1")
           if (adminStatusObj["0"].webServerData.dataObj) {
-            console.log("dataObj True1")
+            console.log("dataObj True2")
             return adminStatusObj.webServerData.dataObj.adminStatus.enable;
           } else {
             console.log("dataObj False2")
