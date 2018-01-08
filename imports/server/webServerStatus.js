@@ -72,7 +72,7 @@ let webServerStatus = (webServerObj)=>{
       const currentTime = getTimeNow();
       const currentDateTime = new Date();
       const startTime = getTimeNow();
-      const webServerAdminSatus = (adminStatusObj) => {
+      const webServerAdminStatus = (adminStatusObj) => {
         if (adminStatusObj.length >= 1) {
           if (adminStatusObj["0"].webServerData.dataObj) {
             return adminStatusObj["0"].webServerData.dataObj.adminStatus.enable;
@@ -91,7 +91,7 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.uri = uri;
         webServerRequest.options = options;
         const dbDataCheck = await ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
-        if (webServerAdminSatus(dbDataCheck) == 1) {
+        if (webServerAdminStatus(dbDataCheck) == 1) {
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
           if (await httpReturn) {
