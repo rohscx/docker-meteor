@@ -53,12 +53,28 @@ export default class ViewGenerator extends Component {
     const rTTCalculator = (rtT,rtC) =>{
       return Math.round(rtT/rtC);
     }
+    const adminStatusSytles = (adminStatus) =>{
+      let adminStyle = (adminStatusBackground) => {
+        return {
+          margin: "auto",
+          backgroundColor:adminStatusBackground
+        };
+      }
+      if (adminStatus == 1) {
+        return adminStyle("#5cb85c")
+      } else {
+        return adminStyle("#d9534f")
+      }
+    }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
+      // debug
+      /*
       console.log(data)
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       console.log(data.webServerData.dataObj.adminStatus.enable)
+      */
       return (
         <div key={data._id} style= {divStyles} >
           <div
@@ -73,10 +89,10 @@ export default class ViewGenerator extends Component {
             </Row>
           </div>
           <div
-            style= {{margin: "auto"}} 
+            style= {adminStatusSytles(data.webServerData.dataObj.adminStatus.enable)}
             onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}
             >
-            {data.webServerData.dataObj.adminStatus.enable == 1 ? "Enabled":"Disabled"}
+            {data.webServerData.dataObj.adminStatus.enable == 1 ? "Disable":"Enable"}
           </div>
         </div>
       )
