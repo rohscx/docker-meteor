@@ -52,19 +52,13 @@ export default class ViewGenerator extends Component {
     const rTTCalculator = (rtT,rtC) =>{
       return Math.round(rtT/rtC);
     }
-    function adminStatus (statusObj) {
-      this.adminStatus = statusObj;
-      this.responseText1 = "Enabled";
-      this.responseText2 = "Disbaled";
-      this.getAdminStatusText = () => {
-        if (this.adminStatus.webServerData.dataObj.adminStatus.enable == 1) {
-          return this.responseText1;
-        } else {
-          return this.responseText2;
-        }
-      }
-      this.getAdminStatus = () => {
-        return this.adminStatus;
+    const adminStatus = (statusObj) =>{
+      const responseText1 = "Enabled";
+      const responseText2 = "Disbaled";
+      if (statusObj.webServerData.dataObj.adminStatus.enable == 1) {
+        return responseText1;
+      } else {
+        return responseText2;
       }
     }
     const status = new adminStatus();
@@ -87,10 +81,11 @@ export default class ViewGenerator extends Component {
             <Row className="show-grid" className="container-fluid">
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
+            <div onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}>
+              {adminStatus(data._id,)}
+            </div>
           </div>
-          <div onClick={()=> {this.props.setAdminStatus(data._id,status.getAdminStatus())}}>
-            {data.webServerData.dataObj.adminStatus.enable}
-          </div>
+
         </div>
       )
     })
