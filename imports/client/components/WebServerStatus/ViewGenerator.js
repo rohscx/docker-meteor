@@ -73,7 +73,7 @@ export default class ViewGenerator extends Component {
             </Row>
           </div>
           <div
-            style= {{verticalAlign: "middle"}} 
+            style= {{margin: "auto"}} 
             onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}
             >
             {data.webServerData.dataObj.adminStatus.enable == 1 ? "Enabled":"Disabled"}
