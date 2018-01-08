@@ -61,9 +61,9 @@ export default class ViewGenerator extends Component {
         };
       }
       if (adminStatus == 1) {
-        return adminStyle("#5cb85c")
-      } else {
         return adminStyle("#d9534f")
+      } else {
+        return adminStyle("#5cb85c")
       }
     }
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
