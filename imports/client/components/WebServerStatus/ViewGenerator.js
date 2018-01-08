@@ -61,10 +61,8 @@ export default class ViewGenerator extends Component {
         return responseText2;
       }
     }
-    const status = new adminStatus();
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     return dbData.map((data,key)=>{
-      status.adminStatus = data.webServerData.dataObj.adminStatus.enable;
       console.log(data)
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
@@ -82,7 +80,7 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
             <div onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}>
-              {adminStatus(data._id,)}
+              {adminStatus(data._id)}
             </div>
           </div>
 
