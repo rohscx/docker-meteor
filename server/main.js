@@ -283,7 +283,11 @@ Meteor.publish('prtgDeviceList', function() {
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
       let prtgGenericHttpRequest = new GenericRequest();
-      const data = prtgGenericHttpRequest("GET",url,"/",options);
+      prtgGenericHttpRequest.method = "GET";
+      prtgGenericHttpRequest.url = url;
+      prtgGenericHttpRequest.uri = "/";
+      prtgGenericHttpRequest.options = options;
+      const data = prtgGenericHttpRequest.httpRequest();
       //const data = HTTP.get(url, options);
 
       let newData = JSON.parse(data.content);
@@ -327,7 +331,11 @@ Meteor.publish('prtgDeviceList', function() {
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
         //const data = HTTP.get(url, options);
-        const data = prtgGenericHttpRequest("GET",url,"/",options);
+        prtgGenericHttpRequest.method = "GET";
+        prtgGenericHttpRequest.url = url;
+        prtgGenericHttpRequest.uri = "/";
+        prtgGenericHttpRequest.options = options;
+        const data = prtgGenericHttpRequest.httpRequest();
         let newData = JSON.parse(data.content);
         //console.log("DATAAAA  NEW",newData)
         //console.log("SENSORS",newData.sensors)
