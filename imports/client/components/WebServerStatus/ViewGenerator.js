@@ -56,7 +56,7 @@ export default class ViewGenerator extends Component {
       this.adminStatus = statusObj;
       this.responseText1 = "Enabled";
       this.responseText2 = "Disbaled";
-      this.aminStatusText = () => {
+      this.adminStatusText = () => {
         if (this.adminStatus.data.webServerData.dataObj.adminStatus.enable == 1) {
           return this.responseText1;
         } else {
@@ -80,7 +80,7 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
             <div>
-              {adminStatus(data.webServerData.dataObj.adminStatus.enable); adminStatus.aminStatusText()}
+              {adminStatus(data.webServerData.dataObj.adminStatus.enable); adminStatus.adminStatusText();}
             </div>
           </div>
         </div>
