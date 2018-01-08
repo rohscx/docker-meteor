@@ -44,7 +44,12 @@ let apicDevices = ()=>{
       'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
       'honorCipherOrder': true
    },
-    data: {username: uName, password: uPass}
+    data: {username: uName, password: uPass},
+    npmRequestOptions:{
+      agentOptions:{
+        securityOptions:'SSL_OP_NO_SSLv3'
+      }
+    }
   }
   // commands to be run against apic device. No more than 5  per arrays e.g. [0,1,2,3,4]
   const downPortCommandArray = [

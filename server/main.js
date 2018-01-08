@@ -269,12 +269,11 @@ Meteor.publish('prtgDeviceList', function() {
   let uCreds = "&username="+uName+"&passhash="+uPass;
   let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
   let options = {
-    headers: {
-      'content-type': 'application/json',
-      'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
-      'honorCipherOrder': true
-   },
-   secureProtocol: 'SSLv3_method'
+    npmRequestOptions:{
+      agentOptions:{
+        securityOptions:'SSL_OP_NO_SSLv3'
+      }
+    }
   };
   let agent;
   const publishedKeys = {};

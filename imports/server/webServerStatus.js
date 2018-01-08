@@ -69,7 +69,13 @@ let webServerStatus = (webServerObj)=>{
       const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
       const webServerMethod = "GET";
       const webServerUrl = data.url;
-      const webServerOptions = {};
+      const webServerOptions = {
+        npmRequestOptions:{
+          agentOptions:{
+            securityOptions:'SSL_OP_NO_SSLv3'
+          }
+        }
+      };
       const currentTime = getTimeNow();
       const currentDateTime = new Date();
       const startTime = getTimeNow();
