@@ -10,7 +10,7 @@ import tempData from './tempData';
 
 import { webServerStatus, blah } from '../imports/server/webServerStatus';
 import { apicDevices} from '../imports/server/apicDevices';
-import GenericRequest from '../api/GenericRequest';
+import GenericRequest from '../imports/api/GenericRequest';
 
 import '../imports/api/webserverStatus';
 import '../imports/server/accounts';
