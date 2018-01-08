@@ -153,16 +153,22 @@ let webServerStatus = (webServerObj)=>{
             }
             if (dbDataCheck.length >= 1) {
               //console.log("Check Passed")
-              const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
-              const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
-              const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
-              const currentWebServerFailurecount = dbDataCheck["0"].webServerData.dataObj.httpRequest.webServerFailurecount + failureCode;
-              const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
-              const highestReponseTime = highestTimeCalculator(dbHighestTime,currentResponseTime);
-              const lowestResponseTime = lowestTimeCalculator(dbLowestTime,currentResponseTime);
-              dbUpdate(dbDataCheck,totalResponseTime,currentResponseTime,highestReponseTime,
-                lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
-                currentTime,currentDateTime);
+              //check for array in return
+              if (dbDataCheck["0"]) {
+                const dbResponseTimeTotal = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeTotal;
+                const dbHighestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeHighest;
+                const dbLowestTime = dbDataCheck["0"].webServerData.dataObj.statistics.responseTimeLowest;
+                const currentWebServerFailurecount = dbDataCheck["0"].webServerData.dataObj.httpRequest.webServerFailurecount + failureCode;
+                const totalResponseTime = totalTimeCalculator(dbResponseTimeTotal,currentResponseTime);
+                const highestReponseTime = highestTimeCalculator(dbHighestTime,currentResponseTime);
+                const lowestResponseTime = lowestTimeCalculator(dbLowestTime,currentResponseTime);
+                dbUpdate(dbDataCheck,totalResponseTime,currentResponseTime,highestReponseTime,
+                  lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
+                  currentTime,currentDateTime);
+              } else {
+                console.log("dbDataCheck["0"] Does not exist")
+                console.log(data);
+              }
             } else {
               //console.log("Check Failed")
               const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
