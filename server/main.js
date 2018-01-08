@@ -10,6 +10,7 @@ import tempData from './tempData';
 
 import { webServerStatus, blah } from '../imports/server/webServerStatus';
 import { apicDevices} from '../imports/server/apicDevices';
+import GenericRequest from '../api/GenericRequest';
 
 import '../imports/api/webserverStatus';
 import '../imports/server/accounts';
@@ -267,51 +268,14 @@ Meteor.publish('prtgDeviceList', function() {
   let uPass = Meteor.settings.private.prtgRest.uPass;
   let uCreds = "&username="+uName+"&passhash="+uPass;
   let url = baseUrl+"/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
-  let options = {
-    headers: {
-      'content-type': 'application/json',
-      'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
-      'honorCipherOrder': true
-   },
-   secureProtocol: 'SSLv3_method'
-  };
+  let options;
   let agent;
   const publishedKeys = {};
   if(countCollections <= 0){
     console.log("HIT COUNT COLLECTION FAILURE <= 0")
     const poll = () => {
       // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-      const data = HTTP.get(url, options);
-      const testHttps = (hName,hPort,hPath,hMethod) => {
-        const testHttpsOptions = {
-          hostname: hName,
-          port: hPort,
-          path: hPath,
-          method: hMethod,
-          headers: {
-            'content-type': 'application/json',
-            'ciphers': 'ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM',
-            'honorCipherOrder': true
-         }
-        };
-        const req = https.request(testHttpsOptions, (res) =>{
-            console.log('statusCode:' ,res.statusCode);
-            console.log('headers:' ,res.headers);
-
-            res.on('data',(d) =>{
-              console.log("MAX HEAD######ROM",d)
-              process.stdout.write(d);
-            });
-        });
-        req.on('error', (e) =>{
-          console.log(e);
-        });
-        req.end();
-      };
-      const testUrl = "/api/table.json?content=sensors&output=json&columns=objid,probe,group,device,sensor,status,message,lastvalue,priority,favorite&count=20000"+uCreds;
-      testHttps(baseUrl,443,testUrl,"GET");
-      console.log("*************************************")
-
+      const data =
       let newData = JSON.parse(data.content);
       //console.log("DATAAAA  NEW",newData)
       //console.log("SENSORS",newData.sensors)
@@ -352,7 +316,9 @@ Meteor.publish('prtgDeviceList', function() {
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-        const data = HTTP.get(url, options);
+        let genericPrgRequest = new GenericRequest();
+        const data = genericPrgRequest("GET",url,"/",options); 
+        //const data = HTTP.get(url, options);
         let newData = JSON.parse(data.content);
         //console.log("DATAAAA  NEW",newData)
         //console.log("SENSORS",newData.sensors)
