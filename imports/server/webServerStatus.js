@@ -169,7 +169,7 @@ let webServerStatus = (webServerObj)=>{
             }
           }
         } else {
-          console.log("admin Status: ", webServerAdminSatus)
+          console.log("admin Status set to 0: ", url)
         }
       }
       httpRequest(webServerMethod,webServerUrl,"/",webServerOptions)

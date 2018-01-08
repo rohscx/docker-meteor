@@ -89,7 +89,7 @@ export default class ViewGenerator extends Component {
             </Row>
           </div>
           <div onClick={()=> {this.props.setAdminStatus(data._id,status.getAdminStatus())}}>
-            {status.getAdminStatusText()}
+            {data.webServerData.dataObj.adminStatus.enable}
           </div>
         </div>
       )
