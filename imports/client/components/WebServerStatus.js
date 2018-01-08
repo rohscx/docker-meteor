@@ -18,7 +18,8 @@ class WebServerStatus extends Component {
     let findLimit =  this.props.dbFindLimit;
     let dbData = this.props.dbReturn(findField,sortField,sortOrderField,findLimit);
     dbData.map((data,key)=>{
-      console.log(key+" : "+data)
+      // debug
+      //console.log(key+" : "+data)
       return data
     })
   }
@@ -48,7 +49,8 @@ class WebServerStatus extends Component {
         return divStyles("100%");
       }
     };
-    console.log(this);
+    // debug
+    //console.log(this);
     return(
       <div style={divStylesGenerator()} className="container-fluid">
         <ViewGenerator {... this.props} setAdminStatus = {this.handleAdminStatus.bind(this)}/>

@@ -66,6 +66,7 @@ let webServerStatus = (webServerObj)=>{
   const poll = () => {
     webServerObj.map((data)=>{
       //console.log(JSON.stringify(data, null, 2));
+      const dbDataCheck = ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
       const webServerMethod = "GET";
       const webServerUrl = data.url;
       const webServerOptions = {};
@@ -90,7 +91,6 @@ let webServerStatus = (webServerObj)=>{
         webServerRequest.url = url;
         webServerRequest.uri = uri;
         webServerRequest.options = options;
-        const dbDataCheck = await ItemsWebServerStatus.find({"webServerData.dataObj.name":data.name}).fetch();
         if (webServerAdminStatus(dbDataCheck) == 1) {
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;

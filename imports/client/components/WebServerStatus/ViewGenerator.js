@@ -43,7 +43,8 @@ export default class ViewGenerator extends Component {
       }
       let timeNow = new Date().getTime();
       let timeDiff = timeNow - rT;
-      console.log("timeDiff",timeDiff);
+      // debug
+      //console.log("timeDiff",timeDiff);
       if (wsfS === 0 && rsC === 200 && timeDiff <= 30000) {
         return flexObj1("#5cb85c");
       } else {
@@ -123,7 +124,8 @@ render() {
     alignItems: "center",
     justifyContent: "center"
   }
-    console.log(this)
+    // debug
+    //console.log(this)
     return(
       <div style= {flexContainer} className="container-fluid">
         {this.returnLayout()}
