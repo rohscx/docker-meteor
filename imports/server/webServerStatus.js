@@ -94,7 +94,8 @@ let webServerStatus = (webServerObj)=>{
         if (webServerAdminStatus(dbDataCheck) == 1) {
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
-          if (await httpReturn) {
+          // check for status code 200 before continuing
+          if (await httpReturn.statusCode === 200) {
             const endTime = getTimeNow();
             //console.log("httpResonse " + data.name , httpReturn.headers);
             //console.log(httpReturn.headers.date);
@@ -167,6 +168,9 @@ let webServerStatus = (webServerObj)=>{
               const dBdata = databaseObj(data.name , data.description , data.url, currentResponseTime ,httpResponseCode ,failureCode);
               dbInsert(dBdata,currentTime,currentDateTime);
             }
+          } else {
+            console.log("Smells like teen spirit... or failure to get response 200");
+            console.log(data);
           }
         } else {
           console.log("admin Status set to 0: ", url);
