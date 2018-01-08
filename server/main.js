@@ -326,7 +326,8 @@ Meteor.publish('prtgDeviceList', function() {
       ItemsPrtg.remove({"prtgData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }})
       const poll = () => {
         // Let's assume the data comes back as an array of JSON documents, with an _id field, for simplicity
-        const data = HTTP.get(url, options);
+        //const data = HTTP.get(url, options);
+        const data = prtgGenericHttpRequest("GET",url,"/",options);
         let newData = JSON.parse(data.content);
         //console.log("DATAAAA  NEW",newData)
         //console.log("SENSORS",newData.sensors)
