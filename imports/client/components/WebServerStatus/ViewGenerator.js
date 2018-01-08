@@ -56,7 +56,7 @@ export default class ViewGenerator extends Component {
       this.adminStatus = statusObj;
       this.responseText1 = "Enabled";
       this.responseText2 = "Disbaled";
-      this.adminStatusText = () => {
+      this.getAdminStatusText = () => {
         if (this.adminStatus.webServerData.dataObj.adminStatus.enable == 1) {
           return this.responseText1;
         } else {
@@ -75,7 +75,6 @@ export default class ViewGenerator extends Component {
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       console.log(data.webServerData.dataObj.adminStatus.enable)
-      console.log(this.getAdminStatus())
       return (
         <div key={data._id} style= {divStyles} >
           <div
@@ -89,8 +88,8 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
           </div>
-          <div onClick={()=> {this.props.setAdminStatus(data._id,status.adminStatus)}}>
-            {"status.getAdminStatus()"}
+          <div onClick={()=> {this.props.setAdminStatus(data._id,status.getAdminStatus())}}>
+            {status.getAdminStatusText()}
           </div>
         </div>
       )
