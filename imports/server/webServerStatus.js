@@ -95,7 +95,7 @@ let webServerStatus = (webServerObj)=>{
           const httpDevices = await webServerRequest.httpRequest();
           const httpReturn = await httpDevices;
           // check for status code 200 before continuing
-          if (await httpReturn.statusCode === 200) {
+          if (await httpReturn.statusCode == 200) {
             const endTime = getTimeNow();
             //console.log("httpResonse " + data.name , httpReturn.headers);
             //console.log(httpReturn.headers.date);
