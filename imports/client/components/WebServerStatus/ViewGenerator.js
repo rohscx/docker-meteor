@@ -72,7 +72,10 @@ export default class ViewGenerator extends Component {
               <Col xs={6} sm={6} md={6}> {rTTCalculator(data.webServerData.dataObj.statistics.responseTimeTotal,data.webServerData.dataObj.statistics.responseTimeCount)}ms</Col>
             </Row>
           </div>
-          <div onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}>
+          <div
+            style= {{alignItems: "center"}} 
+            onClick={()=> {this.props.setAdminStatus(data._id,data.webServerData.dataObj.adminStatus.enable)}}
+            >
             {data.webServerData.dataObj.adminStatus.enable == 1 ? "Enabled":"Disabled"}
           </div>
         </div>
