@@ -71,7 +71,7 @@ export default class ViewGenerator extends Component {
       console.log(data._id)
       console.log(data.webServerData.dataObj.name)
       console.log(data.webServerData.dataObj.adminStatus.enable)
-      status(data.webServerData.dataObj.adminStatus.enable);
+      status.adminStatus = data.webServerData.dataObj.adminStatus.enable;
       return (
         <div key={data._id} style= {divStyles} target="_blank" onClick={(event) => {event.preventDefault(); window.open(data.webServerData.dataObj.url)}} >
           <div style= {flexItemGenerator(data.webServerData.dataObj.httpRequest.webServerFailureStatus,data.webServerData.dataObj.httpRequest.responseStatusCode,data.webServerData.requestTime)}>
