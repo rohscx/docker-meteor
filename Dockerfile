@@ -12,7 +12,7 @@ MAINTAINER RoHscx
 
 
 # 80 = HTTP, 443 = HTTPS, 3000 = Meteor.JS server 8080 = node-inspector
-EXPOSE 80 8080 443 3000
+EXPOSE 80 8080 443 3000 9229
 
 
 # Set development environment as default
