@@ -172,8 +172,9 @@ let webServerStatus = (webServerObj)=>{
                   lowestResponseTime,httpResponseCode,failureCode,currentWebServerFailurecount,
                   currentTime,currentDateTime);
               } else {
-                console.log("dbDataCheck[\"0\"] Does not exist");
-                console.log(dbDataCheck);
+                // debug
+                //console.log("dbDataCheck[\"0\"] Does not exist");
+                //console.log(dbDataCheck);
               }
             } else {
               //console.log("Check Failed")
@@ -181,12 +182,14 @@ let webServerStatus = (webServerObj)=>{
               dbInsert(dBdata,currentTime,currentDateTime);
             }
           } else {
-            console.log("Smells like teen spirit... or failure to get response 200");
-            console.log(webServerRequest);
+            // debug
+            //console.log("Smells like teen spirit... or failure to get response 200");
+            //console.log(webServerRequest);
           }
         } else {
-          console.log("admin Status set to 0: ", url);
-          console.log(dbDataCheck["0"]);
+          // debug
+          //console.log("admin Status set to 0: ", url);
+          //console.log(dbDataCheck["0"]);
         }
       }
       httpRequest(webServerMethod,webServerUrl,"/",webServerOptions)
