@@ -249,7 +249,7 @@ Meteor.publish('siteCircuitInfo', function() {
 
 });
 
-prtgDevices();
+
 Meteor.publish('prtgDeviceList', function() {
   return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
 });
