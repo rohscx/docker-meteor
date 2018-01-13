@@ -7,34 +7,6 @@ import {Navbar,Nav ,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
 
-/*
-// stateless functional component. Functuion returns what ever you like
-
-const MainLayout = ({children}) =>
-  <div className='main-layout'>
-    <header>
-      <h1><Link to='/' style={styleObj} activeStyle={activeStyleObj}>FROST</Link></h1>
-      <LoginButtons/>
-      <nav>
-        <Link to='/apic' style={styleObj} activeStyle={activeStyleObj}> APIC-EM </Link>
-        <Link to='/ise' style={styleObj} activeStyle={activeStyleObj}> ISE </Link>
-        <Link to='/prtg' style={styleObj} activeStyle={activeStyleObj}> PRTG </Link>
-        <Link to='/trfr' style={styleObj} activeStyle={activeStyleObj}> TRANSF..RATE </Link>
-        <Link to='/about' style={styleObj} activeStyle={activeStyleObj}> About </Link>
-
-      </nav>
-    </header>
-    {children}
-  </div>
-*/
-
-/*
-const divStyles = {
-  margin: "auto",
-  width: "60%"
-};
-*/
-
 // mobile device tester
 const divStylesGenerator = ()=>{
   // debug
@@ -75,24 +47,9 @@ const MainLayout = ({children}) =>
                 Devices
               </NavItem>
             </LinkContainer>
-            <LinkContainer to='/hpi'>
-            <NavItem eventKey={2}>
-              Hosts
-            </NavItem>
-            </LinkContainer>
-            <LinkContainer to='/prtg'>
-            <NavItem eventKey={3}>
-              Circuits
-            </NavItem>
-            </LinkContainer>
             <LinkContainer to='/wss'>
             <NavItem eventKey={4}>
               WebServerStatus
-            </NavItem>
-            </LinkContainer>
-            <LinkContainer to='/ise'>
-            <NavItem eventKey={5}>
-              ISE
             </NavItem>
             </LinkContainer>
             <NavDropdown eventKey={10} title="Utilities" id="basic-nav-dropdown">

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
-import { autobind } from 'core-decorators';
 
 
 
@@ -214,4 +213,4 @@ export default withTracker(({params}) => {
     ready: itemsSub.ready() && userSub.ready(),
     items: itemsArray
   }
-})(AppApic); 
+})(AppApic);

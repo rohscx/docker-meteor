@@ -1,16 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
-import { autobind } from 'core-decorators';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-import Item from './Item'
 import IsRole from './utilities/IsRole';
-
-import Items from '../api/Items'
 import Header from './components/Header';
 
-@autobind
+
  class App extends Component {
    constructor() {
      super();
@@ -104,23 +98,10 @@ import Header from './components/Header';
 
 
 export default withTracker(({params}) => {
-  let itemsSub = Meteor.subscribe('allItems');
   let userSub = Meteor.subscribe('currentUser');
   let showAll = Session.get('showAll');
-  let itemsArray;
-  if(params.id) {
-    itemsArray = Items.find({_id: params.id}).fetch();
-  } else {
-    itemsArray = Items.find({}, {
-      // ternary operator. a form of IF THEN statement
-      limit: showAll ? 50 : 1,
-      // value 1 (OLDEST) or -1 (NEWEST) determines directions of lastUpdated
-      sort: {lastUpdated: 1}
-    }).fetch()
-  }
   return {
     showAll,
-    ready: itemsSub.ready() && userSub.ready(),
-    items: itemsArray
+    ready: userSub.ready(),
   }
 })(App);
