@@ -1,25 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
-import Items from '../imports/api/Items';
-import ItemsPrtg from '../imports/api/prtg';
 import ItemsApicDevices from '../imports/api/apic';
 import ItemsTransferRate from '../imports/api/transferRate';
-import ItemsPrimeHosts from '../imports/api/prime';
 import ItemsWebServerStatus from '../imports/api/webserverStatus';
 import tempData from './tempData';
 
 import { webServerStatus, blah } from '../imports/server/webServerStatus';
 import { apicDevices} from '../imports/server/apicDevices';
 import GenericRequest from '../imports/api/GenericRequest';
-import { prtgDevices} from '../imports/server/prtgDevices';
+
 
 import '../imports/api/webserverStatus';
 import '../imports/server/accounts';
 import '../imports/api/request';
-import '../imports/api/prtg';
 import '../imports/api/transferRate';
 import '../imports/api/apic';
-import '../imports/api/prime';
 
 
 
@@ -88,57 +83,6 @@ Meteor.publish('currentUser', function() {
 });
 
 
-Meteor.publish('primeHosts', function() {
-  let countCollections = ItemsPrimeHosts.find().count();
-  let timeNow = Math.round(new Date().getTime() / 1000);
-  let dateTime = new Date();
-  let baseUrl = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.baseUrl : Meteor.settings.public.ciscoApicEM.baseUrl;
-  let uName = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uName : Meteor.settings.public.ciscoApicEM.uName;
-  let uPass = Meteor.settings.private.prime.uName ? Meteor.settings.private.prime.uPass : Meteor.settings.public.ciscoApicEM.uPass;
-  let primeLookupUrn = '/webacs/api/v1/data/Clients.json?.full=true&securityPolicyStatus=eq("FAILED")&.maxResults=400';
-  let devicesUrl = baseUrl + primeLookupUrn;
-  let primeOptions = {
-    headers: { 'authorization': uName+" "+uPass, "accept": "application/json" }
-  };
-  let httpReturn = Meteor.call('primeHttpRequest', "GET",devicesUrl,primeOptions);
-  //let apicTicket = httpTicket.data.response.serviceTicket;
-  let primeHosts = httpReturn.content
-  //console.log(httpReturn)
-  // for whatever reason it's returned as a string from prime...
-  primeHosts = JSON.parse(httpReturn.content)
-  if (countCollections <= 0){
-    primeHosts.queryResponse.entity.map((data)=>{
-      ItemsPrimeHosts.insert({
-          hostData: {
-            dataObj: data,
-            requestTime: timeNow,
-            dateTime: dateTime
-          }
-        });
-    })
-    return ItemsPrimeHosts.find()
-  } else {
-    let currentTimeEpoch = Math.round(new Date().getTime()/1000);
-    // returns the oldest DB items epoch timestamp
-    let oldestDocument = ItemsPrimeHosts.find({},{sort:{"hostData.requestTime": -1},fields:{"hostData.requestTime": 1,_id:0},limit:1}).fetch();
-    let oldestDocumentEpoch = oldestDocument[0].hostData.requestTime;
-    if (currentTimeEpoch - oldestDocumentEpoch > 120) {
-      ItemsPrimeHosts.remove({"hostData.requestTime": {"$lte" : Math.round(new Date().getTime()/1000 - 30) }});
-      console.log("Prime Devices DB STALE Requesting NEW data")
-      primeHosts.queryResponse.entity.map((data)=>{
-        ItemsPrimeHosts.insert({
-            hostData: {
-              dataObj: data,
-              requestTime: timeNow,
-              dateTime: dateTime
-            }
-          });
-      })
-      return ItemsPrimeHosts.find()
-    }
-    return ItemsPrimeHosts.find()
-  }
-});
 
 
 
@@ -247,12 +191,4 @@ Meteor.publish('siteCircuitInfo', function() {
   return ItemsTransferRate.find();
 }
 
-});
-
-
-Meteor.publish('prtgDeviceList', function() {
-  return ItemsPrtg.find({},{sort:{"prtgData.dataObj.group": 1,"prtgData.dataObj.device": 1}});
-});
-Meteor.startup(() => {
-  // code to run on server at startup
 });
