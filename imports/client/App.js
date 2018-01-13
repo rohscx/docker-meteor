@@ -1,16 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
-import { autobind } from 'core-decorators';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-import Item from './Item'
 import IsRole from './utilities/IsRole';
-
-import Items from '../api/Items'
 import Header from './components/Header';
 
-@autobind
+
  class App extends Component {
    constructor() {
      super();
