@@ -48,7 +48,7 @@ store.dispatch({
   payload: 50
 });
 
-@autobind
+
  class AppApic extends Component {
    constructor() {
      super();

@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
-import { autobind } from 'core-decorators';
 //import ItemsTransferRate from '../api/prtg';
 
 
@@ -108,4 +107,4 @@ export default withTracker(({params}) => {
     }
 
   };
-})(AppTransferRate); 
+})(AppTransferRate);

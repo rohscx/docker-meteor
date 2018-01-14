@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import ItemsApic from '../api/request';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
-import { autobind } from 'core-decorators';
 //import ItemsApicDevices from '../api/prtg';
 
 

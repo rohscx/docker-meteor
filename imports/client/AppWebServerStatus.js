@@ -8,7 +8,6 @@ import store from './store';
 import { Provider } from 'react-redux';
 import IsRole from './utilities/IsRole';
 import Header from './components/Header';
-import { autobind } from 'core-decorators';
 
 
 
@@ -104,4 +103,4 @@ export default withTracker(({params}) => {
     }
 
   };
-})(AppWebServerStatus); 
+})(AppWebServerStatus);

@@ -37,12 +37,18 @@ usage() {
 
 
 initConfig() {
-  if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
-    cd ~/meteor-app
-    git pull
-    ${METEOR_PROJECT_GIT_PULL} > logs/stdout.log 2> logs/stderr.log
+  cd ~/meteor-app
+  if [ -f "logs/firstRun" ]; then
+    # do nothing run the app
+    echo "Meteor configuration already initialized....."
   else
-    echo "Meteor configuration already initialized........."
+    # run the build commands and touch
+    echo "Running Meteor update"
+    meteor update
+    echo "Running Meteor npm update"
+    meteor npm install
+    echo "Creating firstRun file in logs/"
+    touch logs/firstRun
   fi
 }
 
@@ -50,6 +56,7 @@ initConfig() {
 start_prod() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
+  echo "Starting Meteor application...."
   meteor --settings settings.json --production debug > logs/stdout.log 2> logs/stderr.log
 }
 
@@ -57,6 +64,7 @@ start_dev() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
   ${METEOR_PROFILE}
+  echo "Starting Meteor application...."
   meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
 }
 

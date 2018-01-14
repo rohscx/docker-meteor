@@ -34,14 +34,14 @@ RUN apt-get clean \
  RUN curl https://install.meteor.com/ | sh
 
 
-# Add Meteor user
-RUN adduser --disabled-password --gecos "" meteor
-
-
 # Run Entrypoint script
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 RUN chmod 755 /docker-entrypoint.sh
+
+
+# Add Meteor user
+RUN adduser --disabled-password --gecos "" meteor
 
 
 # Set Docker default user and  working directory
@@ -49,15 +49,16 @@ USER meteor
 WORKDIR /home/meteor
 
 
-# Clone Meteor project
-RUN git clone https://github.com/rohscx/docker-meteor.git meteor-app ; cd meteor-app
+# Use the Hosts Meteor project data
+RUN mkdir meteor-app ; cd meteor-app
 
 
 # Install npm components
-RUN cd meteor-app \
-&& meteor npm install 
+RUN cd meteor-app
+
 
 WORKDIR /home/meteor/meteor-app
+
 
 # Run METEOR.js server/app
 CMD [ "-s" ]
