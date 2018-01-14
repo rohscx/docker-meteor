@@ -37,12 +37,16 @@ usage() {
 
 
 initConfig() {
-  if [ "$(ls --ignore .keys --ignore .authoritative --ignore .recursive --ignore -A ${METEOR_PROJECT_HOME})"  ]; then
-    cd ~/meteor-app
-    git pull
-    ${METEOR_PROJECT_GIT_PULL} > logs/stdout.log 2> logs/stderr.log
-  else
+  cd ~/meteor-app
+  if [-f "logs/firstRun"]; then
+    # do nothing run the app
     echo "Meteor configuration already initialized........."
+  else
+    # run the build commands and touch
+    echo "Buidling Meteor application"
+    meteor npm install
+    echo "Creating firstRun file in logs/"
+    touch logs/firstRun
   fi
 }
 
