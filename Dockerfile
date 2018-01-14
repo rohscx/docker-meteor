@@ -51,12 +51,11 @@ WORKDIR /home/meteor
 
 # Use the Hosts Meteor project data
 RUN mkdir meteor-app ; cd meteor-app
-VOLUME . /home/meteor/meteor-app
 
 
 # Install npm components
-RUN cd meteor-app \
-&& meteor npm install
+RUN cd meteor-app
+
 
 WORKDIR /home/meteor/meteor-app
 
