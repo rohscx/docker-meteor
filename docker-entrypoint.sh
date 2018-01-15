@@ -41,22 +41,16 @@ usage() {
 
 
 initConfig() {
-  if [ -f "setupComplete" ]; then
+  if [ -f "${METEOR_PROJECT_NAME}/logs/setupComplete" ]; then
     # do nothing run the app
     echo "Meteor configuration already initialized....."
     cd ${METEOR_PROJECT_NAME}
     meteor npm install
   else
     echo "Creating setupComplete file in"
-    touch setupComplete
-    ls $(pwd)
-    git clone ${GIT_PROJECT} ${METEOR_PROJECT_NAME}
-    ls
     cd ${METEOR_PROJECT_NAME}
-    ls
-    git checkout ${GIT_PROJECT_BRANCH}
-    # run the build commands and touch
-    rm package-lock.json 
+    touch logs/setupComplete
+    ls $(pwd)  
     echo "Running Meteor npm install"
     meteor npm install
   fi

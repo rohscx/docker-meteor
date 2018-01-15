@@ -47,8 +47,10 @@ RUN adduser --disabled-password --gecos "" meteor
 # Set Docker default user and  working directory
 USER meteor
 WORKDIR /home/meteor
-
-
+COPY . / meteor-app/
+USER root
+RUN chown -R meteor:meteor /home/meteor/meteor-app/
+USER meteor
 
 # Run METEOR.js server/app
 CMD [ "-s" ]
