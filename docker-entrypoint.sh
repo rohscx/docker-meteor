@@ -15,7 +15,11 @@ METEOR_PROJECT_HOME=/home/meteor/meteor-app
 METEOR_PROJECT_APP=/home/meteor/meteor-app
 METEOR_PROJECT_CD="cd ~/meteor-app"
 METEOR_PROJECT_GIT_PULL="git pull"
-METEOR_PROFILE="export METEOR_PROFILE=100"
+METEOR_PROFILE="100"
+METEOR_NODE_OPTIONS="--debug-brk"
+GIT_PROJECT="https://github.com/rohscx/docker-meteor.git"
+GIT_PROJECT_BRANCH="docker-meteor-18.01"
+
 
 
 
@@ -37,18 +41,18 @@ usage() {
 
 
 initConfig() {
-  cd ~/meteor-app
-  if [ -f "logs/firstRun" ]; then
+  if [ -f "${METEOR_PROJECT_NAME}/logs/setupComplete" ]; then
     # do nothing run the app
     echo "Meteor configuration already initialized....."
-  else
-    # run the build commands and touch
-    echo "Running Meteor update"
-    meteor update
-    echo "Running Meteor npm update"
+    cd ${METEOR_PROJECT_NAME}
     meteor npm install
-    echo "Creating firstRun file in logs/"
-    touch logs/firstRun
+  else
+    echo "Creating setupComplete file in"
+    cd ${METEOR_PROJECT_NAME}
+    touch logs/setupComplete
+    ls $(pwd)  
+    echo "Running Meteor npm install"
+    meteor npm install
   fi
 }
 
@@ -57,15 +61,16 @@ start_prod() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
   echo "Starting Meteor application...."
-  meteor --settings settings.json --production debug > logs/stdout.log 2> logs/stderr.log
+  meteor --settings settings.json --production > logs/stdout.log 2> logs/stderr.log
 }
 
 start_dev() {
   #sleep ${START_DELAY}
   cd ~/meteor-app
-  ${METEOR_PROFILE}
+  export METEOR_PROFILE
+  export METEOR_NODE_OPTIONS
   echo "Starting Meteor application...."
-  meteor --settings settings.json debug > logs/stdout.log 2> logs/stderr.log
+  meteor --settings settings.json > logs/stdout.log 2> logs/stderr.log
 }
 
 # Evaluate arguments for build script.

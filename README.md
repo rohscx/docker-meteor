@@ -12,6 +12,8 @@ docker build -t docker-meteor .
 
     docker run -itd -v $(pwd)/:/home/meteor/meteor-app/ -p 3000:3000 -h meteor --name docker-meteor docker-meteor -d
 
+    docker-compose u
+
 
 ## Version 18:00
   This version is intended to simply the base code by removing unused single page applications. It will also move the codebase to a newer version of Meteor ad NodeJs.

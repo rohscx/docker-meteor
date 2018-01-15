@@ -3,3 +3,4 @@ settings.json
 ./server/tempData.json
 logs/
 ./certificates/
+package-lock.json
