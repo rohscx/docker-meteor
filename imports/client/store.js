@@ -3,10 +3,7 @@ import thunk from 'redux-thunk';
 import mathReducer from './reducers/mathReducer';
 import userReducer from './reducers/userReducer';
 import apicReducer from './reducers/apicReducer';
-import iseReducer from './reducers/iseReducer';
 import utilReducer from './reducers/utilReducer';
-import prtgReducer from './reducers/prtgReducer';
-import primeReducer from './reducers/primeReducer';
 
 const myLogger = (store) => (next) => (action) => {
   console.log("Logged Action: ", action);
@@ -16,10 +13,7 @@ export default createStore(combineReducers({
   mathReducer,
   userReducer,
   apicReducer,
-  iseReducer,
   utilReducer,
-  prtgReducer,
-  primeReducer
 }),
    {},
     applyMiddleware(thunk)
