@@ -42,17 +42,9 @@ const ApicModal = createReactClass({
             <Modal.Title id="contained-modal-title-lg">{this.props.hostName}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-            <h4>Popover in a modal</h4>
-            <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
-
-            <h4>Tooltips in a modal</h4>
-            <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
-
-            <hr />
-
+            <div style={{align:"left"}}>
+              {this.props.search}
+            </div>
             <div style={{fontSize:"78%"}}>{this.props.modalData}</div>
           </Modal.Body>
           <Modal.Footer>

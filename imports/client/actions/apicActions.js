@@ -40,6 +40,13 @@ export function apicDbReady(status) {
   }
 }
 
+export function setSearchFilterList(value) {
+  return {
+    type: "SET_SEARCHFILTERLIST",
+    payload: value
+  };
+}
+
 export function apicDevicesFind(deviceName,deviceFilter,cdase) {
   return dispatch => {
     let nameValidator = (name)=>{
@@ -95,6 +102,14 @@ export function apicShowCommands(opt1, op2, op3) {
       showCommand: opt1,
       deviceId: op2,
       validationStatus: op3
+    }));
+  }
+}
+
+export function searchFilterList(opt1) {
+  return dispatch => {
+    return dispatch(setSearchFilterList({
+      searchString: opt1
     }));
   }
 }
