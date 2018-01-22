@@ -375,9 +375,10 @@ export default class Layout extends Component {
 
   modalRenderer(modalObj,filterKey){
     // search bar string value
-    const searchString = this.props.apic.searchFilterList.searchString
+    const searchString = this.props.apic.searchFilterList.searchString;
   	// new array containing the filtered interfaces
     let filteredModalObj = [];
+    // check that source data contains data and searchString has data
     if (searchString.length >= 1 && modalObj !== null) {
       // filtered Objects
       let filter = modalObj.filter((obj) => {
@@ -393,8 +394,8 @@ export default class Layout extends Component {
            //console.log("Skipping",obj)
          }
       });
-      // update Modal array with the filtered arrays
-		  filteredModalObj = filter;
+      // update Modal array with the filtered arrays if filter has length equal to 0
+      filter.length === 0 ? filteredModalObj = modalObj : filteredModallObj = filter;
     } else {
       // do nothing return orignal
       filteredModalObj = modalObj;
