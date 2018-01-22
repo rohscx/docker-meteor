@@ -373,7 +373,34 @@ export default class Layout extends Component {
     )
   }
 
-  modalRenderer(modalObj){
+  modalRenderer(modalObj,filterKey){
+    // search bar string value
+    const searchString = this.props.apic.searchFilterList.searchString;
+  	// new array containing the filtered interfaces
+    let filteredModalObj = [];
+    // check that source data contains data and searchString has data
+    if (searchString.length >= 1 && modalObj !== null) {
+      // filtered Objects
+      let filter = modalObj.filter((obj) => {
+        //console.log(obj)
+        // search input in lower case
+        let regexp = searchString.toLowerCase();
+        //let searchFilter = obj.interfaceName.match(regexp);
+        if (obj[filterKey]) {
+      	   // matches the filter turns text string to lower case
+           let searchFilter = obj[filterKey].toLowerCase().match(regexp);
+           return searchFilter;
+         } else {
+           //console.log("Skipping",obj)
+         }
+      });
+      // update Modal array with the filtered arrays if filter has length equal to 0
+      filter.length === 0 ? filteredModalObj = modalObj : filteredModallObj = filter;
+    } else {
+      // do nothing return orignal
+      filteredModalObj = modalObj;
+    }
+
     let renderMe = (renderData1,renderData2)=>{
       return (
         <div key={Math.random()}>
@@ -397,11 +424,11 @@ export default class Layout extends Component {
         <div> No Data</div>
       )
     } else {
-      return modalObj.map((data,dataKey)=>{
+      return filteredModalObj.map((data,dataKey)=>{
         let thArray = [];
         let tdArray = [];
-        thArray[dataKey] =[]
-        tdArray[dataKey] =[]
+        thArray[dataKey] =[];
+        tdArray[dataKey] =[];
         for (var [key, value] of Object.entries(data)) {
           if (key == "ipAddress"){
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
@@ -658,9 +685,9 @@ export default class Layout extends Component {
               <Col xs={6} sm={6} md={1}><IsRole role={['admin']}><div>{data.siteData.dataObj.serialNumber}</div></IsRole></Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               <ButtonToolbar>
-                {vlanDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail)} buttonName={"VlanData"} hostName={hostName}/> : ""}
-                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.interfaceDetail)} buttonName={"interfaceData"} hostName={hostName}/> : ""}
-                {licenseDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail)} buttonName={"licenseDetail"} hostName={hostName}/> : ""}
+                {vlanDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail,"interfaceName")} buttonName={"VlanData"} hostName={hostName} search={this.props.search()}/> : ""}
+                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")} buttonName={"interfaceData"} hostName={hostName} search={this.props.search()}/> : ""}
+                {licenseDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")} buttonName={"licenseDetail"} hostName={hostName} search={this.props.search()}/> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
@@ -707,11 +734,8 @@ export default class Layout extends Component {
       },
       overlay:{zIndex:'5'}
     };
-
-    //tableDiv = this.props.dbReturnRdy ? this.returnList() : "";
-    //tableDiv = this.props.apic.apicDevicesFind.validationStatus ? this.returnLayout() : "";
+    // debug
     //console.log(this)
-
     return(
       <div>
         <ScrollHandler scrollFunction={this.props.setDbFindLimit} scrollTotal={20} scrollCurrent={this.props.dbFindLimit} scrollBy={15}>

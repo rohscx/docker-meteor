@@ -14,6 +14,9 @@ const apicReducer = (state = {
     showCommand: "show Clock",
     deviceId:null,
     validationStatus: null
+  },
+  searchFilterList:{
+    searchString:""
   }
 }, action) => {
   switch (action.type) {
@@ -39,6 +42,12 @@ const apicReducer = (state = {
     state = {
       ...state,
       apicShowCommands: action.payload
+    };
+    break;
+    case "SET_SEARCHFILTERLIST":
+    state = {
+      ...state,
+      searchFilterList: action.payload
     };
     break;
     }

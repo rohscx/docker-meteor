@@ -5,7 +5,7 @@ import { FormGroup, InputGroup, FormControl, DropdownButton, MenuItem, ButtonToo
 import { hostName, getDevices } from '../actions/prtgActions';
 import Layout from './ApicDevices/Layout';
 import DeviceTypeCountBar from './CountBar/DeviceTypeCountBar';
-import { sortBy, apicDevicesFind, apicDbReady, apicShowCommands} from '../actions/apicActions';
+import { sortBy, apicDevicesFind, apicDbReady, apicShowCommands, searchFilterList} from '../actions/apicActions';
 import { fiaTrace } from '../actions/utilActions';
 import FileDownload from '../utilities/FileDownload';
 import ExportButton from '../utilities/ExportButton';
@@ -45,6 +45,11 @@ class ApicDevices extends Component {
     this.props.apicDevicesFind(value,deviceFilter,"cats");
     // resets auto loading div to default display amount
     this.props.setDbFindLimit(15)
+  }
+
+  handleSearchFilterList(event) {
+    let value = event.target.value;
+    this.props.searchFilterList(value);
   }
 
   preventDefault(e){
@@ -209,6 +214,45 @@ class ApicDevices extends Component {
     );
   }
 
+
+
+  form1(){
+    const btnEnabled = () => {
+      return (
+        <Col smOffset={2} sm={10}><Button type="button" bsStyle="primary" block>Submit</Button></Col>
+      );
+    };
+    const btnDisabled = () => {
+      return (
+        <Col smOffset={2} sm={10}><Button  type="button" disabled block> <b> . . . </b></Button></Col>
+      );
+    };
+    const formInput = () => {
+      return (
+        this.handleSearchFilterList.bind(this)
+      );
+    };
+
+    const divStyles = {
+      margin: "auto",
+      width: "40%",
+      float: "left"
+    };
+
+    return (
+      <div style={divStyles}>
+        <form onSubmit= {e =>{this.preventDefault(e)}}>
+          <FormGroup>
+             <InputGroup>
+               <FormControl placeholder={this.props.apic.searchFilterList.searchString.length > 0 ? this.props.apic.searchFilterList.searchString.substring(0,5)+" . . ." : "Search . . ."} type="text" onChange={formInput()}/>
+             </InputGroup>
+           </FormGroup>
+        </form>
+      </div>
+    );
+  }
+
+
   showCommandButton(deviceID,dbId) {
     const showC = this.props.apic.apicShowCommands.showCommand;
     const deviceI = this.props.apic.apicShowCommands.deviceId;
@@ -290,7 +334,7 @@ class ApicDevices extends Component {
         <div style={{float:"right"}}>
           {this.downloadData()}
         </div>
-        <Layout {... this.props} showCommandButton= {this.showCommandButton.bind(this)}/>
+        <Layout {... this.props} showCommandButton={this.showCommandButton.bind(this)} search={this.form1.bind(this)}/>
       </div>
     )
   }
@@ -303,6 +347,7 @@ const mapSateToProps = (state) => {
   };
 };
 
+// Redux. Be sure to import the dispatch!
 const mapDispatchToProps = (dispatch) => {
   return {
     apicDevicesFind: (deviceName,deviceFilter,cdase) => {
@@ -319,6 +364,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     apicShowCommands: (showCommand, deviceId, validationStatus) => {
       dispatch(apicShowCommands(showCommand, deviceId, validationStatus));
+    },
+    searchFilterList: (interfaceName) => {
+      dispatch(searchFilterList(interfaceName));
     },
   };
 };

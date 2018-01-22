@@ -17,8 +17,7 @@ METEOR_PROJECT_CD="cd ~/meteor-app"
 METEOR_PROJECT_GIT_PULL="git pull"
 METEOR_PROFILE="100"
 METEOR_NODE_OPTIONS="--debug-brk"
-GIT_PROJECT="https://github.com/rohscx/docker-meteor.git"
-GIT_PROJECT_BRANCH="docker-meteor-18.01"
+
 
 
 
@@ -50,7 +49,7 @@ initConfig() {
     echo "Creating setupComplete file in"
     cd ${METEOR_PROJECT_NAME}
     touch logs/setupComplete
-    ls $(pwd)  
+    ls $(pwd)
     echo "Running Meteor npm install"
     meteor npm install
   fi
