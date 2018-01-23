@@ -395,7 +395,7 @@ export default class Layout extends Component {
          }
       });
       // update Modal array with the filtered arrays if filter has length equal to 0
-      filter.length === 0 ? filteredModalObj = modalObj : filteredModallObj = filter;
+      filter.length === 0 ? filteredModalObj = modalObj : filteredModalObj = filter;
     } else {
       // do nothing return orignal
       filteredModalObj = modalObj;
@@ -685,9 +685,24 @@ export default class Layout extends Component {
               <Col xs={6} sm={6} md={1}><IsRole role={['admin']}><div>{data.siteData.dataObj.serialNumber}</div></IsRole></Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               <ButtonToolbar>
-                {vlanDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail,"interfaceName")} buttonName={"VlanData"} hostName={hostName} search={this.props.search()}/> : ""}
-                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")} buttonName={"interfaceData"} hostName={hostName} search={this.props.search()}/> : ""}
-                {licenseDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")} buttonName={"licenseDetail"} hostName={hostName} search={this.props.search()}/> : ""}
+                {vlanDetail ? <ApicModal
+                  modalData={this.modalRenderer(deviceDataObj.vlanDetail,"interfaceName")}
+                  buttonName={"VlanData"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.vlanDetail)}/> : ""}
+                {interfaceDetail ? <ApicModal
+                   modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")}
+                   buttonName={"interfaceData"}
+                   hostName={hostName}
+                   search={this.props.search()}
+                   download={this.props.download(deviceDataObj.interfaceDetail)}/> : ""}
+                {licenseDetail ? <ApicModal
+                  modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")}
+                  buttonName={"licenseDetail"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.licenseDetai)}/> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}

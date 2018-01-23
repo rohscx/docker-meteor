@@ -146,16 +146,49 @@ const CreateCSV = (csvData,switchExpression) => {
       }
     })
     break;
+    case "generic.csv":
+    let genericCsvObj = {};
+    columnHeaderArray = [];
+    colummRowArray = [];
+    csvData.map((item) => {
+      if (item){
+        let tempArray = [];
+        Object.entries(item).forEach(([key, value]) =>{
+          if (genericCsvObj[key]) {
+            genericCsvObj[key].push(value);
+          } else {
+            genericCsvObj[key] = [];
+            genericCsvObj[key].push(value);
+          }
+        });
+
+      } else {
+        // do nothing
+      }
+    })
+    console.log("genericCsvObj ",genericCsvObj)
+        let tempArray = [];
+    Object.entries(genericCsvObj).forEach(([key, value]) =>{
+        console.log(key)
+        columnHeaderArray.push(key);
+        colummRowArray.push(value.toString())
+    })
+    break;
   }
   // Debug
-  //console.log(columnHeaderArray)
+  console.log(columnHeaderArray)
   // Debug
-  //console.log(colummRowArray)
+  console.log(colummRowArray)
   fileString += columnHeaderArray.toString();
   fileString += "\r";
   colummRowArray.map((item) => {
+        if (item === null) {
+        fileString += "";
+}else {
     fileString += item.toString();
-    fileString += "\r";
+        console.log(item.toString())
+        fileString += "\r";
+}
   })
   // Debug
   //console.log(fileString)
