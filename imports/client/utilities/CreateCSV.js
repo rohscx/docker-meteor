@@ -5,7 +5,7 @@ const CreateCSV = (csvData,switchExpression) => {
   const noDataError = "Nothing found in time range";
   let fileString = "";
   let columnHeaderArray = [];
-  let colummRowArray = [];
+  let columnRowArray = [];
   const convertDateToReadable = (dateInMiliseconds) =>{
     const dateReadable = new Date(dateInMiliseconds)
     return dateReadable;

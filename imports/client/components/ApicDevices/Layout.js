@@ -429,6 +429,13 @@ export default class Layout extends Component {
         let tdArray = [];
         thArray[dataKey] =[];
         tdArray[dataKey] =[];
+        const tableMaker = (thData,tdData) =>{
+          const dataHolder = {
+            th:<th key={Math.random()}>{key}</th>,
+            td:<td key={Math.random()}>{value}</td>
+          };
+          return dataHolder;
+        }
         for (var [key, value] of Object.entries(data)) {
           if (key == "ipAddress"){
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
@@ -447,16 +454,19 @@ export default class Layout extends Component {
               // do nothing with these matches
 
           } else {
-            // changes the language as it may be too long to fit in the modal
+            // converts to date and time if the key exists
             key == "downAsOf" ? value = new Date(value).toString() : value
             // corrects for a bug which would other wise report the start of the epoc
             value === "Wed Dec 31 1969 19:00:00 GMT-0500 (EST)" ? value = "" : value
-            value === "1000000" ? value = "1Gb" : value
+            // changes the language as it may be too long to fit in the modal
+            value === "1000000" ? value = "1Gb" : value === "10000000" ? value = "10Gb" : value === "100000" ? value = "100Mb" : value 
             value === "AutoNegotiate" ? value = "Auto" : value
             value === "dynamic_auto" ? value = "Dynamic" : value
             // these make up the row
-            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-            tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+            const tableData = tableMaker(key,value);
+            // sorts the table by port name if portName Exists
+            key === "portName" ? thArray[dataKey][0] = tableData.th : thArray[dataKey].push(tableData.th)
+            key === "portName" ? tdArray[dataKey][0] = tableData.td : tdArray[dataKey].push(tableData.td)
           }
         }
         return renderMe(thArray[dataKey],tdArray[dataKey])
@@ -700,11 +710,11 @@ export default class Layout extends Component {
                   search={this.props.search()}
                   download={this.props.download(deviceDataObj.vlanDetail)}/> : ""}
                 {interfaceDetail ? <ApicModal
-                   modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")}
-                   buttonName={"interfaceData"}
-                   hostName={hostName}
-                   search={this.props.search()}
-                   download={this.props.download(deviceDataObj.interfaceDetail)}/> : ""}
+                  modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")}
+                  buttonName={"interfaceData"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.interfaceDetail)}/> : ""}
                 {licenseDetail ? <ApicModal
                   modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")}
                   buttonName={"licenseDetail"}
