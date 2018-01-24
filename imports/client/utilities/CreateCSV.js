@@ -8,18 +8,45 @@ const CreateCSV = (csvData,switchExpression) => {
   let colummRowArray = [];
   const convertDateToReadable = (dateInMiliseconds) =>{
     const dateReadable = new Date(dateInMiliseconds)
-    // debug
-    //console.log(dateInMiliseconds);
-    //console.log(dateReadable);
     return dateReadable;
   }
   const timeNow = (divisor) =>{
     return Math.round(new Date().getTime() / divisor);
   };
-  // Debug
-  //console.log("fileText ", csvData)
-  // Debug
-  //console.log("RUNNING REPORT csvDownInterfaces");
+  function jsonToCSV (jsonObj) {
+    let collapsedObj = {};
+    jsonObj.map((item) => {
+      if (item) {
+        Object.entries(item).forEach(([key, value]) =>{
+          if (collapsedObj[key]) {
+            collapsedObj[key].push(value);
+          } else {
+            collapsedObj[key] = [];
+            // if null push emptry string
+            key === null ? collapsedObj[key].push("") : collapsedObj[key].push(value)
+          }
+        });
+      } else {
+        // do nothing
+      }
+    })
+    Object.entries(collapsedObj).forEach(([key,value]) => {
+      columnHeaderArray.push(key);
+      let tempArray = [];
+      value.map((data)=> {
+        tempArray.push(data);
+      })
+        columnRowArray.push(tempArray);
+    })
+        fileString += "\r";
+        columnRowArray.map((data,index)=>{
+          fileString += columnHeaderArray[index].toString();
+          fileString += ",";
+          fileString += data.toString();
+          fileString += "\r"
+        })
+        return fileString;
+  }
   switch(switchExpression){
     case "downInterfaces(raw).csv":
     columnHeaderArray = ["hostName","className","adminStatus","status","portName"];
@@ -147,53 +174,14 @@ const CreateCSV = (csvData,switchExpression) => {
     })
     break;
     case "generic.csv":
-    let genericCsvObj = {};
-    columnHeaderArray = [];
-    colummRowArray = [];
-    csvData.map((item) => {
-      if (item){
-        let tempArray = [];
-        Object.entries(item).forEach(([key, value]) =>{
-          if (genericCsvObj[key]) {
-            genericCsvObj[key].push(value);
-          } else {
-            genericCsvObj[key] = [];
-            genericCsvObj[key].push(value);
-          }
-        });
-
-      } else {
-        // do nothing
-      }
-    })
-    console.log("genericCsvObj ",genericCsvObj)
-        let tempArray = [];
-    Object.entries(genericCsvObj).forEach(([key, value]) =>{
-        console.log(key)
-        columnHeaderArray.push(key);
-        colummRowArray.push(value.toString())
-    })
+    return jsonToCSV(csvData);
     break;
   }
-  // Debug
-  console.log(columnHeaderArray)
-  // Debug
-  console.log(colummRowArray)
-  fileString += columnHeaderArray.toString();
-  fileString += "\r";
-  colummRowArray.map((item) => {
-        if (item === null) {
-        fileString += "";
-}else {
-    fileString += item.toString();
-        console.log(item.toString())
-        fileString += "\r";
+
+
+
 }
-  })
-  // Debug
-  //console.log(fileString)
-  return fileString;
-}
+
 /*
 // checks type, throws and error
 MgmtIp.propTypes = {

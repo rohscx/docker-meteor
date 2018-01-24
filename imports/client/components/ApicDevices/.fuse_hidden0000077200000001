@@ -438,7 +438,7 @@ export default class Layout extends Component {
             key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
             key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
             key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
-            key == "ipv4Mask" || key == "interfaceType" || key == "className" ||
+            key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
             key == "mediaType" || key == "featureVersion" || key == "hostId" || key == "maxUsage" ||
             key == "validityPeriodRemaining" || key == "usageCountRemaining" || key == "isEulaAccepted" ||
             key == "nativeVlanId"
@@ -447,14 +447,6 @@ export default class Layout extends Component {
               // do nothing with these matches
 
           } else {
-            // changes the language as it may be too long to fit in the modal
-            key == "downAsOf" ? value = new Date(value).toString() : value
-            // corrects for a bug which would other wise report the start of the epoc
-            value === "Wed Dec 31 1969 19:00:00 GMT-0500 (EST)" ? value = "" : value
-            value === "1000000" ? value = "1Gb" : value
-            value === "AutoNegotiate" ? value = "Auto" : value
-            value === "dynamic_auto" ? value = "Dynamic" : value
-            // these make up the row
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
             tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
           }
@@ -710,7 +702,7 @@ export default class Layout extends Component {
                   buttonName={"licenseDetail"}
                   hostName={hostName}
                   search={this.props.search()}
-                  download={this.props.download(deviceDataObj.licenseDetail)}/> : ""}
+                  download={this.props.download(deviceDataObj.licenseDetai)}/> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
