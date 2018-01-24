@@ -458,6 +458,7 @@ export default class Layout extends Component {
             key == "downAsOf" ? value = new Date(value).toString() : value
             // corrects for a bug which would other wise report the start of the epoc
             value === "Wed Dec 31 1969 19:00:00 GMT-0500 (EST)" ? value = "" : value
+            value === "Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)" ? value = "" : value
             // changes the language as it may be too long to fit in the modal
             value === "1000000" ? value = "1Gb" : value === "10000000" ? value = "10Gb" : value === "100000" ? value = "100Mb" : value 
             value === "AutoNegotiate" ? value = "Auto" : value
