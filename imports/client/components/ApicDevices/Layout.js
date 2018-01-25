@@ -467,7 +467,7 @@ export default class Layout extends Component {
             const tableData = tableMaker(key,value);
             // sorts the table by port name if portName Exists
             key === "portName" ? thArray[dataKey].unshift(tableData.th) : thArray[dataKey].push(tableData.th)
-            key === "portName" ? tdArray[dataKey].unshift(tableData.th) : tdArray[dataKey].push(tableData.td)
+            key === "portName" ? tdArray[dataKey].unshift(tableData.td) : tdArray[dataKey].push(tableData.td)
           }
         }
         return renderMe(thArray[dataKey],tdArray[dataKey])
