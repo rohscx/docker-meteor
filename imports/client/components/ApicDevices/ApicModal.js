@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import createReactClass from 'create-react-class';
 import {Row,Col,Clearfix,Popover,ButtonToolbar,OverlayTrigger,Button,Tooltip,Modal} from 'react-bootstrap';
+import FileDownload from '../../utilities/FileDownload';
+import ExportButton from '../../utilities/ExportButton';
+import CreateCSV from '../../utilities/CreateCSV';
 
 const ApicModal = createReactClass({
   getInitialState() {
@@ -44,8 +47,11 @@ const ApicModal = createReactClass({
           <Modal.Body>
             <div style={{align:"left"}}>
               {this.props.search}
+              {this.props.download}
             </div>
-            <div style={{fontSize:"78%"}}>{this.props.modalData}</div>
+            <div ref={node => this.node = node} style={{fontSize:"78%"}}>
+              {this.props.modalData}
+            </div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>

@@ -32,7 +32,7 @@ const ExportButton = createReactClass({
     setTimeout(() => {
       // Debug
       //console.log(this)
-      FileDownload(this.props.fileName,this.props.fileData(this.props.fileName));
+      FileDownload(this.props.fileName,this.props.fileData.getData());
       this.setState({ isLoading: false });
     }, 2000);
   },

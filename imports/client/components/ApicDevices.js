@@ -85,55 +85,92 @@ class ApicDevices extends Component {
     this.props.getDevices();
   }
 
-  csvInterfaces (switchExpression){
-    const rawObj = this.props.dbSearch({"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    //const switchExpression = "downInterfaces.csv";
-    if (rawObj.length >= 1) {
-      return CreateCSV(rawObj,switchExpression)
-    }
-  }
 
-  csvAccessPoints (switchExpression){
-    const rawObj = this.props.dbSearch({"siteData.dataObj.family":"Unified AP"},{sort:{"siteData.dataObj.hostname":-1}})
-    //const switchExpression = "downInterfaces.csv";
-    if (rawObj.length >= 1) {
-      return CreateCSV(rawObj,switchExpression)
-    }
-  }
-
-  csvVlans (switchExpression){
-    const rawObj = this.props.dbSearch({"siteData.dataObj.vlanDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}})
-    //const switchExpression = "downInterfaces.csv";
-    if (rawObj.length >= 1) {
-      return CreateCSV(rawObj,switchExpression)
-    }
-  }
 
   downloadData(){
     //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
     //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
+    const csvInterfacesQuery = {
+      dbOptions:[{"siteData.dataObj.interfaceDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}}],
+      db:this.props.dbSearch.bind(this)
+    }
+    const csvAccessPointsQuery = {
+      dbOptions:[{"siteData.dataObj.family":"Unified AP"},{sort:{"siteData.dataObj.hostname":-1}}],
+      db:this.props.dbSearch.bind(this)
+    }
+    const csvVlansQuery = {
+      dbOptions:[{"siteData.dataObj.vlanDetail":{"$exists":true}},{sort:{"siteData.dataObj.hostname":-1}}],
+      db:this.props.dbSearch.bind(this)
+    }
+
+
+    function dbDataGenerator (a,b) {
+      let dbQuery = a;
+      let switchExpression = b;
+      function dbData () {
+
+        let dbData = dbQuery.db(dbQuery.dbOptions[0],dbQuery.dbOptions[1]);
+        return CreateCSV(dbData,switchExpression);
+      }
+      function setExpression (a) {
+        switchExpression =  a;
+      }
+      function setDbQuery (a) {
+        dbQuery =  a;
+      }
+      let generator = {
+        getData:dbData,
+        setData:setExpression,
+        setDbQuery:setDbQuery
+      }
+      return generator;
+    }
+
     return (
       <div>
         <ButtonToolbar>
-          <ExportButton {...this.props} fileName = "downInterfaces(raw).csv" fileData = {this.csvInterfaces.bind(this)}/>
-          <ExportButton {...this.props} fileName = "downInterfaces(protracted).csv" fileData = {this.csvInterfaces.bind(this)}/>
-          <ExportButton {...this.props} fileName = "downInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>
-          <ExportButton {...this.props} fileName = "halfDuplexInterfaces(switches).csv" fileData = {this.csvInterfaces.bind(this)}/>
-          <ExportButton {...this.props} fileName = "accessPoints(raw).csv" fileData = {this.csvAccessPoints.bind(this)}/>
-          <ExportButton {...this.props} fileName = "vlans(routers).csv" fileData = {this.csvVlans.bind(this)}/>
+          <ExportButton {...this.props} fileName = "downInterfaces(raw).csv" fileData = {new dbDataGenerator(csvInterfacesQuery,"downInterfaces(raw).csv")}/>
+          <ExportButton {...this.props} fileName = "downInterfaces(protracted).csv" fileData = {new dbDataGenerator(csvInterfacesQuery,"downInterfaces(protracted).csv")}/>
+          <ExportButton {...this.props} fileName = "downInterfaces(switches).csv" fileData = {new dbDataGenerator(csvInterfacesQuery,"downInterfaces(switches).csv")}/>
+          <ExportButton {...this.props} fileName = "halfDuplexInterfaces(switches).csv" fileData = {new dbDataGenerator(csvInterfacesQuery,"halfDuplexInterfaces(switches).csv")}/>
+          <ExportButton {...this.props} fileName = "accessPoints(raw).csv" fileData = {new dbDataGenerator(csvAccessPointsQuery,"accessPoints(raw).csv")}/>
+          <ExportButton {...this.props} fileName = "vlans(routers).csv" fileData = {new dbDataGenerator(csvVlansQuery,"vlans(routers).csv")}/>
         </ButtonToolbar>
       </div>
     )
-    /*
+  }
+
+  downloadData1(dataObj){
+    //FileDownload("downInterfaces.csv","RandomeDatadadsfasdf asdnd Stuff")
+    //this.props.dbSearch({"siteData.dataObj.vlanDetail.ipAddress":"10.204.61.1"},{fields:{"siteData._id":1}})  a
+
+    function dbDataGenerator (a,b) {
+      let dbQuery = a;
+      let switchExpression = b;
+      function dbData () {
+        let dbData = a;
+        return CreateCSV(dbData,switchExpression);
+      }
+      function setExpression (a) {
+        switchExpression =  a;
+      }
+      function setDbQuery (a) {
+        dbQuery =  a;
+      }
+      let generator = {
+        getData:dbData,
+        setData:setExpression,
+        setDbQuery:setDbQuery
+      }
+      return generator;
+    }
     return (
       <div>
         <ButtonToolbar>
-          <Button bsStyle="primary" bsSize="xsmall">DownloadDataTest1234</Button>
+          <ExportButton {...this.props} fileName = "generic.csv" fileData = {dbDataGenerator(dataObj,"generic.csv")}/>
         </ButtonToolbar>
       </div>
     )
-    */
-    //return <FileDownload fileName="dataDownload.csv" fileText="RandomeDatadadsfasdf asdnd Stuff"/>
   }
 
   form(){
@@ -332,9 +369,9 @@ class ApicDevices extends Component {
         {this.form()}
         <DeviceTypeCountBar {... this.props}/>
         <div style={{float:"right"}}>
-          {this.downloadData()}
+          {this.downloadData.bind(this)}
         </div>
-        <Layout {... this.props} showCommandButton={this.showCommandButton.bind(this)} search={this.form1.bind(this)}/>
+        <Layout {... this.props} showCommandButton={this.showCommandButton.bind(this)} search={this.form1.bind(this)} download={this.downloadData1.bind(this)}/>
       </div>
     )
   }

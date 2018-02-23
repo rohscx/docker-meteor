@@ -395,7 +395,7 @@ export default class Layout extends Component {
          }
       });
       // update Modal array with the filtered arrays if filter has length equal to 0
-      filter.length === 0 ? filteredModalObj = modalObj : filteredModallObj = filter;
+      filter.length === 0 ? filteredModalObj = modalObj : filteredModalObj = filter;
     } else {
       // do nothing return orignal
       filteredModalObj = modalObj;
@@ -429,6 +429,13 @@ export default class Layout extends Component {
         let tdArray = [];
         thArray[dataKey] =[];
         tdArray[dataKey] =[];
+        const tableMaker = (thData,tdData) =>{
+          const dataHolder = {
+            th:<th key={Math.random()}>{key}</th>,
+            td:<td key={Math.random()}>{value}</td>
+          };
+          return dataHolder;
+        }
         for (var [key, value] of Object.entries(data)) {
           if (key == "ipAddress"){
             thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
@@ -438,7 +445,7 @@ export default class Layout extends Component {
             key == "serialNo" || key == "instanceUuid" || key == "id" || key == "mappedPhysicalInterfaceId" ||
             key == "mappedPhysicalInterfaceId" || key == "mappedPhysicalInterfaceName" ||
             key == "ifIndex" || key == "ospfSupport" || key =="lastUpdated" || key == "ipv4Address" ||
-            key == "ipv4Mask" || key == "interfaceType" || key == "className" || key == "downAsOf" ||
+            key == "ipv4Mask" || key == "interfaceType" || key == "className" ||
             key == "mediaType" || key == "featureVersion" || key == "hostId" || key == "maxUsage" ||
             key == "validityPeriodRemaining" || key == "usageCountRemaining" || key == "isEulaAccepted" ||
             key == "nativeVlanId"
@@ -447,8 +454,20 @@ export default class Layout extends Component {
               // do nothing with these matches
 
           } else {
-            thArray[dataKey].push(<th key={Math.random()}>{key}</th>)
-            tdArray[dataKey].push(<td key={Math.random()}>{value}</td>)
+            // converts to date and time if the key exists
+            key == "downAsOf" ? value = new Date(value).toString() : value
+            // corrects for a bug which would other wise report the start of the epoc
+            value === "Wed Dec 31 1969 19:00:00 GMT-0500 (EST)" ? value = "" : value
+            value === "Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)" ? value = "" : value
+            // changes the language as it may be too long to fit in the modal
+            value === "1000000" ? value = "1Gb" : value === "10000000" ? value = "10Gb" : value === "100000" ? value = "100Mb" : value 
+            value === "AutoNegotiate" ? value = "Auto" : value
+            value === "dynamic_auto" ? value = "Dynamic" : value
+            // these make up the row
+            const tableData = tableMaker(key,value);
+            // sorts the table by port name if portName Exists
+            key === "portName" ? thArray[dataKey].unshift(tableData.th) : thArray[dataKey].push(tableData.th)
+            key === "portName" ? tdArray[dataKey].unshift(tableData.td) : tdArray[dataKey].push(tableData.td)
           }
         }
         return renderMe(thArray[dataKey],tdArray[dataKey])
@@ -685,9 +704,24 @@ export default class Layout extends Component {
               <Col xs={6} sm={6} md={1}><IsRole role={['admin']}><div>{data.siteData.dataObj.serialNumber}</div></IsRole></Col>
               <Col xs={6} sm={6} md={4}>{data.siteData.dataObj.series}</Col>
               <ButtonToolbar>
-                {vlanDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.vlanDetail,"interfaceName")} buttonName={"VlanData"} hostName={hostName} search={this.props.search()}/> : ""}
-                {interfaceDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")} buttonName={"interfaceData"} hostName={hostName} search={this.props.search()}/> : ""}
-                {licenseDetail ? <ApicModal modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")} buttonName={"licenseDetail"} hostName={hostName} search={this.props.search()}/> : ""}
+                {vlanDetail ? <ApicModal
+                  modalData={this.modalRenderer(deviceDataObj.vlanDetail,"interfaceName")}
+                  buttonName={"VlanData"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.vlanDetail)}/> : ""}
+                {interfaceDetail ? <ApicModal
+                  modalData={this.modalRenderer(deviceDataObj.interfaceDetail,"portName")}
+                  buttonName={"interfaceData"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.interfaceDetail)}/> : ""}
+                {licenseDetail ? <ApicModal
+                  modalData={this.modalRenderer(deviceDataObj.licenseDetail,"name")}
+                  buttonName={"licenseDetail"}
+                  hostName={hostName}
+                  search={this.props.search()}
+                  download={this.props.download(deviceDataObj.licenseDetail)}/> : ""}
                 {fiaDetail(role) ? <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={this.fiaTrace()}>
                   <Button bsSize="xsmall">fiaTrace</Button>
                 </OverlayTrigger> : ""}
